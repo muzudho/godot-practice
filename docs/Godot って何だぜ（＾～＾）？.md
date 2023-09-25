@@ -97,3 +97,39 @@ Godot のプロジェクト・マネージャーが出てきた。これはア�
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　左下をガチャガチャやってたら　GDScript　を作れたかもしらん」  
+
+# 📅 (2023-09-26 tue) キーボードの入力を受け取れだぜ
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　キーボードの右キーを押したら、アットマークが右に 32px 移動するようにしなさいよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　リハビリみたいだな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　ドキュメントを読めだぜ」  
+
+📖　[キーボードイベント](https://docs.godotengine.org/ja/4.x/tutorials/inputs/input_examples.html#keyboard-events)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そんな公式のドキュメント読んでも　何も分からないぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　GDScript は　書くだけじゃダメで、ゲーム中のオブジェクトにアタッチしないといけないんじゃないの？」  
+
+![202309_godot_26-0103--attach-o2o0.png](https://crieit.now.sh/upload_images/6fc9b12d898f445c1c3e29ff4feb94056511af91560fe.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　確かに　キー入力に反応したぜ」  
+
+```gd
+func _input(event):
+	if event is InputEventKey and event.pressed:
+		if event.keycode == KEY_A:
+			print("A was pressed")
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　そのとき　書き足したコードが　これ」  
+
+

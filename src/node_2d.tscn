@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bg2q4f8845een"]
+
+[ext_resource type="Texture2D" uid="uid://d3hg73q0vhqjk" path="res://atmark.png" id="1_2nup8"]
+[ext_resource type="Script" path="res://Atmark2.gd" id="2_ltj4e"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Atmark" type="Sprite2D" parent="."]
+position = Vector2(405, 379)
+texture = ExtResource("1_2nup8")
+script = ExtResource("2_ltj4e")
