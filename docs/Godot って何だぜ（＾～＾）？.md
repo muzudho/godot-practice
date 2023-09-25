@@ -132,4 +132,120 @@ func _input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　そのとき　書き足したコードが　これ」  
 
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`A` キーを受け付けたのは分かったんで、アットマークを右へ 32px 移動しろだぜ」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　アットマークの　ｘ　位置って　どうやって取得／設定するんだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👇　ググりなさい」  
+
+📖　[【Godot】2Dシューティングゲームを作るときのポイントまとめ](https://qiita.com/2dgames_jp/items/a1db3a0a6d67e02a7d43)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`position` とか書けば　何かできるのかだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`position` なんか定義されていなかったぜ。クソ記事だな」  
+
+```gd
+extends Node
+```
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　お父んのファイルの冒頭、　Node　を継承してるのは　おかしくないか？」  
+
+```gd
+extends Sprite2D
+```
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　Sprite2D　を継承すべきでは？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　おっ、ほんとだぜ。 `position.x` が定義されているぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　アットマークが右に　32px　動いたぜ」  
+
+📺　[動画](https://x.com/muzudho1/status/1706343847859818993?s=20)  
+
+## ソース管理をしましょう
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ソースを　Git Hub　で管理できるようにしましょう」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　リポジトリは作っておいたぜ」  
+
+📖　[godot-practice](https://github.com/muzudho/godot-practice)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Git Hub でのソース管理は　簡単に　できそうだ……　最初から Git でソース管理できるように調整しているのだろう……」  
+
+## フォント・ファイルを勝手に作りましょう
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　昔、フォント・ファイルを作らなかったかだぜ？　あれ残ってる？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　いくつか　残ってたぜ」  
+
+![font_Metal01_32x32.png](https://crieit.now.sh/upload_images/12d6b50f2539710d345345d3b01e44b26511b8541af93.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ　それを再利用しよ」  
+
+## 画像の矩形コピーで、スプライト表示しろだぜ
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　Godot で、画像の矩形コピーって　できるの？　PC98 の頃からあるスプライト描画の基本操作よ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　`crop sprite` でググってみるか」  
+
+📖　[How to Crop a image using gdscript in Godot?](https://stackoverflow.com/questions/65540576/how-to-crop-a-image-using-gdscript-in-godot)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　遠いものは　有りそうだが、欲しいものが　見つからないぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　外部記憶装置に保存するとか　データ転送速度の遅さを何も分かってそうだよな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👇　Godot では　スプライト・シートと呼ぶんじゃない？」  
+
+📖　[【Godot】2Dスプライトアニメーションの基本的な使い方](https://qiita.com/2dgames_jp/items/1fa01466a8b2df2e6d97)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　スプライト・ノードを追加して、その Texture に　フォントの PNGファイルをアタッチしろだぜ」  
+
+![202309_godot_26-0153--font-o2o0.png](https://crieit.now.sh/upload_images/446d6428cd5a72d4a74d0fe5bdffd2da6511bb767d16d.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　アタッチしたぜ。ここから　どうするのか？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　垂直のコマ数を `VFrames` に、水平のコマ数を `HFrames` に入れろだぜ」  
+
+![202309_godot_26-0158--frames-o2o0.png](https://crieit.now.sh/upload_images/368ca08464ceb4335f64ac825d7db7056511bc72c5492.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　入れたぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👇　アスキーコードで　アットマークは　64　よ」  
+
+📖　[ASCII CODE](https://e-words.jp/p/r-ascii.html)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　じゃあ　`Frame`　に　64　と入れろだぜ」  
+
+![202309_godot_26-0202--atmark--o2o0.png](https://crieit.now.sh/upload_images/123586251ee58551590a6e354814c02c6511bd5889df4.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　なんとなくだが　＠　が表示されているような気がするぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　じゃあ　フォント表示の基礎までは　いけそうね～」  

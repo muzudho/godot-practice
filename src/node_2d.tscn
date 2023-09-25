@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bg2q4f8845een"]
+[gd_scene load_steps=4 format=3 uid="uid://bg2q4f8845een"]
 
 [ext_resource type="Texture2D" uid="uid://d3hg73q0vhqjk" path="res://atmark.png" id="1_2nup8"]
 [ext_resource type="Script" path="res://Atmark2.gd" id="2_ltj4e"]
+[ext_resource type="Texture2D" uid="uid://b15ms0fgddy2b" path="res://font_Metal01_32x32.png" id="3_klgud"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -9,3 +10,9 @@
 position = Vector2(405, 379)
 texture = ExtResource("1_2nup8")
 script = ExtResource("2_ltj4e")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_klgud")
+hframes = 16
+vframes = 16
+frame = 64
