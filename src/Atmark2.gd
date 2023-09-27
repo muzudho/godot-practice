@@ -15,5 +15,11 @@ func _input(event):
 		if event.keycode == KEY_A:
 			print("A was pressed")
 		elif event.keycode == KEY_RIGHT:
-			print("Right was pressed")
+			# print("Right was pressed")
 			position.x += 32
+		elif event.keycode == KEY_LEFT:
+			position.x -= 32
+		elif event.keycode == KEY_UP:
+			position.y -= 32
+		elif event.keycode == KEY_DOWN:
+			position.y += 32
