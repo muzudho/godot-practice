@@ -12,7 +12,15 @@ texture = ExtResource("1_2nup8")
 script = ExtResource("2_ltj4e")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(169, 104)
 texture = ExtResource("3_klgud")
 hframes = 16
 vframes = 16
 frame = 64
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(277, 279)
+texture = ExtResource("3_klgud")
+hframes = 16
+vframes = 16
+frame = 92
