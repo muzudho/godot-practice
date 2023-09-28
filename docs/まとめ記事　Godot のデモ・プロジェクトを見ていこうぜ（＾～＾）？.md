@@ -109,7 +109,59 @@
 
 # hexagonal_map
 
+学習の難しさの目安：　初級者の下の方。　眺めるのは簡単、理解するのは難しい
+
+![202309__godot__28-2138--hexagonal-map.png](https://crieit.now.sh/upload_images/ec3594af5e4393f3c7973ce9236ac096651573e56064e.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　みんな大好き　６角形の升　ヘックスだぜ。
+キーボードの上下左右カーソルで　ゴブリンをずらすことぐらいは　できるぜ」  
+
+![202309__godot__28-2141--hexagonal-map-editor.png](https://crieit.now.sh/upload_images/cb2277a58949ecac08c5bb2d63a1b1f76515749f1e676.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　また、編集画面では　六角形のグリッドが付いているぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　エディターの下側の　その　タイルって　どうやって出したの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　最初から出ていた」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　緑の化け物は　ゴブリンではなくて　トロールのようだが、  
+トロールを　カーソルで移動する以外は　ヘックスで　マップを作ろうということだけ  
+自分で勝手に覚えろといった感じだな」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　肝心の使い方は　分からん」  
+
 # instancing
+
+学習の難しさの目安：　初級者の下の方。　早めに習得できるか  
+
+![202309__godot__28-2159--instancing.png](https://crieit.now.sh/upload_images/cf2d67616a3c3e53f22f16a1044dc92f651578f5be463.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　インスタンシエートと言えば、ゲームの空間にオブジェクトを１つ生成することだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　マウスでクリックしたところに　ボーリングの球のようなものが１個　新規作成されるぜ。  
+物理計算が働いているようで、　コップの中に水をそそぐように　どんどん　溜まっていくぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　やっぱり、インスタンシエートする手順を覚えることが　第一義　だと思うが、  
+それにしても　`*.tscn`　ファイルが球の素（もと）となって　球を　インスタンシエートするのは　godot　よく分からん、  
+まあ　ソース見てみろだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　それ以外のとこは　物理エンジンと　コリジョン判定で押し切ってる感じかしらねえ」  
 
 # isometric
 
