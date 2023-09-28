@@ -247,6 +247,8 @@
 
 # lights_and_shadows
 
+学習の難しさの目安：　不明  
+
 ![202309__godot__28-2259--LightsAndShadows.png](https://crieit.now.sh/upload_images/d9120cd9c415e47fb7e0b2ccf3a24bc5651586e3cda3c.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
@@ -277,11 +279,83 @@
 
 # navigation
 
+学習の難しさの目安：　実行不能  
+
+![202309__godot__28-2323--Navigation.png](https://crieit.now.sh/upload_images/cf0f0ffe52ba6d5dc95f993d1512844565158c8051044.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　コンパイル・エラーで動かなかったぜ」  
+
 # navigation_astar
+
+学習の難しさの目安：　上級者  
+
+![202309__godot__28-2313--ASterArgorithm.png](https://crieit.now.sh/upload_images/ba1f73e3a33e4640dc26ea20db16924265158a3c59416.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　これは　有名な　エー・スター・アルゴリズム（A* argorithum）だぜ。  
+マウスで　升をクリックすれば、最短距離の道筋を示して　移動してくれるぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　画面上のクリックした位置の取り方とかかな」  
 
 # particles
 
+学習の難しさの目安：　上級者  
+
+![202309__godot__28-2326--Particles.png](https://crieit.now.sh/upload_images/3e2bc68318ebe9e94c86f022fcdf913e65158d475d6e5.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　パーティクル（粒）のデモだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　スペース・キーを打鍵すると　一時停止するぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　上キー、下キー、 `g` キーを打鍵しても　細かな違いが出るが　わたしには分からん」  
+
+![202309__godot__28-2331--ParticleTrails.png](https://crieit.now.sh/upload_images/fb98a65035d96708704b7dd268640dea65158e41010d5.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`t` キーを打鍵すると　粒が尾を引くぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　粒を飛ばせば　炎に見えたり、液体に見えたり、煙に見えたり、応用範囲が広いやつだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　パーティクルは　プログラム要らずで　**インスペクター** ビューの設定を適当にいじれば  
+適当に振る舞いが変わることを　覚えるぐらいかな」  
+
 # physics_platformer
+
+学習の難しさの目安：　上級者  
+
+![202309__godot__28-2337--PhysicsPlatformer.png](https://crieit.now.sh/upload_images/36f4b557f2b0875868a2127cee8f527d65158fcaa8468.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ＢＧＭがバカでかい！　うるさい！」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ロックマンみたいな　アクション・ゲームだぜ。  
+`A`、 `D`、`W` キーで　左右移動とジャンプ、スペース・キーで重力に従う球　発射だぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ステージ上のコインを全部取っても　何も起きないわよ！」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　プラットフォーム（Platform）って、移動する足場のことなんだ、へぇ、みたいな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　難しくて　分からんかったか」  
 
 # physics_tests
 
