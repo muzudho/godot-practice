@@ -37,7 +37,7 @@
 ![202309__godot__28-2005--BulletShower.png](https://crieit.now.sh/upload_images/0f703136916a2f0c2008c5747f3ca78665155e4103848.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　👆　画面右側から　パーティクル（粒）が　ゆっくり左へ移動してくるから、  
+「　👆　画面右側から　パーティクル（粒）（※実際はPNG画像）が　ゆっくり左へ移動してくるから、  
 マウスポインターに追随する顔の絵を　粒に当たらないように　避けてあげましょう、という  
 一種の弾幕ゲームのようなものだぜ」  
 
@@ -165,7 +165,63 @@
 
 # isometric
 
+学習の難しさの目安：　初級者の下の方。　眺めるのは簡単、理解するのは難しい  
+
+![202309__godot__28-2218--isometric.png](https://crieit.now.sh/upload_images/f08901216860c62b0d6f98a25eeb05e465157d5ec31ad.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　アイソメトリックというのは　誇張とか入ってなくて　線が　真面目に　きっちり　してるやつだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　その説明では　何を言わんとしているか　分からんな……」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　方眼紙っぽいやつよ」  
+
+![202309__godot__28-2218--isometric-tileMap.png](https://crieit.now.sh/upload_images/834a99920f681caa74a5afc30b097ebb65157e503195f.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　編集画面で　タイルマップを選べば　クォータービュー用のグリッドも出てくるぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　やっぱり　第一義は　タイルマップの使い方を覚えることだと思うんだが……」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　肝心のタイルマップの使い方が分からないぜ」  
+
 # kinematic_character
+
+![202309__godot__28-2237--KinematicCharacter.png](https://crieit.now.sh/upload_images/42662b6ddcdfc12d670617d4acb55bc9651581bddfa05.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　キーボードの左右キーで移動、スペース・キーでジャンプする　白い箱を操って  
+画面左上のピンクの箱を目指すアクションゲームだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　キネマティック（Kinematic）ってどういう意味？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　運動らしいんだが、なんのことだか分からないぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　坂とか　回転する円とか　上下に移動するリフトとかあるから、運動なんじゃないの？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　アクション・ゲームの作り方かな。  
+左右への移動と　ジャンプのソースコードは　短くて　読みやすい」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　しかし海外の人は　ステージとか　マップのことを　`level`　って呼ぶんだな。  
+ステージが入っているフォルダ―の名前が　`level`　だぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　文化が違うのよ」  
 
 # light2d_as_mask
 
