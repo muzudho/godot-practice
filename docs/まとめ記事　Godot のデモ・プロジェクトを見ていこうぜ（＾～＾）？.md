@@ -194,6 +194,8 @@
 
 # kinematic_character
 
+学習の難しさの目安：　初級者の上の方  
+
 ![202309__godot__28-2237--KinematicCharacter.png](https://crieit.now.sh/upload_images/42662b6ddcdfc12d670617d4acb55bc9651581bddfa05.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
@@ -225,7 +227,53 @@
 
 # light2d_as_mask
 
+学習の難しさの目安：　不明。仕組みが分からんかった  
+
+![202309__godot__28-2251--Light2D_as_mask.png](https://crieit.now.sh/upload_images/5e27c469d76e19ed179ae436244199b165158515776e4.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　マスクという機能を使えば　幕に穴を開けたみたいな効果があって、  
+これを　スポットライトみたいな演出に使えるという古典的なテクニックのデモだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`AnimationPlayer`　というのを使って　画像を移動させてるんで  
+それを見てもいいし」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　グレーの色が　なんなのか　分からんかった」  
+
 # lights_and_shadows
+
+![202309__godot__28-2259--LightsAndShadows.png](https://crieit.now.sh/upload_images/d9120cd9c415e47fb7e0b2ccf3a24bc5651586e3cda3c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　光源が勝手に移動するんで、光沢と陰影を眺めるデモだぜ」  
+
+![202309__godot__28-2302--DirectionalLight.png](https://crieit.now.sh/upload_images/3be3b15978d58475877129d077f821d0651587a7c82de.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　キーボードの　`d`　キーを打鍵すると　光源が指向性を持つぜ」  
+
+![202309__godot__28-2305--PointLights.png](https://crieit.now.sh/upload_images/c3421f6c3fc250ad014e986b529ae56e6515882a1e2b0.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　キーボードの　`p`　キーを打鍵すると　光が消えてしまったぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`s`　キーと　`h`　キーにも何か仕掛けがあるようだが、　光がボヤっとしたり　しゃきっとしたり　ぐらいで  
+わたしには　分からん」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　画面上にテキストを置くための　ラベル　を覚えたり」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ライトの可視性（Visible）を　オンにしたり、オフにしたりするところが　見所じゃないか？」  
 
 # navigation
 
