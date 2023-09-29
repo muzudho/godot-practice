@@ -127,5 +127,85 @@ GDScript は C++ 言語で書かれたプログラムを呼び出すから、内
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　テクスチャー欄へ　さっきの画像を読み込めだぜ」  
 
+# 新規 GDScript 作成：　ハローワールド
+
+![202309__godot__30-0125--NewScript-o2o0.png](https://crieit.now.sh/upload_images/745d4a4ff407d1709f9bd69da1ef33316516fa965af4c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　次に　**新規スクリプト**　を作ったらいいのかな？」  
+
+![202309__godot__30-0127--TemplateEmpty-o2o0.png](https://crieit.now.sh/upload_images/0272a6f6df3677df1bea5cc0205b74396516fb13d82ab.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　テンプレートを **Object:Empty** にしとけだそうだぜ」  
+
+![202309__godot__30-0129--CodeEditor.png](https://crieit.now.sh/upload_images/72a1822b4b069e6a7830155b071d2a1a6516fb775159f.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　なんか　コード・エディターが出てくるな。ここに GDScript を書けばいいのだろう」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　かっこいいコードを書いてくれよ」  
+
+```gd
+extends Sprite2D
+
+func _init():
+	print("Hello, world!")
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　サンプル通り書いてみよう」  
+
+![202309__godot__30-0133--Run-o2o0.png](https://crieit.now.sh/upload_images/e2052a5a11d13176660d735f7b4f60916516fc9c87956.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　なんか　分からんな……　**現在のものを選択** で」  
+
+![202309__godot__30-0135--HelloWorld-o2o0.png](https://crieit.now.sh/upload_images/a8b6e722733ba947f41399dfc81efc226516fd219827a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　**Hello, world!**　と出力ビューに表示されたな」  
+
+## コンストラクター：　_init()
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`func _init():` メソッドは　コンストラクタなんだ」  
+
+# くるくる回す
+
+![202309__godot__30-0145--Rotation.png](https://crieit.now.sh/upload_images/b489de93c54dc490ea700d674f50189d6516ff5b4b686.png)  
+
+```gd
+extends Sprite2D
+
+var speed = 400
+var angular_speed = PI
+
+func _init():
+	print("Hello, world!")
+
+func _process(delta):
+	rotation += angular_speed * delta
+```
+
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　サンプル通り書いてみよう。　くるくる回ってるぜ」  
+
+## 時間軸の１つ分の処理：　_process(delta)
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`func _process(delta):` メソッドは　時間 delta 分の処理なんだ」  
+
+## Tips: Ctrl + Click
+
+![202309__godot__30-0149--CtrlClick-o2o0.png](https://crieit.now.sh/upload_images/aa78c037ac0389d5c9bc1824581f2b4465170065e891a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`Ctrl` キーを押しながら　コードをクリックすると　説明が出てきたり、定義に飛んだりするようだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　そんな裏技仕込むの　止めてほしいわね」  
 
 .
