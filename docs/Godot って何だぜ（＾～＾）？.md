@@ -1,7 +1,11 @@
+# 前の記事
+
+📖　[2D RPG 制作ツールを作ろうぜ（＾～＾）？　＜その2＞](https://crieit.net/posts/2D-RPG-2)  
+
 # 📅 (2023-09-25 mon) Godot を調べろだぜ
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　Godot　って何だぜ？」  
+「　Godot（ゴドー）って何だぜ？」  
 
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　何かは知らないが、結論は分かるぜ。お父んが思ってるようなやつじゃないぜ」  
@@ -248,4 +252,35 @@ extends Sprite2D
 「　👆　なんとなくだが　＠　が表示されているような気がするぜ」  
 
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
-「　じゃあ　フォント表示の基礎までは　いけそうね～」  
+「　じゃあ　フォント表示の基礎までは　いけそうね～」
+
+# 📅 (2023-09-28 thu) Godot のデモ・プログラムを調べようぜ
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot のデモ・プログラムを調べようぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　日記の中では流れていってしまう。別記事にまとめてくれだぜ」
+
+## 別の記事：　デモ・プロジェクト
+
+📖　[まとめ記事　Godot のデモ・プロジェクトを見ていこうぜ（＾～＾）？](https://crieit.net/posts/Godot-651560df0073e)  
+
+# 📅 (2023-09-29 fri) デモ眺めるの終わり
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　2D のデモは見た」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👇　じゃあ　**GDScript**　を覚えましょう」  
+
+📖　[Godot Engine 4.2の日本語のドキュメント / スクリプト言語](https://docs.godotengine.org/ja/4.x/getting_started/step_by_step/scripting_languages.html#doc-scripting)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　日記の中では流れていってしまう。別記事にまとめてくれだぜ」
+
+## 別の記事：　GDScript
+
+📖　[GDScript を覚えようぜ（＾～＾）？](https://crieit.net/posts/GDScript)  
+
+.
