@@ -100,4 +100,32 @@ GDScript は C++ 言語で書かれたプログラムを呼び出すから、内
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　しかたないな……　じゃあ　それで」  
 
+# 新規プロジェクト作成
+
+![202309__godot__30-0059--NewProject.png](https://crieit.now.sh/upload_images/ea6276feae259d433b92b132db97782f6516f47a9b839.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　Godot で新規プロジェクトを作成するぜ」  
+
+![202309__godot__30-0059--o2o0.png](https://crieit.now.sh/upload_images/43d0406d967c661b9a56c44ee32f73736516f6f639a5a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　最初に選ぶのが　**その他のノード**　って　どうかしてるよな？」  
+
+![202309__godot__30-0111--Sprite2D-o2o0.png](https://crieit.now.sh/upload_images/ebbf6b76ee6b2b6cb31f73d22a9c18456516f770eb735.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　その中から　**Sprite2D**　を選ぶなんて、直観的に無理だぜ」  
+
+![202309__godot__30-0113--Editor-Sprite2DNode-o2o0.png](https://crieit.now.sh/upload_images/cde187520b2984c5e82ab352c09a72336516f7d29430c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　これが　Sprite2D　をルート（Root；根）に持つ　シーン（※つまりサブツリー）を作成したところだぜ」  
+
+![202309__godot__30-0120--Texture-o2o0.png](https://crieit.now.sh/upload_images/0173158b360e46e8e9d15af9ad0e82c66516f9b5b2965.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　テクスチャー欄へ　さっきの画像を読み込めだぜ」  
+
+
 .

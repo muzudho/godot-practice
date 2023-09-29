@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://eghj40kmv6ur"]
+
+[ext_resource type="Texture2D" uid="uid://tqqrqhrnxnyb" path="res://Kifuwarabe_2016_8_6_0_20_30_88_c1.png" id="1_lxyjd"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_lxyjd")
