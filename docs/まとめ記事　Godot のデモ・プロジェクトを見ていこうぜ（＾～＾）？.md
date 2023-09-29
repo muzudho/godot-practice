@@ -518,6 +518,45 @@
 
 # skeleton
 
+学習の難しさの目安：　実行不能  
+
+![202309__godot__29-2340--Skeleton.png](https://crieit.now.sh/upload_images/7869f632f9b93ba37dba3f112349f86f6516e1dd854cb.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　なんのこっちゃ、という感じ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![202309__godot__29-2341--Skeleton-Error.png](https://crieit.now.sh/upload_images/96f2c7c52e049eb61b5e3bb4aba8526f6516e23ba93a9.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　実行するとエラーが出ていて分からない」  
+
 # sprite_shaders
 
+![202309__godot__29-2343--SpriteShaders.png](https://crieit.now.sh/upload_images/1e2704d06129dfc26af28c42207a84726516e2bda857e.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　なんのこっちゃ、という感じ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![202309__godot__29-2345--SpriteShader-Editor.png](https://crieit.now.sh/upload_images/34f2f762576fa52ba3ebb3263a8838176516e31a978d1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　スプライトに表示の効果を付けれるみたいなんだが、その説明を　わたしが欲しい」  
+
 # tween
+
+![202309__godot__29-2347--Tween.png](https://crieit.now.sh/upload_images/23c934f84a34eb57a30d8490f48700666516e3939b35b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`Start Animation` ボタンを押すことで　モーションが見れるぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　GDScript に何か　たくさん書いてあるので、モーションの作り方が書いてるかも知れないな」  
