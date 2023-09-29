@@ -478,7 +478,43 @@
 
 # role_playing_game
 
+学習の難しさの目安：　実行不能  
+
+![202309__godot__29-2329--RolePlayingGame.png](https://crieit.now.sh/upload_images/c39db2443eb67e0eed2b4358f726e1736516df69f3ed4.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　さっぱり分からん。バカにしてんのか？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`A`、`S`、`D`、`W` キーには反応するみたいだけど、何だか分かんないわね」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![202309__godot__29-2331--RolePlayingGame-Error.png](https://crieit.now.sh/upload_images/abb508379beed8cb6c1dd5150896587d6516dfe07219b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　エディターはエラーを吐いていて　直し方が分からん」  
+
 # screen_space_shaders
+
+学習の難しさの目安：　初級者の真ん中の方  
+
+![202309__godot__29-2335--ScreenSpaceShaders.png](https://crieit.now.sh/upload_images/c19ccc95b505bb0c7f8d52333fdbc1396516e0b5b4019.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　フォトショップの画像エフェクトみたいなやつを　テストできるやつだぜ」  
+
+![202309__godot__29-2336--Sepia.png](https://crieit.now.sh/upload_images/b37b738ba2020f2ab06fcde9c500de176516e0f9447b0.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　いろいろあるようだから、勝手に試せだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`.gdshader` というスクリプトが入っていて、シェーダーの書き方が分かるぜ」  
 
 # skeleton
 
