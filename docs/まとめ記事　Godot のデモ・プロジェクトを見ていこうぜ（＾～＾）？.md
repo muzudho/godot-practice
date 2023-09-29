@@ -1,4 +1,4 @@
-# 前の記事
+# 親の記事から来た
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
@@ -559,4 +559,8 @@
 「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　GDScript に何か　たくさん書いてあるので、モーションの作り方が書いてるかも知れないな」  
+「　GDScript に何か　たくさん書いてあるので、モーションの作り方が書いてるかも知れないな」
+
+# 親の記事に戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
