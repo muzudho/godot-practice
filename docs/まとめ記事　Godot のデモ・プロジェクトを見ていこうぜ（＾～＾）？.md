@@ -436,7 +436,45 @@
 
 # platformer
 
+![202309__godot__29-2320--Platformer.png](https://crieit.now.sh/upload_images/00e1f9465f7105bcdf04672dbb3ee0dd6516dd48a3705.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ＢＧＭがバカでかい！　うるさい！」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ロックマンみたいな　アクション・ゲームだぜ。  
+`A`、 `D`、`W` キーで　左右移動とジャンプ、スペース・キーで重力に従う球　発射だぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ステージ上のコインを全部取っても　何も起きないわよ！」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　プラットフォーム（Platform）って、移動する足場のことなんだ、へぇ、みたいな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　難しくて　分からんかったか」  
+
 # pong
+
+学習の難しさの目安：　初級者の真ん中の方  
+
+![202309__godot__29-2322--Pong.png](https://crieit.now.sh/upload_images/d81d135f4de480e8a4a6d1bdeddb8d336516ddcb226fe.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ビデオゲーム史に出てくる　お金を入れて遊ぶアーケードゲームのようなやつの　最初のやつだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　左の水色の板（※パドル）はキーボードの `W`、`S` キーで上下に動かす。  
+右の赤紫の板はキーボードのカーソルの　上下キーで上下に動かすぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　パドルを上下に動かす GDScript とかが簡単かなあ」  
 
 # role_playing_game
 
