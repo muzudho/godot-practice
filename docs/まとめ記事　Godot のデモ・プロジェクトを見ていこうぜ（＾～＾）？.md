@@ -359,6 +359,81 @@
 
 # physics_tests
 
+![202309__godot__29-2017--PhysicsTests.png](https://crieit.now.sh/upload_images/ed5fdba14768d5b484269431068f7ad76516b281c12c3.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　物理演算のテストじゃないか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`R` キーを打鍵すると　もう１回テストするぜ」  
+
+![202309__godot__29-2020--BoxStack.png](https://crieit.now.sh/upload_images/e7b3632c123d10105c455cce8abe550d6516b324b05fa.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　左上の `TESTS` のボタンから　いろいろ選べる。これは　詰まれた箱を眺めるテストだぜ」  
+
+![202309__godot__29-2022--BoxPyramid.png](https://crieit.now.sh/upload_images/9847d5ddf4b3b5ad16e64b687bf80e1f6516b39a6a63a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ピラミッド状にも積むテスト」  
+
+![202309__godot__29-2026--Collision.png](https://crieit.now.sh/upload_images/d973f3cdb6bf60436e348db5519dc21c6516b47a34ea6.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　直方体をぶつけるテストだぜ。明るい緑色になってるやつは　当たってるぜ。  
+直方体の形も　いくつかの中から選べるぜ」  
+
+![202309__godot__29-2035--CharacterSlopes.png](https://crieit.now.sh/upload_images/e71270b8dda511422bd209a4f8ce469d6516b757dbd29.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　縦長の楕円みたいなカプセルを `A`、`D`、`W` キーを使って操作して、坂道を昇り降りするテストだぜ」  
+
+![202309__godot__29-2303--CharacterTileMap.png](https://crieit.now.sh/upload_images/e52e61eef525841880c2b62f0220f0046516d95dd13c2.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`Tilemap` は、タイルでステージが作られてるな。キーボードを打鍵して、このステージで長方形のキャラクターを操作するテストだぜ」  
+
+![202309__godot__29-2306--CharacterPixels.png](https://crieit.now.sh/upload_images/6707fb0d0c89fdee379e491a774ce5056516d9e0c4528.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`Pixels` も　長方形を操作するテスト」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`One way Collision` というテストは強制終了して落ちた」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　テストを繰り返したあと　PC をスリープしたのがダメなのでは」  
+
+![202309__godot__29-2309--OneWayCollision.png](https://crieit.now.sh/upload_images/a63249afab62d961b879d7248e44b9536516dab3c2d20.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　起動したけど　意味分からん。説明不能」  
+
+![202309__godot__29-2311--Joints.png](https://crieit.now.sh/upload_images/28c25c0ad2ffe0bcc04350bb6ad4dae06516db37e3a93.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`Joints` 。マウスで　オブジェクトを引きずることができて、鎖みたいにつながってるぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　つながり方も　ゴムみたいなやつとか　選べたり、  
+２つのオブジェクトは　ぶつかるかどうかも　設定できるぜ」  
+
+![202309__godot__29-2314--Raycasting.png](https://crieit.now.sh/upload_images/d4598e22155bd6cee2ba9dc48f0b3e466516dbf358b23.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`Raycasting` は、直線上に見えない球を飛ばして　ぶつかるポイントを調べるやつだぜ」  
+
+![202309__godot__29-2316--PerformanceTest.png](https://crieit.now.sh/upload_images/74dd6d33b947b483fcf84d53e1be84fc6516dc51b9db1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　その他に　パフォーマンス・テストがあるが　何やってるか　さっぱり」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このデモ・プロジェクトからは　何を学べるんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　GDScript がいっぱい入っているが　どれも見る気が起きない」  
+
 # platformer
 
 # pong
