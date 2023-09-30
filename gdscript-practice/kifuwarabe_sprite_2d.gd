@@ -32,3 +32,9 @@ func _process(delta):
 	
 	# 移動ベクトルを足す
 	position += movement
+
+
+func _on_button_pressed():
+	# 働いてたら休む。
+	# 休んでたら働く。
+	set_process(not is_processing())

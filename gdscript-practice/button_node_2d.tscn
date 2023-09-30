@@ -1,10 +1,17 @@
-[gd_scene format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=2 format=3 uid="uid://berxgv5da54w"]
+
+[ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="Button" type="Button" parent="."]
-offset_left = 360.0
-offset_top = 211.0
-offset_right = 563.0
-offset_bottom = 269.0
+offset_left = 203.0
+offset_top = 169.0
+offset_right = 406.0
+offset_bottom = 227.0
 text = "トグルだぜ"
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_5h2fa")]
+position = Vector2(215, 362)
+
+[connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]

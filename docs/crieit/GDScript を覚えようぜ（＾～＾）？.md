@@ -1,4 +1,4 @@
-# 親の記事から来た
+# 親記事から来た
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
@@ -413,6 +413,144 @@ func _process(delta):
 
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　そんな裏技仕込むの　止めてほしいわね」  
+
+![202309__godot__30-1401--NodeSignal-o2o0.png](https://crieit.now.sh/upload_images/a26a07191c5b071b3095a61455d0c8516517abf3bffd6.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　`ノード` タブをクリックすると　シグナルの一覧が出てくるぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　お前は　**インスペクター**　なんじゃないの？  
+なんで　インスペクターの隣の　**ノード**　タブをクリックしたんだぜ？  
+ノード　タブは、インスペクターじゃないってのかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ノード　タブは　インスペクター　じゃないのよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot の国語は　ぐちゃぐちゃ　だな。技術的にクソだ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　べつに　国語も　技術も　ウリにしてないんだろ」  
+
+![202309__godot__30-1406--pressed-o2o0.png](https://crieit.now.sh/upload_images/1a87f1b891e9098385263a910011c31b6517ad1f459da.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　`BaseButton` の下に `pressed()` メソッドがあるから　ダブル・クリックしろだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`pressed()` は メソッドなの？　シグナルなの？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`pressed()` メソッドは　`pressed` メッセージが送られてきたときに実行されるイベントハンドラーなんじゃないか？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　本当にそうだろうか？」  
+
+![202309__godot__30-1413--cutAndPaste-o2o0.png](https://crieit.now.sh/upload_images/d0842a41d7e9ab37b679a9c8bdd5b7126517aeaa021fe.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　きふわらべが　別のサブツリーに居て　アクセスできなかったので、  
+カット＆ペーストで　連れてきたぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　じゃあ　元　居たツリーは　今　どうなってんだぜ？」  
+
+![202309__godot__30-1415--emptyTree.png](https://crieit.now.sh/upload_images/6a399bc7533aade13f12f764ec4068fe6517af1e7eaf0.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　エンプティセット（Empty Set；空集合，くうしゅうごう）だぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　保存はできるのか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　不思議な話だが、エンプティセットは　保存できないぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ウィンドウを閉じれば　同値よ」  
+
+![202309__godot__30-1429--signal-o2o0.png](https://crieit.now.sh/upload_images/27ed21a44294aba69a62282080a3e4226517b28e975af.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　センダー（Sender；送信者）である BaseButton の `pressed()` メソッドが呼び出されたとき、  
+さらに　レシーバー（Receiver；受信者）である Sprite2D の `_on_button_pressed` メソッドが呼び出される」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　と考えたらいいんじゃないかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　シグナルは　どこにあんのよ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot の開発者たちは　国語のセンスがないことが分かった。わたしが　言い換えてやるぜ」  
+
+![202309__godot__30-1436--eventHandler-o2o0.png](https://crieit.now.sh/upload_images/bdf08988dc220681738ec431998dedeb6517b43438745.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　わたしのコードに　イベントハンドラーが　勝手に追加されたぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　じゃあ　そこに　ボタンが押されたときに　やりたい処理を書けばいいのよ」  
+
+![202309__godot__30-1436--eventHandler-o3o0.png](https://crieit.now.sh/upload_images/1b59db21bf318cbc6210dba1942042116517b4da4112d.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　イベントハンドラーのシグネチャーの左横に　緑色の矢印が表示されていて、クリックできるそうだぜ」  
+
+![202309__godot__30-1441--connection.png](https://crieit.now.sh/upload_images/475243ba585fc69677ea7b372cce6f066517b53a0dc81.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　説明が出てきた。まあ　そうなんだろうな」  
+
+```gd
+func _on_button_pressed():
+	# 働いてたら休む。
+	# 休んでたら働く。
+	set_process(not is_processing())
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ボタンを押下したときのコードを　サンプルに従って書いたぜ。  
+メソッド名が悪いよな。意味が分からん。まあ　Godot は、国語がウリではないから　仕方ない」  
+
+![202309__godot__30-1448--run.png](https://crieit.now.sh/upload_images/2ee823104a0e92408e6e199ef46551826517b6cd8c024.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　あれっ？　ボタンが無いぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　エンプティセットを保存してないから、古いサブツリーを実行しているのでは？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　実行ボタンをクリックしたときに実行される　サブツリー　は、どこで変更できる？」  
+
+![202309__godot__30-1453--applicationRun.png](https://crieit.now.sh/upload_images/04be6e51c0bb8bdaf1852ebfec8b9f126517b80f7cc83.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　プロジェクト設定の中を探していけば　あるぜ」  
+
+![202309__godot__30-1455--run.png](https://crieit.now.sh/upload_images/c17285e0414e680f05bac7104e07b5546517b856121d7.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　よしでけた」  
+
+# Ctrl + F1
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　エディターに戻って　`Ctrl + F1` キーを押してみろだぜ」  
+
+![202309__godot__30-1517--CtrlF7.png](https://crieit.now.sh/upload_images/c69d8e288cdddacee1e04b1d561688d06517bd9322f97.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　お前が出てきたけど……」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ルートに戻ったんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　メイン・シーンの方に戻ってほしいぜ」  
+
 
 
 .
