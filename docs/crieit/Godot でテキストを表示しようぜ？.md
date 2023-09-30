@@ -378,4 +378,58 @@ func _process(delta):
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　文字が出終わってから　ブリンカーが出るように　合わせてくれだぜ」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　別のノードの変数を　どうやって参照するのか……。調べるか」  
+
+📖　[[Godot]$(ドルマーク)とget_node関数の違いについて](https://igarashisant.com/2023/02/26/godot_get_node/)  
+
+![202310__godot__01-0105--Blinker-o2o0.png](https://crieit.now.sh/upload_images/de9d5de79f593814fa71adb43065a094651847839148b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ツリー構造を変えて」  
+
+```gd
+extends Label
+
+# 点滅用
+var is_blink_started = false
+var count_of_blink = 0
+
+# タイプライターの文字出力間隔
+var count_of_typewriter = 0
+
+# サブツリーが全てインスタンス化されたときに呼び出される
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# 最初は非表示
+	visible = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	# テキストを出し終えたか？
+	if not is_blink_started and 0.5 <= count_of_typewriter:
+		var message_window_text = $".."
+		if message_window_text.get("text_storage").length() < 1:
+			is_blink_started = true
+			visible = true
+			
+		count_of_typewriter -= 0.5
+	else:
+		count_of_typewriter += delta
+
+	# 点滅
+	if is_blink_started:
+		if 0.75 <= count_of_blink: 
+			visible = not visible
+			count_of_blink -= 0.75
+		else:
+			count_of_blink += delta
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ブリンカーのスクリプトも変更」  
+
+
+
 .

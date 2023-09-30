@@ -56,20 +56,20 @@ offset_bottom = 708.0
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("6_abnhm")
 
-[node name="MessageWindowBlinker1" type="Label" parent="."]
-offset_left = 961.0
-offset_top = 602.0
-offset_right = 993.0
-offset_bottom = 647.0
+[node name="BlinkerTriangle" type="Label" parent="MessageWindowText"]
+offset_left = 642.0
+offset_top = 95.0
+offset_right = 674.0
+offset_bottom = 140.0
 text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("6_7u0ub")
 
-[node name="MessageWindowBlinker2" type="Label" parent="."]
-offset_left = 959.0
-offset_top = 610.0
-offset_right = 991.0
-offset_bottom = 655.0
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindowText"]
+offset_left = 640.0
+offset_top = 103.0
+offset_right = 672.0
+offset_bottom = 148.0
 text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("6_7u0ub")
