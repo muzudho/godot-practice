@@ -303,4 +303,28 @@ extends Sprite2D
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　日記の中では流れていってしまう。別記事にまとめてくれだぜ」
 
+## 別の記事：　メッセージ・ウィンドウを作ろうぜ
+
+📖　[Godot でテキストを表示しようぜ？](https://crieit.net/posts/Godot-6517d1c9ae3d1)  
+
+# 📅 (2023-10-01 sun) メッセージ・ウィンドウは作った
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　メッセージ・ウィンドウは作った。  
+まだ作るのかだぜ？  
+もう気力が　持たないけど」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ＲＰＧを作るツールを作るという企画ですからねえ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　わたしが　Godot　で　ＲＰＧ　を作って、そのソースを公開すれば  
+そのタスクは　クリアーにならないかだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　フーム、落としどころとしては　マシな方では」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　その線で行こう　とにかく　つらい」  
+
 .

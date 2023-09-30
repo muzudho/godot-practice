@@ -589,4 +589,50 @@ func _unhandled_key_input(event):
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　👆　この動画に映ってるメッセージ・ウィンドウで　だいたい　充分よ」  
 
+# メッセージ・ウィンドウを閉じてくれだぜ
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　出すメッセージが無いんだったら、メッセージ・ウィンドウを閉じてくれだぜ」  
+
+![202310__godot__01-0210--CloseMessageWindow-o2o0.png](https://crieit.now.sh/upload_images/9703b472e2ce93a989d38466961e5f78651856ba7c22c.png)  
+
+```gd
+			else:
+				# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
+				$"..".visible = false
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　これで　オッケー」  
+
+# 誰が　しゃべってるか　分からない
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　誰がしゃべってるか　分かんなくない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　顔グラ（Face Graphic）を出すと　素材不足で　苦しむしな」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　工夫で乗り切るか。  
+昔のゲームは　ちからわざ　が使えないときは　ごめんなさい　で通していたからな」  
+
+![202310__godot__01-0230--Name.png](https://crieit.now.sh/upload_images/19d7e0f4b639417f9a24a001d14cd52665185b702e460.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　メッセージ・ウィンドウの中に　名前を書くとかな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　それで十分ねえ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　カギかっこ付けたから　１行に　１９文字しか入らないぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ごめんなさい　するんだぜ」  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .
