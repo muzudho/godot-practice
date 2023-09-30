@@ -551,6 +551,88 @@ func _on_button_pressed():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　メイン・シーンの方に戻ってほしいぜ」  
 
+# Timer
+
+![202309__godot__30-1522--Timer-o2o0.png](https://crieit.now.sh/upload_images/e43a695421dbe4546c001fc1af7372796517bee511c38.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　サンプルに従って　タイマーを追加するぜ」  
+
+![202309__godot__30-1524--AutoStart-o2o0.png](https://crieit.now.sh/upload_images/79f0e556a695b23730a04ea3079a7d636517bf3fe9c6e.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　Autostart をオンに設定」  
+
+![202309__godot__30-1530--ScriptButton.png](https://crieit.now.sh/upload_images/380aefc0bfd1d42c51a0c6b20163b6ef6517c0752e112.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　上図のボタンをクリックすると　スクリプトのページが開くそうだぜ」  
+
+```gd
+extends Sprite2D
+
+var speed = 400
+var angular_speed = PI
+
+func _init():
+	print("Hello, world!")
+
+func _process(delta):
+
+	var velocity = Vector2.ZERO
+	
+	# 上キーを押していなければ進まない仕組み
+	if Input.is_action_pressed("ui_up"):
+		velocity = Vector2.UP.rotated(rotation) * speed
+
+	# その場で　ねずみ花火のように　くるくる回る
+	rotation += angular_speed * delta
+
+	# 洗濯機の中の衣類のように　周る
+	var movement = velocity * delta
+
+	# 何も押さなければその場で回転
+	var direction = 0
+	# 左キー押下で頭上の方へ進む
+	if Input.is_action_pressed("ui_left"):
+		direction = -1
+	# 右キー押下で足下の方へ進む
+	if Input.is_action_pressed("ui_right"):
+		direction = 1
+	movement *= direction
+	
+	# 移動ベクトルを足す
+	position += movement
+
+
+func _on_button_pressed():
+	# 働いてたら休む。
+	# 休んでたら働く。
+	set_process(not is_processing())
+
+# サブツリーが全てインスタンス化されたときに呼び出される
+func _ready():
+	# タイマーノード取得
+	var timer = get_node("Timer")
+	# timer ソースの timeout シグナルに _on_timer_timerout メソッドを接続
+	timer.timeout.connect(_on_timer_timeout)
+
+func _on_timer_timeout():
+	# 可視性を反転
+	visible = not visible
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　全部のコード載せたろ」  
+
+📺　[動画](https://x.com/muzudho1/status/1708008555952132115?s=20)  
+
+# カスタムシグナル
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👇　シグナルを自作する方法の解説も載ってるわよ」  
+
+📖　[カスタムシグナル](https://docs.godotengine.org/ja/4.x/getting_started/step_by_step/signals.html#custom-signals)  
 
 
 .

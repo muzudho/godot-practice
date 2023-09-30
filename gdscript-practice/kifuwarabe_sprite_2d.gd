@@ -38,3 +38,15 @@ func _on_button_pressed():
 	# 働いてたら休む。
 	# 休んでたら働く。
 	set_process(not is_processing())
+
+# サブツリーが全てインスタンス化されたときに呼び出される
+func _ready():
+	# タイマーノード取得
+	var timer = get_node("Timer")
+	# timer ソースの timeout シグナルに _on_timer_timerout メソッドを接続
+	timer.timeout.connect(_on_timer_timeout)
+
+func _on_timer_timeout():
+	# 可視性を反転
+	visible = not visible
+	

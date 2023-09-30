@@ -14,4 +14,7 @@ text = "トグルだぜ"
 [node name="Sprite2D" parent="." instance=ExtResource("1_5h2fa")]
 position = Vector2(215, 362)
 
+[node name="Timer" type="Timer" parent="Sprite2D"]
+autostart = true
+
 [connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
