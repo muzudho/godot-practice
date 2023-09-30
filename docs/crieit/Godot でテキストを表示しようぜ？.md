@@ -278,4 +278,46 @@
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　目の錯覚か　暗く見えるけど　もう　こんなもんで　いいんじゃない？」  
 
+## ブリンカーを点滅させようぜ？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　タイマーを使わなくても、 `_process()` を使えば点滅できるんじゃないか？」  
+
+```gd
+extends Label
+
+var count = 0
+
+# サブツリーが全てインスタンス化されたときに呼び出される
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	count += delta
+	
+	if 0.75 <= count: 
+		visible = not visible
+		count -= 0.75
+```
+
+📺　[動画](https://x.com/muzudho1/status/1708135914936172709?s=20)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👆　この動画に映ってるブリンカーで　充分よ」  
+
+## 文字が１個ずつ出てくるやつをやろうぜ
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　カタカタカタカタ、ってやつ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`Label` コントロールには　テキストを全文入れてるじゃないか。  
+あれを　空っぽにして、１文字ずつ　入れていくということかだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そうなるな」  
+
 .
