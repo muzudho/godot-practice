@@ -329,4 +329,90 @@ func _process(delta):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　上キーを押していなければ　進まないという仕組みも追加したぜ」  
 
+# Godot の言うシグナル：　イベントハンドラーみたいなもん
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👇　次の課題は　シグナル（Signal；信号）よ」  
+
+📖　[シグナルの使用](https://docs.godotengine.org/ja/4.x/getting_started/step_by_step/signals.html)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　イベントハンドラーじゃないのかだぜ？　Linux　みたいだな」  
+
+![202309__godot__30-1331--NewScene-o2o0.png](https://crieit.now.sh/upload_images/99baf2fc25b81d2b4454f7d6714e42546517a4ae6c418.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　新しいシーンを作れとのことだぜ。　シーンって何なんだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　サブツリーのルートノード（Root Node；根）なんじゃないか？
+
+![202309__godot__30-1333--RootNode-o2o0.png](https://crieit.now.sh/upload_images/4f13481d8de1a65c0cac3a780c634a436517a5507a118.png)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👆　シーンは　サブツリーなのよ。　サブツリーのルートをさらに選ぶのよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　シーンなんて用語　造語されたら　ぐちゃぐちゃだぜ」  
+
+![202309__godot__30-1336--2DScene-o2o0.png](https://crieit.now.sh/upload_images/a22c3b41e3c53784f790b75fec6b4f0c6517a5ff240a4.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`2D シーン` を選べとのことだぜ」  
+
+![202309__godot__30-1338--Node2DRoot-o2o0.png](https://crieit.now.sh/upload_images/f6006ebcdbdaea3a731e81340cdd49196517a668cf652.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　なんで　`2D シーン`　を選んで、出てくるのが　`Node2D`　なんだぜ？　技術的に　ぐちゃぐちゃだな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　べつに　技術をウリにしてないんだろ」  
+
+![202309__godot__30-1342--AddChildNode-o2o0.png](https://crieit.now.sh/upload_images/0bf11477147a15aebd932108aa9843a46517a74fb3b22.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　子ノードとして　`Button`　を追加しろとのことだぜ」  
+
+`Node/CanvasItem/Control/BaseButton/Button`  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　なんか　クラス階層図みたいなツリー構造だな。 `BaseButton` の下に `Button` が出てくるの　カッコ悪いよな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　みたい、じゃなくて、クラス階層図なんじゃない？」  
+
+![202309__godot__30-1347--ButtonSubTree.png](https://crieit.now.sh/upload_images/4ca275d7f406ce30952797a9881296166517a86d669a7.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　あれっ？　きふわらべ　どこに行ったんだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　お父んの方が　別のサブツリーに行ったんだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　だいたい　わかった」  
+
+![202309__godot__30-1351--ButtonLabel-o2o0.png](https://crieit.now.sh/upload_images/e58955b63e12b4eeed2b796d5867e0976517a9bfc0a76.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　フォント・サイズはどこで変えれるんだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　Godot は ノードを主張してるくせに　`Button`　のサブ・ノードが見えないじゃない」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　べつに　技術をウリにしてないんだろ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　もう　先々　苦労しそうだな」  
+
+![202309__godot__30-1357--F6Key.png](https://crieit.now.sh/upload_images/b859aa8fe93be25c91b7fd1aa0349a746517aacdc271b.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　`F6` キーを打鍵すると　サブツリーを　動作テストできるそうだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　そんな裏技仕込むの　止めてほしいわね」  
+
+
 .
