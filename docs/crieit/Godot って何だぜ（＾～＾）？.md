@@ -283,4 +283,24 @@ extends Sprite2D
 
 📖　[GDScript を覚えようぜ（＾～＾）？](https://crieit.net/posts/GDScript)  
 
+# 📅 (2023-09-30 sat) GDScript には軽く触れた。次はテキスト
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　国語も　技術的にも　クソだったな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　これから　どうするんだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　メッセージ・ウィンドウが　手ごろな課題なんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　システム・ダイアログ・ボックスじゃなくて、ゲームの中に出てくるやつな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　Label を使うのが　初歩的なのかしらね～？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　日記の中では流れていってしまう。別記事にまとめてくれだぜ」
+
 .
