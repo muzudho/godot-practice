@@ -408,6 +408,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# テキストを出し終えたか？
+	count_of_typewriter += delta
 	if not is_blink_started and 0.5 <= count_of_typewriter:
 		var message_window_text = $".."
 		if message_window_text.get("text_storage").length() < 1:
@@ -415,16 +416,13 @@ func _process(delta):
 			visible = true
 			
 		count_of_typewriter -= 0.5
-	else:
-		count_of_typewriter += delta
 
 	# 点滅
 	if is_blink_started:
+		count_of_blink += delta
 		if 0.75 <= count_of_blink: 
 			visible = not visible
 			count_of_blink -= 0.75
-		else:
-			count_of_blink += delta
 ```
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
@@ -434,5 +432,161 @@ func _process(delta):
 
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　👆　この動画に映ってるメッセージ・ウィンドウで　充分よ」  
+
+# メッセージ送り、してくれだぜ
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　メッセージ送り、してくれだぜ」  
+
+## Push any key
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　何か　どれでも　キーを押したかどうかの判定って、どうやんの？」
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　シグナルを使うことになるんじゃないか？」  
+
+📖　[How to detect if any key is pressed](https://www.reddit.com/r/godot/comments/ie54wt/how_to_detect_if_any_key_is_pressed/)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot では　どんなコレクション・クラスを使えるんだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　配列しかないんじゃないか？」  
+
+📖　[Godot Engine / Array](https://docs.godotengine.org/en/stable/classes/class_array.html)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+（カタカタカタカタ）  
+
+📄 `textend_blinker.gd`:  
+
+```gd
+extends Label
+
+# 点滅用
+var is_blink_started = false
+var count_of_blink = 0
+
+# タイプライターの文字出力間隔
+var count_of_typewriter = 0
+
+# サブツリーが全てインスタンス化されたときに呼び出される
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# 最初は非表示
+	visible = false
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	# テキストを出し終えたか？
+	count_of_typewriter += delta
+	if not is_blink_started and 0.5 <= count_of_typewriter:
+		var message_window_text = $".."
+		if message_window_text.get("text_storage").length() < 1:
+			is_blink_started = true
+			visible = true
+			
+		count_of_typewriter -= 0.5
+
+	# 点滅
+	if is_blink_started:
+		count_of_blink += delta
+		if 0.75 <= count_of_blink: 
+			visible = not visible
+			count_of_blink -= 0.75
+
+func reset():
+	self.visible = false
+	self.is_blink_started = false
+	self.count_of_blink = 0
+	self.count_of_typewriter = 0
+```
+
+📄 `MessageWindowText.gd`:  
+
+```gd
+extends Label
+
+var count_of_typewriter = 0
+
+var scenario_array = [
+	# ２３４５６７８９０１２３４５６７８９０
+	"""\
+	お父ん、知ってたら教えてくれだぜ。
+	エスフェン（SFEN）の 7g7f って何だぜ？
+	""",
+	"""\
+	あー。７筋の７段目の駒を
+	６段目に突くことだぜ。
+	分かったら　もう寝ろ
+	""",
+	"""\
+	3c3d　って何だぜ？
+	""",
+	"""\
+	角換わりだろ。
+	もう寝ろ
+	""",
+	"""\
+	お父ん、なんで唐揚げを食べているんだぜ？
+	ダイエットはどうした？
+	野菜を TABERO だぜ！
+	""",
+	# ２３４５６７８９０１２３４５６７８９０
+	"""\
+	元気になりたくて唐揚げを食べるんだぜ。
+	カロリー計算をしようと思ったときもあった
+	限界まで食べてしまうので止めた
+	""",
+]
+
+var text_storage = ""
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# 最初のテキスト
+	self.text = ""
+	
+	if self.text_storage == "" and 0 < self.scenario_array.size():
+		self.text_storage = self.scenario_array.pop_front()
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	
+	# タイプライター風出力
+	count_of_typewriter += delta
+	
+	if 0.05 <= count_of_typewriter:
+		if 0 < self.text_storage.length():
+			self.text += text_storage.substr(0, 1)
+			text_storage = text_storage.substr(1, self.text_storage.length()-1)
+		count_of_typewriter -= 0.05
+
+func _unhandled_key_input(event):
+
+	print("_unhandled_key_input")
+
+	# 何かキーを押したとき
+	if event.is_pressed():
+		print("_unhandled_key_input is_pressed")
+		# TODO ブリンカーを消す
+		$"BlinkerTriangle".reset()
+		$"BlinkerUnderscore".reset()
+		
+		# メッセージ送り
+		if self.text_storage == "":
+			self.text = ""
+			
+			if 0 < self.scenario_array.size():
+				self.text_storage = self.scenario_array.pop_front()
+```
+
+📺　[動画](https://x.com/muzudho1/status/1708165210731844060?s=20)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👆　この動画に映ってるメッセージ・ウィンドウで　だいたい　充分よ」  
 
 .

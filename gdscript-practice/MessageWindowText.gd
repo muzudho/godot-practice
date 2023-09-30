@@ -29,7 +29,7 @@ var scenario_array = [
 	"""\
 	元気になりたくて唐揚げを食べるんだぜ。
 	カロリー計算をしようと思ったときもあった
-	限界まで食べてしまうので止めた。
+	限界まで食べてしまうので止めた
 	""",
 ]
 
@@ -68,7 +68,12 @@ func _unhandled_key_input(event):
 		$"BlinkerUnderscore".reset()
 		
 		# メッセージ送り
-		if self.text_storage == "" and 0 < self.scenario_array.size():
+		if self.text_storage == "":
 			self.text = ""
-			self.text_storage = self.scenario_array.pop_front()
+			
+			if 0 < self.scenario_array.size():
+				self.text_storage = self.scenario_array.pop_front()
+			else:
+				# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
+				$"..".visible = false
 		

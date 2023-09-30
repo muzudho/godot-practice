@@ -48,15 +48,15 @@ autostart = true
 position = Vector2(640, 360)
 texture = ExtResource("3_8exrp")
 
-[node name="MessageWindowText" type="Label" parent="."]
-offset_left = 319.0
-offset_top = 507.0
-offset_right = 1053.0
-offset_bottom = 708.0
+[node name="MessageWindowText" type="Label" parent="MessageWindow"]
+offset_left = -321.0
+offset_top = 147.0
+offset_right = 413.0
+offset_bottom = 348.0
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("6_abnhm")
 
-[node name="BlinkerTriangle" type="Label" parent="MessageWindowText"]
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow/MessageWindowText"]
 offset_left = 642.0
 offset_top = 95.0
 offset_right = 674.0
@@ -65,7 +65,7 @@ text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("6_7u0ub")
 
-[node name="BlinkerUnderscore" type="Label" parent="MessageWindowText"]
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow/MessageWindowText"]
 offset_left = 640.0
 offset_top = 103.0
 offset_right = 672.0
