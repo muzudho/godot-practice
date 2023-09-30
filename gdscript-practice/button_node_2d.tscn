@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=10 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://MessageWindow.png" id="3_8exrp"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
 [ext_resource type="Script" path="res://textend_blinker.gd" id="6_7u0ub"]
+[ext_resource type="Script" path="res://MessageWindowText.gd" id="6_abnhm"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -52,10 +53,8 @@ offset_left = 319.0
 offset_top = 507.0
 offset_right = 1053.0
 offset_bottom = 708.0
-text = "お父ん、なんで唐揚げを食べているんだぜ？
-ダイエットはどうした？
-野菜を TABERO だぜ！"
 label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("6_abnhm")
 
 [node name="MessageWindowBlinker1" type="Label" parent="."]
 offset_left = 961.0

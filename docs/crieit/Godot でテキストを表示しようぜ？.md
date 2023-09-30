@@ -308,7 +308,7 @@ func _process(delta):
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　👆　この動画に映ってるブリンカーで　充分よ」  
 
-## 文字が１個ずつ出てくるやつをやろうぜ
+# 文字が１個ずつ出てくるやつをやろうぜ
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　カタカタカタカタ、ってやつ」  
@@ -319,5 +319,63 @@ func _process(delta):
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　そうなるな」  
+
+![202310__godot__01-0022--SetText-o2o0.png](https://crieit.now.sh/upload_images/342c16a4485f52f41514d4fd9c32fb1965183da99fb4c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　例えば、こう書いても　同じことだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　そのテキストを、別のところに保存しておいて、  
+時間経過とともに　ラベルに追加していけばいいのよ」  
+
+## 文字列の長さを計るには？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　GDScript で 文字列の長さを計るには？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　この中から探せだぜ」  
+
+📖　[Godot Engine / String](https://docs.godotengine.org/en/stable/classes/class_string.html)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　スライス　無いのか。じゃあ　Ｃ言語風に書けばいいんだ」  
+
+```gd
+extends Label
+
+var count = 0
+
+var text_storage = """お父ん、なんで唐揚げを食べているんだぜ？
+ダイエットはどうした？
+野菜を TABERO だぜ！
+"""
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.text = ""
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	count += delta
+	
+	if 0.05 <= count:
+		if 0 < self.text_storage.length():
+			self.text += text_storage.substr(0, 1)
+			text_storage = text_storage.substr(1, self.text_storage.length()-1)
+		count -= 0.05
+```
+
+📺　[動画](https://x.com/muzudho1/status/1708144700593705033?s=20)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👆　この動画に映ってるタイプライター風の文字列出力で　充分よ」  
+
+# 文字が出終わってから　ブリンカーが出るように　合わせてくれだぜ
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　文字が出終わってから　ブリンカーが出るように　合わせてくれだぜ」  
 
 .
