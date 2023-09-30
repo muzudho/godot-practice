@@ -634,5 +634,19 @@ func _on_timer_timeout():
 
 📖　[カスタムシグナル](https://docs.godotengine.org/ja/4.x/getting_started/step_by_step/signals.html#custom-signals)  
 
+# このあと
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　このあとも　チュートリアルは続くが、洋ゲーなんで　興味無いんで　スキップする！」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　よっしゃ！」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　じゃあ　本題へ戻りましょう
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
 .
