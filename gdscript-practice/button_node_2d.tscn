@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=7 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://MessageWindow.png" id="3_8exrp"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
@@ -35,6 +36,10 @@ position = Vector2(215, 362)
 
 [node name="Timer" type="Timer" parent="Sprite2D"]
 autostart = true
+
+[node name="MessageWindow" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("3_8exrp")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 319.0

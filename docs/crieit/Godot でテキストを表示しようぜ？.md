@@ -145,5 +145,51 @@
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　多分、 `M Plus 1 Code` フォントの作者が　古臭い日本人なのでは？」  
 
+# 古臭いウィンドウ
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　じゃあ　次は　昔ながらの　古臭いウィンドウを　作ってみましょう」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　なんで　わたしたちのやることは　昔とか、古臭いという　形容詞が付くんだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　事実だろ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　**あの** メッセージ・ウィンドウ、現代では　何て呼ばれてるんだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　`StyleBoxFlat` じゃないか？」  
+
+📖　[Theme Variation with StyleBoxTexture returns wrong type #66850](https://bytemeta.vip/repo/godotengine/godot/issues/66850)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　適当に触ってみるか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　存在しなかった」  
+
+![202309__godot__30-1901--MessageWindow-o2o2o0.png](https://crieit.now.sh/upload_images/c37bdd9c061ac2f77e0aaa9e4102439c6517fba538491.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　そんなときは　Windows Paint で枠を描いて　GIMP で透明度を抜けばいいんだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　技術の無さを　労働で補うの　わらう」  
+
+![202309__godot__30-1944--FixedMessageWindow.png](https://crieit.now.sh/upload_images/9fa2d4312d2781b7c5b72bb52b235b916517fc24c95c9.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　固定長で十分だろ」  
+
+![202309__godot__30-1947--FixedMessageWindow-Run.png](https://crieit.now.sh/upload_images/9bb6619bbdd4ab1f5744e418159478456517fce84b68e.png)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👆　１、２、３、　……　全角で１行２０文字、３段で  
+計　６０文字でいいの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　シナリオライターに　足らん　と言われても　ごめんなさい　しようぜ」  
 
 .
