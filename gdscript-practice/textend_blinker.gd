@@ -32,3 +32,10 @@ func _process(delta):
 		if 0.75 <= count_of_blink: 
 			visible = not visible
 			count_of_blink -= 0.75
+
+func reset():
+	self.visible = false
+	self.is_blink_started = false
+	self.count_of_blink = 0
+	self.count_of_typewriter = 0
+	
