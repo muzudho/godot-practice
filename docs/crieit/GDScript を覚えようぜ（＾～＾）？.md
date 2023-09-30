@@ -208,4 +208,125 @@ func _process(delta):
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　そんな裏技仕込むの　止めてほしいわね」  
 
+## 洗濯機の中の衣類のように周る
+
+```gd
+extends Sprite2D
+
+var speed = 400
+var angular_speed = PI
+
+func _init():
+	print("Hello, world!")
+
+func _process(delta):
+	# その場で　ねずみ花火のように　くるくる回る
+	rotation += angular_speed * delta
+
+	# 洗濯機の中の衣類のように　周る
+	var velocity = Vector2.UP.rotated(rotation) * speed
+	position += velocity * delta	
+```
+
+📺　[動画](https://x.com/muzudho1/status/1707801968616550478?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　分かったぜ」  
+
+# 入力
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👇　次の課題は　入力よ」  
+
+📖　[プレイヤーの入力を聞く](https://docs.godotengine.org/ja/4.x/getting_started/step_by_step/scripting_player_input.html)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　入力のインプットを受け取る方法は　２種類あって、  
+`Input` シングルトンを使う方法と、 `_unhandled_input()` コールバック関数を使う方法があるようだぜ」  
+
+```gd
+extends Sprite2D
+
+var speed = 400
+var angular_speed = PI
+
+func _init():
+	print("Hello, world!")
+
+func _process(delta):
+	# その場で　ねずみ花火のように　くるくる回る
+	rotation += angular_speed * delta
+
+	# 洗濯機の中の衣類のように　周る
+	var velocity = Vector2.UP.rotated(rotation) * speed
+	var movement = velocity * delta
+
+	# 何も押さなければその場で回転
+	var direction = 0
+	# 左キー押下で頭上の方へ進む
+	if Input.is_action_pressed("ui_left"):
+		direction = -1
+	# 右キー押下で足下の方へ進む
+	if Input.is_action_pressed("ui_right"):
+		direction = 1
+	movement *= direction
+
+	# 移動ベクトルを足す
+	position += movement
+```
+
+📺　[動画](https://x.com/muzudho1/status/1707956784898646248?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　分かったぜ」  
+
+![202309__godot__30-1304--inputMap-o2o0.png](https://crieit.now.sh/upload_images/29befd42d7210ed69b9a1b70f6752dc465179e8c10f1f.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　**プロジェクト設定** の **インプットマップ** タブを見れば　`Input.is_action_pressed()` メソッドの引数に何書いたらいいか  
+自分で調べられるそうだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　助かるぜ」  
+
+```gd
+extends Sprite2D
+
+var speed = 400
+var angular_speed = PI
+
+func _init():
+	print("Hello, world!")
+
+func _process(delta):
+
+	var velocity = Vector2.ZERO
+	
+	# 上キーを押していなければ進まない仕組み
+	if Input.is_action_pressed("ui_up"):
+		velocity = Vector2.UP.rotated(rotation) * speed
+
+	# その場で　ねずみ花火のように　くるくる回る
+	rotation += angular_speed * delta
+
+	# 洗濯機の中の衣類のように　周る
+	var movement = velocity * delta
+
+	# 何も押さなければその場で回転
+	var direction = 0
+	# 左キー押下で頭上の方へ進む
+	if Input.is_action_pressed("ui_left"):
+		direction = -1
+	# 右キー押下で足下の方へ進む
+	if Input.is_action_pressed("ui_right"):
+		direction = 1
+	movement *= direction
+	
+	# 移動ベクトルを足す
+	position += movement
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　上キーを押していなければ　進まないという仕組みも追加したぜ」  
+
 .
