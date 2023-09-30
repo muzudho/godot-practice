@@ -215,4 +215,67 @@
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　困ったわねえ。　素材不足は深刻ねえ」  
 
+# ブリンカー
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　メッセージ・ウィンドウの最後で点滅してる　アレの名前　何だぜ？  
+アレを作ろうぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　アレは　文字だろ。　文字と同じように　輪郭を付けて、ドロップシャドウもしなければ  
+浮いてしまうだろ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　外字で作れないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`.otf` ファイルを使っているのに　外字が出てくるのか分からん」  
+
+![202309__godot__30-2237--TextEndBlinker-o2o0.png](https://crieit.now.sh/upload_images/fe4f0f14dc51f17b5558b17aa94054f5651829260dc10.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　とりあえず　Windows Paint と GIMP で　それっぽいのを作って、画面に置いてみようぜ？」  
+
+![202309__godot__30-2300--TextEndBlinkerTest.png](https://crieit.now.sh/upload_images/5cb686df8c66140ddc82eabc38ff391365182a0808e6b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　どうだぜ？　溶け込んでいるかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　浮いているわねぇ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　スポイトで色を吸ってみたけど、白は (248, 248, 248) で同じなんだけど、  
+影の色が　違うのよね。影は　半透明にしなきゃ。  
+あと、フォントには　アンチエイリアシングが　かかってんのよ」  
+
+![202309__godot__30-2237--TextEndBlinker-o2o2o0.png](https://crieit.now.sh/upload_images/7069410fdde441eab2ebd53f37e76ce365182d48d24d4.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ドロップシャドウも　アンチエイリアシングも　見よう見まねで　Windows Paint と GIMP で　やってみようぜ？」  
+
+![202309__godot__30-2317--TextEndBlinkerTest.png](https://crieit.now.sh/upload_images/4b103bdcca0a239a05bf3b71443b08aa65182e02e2481.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　今度は　どうだぜ？　溶け込んでいるかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　さっきよりは　マシな気がするけど、　三角形が　でかくて　主張が強い気がするのよねえ」  
+
+![202309__godot__30-2321--UnderscoreTriangle.png](https://crieit.now.sh/upload_images/c6a04305412378e070ba4c27bcffd11a65182efd54c6e.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　参考に　アンダースコアと　逆三角形の文字を横に並べたが、そんなに違うかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　逆三角形と　アンダースコアを重ねて置けばいいと思う」  
+
+![202309__godot__30-2340--TextendBlinker.png](https://crieit.now.sh/upload_images/c1dab69174649ab00983be1e615a88a865183390cd792.png)
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　これでどうだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　目の錯覚か　暗く見えるけど　もう　こんなもんで　いいんじゃない？」  
+
 .

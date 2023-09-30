@@ -46,7 +46,7 @@ autostart = true
 position = Vector2(640, 360)
 texture = ExtResource("3_8exrp")
 
-[node name="Label" type="Label" parent="."]
+[node name="MessageWindowText" type="Label" parent="."]
 offset_left = 319.0
 offset_top = 507.0
 offset_right = 1053.0
@@ -54,6 +54,22 @@ offset_bottom = 708.0
 text = "お父ん、なんで唐揚げを食べているんだぜ？
 ダイエットはどうした？
 野菜を TABERO だぜ！"
+label_settings = SubResource("LabelSettings_6ksp3")
+
+[node name="MessageWindowBlinker1" type="Label" parent="."]
+offset_left = 961.0
+offset_top = 602.0
+offset_right = 993.0
+offset_bottom = 647.0
+text = "▼"
+label_settings = SubResource("LabelSettings_6ksp3")
+
+[node name="MessageWindowBlinker2" type="Label" parent="."]
+offset_left = 959.0
+offset_top = 610.0
+offset_right = 991.0
+offset_bottom = 655.0
+text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 
 [node name="TileMap" type="TileMap" parent="."]
