@@ -17,6 +17,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# テキストを出し終えたか？
+	count_of_typewriter += delta
 	if not is_blink_started and 0.5 <= count_of_typewriter:
 		var message_window_text = $".."
 		if message_window_text.get("text_storage").length() < 1:
@@ -24,13 +25,10 @@ func _process(delta):
 			visible = true
 			
 		count_of_typewriter -= 0.5
-	else:
-		count_of_typewriter += delta
 
 	# 点滅
 	if is_blink_started:
+		count_of_blink += delta
 		if 0.75 <= count_of_blink: 
 			visible = not visible
 			count_of_blink -= 0.75
-		else:
-			count_of_blink += delta
