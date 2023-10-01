@@ -10,7 +10,11 @@ func _ready():
 	self.visible = false
 
 func _process(delta):
-	if self.statemachine.is_typewriter():
+	if self.statemachine.is_none():
+		# 非表示
+		self.visible = false
+		
+	elif self.statemachine.is_typewriter():
 		if not self.is_visible_initialized:
 			# タイプライター風表示中の初回に可視化
 			self.visible = true

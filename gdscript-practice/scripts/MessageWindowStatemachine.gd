@@ -46,6 +46,9 @@ enum States {None, Typewriter, Completed}
 # 状態
 var state = States.None
 
+func is_none():
+	return self.state == States.None
+
 func is_typewriter():
 	return self.state == States.Typewriter
 
