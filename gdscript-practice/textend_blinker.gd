@@ -4,7 +4,7 @@ extends Label
 var statemachine = null
 
 # 点滅用
-var is_first_displayed = false
+var is_first_displayed_immediately = false
 var count_of_blink = 0
 
 
@@ -19,10 +19,10 @@ func _ready():
 func _process(delta):
 	# 完全表示中	
 	if self.statemachine.is_completed():
-		# 初回はまず表示
-		if not self.is_first_displayed:
+		# 初回はすぐに表示
+		if not self.is_first_displayed_immediately:
 			self.visible = true
-			self.is_first_displayed = true
+			self.is_first_displayed_immediately = true
 
 		# 点滅
 		count_of_blink += delta
@@ -33,7 +33,7 @@ func _process(delta):
 	else:
 		# 非表示
 		self.visible = false
-		self.is_first_displayed = false
+		self.is_first_displayed_immediately = false
 
 func reset():
 	self.visible = false
