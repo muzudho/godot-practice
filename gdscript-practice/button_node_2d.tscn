@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=17 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://scripts/MessageWindowStatemachine.gd" id="9_1jqoj"]
 [ext_resource type="Script" path="res://scripts/MessageWindowTextArea.gd" id="11_8xk1h"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBlinker.gd" id="12_eus3r"]
+[ext_resource type="Script" path="res://scripts/ChoiceCursor.gd" id="13_qefmu"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -21,9 +22,19 @@ font = ExtResource("3_chwyv")
 font_size = 32
 font_color = Color(0.972549, 0.972549, 0.972549, 1)
 outline_size = 1
-outline_color = Color(0, 0, 0, 1)
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_size = 4
-shadow_color = Color(0, 0, 0, 1)
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2oa1m"]
+line_spacing = 8.0
+font = ExtResource("3_chwyv")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Project2D" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
@@ -91,6 +102,15 @@ offset_bottom = 148.0
 text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("12_eus3r")
+
+[node name="ChoiceCursor" type="Label" parent="MessageWindow/TextArea"]
+offset_left = 31.0
+offset_top = 13.0
+offset_right = 63.0
+offset_bottom = 58.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("13_qefmu")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
