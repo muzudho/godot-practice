@@ -677,4 +677,94 @@ func _ready():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　あとは　調べてみるぜ」  
 
+## 別ファイルで定義した列挙型をインポートするには？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　別ファイルで定義した列挙型をインポートするには　どうやったらいいんだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　書き方がいくつか有るようだぜ。これを読んで分かるか？」  
+
+📖　[How to export an enum and import to another script](https://www.reddit.com/r/godot/comments/jfdxke/how_to_export_an_enum_and_import_to_another_script/)  
+
+```gd
+# Author: samsfacee
+
+# state_machine.gd
+extends Node2D
+class_name StateMachine
+enum State { STATE_STANDING, STATE_JUMPING, STATE_DUCKING, STATE_DIVING}
+
+# player.gd
+var state = StateMachine.State.STATE_STANDING
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　クラスに名前を付けて　グローバルに公開するのか。それ以外の方法は？」  
+
+📖　[How to declare a global named enum?](https://ask.godotengine.org/40827/how-to-declare-a-global-named-enum)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　`preload` を使う方法がありそうだぜ」  
+
+```gd
+# Author:  Zylann
+
+const MyNamedEnum = preload("path/to/MyNamedEnum.gd")
+
+func _ready():
+    print(MyNamedEnum.TYPE1)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　あとは　調べてみるぜ」  
+
+## 別ファイルで定義されたクラスを生成するには？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　別ファイルで定義されたクラスを生成するには　どうやったらいいんだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　この記事が参考になるかだぜ？」  
+
+📖　[class_nameを使用した新しいオブジェクトのインスタンス化は、preload()関数やload()関数とは異なりますか?](https://ask.godotengine.org/80159/instantiating-object-class_name-differs-preload-functions)  
+
+Question: Robotex  
+Answer: klaas  
+
+あるファイルでクラスを定義：  
+
+```gd
+extends Object
+class_name MyClass
+```
+
+生成方法１：  
+
+```gd
+# 名前付きスクリプトは起動時にグローバルに登録されます。
+var obj = MyClass.new()
+```
+
+生成方法２：  
+
+```gd
+# プリロードされたスクリプトは、コンパイル時にクラスの var または const にロードされます。
+# これらはグローバルにアクセス可能ではありません。
+var MyClass = preload("MyClass.gd")
+var obj = MyClass.new()
+```
+
+生成方法３：  
+
+```gd
+# ロードされたスクリプトは、実行時にクラス変数にロードされます。
+# これらはグローバルにアクセス可能ではありません。
+var MyClass = load("MyClass.gd")
+var obj = MyClass.new()
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　あとは　調べてみるぜ」  
+
 .

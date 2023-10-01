@@ -1,6 +1,8 @@
 # メッセージ・ウィンドウ・ステートマシーン（Message Window Statemachine；会話窓状態遷移図）
 extends Node
 
+class_name MessageWindowStatemachine
+
 # 　状態遷移図
 # 　ーーーーー
 #
@@ -40,3 +42,6 @@ extends Node
 # ＋ーーーーーーーーーーー＋　
 #
 enum States {None, Typewriter, Completed}
+
+# 状態
+var state = States.None
