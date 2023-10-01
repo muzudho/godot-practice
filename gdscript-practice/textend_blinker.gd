@@ -1,7 +1,7 @@
 extends Label
 
-# 状態遷移図
-const States = preload("MessageWindowStatemachine.gd").States
+# テキスト・エリアの状態遷移図（親ノードがセットする）
+var statemachine = null
 
 # 点滅用
 var count_of_blink = 0
@@ -16,11 +16,8 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# テキスト・エリアの状態確認
-	var state = $"..".state
-
 	# 完全表示中	
-	if state == States.Completed:
+	if self.statemachine.is_completed():
 		# 表示して点滅
 		if not self.visible:
 			self.visible = true
