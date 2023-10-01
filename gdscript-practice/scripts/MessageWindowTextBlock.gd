@@ -7,6 +7,8 @@ var is_visible_initialized = false
 var count_of_typewriter = 0
 var scenario_array = []
 var text_buffer = ""
+# 選択肢モード
+var is_choice_mode = false
 
 
 # シナリオ・データ設定
@@ -37,6 +39,7 @@ func forward_message():
 	# 選択肢かどうか判定
 	if temp_text.begins_with("!choice "):
 		print("［テキストエリア］　選択肢だ")
+		self.is_choice_mode = true
 		
 		# じゃあ、先頭行は省きたい
 		var index = temp_text.find("\n")
@@ -57,6 +60,7 @@ func forward_message():
 		temp_text = tail
 	else:
 		print("［テキストエリア］　選択肢ではない")
+		self.is_choice_mode = false
 	
 	self.text_buffer = temp_text
 
@@ -99,6 +103,12 @@ func _unhandled_key_input(event):
 	if self.statemachine.is_completed():
 		# 何かキーを押したとき
 		if event.is_pressed():
+			
+			# 選択肢モードの場合は、確定ボタン以外は無効
+			if self.is_choice_mode and event is InputEventKey and event.pressed and event.keycode != KEY_ENTER:
+				print("［テキストエリア］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
+				return
+			
 			# ブリンカーを消す
 			$"BlinkerTriangle".reset()
 			$"BlinkerUnderscore".reset()

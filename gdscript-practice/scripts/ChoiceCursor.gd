@@ -38,12 +38,15 @@ func _process(delta):
 	# 移動量が残ってないなら
 	else:
 
+		const font_height = 32
+		const space_line = 16
+
 		# 上へ移動する分
 		# if Input.is_action_pressed(&"move_down"):
 		if Input.is_action_pressed(&"ui_up"):
 			print("［選択肢カーソル］　上へ")
 			self.src_y = self.offset_top
-			self.dst_y = self.offset_top - (32+8)
+			self.dst_y = self.offset_top - (font_height+space_line)
 			self.total_seconds = 0.3
 			self.elapsed_seconds = 0.0
 			
@@ -52,7 +55,7 @@ func _process(delta):
 		if Input.is_action_pressed(&"ui_down"):
 			print("［選択肢カーソル］　下へ")
 			self.src_y = self.offset_top
-			self.dst_y = self.offset_top + (32+8)
+			self.dst_y = self.offset_top + (font_height+space_line)
 			self.total_seconds = 0.3
 			self.elapsed_seconds = 0.0
 
