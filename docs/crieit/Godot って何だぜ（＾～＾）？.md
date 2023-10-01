@@ -327,4 +327,48 @@ extends Sprite2D
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　その線で行こう　とにかく　つらい」  
 
+## エディターのフォントが嫌い
+
+![202310__godot__01-1745--EditorFont.png](https://crieit.now.sh/upload_images/873778b4eb7347c415462a6df9e6fca1651931efa5b0a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　エディターのフォントが嫌い。変えれるのかだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　このエディター自体も　Godot　で作られてるそうだしな。  
+だったら　フォントを変える機能ぐらい　あってもおかしくないな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　できるらしいんだが、詳しく書いてないな」  
+
+📖　[Changing editor fonts](https://docs.huihoo.com/godotengine/godot-docs/godot/reference/changing_editor_fonts.html)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　`プロジェクト設定` ではなくて、 `エディター設定` にあるそうだぜ」  
+
+📖　[How to change code editor font?](https://www.reddit.com/r/godot/comments/bfbse2/how_to_change_code_editor_font/)  
+
+Author: Synapse84  
+
+```plaintext
+Editor Settings -> Interface -> Editor -> Code Font
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　標準フォントと、太字フォントの２つ設定する欄があるのか。  
+👇　２つ取ってくるか」  
+
+📖　[MPLUS_FONTS / fonts / otf](https://github.com/coz-m/MPLUS_FONTS/tree/master/fonts/otf)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　メインのフォントじゃなくて、コードのフォントを変えたいんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そうだぜ。コードのフォントは別かー」  
+
+![202310__godot__01-1809--CodeFont.png](https://crieit.now.sh/upload_images/8a4f2473514b7ea8552e275bb1b3a4a8651937890db78.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　３点リーダーが　半角なのは　納得がいかないが、　それ以外は　今のところ　素晴らしいぜ」  
+
 .
