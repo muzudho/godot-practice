@@ -85,11 +85,13 @@ func _process(delta):
 			if Input.is_action_pressed(&"ui_down"):
 				print("［選択肢カーソル］　下へ")
 				print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
+				var size = self.get_parent_choice_row_numbers().size()
+				print("［選択肢カーソル］　選択肢数：" + str(size))
 				
-				# 下へ移動できるか？（最大で３行という想定）
+				# 下へ移動できるか？
 				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
 				print("［選択肢カーソル］　インデックス：" + str(index))
-				if index < 0 or 2 < index:
+				if index < 0 or size <= index + 1:
 					return
 
 				var old_selected_row_number = self.selected_row_number
