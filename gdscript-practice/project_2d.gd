@@ -2,7 +2,6 @@
 # 	とりあえず、ゲーム全体をコントロールする
 extends Node2D
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# シナリオ・ブックから、内容を取出す

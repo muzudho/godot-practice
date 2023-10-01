@@ -1,6 +1,6 @@
 extends Label
 
-# テキスト・エリアの状態遷移図（親ノードがセットする）
+# メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine = null
 
 # 点滅用
@@ -33,9 +33,9 @@ func _process(delta):
 	else:
 		# 非表示
 		self.visible = false
-		self.is_first_displayed_immediately = false
 
 func reset():
 	self.visible = false
 	self.count_of_blink = 0
+	self.is_first_displayed_immediately = false
 	
