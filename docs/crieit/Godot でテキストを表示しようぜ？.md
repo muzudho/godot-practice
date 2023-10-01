@@ -635,4 +635,52 @@ func _unhandled_key_input(event):
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
+# 以下、追加機能
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　メッセージの早送り機能が欲しくない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　どのボタンを押したら　早送りするんだぜ？  
+まだ　キーボードで遊ぶのか、ゲームパッドで遊ぶのか、何も決まってないぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　とりあえず　キーボードに絞ってもいいのでは？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ　スーパーファミコンの `R` ボタンとか　よく使ったから、キーボードの　`R` キーでいいか」  
+
+```gd
+		# １文字 50ms でも、結構ゆっくり
+		var wait_time = 0.05
+	
+		# メッセージの早送り
+		if Input.is_key_pressed(KEY_R):
+			print("［テキストブロック］　メッセージの早送り")
+			wait_time = 0.01
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな感じで　ウェイトを変えればいいぜ」  
+
+```gd
+			if event.keycode == KEY_R:
+				print("［テキストブロック］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+				return
+			# 選択肢モードの場合は、確定ボタン以外は無効
+			elif self.is_choice_mode and event is InputEventKey and event.pressed:
+				if event.keycode != KEY_ENTER:
+					print("［テキストブロック］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
+					return
+				else:
+					print("［テキストブロック］　選んだ選択肢行番号：" + str($"ChoiceCursor".selected_row_number))
+					pass
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　逆に、メッセージ送りには　`R` キーは使えないぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`送り` とか `早送り` とか　国語が難しいな」  
+
 .

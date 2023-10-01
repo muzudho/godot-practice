@@ -14,7 +14,7 @@ var choice_row_numbers = []
 
 # シナリオ・データ設定
 func set_scenario_array(scenario_array):
-	print("［テキストエリア］　シナリオ・データを受け取った")
+	print("［テキストブロック］　シナリオ・データを受け取った")
 	self.scenario_array = scenario_array
 
 	# メッセージ送り
@@ -33,13 +33,13 @@ func forward_message():
 	# 先頭行の最初と、最終行の最後の表示されない文字を消去
 	temp_text = temp_text.strip_edges()
 	
-	print("［テキストエリア］　台詞はまだあるよ")
-	# print("［テキストエリア］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
+	print("［テキストブロック］　台詞はまだあるよ")
+	# print("［テキストブロック］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
 
 	
 	# 選択肢かどうか判定
 	if temp_text.begins_with("!choice "):
-		print("［テキストエリア］　選択肢だ")
+		print("［テキストブロック］　選択肢だ")
 		self.is_choice_mode = true
 		
 		# じゃあ、先頭行は省きたい
@@ -47,20 +47,20 @@ func forward_message():
 		print(index)
 		var head = temp_text.substr(0, index)
 		var tail = temp_text.substr(index+1, temp_text.length() - (index+1))
-		# print("［テキストエリア］　head：　[" + head + "]")
-		# print("［テキストエリア］　tail：　[" + tail + "]")
+		# print("［テキストブロック］　head：　[" + head + "]")
+		# print("［テキストブロック］　tail：　[" + tail + "]")
 
 		# head
 		var csv = head.substr(8, head.length()-8)
 		# TODO 昇順であること
 		var string_packed_array = csv.split(",", true, 0)
 		var size = string_packed_array.size()
-		# print("［テキストエリア］　選択肢サイズ：" + str(size))
+		# print("［テキストブロック］　選択肢サイズ：" + str(size))
 		
 		# 文字列型を数値型に変換
 		self.choice_row_numbers = []
 		self.choice_row_numbers.resize(size)
-		# print("［テキストエリア］　行番号一覧")
+		# print("［テキストブロック］　行番号一覧")
 		for i in range(0, size):
 			self.choice_row_numbers[i] = string_packed_array[i].to_int()
 			# print(self.choice_row_numbers[i])
@@ -68,7 +68,7 @@ func forward_message():
 		# tail
 		temp_text = tail
 	else:
-		# print("［テキストエリア］　選択肢ではない")
+		# print("［テキストブロック］　選択肢ではない")
 		self.is_choice_mode = false
 		self.choice_row_numbers = []
 	
@@ -95,8 +95,16 @@ func _process(delta):
 			self.is_visible_initialized = true
 		
 		count_of_typewriter += delta
+
+		# １文字 50ms でも、結構ゆっくり
+		var wait_time = 0.05
 	
-		if 0.05 <= count_of_typewriter:
+		# メッセージの早送り
+		if Input.is_key_pressed(KEY_R):
+			print("［テキストブロック］　メッセージの早送り")
+			wait_time = 0.01
+	
+		if wait_time <= count_of_typewriter:
 			if 0 < self.text_buffer.length():
 				# １文字追加
 				self.text += self.text_buffer.substr(0, 1)
@@ -105,7 +113,7 @@ func _process(delta):
 				# 完全表示中
 				self.statemachine.all_character_pushed()
 			
-			count_of_typewriter -= 0.05
+			count_of_typewriter -= wait_time
 
 
 func _unhandled_key_input(event):
@@ -115,13 +123,16 @@ func _unhandled_key_input(event):
 		# 何かキーを押したとき
 		if event.is_pressed():
 			
+			if event.keycode == KEY_R:
+				print("［テキストブロック］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+				return
 			# 選択肢モードの場合は、確定ボタン以外は無効
-			if self.is_choice_mode and event is InputEventKey and event.pressed:
+			elif self.is_choice_mode and event is InputEventKey and event.pressed:
 				if event.keycode != KEY_ENTER:
-					print("［テキストエリア］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
+					print("［テキストブロック］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
 					return
 				else:
-					print("［テキストエリア］　選んだ選択肢行番号：" + str($"ChoiceCursor".selected_row_number))
+					print("［テキストブロック］　選んだ選択肢行番号：" + str($"ChoiceCursor".selected_row_number))
 					pass
 				
 			
@@ -140,7 +151,7 @@ func _unhandled_key_input(event):
 				
 			else:
 				# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
-				print("［テキストエリア］　台詞は終わった")
+				print("［テキストブロック］　台詞は終わった")
 				self.visible = false
 				self.is_visible_initialized = false
 				self.statemachine.all_page_flushed()
