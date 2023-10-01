@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=13 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
+[ext_resource type="Script" path="res://project_2d.gd" id="1_la6ej"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://MessageWindow.png" id="3_8exrp"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
 [ext_resource type="Script" path="res://textend_blinker.gd" id="6_7u0ub"]
 [ext_resource type="Script" path="res://MessageWindowText.gd" id="6_abnhm"]
+[ext_resource type="Script" path="res://MessageWindow.gd" id="7_mtjha"]
+[ext_resource type="Script" path="res://ScenarioBook.gd" id="8_jryfe"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -20,8 +23,9 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 
-[node name="Node2D" type="Node2D"]
+[node name="Project2D" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
+script = ExtResource("1_la6ej")
 
 [node name="Sprite2D2" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
@@ -44,9 +48,13 @@ position = Vector2(215, 362)
 [node name="Timer" type="Timer" parent="Sprite2D"]
 autostart = true
 
+[node name="ScenarioBook" type="Node" parent="."]
+script = ExtResource("8_jryfe")
+
 [node name="MessageWindow" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("3_8exrp")
+script = ExtResource("7_mtjha")
 
 [node name="TextArea" type="Label" parent="MessageWindow"]
 offset_left = -321.0
@@ -57,6 +65,7 @@ label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("6_abnhm")
 
 [node name="BlinkerTriangle" type="Label" parent="MessageWindow/TextArea"]
+layout_mode = 0
 offset_left = 642.0
 offset_top = 95.0
 offset_right = 674.0
@@ -66,6 +75,7 @@ label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("6_7u0ub")
 
 [node name="BlinkerUnderscore" type="Label" parent="MessageWindow/TextArea"]
+layout_mode = 0
 offset_left = 640.0
 offset_top = 103.0
 offset_right = 672.0

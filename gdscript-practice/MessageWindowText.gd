@@ -1,53 +1,19 @@
 extends Label
 
 var count_of_typewriter = 0
-
-var scenario_array = [
-	# ２３４５６７８９０１２３４５６７８９０
-	"""\
-	きふわらべ
-	「お父ん、知ってたら教えてくれだぜ。
-	　エスフェン(SFEN)の 7g7f って何だぜ？
-	""",
-	"""\
-	お父ん
-	「あー。７筋の７段目の駒を６段目に
-	　突くことだぜ。分かったら　もう寝ろ
-	""",
-	"""\
-	きふわらべ
-	「3c3d　って何だぜ？
-	""",
-	"""\
-	お父ん
-	「角換わりだろ。
-	　もう寝ろ
-	""",
-	"""\
-	きふわらべ
-	「お父ん、なんで唐揚げを食べてるんだぜ？
-	　ダイエットはどうした？野菜食べろだぜ！
-	""",
-	"""\
-	お父ん
-	「元気になりたくて唐揚げを食べるんだぜ
-	""",
-	# ２３４５６７８９０１２３４５６７８９０
-	"""\
-	カロリー計算をしようと思ったときもあった
-	限界まで食べてしまうので止めた
-	""",
-]
-
+var scenario_array = []
 var text_storage = ""
+var is_completed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# 最初のテキスト
 	self.text = ""
 	
-	if self.text_storage == "" and 0 < self.scenario_array.size():
-		self.text_storage = self.scenario_array.pop_front()
+	#var scenario_array2 = self.scenario_array
+	#
+	#if self.text_storage == "" and 0 < scenario_array2.size():
+	#	self.text_storage = scenario_array2.pop_front()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -60,6 +26,10 @@ func _process(delta):
 		if 0 < self.text_storage.length():
 			self.text += text_storage.substr(0, 1)
 			text_storage = text_storage.substr(1, self.text_storage.length()-1)
+		elif not self.is_completed:
+			# 表示完了
+			self.is_completed = true
+			
 		count_of_typewriter -= 0.05
 
 func _unhandled_key_input(event):
@@ -69,8 +39,9 @@ func _unhandled_key_input(event):
 		$"BlinkerTriangle".reset()
 		$"BlinkerUnderscore".reset()
 		
-		# メッセージ送り
-		if self.text_storage == "":
+		# 表示完了時
+		if self.is_completed:
+			# メッセージ送り
 			self.text = ""
 			
 			if 0 < self.scenario_array.size():

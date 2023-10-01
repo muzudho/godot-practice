@@ -19,8 +19,8 @@ func _process(delta):
 	# テキストを出し終えたか？
 	count_of_typewriter += delta
 	if not is_blink_started and 0.5 <= count_of_typewriter:
-		var message_window_text = $".."
-		if message_window_text.get("text_storage").length() < 1:
+		# テキストエリアの準備文字列が空か？
+		if $"..".get("text_storage").length() < 1:
 			is_blink_started = true
 			visible = true
 			
