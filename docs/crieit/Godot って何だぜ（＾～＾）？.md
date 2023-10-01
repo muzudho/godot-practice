@@ -371,4 +371,90 @@ Editor Settings -> Interface -> Editor -> Code Font
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　３点リーダーが　半角なのは　納得がいかないが、　それ以外は　今のところ　素晴らしいぜ」  
 
+# 選択肢を付けたいぜ　♪
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　ここで作業用ＢＧＭを　掛けるか」  
+
+📻　[【V-METAL】FCくにおくんサッカー マタギ学園戦BGM【アレンジ】](https://www.youtube.com/watch?v=iuNoefiMAdg)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　なんだぜ　この曲？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　**マタギ学園！**　選曲が　めっちゃ　面白いところを　引っ張ってくるな。  
+１人１票で　人気ランキングを付けたら　くにおくんシリーズの上位には来ないが  
+何票でも入れれるなら　下にはならないような　層の真ん中らへんの分厚いとこにいるような  
+シリーズの基調イメージを　引っ張り上げている感じのやつ」  
+
+![202310__godot__01-1822--Choice.png](https://crieit.now.sh/upload_images/958379eb529c41c79fd57625f5a3095265193db0e48f0.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　次は　選択肢を出したいんだが」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　簡単に作るなら　選択肢は２つか　３つの決め打ちかしらねえ？」  
+
+```plaintext
+!choice 12
+１　あいうえお
+２　かきくけこ
+　　さしすせそ
+  
+!choice 13
+１　あいうえお
+　　かきくけこ
+３　さしすせそ
+  
+!choice 23
+　　あいうえお
+２　かきくけこ
+３　さしすせそ
+  
+!choice 123
+１　あいうえお
+２　かきくけこ
+３　さしすせそ
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　カーソル位置は　４種類あるんじゃないか？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　下に　どんどん　スクロールして　次の選択肢が出てくるケースは　考えないのかだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ごめんなさい　しようぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　これを作れるんなら　ＲＰＧのコマンド・メニューも作れそうなもんよね」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ　１０行ぐらいの　コマンド・メニューで使うこともあるか」  
+
+```plaintext
+!choice 1,2
+１　あいうえお
+２　かきくけこ
+　　さしすせそ
+  
+!choice 1,3
+１　あいうえお
+　　かきくけこ
+３　さしすせそ
+  
+!choice 2,3
+　　あいうえお
+２　かきくけこ
+３　さしすせそ
+  
+!choice 1,2,3
+１　あいうえお
+２　かきくけこ
+３　さしすせそ
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　カンマ区切りにしておくか」  
+
 .
