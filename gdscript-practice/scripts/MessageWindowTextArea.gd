@@ -6,7 +6,7 @@ var statemachine = null
 var is_visible_initialized = false
 var count_of_typewriter = 0
 var scenario_array = []
-var text_storage = ""
+var text_buffer = ""
 
 
 # シナリオ・データ設定
@@ -25,11 +25,26 @@ func set_scenario_array(scenario_array):
 func forward_message():
 	self.text = ""
 	
-	print("［テキストエリア］　台詞はまだあるよ")
-	var text = self.scenario_array.pop_front()
+	var temp_text = self.scenario_array.pop_front()
+
+	# 先頭行の最初と、最終行の最後の表示されない文字を消去
+	temp_text = temp_text.strip_edges()
 	
-	print("［テキストエリア］　テキスト：　" + text)
-	self.text_storage = text
+	print("［テキストエリア］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
+
+	
+	# 選択肢かどうか判定
+	if temp_text.begins_with("!choice "):
+		print("［テキストエリア］　選択肢だ")
+		var csv = temp_text.substr(8, temp_text.length()-8)
+		var row_numbers = csv.split(",", true, 0)
+		print("［テキストエリア］　行番号")
+		for row_number in row_numbers:
+			print(row_number)
+	else:
+		print("［テキストエリア］　選択肢ではない")
+	
+	self.text_buffer = temp_text
 
 
 # Called when the node enters the scene tree for the first time.
@@ -54,10 +69,10 @@ func _process(delta):
 		count_of_typewriter += delta
 	
 		if 0.05 <= count_of_typewriter:
-			if 0 < self.text_storage.length():
+			if 0 < self.text_buffer.length():
 				# １文字追加
-				self.text += text_storage.substr(0, 1)
-				text_storage = text_storage.substr(1, self.text_storage.length()-1)
+				self.text += self.text_buffer.substr(0, 1)
+				self.text_buffer = self.text_buffer.substr(1, self.text_buffer.length()-1)
 			else:
 				# 完全表示中
 				self.statemachine.all_character_pushed()
