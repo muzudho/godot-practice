@@ -36,11 +36,24 @@ func forward_message():
 	# 選択肢かどうか判定
 	if temp_text.begins_with("!choice "):
 		print("［テキストエリア］　選択肢だ")
-		var csv = temp_text.substr(8, temp_text.length()-8)
+		
+		# じゃあ、先頭行は省きたい
+		var index = temp_text.find("\n")
+		print(index)
+		var head = temp_text.substr(0, index)
+		var tail = temp_text.substr(index+1, temp_text.length() - (index+1))
+		print("［テキストエリア］　head：　[" + head + "]")
+		print("［テキストエリア］　tail：　[" + tail + "]")
+
+		# head
+		var csv = head.substr(8, head.length()-8)
 		var row_numbers = csv.split(",", true, 0)
 		print("［テキストエリア］　行番号")
 		for row_number in row_numbers:
 			print(row_number)
+		
+		# tail
+		temp_text = tail
 	else:
 		print("［テキストエリア］　選択肢ではない")
 	
