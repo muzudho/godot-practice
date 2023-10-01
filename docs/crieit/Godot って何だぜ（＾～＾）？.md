@@ -499,4 +499,26 @@ Author: Zylann
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　分かったぜ。あとはやってみるぜ」  
 
+## offset_top はピクセル座標なのか？
+
+![202310__godot__01-2111--Lerp.png](https://crieit.now.sh/upload_images/e6f494891b700638af152af5243ad11d65196215e7d6d.png)  
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`offset_top` に指定したピクセル数通りには動いてくれないぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　問題ばっかり　起こるわねえ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　4 px 多めに足してやったら　ちょうどいいのでは？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　その 4px の違いは　何から来てるんだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ゲームは　ピクセル単位だが、  
+ヘッド・アップ・ディスプレイは　ピクセルのスケールが違うのでは？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　その差をどうやって取得できる？」  
+
 .

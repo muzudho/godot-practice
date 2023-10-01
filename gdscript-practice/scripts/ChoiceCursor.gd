@@ -27,10 +27,12 @@ func _process(delta):
 		# 移動する
 		self.elapsed_seconds += delta
 		var progress = self.elapsed_seconds/self.total_seconds
-		if 1 < progress:
-			progress = 1
+		if 1.0 <= progress:
+			progress = 1.0
 			self.total_seconds = 0.0
 		self.offset_top = self.lerp(self.src_y, self.dst_y, progress)
+		print("［選択肢カーソル］　progress")
+		print(progress)
 		
 		
 	# 移動量が残ってないなら
