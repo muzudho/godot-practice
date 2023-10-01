@@ -12,6 +12,17 @@ var total_seconds = 0.0
 # 経過時間（秒）
 var elapsed_seconds = 0.0
 
+# カーソルが現在指している行番号。序数
+var selected_row_number = 1
+
+
+func get_parent_choice_row_numbers():
+	print("［選択肢カーソル］　選択肢行番号一覧")
+	for row_num in $"..".choice_row_numbers:
+		print(row_num)
+	
+	return $"..".choice_row_numbers
+
 
 # 線形補間
 func lerp(src, dst, progress):
@@ -55,16 +66,39 @@ func _process(delta):
 			# 上へ移動する分
 			if Input.is_action_pressed(&"ui_up"):
 				print("［選択肢カーソル］　上へ")
+				
+				# 上へ移動できるか？
+				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
+				if index < 1:
+					return
+
+				var old_selected_row_number = self.selected_row_number
+				self.selected_row_number = self.get_parent_choice_row_numbers()[index - 1]
+				var difference = old_selected_row_number - self.selected_row_number
+				
 				self.src_y = self.offset_top
-				self.dst_y = self.offset_top - (font_height+space_line)
+				self.dst_y = self.offset_top - difference * (font_height+space_line)
 				self.total_seconds = 0.3
 				self.elapsed_seconds = 0.0
 				
 			# 下へ移動する分
 			if Input.is_action_pressed(&"ui_down"):
 				print("［選択肢カーソル］　下へ")
+				print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
+				
+				# 下へ移動できるか？（最大で３行という想定）
+				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
+				print("［選択肢カーソル］　インデックス：" + str(index))
+				if index < 0 or 2 < index:
+					return
+
+				var old_selected_row_number = self.selected_row_number
+				self.selected_row_number = self.get_parent_choice_row_numbers()[index + 1]
+				print("［選択肢カーソル］　新行番号：" + str(self.selected_row_number))
+				var difference = self.selected_row_number - old_selected_row_number
+
 				self.src_y = self.offset_top
-				self.dst_y = self.offset_top + (font_height+space_line)
+				self.dst_y = self.offset_top + difference * (font_height+space_line)
 				self.total_seconds = 0.3
 				self.elapsed_seconds = 0.0
 		

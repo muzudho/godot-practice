@@ -9,6 +9,7 @@ var scenario_array = []
 var text_buffer = ""
 # 選択肢モード
 var is_choice_mode = false
+var choice_row_numbers = []
 
 
 # シナリオ・データ設定
@@ -51,16 +52,25 @@ func forward_message():
 
 		# head
 		var csv = head.substr(8, head.length()-8)
-		var row_numbers = csv.split(",", true, 0)
-		print("［テキストエリア］　行番号")
-		for row_number in row_numbers:
-			print(row_number)
+		# TODO 昇順であること
+		var string_packed_array = csv.split(",", true, 0)
+		var size = string_packed_array.size()
+		print("［テキストエリア］　選択肢サイズ：" + str(size))
 		
+		# 文字列型を数値型に変換
+		self.choice_row_numbers = []
+		self.choice_row_numbers.resize(size)
+		print("［テキストエリア］　行番号一覧")
+		for i in range(0, size):
+			self.choice_row_numbers[i] = string_packed_array[i].to_int()
+			print(self.choice_row_numbers[i])
+					
 		# tail
 		temp_text = tail
 	else:
 		print("［テキストエリア］　選択肢ではない")
 		self.is_choice_mode = false
+		self.choice_row_numbers = []
 	
 	self.text_buffer = temp_text
 

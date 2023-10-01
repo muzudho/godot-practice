@@ -529,4 +529,20 @@ Author: Zylann
 「　すべての　つじつまが　合ったぜ。  
 直そ」  
 
+## PackedStringArray って何だぜ？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　PackedStringArray って何だぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　メモリの効率のためのコレクションで、文字列の配列をメンバーとして持っているオブジェクトだな」  
+
+📖　[PackedStringArray](https://docs.godotengine.org/en/stable/classes/class_packedstringarray.html)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　中身　数値なんで、数値の配列に変換するには？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　自力で　がんばれだぜ」  
+
 .
