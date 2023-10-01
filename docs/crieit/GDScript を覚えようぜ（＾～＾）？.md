@@ -649,4 +649,32 @@ func _on_timer_timeout():
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
+# 以下、独習
+
+📖　[GDScript reference](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html)  
+
+## 列挙型
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot に　列挙型は有るのかだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　書き方がいくつか有るようだぜ。これを読んで分かるか？」  
+
+📖　[Enum](https://docs.godotengine.org/en/stable/tutorials/scripting/gdscript/gdscript_basics.html#enums)
+
+```gd
+enum State {STATE_IDLE, STATE_JUMP = 5, STATE_SHOOT}
+
+func _ready():
+    # Access values with Name.KEY, prints '5'
+    print(State.STATE_JUMP)
+    # Use constant dictionary functions
+    # prints '["STATE_IDLE", "STATE_JUMP", "STATE_SHOOT"]'
+    print(State.keys())
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　あとは　調べてみるぜ」  
+
 .

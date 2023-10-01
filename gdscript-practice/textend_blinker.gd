@@ -1,11 +1,11 @@
 extends Label
 
+# 状態遷移図
+const States = preload("MessageWindowStatemachine.gd").States
+
 # 点滅用
-var is_blink_started = false
 var count_of_blink = 0
 
-# タイプライターの文字出力間隔
-var count_of_typewriter = 0
 
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
@@ -16,26 +16,25 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# テキストを出し終えたか？
-	count_of_typewriter += delta
-	if not is_blink_started and 0.5 <= count_of_typewriter:
-		# テキストエリアの準備文字列が空か？
-		if $"..".get("text_storage").length() < 1:
-			is_blink_started = true
-			visible = true
-			
-		count_of_typewriter -= 0.5
+	# テキスト・エリアの状態確認
+	var state = $"..".state
 
-	# 点滅
-	if is_blink_started:
+	# 完全表示中	
+	if state == States.Completed:
+		# 表示して点滅
+		if not self.visible:
+			self.visible = true
+		
 		count_of_blink += delta
 		if 0.75 <= count_of_blink: 
 			visible = not visible
 			count_of_blink -= 0.75
+	# それ以外
+	else:
+		# 非表示
+		self.visible = false
 
 func reset():
 	self.visible = false
-	self.is_blink_started = false
 	self.count_of_blink = 0
-	self.count_of_typewriter = 0
 	
