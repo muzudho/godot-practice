@@ -30,7 +30,8 @@ func forward_message():
 	# 先頭行の最初と、最終行の最後の表示されない文字を消去
 	temp_text = temp_text.strip_edges()
 	
-	print("［テキストエリア］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
+	print("［テキストエリア］　台詞はまだあるよ")
+	# print("［テキストエリア］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
 
 	
 	# 選択肢かどうか判定

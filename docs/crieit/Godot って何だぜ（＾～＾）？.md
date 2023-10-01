@@ -464,4 +464,26 @@ GDScript から位置指定ができなかった……」
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　じゃあ　予め　固定の３つのカーソルを用意しておけだぜ」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　あっ、 `self.offset_top` で上下位置を変えれる！」  
+
+## _unhandled_input と _input は何が違う？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`_unhandled_input` と `_input` は何が違う？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　これを読めだぜ」  
+
+📖　[Can anyone explain to me unhandled input and handled input?](https://ask.godotengine.org/12831/can-anyone-explain-to-me-unhandled-input-and-handled-input)  
+
+Author: Zylann  
+
+* `_input` - とにかく呼び出されます
+* `_input_event` - コントロールで呼び出されます(ボタンのクリックやボックスにテキストを入力するなど)
+* `_unhandled_input` - 上記のいずれもイベントをキャプチャしない場合に呼び出され、通常はゲーム ワールド自体で使用されます。たとえば、テキストボックスで[スペース]を押しても、その機能を使用している場合、キャラクターはジャンプしません
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　分かったぜ。あとは　やってみるぜ」  
+
 .
