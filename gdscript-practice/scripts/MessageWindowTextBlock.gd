@@ -116,9 +116,14 @@ func _unhandled_key_input(event):
 		if event.is_pressed():
 			
 			# 選択肢モードの場合は、確定ボタン以外は無効
-			if self.is_choice_mode and event is InputEventKey and event.pressed and event.keycode != KEY_ENTER:
-				print("［テキストエリア］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
-				return
+			if self.is_choice_mode and event is InputEventKey and event.pressed:
+				if event.keycode != KEY_ENTER:
+					print("［テキストエリア］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
+					return
+				else:
+					print("［テキストエリア］　選んだ選択肢行番号：" + str($"ChoiceCursor".selected_row_number))
+					pass
+				
 			
 			# ブリンカーを消す
 			$"BlinkerTriangle".reset()
