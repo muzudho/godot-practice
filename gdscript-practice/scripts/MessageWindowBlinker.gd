@@ -12,7 +12,7 @@ var count_of_blink = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# 最初は非表示
-	visible = false
+	self.visible = false
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

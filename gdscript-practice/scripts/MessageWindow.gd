@@ -19,6 +19,7 @@ func _ready():
 	$"TextBlock".statemachine = self.statemachine
 	$"TextBlock/BlinkerTriangle".statemachine = self.statemachine
 	$"TextBlock/BlinkerUnderscore".statemachine = self.statemachine
+	$"TextBlock/ChoiceCursor".statemachine = self.statemachine
 
 
 func _process(delta):

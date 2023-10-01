@@ -103,11 +103,11 @@ text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("12_eus3r")
 
-[node name="ChoiceCursor" type="Label" parent="MessageWindow"]
-offset_left = 320.0
-offset_top = 504.0
-offset_right = 352.0
-offset_bottom = 549.0
+[node name="ChoiceCursor" type="Label" parent="MessageWindow/TextBlock"]
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("13_qefmu")

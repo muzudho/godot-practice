@@ -68,7 +68,7 @@ func forward_message():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# 最初は非表示
-	visible = false
+	self.visible = false
 	
 	# 最初のテキスト
 	self.text = ""
@@ -96,6 +96,7 @@ func _process(delta):
 				self.statemachine.all_character_pushed()
 			
 			count_of_typewriter -= 0.05
+
 
 func _unhandled_key_input(event):
 	
@@ -126,6 +127,6 @@ func _unhandled_key_input(event):
 				# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
 				print("［テキストエリア］　台詞は終わった")
 				self.visible = false
-				is_visible_initialized = false
+				self.is_visible_initialized = false
 				self.statemachine.all_page_flushed()
 					
