@@ -545,4 +545,14 @@ Author: Zylann
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　自力で　がんばれだぜ」  
 
+![202310__godot__01-2246--Choice.png](https://crieit.now.sh/upload_images/6a8fd85ebd7dec6b8e9e5bb9d3f461806519783c21c5e.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　選択肢は　ひとまず　これでいいや」  
+
+📺　[動画](https://x.com/muzudho1/status/1708476312942424299?s=20)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　選択肢は　動画に映ってる分で　もう十分よ」  
+
 .

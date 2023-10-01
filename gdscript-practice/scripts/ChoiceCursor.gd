@@ -17,9 +17,9 @@ var selected_row_number = 1
 
 
 func get_parent_choice_row_numbers():
-	print("［選択肢カーソル］　選択肢行番号一覧")
-	for row_num in $"..".choice_row_numbers:
-		print(row_num)
+	# print("［選択肢カーソル］　選択肢行番号一覧")
+	# for row_num in $"..".choice_row_numbers:
+	# 	print(row_num)
 	
 	return $"..".choice_row_numbers
 

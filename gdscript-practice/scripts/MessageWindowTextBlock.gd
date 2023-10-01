@@ -47,28 +47,28 @@ func forward_message():
 		print(index)
 		var head = temp_text.substr(0, index)
 		var tail = temp_text.substr(index+1, temp_text.length() - (index+1))
-		print("［テキストエリア］　head：　[" + head + "]")
-		print("［テキストエリア］　tail：　[" + tail + "]")
+		# print("［テキストエリア］　head：　[" + head + "]")
+		# print("［テキストエリア］　tail：　[" + tail + "]")
 
 		# head
 		var csv = head.substr(8, head.length()-8)
 		# TODO 昇順であること
 		var string_packed_array = csv.split(",", true, 0)
 		var size = string_packed_array.size()
-		print("［テキストエリア］　選択肢サイズ：" + str(size))
+		# print("［テキストエリア］　選択肢サイズ：" + str(size))
 		
 		# 文字列型を数値型に変換
 		self.choice_row_numbers = []
 		self.choice_row_numbers.resize(size)
-		print("［テキストエリア］　行番号一覧")
+		# print("［テキストエリア］　行番号一覧")
 		for i in range(0, size):
 			self.choice_row_numbers[i] = string_packed_array[i].to_int()
-			print(self.choice_row_numbers[i])
+			# print(self.choice_row_numbers[i])
 					
 		# tail
 		temp_text = tail
 	else:
-		print("［テキストエリア］　選択肢ではない")
+		# print("［テキストエリア］　選択肢ではない")
 		self.is_choice_mode = false
 		self.choice_row_numbers = []
 	
