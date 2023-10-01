@@ -2,7 +2,7 @@
 extends Node
 
 # 状態遷移図
-var MessageWindowStatemachine = load("MessageWindowStatemachine.gd")
+var MessageWindowStatemachine = load("scripts/MessageWindowStatemachine.gd")
 var statemachine = MessageWindowStatemachine.new()
 
 

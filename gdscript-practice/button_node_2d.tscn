@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
 [ext_resource type="Script" path="res://project_2d.gd" id="1_la6ej"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
-[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://MessageWindow.png" id="3_8exrp"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
-[ext_resource type="Script" path="res://textend_blinker.gd" id="6_7u0ub"]
-[ext_resource type="Script" path="res://MessageWindowText.gd" id="6_abnhm"]
-[ext_resource type="Script" path="res://MessageWindow.gd" id="7_mtjha"]
-[ext_resource type="Script" path="res://MessageWindowBackground.gd" id="8_6hulj"]
-[ext_resource type="Script" path="res://ScenarioBook.gd" id="8_jryfe"]
-[ext_resource type="Script" path="res://MessageWindowStatemachine.gd" id="8_yq8a0"]
+[ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
+[ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="6_g48f5"]
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="7_gmngy"]
+[ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="8_rwjq5"]
+[ext_resource type="Script" path="res://scripts/MessageWindowStatemachine.gd" id="9_1jqoj"]
+[ext_resource type="Script" path="res://scripts/MessageWindowTextArea.gd" id="11_8xk1h"]
+[ext_resource type="Script" path="res://scripts/MessageWindowBlinker.gd" id="12_eus3r"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -51,18 +51,18 @@ position = Vector2(215, 362)
 autostart = true
 
 [node name="ScenarioBook" type="Node" parent="."]
-script = ExtResource("8_jryfe")
+script = ExtResource("5_srvyn")
 
 [node name="MessageWindow" type="Node" parent="."]
-script = ExtResource("7_mtjha")
+script = ExtResource("6_g48f5")
 
 [node name="Background" type="Sprite2D" parent="MessageWindow"]
 position = Vector2(640, 360)
-texture = ExtResource("3_8exrp")
-script = ExtResource("8_6hulj")
+texture = ExtResource("7_gmngy")
+script = ExtResource("8_rwjq5")
 
 [node name="Statemachine" type="Node" parent="MessageWindow"]
-script = ExtResource("8_yq8a0")
+script = ExtResource("9_1jqoj")
 
 [node name="TextArea" type="Label" parent="MessageWindow"]
 offset_left = 319.0
@@ -70,7 +70,7 @@ offset_top = 507.0
 offset_right = 1053.0
 offset_bottom = 708.0
 label_settings = SubResource("LabelSettings_6ksp3")
-script = ExtResource("6_abnhm")
+script = ExtResource("11_8xk1h")
 
 [node name="BlinkerTriangle" type="Label" parent="MessageWindow/TextArea"]
 layout_mode = 0
@@ -80,7 +80,7 @@ offset_right = 674.0
 offset_bottom = 140.0
 text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
-script = ExtResource("6_7u0ub")
+script = ExtResource("12_eus3r")
 
 [node name="BlinkerUnderscore" type="Label" parent="MessageWindow/TextArea"]
 layout_mode = 0
@@ -90,7 +90,7 @@ offset_right = 672.0
 offset_bottom = 148.0
 text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
-script = ExtResource("6_7u0ub")
+script = ExtResource("12_eus3r")
 
 [node name="TileMap" type="TileMap" parent="."]
 format = 2

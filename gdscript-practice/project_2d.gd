@@ -11,8 +11,3 @@ func _ready():
 	# メッセージ・ウィンドウへ、内容を渡す
 	print("［２Ｄプロジェクト］　メッセージ・ウィンドウへ、内容を渡す")
 	$"./MessageWindow".set_scenario_array(scenario_array)
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
