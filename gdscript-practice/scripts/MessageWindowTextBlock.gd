@@ -33,8 +33,8 @@ func forward_message():
 	# 先頭行の最初と、最終行の最後の表示されない文字を消去
 	temp_text = temp_text.strip_edges()
 	
-	print("［テキストブロック］　台詞はまだあるよ")
-	# print("［テキストブロック］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
+	# print("［テキストブロック］　台詞はまだあるよ")
+	print("［テキストブロック］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
 
 	
 	# 選択肢かどうか判定
@@ -120,40 +120,51 @@ func _unhandled_key_input(event):
 	
 	# 完全表示中
 	if self.statemachine.is_completed():
-		# 何かキーを押したとき
-		if event.is_pressed():
+
+		# 選択肢モードなら
+		if self.is_choice_mode:
 			
-			if event.keycode == KEY_R:
-				print("［テキストブロック］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
-				return
-			# 選択肢モードの場合は、確定ボタン以外は無効
-			elif self.is_choice_mode and event is InputEventKey and event.pressed:
+			# 何かキーを押したとき
+			if event.is_pressed():
+				#  and event is InputEventKey and event.pressed
+				
+				# 確定ボタン以外は無効
 				if event.keycode != KEY_ENTER:
 					print("［テキストブロック］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
 					return
+					
 				else:
 					# 選択肢の行番号を、上位ノードへエスカレーションします
 					$"..".on_choice_selected($"ChoiceCursor".selected_row_number)
-					pass
+					return
+		
+		# 非モードなら
+		else:
+		
+			# 何かキーを押したとき
+			if event.is_pressed():
 				
-			
-			# ブリンカーを消す
-			$"BlinkerTriangle".reset()
-			$"BlinkerUnderscore".reset()
-			
-			if 0 < self.scenario_array.size():
-				# まだあるよ
+				if event.keycode == KEY_R:
+					print("［テキストブロック］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+					return
+					
+				# ブリンカーを消す
+				$"BlinkerTriangle".reset()
+				$"BlinkerUnderscore".reset()
 				
-				# メッセージ送り
-				self.forward_message()
-				
-				# タイプライター風表示へ状態遷移
-				self.statemachine.page_forward()
-				
-			else:
-				# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
-				print("［テキストブロック］　台詞は終わった")
-				self.visible = false
-				self.is_visible_initialized = false
-				self.statemachine.all_page_flushed()
+				if 0 < self.scenario_array.size():
+					# まだあるよ
+					
+					# メッセージ送り
+					self.forward_message()
+					
+					# タイプライター風表示へ状態遷移
+					self.statemachine.page_forward()
+					
+				else:
+					# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
+					print("［テキストブロック］　台詞は終わった")
+					self.visible = false
+					self.is_visible_initialized = false
+					self.statemachine.all_page_flushed()
 					

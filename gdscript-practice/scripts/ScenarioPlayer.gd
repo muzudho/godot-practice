@@ -13,17 +13,11 @@ func play_paragraph(paragraph_code):
 	self.current_paragraph_code = paragraph_code
 	
 	# シナリオ・ブックから、内容を取出す
-	print("［２Ｄプロジェクト］　シナリオ・ブックから、内容を取出す")
+	print("［シナリオプレイヤー］　シナリオ・ブックから、内容を取出す")
 	var scenario_array = $"../ScenarioBook".get_paragraph(self.current_paragraph_code)
 	
 	# シナリオプレイヤーへ、内容を渡す
-	print("［２Ｄプロジェクト］　シナリオプレイヤーへ、内容を渡す")
-	$"../ScenarioPlayer".set_scenario_array(scenario_array)
-
-
-# テキストエリアへ、内容を渡す
-func set_scenario_array(scenario_array):
-	print("［メッセージ・ウィンドウ］　メッセージ・ウィンドウへ、内容を渡す")
+	print("［シナリオプレイヤー］　メッセージ・ウィンドウへ内容を渡す")
 	$"../MessageWindow".set_scenario_array(scenario_array)
 
 
