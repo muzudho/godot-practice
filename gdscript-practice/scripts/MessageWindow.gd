@@ -11,9 +11,10 @@ func set_scenario_array(scenario_array):
 	$"./TextBlock".set_scenario_array(scenario_array)
 
 
-# 選択肢を選んだとき、その行番号が渡されて、下位ノードから呼び出される
+# 下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
 	print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
+	$"../ScenarioPlayer".on_choice_selected(row_number)
 
 
 # サブツリーが全てインスタンス化されたときに呼び出される
