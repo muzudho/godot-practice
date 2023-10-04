@@ -1,12 +1,12 @@
 # ディレクター（Director；監督）
-#D 	とりあえず、ゲーム全体をコントロールする
+#	とりあえず、ゲーム全体をコントロールする
 extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# シナリオ・ブックから、内容を取出す
 	print("［２Ｄプロジェクト］　シナリオ・ブックから、内容を取出す")
-	var scenario_array = $"./ScenarioBook".scenario_array
+	var scenario_array = $"./ScenarioBook".get_paragraph("1")
 	
 	# シナリオプレイヤーへ、内容を渡す
 	print("［２Ｄプロジェクト］　シナリオプレイヤーへ、内容を渡す")

@@ -157,4 +157,39 @@ func _process(delta):
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　合理的ねえ」  
 
+📄 `Director.gd`:  
+
+```gd
+# ディレクター（Director；監督）
+#	とりあえず、ゲーム全体をコントロールする
+extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# シナリオ・ブックから、内容を取出す
+	print("［２Ｄプロジェクト］　シナリオ・ブックから、内容を取出す")
+	var scenario_array = $"./ScenarioBook".scenario_array
+	
+	# シナリオプレイヤーへ、内容を渡す
+	print("［２Ｄプロジェクト］　シナリオプレイヤーへ、内容を渡す")
+	$"./ScenarioPlayer".set_scenario_array(scenario_array)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　監督のスクリプトの雰囲気は　こんな感じになるはずだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　シナリオブックの　各部分に　パラグラフ（Paragraph；段落）番号を振れない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　リストではなく　マップが必要だな。 Godot にマップはあるのかだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　`Dictionary` という名前で有るぜ」  
+
+📖　[Godot Engine / Dictionary](https://docs.godotengine.org/en/stable/classes/class_dictionary.html)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　調べてみるか……」  
+
 .
