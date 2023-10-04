@@ -1,9 +1,8 @@
 # メッセージ・ウィンドウ（Message Window）
 extends Node
 
-# 状態遷移図
-var MessageWindowStatemachine = load("scripts/MessageWindowStatemachine.gd")
-var statemachine = MessageWindowStatemachine.new()
+# 状態遷移機械
+var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
 
 
 # テキストエリアへ、内容を渡す

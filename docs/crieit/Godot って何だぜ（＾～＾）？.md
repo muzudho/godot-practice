@@ -555,4 +555,39 @@ Author: Zylann
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　選択肢は　動画に映ってる分で　もう十分よ」  
 
+# 📅 (2023-10-02 mon) role_playing_game デモ・プロジェクトのバグを見てみようぜ？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　デモ・プロジェクトの role_playing_game のバグを見てみようぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
+## role_playing_game デモ・プロジェクトのバグを見てみようぜ？
+
+📖　[Godot の role_playing_game デモ・プロジェクトのバグを見てみようぜ？](https://crieit.net/posts/Godot-role-playing-game)  
+
+## バグは直せなかった
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　バグは直せなかった。 Godot はクソということしか分からなかった」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　今日の勉強は　終わりだな」  
+
+# 📅 (2023-10-03 tue) サボった
+
+...  
+
+# 📅 (2023-10-04 wed) シナリオの分岐を作ろうぜ？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　パソコンに向かうのも　ツラい」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　選択肢を選んだあと、次のシナリオに飛ぶような仕組みを作りなさい」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
 .

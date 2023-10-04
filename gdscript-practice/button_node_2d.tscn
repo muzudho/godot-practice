@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=18 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
 [ext_resource type="Script" path="res://project_2d.gd" id="1_la6ej"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
+[ext_resource type="Script" path="res://scripts/ScenarioPlayer.gd" id="5_45tuj"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
 [ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="6_g48f5"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="7_gmngy"]
@@ -61,6 +62,9 @@ position = Vector2(215, 362)
 [node name="Timer" type="Timer" parent="Sprite2D"]
 autostart = true
 
+[node name="ScenarioPlayer" type="Node" parent="."]
+script = ExtResource("5_45tuj")
+
 [node name="ScenarioBook" type="Node" parent="."]
 script = ExtResource("5_srvyn")
 
@@ -104,6 +108,7 @@ label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("12_eus3r")
 
 [node name="ChoiceCursor" type="Label" parent="MessageWindow/TextBlock"]
+layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
 offset_right = 33.0
