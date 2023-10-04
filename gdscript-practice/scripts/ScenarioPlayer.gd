@@ -21,17 +21,19 @@ func play_paragraph(paragraph_code):
 	$"../MessageWindow".set_scenario_array(scenario_array)
 
 
+var document = {
+	# 段落番号
+	"1" : {
+		# 選択肢の行番号と、移動先段落番号
+		1 : "1.1",
+		2 : "1.2",
+	},
+}
+
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
 	print("［シナリオプレイヤー］　選んだ選択肢行番号：" + str(row_number))
-
-	if self.current_paragraph_code == "1":
-		if row_number == 1:
-			self.play_paragraph("1.1")
-
-		elif row_number == 2:
-			self.play_paragraph("1.2")
-
+	self.play_paragraph(self.document[self.current_paragraph_code][row_number])
 
 
 # Called when the node enters the scene tree for the first time.

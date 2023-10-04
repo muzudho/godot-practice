@@ -178,6 +178,8 @@ func _ready():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　監督のスクリプトの雰囲気は　こんな感じになるはずだぜ」  
 
+# シナリオに段落番号を振りましょう！
+
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　シナリオブックの　各部分に　パラグラフ（Paragraph；段落）番号を振れない？」  
 
@@ -191,5 +193,53 @@ func _ready():
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　調べてみるか……」  
+
+📄 `ScenarioBook.gd`:  
+
+```gd
+# 段落番号を指定して、段落を取得
+func get_paragraph(paragraph_code):
+	return self.document[paragraph_code]
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　段落番号を指定して、段落を取得できるメソッドを作っておくぜ。  
+あとで `1.2.3` みたいな段落番号を使いたいので、番号は文字列にしておくぜ」  
+
+![202310__godot__04-2304--ScenarioDocument.png](https://crieit.now.sh/upload_images/2a308112fd8adf71a8749aabd2c03883651d70ed15a63.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　インデント２つが　もったいない気がするが、  
+普通の書き方を優先し、上図のように　セリフを並べることにするぜ」  
+
+![202310__godot__04-2316--Paragraph_1.png](https://crieit.now.sh/upload_images/184a8c239d1134b1edee9fdc0ed0301e651d73f0d8a1b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな風に　パラグラフを追加していくものとしようぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　選択肢の１番目が　段落の `1.1` に飛ぶのを　どうコントロールすんの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そのコントロールをするのが　`ScenarioPlayer`　だぜ」  
+
+![202310__godot__05-0011--Mappings.png](https://crieit.now.sh/upload_images/f767fb7a696b1953eb51d1d50cc9c1b5651d809e34946.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな感じでマッピングするんだが、なんかよく分からないな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　どうやっても　分かんないんだから　２重の `Dictionary` にしたらどうなの？」  
+
+![202310__godot__05-0017--MappingsDocument.png](https://crieit.now.sh/upload_images/397b9a130b3079110195889a25ac6895651d822450b52.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　これで分岐の最低要件は満たせるが、確かに　見ても　よく分からんよな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　この設定ファイルを編集する外部エディターぐらい　お父ん　作れるだろ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　それもそうだぜ」  
 
 .
