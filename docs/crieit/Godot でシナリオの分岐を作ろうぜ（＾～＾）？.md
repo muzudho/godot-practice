@@ -1,4 +1,4 @@
-# 前の記事
+# 親記事から来た
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
@@ -241,5 +241,21 @@ func get_paragraph(paragraph_code):
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　それもそうだぜ」  
+
+![202310__godot__05-0031--ScenarioBook.png](https://crieit.now.sh/upload_images/370b7667811f26cfc7c229ece475b890651d85777e93c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　段落番号も止めて、文字列にしたった」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　台詞だけで　できたゲームなら　これでいけるけど、  
+戦闘シーンや、マップや、ムービーに続けたいときは　どうすんの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そのときは　インデックスでなんとかしようぜ？」  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
 .
