@@ -14,26 +14,18 @@ func play_paragraph(paragraph_code):
 	
 	# シナリオ・ブックから、内容を取出す
 	print("［シナリオプレイヤー］　シナリオ・ブックから、内容を取出す")
-	var scenario_array = $"../ScenarioBook".get_paragraph(self.current_paragraph_code)
+	var scenario_array = $"../ScenarioBook".document[self.current_paragraph_code]
 	
 	# シナリオプレイヤーへ、内容を渡す
 	print("［シナリオプレイヤー］　メッセージ・ウィンドウへ内容を渡す")
 	$"../MessageWindow".set_scenario_array(scenario_array)
 
 
-var document = {
-	# 段落番号
-	"1" : {
-		# 選択肢の行番号と、移動先段落番号
-		1 : "1.1",
-		2 : "1.2",
-	},
-}
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
 	print("［シナリオプレイヤー］　選んだ選択肢行番号：" + str(row_number))
-	self.play_paragraph(self.document[self.current_paragraph_code][row_number])
+	self.play_paragraph($"../ScenarioBook".index[self.current_paragraph_code][row_number])
 
 
 # Called when the node enters the scene tree for the first time.

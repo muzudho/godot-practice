@@ -2,6 +2,16 @@
 # 　シナリオ・ブックという名前が付いているが、大した機能はない
 extends Node
 
+# インデックス（Index；索引）
+var index = {
+	# 段落番号
+	"1" : {
+		# 選択肢の行番号と、移動先段落番号
+		1 : "1.1",
+		2 : "1.2",
+	},
+}
+
 # この書き方だと、実はインデントのタブが台詞データとして入っている。
 # インデントのタブは省く処理を入れておくとする
 var document = {
@@ -85,7 +95,3 @@ var document = {
 		"""
 	],
 }
-
-# 段落番号を指定して、段落を取得
-func get_paragraph(paragraph_code):
-	return self.document[paragraph_code]
