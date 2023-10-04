@@ -132,7 +132,8 @@ func _unhandled_key_input(event):
 					print("［テキストブロック］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
 					return
 				else:
-					print("［テキストブロック］　選んだ選択肢行番号：" + str($"ChoiceCursor".selected_row_number))
+					# 選択肢の行番号を、上位ノードへエスカレーションします
+					$"..".on_choice_selected($"ChoiceCursor".selected_row_number)
 					pass
 				
 			
