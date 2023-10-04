@@ -254,6 +254,10 @@ func get_paragraph(paragraph_code):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　そのときは　インデックスでなんとかしようぜ？」  
 
+## 動画
+
+📺　[動画](https://x.com/muzudho1/status/1709594001161240659?s=20)  
+
 # 親記事へ戻る
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
