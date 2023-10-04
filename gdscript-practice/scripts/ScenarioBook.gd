@@ -5,6 +5,7 @@ extends Node
 # この書き方だと、実はインデントのタブが台詞データとして入っている。
 # インデントのタブは省く処理を入れておくとする
 var document = {
+	# はじまり
 	"1":[
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -61,7 +62,30 @@ var document = {
 		　・角道を止める
 		""",
 	],
+	# ６筋の７段目の駒を６段目に突く
+	"1.1":[
+		"""\
+		お父ん
+		「覚えたか
+		""",
+		"""\
+		きふわらべ
+		「お父んも覚えろだぜ
+		"""
+	],
+	# 角道を止める
+	"1.2":[
+		"""\
+		お父ん
+		「難しいこと知ってんな
+		""",
+		"""\
+		きふわらべ
+		「矢倉も作れるしな
+		"""
+	],
 }
 
-func get_paragraph(number):
-	return self.document[number]
+# 段落番号を指定して、段落を取得
+func get_paragraph(paragraph_code):
+	return self.document[paragraph_code]
