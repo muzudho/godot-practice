@@ -100,7 +100,53 @@ func stop(paragraph_no):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　こんなもんかだぜ？」  
 
+# シナリオプレイヤーにステートマシーンを実装しろだぜ
+
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　そのステートマシーンを　シナリオプレイヤーに実装しろだぜ」  
+
+📄 `ScenarioPlayer.gd`:  
+
+```gd
+# シナリオプレイヤー（Scenario Player；台本再生機）
+extends Node
+
+# 状態遷移機械
+var statemachine = load("scripts/ScenarioPlayerStatemachine.gd").new()
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if self.statemachine.is_none():
+		# 停止中
+		# 	何もしない
+		pass
+		
+	elif self.statemachine.is_playing():
+		# 再生中
+		#	何もしない
+		pass
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ひとまず　こんなもんかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　シナリオプレイヤーは　自律的に動くといっても、  
+起動の合図は　外部から与えるのよね？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そうだぜ。 **監督** が指示してなければ　まだ動くなだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　じゃあ　本当に自律的に動く　監督　が必要なんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　監督も作るか～」  
 
 .

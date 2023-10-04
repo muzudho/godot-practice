@@ -12,4 +12,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if self.statemachine.is_none():
+		# 停止中
+		# 	何もしない
+		pass
+		
+	elif self.statemachine.is_playing():
+		# 再生中
+		#	何もしない
+		pass
