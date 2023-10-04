@@ -5,6 +5,12 @@ extends Node
 var statemachine = load("scripts/ScenarioPlayerStatemachine.gd").new()
 
 
+# テキストエリアへ、内容を渡す
+func set_scenario_array(scenario_array):
+	print("［メッセージ・ウィンドウ］　メッセージ・ウィンドウへ、内容を渡す")
+	$"../MessageWindow".set_scenario_array(scenario_array)
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.

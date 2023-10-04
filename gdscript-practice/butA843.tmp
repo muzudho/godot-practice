@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
-[ext_resource type="Script" path="res://project_2d.gd" id="1_la6ej"]
+[ext_resource type="Script" path="res://Director.gd" id="1_la6ej"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://MessageWindow.png" id="3_8exrp"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
