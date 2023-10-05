@@ -599,4 +599,57 @@ Author: Zylann
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　シナリオっていうか　会話の分岐を作った　日付が変わった　疲れた　終わり」  
 
+## 晩
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　もう疲れた」  
+
+## ゲーム内ウィンドウ
+
+![202310__godot__05-2126--Today.png](https://crieit.now.sh/upload_images/fac35a09187120add5ad52611fc20d17651eaba1b983d.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　あとは何が欲しいんだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ファミコン時代のアドベンチャーゲームなら、画面の中央に
+イラストが表示されるウィンドウが欲しいんじゃない？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　もう　ＲＰＧを諦めてるな」  
+
+![202310__godot__05-2129--Today2.png](https://crieit.now.sh/upload_images/275fefb3da2937cb413c20b13e527a4c651ead68270a9.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　512 x 384　ぐらいのウィンドウを置くかだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　1280 x 720 の解像度のゲームの中に　512 x 384 の解像度のウィンドウを置くのかだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　比率って　そんなに違うのかだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　16:9 のアスペクト比のゲームの中に　4:3 のアスペクト比のウィンドウだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　横幅が　512　のとき、　16:9　のアスペクト比にしたら　縦幅は　288　…」  
+
+![202310__godot__05-2140--Today3.png](https://crieit.now.sh/upload_images/8f0912299dc3c87e073aeec356dd71ad651eaf67f3f62.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　512 x 288 にして　位置調整するか……」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
+## 別記事：　センター・ウィンドウを作ろうぜ？
+
+📖　[センターウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/a6659d9d63482dc81d9c259facf4bde7)  
+
+## 疲れた
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　もう疲れた」  
+
 .
