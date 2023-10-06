@@ -40,11 +40,6 @@ func on_choice_selected(row_number):
 	self.play_paragraph(next_paragraph_name)
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 		
@@ -119,6 +114,15 @@ func parse_message(temp_text):
 			$"../MessageWindow".push_choices(row_numbers, second_tail)
 			
 			self.is_message_window_waiting_for_order = false
+			return
+			
+		elif second_head.begins_with("bgm "):
+			print("［アシスタント・ディレクター］　ＢＧＭだ")
+
+			# head
+			var basename = second_head.substr(4, second_head.length()-4)
+			print("［アシスタント・ディレクター］　ファイル名：[" + basename + "]")
+
 			return
 			
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")

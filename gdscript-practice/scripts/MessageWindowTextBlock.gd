@@ -50,7 +50,7 @@ func _process(delta):
 	
 		# メッセージの早送り
 		if Input.is_key_pressed(KEY_R):
-			print("［テキストブロック］　メッセージの早送り")
+			# print("［テキストブロック］　メッセージの早送り")
 			wait_time = 0.01
 	
 		if wait_time <= count_of_typewriter:
