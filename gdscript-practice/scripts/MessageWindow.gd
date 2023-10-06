@@ -76,8 +76,8 @@ func _ready():
 	$"TextBlock/BlinkerUnderscore".statemachine = self.statemachine
 	$"TextBlock/ChoiceCursor".statemachine = self.statemachine
 
-	# ウィンドウを空っぽにして、次の指示を待ちます
-	self.clear_and_awaiting_order()
+	# ウィンドウを空っぽにする
+	$"TextBlock".text = ""
 
 func _process(_delta):
 	pass
