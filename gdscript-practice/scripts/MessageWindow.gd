@@ -35,52 +35,48 @@ func push_message(temp_text):
 
 	# タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
-
-	# 先頭行の最初と、最終行の最後の表示されない文字を消去
-	temp_text = temp_text.strip_edges()
 	
 	# 命令かどうか判定
-	var head_tail = split_head_line_or_tail(temp_text)
+	var first_head_tail = split_head_line_or_tail(temp_text)
+	var first_head = first_head_tail[0].strip_edges()
+	var first_tail = first_head_tail[1] 
 	
-	if head_tail[0] == "!":
-		print("［メッセージ・ウィンドウ］　命令テキストだ：[" + head_tail[1] + "]")
-		pass
-	
-	# 選択肢かどうか判定
-	if temp_text.begins_with("!choice "):
-		print("［メッセージ・ウィンドウ］　選択肢だ")
-		$"TextBlock".is_choice_mode = true
-		
-		# じゃあ、先頭行は省きたい
-		var index = temp_text.find("\n")
-		print(index)
-		var head = temp_text.substr(0, index)
-		var tail = temp_text.substr(index+1, temp_text.length() - (index+1))
-		# print("［メッセージ・ウィンドウ］　head：　[" + head + "]")
-		# print("［メッセージ・ウィンドウ］　tail：　[" + tail + "]")
+	# `.strip_edges()` - 先頭行の最初と、最終行の最後の表示されない文字を消去
+	if first_head.strip_edges() == "!":
+		print("［メッセージ・ウィンドウ］　命令テキストだ：[" + first_tail + "]")
 
-		# head
-		var csv = head.substr(8, head.length()-8)
-		# TODO 昇順であること
-		var string_packed_array = csv.split(",", true, 0)
-		var size = string_packed_array.size()
-		# print("［メッセージ・ウィンドウ］　選択肢サイズ：" + str(size))
-		
-		# 文字列型を数値型に変換
-		$"TextBlock".choice_row_numbers = []
-		$"TextBlock".choice_row_numbers.resize(size)
-		# print("［メッセージ・ウィンドウ］　行番号一覧")
-		for i in range(0, size):
-			$"TextBlock".choice_row_numbers[i] = string_packed_array[i].to_int()
-			# print(self.choice_row_numbers[i])
-					
-		# tail
-		temp_text = tail
-	else:
-		# print("［メッセージ・ウィンドウ］　選択肢ではない")
-		$"TextBlock".is_choice_mode = false
-		$"TextBlock".choice_row_numbers = []
+		# さらに先頭行を取得
+		var second_head_tail = split_head_line_or_tail(first_tail)
+		var second_head = second_head_tail[0].strip_edges()
+		var second_tail = second_head_tail[1]
 	
+		# 選択肢かどうか判定
+		if second_head.begins_with("choice "):
+			print("［メッセージ・ウィンドウ］　選択肢だ：[" + second_tail + "]")
+			$"TextBlock".is_choice_mode = true
+			
+			# head
+			var csv = second_head.substr(7, second_head.length()-7)
+			# TODO 昇順であること
+			var string_packed_array = csv.split(",", true, 0)
+			var size = string_packed_array.size()
+			# print("［メッセージ・ウィンドウ］　選択肢サイズ：" + str(size))
+			
+			# 文字列型を数値型に変換
+			$"TextBlock".choice_row_numbers = []
+			$"TextBlock".choice_row_numbers.resize(size)
+			# print("［メッセージ・ウィンドウ］　行番号一覧")
+			for i in range(0, size):
+				$"TextBlock".choice_row_numbers[i] = string_packed_array[i].to_int()
+				# print($"TextBlock".choice_row_numbers[i])
+						
+			# tail
+			$"TextBlock".text_buffer = second_tail
+			return
+			
+	# print("［メッセージ・ウィンドウ］　選択肢ではない")
+	$"TextBlock".is_choice_mode = false
+	$"TextBlock".choice_row_numbers = []	
 	$"TextBlock".text_buffer = temp_text
 
 
