@@ -47,20 +47,16 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if self.statemachine.is_none():
-		# 停止中
-		# 	何もしない
-		pass
 		
-	elif self.statemachine.is_playing():
-		# 再生中
+	# 再生中
+	if self.statemachine.is_playing():
 		
 		# メッセージウィンドウが指示待ちか？
 		if is_message_window_waiting_for_order:
-			print("［アシスタント・ディレクター］　メッセージ・フォワードをする")
 			
+			# まだあるよ
 			if 0 < self.scenario_array.size():
-				# まだあるよ
+				print("［アシスタント・ディレクター］　メッセージ・フォワードをする")
 			
 				# 次に表示するべきメッセージを取得
 				var latest_message = self.scenario_array.pop_front()
@@ -73,9 +69,7 @@ func _process(_delta):
 				
 				self.is_message_window_waiting_for_order = false
 
+			# もう無いよ
 			else:
-				pass
-
-		else:
-			#	何もしない
-			pass
+				# メッセージ・ウィンドウを閉じる
+				$"../MessageWindow".initialize()

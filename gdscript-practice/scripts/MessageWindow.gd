@@ -4,6 +4,10 @@ extends Node
 # 状態遷移機械
 var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
 
+# メッセージ・ウィンドウを閉じる
+func initialize():
+	$"TextBlock".initialize()
+	self.statemachine.all_page_flushed()
 
 # ウィンドウを空っぽにして、次の指示を待ちます
 func clear_and_awaiting_order():
