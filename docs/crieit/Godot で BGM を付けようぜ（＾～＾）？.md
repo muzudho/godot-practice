@@ -228,4 +228,12 @@ BGM が鳴ることにしたらどうだぜ？」
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　命令のメッセージは　`!`　だけの行から始まるように　仕様を変更するか……？」  
 
-.
+![202310__godot__07-0208--BGM-o2o0.png](https://crieit.now.sh/upload_images/38b0d7d67f4b75b23eed21a44a14992e65203f39cd4f2.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　大改造して　BGM　の名前も検出できるようにしたぜ」  
+
+# BGMを鳴らせだぜ
+
+.![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　じゃあ　ＢＧＭを鳴らせだぜ」  

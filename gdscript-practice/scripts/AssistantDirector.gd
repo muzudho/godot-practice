@@ -93,11 +93,11 @@ func parse_message(temp_text):
 		var second_tail = second_head_tail[1]
 	
 		# 選択肢かどうか判定
-		if second_head.begins_with("choice "):
+		if second_head.begins_with("choice:"):
 			print("［アシスタント・ディレクター］　選択肢だ：[" + second_tail + "]")
 			
 			# head
-			var csv = second_head.substr(7, second_head.length()-7)
+			var csv = second_head.substr(7, second_head.length()-7).strip_edges()
 			# TODO 昇順であること
 			var string_packed_array = csv.split(",", true, 0)
 			var size = string_packed_array.size()
@@ -116,12 +116,20 @@ func parse_message(temp_text):
 			self.is_message_window_waiting_for_order = false
 			return
 			
-		elif second_head.begins_with("bgm "):
+		elif second_head.begins_with("bgm:"):
 			print("［アシスタント・ディレクター］　ＢＧＭだ")
 
 			# head
-			var basename = second_head.substr(4, second_head.length()-4)
+			var basename = second_head.substr(4, second_head.length()-4).strip_edges()
 			print("［アシスタント・ディレクター］　ファイル名：[" + basename + "]")
+
+			if basename == "":
+				# BGM 停止
+				$"../Musician/AudioStreamPlayer".stop()
+				
+			else:
+				# じゃあ BGM 流すか
+				$"../Musician/AudioStreamPlayer".play()
 
 			return
 			
