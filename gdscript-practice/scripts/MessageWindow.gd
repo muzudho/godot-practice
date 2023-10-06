@@ -18,6 +18,16 @@ func clear_and_awaiting_order():
 	$"../AssistantDirector".is_message_window_waiting_for_order = true
 
 
+# 先頭行と、それ以外に分けます
+func split_head_line_or_tail(text):
+	# 最初の改行を見つける
+	var index = text.find("\n")
+	var head = text.substr(0, index)
+	var tail = text.substr(index+1, text.length() - (index+1))
+	# print("［メッセージ・ウィンドウ］　head：　[" + head + "]")
+	# print("［メッセージ・ウィンドウ］　tail：　[" + tail + "]")
+	return [head, tail]
+
 # メッセージを追加
 func push_message(temp_text):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
@@ -28,6 +38,13 @@ func push_message(temp_text):
 
 	# 先頭行の最初と、最終行の最後の表示されない文字を消去
 	temp_text = temp_text.strip_edges()
+	
+	# 命令かどうか判定
+	var head_tail = split_head_line_or_tail(temp_text)
+	
+	if head_tail[0] == "!":
+		print("［メッセージ・ウィンドウ］　命令テキストだ：[" + head_tail[1] + "]")
+		pass
 	
 	# 選択肢かどうか判定
 	if temp_text.begins_with("!choice "):
