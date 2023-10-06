@@ -73,10 +73,123 @@
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　シナリオ・ファイルで　指定したらいいんだろうけど……」  
 
+# スクリプト設計
+
 ![202310__godot__06-2258--Scenario.png](https://crieit.now.sh/upload_images/13c8db1716d8a958b900245ff9688cb3652012c4e79c1.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　例えば　`!bgm きふわらべファイター２.ogg` と書いておけば  
 BGM が鳴ることにしたらどうだぜ？」  
+
+![202310__godot__06-2303--bgm.png](https://crieit.now.sh/upload_images/e72d54cfefb1cdd389df97939bcc07fa652013dfcb72a.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　鳴らないが」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　台本を読んで演技する人って　英語で何て言うんだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　パフォーマー（Performer；演者）じゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　演者が　ＢＧＭを鳴らすわけじゃないしな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　バックバンドのことかだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　シナリオ　というのが　おかしいのかもしらん。  
+素直に　プログラム（Program；進行表）という名前にした方がいいんだろうか？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　シナリオの上位概念として　プログラムを置くの？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　コンピューターがいうプログラムと、  
+番組制作がいうプログラムは　また別物なんだよな」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　分かった、 `Director`　の下に　`AssistantDirector` 　を置こう！」  
+
+![202310__godot__06-2325--AssistantDirector.png](https://crieit.now.sh/upload_images/fd7e7281c823db8ea13fc830f4a5735e6520190f94283.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`ScenarioPlayer` とかいう造語を `AssistantDirector` に変更したぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　アシスタント・ディレクターと　メッセージ・ウィンドウは　どっちが偉いんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　アシスタント・ディレクターの方が　偉いと思いたいが……」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ユーザーの入力と、シナリオの強制力は　どっちが強いの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ユーザーも　シナリオに従ってほしい」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　メッセージ・ウィンドウが持っている **メッセージ送り** という働きが  
+かなりの強権で　アシスタント・ディレクターなんか無視して  
+有無を言わさず　メッセージ送り　するわよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　うーん　裁量が　ぐちゃぐちゃ　だ……」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　メッセージ・ウィンドウが持つべき権利は  **ウィンドウを消すから、次のメッセージくれ** であって、  
+**メッセージ送り** ではないはずなのよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ　メッセージ・ウィンドウが　シナリオを持っているのが悪くて、  
+アシスタント・ディレクターが　セリフだけを千切って  
+メッセージ・ウィンドウに渡せばいいんだ」  
+
+```gd
+# 　状態遷移図
+# 　ーーーーー
+#
+# 　　　　　　　　　＋ーーーーー＋
+# 　　　　　　　　　｜　はじめ　｜
+# 　　　　　　　　　＋ーー＋ーー＋
+# 　　　　　　　　　　　　｜
+# 　　　　　　　　　　　　｜
+# ＋ーーーーーーーーーー＞＋
+# ｜　　　　　　　　　　　｜
+# ｜　　　　　　　　　　　Ｖ
+# ｜　　　　　　　＋ーーーーーーーー＋
+# ｜　　　　　　　｜　０．非表示中　｜
+# ｜　　　　　　　＋ーーー＋ーーーー＋
+# ｜　　　　　　　　　　　｜
+# ｜　　　　　　　　　　　｜　シナリオ・データ設定
+# ｜　　　　　　　　　　　｜
+# ｜　　　＋ーーーーーー＞＋
+# ｜　　　｜　　　　　　　｜
+# ｜　　　｜　　　　　　　Ｖ
+# ｜　　　｜　　　＋ーーーーーーーーーーーーーーー＋
+# ｜　　　｜　　　｜　１．タイプライター風表示中　｜
+# ｜　　　｜　　　＋ーーー＋ーーーーーーーーーーー＋
+# ｜　　　｜　　　　　　　｜
+# ｜　　　｜　　　　　　　｜　バッファーが空になった
+# ｜　　　｜　　　　　　　Ｖ
+# ｜　　　｜　　　＋ーーーーーーーーー＋
+# ｜　　　｜　　　｜　２．完全表示中　｜
+# ｜　　　｜　　　＋ーーー＋ーーーーー＋
+# ｜　　　｜　　　　　　　※上位のオブジェクトに指示待ちの通知を送る
+# ｜　　　｜　　　　　　　※これにて自律を停止
+# ｜　　　｜
+# ｜　　　｜
+# ｜　　　｜　　　　　　　※外部からの入力
+# ｜　　　｜　　　　　　　｜
+# ｜　　　｜　　　　　　　｜
+# ｜　　　＋ーーーー＜ーー＋　まだ続きがある。ページ・フォワード
+# ｜　　　　　　　　はい　｜
+# ｜　　　　　　　　　　　｜
+# ＋ーーーーーーーーーーー＋　すべての文字を吐き出した。オール・ページ・フラッシュド
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　完全な自律を停止して、外部からの入力を待つ状態遷移に変えなくてはダメだぜ」  
 
 .
