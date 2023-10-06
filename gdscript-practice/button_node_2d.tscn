@@ -132,4 +132,6 @@ texture = ExtResource("16_qxqx0")
 position = Vector2(640, 360)
 texture = ExtResource("15_1ekew")
 
+[node name="Musician" type="Node" parent="."]
+
 [connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
