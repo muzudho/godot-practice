@@ -124,15 +124,3 @@ func _unhandled_key_input(event):
 
 				# ウィンドウを空っぽにして、次の指示を待ちます
 				self.clear_and_awaiting_order()
-				
-				#if 0 < self.scenario_array.size():
-				#	# まだあるよ
-				#
-				#	# ウィンドウを空っぽにして、次の指示を待ちます
-				#	self.clear_and_awaiting_order()
-				#	
-				#else:
-				#	# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
-				#	$"TextBlock".initialize()
-				#	self.statemachine.all_page_flushed()
-					
