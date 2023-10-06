@@ -12,6 +12,19 @@ var is_choice_mode = false
 var choice_row_numbers = []
 
 
+# 窓をクリアーします
+func initialize():
+	print("［テキストブロック］　台詞は終わった")
+	self.visible = false
+	self.is_visible_initialized = false
+
+
+# ブリンカーを消す
+func clear_blinker():
+	$"BlinkerTriangle".reset()
+	$"BlinkerUnderscore".reset()
+
+
 # シナリオ・データ設定
 func set_scenario_array(scenario_array):
 	print("［テキストブロック］　シナリオ・データを受け取った")
@@ -114,57 +127,3 @@ func _process(delta):
 				self.statemachine.all_character_pushed()
 			
 			count_of_typewriter -= wait_time
-
-
-func _unhandled_key_input(event):
-	
-	# 完全表示中
-	if self.statemachine.is_completed():
-
-		# 選択肢モードなら
-		if self.is_choice_mode:
-			
-			# 何かキーを押したとき
-			if event.is_pressed():
-				#  and event is InputEventKey and event.pressed
-				
-				# 確定ボタン以外は無効
-				if event.keycode != KEY_ENTER:
-					print("［テキストブロック］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
-					return
-					
-				else:
-					# 選択肢の行番号を、上位ノードへエスカレーションします
-					$"..".on_choice_selected($"ChoiceCursor".selected_row_number)
-					return
-		
-		# 非モードなら
-		else:
-		
-			# 何かキーを押したとき
-			if event.is_pressed():
-				
-				if event.keycode == KEY_R:
-					print("［テキストブロック］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
-					return
-					
-				# ブリンカーを消す
-				$"BlinkerTriangle".reset()
-				$"BlinkerUnderscore".reset()
-				
-				if 0 < self.scenario_array.size():
-					# まだあるよ
-					
-					# メッセージ送り
-					self.forward_message()
-					
-					# タイプライター風表示へ状態遷移
-					self.statemachine.page_forward()
-					
-				else:
-					# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
-					print("［テキストブロック］　台詞は終わった")
-					self.visible = false
-					self.is_visible_initialized = false
-					self.statemachine.all_page_flushed()
-					

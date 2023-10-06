@@ -9,7 +9,7 @@ func _ready():
 	# 最初は非表示
 	self.visible = false
 
-func _process(delta):
+func _process(_delta):
 	if self.statemachine.is_none():
 		# 非表示
 		self.visible = false
