@@ -72,6 +72,9 @@ func _process(delta):
 				if index < 1:
 					return
 
+				# カーソル音
+				$"../../../Musician".playSe("カーソル音")
+
 				var old_selected_row_number = self.selected_row_number
 				self.selected_row_number = self.get_parent_choice_row_numbers()[index - 1]
 				var difference = old_selected_row_number - self.selected_row_number
@@ -93,6 +96,9 @@ func _process(delta):
 				# print("［選択肢カーソル］　インデックス：" + str(index))
 				if index < 0 or size <= index + 1:
 					return
+
+				# カーソル音
+				$"../../../Musician".playSe("カーソル音")
 
 				var old_selected_row_number = self.selected_row_number
 				self.selected_row_number = self.get_parent_choice_row_numbers()[index + 1]
