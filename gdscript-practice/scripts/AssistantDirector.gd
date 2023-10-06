@@ -21,6 +21,9 @@ func play_paragraph(paragraph_code):
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
 	self.scenario_array = $"../ScenarioBook".document[self.current_paragraph_code]
 
+	# メッセージウィンドウが指示待ちか？（強制的に、そういうことにしておく）
+	self.is_message_window_waiting_for_order = true
+
 	# 再生中へ
 	self.statemachine.play()
 
