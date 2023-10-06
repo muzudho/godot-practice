@@ -192,4 +192,40 @@ BGM が鳴ることにしたらどうだぜ？」
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　完全な自律を停止して、外部からの入力を待つ状態遷移に変えなくてはダメだぜ」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`.clear_and_awaiting_order()` みたいなメソッドを作るか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　作った。そして調整して変更した」  
+
+```gd
+		"""
+		!bgm きふわらべファイター２.ogg
+		""",
+		"""\
+		!choice 1,2
+		　・６筋の７段目の駒を６段目に突く
+		　・角道を止める
+		""",
+```
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　これは　セリフか？　命令か？　どう区別する？」  
+
+```gd
+		"""
+		!
+		bgm きふわらべファイター２.ogg
+		""",
+		"""\
+		!
+		choice 1,2
+		　・６筋の７段目の駒を６段目に突く
+		　・角道を止める
+		""",
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　命令のメッセージは　`!`　だけの行から始まるように　仕様を変更するか……？」  
+
 .

@@ -20,16 +20,18 @@ func clear_and_awaiting_order():
 
 # メッセージを追加
 func push_message(temp_text):
+	# print("［メッセージ・ウィンドウ］　台詞追加")
+	print("［メッセージ・ウィンドウ］　台詞追加：　[" + temp_text + "]")
+
+	# タイプライター風表示へ状態遷移
+	self.statemachine.scenario_seted()
+
 	# 先頭行の最初と、最終行の最後の表示されない文字を消去
 	temp_text = temp_text.strip_edges()
 	
-	# print("［テキストブロック］　台詞はまだあるよ")
-	print("［テキストブロック］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
-
-	
 	# 選択肢かどうか判定
 	if temp_text.begins_with("!choice "):
-		print("［テキストブロック］　選択肢だ")
+		print("［メッセージ・ウィンドウ］　選択肢だ")
 		$"TextBlock".is_choice_mode = true
 		
 		# じゃあ、先頭行は省きたい
@@ -37,20 +39,20 @@ func push_message(temp_text):
 		print(index)
 		var head = temp_text.substr(0, index)
 		var tail = temp_text.substr(index+1, temp_text.length() - (index+1))
-		# print("［テキストブロック］　head：　[" + head + "]")
-		# print("［テキストブロック］　tail：　[" + tail + "]")
+		# print("［メッセージ・ウィンドウ］　head：　[" + head + "]")
+		# print("［メッセージ・ウィンドウ］　tail：　[" + tail + "]")
 
 		# head
 		var csv = head.substr(8, head.length()-8)
 		# TODO 昇順であること
 		var string_packed_array = csv.split(",", true, 0)
 		var size = string_packed_array.size()
-		# print("［テキストブロック］　選択肢サイズ：" + str(size))
+		# print("［メッセージ・ウィンドウ］　選択肢サイズ：" + str(size))
 		
 		# 文字列型を数値型に変換
 		$"TextBlock".choice_row_numbers = []
 		$"TextBlock".choice_row_numbers.resize(size)
-		# print("［テキストブロック］　行番号一覧")
+		# print("［メッセージ・ウィンドウ］　行番号一覧")
 		for i in range(0, size):
 			$"TextBlock".choice_row_numbers[i] = string_packed_array[i].to_int()
 			# print(self.choice_row_numbers[i])
@@ -58,7 +60,7 @@ func push_message(temp_text):
 		# tail
 		temp_text = tail
 	else:
-		# print("［テキストブロック］　選択肢ではない")
+		# print("［メッセージ・ウィンドウ］　選択肢ではない")
 		$"TextBlock".is_choice_mode = false
 		$"TextBlock".choice_row_numbers = []
 	
@@ -101,7 +103,7 @@ func _unhandled_key_input(event):
 				
 				# 確定ボタン以外は無効
 				if event.keycode != KEY_ENTER:
-					print("［テキストブロック］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
+					print("［メッセージ・ウィンドウ］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
 					return
 					
 				else:
@@ -116,7 +118,7 @@ func _unhandled_key_input(event):
 			if event.is_pressed():
 				
 				if event.keycode == KEY_R:
-					print("［テキストブロック］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+					print("［メッセージ・ウィンドウ］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
 					return
 					
 				# ブリンカーを消す

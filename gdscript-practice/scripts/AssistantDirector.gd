@@ -56,16 +56,16 @@ func _process(_delta):
 			
 			# まだあるよ
 			if 0 < self.scenario_array.size():
-				print("［アシスタント・ディレクター］　メッセージ・フォワードをする")
 			
 				# 次に表示するべきメッセージを取得
 				var latest_message = self.scenario_array.pop_front()
 
+				# TODO ここで、命令と、台詞に分解したい
+
+				print("［アシスタント・ディレクター］　メッセージ・フォワードをする")
+
 				# メッセージを追加
 				$"../MessageWindow".push_message(latest_message)
-
-				# タイプライター風表示へ状態遷移
-				$"../MessageWindow".statemachine.scenario_seted()
 				
 				self.is_message_window_waiting_for_order = false
 
