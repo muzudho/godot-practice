@@ -11,19 +11,29 @@ func set_scenario_array(scenario_array):
 	print("［メッセージ・ウィンドウ］　シナリオ・データを受け取った")
 	self.scenario_array = scenario_array
 
-	# メッセージ送り
-	self.forward_message()
+	# ウィンドウを空っぽにして、次のメッセージを待ちます
+	self.clear_and_receive()
+
+	# 次に表示するべきメッセージを取得
+	var latest_message = self.scenario_array.pop_front()
+
+	# メッセージを追加
+	self.push_message(latest_message)
 
 	# タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
 
 
-# メッセージ送り
-func forward_message():
+# ウィンドウを空っぽにして、次のメッセージを待ちます
+func clear_and_receive():
 	$"TextBlock".text = ""
-	
-	var temp_text = self.scenario_array.pop_front()
 
+# 次に表示するべきメッセージを取得
+func fetch_message():
+	return self.scenario_array.pop_front()
+
+# メッセージを追加
+func push_message(temp_text):
 	# 先頭行の最初と、最終行の最後の表示されない文字を消去
 	temp_text = temp_text.strip_edges()
 	
@@ -126,9 +136,15 @@ func _unhandled_key_input(event):
 				
 				if 0 < self.scenario_array.size():
 					# まだあるよ
-					
-					# メッセージ送り
-					self.forward_message()
+
+					# ウィンドウを空っぽにして、次のメッセージを待ちます
+					self.clear_and_receive()
+
+					# 次に表示するべきメッセージを取得
+					var latest_message = self.scenario_array.pop_front()
+
+					# メッセージを追加
+					self.push_message(latest_message)
 					
 					# タイプライター風表示へ状態遷移
 					self.statemachine.page_forward()
