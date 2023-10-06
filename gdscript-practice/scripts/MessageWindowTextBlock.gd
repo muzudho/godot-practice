@@ -1,9 +1,11 @@
-# テキスト・エリア（TextArea）
+# テキスト・ブロック（TextBlock）
 extends Label
 
 # メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine = null
+
 var is_visible_initialized = false
+
 var count_of_typewriter = 0
 var text_buffer = ""
 # 選択肢モード
@@ -35,8 +37,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+		
+	# タイプライター風表示中
 	if self.statemachine.is_typewriter():
-		# タイプライター風表示中
 		
 		if not self.is_visible_initialized:
 			# 初回に可視化

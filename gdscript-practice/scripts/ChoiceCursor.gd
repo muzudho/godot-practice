@@ -65,7 +65,7 @@ func _process(delta):
 
 			# 上へ移動する分
 			if Input.is_action_pressed(&"ui_up"):
-				print("［選択肢カーソル］　上へ")
+				# print("［選択肢カーソル］　上へ")
 				
 				# 上へ移動できるか？
 				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
@@ -86,7 +86,7 @@ func _process(delta):
 				
 			# 下へ移動する分
 			if Input.is_action_pressed(&"ui_down"):
-				print("［選択肢カーソル］　下へ")
+				# print("［選択肢カーソル］　下へ")
 				# print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
 				var size = self.get_parent_choice_row_numbers().size()
 				# print("［選択肢カーソル］　選択肢数：" + str(size))

@@ -8,6 +8,12 @@ var is_first_displayed_immediately = false
 var count_of_blink = 0
 
 
+func reset():
+	self.visible = false
+	self.count_of_blink = 0
+	self.is_first_displayed_immediately = false
+
+
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,8 +23,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	# 完全表示中	
 	if self.statemachine.is_completed():
+
+		# TODO 選択肢の場合は消したい
+		
 		# 初回はすぐに表示
 		if not self.is_first_displayed_immediately:
 			self.visible = true
@@ -29,13 +39,8 @@ func _process(delta):
 		if 0.75 <= count_of_blink: 
 			visible = not visible
 			count_of_blink -= 0.75
+			
 	# それ以外
 	else:
 		# 非表示
 		self.visible = false
-
-func reset():
-	self.visible = false
-	self.count_of_blink = 0
-	self.is_first_displayed_immediately = false
-	
