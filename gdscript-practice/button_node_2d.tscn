@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
-[ext_resource type="Script" path="res://scripts/ScenarioPlayer.gd" id="5_45tuj"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
+[ext_resource type="Script" path="res://scripts/AssistantDirector.gd" id="6_3ptc6"]
 [ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="6_g48f5"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="7_gmngy"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="8_rwjq5"]
@@ -67,8 +67,8 @@ autostart = true
 [node name="ScenarioBook" type="Node" parent="."]
 script = ExtResource("5_srvyn")
 
-[node name="ScenarioPlayer" type="Node" parent="."]
-script = ExtResource("5_45tuj")
+[node name="AssistantDirector" type="Node" parent="."]
+script = ExtResource("6_3ptc6")
 
 [node name="MessageWindow" type="Node" parent="."]
 script = ExtResource("6_g48f5")

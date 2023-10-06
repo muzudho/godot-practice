@@ -1,7 +1,7 @@
-# シナリオ・プレイヤー・ステートマシーン（Scenario Player Statemachine；台本再生機状態遷移図）
+# アシスタント・ディレクター・ステートマシーン（Assistant Director Statemachine；助監督状態機械）
 extends Node
 
-class_name ScenarioPlayerStatemachine
+class_name AssistantDirectorStatemachine
 
 # 　状態遷移図
 # 　ーーーーー

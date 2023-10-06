@@ -14,7 +14,7 @@ func set_scenario_array(scenario_array):
 # 下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
 	# print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
-	$"../ScenarioPlayer".on_choice_selected(row_number)
+	$"../AssistantDirector".on_choice_selected(row_number)
 
 
 # サブツリーが全てインスタンス化されたときに呼び出される

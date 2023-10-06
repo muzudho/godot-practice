@@ -5,4 +5,4 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# 台本の再生の開始の合図
-	$"./ScenarioPlayer".play_paragraph("はじまり")
+	$"./AssistantDirector".play_paragraph("はじまり")

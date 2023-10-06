@@ -1,8 +1,8 @@
-# シナリオプレイヤー（Scenario Player；台本再生機）
+# アシスタント・ディレクター（Assistant Director；助監督）
 extends Node
 
 # 状態遷移機械
-var statemachine = load("scripts/ScenarioPlayerStatemachine.gd").new()
+var statemachine = load("scripts/AssistantDirectorStatemachine.gd").new()
 
 # 現在実行中の段落番号
 var current_paragraph_code = null
