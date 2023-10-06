@@ -9,6 +9,18 @@ func initialize():
 	$"TextBlock".initialize()
 	self.statemachine.all_page_flushed()
 
+
+# ページ送り
+func page_forward():
+	# 効果音
+	$"../Musician".playSe("カーソル音")
+	
+	# ブリンカーを消す
+	$"TextBlock".clear_blinker()
+
+	# ウィンドウを空っぽにして、次の指示を待ちます
+	self.clear_and_awaiting_order()
+
 # ウィンドウを空っぽにして、次の指示を待ちます
 func clear_and_awaiting_order():
 	print("［メッセージ・ウィンドウ］　ウィンドウを空っぽにして、次の指示を待ちます")
@@ -103,9 +115,6 @@ func _unhandled_key_input(event):
 				if event.keycode == KEY_R:
 					print("［メッセージ・ウィンドウ］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
 					return
-					
-				# ブリンカーを消す
-				$"TextBlock".clear_blinker()
-
-				# ウィンドウを空っぽにして、次の指示を待ちます
-				self.clear_and_awaiting_order()
+				
+				# ページ送り
+				self.page_forward()
