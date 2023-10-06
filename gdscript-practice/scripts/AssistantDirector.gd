@@ -120,16 +120,33 @@ func parse_message(temp_text):
 			print("［アシスタント・ディレクター］　ＢＧＭだ")
 
 			# head
-			var basename = second_head.substr(4, second_head.length()-4).strip_edges()
-			print("［アシスタント・ディレクター］　ファイル名：[" + basename + "]")
+			var name = second_head.substr(4, second_head.length()-4).strip_edges()
+			print("［アシスタント・ディレクター］　ノード名：[" + name + "]")
 
-			if basename == "":
+			if name == "":
 				# BGM 停止
-				$"../Musician/AudioStreamPlayer".stop()
+				$"../Musician".stopBgm()
 				
 			else:
 				# じゃあ BGM 流すか
-				$"../Musician/AudioStreamPlayer".play()
+				$"../Musician".playBgm(name)
+
+			return
+			
+		elif second_head.begins_with("se:"):
+			print("［アシスタント・ディレクター］　効果音だ")
+
+			# head
+			var name = second_head.substr(3, second_head.length()-3).strip_edges()
+			print("［アシスタント・ディレクター］　ノード名：[" + name + "]")
+
+			if name == "":
+				# 効果音 停止
+				$"../Musician".stopSe()
+				
+			else:
+				# じゃあ 効果音 流すか
+				$"../Musician".playSe(name)
 
 			return
 			

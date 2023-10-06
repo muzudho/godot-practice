@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=23 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
@@ -16,7 +16,9 @@
 [ext_resource type="Script" path="res://scripts/ChoiceCursor.gd" id="13_qefmu"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/CenterWindow.png" id="15_1ekew"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/center_window/ShogiBan.png" id="16_qxqx0"]
+[ext_resource type="Script" path="res://scripts/Musician.gd" id="17_032og"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/きふわらべファイター２.ogg" id="17_lqln6"]
+[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="19_mohar"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -134,9 +136,17 @@ position = Vector2(640, 360)
 texture = ExtResource("15_1ekew")
 
 [node name="Musician" type="Node" parent="."]
+script = ExtResource("17_032og")
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Musician"]
+[node name="BGM" type="Node" parent="Musician"]
+
+[node name="きふわらべファイター２" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("17_lqln6")
 volume_db = -20.0
+
+[node name="SE" type="Node" parent="Musician"]
+
+[node name="カーソル音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("19_mohar")
 
 [connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
