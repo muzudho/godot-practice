@@ -5,7 +5,6 @@ extends Label
 var statemachine = null
 var is_visible_initialized = false
 var count_of_typewriter = 0
-var scenario_array = []
 var text_buffer = ""
 # 選択肢モード
 var is_choice_mode = false
@@ -23,69 +22,6 @@ func initialize():
 func clear_blinker():
 	$"BlinkerTriangle".reset()
 	$"BlinkerUnderscore".reset()
-
-
-# シナリオ・データ設定
-func set_scenario_array(scenario_array):
-	print("［テキストブロック］　シナリオ・データを受け取った")
-	self.scenario_array = scenario_array
-
-	# メッセージ送り
-	self.forward_message()
-
-	# タイプライター風表示へ状態遷移
-	self.statemachine.scenario_seted()
-
-
-# メッセージ送り
-func forward_message():
-	self.text = ""
-	
-	var temp_text = self.scenario_array.pop_front()
-
-	# 先頭行の最初と、最終行の最後の表示されない文字を消去
-	temp_text = temp_text.strip_edges()
-	
-	# print("［テキストブロック］　台詞はまだあるよ")
-	print("［テキストブロック］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
-
-	
-	# 選択肢かどうか判定
-	if temp_text.begins_with("!choice "):
-		print("［テキストブロック］　選択肢だ")
-		self.is_choice_mode = true
-		
-		# じゃあ、先頭行は省きたい
-		var index = temp_text.find("\n")
-		print(index)
-		var head = temp_text.substr(0, index)
-		var tail = temp_text.substr(index+1, temp_text.length() - (index+1))
-		# print("［テキストブロック］　head：　[" + head + "]")
-		# print("［テキストブロック］　tail：　[" + tail + "]")
-
-		# head
-		var csv = head.substr(8, head.length()-8)
-		# TODO 昇順であること
-		var string_packed_array = csv.split(",", true, 0)
-		var size = string_packed_array.size()
-		# print("［テキストブロック］　選択肢サイズ：" + str(size))
-		
-		# 文字列型を数値型に変換
-		self.choice_row_numbers = []
-		self.choice_row_numbers.resize(size)
-		# print("［テキストブロック］　行番号一覧")
-		for i in range(0, size):
-			self.choice_row_numbers[i] = string_packed_array[i].to_int()
-			# print(self.choice_row_numbers[i])
-					
-		# tail
-		temp_text = tail
-	else:
-		# print("［テキストブロック］　選択肢ではない")
-		self.is_choice_mode = false
-		self.choice_row_numbers = []
-	
-	self.text_buffer = temp_text
 
 
 # Called when the node enters the scene tree for the first time.

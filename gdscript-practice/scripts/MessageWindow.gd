@@ -3,12 +3,70 @@ extends Node
 
 # 状態遷移機械
 var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
+var scenario_array = []
 
 
-# テキストエリアへ、内容を渡す
+# シナリオ・データ設定
 func set_scenario_array(scenario_array):
-	print("［メッセージ・ウィンドウ］　テキストエリアへ、内容を渡す")
-	$"./TextBlock".set_scenario_array(scenario_array)
+	print("［メッセージ・ウィンドウ］　シナリオ・データを受け取った")
+	self.scenario_array = scenario_array
+
+	# メッセージ送り
+	self.forward_message()
+
+	# タイプライター風表示へ状態遷移
+	self.statemachine.scenario_seted()
+
+
+# メッセージ送り
+func forward_message():
+	$"TextBlock".text = ""
+	
+	var temp_text = self.scenario_array.pop_front()
+
+	# 先頭行の最初と、最終行の最後の表示されない文字を消去
+	temp_text = temp_text.strip_edges()
+	
+	# print("［テキストブロック］　台詞はまだあるよ")
+	print("［テキストブロック］　台詞はまだあるよ。テキスト：　[" + temp_text + "]")
+
+	
+	# 選択肢かどうか判定
+	if temp_text.begins_with("!choice "):
+		print("［テキストブロック］　選択肢だ")
+		$"TextBlock".is_choice_mode = true
+		
+		# じゃあ、先頭行は省きたい
+		var index = temp_text.find("\n")
+		print(index)
+		var head = temp_text.substr(0, index)
+		var tail = temp_text.substr(index+1, temp_text.length() - (index+1))
+		# print("［テキストブロック］　head：　[" + head + "]")
+		# print("［テキストブロック］　tail：　[" + tail + "]")
+
+		# head
+		var csv = head.substr(8, head.length()-8)
+		# TODO 昇順であること
+		var string_packed_array = csv.split(",", true, 0)
+		var size = string_packed_array.size()
+		# print("［テキストブロック］　選択肢サイズ：" + str(size))
+		
+		# 文字列型を数値型に変換
+		$"TextBlock".choice_row_numbers = []
+		$"TextBlock".choice_row_numbers.resize(size)
+		# print("［テキストブロック］　行番号一覧")
+		for i in range(0, size):
+			$"TextBlock".choice_row_numbers[i] = string_packed_array[i].to_int()
+			# print(self.choice_row_numbers[i])
+					
+		# tail
+		temp_text = tail
+	else:
+		# print("［テキストブロック］　選択肢ではない")
+		$"TextBlock".is_choice_mode = false
+		$"TextBlock".choice_row_numbers = []
+	
+	$"TextBlock".text_buffer = temp_text
 
 
 # 下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
@@ -30,6 +88,7 @@ func _ready():
 func _process(_delta):
 	pass
 
+# テキストボックスなどにフォーカスが無いときの入力を拾う
 func _unhandled_key_input(event):
 	
 	# 完全表示中
@@ -65,11 +124,11 @@ func _unhandled_key_input(event):
 				# ブリンカーを消す
 				$"TextBlock".clear_blinker()
 				
-				if 0 < $"TextBlock".scenario_array.size():
+				if 0 < self.scenario_array.size():
 					# まだあるよ
 					
 					# メッセージ送り
-					$"TextBlock".forward_message()
+					self.forward_message()
 					
 					# タイプライター風表示へ状態遷移
 					self.statemachine.page_forward()
