@@ -3,34 +3,16 @@ extends Node
 
 # 状態遷移機械
 var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
-var scenario_array = []
 
 
-# シナリオ・データ設定
-func set_scenario_array(scenario_array):
-	print("［メッセージ・ウィンドウ］　シナリオ・データを受け取った")
-	self.scenario_array = scenario_array
-
-	# ウィンドウを空っぽにして、次のメッセージを待ちます
-	self.clear_and_receive()
-
-	# 次に表示するべきメッセージを取得
-	var latest_message = self.scenario_array.pop_front()
-
-	# メッセージを追加
-	self.push_message(latest_message)
-
-	# タイプライター風表示へ状態遷移
-	self.statemachine.scenario_seted()
-
-
-# ウィンドウを空っぽにして、次のメッセージを待ちます
-func clear_and_receive():
+# ウィンドウを空っぽにして、次の指示を待ちます
+func clear_and_awaiting_order():
+	print("［メッセージ・ウィンドウ］　ウィンドウを空っぽにして、次の指示を待ちます")
 	$"TextBlock".text = ""
 
-# 次に表示するべきメッセージを取得
-func fetch_message():
-	return self.scenario_array.pop_front()
+	# メッセージウィンドウは指示待ちだ
+	$"../AssistantDirector".is_message_window_waiting_for_order = true
+
 
 # メッセージを追加
 func push_message(temp_text):
@@ -81,7 +63,7 @@ func push_message(temp_text):
 
 # 下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
-	# print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
+	print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
 	$"../AssistantDirector".on_choice_selected(row_number)
 
 
@@ -94,6 +76,8 @@ func _ready():
 	$"TextBlock/BlinkerUnderscore".statemachine = self.statemachine
 	$"TextBlock/ChoiceCursor".statemachine = self.statemachine
 
+	# ウィンドウを空っぽにして、次の指示を待ちます
+	self.clear_and_awaiting_order()
 
 func _process(_delta):
 	pass
@@ -133,24 +117,18 @@ func _unhandled_key_input(event):
 					
 				# ブリンカーを消す
 				$"TextBlock".clear_blinker()
+
+				# ウィンドウを空っぽにして、次の指示を待ちます
+				self.clear_and_awaiting_order()
 				
-				if 0 < self.scenario_array.size():
-					# まだあるよ
-
-					# ウィンドウを空っぽにして、次のメッセージを待ちます
-					self.clear_and_receive()
-
-					# 次に表示するべきメッセージを取得
-					var latest_message = self.scenario_array.pop_front()
-
-					# メッセージを追加
-					self.push_message(latest_message)
-					
-					# タイプライター風表示へ状態遷移
-					self.statemachine.page_forward()
-					
-				else:
-					# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
-					$"TextBlock".initialize()
-					self.statemachine.all_page_flushed()
+				#if 0 < self.scenario_array.size():
+				#	# まだあるよ
+				#
+				#	# ウィンドウを空っぽにして、次の指示を待ちます
+				#	self.clear_and_awaiting_order()
+				#	
+				#else:
+				#	# 出すメッセージが無ければ、メッセージ・ウィンドウを閉じる
+				#	$"TextBlock".initialize()
+				#	self.statemachine.all_page_flushed()
 					

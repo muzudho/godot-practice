@@ -61,5 +61,12 @@ func _process(delta):
 			else:
 				# 完全表示中
 				self.statemachine.all_character_pushed()
+
+				# メッセージウィンドウが指示待ちだ
+				# $"../../AssistantDirector".is_message_window_waiting_for_order = true
 			
 			count_of_typewriter -= wait_time
+			
+	elif self.statemachine.is_completed():
+		# 何もしない
+		pass

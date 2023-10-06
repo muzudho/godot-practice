@@ -48,11 +48,11 @@ func is_playing():
 	return self.state == States.Playing
 
 # 再生
-func play(paragraph_no):
+func play():
 	print("［ステートマシーン］　パラグラフの再生")
 	self.state = States.Playing
 
 # 停止
-func stop(paragraph_no):
+func stop():
 	print("［ステートマシーン］　停止")
 	self.state = States.None
