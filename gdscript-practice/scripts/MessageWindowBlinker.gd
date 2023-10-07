@@ -47,10 +47,6 @@ func _process(delta):
 			self.blinker_seconds = 0.0
 			self.is_first_displayed_immediately = true
 
-		#	２回目以降の不透明
-		elif not self.visible:
-			self.modulate.a = 1.0
-
 	# それ以外
 	else:
 		# 透明
