@@ -1,7 +1,6 @@
-[gd_scene load_steps=35 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=34 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
-[ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Script" path="res://scripts/Scenes.gd" id="2_cd2m7"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="2_q34ux"]
@@ -117,21 +116,6 @@ text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽
 label_settings = SubResource("LabelSettings_8g2fx")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Button" type="Button" parent="."]
-z_index = 10
-offset_left = 203.0
-offset_top = 169.0
-offset_right = 406.0
-offset_bottom = 227.0
-text = "トグルだぜ"
-
-[node name="Sprite2D" parent="." instance=ExtResource("1_5h2fa")]
-z_index = 1000
-position = Vector2(215, 362)
-
-[node name="Timer" type="Timer" parent="Sprite2D"]
-autostart = true
 
 [node name="Background" type="Node2D" parent="."]
 visible = false
@@ -253,5 +237,3 @@ volume_db = -15.0
 [node name="選択肢確定音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("19_mohar")
 volume_db = -10.0
-
-[connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
