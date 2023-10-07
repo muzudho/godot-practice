@@ -19,7 +19,6 @@ material = SubResource("CanvasItemMaterial_glhd8")
 script = SubResource("GDScript_j54mi")
 
 [node name="Button" type="Button" parent="."]
-z_index = 10
 offset_left = 203.0
 offset_top = 169.0
 offset_right = 406.0
