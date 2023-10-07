@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://c5d1r7eafkdce"]
+[gd_scene load_steps=4 format=3 uid="uid://c5d1r7eafkdce"]
+
+[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="1_vjyb2"]
+[ext_resource type="Texture2D" uid="uid://tqqrqhrnxnyb" path="res://Kifuwarabe_2016_8_6_0_20_30_88_c1.png" id="2_1vfvp"]
+[ext_resource type="Script" path="res://kifuwarabe_sprite_2d.gd" id="3_oca6r"]
 
 [node name="study-2" type="Node2D"]
+
+[node name="Grid" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_vjyb2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(609, 366)
+texture = ExtResource("2_1vfvp")
+script = ExtResource("3_oca6r")
+
+[node name="Timer" type="Timer" parent="Sprite2D"]
