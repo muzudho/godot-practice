@@ -37,6 +37,9 @@ func push_message(text):
 	print("［メッセージ・ウィンドウ］　台詞：　[" + text + "]")
 	$"TextBlock".push_message(text)
 
+	# 表示
+	self.visible = true
+
 	# タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
 

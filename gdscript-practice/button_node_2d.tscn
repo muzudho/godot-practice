@@ -86,6 +86,7 @@ script = ExtResource("5_srvyn")
 script = ExtResource("6_3ptc6")
 
 [node name="MessageWindow" type="Node2D" parent="."]
+visible = false
 z_index = 100
 script = ExtResource("6_g48f5")
 
