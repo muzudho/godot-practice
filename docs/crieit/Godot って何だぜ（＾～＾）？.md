@@ -669,7 +669,7 @@ Author: Zylann
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
 
-## 別記事：　ＢＧＭを付けようぜ？
+## 別記事：　Godot で BGM を付けようぜ（＾～＾）？
 
 📖　[Godot で BGM を付けようぜ（＾～＾）？](https://crieit.net/posts/Godot-BGM-6520132c5a067)  
 
@@ -696,5 +696,17 @@ Author: Zylann
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　`goto:` 命令を作っておいたぜ」  
+
+## センター・ウィンドウを出したり消したりする命令を作ってくれだぜ
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　センター・ウィンドウを出したり消したりする命令を作ってくれだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　表示するイラストも　変えれるようにしたいよな」  
+
+## 別記事：　再掲
+
+📖　[センターウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/a6659d9d63482dc81d9c259facf4bde7)  
 
 .

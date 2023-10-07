@@ -62,6 +62,55 @@
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　やらなければならないことが　大量にある　萎えた」  
 
+## 表示、非表示を切り替えられるようにしようぜ？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　他の記事で　他のことが　だいぶ進んだ。　センター・ウィンドウの命令の構文考えるか」  
+
+![202310__godot__07-1355--Cwnd-o2o0.png](https://crieit.now.sh/upload_images/a7572368691d986569285f93746ff6276520e52fb5ef9.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな感じで　ファイル名を指定するようにしたら　どうだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ノード名を指定した方がよくない？」  
+
+```gd
+		"""\
+		!
+		cwnd: 将棋盤
+		""",
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　じゃあ　こうか」  
+
+## デフォルトのフォントは簡体字
+
+![202310__godot__07-1402--ChinaFont-o2o0.png](https://crieit.now.sh/upload_images/1a552e4709b02804462eb2f90eda8cb66520e6966c410.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ああっ　簡体字だ！」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　アジア人は　ほとんどが中国人だからな。中国語に合わせておけば　大多数の人が幸せになるだろう」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　却下。　日本語に矯正する」  
+
+![202310__godot__07-1415--Fonts-o2o0.png](https://crieit.now.sh/upload_images/8503ff571ee6d9b916b70654a7baf57d6520e9c919bd1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　フォントは　ちゃんと設定する必要が　あったか～」  
+
+![202310__godot__07-1418--JapaneseFont-o2o0.png](https://crieit.now.sh/upload_images/3becadc8a25d1aa0791bd3de6142e3cb6520ea6c0d9b1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　けっこう　雰囲気が変わってしまったな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　慣れてくるでしょう」  
+
 # 親記事へ戻る
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
