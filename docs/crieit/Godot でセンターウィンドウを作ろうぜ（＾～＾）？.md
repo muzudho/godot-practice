@@ -131,6 +131,13 @@
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　こんな絵でいいか」  
 
+![202310__godot__07-1551--FileAndRank.png](https://crieit.now.sh/upload_images/794d2d0ee1e932e14887d6f963ff9dd66521001e3aeb7.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　でけたぜ」  
+
+📺　[動画](https://x.com/muzudho1/status/1710546806046937273?s=20)  
+
 # 親記事へ戻る
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
