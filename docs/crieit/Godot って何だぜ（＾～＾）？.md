@@ -795,4 +795,11 @@ var document = {
 
 📖　[Godot の GDScript を使ってさらにその上にゲームスクリプトを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-GDScript)  
 
+## 命令は全部、単一行命令にした。命令を連続して書けるようにした
+
+![202310__godot__08-0223-TabIndent-o2o0.png](https://crieit.now.sh/upload_images/ff55d7483fefd2054025ee9a4e74349465219581507bf.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　だいぶ　こなれてきたんじゃないかな」  
+
 .
