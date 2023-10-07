@@ -58,6 +58,7 @@ position = Vector2(640, 360)
 texture = ExtResource("2_q34ux")
 
 [node name="崎川駅前" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("3_lgvb8")
 
@@ -84,7 +85,8 @@ script = ExtResource("5_srvyn")
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("6_3ptc6")
 
-[node name="MessageWindow" type="Node" parent="."]
+[node name="MessageWindow" type="Node2D" parent="."]
+z_index = 100
 script = ExtResource("6_g48f5")
 
 [node name="Background" type="Sprite2D" parent="MessageWindow"]

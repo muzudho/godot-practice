@@ -1,5 +1,5 @@
 # メッセージ・ウィンドウ（Message Window）
-extends Node
+extends Node2D
 
 # 状態遷移機械
 var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
