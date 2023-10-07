@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=33 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="2_q34ux"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="2_wayfr"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
+[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="3_jgcwn"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/background/in_front_of_sakiwaka_station.png" id="3_lgvb8"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
 [ext_resource type="Script" path="res://scripts/Background.gd" id="5_ukmjs"]
@@ -36,6 +37,15 @@ outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_offset = Vector2(10, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8g2fx"]
+font = ExtResource("3_jgcwn")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ksp3"]
 line_spacing = 8.0
@@ -77,6 +87,23 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "きふわらべＲＰＧ"
 label_settings = SubResource("LabelSettings_t63ks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Copyright" type="Label" parent="TitleScene"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -639.0
+offset_top = 301.0
+offset_right = 637.0
+offset_bottom = 352.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
+label_settings = SubResource("LabelSettings_8g2fx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
