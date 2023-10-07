@@ -22,6 +22,7 @@ var elapsed_seconds = 0.0
 var selected_row_number = 1
 
 #	カーソルが点滅するための時間カウント
+var is_first_displayed_immediately = false
 var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
@@ -94,8 +95,15 @@ func _process(delta):
 	# 完全表示中	　かつ　選択肢モード
 	if self.statemachine.is_completed() and $"..".is_choice_mode:
 		
-		#	表示
-		if not self.visible:
+		#	初回はすぐに表示
+		if not self.is_first_displayed_immediately:
+			self.visible = true
+			self.modulate.a = 1.0
+			self.blinker_seconds = 0.0
+			self.is_first_displayed_immediately = true
+		
+		#	２回目以降の表示
+		elif not self.visible:
 			self.visible = true
 		
 		# カーソルが動く量が指定されているなら

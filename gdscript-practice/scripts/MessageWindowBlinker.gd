@@ -59,14 +59,14 @@ func _process(delta):
 	# 完全表示中	
 	if self.statemachine.is_completed():
 
-		# 初回はすぐに表示
+		#	初回はすぐに表示
 		if not self.is_first_displayed_immediately:
 			self.visible = true
 			self.modulate.a = 1.0
 			self.blinker_seconds = 0.0
 			self.is_first_displayed_immediately = true
 
-		#	表示
+		#	２回目以降の表示
 		elif not self.visible:
 			self.visible = true
 
