@@ -150,14 +150,14 @@ volume_db = -20.0
 
 [node name="ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("19_tr361")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="選択肢カーソル移動音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("19_t4ve7")
-volume_db = -20.0
+volume_db = -15.0
 
 [node name="選択肢確定音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("19_mohar")
-volume_db = -20.0
+volume_db = -15.0
 
 [connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
