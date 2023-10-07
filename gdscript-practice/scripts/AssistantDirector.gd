@@ -7,19 +7,19 @@ var statemachine = load("scripts/AssistantDirectorStatemachine.gd").new()
 # メッセージウィンドウが指示待ちか？
 var is_message_window_waiting_for_order = false
 
-# 現在実行中の段落番号
-var current_paragraph_code = null
+# 現在実行中の段落名
+var current_paragraph_name = null
 
 var scenario_array = []
 
 
 # 台本の再生の開始の合図
-func play_paragraph(paragraph_code):
-	self.current_paragraph_code = paragraph_code
+func play_paragraph(paragraph_name):
+	self.current_paragraph_name = paragraph_name
 	
 	# シナリオ・ブックから、内容を取出す
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
-	self.scenario_array = $"../ScenarioBook".document[self.current_paragraph_code]
+	self.scenario_array = $"../ScenarioBook".document[self.current_paragraph_name]
 
 	# ウィンドウを空っぽにして、次の指示を待ちます（強制的に、そういうことにしておく）
 	$"../MessageWindow".clear_and_awaiting_order()
@@ -30,11 +30,11 @@ func play_paragraph(paragraph_code):
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
-	print("［アシスタント・ディレクター］　現在の段落名　　　：" + self.current_paragraph_code)
+	print("［アシスタント・ディレクター］　現在の段落名　　　：" + self.current_paragraph_name)
 	print("［アシスタント・ディレクター］　選んだ選択肢行番号：" + str(row_number))
 
 	# 次の段落名
-	var next_paragraph_name = $"../ScenarioBook".index[self.current_paragraph_code][row_number]
+	var next_paragraph_name = $"../ScenarioBook".index[self.current_paragraph_name][row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
 	self.play_paragraph(next_paragraph_name)
@@ -93,12 +93,20 @@ func parse_message(temp_text):
 		var second_head = second_head_tail[0].strip_edges()
 		var second_tail = second_head_tail[1]
 	
+		# 次の段落へ飛ぶ
+		if second_head.begins_with("goto:"):
+			print("［アシスタント・ディレクター］　次の段落へ飛ぶ")
+
+			# head
+			var next_paragraph_name = second_head.substr(4).strip_edges()
+			self.play_paragraph(next_paragraph_name)
+	
 		# 選択肢かどうか判定
-		if second_head.begins_with("choice:"):
+		elif second_head.begins_with("choice:"):
 			print("［アシスタント・ディレクター］　選択肢だ：[" + second_tail + "]")
 			
 			# head
-			var csv = second_head.substr(7, second_head.length()-7).strip_edges()
+			var csv = second_head.substr(7).strip_edges()
 			# TODO 昇順であること
 			var string_packed_array = csv.split(",", true, 0)
 			var size = string_packed_array.size()
@@ -121,7 +129,7 @@ func parse_message(temp_text):
 			print("［アシスタント・ディレクター］　ＢＧＭだ")
 
 			# head
-			var name = second_head.substr(4, second_head.length()-4).strip_edges()
+			var name = second_head.substr(4).strip_edges()
 			print("［アシスタント・ディレクター］　ノード名：[" + name + "]")
 
 			if name == "":
