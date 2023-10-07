@@ -6,7 +6,13 @@ extends Node2D
 func _ready():
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
+
+	# グリッドは隠す
 	$"Grid".hide()
+	
+	# 背景画像は全部隠す
+	for sprite2d_node in $"Background".get_children():
+		sprite2d_node.hide()
 
 	# 台本の再生の開始の合図
 	$"./AssistantDirector".play_paragraph("タイトル画面")
