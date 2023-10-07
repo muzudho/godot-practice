@@ -1,5 +1,10 @@
 extends Label
 
+# 文字の縦幅px
+const font_height = 32
+# 行間の縦幅
+const line_space_height = 16
+
 # メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine = null
 
@@ -27,6 +32,37 @@ func get_parent_choice_row_numbers():
 # 線形補間
 func lerp(src, dst, progress):
 	return src + (dst - src) * progress
+
+
+# カーソルが上に移動します
+func on_cursor_up(target_index):
+	# 効果音鳴らす
+	$"../../../Musician".playSe("選択肢カーソル移動音")
+
+	var old_selected_row_number = self.selected_row_number
+	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index - 1]
+	var difference = old_selected_row_number - self.selected_row_number
+	
+	self.src_y = self.offset_top
+	self.dst_y = self.offset_top - difference * (self.font_height + self.line_space_height)
+	self.total_seconds = 0.3
+	self.elapsed_seconds = 0.0
+
+
+# カーソルが下に移動します
+func on_cursor_down(target_index):
+	# 効果音鳴らす
+	$"../../../Musician".playSe("選択肢カーソル移動音")
+
+	var old_selected_row_number = self.selected_row_number
+	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index + 1]
+	# print("［選択肢カーソル］　新行番号：" + str(self.selected_row_number))
+	var difference = self.selected_row_number - old_selected_row_number
+
+	self.src_y = self.offset_top
+	self.dst_y = self.offset_top + difference * (self.font_height + self.line_space_height)
+	self.total_seconds = 0.3
+	self.elapsed_seconds = 0.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -60,9 +96,6 @@ func _process(delta):
 		# 移動量が残ってないなら
 		else:
 
-			const font_height = 32
-			const space_line = 16
-
 			# 上へ移動する分
 			if Input.is_action_pressed(&"ui_up"):
 				# print("［選択肢カーソル］　上へ")
@@ -72,17 +105,8 @@ func _process(delta):
 				if index < 1:
 					return
 
-				# カーソル音
-				$"../../../Musician".playSe("カーソル音")
-
-				var old_selected_row_number = self.selected_row_number
-				self.selected_row_number = self.get_parent_choice_row_numbers()[index - 1]
-				var difference = old_selected_row_number - self.selected_row_number
-				
-				self.src_y = self.offset_top
-				self.dst_y = self.offset_top - difference * (font_height+space_line)
-				self.total_seconds = 0.3
-				self.elapsed_seconds = 0.0
+				# カーソルが上に移動します
+				self.on_cursor_up(index)
 				
 			# 下へ移動する分
 			if Input.is_action_pressed(&"ui_down"):
@@ -97,18 +121,8 @@ func _process(delta):
 				if index < 0 or size <= index + 1:
 					return
 
-				# カーソル音
-				$"../../../Musician".playSe("カーソル音")
-
-				var old_selected_row_number = self.selected_row_number
-				self.selected_row_number = self.get_parent_choice_row_numbers()[index + 1]
-				# print("［選択肢カーソル］　新行番号：" + str(self.selected_row_number))
-				var difference = self.selected_row_number - old_selected_row_number
-
-				self.src_y = self.offset_top
-				self.dst_y = self.offset_top + difference * (font_height+space_line)
-				self.total_seconds = 0.3
-				self.elapsed_seconds = 0.0
+				# カーソルが下に移動します
+				self.on_cursor_down(index)
 		
 	else:
 		# 非表示

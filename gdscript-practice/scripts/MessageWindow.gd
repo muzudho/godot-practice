@@ -65,8 +65,14 @@ func push_choices(row_numbers, temp_text):
 
 
 # 下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
-func on_choice_selected(row_number):
+func on_choice_selected():
+	# カーソル音
+	$"../Musician".playSe("選択肢確定音")
+	
+	var row_number = $"TextBlock/ChoiceCursor".selected_row_number	
 	print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
+
+	# 選択肢の行番号を、上位ノードへエスカレーションします
 	$"../AssistantDirector".on_choice_selected(row_number)
 
 
@@ -102,8 +108,8 @@ func _unhandled_key_input(event):
 					return
 					
 				else:
-					# 選択肢の行番号を、上位ノードへエスカレーションします
-					self.on_choice_selected($"TextBlock/ChoiceCursor".selected_row_number)
+					# 確定した
+					self.on_choice_selected()
 					return
 		
 		# 非モードなら

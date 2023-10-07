@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=24 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scripts/Musician.gd" id="17_032og"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/きふわらべファイター２.ogg" id="17_lqln6"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="19_mohar"]
+[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="19_t4ve7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -146,7 +147,16 @@ volume_db = -20.0
 
 [node name="SE" type="Node" parent="Musician"]
 
-[node name="カーソル音" type="AudioStreamPlayer" parent="Musician/SE"]
+[node name="ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("19_t4ve7")
+volume_db = -20.0
+
+[node name="選択肢カーソル移動音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("19_t4ve7")
+volume_db = -20.0
+
+[node name="選択肢確定音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("19_mohar")
+volume_db = -20.0
 
 [connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
