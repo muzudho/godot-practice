@@ -791,6 +791,8 @@ var document = {
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
 
-## 別記事：　
+## 別記事：　Godot の GDScript を使ってさらにその上にゲームスクリプトを作ろうぜ（＾～＾）？
+
+📖　[Godot の GDScript を使ってさらにその上にゲームスクリプトを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-GDScript)  
 
 .
