@@ -14,5 +14,11 @@ func _ready():
 	for sprite2d_node in $"Background".get_children():
 		sprite2d_node.hide()
 
+	# センターウィンドウはとにかく隠す
+	for sprite2d_node in $"CenterWindow".get_children():
+		sprite2d_node.hide()
+	$"CenterWindow/System/Frame".hide()
+
+
 	# 台本の再生の開始の合図
 	$"./AssistantDirector".play_paragraph("タイトル画面")

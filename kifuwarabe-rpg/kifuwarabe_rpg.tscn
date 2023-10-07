@@ -118,22 +118,22 @@ texture = ExtResource("9_ictj0")
 visible = false
 script = ExtResource("19_xuids")
 
-[node name="Images" type="Node2D" parent="CenterWindow"]
+[node name="System" type="Node2D" parent="CenterWindow"]
 
-[node name="将棋盤" type="Sprite2D" parent="CenterWindow/Images"]
+[node name="Frame" type="Sprite2D" parent="CenterWindow/System"]
+z_index = 10
+position = Vector2(640, 360)
+texture = ExtResource("22_06g4y")
+
+[node name="将棋盤" type="Sprite2D" parent="CenterWindow"]
 z_index = 10
 position = Vector2(640, 272)
 texture = ExtResource("20_gotyj")
 
-[node name="ファイルとランク" type="Sprite2D" parent="CenterWindow/Images"]
+[node name="ファイルとランク" type="Sprite2D" parent="CenterWindow"]
 z_index = 10
 position = Vector2(640, 272)
 texture = ExtResource("21_na47b")
-
-[node name="Frame" type="Sprite2D" parent="CenterWindow"]
-z_index = 10
-position = Vector2(640, 360)
-texture = ExtResource("22_06g4y")
 
 [node name="Scenes" type="Node2D" parent="."]
 script = ExtResource("4_mkh8y")
