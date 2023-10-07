@@ -726,4 +726,27 @@ Author: Zylann
 
 ## 別記事：　Godot で背景画像を差し替えようぜ（＾～＾）？
 
+📖　[Godot で背景画像を差し替えようぜ（＾～＾）？](https://crieit.net/posts/Godot-65211f90d3f36)  
+
+## 差替えれるようにした
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　差替えれるようにしたぜ、疲れた」  
+
+## 選択肢のカーソルもブリンク（Blink；点滅）させなさいよ？
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　選択肢のカーソルもブリンク（Blink；点滅）させなさいよ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　確かに気になっていた。終わらない作業、苦行」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
+## 別記事：　Godot で選択肢のカーソルをブリンクさせようぜ（＾～＾）？
+
+📖　[Godot で選択肢のカーソルをブリンクさせようぜ（＾～＾）？](https://crieit.net/posts/Godot-6521546c52a8d)  
+
+
 .
