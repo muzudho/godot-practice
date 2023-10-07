@@ -75,4 +75,44 @@
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　まだ　やることが　いっぱいあるな」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　表示物の　オン／オフ　の機能は　付けたぜ」  
+
+# タイトル画面に音楽を付けろだぜ
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　タイトル画面に音楽を付けろだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　タラタラタラ　タラタラタラ  
+ター　ター　ター  
+
+みたいな　ＦＦ５　のオープニングみたいなやつだろ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ねーよ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　魔王魂から　探してくるしか　なくない？」  
+
+～♪  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　魔王魂の人は　ゲーム曲　あんま分かってないようで　タメが長い。  
+方向性が　ゲームに向いてない方へ伸ばそうとしてる。  
+もっと　バサッと切った方がいい。  
+探すしかないかー」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　タイトル画面を作ったぜ」  
+
+📺　[動画](https://x.com/muzudho1/status/1710624630527193471?s=20)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　充分そうねえ」  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .
