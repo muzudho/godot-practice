@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/AssistantDirector.gd" id="3_nnvgw"]
 [ext_resource type="Script" path="res://scripts/Scenes.gd" id="4_mkh8y"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="5_24vd4"]
-[ext_resource type="AudioStream" uid="uid://dwb8bjq2eqllw" path="res://audio/bgm/新しいフォルダー/maou_bgm_acoustic05.ogg" id="6_8yldd"]
+[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://audio/bgm/maou_bgm_acoustic05.ogg" id="6_7oykx"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="6_bei22"]
 [ext_resource type="Script" path="res://scripts/Background.gd" id="7_ehwng"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="8_nhng7"]
@@ -99,8 +99,8 @@ stream = ExtResource("25_0600e")
 volume_db = -20.0
 
 [node name="エンディング" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("6_8yldd")
-volume_db = -20.0
+stream = ExtResource("6_7oykx")
+volume_db = -15.0
 
 [node name="SE" type="Node" parent="Musician"]
 
