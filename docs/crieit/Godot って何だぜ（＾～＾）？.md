@@ -692,4 +692,9 @@ Author: Zylann
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　Go to 命令付けるか～
 
+![202310__godot__07-1328--Goto-o2o0.png](https://crieit.now.sh/upload_images/41f5bcd634ffcd3807c8d11b7183e7c56520df4120d70.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`goto:` 命令を作っておいたぜ」  
+
 .
