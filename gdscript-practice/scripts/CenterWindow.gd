@@ -25,7 +25,7 @@ func hide_window():
 	self.current_image_name = null
 
 
-# とにかく、非表示にする
+# とにかく、非表示にする（重たい処理）
 func hide_window_force():
 	for child in $"Images".get_children():
 		child.hide()

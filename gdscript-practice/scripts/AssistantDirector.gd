@@ -146,7 +146,11 @@ func parse_message(temp_text):
 			var image_name = second_head.substr(5).strip_edges()
 			print("［アシスタント・ディレクター］　センター・ウィンドウ：[" + image_name + "]")
 			
-			$"../CenterWindow".show_window(image_name)
+			if image_name == "":
+				$"../CenterWindow".hide_window()
+			else:
+				$"../CenterWindow".show_window(image_name)
+				
 			return
 			
 			
