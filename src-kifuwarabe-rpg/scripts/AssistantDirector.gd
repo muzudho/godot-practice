@@ -12,6 +12,9 @@ var current_paragraph_name = null
 
 var scenario_array = []
 
+# 選択肢用の行番号配列。無ければヌル
+var choice_row_number_array = null
+
 
 # 台本の再生の開始の合図
 func play_paragraph(paragraph_name):
@@ -76,6 +79,23 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
+# 文字列パック配列を、数値の配列に変換
+func convert_string_packed_array_to_number_array(string_packed_array):
+	var size = string_packed_array.size()
+	# print("［メッセージ・ウィンドウ］　選択肢サイズ：" + str(size))
+
+	# 文字列型の配列を、数の配列に変換
+	var row_numbers = []
+	row_numbers.resize(size)
+	
+	# print("［メッセージ・ウィンドウ］　行番号一覧")
+	for i in range(0, size):
+		row_numbers[i] = string_packed_array[i].to_int()
+		# print(str(row_numbers[i])
+	
+	return row_numbers
+
+
 # 命令か、台詞か、によって処理を分けます
 func parse_message(temp_text):
 	
@@ -125,26 +145,14 @@ func parse_message(temp_text):
 		
 		# 選択肢かどうか判定
 		elif second_head.begins_with("choice:"):
-			print("［アシスタント・ディレクター］　選択肢だ：[" + second_tail + "]")
+			print("［アシスタント・ディレクター］　選択肢の前処理だ：[" + second_tail + "]")
 			
 			# head
 			var csv = second_head.substr(7).strip_edges()
 			# TODO 昇順であること
 			var string_packed_array = csv.split(",", true, 0)
-			var size = string_packed_array.size()
-			# print("［メッセージ・ウィンドウ］　選択肢サイズ：" + str(size))
-
-			# 文字列型の配列を、数の配列に変換
-			var row_numbers = []
-			row_numbers.resize(size)
-			# print("［メッセージ・ウィンドウ］　行番号一覧")
-			for i in range(0, size):
-				row_numbers[i] = string_packed_array[i].to_int()
-				# print(str(row_numbers[i])
-
-			$"../MessageWindow".push_choices(row_numbers, second_tail)
-			
-			self.is_message_window_waiting_for_order = false
+			# 文字列パック配列を、数値の配列に変換
+			self.choice_row_number_array = self.convert_string_packed_array_to_number_array(string_packed_array)
 			return
 		
 		
@@ -213,7 +221,18 @@ func parse_message(temp_text):
 				$"../Musician".playSe(name)
 
 			return
-			
+
+	if self.choice_row_number_array != null:
+		print("［アシスタント・ディレクター］　選択肢だ：[" + temp_text + "]")
+
+		# この台詞は選択肢として扱う
+		$"../MessageWindow".push_choices(self.choice_row_number_array, temp_text)
+		self.is_message_window_waiting_for_order = false
+
+		#	処理終わり
+		self.choice_row_number_array = null
+		return
+
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
 	$"../MessageWindow".push_message(temp_text)
 	self.is_message_window_waiting_for_order = false
