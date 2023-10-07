@@ -16,3 +16,14 @@ texture = ExtResource("2_1vfvp")
 script = ExtResource("3_oca6r")
 
 [node name="Timer" type="Timer" parent="Sprite2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_left = 311.0
+offset_top = 167.0
+offset_right = 510.0
+offset_bottom = 235.0
+text = "トグルだぜ"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="Sprite2D" method="_on_button_pressed"]
