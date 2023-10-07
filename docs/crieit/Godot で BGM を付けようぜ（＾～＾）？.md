@@ -236,4 +236,46 @@ BGM が鳴ることにしたらどうだぜ？」
 # BGMを鳴らせだぜ
 
 .![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
-「　じゃあ　ＢＧＭを鳴らせだぜ」  
+「　👇　じゃあ　ＢＧＭを鳴らせだぜ」  
+
+📖　[Godot 音シュー02「BGMを鳴らす」](https://ore2wakaru2.hatenablog.com/entry/2018/05/23/235919)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　よし、鳴ったぜ。　デフォルトの音デカいから　-20 db にしたぜ」  
+
+📺　[動画](https://x.com/muzudho1/status/1710345579031851360?s=20)  
+
+# ページ送りの効果音を付けない？
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　効果音は付けないの？　ページ送りとか、選択肢のカーソルの移動とか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　シナリオとはまた別の理由で　鳴る音か」  
+
+.![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　Godot では　ＢＧＭと　効果音に　区別は無いのかもしれないな」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　じゃあ　魔王魂で　無料の効果音探すか。１０年ぐらい前から　このサイト　ある気がするな」  
+
+📖　[魔王魂](https://maou.audio/profile/)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　思ってるやつは　多分　無いだろなと思ったが　無かった。  
+仕方ないから　それっぽいやつを　探すか」  
+
+📺　[動画](https://x.com/muzudho1/status/1710487025499979987?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　効果音も付けた。　効果音も音デカいな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　選択肢を選んだときの　確定音も付けなさいよ」  
+
+📺　[動画](https://x.com/muzudho1/status/1710496701906403531?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　付けた……、エンターキーの打鍵音の方が　デケぇ」  
+
+.

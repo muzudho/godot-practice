@@ -3,12 +3,16 @@ extends Label
 # メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine = null
 
+# 強制的に非表示にする
+var is_hide_force = false
+
 # 点滅用
 var is_first_displayed_immediately = false
 var count_of_blink = 0
 
 
 func reset():
+	self.is_hide_force = false
 	self.visible = false
 	self.count_of_blink = 0
 	self.is_first_displayed_immediately = false
@@ -23,6 +27,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
+	# 強制的に表示にするか？
+	if self.is_hide_force and self.visible:
+		self.visible = false
+		return
 	
 	# 完全表示中	
 	if self.statemachine.is_completed():

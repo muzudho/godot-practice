@@ -26,6 +26,27 @@ func clear_blinker():
 	$"BlinkerUnderscore".reset()
 
 
+# メッセージを追加
+func push_message(text):
+	# print("［テキストブロック］　台詞追加")
+	print("［テキストブロック］　台詞：　[" + text + "]")
+	self.is_choice_mode = false
+	self.choice_row_numbers = []	
+	self.text_buffer = text	
+
+
+# 選択肢を追加
+func push_choices(row_numbers, text):
+	print("［テキストブロック］　選択肢：　[" + text + "]")
+	self.choice_row_numbers = row_numbers
+	self.text_buffer = text
+	self.is_choice_mode = true
+
+	# ブリンカーを強制的に非表示にする
+	$"BlinkerTriangle".is_hide_force = true
+	$"BlinkerUnderscore".is_hide_force = true
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# 最初は非表示

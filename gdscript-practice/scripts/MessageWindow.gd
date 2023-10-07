@@ -32,26 +32,23 @@ func split_head_line_or_tail(text):
 
 
 # メッセージを追加
-func push_message(temp_text):
+func push_message(text):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
-	print("［メッセージ・ウィンドウ］　台詞：　[" + temp_text + "]")
-	$"TextBlock".is_choice_mode = false
-	$"TextBlock".choice_row_numbers = []	
-	$"TextBlock".text_buffer = temp_text	
+	print("［メッセージ・ウィンドウ］　台詞：　[" + text + "]")
+	$"TextBlock".push_message(text)
 
 	# タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
 
 
 # 選択肢を追加
-func push_choices(row_numbers, temp_text):
-	print("［メッセージ・ウィンドウ］　選択肢：　[" + temp_text + "]")
-	$"../MessageWindow/TextBlock".choice_row_numbers = row_numbers
-	$"../MessageWindow/TextBlock".text_buffer = temp_text
-	$"../MessageWindow/TextBlock".is_choice_mode = true
+func push_choices(row_numbers, text):
+	print("［メッセージ・ウィンドウ］　選択肢：　[" + text + "]")
+	$"TextBlock".push_choices(row_numbers, text)
 
 	# タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
+	
 
 
 # ページ送り
