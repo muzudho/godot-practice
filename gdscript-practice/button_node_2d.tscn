@@ -1,9 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=31 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="2_q34ux"]
+[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="2_wayfr"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/background/in_front_of_sakiwaka_station.png" id="3_lgvb8"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
@@ -28,6 +29,14 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_t63ks"]
+font = ExtResource("2_wayfr")
+font_size = 128
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(10, 10)
+
 [sub_resource type="LabelSettings" id="LabelSettings_6ksp3"]
 line_spacing = 8.0
 font = ExtResource("3_chwyv")
@@ -51,6 +60,25 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_5d2tk")
+
+[node name="TitleScene" type="CanvasLayer" parent="."]
+
+[node name="Title" type="Label" parent="TitleScene"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -232.0
+offset_right = 512.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "きふわらべＲＰＧ"
+label_settings = SubResource("LabelSettings_t63ks")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScenarioBook" type="Node" parent="."]
 script = ExtResource("5_srvyn")
@@ -88,6 +116,7 @@ position = Vector2(640, 360)
 texture = ExtResource("3_lgvb8")
 
 [node name="Grid" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("2_cyfha")
 
