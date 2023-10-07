@@ -95,13 +95,22 @@ func parse_message(temp_text):
 
 		# 以下の命令は、アルファベット順で並べてある
 		#
+		# 背景切替
+		if second_head.begins_with("bg:"):
+			# head
+			var name = second_head.substr(3).strip_edges()
+			print("［アシスタント・ディレクター］　背景：[" + name + "]")
+
+			# 背景設定
+			$"../Background".show(name)
+
+			return
+
 		# ＢＧＭ再生／停止
 		if second_head.begins_with("bgm:"):
-			print("［アシスタント・ディレクター］　ＢＧＭだ")
-
 			# head
 			var name = second_head.substr(4).strip_edges()
-			print("［アシスタント・ディレクター］　ノード名：[" + name + "]")
+			print("［アシスタント・ディレクター］　ＢＧＭ：[" + name + "]")
 
 			if name == "":
 				# BGM 停止

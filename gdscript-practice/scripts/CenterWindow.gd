@@ -34,7 +34,7 @@ func hide_window():
 
 
 # とにかく、非表示にする（重たい処理）
-func hide_window_force():
+func hide_all_its_force():
 	for child in $"Images".get_children():
 		child.hide()
 	$"Frame".hide()
@@ -44,8 +44,9 @@ func hide_window_force():
 func _ready():
 	print("［センター・ウィンドウ］　準備")
 	
+	# （開発画面で表示設定が散らかっているだろう）
 	# とにかく非表示にする
-	self.hide_window_force()
+	self.hide_all_its_force()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

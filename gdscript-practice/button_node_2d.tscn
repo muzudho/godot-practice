@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=29 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
@@ -7,6 +7,7 @@
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/background/in_front_of_sakiwaka_station.png" id="3_lgvb8"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
+[ext_resource type="Script" path="res://scripts/Background.gd" id="5_ukmjs"]
 [ext_resource type="Script" path="res://scripts/AssistantDirector.gd" id="6_3ptc6"]
 [ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="6_g48f5"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="7_gmngy"]
@@ -72,13 +73,17 @@ position = Vector2(215, 362)
 [node name="Timer" type="Timer" parent="Sprite2D"]
 autostart = true
 
-[node name="Background" type="Node" parent="."]
+[node name="Background" type="Node2D" parent="."]
+visible = false
+script = ExtResource("5_ukmjs")
 
-[node name="イベントルーム" type="Sprite2D" parent="Background"]
+[node name="Images" type="Node2D" parent="Background"]
+
+[node name="イベントルーム" type="Sprite2D" parent="Background/Images"]
 position = Vector2(640, 360)
 texture = ExtResource("2_q34ux")
 
-[node name="崎川駅前" type="Sprite2D" parent="Background"]
+[node name="崎川駅前" type="Sprite2D" parent="Background/Images"]
 position = Vector2(640, 360)
 texture = ExtResource("3_lgvb8")
 
