@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=26 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/MessageWindowTextBlock.gd" id="12_tmvbs"]
 [ext_resource type="Script" path="res://scripts/ChoiceCursor.gd" id="13_qefmu"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/CenterWindow.png" id="15_1ekew"]
+[ext_resource type="Script" path="res://scripts/CenterWindow.gd" id="15_cotsh"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/center_window/ShogiBan.png" id="16_qxqx0"]
 [ext_resource type="Script" path="res://scripts/Musician.gd" id="17_032og"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/きふわらべファイター２.ogg" id="17_lqln6"]
@@ -128,8 +129,11 @@ script = ExtResource("13_qefmu")
 format = 2
 
 [node name="CenterWindow" type="Node" parent="."]
+script = ExtResource("15_cotsh")
 
-[node name="将棋盤" type="Sprite2D" parent="CenterWindow"]
+[node name="Images" type="Node" parent="CenterWindow"]
+
+[node name="将棋盤" type="Sprite2D" parent="CenterWindow/Images"]
 position = Vector2(640, 272)
 texture = ExtResource("16_qxqx0")
 

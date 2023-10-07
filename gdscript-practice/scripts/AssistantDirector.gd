@@ -92,17 +92,28 @@ func parse_message(temp_text):
 		var second_head_tail = split_head_line_or_tail(first_tail)
 		var second_head = second_head_tail[0].strip_edges()
 		var second_tail = second_head_tail[1]
-	
-		# 次の段落へ飛ぶ
-		if second_head.begins_with("goto:"):
+
+		# 以下の命令は、アルファベット順で並べてある
+		#
+		# ＢＧＭ再生／停止
+		if second_head.begins_with("bgm:"):
+			print("［アシスタント・ディレクター］　ＢＧＭだ")
 
 			# head
-			var next_paragraph_name = second_head.substr(5).strip_edges()
-			print("［アシスタント・ディレクター］　次の段落へ飛ぶ：[" + next_paragraph_name + "]")
-			
-			self.play_paragraph(next_paragraph_name)
+			var name = second_head.substr(4).strip_edges()
+			print("［アシスタント・ディレクター］　ノード名：[" + name + "]")
+
+			if name == "":
+				# BGM 停止
+				$"../Musician".stopBgm()
+				
+			else:
+				# じゃあ BGM 流すか
+				$"../Musician".playBgm(name)
+
 			return
-	
+		
+		
 		# 選択肢かどうか判定
 		elif second_head.begins_with("choice:"):
 			print("［アシスタント・ディレクター］　選択肢だ：[" + second_tail + "]")
@@ -126,24 +137,31 @@ func parse_message(temp_text):
 			
 			self.is_message_window_waiting_for_order = false
 			return
-			
-		elif second_head.begins_with("bgm:"):
-			print("［アシスタント・ディレクター］　ＢＧＭだ")
+		
+		
+		# センター・ウィンドウの表示／非表示
+		elif second_head.begins_with("cwnd:"):
 
 			# head
-			var name = second_head.substr(4).strip_edges()
-			print("［アシスタント・ディレクター］　ノード名：[" + name + "]")
-
-			if name == "":
-				# BGM 停止
-				$"../Musician".stopBgm()
-				
-			else:
-				# じゃあ BGM 流すか
-				$"../Musician".playBgm(name)
-
+			var image_name = second_head.substr(5).strip_edges()
+			print("［アシスタント・ディレクター］　センター・ウィンドウ：[" + image_name + "]")
+			
+			$"../CenterWindow".show_window(image_name)
 			return
 			
+			
+		# 次の段落へ飛ぶ
+		elif second_head.begins_with("goto:"):
+
+			# head
+			var next_paragraph_name = second_head.substr(5).strip_edges()
+			print("［アシスタント・ディレクター］　次の段落へ飛ぶ：[" + next_paragraph_name + "]")
+			
+			self.play_paragraph(next_paragraph_name)
+			return
+		
+		
+		# 効果音
 		elif second_head.begins_with("se:"):
 			print("［アシスタント・ディレクター］　効果音だ")
 
