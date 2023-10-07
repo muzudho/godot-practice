@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=34 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
+[ext_resource type="Script" path="res://scripts/Scenes.gd" id="2_cd2m7"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="2_q34ux"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="2_wayfr"]
@@ -71,9 +72,18 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_5d2tk")
 
-[node name="TitleScene" type="CanvasLayer" parent="."]
+[node name="ScenarioBook" type="Node" parent="."]
+script = ExtResource("5_srvyn")
 
-[node name="Title" type="Label" parent="TitleScene"]
+[node name="AssistantDirector" type="Node" parent="."]
+script = ExtResource("6_3ptc6")
+
+[node name="Scenes" type="Node2D" parent="."]
+script = ExtResource("2_cd2m7")
+
+[node name="タイトル" type="CanvasLayer" parent="Scenes"]
+
+[node name="きふわらべRPG" type="Label" parent="Scenes/タイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -90,7 +100,7 @@ label_settings = SubResource("LabelSettings_t63ks")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Copyright" type="Label" parent="TitleScene"]
+[node name="Copyright" type="Label" parent="Scenes/タイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -106,12 +116,6 @@ text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽
 label_settings = SubResource("LabelSettings_8g2fx")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="ScenarioBook" type="Node" parent="."]
-script = ExtResource("5_srvyn")
-
-[node name="AssistantDirector" type="Node" parent="."]
-script = ExtResource("6_3ptc6")
 
 [node name="Button" type="Button" parent="."]
 z_index = 10

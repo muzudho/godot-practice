@@ -152,13 +152,13 @@ func parse_message(temp_text):
 		elif second_head.begins_with("cwnd:"):
 
 			# head
-			var image_name = second_head.substr(5).strip_edges()
-			print("［アシスタント・ディレクター］　センター・ウィンドウ：[" + image_name + "]")
+			var name = second_head.substr(5).strip_edges()
+			print("［アシスタント・ディレクター］　センター・ウィンドウ：[" + name + "]")
 			
-			if image_name == "":
+			if name == "":
 				$"../CenterWindow".hide_window()
 			else:
-				$"../CenterWindow".show_window(image_name)
+				$"../CenterWindow".show_window(name)
 				
 			return
 			
@@ -178,6 +178,21 @@ func parse_message(temp_text):
 		elif second_head.begins_with("quit:"):
 			print("［アシスタント・ディレクター］　アプリケーション終了")
 			self.get_tree().quit()
+			return
+
+
+		# シーンの表示／非表示
+		elif second_head.begins_with("scene:"):
+
+			# head
+			var name = second_head.substr(6).strip_edges()
+			print("［アシスタント・ディレクター］　シーン：[" + name + "]")
+			
+			if name == "":
+				$"../Scenes".hide_scene()
+			else:
+				$"../Scenes".show_scene(name)
+				
 			return
 
 		
