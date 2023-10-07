@@ -10,12 +10,12 @@
 position = Vector2(640, 360)
 texture = ExtResource("1_vjyb2")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Kifuwarabe" type="Sprite2D" parent="."]
 position = Vector2(609, 366)
 texture = ExtResource("2_1vfvp")
 script = ExtResource("3_oca6r")
 
-[node name="Timer" type="Timer" parent="Sprite2D"]
+[node name="Timer" type="Timer" parent="Kifuwarabe"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -26,4 +26,4 @@ offset_right = 510.0
 offset_bottom = 235.0
 text = "トグルだぜ"
 
-[connection signal="pressed" from="CanvasLayer/Button" to="Sprite2D" method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="Kifuwarabe" method="_on_button_pressed"]
