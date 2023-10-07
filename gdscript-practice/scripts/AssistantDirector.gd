@@ -95,11 +95,13 @@ func parse_message(temp_text):
 	
 		# 次の段落へ飛ぶ
 		if second_head.begins_with("goto:"):
-			print("［アシスタント・ディレクター］　次の段落へ飛ぶ")
 
 			# head
-			var next_paragraph_name = second_head.substr(4).strip_edges()
+			var next_paragraph_name = second_head.substr(5).strip_edges()
+			print("［アシスタント・ディレクター］　次の段落へ飛ぶ：[" + next_paragraph_name + "]")
+			
 			self.play_paragraph(next_paragraph_name)
+			return
 	
 		# 選択肢かどうか判定
 		elif second_head.begins_with("choice:"):
