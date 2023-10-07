@@ -95,7 +95,7 @@ func parse_message(temp_text):
 		# さらに先頭行を取得
 		var second_head_tail = split_head_line_or_tail(first_tail)
 		
-		if second_head_tail != null:
+		while second_head_tail != null:
 			var second_head = second_head_tail[0].strip_edges()
 			var second_tail = second_head_tail[1]
 
@@ -146,6 +146,9 @@ func parse_message(temp_text):
 			elif second_head.begins_with("se:"):
 				$"Se".do_it(second_head)
 				return
+
+			# さらに先頭行を取得
+			second_head_tail = split_head_line_or_tail(second_tail)
 
 
 	if $"Choice".choice_row_number_array != null:
