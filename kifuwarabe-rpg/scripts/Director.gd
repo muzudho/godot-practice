@@ -19,6 +19,10 @@ func _ready():
 		sprite2d_node.hide()
 	$"CenterWindow/System/Frame".hide()
 
+	# シーンはとにかく非表示にする
+	for canvas_layer in $"Scenes".get_children():
+		canvas_layer.hide()
+
 
 	# 台本の再生の開始の合図
 	$"./AssistantDirector".play_paragraph("タイトル画面")

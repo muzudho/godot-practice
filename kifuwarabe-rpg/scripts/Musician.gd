@@ -2,12 +2,14 @@
 #		音楽のことは頼んだ
 extends Node
 
-# 現在鳴っている背景音楽のノード名
+#	現在鳴っている背景音楽のノード名
 var current_bgm_name = null
 
-# 現在鳴っている効果音のノード名
+#	現在鳴っている効果音のノード名
 var current_se_name = null
 
+
+#	BGM 再生
 func playBgm(name):
 	if self.current_bgm_name!=null:
 		self.stopBgm()
@@ -17,6 +19,7 @@ func playBgm(name):
 	$"BGM".get_node(self.current_bgm_name).play()
 
 
+#	効果音再生
 func playSe(name):
 	if self.current_se_name!=null:
 		self.stopSe()
@@ -26,6 +29,7 @@ func playSe(name):
 	$"SE".get_node(self.current_se_name).play()
 
 
+#	BGM 停止
 func stopBgm():
 	if self.current_bgm_name != null:
 		print("［音楽家］　ＢＧＭ停止")
@@ -33,6 +37,7 @@ func stopBgm():
 		self.current_bgm_name = null
 
 
+#	効果音停止
 func stopSe():
 	if self.current_se_name != null:
 		print("［音楽家］　効果音停止")
