@@ -73,8 +73,8 @@ func on_cursor_down(target_index):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# 最初は非表示
-	self.visible = false
+	# 最初は透明
+	self.modulate.a = 0.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -95,16 +95,15 @@ func _process(delta):
 	# 完全表示中	　かつ　選択肢モード
 	if self.statemachine.is_completed() and $"..".is_choice_mode:
 		
-		#	初回はすぐに表示
+		#	初回はすぐに不透明
 		if not self.is_first_displayed_immediately:
-			self.visible = true
 			self.modulate.a = 1.0
 			self.blinker_seconds = 0.0
 			self.is_first_displayed_immediately = true
 		
-		#	２回目以降の表示
+		#	２回目以降の不透明
 		elif not self.visible:
-			self.visible = true
+			self.modulate.a = 1.0
 		
 		# カーソルが動く量が指定されているなら
 		if 0.0 < self.total_seconds:
@@ -150,7 +149,7 @@ func _process(delta):
 				self.on_cursor_down(index)
 		
 	else:
-		# 非表示
-		self.visible = false
+		# 透明
+		self.modulate.a = 0.0
 
 
