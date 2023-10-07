@@ -126,8 +126,7 @@ func parse_message(temp_text):
 
 		# アプリケーション終了
 		elif second_head.begins_with("quit:"):
-			print("［アシスタント・ディレクター］　アプリケーション終了")
-			self.get_tree().quit()
+			$"Quit".do_it(second_head)
 			return
 
 

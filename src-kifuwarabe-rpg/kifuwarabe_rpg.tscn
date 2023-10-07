@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://m75ysssspv3m"]
+[gd_scene load_steps=39 format=3 uid="uid://m75ysssspv3m"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -29,6 +29,7 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/Goto.gd" id="24_envpd"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/きふわらべファイター２.ogg" id="24_hs56p"]
 [ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://audio/bgm/maou_game_town05.ogg" id="25_0600e"]
+[ext_resource type="Script" path="res://scripts/assistant_director/Quit.gd" id="25_xmliw"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou_se_sound17.ogg" id="26_1kp2p"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="27_xwe46"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="28_1r0xx"]
@@ -195,6 +196,9 @@ script = ExtResource("23_5s8w2")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]
 script = ExtResource("24_envpd")
+
+[node name="Quit" type="Node" parent="AssistantDirector"]
+script = ExtResource("25_xmliw")
 
 [node name="MessageWindow" type="Node2D" parent="."]
 z_index = 100
