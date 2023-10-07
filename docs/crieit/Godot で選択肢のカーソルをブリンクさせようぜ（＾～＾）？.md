@@ -42,4 +42,41 @@
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　試してみるか……」  
 
+# 実装
+
+```
+#	チョイスカーソル（Choice Cursor；選択肢カーソル）
+extends Label
+
+# ...
+
+#	カーソルが点滅するための時間カウント
+var blinker_seconds = 0.0
+var blinker_interval = 0.5
+
+# ...
+
+func _process(delta):
+
+	#	点滅
+	self.blinker_seconds += delta
+
+	if self.blinker_interval <= self.blinker_seconds:
+		if 0 < self.modulate.a:
+			self.modulate.a = 0.0
+		else:
+			self.modulate.a = 1.0
+			
+		self.blinker_seconds -= self.blinker_interval
+
+    # ...
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　おっ、これで　いけた！」  
+
+# 親記事に戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .

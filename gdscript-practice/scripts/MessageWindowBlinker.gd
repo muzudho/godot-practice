@@ -36,6 +36,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
+	# （選択肢など、メッセージ末尾のブリンカーが要らないなら）
 	# 強制的に表示にするか？
 	if self.is_hide_force:
 		if self.visible:
@@ -44,8 +45,6 @@ func _process(delta):
 	
 	# 完全表示中	
 	if self.statemachine.is_completed():
-
-		# TODO 選択肢の場合は消したい
 		
 		# 初回はすぐに表示
 		if not self.is_first_displayed_immediately:
