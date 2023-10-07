@@ -4,22 +4,12 @@ extends Node
 # 状態遷移機械
 var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
 
+
 # メッセージ・ウィンドウを閉じる
 func initialize():
 	$"TextBlock".initialize()
 	self.statemachine.all_page_flushed()
 
-
-# ページ送り
-func page_forward():
-	# 効果音
-	$"../Musician".playSe("カーソル音")
-	
-	# ブリンカーを消す
-	$"TextBlock".clear_blinker()
-
-	# ウィンドウを空っぽにして、次の指示を待ちます
-	self.clear_and_awaiting_order()
 
 # ウィンドウを空っぽにして、次の指示を待ちます
 func clear_and_awaiting_order():
@@ -62,6 +52,18 @@ func push_choices(row_numbers, temp_text):
 
 	# タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
+
+
+# ページ送り
+func on_page_forward():
+	# 効果音
+	$"../Musician".playSe("ページめくり音")
+	
+	# ブリンカーを消す
+	$"TextBlock".clear_blinker()
+
+	# ウィンドウを空っぽにして、次の指示を待ちます
+	self.clear_and_awaiting_order()
 
 
 # 下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
@@ -108,7 +110,7 @@ func _unhandled_key_input(event):
 					return
 					
 				else:
-					# 確定した
+					# 選択肢を確定した
 					self.on_choice_selected()
 					return
 		
@@ -123,4 +125,4 @@ func _unhandled_key_input(event):
 					return
 				
 				# ページ送り
-				self.page_forward()
+				self.on_page_forward()
