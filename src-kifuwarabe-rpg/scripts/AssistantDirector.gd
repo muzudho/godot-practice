@@ -80,14 +80,15 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
-# 命令か、台詞か、によって処理を分けます
+# ［ト書き］か、台詞か、によって処理を分けます
 func parse_message(temp_text):
 	
-	# 命令かどうか判定
+	# ［ト書き］かどうか判定
 	var first_head_tail = split_head_line_or_tail(temp_text)
 	var first_head = first_head_tail[0].strip_edges()
 	var first_tail = first_head_tail[1] 
 	
+	# ［ト書き］
 	# `.strip_edges()` - 先頭行の最初と、最終行の最後の表示されない文字を消去
 	if first_head.strip_edges() == "!":
 		print("［アシスタント・ディレクター］　命令テキストだ：[" + first_tail + "]")
@@ -98,58 +99,48 @@ func parse_message(temp_text):
 		while second_head_tail != null:
 			var second_head = second_head_tail[0].strip_edges()
 			var second_tail = second_head_tail[1]
+			print("［アシスタント・ディレクター］　second_head：[" + second_head + "]")
+			print("［アシスタント・ディレクター］　second_tail：[" + second_tail + "]")
 
 			# 以下の命令は、アルファベット順で並べてある
 			#
 			# 背景切替
 			if second_head.begins_with("bg:"):
 				$"Bg".do_it(second_head)
-				return
 
 			# ＢＧＭ再生／停止
 			if second_head.begins_with("bgm:"):
 				$"Bgm".do_it(second_head)
-				return
-			
 			
 			# 選択肢かどうか判定
 			elif second_head.begins_with("choice:"):
 				$"Choice".do_it(second_head)
-				return
-			
 			
 			# センター・ウィンドウの表示／非表示
 			elif second_head.begins_with("cwnd:"):
 				$"Cwnd".do_it(second_head)
-				return
-				
 				
 			# 次の段落へ飛ぶ
 			elif second_head.begins_with("goto:"):
 				$"Goto".do_it(second_head, self.play_paragraph)
-				return
-
 
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
 				$"Quit".do_it(second_head)
-				return
-
 
 			# シーンの表示／非表示
 			elif second_head.begins_with("scene:"):
 				$"Scene".do_it(second_head)
-				return
-
 			
 			# 効果音
 			elif second_head.begins_with("se:"):
 				$"Se".do_it(second_head)
-				return
 
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)
 
+		#	［ト書き］終わり
+		return
 
 	if $"Choice".choice_row_number_array != null:
 		print("［アシスタント・ディレクター］　選択肢だ：[" + temp_text + "]")
