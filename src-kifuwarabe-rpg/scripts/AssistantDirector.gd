@@ -65,12 +65,16 @@ func _process(_delta):
 					$"../MessageWindow".initialize()
 
 
-# 先頭行と、それ以外に分けます
+#	先頭行と、それ以外に分けます。できなければヌル
 func split_head_line_or_tail(text):
 	# 最初の改行を見つける
 	var index = text.find("\n")
+	
+	if index < 0:
+		return null
+	
 	var head = text.substr(0, index)
-	var tail = text.substr(index+1, text.length() - (index+1))
+	var tail = text.substr(index+1)
 	# print("［メッセージ・ウィンドウ］　head：　[" + head + "]")
 	# print("［メッセージ・ウィンドウ］　tail：　[" + tail + "]")
 	return [head, tail]
@@ -90,69 +94,59 @@ func parse_message(temp_text):
 
 		# さらに先頭行を取得
 		var second_head_tail = split_head_line_or_tail(first_tail)
-		var second_head = second_head_tail[0].strip_edges()
-		var second_tail = second_head_tail[1]
+		
+		if second_head_tail != null:
+			var second_head = second_head_tail[0].strip_edges()
+			var second_tail = second_head_tail[1]
 
-		# 以下の命令は、アルファベット順で並べてある
-		#
-		# 背景切替
-		if second_head.begins_with("bg:"):
-			$"Bg".do_it(second_head)
-			return
+			# 以下の命令は、アルファベット順で並べてある
+			#
+			# 背景切替
+			if second_head.begins_with("bg:"):
+				$"Bg".do_it(second_head)
+				return
 
-		# ＢＧＭ再生／停止
-		if second_head.begins_with("bgm:"):
-			$"Bgm".do_it(second_head)
-			return
-		
-		
-		# 選択肢かどうか判定
-		elif second_head.begins_with("choice:"):
-			$"Choice".do_it(second_head)
-			return
-		
-		
-		# センター・ウィンドウの表示／非表示
-		elif second_head.begins_with("cwnd:"):
-			$"Cwnd".do_it(second_head)
-			return
+			# ＢＧＭ再生／停止
+			if second_head.begins_with("bgm:"):
+				$"Bgm".do_it(second_head)
+				return
 			
 			
-		# 次の段落へ飛ぶ
-		elif second_head.begins_with("goto:"):
-			$"Goto".do_it(second_head, self.play_paragraph)
-			return
-
-
-		# アプリケーション終了
-		elif second_head.begins_with("quit:"):
-			$"Quit".do_it(second_head)
-			return
-
-
-		# シーンの表示／非表示
-		elif second_head.begins_with("scene:"):
-			$"Scene".do_it(second_head)
-			return
-
-		
-		# 効果音
-		elif second_head.begins_with("se:"):
-			print("［アシスタント・ディレクター］　効果音だ")
-
-			# head
-			var name = second_head.substr(3, second_head.length()-3).strip_edges()
-			print("［アシスタント・ディレクター］　ノード名：[" + name + "]")
-
-			if name == "":
-				# 効果音 停止
-				$"../Musician".stopSe()
+			# 選択肢かどうか判定
+			elif second_head.begins_with("choice:"):
+				$"Choice".do_it(second_head)
+				return
+			
+			
+			# センター・ウィンドウの表示／非表示
+			elif second_head.begins_with("cwnd:"):
+				$"Cwnd".do_it(second_head)
+				return
 				
-			else:
-				# じゃあ 効果音 流すか
-				$"../Musician".playSe(name)
+				
+			# 次の段落へ飛ぶ
+			elif second_head.begins_with("goto:"):
+				$"Goto".do_it(second_head, self.play_paragraph)
+				return
 
-			return
+
+			# アプリケーション終了
+			elif second_head.begins_with("quit:"):
+				$"Quit".do_it(second_head)
+				return
+
+
+			# シーンの表示／非表示
+			elif second_head.begins_with("scene:"):
+				$"Scene".do_it(second_head)
+				return
+
+			
+			# 効果音
+			elif second_head.begins_with("se:"):
+				$"Se".do_it(second_head)
+				return
+
 
 	if $"Choice".choice_row_number_array != null:
 		print("［アシスタント・ディレクター］　選択肢だ：[" + temp_text + "]")

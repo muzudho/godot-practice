@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://m75ysssspv3m"]
+[gd_scene load_steps=41 format=3 uid="uid://m75ysssspv3m"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -32,6 +32,7 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/Quit.gd" id="25_xmliw"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou_se_sound17.ogg" id="26_1kp2p"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Scene.gd" id="26_d8rxk"]
+[ext_resource type="Script" path="res://scripts/assistant_director/Se.gd" id="27_b3qcr"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="27_xwe46"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="28_1r0xx"]
 
@@ -203,6 +204,9 @@ script = ExtResource("25_xmliw")
 
 [node name="Scene" type="Node" parent="AssistantDirector"]
 script = ExtResource("26_d8rxk")
+
+[node name="Se" type="Node" parent="AssistantDirector"]
+script = ExtResource("27_b3qcr")
 
 [node name="MessageWindow" type="Node2D" parent="."]
 z_index = 100
