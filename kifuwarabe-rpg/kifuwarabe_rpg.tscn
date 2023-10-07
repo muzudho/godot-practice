@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://m75ysssspv3m"]
+[gd_scene load_steps=33 format=3 uid="uid://m75ysssspv3m"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -13,7 +13,6 @@
 [ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="11_oskba"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="12_mcay5"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="13_a1tuv"]
-[ext_resource type="Script" path="res://scripts/MessageWindowStatemachine.gd" id="14_k2t0p"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/MessageWindowTextBlock.gd" id="16_2x1rq"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBlinker.gd" id="17_xwgcj"]
@@ -178,7 +177,6 @@ vertical_alignment = 1
 script = ExtResource("3_nnvgw")
 
 [node name="MessageWindow" type="Node2D" parent="."]
-visible = false
 z_index = 100
 script = ExtResource("11_oskba")
 
@@ -186,9 +184,6 @@ script = ExtResource("11_oskba")
 position = Vector2(640, 360)
 texture = ExtResource("12_mcay5")
 script = ExtResource("13_a1tuv")
-
-[node name="Statemachine" type="Node" parent="MessageWindow"]
-script = ExtResource("14_k2t0p")
 
 [node name="TextBlock" type="Label" parent="MessageWindow"]
 offset_left = 319.0
