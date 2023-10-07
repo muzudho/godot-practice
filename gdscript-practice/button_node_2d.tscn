@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=35 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
@@ -28,6 +28,7 @@
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="19_mohar"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="19_t4ve7"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou_se_sound17.ogg" id="19_tr361"]
+[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://audio/bgm/maou_game_town05.ogg" id="29_0ld6j"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -233,6 +234,10 @@ script = ExtResource("17_032og")
 
 [node name="きふわらべファイター２" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("17_lqln6")
+volume_db = -20.0
+
+[node name="タイトル" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("29_0ld6j")
 volume_db = -20.0
 
 [node name="SE" type="Node" parent="Musician"]
