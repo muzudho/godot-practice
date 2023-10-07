@@ -31,12 +31,14 @@ func push_message(text):
 	# print("［テキストブロック］　台詞追加")
 	print("［テキストブロック］　台詞：　[" + text + "]")
 	self.is_choice_mode = false
-	self.choice_row_numbers = []	
-	self.text_buffer = text	
+	self.choice_row_numbers = []
+	self.text_buffer = text
 
-	# ブリンカーを強制的に非表示にするのは解除
-	$"BlinkerTriangle".set_hide_force(false)
-	$"BlinkerUnderscore".set_hide_force(false)
+	# ブリンカーを非表示にするのは解除
+	$"BlinkerTriangle".modulate.a = 0.0
+	$"BlinkerTriangle".visible = true
+	$"BlinkerUnderscore".modulate.a = 0.0
+	$"BlinkerUnderscore".visible = true
 
 
 # 選択肢を追加
@@ -46,9 +48,11 @@ func push_choices(row_numbers, text):
 	self.text_buffer = text
 	self.is_choice_mode = true
 
-	# ブリンカーを強制的に非表示にする
-	$"BlinkerTriangle".set_hide_force(true)
-	$"BlinkerUnderscore".set_hide_force(true)
+	# ブリンカーを非表示にする
+	$"BlinkerTriangle".modulate.a = 0.0
+	$"BlinkerTriangle".visible = false
+	$"BlinkerUnderscore".modulate.a = 0.0
+	$"BlinkerUnderscore".visible = false
 
 
 # Called when the node enters the scene tree for the first time.

@@ -1,4 +1,4 @@
-# メッセージ・ウィンドウ・ステートマシーン（Message Window Statemachine；会話窓状態遷移図）
+# メッセージ・ウィンドウ・ステートマシーン（Message Window Statemachine；会話窓状態機械）
 extends Node
 
 class_name MessageWindowStatemachine

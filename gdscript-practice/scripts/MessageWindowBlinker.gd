@@ -4,9 +4,6 @@ extends Label
 #	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine = null
 
-#	強制的に非表示にする
-var is_hide_force = false
-
 #	カーソルが点滅するための時間カウント
 var is_first_displayed_immediately = false
 var blinker_seconds = 0.0
@@ -14,24 +11,16 @@ var blinker_interval = 0.5
 
 
 func reset():
-	self.is_hide_force = false
-	self.visible = false
+	# 透明
+	self.modulate.a = 0.0
 	self.is_first_displayed_immediately = false
-
-
-func set_hide_force(is_hide_force):
-	# 強制的に表示にする
-	self.is_hide_force = is_hide_force
-	
-	if is_hide_force:
-		self.visible = false
 
 
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# 最初は非表示
-	self.visible = false
+	# 最初は透明
+	self.modulate.a = 0.0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -49,29 +38,21 @@ func _process(delta):
 		self.blinker_seconds -= self.blinker_interval
 
 	
-	# （選択肢など、メッセージ末尾のブリンカーが要らないなら）
-	# 強制的に表示にするか？
-	if self.is_hide_force:
-		if self.visible:
-			self.visible = false
-		return
-	
 	# 完全表示中	
 	if self.statemachine.is_completed():
 
-		#	初回はすぐに表示
+		#	初回はすぐに不透明
 		if not self.is_first_displayed_immediately:
-			self.visible = true
 			self.modulate.a = 1.0
 			self.blinker_seconds = 0.0
 			self.is_first_displayed_immediately = true
 
-		#	２回目以降の表示
+		#	２回目以降の不透明
 		elif not self.visible:
-			self.visible = true
+			self.modulate.a = 1.0
 
 	# それ以外
 	else:
-		# 非表示
+		# 透明
 		self.is_first_displayed_immediately = false
-		self.visible = false
+		self.modulate.a = 0.0
