@@ -76,4 +76,7 @@ var document = {
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　うーむむむ、できなくはないか、やってみるかだぜ」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　変数に一時記憶して、次の台詞のときに　一時記憶を確認すれば　でけたぜ」  
+
 .
