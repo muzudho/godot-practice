@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=4 format=3 uid="uid://den3g0pqtnpq2"]
 
 [ext_resource type="PackedScene" uid="uid://cbnqfdrtp8vly" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
-[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -33,9 +32,5 @@ position = Vector2(215, 362)
 
 [node name="Timer" type="Timer" parent="Sprite2D"]
 autostart = true
-
-[node name="Grid" type="Sprite2D" parent="."]
-position = Vector2(640, 360)
-texture = ExtResource("2_cyfha")
 
 [connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
