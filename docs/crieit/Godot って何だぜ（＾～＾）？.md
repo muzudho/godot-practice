@@ -2,6 +2,10 @@
 
 📖　[2D RPG 制作ツールを作ろうぜ（＾～＾）？　＜その2＞](https://crieit.net/posts/2D-RPG-2)  
 
+# 情報
+
+📖　[Git Hub / きふわらべＲＰＧ、他](https://github.com/muzudho/godot-practice)  
+
 # 📅 (2023-09-25 mon) Godot を調べろだぜ
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
@@ -801,5 +805,21 @@ var document = {
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　だいぶ　こなれてきたんじゃないかな」  
+
+## エンディングを作りましょう
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　エンディングを作りましょう」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　画面１枚でいいか……」  
+
+![202310__godot__08-0252--Ending-o2o1o0.png](https://crieit.now.sh/upload_images/3d0ae4c5a400671f31bfcf5c967de3da6521a1518fec2.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　これが　現在　発揮できる　最大のパフォーマンスだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　もう　それで　いいんじゃねーの」  
 
 .
