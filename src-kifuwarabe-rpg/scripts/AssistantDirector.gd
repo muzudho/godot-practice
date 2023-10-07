@@ -122,18 +122,7 @@ func parse_message(temp_text):
 
 		# ＢＧＭ再生／停止
 		if second_head.begins_with("bgm:"):
-			# head
-			var name = second_head.substr(4).strip_edges()
-			print("［アシスタント・ディレクター］　ＢＧＭ：[" + name + "]")
-
-			if name == "":
-				# BGM 停止
-				$"../Musician".stopBgm()
-				
-			else:
-				# じゃあ BGM 流すか
-				$"../Musician".playBgm(name)
-
+			$"Bgm".do_it(second_head)
 			return
 		
 		

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://m75ysssspv3m"]
+[gd_scene load_steps=35 format=3 uid="uid://m75ysssspv3m"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://scripts/CenterWindow.gd" id="19_xuids"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/center_window/ShogiBan.png" id="20_gotyj"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bg.gd" id="20_qxivy"]
+[ext_resource type="Script" path="res://scripts/assistant_director/Bgm.gd" id="21_dqion"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/center_window/file_and_rank.png" id="21_na47b"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/CenterWindow.png" id="22_06g4y"]
 [ext_resource type="Script" path="res://scripts/Musician.gd" id="23_6ylqn"]
@@ -179,6 +180,9 @@ script = ExtResource("3_nnvgw")
 
 [node name="Bg" type="Node" parent="AssistantDirector"]
 script = ExtResource("20_qxivy")
+
+[node name="Bgm" type="Node" parent="AssistantDirector"]
+script = ExtResource("21_dqion")
 
 [node name="MessageWindow" type="Node2D" parent="."]
 z_index = 100
