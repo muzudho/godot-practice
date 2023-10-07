@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=27 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
@@ -18,6 +18,7 @@
 [ext_resource type="Script" path="res://scripts/CenterWindow.gd" id="15_cotsh"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/center_window/ShogiBan.png" id="16_qxqx0"]
 [ext_resource type="Script" path="res://scripts/Musician.gd" id="17_032og"]
+[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/center_window/file_and_rank.png" id="17_a5e6a"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/きふわらべファイター２.ogg" id="17_lqln6"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="19_mohar"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="19_t4ve7"]
@@ -136,6 +137,10 @@ script = ExtResource("15_cotsh")
 [node name="将棋盤" type="Sprite2D" parent="CenterWindow/Images"]
 position = Vector2(640, 272)
 texture = ExtResource("16_qxqx0")
+
+[node name="ファイルとランク" type="Sprite2D" parent="CenterWindow/Images"]
+position = Vector2(640, 272)
+texture = ExtResource("17_a5e6a")
 
 [node name="Frame" type="Sprite2D" parent="CenterWindow"]
 position = Vector2(640, 360)

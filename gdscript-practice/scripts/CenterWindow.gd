@@ -9,6 +9,11 @@ var current_image_name = null
 # ウィンドウを表示する
 func show_window(image_name):
 	print("［センター・ウィンドウ］　表示：[" + image_name + "]")
+	
+	# 既に表示中の画像を非表示にする（上に乗っかっていて、表示したい絵が見えないケースがある）
+	if 	self.current_image_name != null:
+		$"Images".get_node(self.current_image_name).hide()
+	
 	self.current_image_name = image_name
 	$"Images".get_node(self.current_image_name).show()
 	$"Frame".show()

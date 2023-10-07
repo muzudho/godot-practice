@@ -111,6 +111,26 @@
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　慣れてくるでしょう」  
 
+## 表示／非表示を切り替えるようにした
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　でけた」  
+
+📺　[動画](https://x.com/muzudho1/status/1710539853447008410?s=20)  
+
+## 別のイラストも表示してみてよ
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　別のイラストも表示してみてよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　唐揚げの絵とか　描きたくないけどな」  
+
+![202310__godot__07-1526--FileAndRank.png](https://crieit.now.sh/upload_images/2e8da97270e48c78ca32138c5f544efd6520fc0c8938b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな絵でいいか」  
+
 # 親記事へ戻る
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
