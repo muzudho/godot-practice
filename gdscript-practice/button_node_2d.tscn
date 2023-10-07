@@ -51,6 +51,21 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_5d2tk")
 
+[node name="Button" type="Button" parent="."]
+z_index = 10
+offset_left = 203.0
+offset_top = 169.0
+offset_right = 406.0
+offset_bottom = 227.0
+text = "トグルだぜ"
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_5h2fa")]
+z_index = 1000
+position = Vector2(215, 362)
+
+[node name="Timer" type="Timer" parent="Sprite2D"]
+autostart = true
+
 [node name="Background" type="Node" parent="."]
 
 [node name="イベントルーム" type="Sprite2D" parent="Background"]
@@ -65,19 +80,6 @@ texture = ExtResource("3_lgvb8")
 [node name="Grid" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("2_cyfha")
-
-[node name="Button" type="Button" parent="."]
-offset_left = 203.0
-offset_top = 169.0
-offset_right = 406.0
-offset_bottom = 227.0
-text = "トグルだぜ"
-
-[node name="Sprite2D" parent="." instance=ExtResource("1_5h2fa")]
-position = Vector2(215, 362)
-
-[node name="Timer" type="Timer" parent="Sprite2D"]
-autostart = true
 
 [node name="ScenarioBook" type="Node" parent="."]
 script = ExtResource("5_srvyn")
@@ -139,20 +141,24 @@ script = ExtResource("13_qefmu")
 [node name="TileMap" type="TileMap" parent="."]
 format = 2
 
-[node name="CenterWindow" type="Node" parent="."]
+[node name="CenterWindow" type="Node2D" parent="."]
+visible = false
 script = ExtResource("15_cotsh")
 
-[node name="Images" type="Node" parent="CenterWindow"]
+[node name="Images" type="Node2D" parent="CenterWindow"]
 
 [node name="将棋盤" type="Sprite2D" parent="CenterWindow/Images"]
+z_index = 10
 position = Vector2(640, 272)
 texture = ExtResource("16_qxqx0")
 
 [node name="ファイルとランク" type="Sprite2D" parent="CenterWindow/Images"]
+z_index = 10
 position = Vector2(640, 272)
 texture = ExtResource("17_a5e6a")
 
 [node name="Frame" type="Sprite2D" parent="CenterWindow"]
+z_index = 10
 position = Vector2(640, 360)
 texture = ExtResource("15_1ekew")
 

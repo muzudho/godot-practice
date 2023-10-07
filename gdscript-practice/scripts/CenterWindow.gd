@@ -15,7 +15,10 @@ func show_window(image_name):
 		$"Images".get_node(self.current_image_name).hide()
 	
 	self.current_image_name = image_name
+	self.visible = true
+	$"Images".visible = true
 	$"Images".get_node(self.current_image_name).show()
+	$"Frame".visible = true
 	$"Frame".show()
 
 
