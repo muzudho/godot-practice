@@ -51,6 +51,12 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_5d2tk")
 
+[node name="ScenarioBook" type="Node" parent="."]
+script = ExtResource("5_srvyn")
+
+[node name="AssistantDirector" type="Node" parent="."]
+script = ExtResource("6_3ptc6")
+
 [node name="Button" type="Button" parent="."]
 z_index = 10
 offset_left = 203.0
@@ -73,19 +79,12 @@ position = Vector2(640, 360)
 texture = ExtResource("2_q34ux")
 
 [node name="崎川駅前" type="Sprite2D" parent="Background"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("3_lgvb8")
 
 [node name="Grid" type="Sprite2D" parent="."]
 position = Vector2(640, 360)
 texture = ExtResource("2_cyfha")
-
-[node name="ScenarioBook" type="Node" parent="."]
-script = ExtResource("5_srvyn")
-
-[node name="AssistantDirector" type="Node" parent="."]
-script = ExtResource("6_3ptc6")
 
 [node name="MessageWindow" type="Node2D" parent="."]
 visible = false

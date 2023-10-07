@@ -164,6 +164,13 @@ func parse_message(temp_text):
 			self.play_paragraph(next_paragraph_name)
 			return
 		
+
+		# アプリケーション終了
+		elif second_head.begins_with("quit:"):
+			print("［アシスタント・ディレクター］　アプリケーション終了")
+			self.get_tree().quit()
+			return
+
 		
 		# 効果音
 		elif second_head.begins_with("se:"):

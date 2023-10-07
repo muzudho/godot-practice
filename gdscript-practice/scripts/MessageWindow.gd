@@ -49,6 +49,9 @@ func push_choices(row_numbers, text):
 	print("［メッセージ・ウィンドウ］　選択肢：　[" + text + "]")
 	$"TextBlock".push_choices(row_numbers, text)
 
+	# 表示
+	self.visible = true
+
 	# タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
 	
