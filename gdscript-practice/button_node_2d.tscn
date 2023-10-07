@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
-[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
+[ext_resource type="FontFile" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
 [ext_resource type="Script" path="res://scripts/AssistantDirector.gd" id="6_3ptc6"]
 [ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="6_g48f5"]
@@ -129,7 +129,7 @@ format = 2
 
 [node name="CenterWindow" type="Node" parent="."]
 
-[node name="Image" type="Sprite2D" parent="CenterWindow"]
+[node name="将棋盤" type="Sprite2D" parent="CenterWindow"]
 position = Vector2(640, 272)
 texture = ExtResource("16_qxqx0")
 
