@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="gdscript-practice"
+config/name="Study-2"
 run/main_scene="res://study-2.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
