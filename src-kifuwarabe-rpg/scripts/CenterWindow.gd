@@ -1,5 +1,5 @@
 #	センター・ウィンドウ（Center Window；中央窓）
-extends Node
+extends Node2D
 
 
 #	現在表示中のセンターウィンドウ画像のノード名
@@ -15,15 +15,15 @@ func show_window(name):
 		self.get_node(self.current_name).hide()
 	
 	self.current_name = name
-	self.visible = true
+	self.show()
 	self.get_node(self.current_name).show()
-	$"System/Frame".visible = true
+	$"System".show()
 	$"System/Frame".show()
 
 
 #	ウィンドウを非表示にする
 func hide_window():
-	if 	self.current_name == null:
+	if self.current_name == null:
 		return
 
 	print("［センター・ウィンドウ］　非表示：[" + str(self.current_name) + "]")

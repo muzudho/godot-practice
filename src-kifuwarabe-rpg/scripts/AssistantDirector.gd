@@ -114,16 +114,7 @@ func parse_message(temp_text):
 		
 		# センター・ウィンドウの表示／非表示
 		elif second_head.begins_with("cwnd:"):
-
-			# head
-			var name = second_head.substr(5).strip_edges()
-			print("［アシスタント・ディレクター］　センター・ウィンドウ：[" + name + "]")
-			
-			if name == "":
-				$"../CenterWindow".hide_window()
-			else:
-				$"../CenterWindow".show_window(name)
-				
+			$"Cwnd".do_it(second_head)
 			return
 			
 			
