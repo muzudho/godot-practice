@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://eghj40kmv6ur"]
+
+[ext_resource type="Texture2D" uid="uid://tqqrqhrnxnyb" path="res://Kifuwarabe_2016_8_6_0_20_30_88_c1.png" id="1_lxyjd"]
+[ext_resource type="Script" path="res://kifuwarabe_sprite_2d.gd" id="2_3i8vr"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(351, 321)
+texture = ExtResource("1_lxyjd")
+script = ExtResource("2_3i8vr")

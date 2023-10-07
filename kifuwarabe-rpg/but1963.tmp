@@ -1,0 +1,163 @@
+[gd_scene load_steps=25 format=3 uid="uid://berxgv5da54w"]
+
+[ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
+[ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
+[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
+[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
+[ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
+[ext_resource type="Script" path="res://scripts/AssistantDirector.gd" id="6_3ptc6"]
+[ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="6_g48f5"]
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="7_gmngy"]
+[ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="8_rwjq5"]
+[ext_resource type="Script" path="res://scripts/MessageWindowStatemachine.gd" id="9_1jqoj"]
+[ext_resource type="Script" path="res://scripts/MessageWindowBlinker.gd" id="12_eus3r"]
+[ext_resource type="Script" path="res://scripts/MessageWindowTextBlock.gd" id="12_tmvbs"]
+[ext_resource type="Script" path="res://scripts/ChoiceCursor.gd" id="13_qefmu"]
+[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/CenterWindow.png" id="15_1ekew"]
+[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/center_window/ShogiBan.png" id="16_qxqx0"]
+[ext_resource type="Script" path="res://scripts/Musician.gd" id="17_032og"]
+[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/きふわらべファイター２.ogg" id="17_lqln6"]
+[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="19_mohar"]
+[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="19_t4ve7"]
+[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou_se_sound17.ogg" id="19_tr361"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ksp3"]
+line_spacing = 8.0
+font = ExtResource("3_chwyv")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2oa1m"]
+line_spacing = 8.0
+font = ExtResource("3_chwyv")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="Director" type="Node2D"]
+material = SubResource("CanvasItemMaterial_glhd8")
+script = ExtResource("1_5d2tk")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("1_i4kn3")
+
+[node name="Grid" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_cyfha")
+
+[node name="Button" type="Button" parent="."]
+offset_left = 203.0
+offset_top = 169.0
+offset_right = 406.0
+offset_bottom = 227.0
+text = "トグルだぜ"
+
+[node name="Sprite2D" parent="." instance=ExtResource("1_5h2fa")]
+position = Vector2(215, 362)
+
+[node name="Timer" type="Timer" parent="Sprite2D"]
+autostart = true
+
+[node name="ScenarioBook" type="Node" parent="."]
+script = ExtResource("5_srvyn")
+
+[node name="AssistantDirector" type="Node" parent="."]
+script = ExtResource("6_3ptc6")
+
+[node name="MessageWindow" type="Node" parent="."]
+script = ExtResource("6_g48f5")
+
+[node name="Background" type="Sprite2D" parent="MessageWindow"]
+position = Vector2(640, 360)
+texture = ExtResource("7_gmngy")
+script = ExtResource("8_rwjq5")
+
+[node name="Statemachine" type="Node" parent="MessageWindow"]
+script = ExtResource("9_1jqoj")
+
+[node name="TextBlock" type="Label" parent="MessageWindow"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1053.0
+offset_bottom = 708.0
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("12_tmvbs")
+
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow/TextBlock"]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 95.0
+offset_right = 674.0
+offset_bottom = 140.0
+text = "▼"
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("12_eus3r")
+
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow/TextBlock"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 103.0
+offset_right = 672.0
+offset_bottom = 148.0
+text = "＿"
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("12_eus3r")
+
+[node name="ChoiceCursor" type="Label" parent="MessageWindow/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("13_qefmu")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="CenterWindow" type="Node" parent="."]
+
+[node name="Image" type="Sprite2D" parent="CenterWindow"]
+position = Vector2(640, 272)
+texture = ExtResource("16_qxqx0")
+
+[node name="Frame" type="Sprite2D" parent="CenterWindow"]
+position = Vector2(640, 360)
+texture = ExtResource("15_1ekew")
+
+[node name="Musician" type="Node" parent="."]
+script = ExtResource("17_032og")
+
+[node name="BGM" type="Node" parent="Musician"]
+
+[node name="きふわらべファイター２" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("17_lqln6")
+volume_db = -20.0
+
+[node name="SE" type="Node" parent="Musician"]
+
+[node name="ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("19_tr361")
+volume_db = -10.0
+
+[node name="選択肢カーソル移動音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("19_t4ve7")
+volume_db = -15.0
+
+[node name="選択肢確定音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("19_mohar")
+volume_db = -15.0
+
+[connection signal="pressed" from="Button" to="Sprite2D" method="_on_button_pressed"]
