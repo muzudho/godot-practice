@@ -60,8 +60,9 @@ func _process(_delta):
 
 			# もう無いよ
 			else:
-				# メッセージ・ウィンドウを閉じる
-				$"../MessageWindow".initialize()
+				if not $"../MessageWindow".statemachine.is_none():
+					# メッセージ・ウィンドウを閉じる
+					$"../MessageWindow".initialize()
 
 
 # 先頭行と、それ以外に分けます
