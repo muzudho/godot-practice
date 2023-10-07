@@ -1,14 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://berxgv5da54w"]
 
-[ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
+[sub_resource type="GDScript" id="GDScript_j54mi"]
+script/source = "# ディレクター（Director；監督）
+#	とりあえず、ゲーム全体をコントロールする
+extends Node2D
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+"
+
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
-script = ExtResource("1_5d2tk")
+script = SubResource("GDScript_j54mi")
 
 [node name="Button" type="Button" parent="."]
 z_index = 10
