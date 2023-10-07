@@ -117,13 +117,7 @@ func parse_message(temp_text):
 		#
 		# 背景切替
 		if second_head.begins_with("bg:"):
-			# head
-			var name = second_head.substr(3).strip_edges()
-			print("［アシスタント・ディレクター］　背景：[" + name + "]")
-
-			# 背景設定
-			$"../Background".show(name)
-
+			$"Bg".do_it(second_head)
 			return
 
 		# ＢＧＭ再生／停止
