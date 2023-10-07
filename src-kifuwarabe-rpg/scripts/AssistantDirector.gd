@@ -120,14 +120,9 @@ func parse_message(temp_text):
 			
 		# 次の段落へ飛ぶ
 		elif second_head.begins_with("goto:"):
-
-			# head
-			var next_paragraph_name = second_head.substr(5).strip_edges()
-			print("［アシスタント・ディレクター］　次の段落へ飛ぶ：[" + next_paragraph_name + "]")
-			
-			self.play_paragraph(next_paragraph_name)
+			$"Goto".do_it(second_head, self.play_paragraph)
 			return
-		
+
 
 		# アプリケーション終了
 		elif second_head.begins_with("quit:"):
