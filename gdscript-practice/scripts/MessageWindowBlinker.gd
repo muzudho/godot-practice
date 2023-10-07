@@ -18,6 +18,14 @@ func reset():
 	self.is_first_displayed_immediately = false
 
 
+func set_hide_force(is_hide_force):
+	# 強制的に表示にする
+	self.is_hide_force = is_hide_force
+	
+	if is_hide_force:
+		self.visible = false
+
+
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -29,8 +37,9 @@ func _ready():
 func _process(delta):
 	
 	# 強制的に表示にするか？
-	if self.is_hide_force and self.visible:
-		self.visible = false
+	if self.is_hide_force:
+		if self.visible:
+			self.visible = false
 		return
 	
 	# 完全表示中	

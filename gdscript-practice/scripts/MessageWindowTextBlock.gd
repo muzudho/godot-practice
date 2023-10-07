@@ -34,6 +34,10 @@ func push_message(text):
 	self.choice_row_numbers = []	
 	self.text_buffer = text	
 
+	# ブリンカーを強制的に非表示にするのは解除
+	$"BlinkerTriangle".set_hide_force(false)
+	$"BlinkerUnderscore".set_hide_force(false)
+
 
 # 選択肢を追加
 func push_choices(row_numbers, text):
@@ -43,8 +47,8 @@ func push_choices(row_numbers, text):
 	self.is_choice_mode = true
 
 	# ブリンカーを強制的に非表示にする
-	$"BlinkerTriangle".is_hide_force = true
-	$"BlinkerUnderscore".is_hide_force = true
+	$"BlinkerTriangle".set_hide_force(true)
+	$"BlinkerUnderscore".set_hide_force(true)
 
 
 # Called when the node enters the scene tree for the first time.
