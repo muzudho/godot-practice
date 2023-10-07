@@ -132,16 +132,7 @@ func parse_message(temp_text):
 
 		# シーンの表示／非表示
 		elif second_head.begins_with("scene:"):
-
-			# head
-			var name = second_head.substr(6).strip_edges()
-			print("［アシスタント・ディレクター］　シーン：[" + name + "]")
-			
-			if name == "":
-				$"../Scenes".hide_scene()
-			else:
-				$"../Scenes".show_scene(name)
-				
+			$"Scene".do_it(second_head)
 			return
 
 		
