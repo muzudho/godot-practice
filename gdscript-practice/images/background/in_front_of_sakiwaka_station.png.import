@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcao5gmtt113o"
-path="res://.godot/imported/BG_EventRoom.png-f264b5c19dd983f7c3eaff447aeb55c8.ctex"
+uid="uid://rrmsl7vcm4c"
+path="res://.godot/imported/in_front_of_sakiwaka_station.png-be8591ee4e4c4bfb1a1be1b6cbae4dc2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://BG_EventRoom.png"
-dest_files=["res://.godot/imported/BG_EventRoom.png-f264b5c19dd983f7c3eaff447aeb55c8.ctex"]
+source_file="res://images/background/in_front_of_sakiwaka_station.png"
+dest_files=["res://.godot/imported/in_front_of_sakiwaka_station.png-be8591ee4e4c4bfb1a1be1b6cbae4dc2.ctex"]
 
 [params]
 

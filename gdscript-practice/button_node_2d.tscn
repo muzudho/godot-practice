@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://berxgv5da54w"]
+[gd_scene load_steps=28 format=3 uid="uid://berxgv5da54w"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_5d2tk"]
 [ext_resource type="PackedScene" uid="uid://eghj40kmv6ur" path="res://kifuwarabe_sprite_2d.tscn" id="1_5h2fa"]
-[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://BG_EventRoom.png" id="1_i4kn3"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://Grid.png" id="2_cyfha"]
-[ext_resource type="FontFile" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
+[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="2_q34ux"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://Mplus1Code-Bold.otf" id="3_chwyv"]
+[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/background/in_front_of_sakiwaka_station.png" id="3_lgvb8"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="5_srvyn"]
 [ext_resource type="Script" path="res://scripts/AssistantDirector.gd" id="6_3ptc6"]
 [ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="6_g48f5"]
@@ -50,9 +51,15 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_5d2tk")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Background" type="Node" parent="."]
+
+[node name="イベントルーム" type="Sprite2D" parent="Background"]
 position = Vector2(640, 360)
-texture = ExtResource("1_i4kn3")
+texture = ExtResource("2_q34ux")
+
+[node name="崎川駅前" type="Sprite2D" parent="Background"]
+position = Vector2(640, 360)
+texture = ExtResource("3_lgvb8")
 
 [node name="Grid" type="Sprite2D" parent="."]
 position = Vector2(640, 360)

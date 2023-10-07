@@ -709,4 +709,21 @@ Author: Zylann
 
 📖　[センターウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/a6659d9d63482dc81d9c259facf4bde7)  
 
+## イラストの差し替えもでけたぜ
+
+![202310__godot__07-1551--FileAndRank.png](https://crieit.now.sh/upload_images/794d2d0ee1e932e14887d6f963ff9dd6652100c0041f1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　イラストの差し替えもでけたぜ」  
+
+## 背景画像も差替えましょうよ
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　背景画像も差替えましょうよ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
+## 別記事：　Godot で背景画像を差し替えようぜ（＾～＾）？
+
 .
