@@ -1,16 +1,18 @@
-[gd_scene load_steps=41 format=3 uid="uid://m75ysssspv3m"]
+[gd_scene load_steps=43 format=3 uid="uid://m75ysssspv3m"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
 [ext_resource type="Script" path="res://scripts/AssistantDirector.gd" id="3_nnvgw"]
 [ext_resource type="Script" path="res://scripts/Scenes.gd" id="4_mkh8y"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="5_24vd4"]
+[ext_resource type="AudioStream" uid="uid://dwb8bjq2eqllw" path="res://audio/bgm/新しいフォルダー/maou_bgm_acoustic05.ogg" id="6_8yldd"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="6_bei22"]
 [ext_resource type="Script" path="res://scripts/Background.gd" id="7_ehwng"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="8_nhng7"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/background/in_front_of_sakiwaka_station.png" id="9_ictj0"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/Grid.png" id="10_mvkqw"]
 [ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="11_oskba"]
+[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/background/ending.png" id="12_g1upj"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="12_mcay5"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="13_a1tuv"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
@@ -47,6 +49,7 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_offset = Vector2(10, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8g2fx"]
+line_spacing = 10.0
 font = ExtResource("6_bei22")
 font_size = 32
 outline_size = 10
@@ -95,6 +98,10 @@ volume_db = -20.0
 stream = ExtResource("25_0600e")
 volume_db = -20.0
 
+[node name="エンディング" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("6_8yldd")
+volume_db = -20.0
+
 [node name="SE" type="Node" parent="Musician"]
 
 [node name="ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
@@ -110,7 +117,6 @@ stream = ExtResource("28_1r0xx")
 volume_db = -10.0
 
 [node name="Background" type="Node2D" parent="."]
-visible = false
 script = ExtResource("7_ehwng")
 
 [node name="イベントルーム" type="Sprite2D" parent="Background"]
@@ -120,6 +126,10 @@ texture = ExtResource("8_nhng7")
 [node name="崎川駅前" type="Sprite2D" parent="Background"]
 position = Vector2(640, 360)
 texture = ExtResource("9_ictj0")
+
+[node name="エンディング" type="Sprite2D" parent="Background"]
+position = Vector2(640, 360)
+texture = ExtResource("12_g1upj")
 
 [node name="CenterWindow" type="Node2D" parent="."]
 visible = false
@@ -146,6 +156,7 @@ texture = ExtResource("21_na47b")
 script = ExtResource("4_mkh8y")
 
 [node name="タイトル" type="CanvasLayer" parent="Scenes"]
+visible = false
 
 [node name="きふわらべRPG" type="Label" parent="Scenes/タイトル"]
 anchors_preset = 8
@@ -181,6 +192,50 @@ label_settings = SubResource("LabelSettings_8g2fx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="エンディング" type="CanvasLayer" parent="Scenes"]
+
+[node name="エンドロール" type="Label" parent="Scenes/エンディング"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = -356.0
+offset_right = 542.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "　　　　音楽　魔王魂
+　
+　『きふわらべファイター２』
+　　　　作曲　桜丸
+　
+　　イラスト
+　プログラム
+　制作・監督　むずでょ／　　　
+　　　　　　　同人サークル
+　　　　　　　ぐれーすけーる"
+label_settings = SubResource("LabelSettings_8g2fx")
+vertical_alignment = 1
+
+[node name="完" type="Label" parent="Scenes/エンディング"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = 111.0
+offset_right = -4.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "完"
+label_settings = SubResource("LabelSettings_t63ks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("3_nnvgw")
 
@@ -209,6 +264,7 @@ script = ExtResource("26_d8rxk")
 script = ExtResource("27_b3qcr")
 
 [node name="MessageWindow" type="Node2D" parent="."]
+visible = false
 z_index = 100
 script = ExtResource("11_oskba")
 
@@ -256,5 +312,6 @@ label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("18_qth5v")
 
 [node name="Grid" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("10_mvkqw")
