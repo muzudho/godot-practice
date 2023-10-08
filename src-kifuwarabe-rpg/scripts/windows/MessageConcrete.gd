@@ -8,7 +8,11 @@ var is_visible_initialized = false
 
 #	このウィンドウを閉じます
 func initialize():
-	# 初期状態は非表示、透明
+	
+	# 子要素を初期化
+	self.get_node("CanvasLayer/TextBlock").initialize()
+	
+	# この要素の初期状態は、非表示、透明
 	self.hide()
 	self.modulate.a = 0.0
 

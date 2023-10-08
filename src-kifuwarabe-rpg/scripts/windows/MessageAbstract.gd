@@ -13,7 +13,7 @@ var concrete_message_window_name = null
 #	メッセージ出力先ウィンドウを閉じる
 func initialize():
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　初期化")
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").initialize()
+	self.get_concrete_message_window().initialize()
 	self.statemachine.all_page_flushed()
 
 
