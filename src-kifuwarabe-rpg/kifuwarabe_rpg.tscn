@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://m75ysssspv3m"]
+[gd_scene load_steps=43 format=3 uid="uid://c13mmy8aajnio"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -15,11 +15,11 @@
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/background/ending.png" id="12_g1upj"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="12_mcay5"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="13_a1tuv"]
+[ext_resource type="Script" path="res://scripts/windows/CenterWindow.gd" id="14_nx11c"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/MessageWindowTextBlock.gd" id="16_2x1rq"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBlinker.gd" id="17_xwgcj"]
 [ext_resource type="Script" path="res://scripts/ChoiceCursor.gd" id="18_qth5v"]
-[ext_resource type="Script" path="res://scripts/CenterWindow.gd" id="19_xuids"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/center_window/ShogiBan.png" id="20_gotyj"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bg.gd" id="20_qxivy"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bgm.gd" id="21_dqion"]
@@ -133,24 +133,6 @@ texture = ExtResource("12_g1upj")
 
 [node name="CenterWindow" type="Node2D" parent="."]
 visible = false
-script = ExtResource("19_xuids")
-
-[node name="System" type="Node2D" parent="CenterWindow"]
-
-[node name="Frame" type="Sprite2D" parent="CenterWindow/System"]
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("22_06g4y")
-
-[node name="将棋盤" type="Sprite2D" parent="CenterWindow"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("20_gotyj")
-
-[node name="ファイルとランク" type="Sprite2D" parent="CenterWindow"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("21_na47b")
 
 [node name="Scenes" type="Node2D" parent="."]
 script = ExtResource("4_mkh8y")
@@ -315,3 +297,27 @@ script = ExtResource("18_qth5v")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("10_mvkqw")
+
+[node name="Windows" type="Node2D" parent="."]
+
+[node name="メッセージ" type="Node2D" parent="Windows"]
+
+[node name="センター" type="Node2D" parent="Windows"]
+script = ExtResource("14_nx11c")
+
+[node name="System" type="Node2D" parent="Windows/センター"]
+
+[node name="Frame" type="Sprite2D" parent="Windows/センター/System"]
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("22_06g4y")
+
+[node name="将棋盤" type="Sprite2D" parent="Windows/センター"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("20_gotyj")
+
+[node name="ファイルとランク" type="Sprite2D" parent="Windows/センター"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("21_na47b")

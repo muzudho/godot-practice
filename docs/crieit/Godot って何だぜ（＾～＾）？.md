@@ -830,4 +830,83 @@ var document = {
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　これで充分よ」  
 
+## ⏰ 同日 13:23
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ふぁーあ　起きた」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　**自由位置ウィンドウ** は実装しないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　やならければいけない作業が　増えるからなあ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ファミコン時代の　ロール・プレイングゲームって　ウィンドウが　いっぱい出てくるじゃない」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　確かに。メッセージ・ウィンドウを　**一般化**　した方がいいかな？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　**ウィンドウ** （Window；窓）という用語は　いろんなものに被りまくるから、  
+なんか　名前を付けた方が　よくないかだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　昔から　**ウィンドウ**　って呼んでたけどな。  
+１０分　考えるか。  
+**なんとかウィンドウ** にするのか、別の名前を新しく定義するのか」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　弁当箱みたいだから　**ランチボックス** (Lunch Box；弁当箱)　ってどう？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　弁当箱は　スーパーファミコンの蔑称だろう。  
+しかし　他の代案も出せないし　`lunchbox`　の線で考えるか。
+しかし　文字数が長いなあ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　もう　`box`　でいいのでは？」  
+
+### シナリオの仕様
+
+![202310__godot__08-1340-Scenario.png](https://crieit.now.sh/upload_images/d173bc26f6c601faab502fb079d64e21652232dca333d.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　現在の実装だと　シナリオを書けば　それは　メッセージ・ウィンドウ　に表示されるけど、  
+ウィンドウの名前を指定して　書き分けるようにした方がいいのかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　シナリオ・ファイルは　上から下に読めないと　やってられないわよ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ウィンドウの画面遷移は　たいてい　ツリー構造をしていないか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot がそもそも　ツリー構造の性質を備えているから　それに乗るか」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　シナリオは　`Window`　の一部分なのか、  
+それとも　`Window`　の一部分が　シナリオなのか、  
+どっちなの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`Window`　が上に立つんだが、  
+シナリオを　第２の位置に下げるのは　違和感があるな」  
+
+![202310__godot__08-1349-Windows.png](https://crieit.now.sh/upload_images/9ddef009bd22188f99413f6d063db6b1652234f149430.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな風に　`Windows`　の下に　全ての窓を置きたいけど」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ランチボックスじゃないのか」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ひとまず　既存の分を再編したらいいんじゃない？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
+## 別記事：
+
 .

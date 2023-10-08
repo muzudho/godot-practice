@@ -9,6 +9,6 @@ func do_it(line):
 	print("［センター・ウィンドウ］　名前：[" + name + "]")
 	
 	if name == "":
-		$"../../CenterWindow".hide_window()
+		$"../../Windows/センター".hide_window()
 	else:
-		$"../../CenterWindow".show_window(name)
+		$"../../Windows/センター".show_window(name)

@@ -15,9 +15,9 @@ func _ready():
 		sprite2d_node.hide()
 
 	# センターウィンドウはとにかく隠す
-	for sprite2d_node in $"CenterWindow".get_children():
+	for sprite2d_node in $"Windows/センター".get_children():
 		sprite2d_node.hide()
-	$"CenterWindow/System/Frame".hide()
+	$"Windows/センター/System/Frame".hide()
 
 	# シーンはとにかく非表示にする
 	for canvas_layer in $"Scenes".get_children():

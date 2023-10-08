@@ -124,7 +124,7 @@ func _unhandled_key_input(event):
 			if event.is_pressed():
 				
 				if event.keycode == KEY_R:
-					print("［メッセージ・ウィンドウ］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+					# print("［メッセージ・ウィンドウ］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
 					return
 				
 				#	ページ送り

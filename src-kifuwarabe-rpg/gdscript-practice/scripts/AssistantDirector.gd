@@ -156,9 +156,9 @@ func parse_message(temp_text):
 			print("［アシスタント・ディレクター］　センター・ウィンドウ：[" + name + "]")
 			
 			if name == "":
-				$"../CenterWindow".hide_window()
+				$"../Windows/センター".hide_window()
 			else:
-				$"../CenterWindow".show_window(name)
+				$"../Windows/センター".show_window(name)
 				
 			return
 			
