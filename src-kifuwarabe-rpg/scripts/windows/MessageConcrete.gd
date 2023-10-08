@@ -1,9 +1,16 @@
-# コンクリート・メッセージ・ウィンドウ（Concrete Message Window；具体的な伝言窓）
+#	コンクリート・メッセージ・ウィンドウ（Concrete Message Window；具体的な伝言窓）
 extends Sprite2D
 
-# メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
+#	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine = null
 var is_visible_initialized = false
+
+
+#	このウィンドウを閉じます
+func initialize():
+	# 初期状態は非表示、透明
+	self.hide()
+	self.modulate.a = 0.0
 
 
 # 親からステートマシンを受け取る
@@ -15,9 +22,7 @@ func set_statemachine(parent_statemachine):
 	
 
 func _ready():
-	# 最初は非表示、透明
-	self.hide()
-	self.modulate.a = 0.0
+	self.initialize()
 
 
 func _process(_delta):

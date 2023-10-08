@@ -12,6 +12,12 @@ var target_message_window_name = null
 
 #	メッセージを出力する対象となるノードの名前
 func set_target_message_window_name(node_name):
+
+	# 以前のウィンドウは閉じる	
+	if self.target_message_window_name != null:
+		self.get_target_message_window().initialize()
+	
+	# 新しいウィンドウ
 	self.target_message_window_name = node_name
 	
 	# ステートマシーンを、子にも参照させる
