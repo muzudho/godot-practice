@@ -34,3 +34,16 @@ func _ready():
 
 	# 台本の再生の開始の合図
 	$"./AssistantDirector".play_paragraph("タイトル画面")
+
+
+#	テキストボックスなどにフォーカスが無いときの入力を拾う
+func _unhandled_key_input(event):
+	print("［ディレクター］　アンハンドルド・キー入力")
+
+	#	何かキーを押したとき
+	if event.is_pressed():
+		
+		#	確定ボタン以外は無効
+		if event.keycode == KEY_ESCAPE:
+			print("［ディレクター］　エスケープ・キーが押された")
+			pass

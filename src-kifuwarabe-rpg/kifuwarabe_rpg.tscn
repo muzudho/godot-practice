@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://dn4xwaqrr4prd"]
+[gd_scene load_steps=48 format=3 uid="uid://dn4xwaqrr4prd"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="11_lxy0m"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
+[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="14_xhnqt"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bg.gd" id="20_qxivy"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bgm.gd" id="21_dqion"]
@@ -121,7 +122,6 @@ stream = ExtResource("28_1r0xx")
 volume_db = -10.0
 
 [node name="Background" type="Node2D" parent="."]
-visible = false
 script = ExtResource("7_ehwng")
 
 [node name="イベントルーム" type="Sprite2D" parent="Background"]
@@ -138,6 +138,10 @@ texture = ExtResource("12_nlarn")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("13_sy6jl")
+
+[node name="崎川駅周辺地図" type="Sprite2D" parent="Background"]
+position = Vector2(640, 360)
+texture = ExtResource("14_xhnqt")
 
 [node name="Scenes" type="Node2D" parent="."]
 script = ExtResource("4_mkh8y")

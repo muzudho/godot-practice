@@ -140,6 +140,7 @@ func on_choice_selected():
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
 func _unhandled_key_input(event):
+	print("［抽象メッセージ・ウィンドウ］　アンハンドルド・キー入力")
 
 	#	完全表示中
 	if self.statemachine.is_completed():

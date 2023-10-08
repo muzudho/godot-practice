@@ -369,4 +369,42 @@ func hide_window():
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　ルートで　キー判定すりゃ　よくない？」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　メッセージ・ウィンドウが出てるときは　キーが反応しないな。  
+`func _unhandled_key_input(event):` を２か所で使うとか　よくないのか？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ルートで全部取って、必要なら　子ノードに配るようにしたらどうだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　それもまた　大改造だな……」   
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　子ノードが先に  `_unhandled_key_input()` をキャッチするのか？  
+後ろ向き探索？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　いや、会話イベント中に　エスケープ・キー　を押して　システム・メニューを出そうなんてのが  
+間違いなんだぜ」  
+
+# 会話じゃないシーン
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　しかし　現在の設計では　会話シーンしかない。  
+マップの上を移動するような　シーンや、　アドベンチャーのようなメニューの並んだシーンがない」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　会話が途切れることなく連続しちゃ　ダメ　なんだ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　じゃあ　マップ画面を挟んだらいいんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　１～２時間かけて、１枚　絵を追加するか～」  
+
+📖　[ツイート](https://x.com/muzudho1/status/727284379295207425?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こういうマップだろ」  
+
 .
