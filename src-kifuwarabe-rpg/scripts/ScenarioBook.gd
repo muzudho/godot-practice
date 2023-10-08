@@ -29,6 +29,10 @@ var document = {
 		choice:	1,2
 		msg:	下
 		""",
+		
+# TODO 消す msg:	下
+# TODO 消す msg:	中央
+		
 		"""\
 		　・スタート
 		　・終了
@@ -57,6 +61,10 @@ var document = {
 #		"""\
 #		!
 #		msg:	中央
+#		""",
+#		"""\
+#		!
+#		msg:	下
 #		""",
 		
 		"""\
