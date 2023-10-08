@@ -36,14 +36,14 @@ func get_parent_choice_row_numbers():
 
 
 # 線形補間
-func lerp(src, dst, progress):
+func do_lerp(src, dst, progress):
 	return src + (dst - src) * progress
 
 
 # カーソルが上に移動します
 func on_cursor_up(target_index):
 	# 効果音鳴らす
-	$"../../../../Musician".playSe("選択肢カーソル移動音")
+	$"../../../../../Musician".playSe("選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
 	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index - 1]
@@ -58,7 +58,7 @@ func on_cursor_up(target_index):
 # カーソルが下に移動します
 func on_cursor_down(target_index):
 	# 効果音鳴らす
-	$"../../../../Musician".playSe("選択肢カーソル移動音")
+	$"../../../../../Musician".playSe("選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
 	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index + 1]
@@ -110,7 +110,7 @@ func _process(delta):
 			if 1.0 <= progress:
 				progress = 1.0
 				self.total_seconds = 0.0
-			self.offset_top = self.lerp(self.src_y, self.dst_y, progress)
+			self.offset_top = self.do_lerp(self.src_y, self.dst_y, progress)
 
 			
 		# 移動量が残ってないなら
@@ -132,13 +132,13 @@ func _process(delta):
 			if Input.is_action_pressed(&"ui_down"):
 				# print("［選択肢カーソル］　下へ")
 				# print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
-				var size = self.get_parent_choice_row_numbers().size()
-				# print("［選択肢カーソル］　選択肢数：" + str(size))
+				var choice_size = self.get_parent_choice_row_numbers().size()
+				# print("［選択肢カーソル］　選択肢数：" + str(choice_size))
 				
 				# 下へ移動できるか？
 				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
 				# print("［選択肢カーソル］　インデックス：" + str(index))
-				if index < 0 or size <= index + 1:
+				if index < 0 or choice_size <= index + 1:
 					return
 
 				# カーソルが下に移動します

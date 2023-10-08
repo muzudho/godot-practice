@@ -224,4 +224,9 @@ func hide_window():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　あっ　そうか～」  
 
+![202310__godot__08-1450-ImageFolderRestructure-o2o0.png](https://crieit.now.sh/upload_images/dacb939b7b185ea252519675012a0234652247c08bcf9.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ひとまず　サイズ別のフォルダーを採用だぜ」  
+
 .

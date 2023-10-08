@@ -5,10 +5,10 @@ extends Node
 #	それをする
 func do_it(line):
 	# head
-	var name = line.substr(5).strip_edges()
-	print("［センター・ウィンドウ］　名前：[" + name + "]")
+	var node_name = line.substr(5).strip_edges()
+	print("［センター・ウィンドウ］　名前：[" + node_name + "]")
 	
-	if name == "":
+	if node_name == "":
 		$"../../Windows/センター".hide_window()
 	else:
-		$"../../Windows/センター".show_window(name)
+		$"../../Windows/センター".show_window(node_name)

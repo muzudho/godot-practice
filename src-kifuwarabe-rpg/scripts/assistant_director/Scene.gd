@@ -5,10 +5,10 @@ extends Node
 #	それをする
 func do_it(line):
 	# head
-	var name = line.substr(6).strip_edges()
-	print("［シーン］　名前：[" + name + "]")
+	var node_name = line.substr(6).strip_edges()
+	print("［シーン］　名前：[" + node_name + "]")
 	
-	if name == "":
+	if node_name == "":
 		$"../../Scenes".hide_scene()
 	else:
-		$"../../Scenes".show_scene(name)
+		$"../../Scenes".show_scene(node_name)

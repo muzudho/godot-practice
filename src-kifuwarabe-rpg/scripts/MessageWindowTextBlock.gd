@@ -27,12 +27,12 @@ func clear_blinker():
 
 
 # メッセージを追加
-func push_message(text):
+func push_message(new_text):
 	# print("［テキストブロック］　台詞追加")
-	print("［テキストブロック］　台詞：　[" + text + "]")
+	print("［テキストブロック］　台詞：　[" + new_text + "]")
 	self.is_choice_mode = false
 	self.choice_row_numbers = []
-	self.text_buffer = text
+	self.text_buffer = new_text
 
 	# ブリンカーを非表示にするのは解除
 	$"BlinkerTriangle".modulate.a = 0.0
@@ -42,10 +42,10 @@ func push_message(text):
 
 
 # 選択肢を追加
-func push_choices(row_numbers, text):
-	print("［テキストブロック］　選択肢：　[" + text + "]")
+func push_choices(row_numbers, new_text):
+	print("［テキストブロック］　選択肢：　[" + new_text + "]")
 	self.choice_row_numbers = row_numbers
-	self.text_buffer = text
+	self.text_buffer = new_text
 	self.is_choice_mode = true
 
 	# ブリンカーを非表示にする

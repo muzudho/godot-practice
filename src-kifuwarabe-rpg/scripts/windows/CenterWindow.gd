@@ -7,14 +7,14 @@ var current_name = null
 
 
 #	ウィンドウを表示する
-func show_window(name):
-	print("［センター・ウィンドウ］　表示：[" + name + "]")
+func show_window(node_name):
+	print("［センター・ウィンドウ］　表示：[" + node_name + "]")
 	
 	#	既に表示中の画像を非表示にする（上に乗っかっていて、表示したい絵が見えないケースがある）
 	if 	self.current_name != null:
 		self.get_node(self.current_name).hide()
 	
-	self.current_name = name
+	self.current_name = node_name
 	self.show()
 	self.get_node(self.current_name).show()
 	$"System".show()

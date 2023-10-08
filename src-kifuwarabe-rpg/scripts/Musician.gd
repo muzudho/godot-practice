@@ -10,22 +10,22 @@ var current_se_name = null
 
 
 #	BGM 再生
-func playBgm(name):
+func playBgm(node_name):
 	if self.current_bgm_name!=null:
 		self.stopBgm()
 		
-	print("［音楽家］　ＢＧＭ開始：[" + name + "]")
-	self.current_bgm_name = name
+	print("［音楽家］　ＢＧＭ開始：[" + node_name + "]")
+	self.current_bgm_name = node_name
 	$"BGM".get_node(self.current_bgm_name).play()
 
 
 #	効果音再生
-func playSe(name):
+func playSe(node_name):
 	if self.current_se_name!=null:
 		self.stopSe()
 
-	print("［音楽家］　効果音開始：[" + name + "]")
-	self.current_se_name = name
+	print("［音楽家］　効果音開始：[" + node_name + "]")
+	self.current_se_name = node_name
 	$"SE".get_node(self.current_se_name).play()
 
 
