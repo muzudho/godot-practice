@@ -80,72 +80,75 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-	#	点滅
-	self.blinker_seconds += delta
+	# 非表示のときは働かない
+	if self.visible:
 
-	if self.blinker_interval <= self.blinker_seconds:
-		if 0 < self.modulate.a:
+		#	点滅
+		self.blinker_seconds += delta
+
+		if self.blinker_interval <= self.blinker_seconds:
+			if 0 < self.modulate.a:
+				self.modulate.a = 0.0
+			else:
+				self.modulate.a = 1.0
+				
+			self.blinker_seconds -= self.blinker_interval
+
+
+		# 完全表示中	　かつ　選択肢モード
+		if self.statemachine.is_completed() and $"..".is_choice_mode:
+			
+			#	初回はすぐに不透明
+			if not self.is_first_displayed_immediately:
+				self.modulate.a = 1.0
+				self.blinker_seconds = 0.0
+				self.is_first_displayed_immediately = true
+					
+			# カーソルが動く量が指定されているなら
+			if 0.0 < self.total_seconds:
+				
+				# 移動する
+				self.elapsed_seconds += delta
+				var progress = self.elapsed_seconds/self.total_seconds
+				if 1.0 <= progress:
+					progress = 1.0
+					self.total_seconds = 0.0
+				self.offset_top = self.do_lerp(self.src_y, self.dst_y, progress)
+
+				
+			# 移動量が残ってないなら
+			else:
+
+				# 上へ移動する分
+				if Input.is_action_pressed(&"ui_up"):
+					# print("［選択肢カーソル］　上へ")
+					
+					# 上へ移動できるか？
+					var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
+					if index < 1:
+						return
+
+					# カーソルが上に移動します
+					self.on_cursor_up(index)
+					
+				# 下へ移動する分
+				if Input.is_action_pressed(&"ui_down"):
+					# print("［選択肢カーソル］　下へ")
+					# print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
+					var choice_size = self.get_parent_choice_row_numbers().size()
+					# print("［選択肢カーソル］　選択肢数：" + str(choice_size))
+					
+					# 下へ移動できるか？
+					var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
+					# print("［選択肢カーソル］　インデックス：" + str(index))
+					if index < 0 or choice_size <= index + 1:
+						return
+
+					# カーソルが下に移動します
+					self.on_cursor_down(index)
+			
+		else:
+			# 透明
 			self.modulate.a = 0.0
-		else:
-			self.modulate.a = 1.0
-			
-		self.blinker_seconds -= self.blinker_interval
-
-
-	# 完全表示中	　かつ　選択肢モード
-	if self.statemachine.is_completed() and $"..".is_choice_mode:
-		
-		#	初回はすぐに不透明
-		if not self.is_first_displayed_immediately:
-			self.modulate.a = 1.0
-			self.blinker_seconds = 0.0
-			self.is_first_displayed_immediately = true
-				
-		# カーソルが動く量が指定されているなら
-		if 0.0 < self.total_seconds:
-			
-			# 移動する
-			self.elapsed_seconds += delta
-			var progress = self.elapsed_seconds/self.total_seconds
-			if 1.0 <= progress:
-				progress = 1.0
-				self.total_seconds = 0.0
-			self.offset_top = self.do_lerp(self.src_y, self.dst_y, progress)
-
-			
-		# 移動量が残ってないなら
-		else:
-
-			# 上へ移動する分
-			if Input.is_action_pressed(&"ui_up"):
-				# print("［選択肢カーソル］　上へ")
-				
-				# 上へ移動できるか？
-				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
-				if index < 1:
-					return
-
-				# カーソルが上に移動します
-				self.on_cursor_up(index)
-				
-			# 下へ移動する分
-			if Input.is_action_pressed(&"ui_down"):
-				# print("［選択肢カーソル］　下へ")
-				# print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
-				var choice_size = self.get_parent_choice_row_numbers().size()
-				# print("［選択肢カーソル］　選択肢数：" + str(choice_size))
-				
-				# 下へ移動できるか？
-				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
-				# print("［選択肢カーソル］　インデックス：" + str(index))
-				if index < 0 or choice_size <= index + 1:
-					return
-
-				# カーソルが下に移動します
-				self.on_cursor_down(index)
-		
-	else:
-		# 透明
-		self.modulate.a = 0.0
 
 
