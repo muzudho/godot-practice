@@ -6,16 +6,17 @@ var statemachine = null
 var is_visible_initialized = false
 
 func _ready():
-	# 最初は非表示
-	self.visible = false
+	# 最初は透明
+	self.modulate.a = 0.0
 
 func _process(_delta):
 	if self.statemachine.is_none():
-		# 非表示
-		self.visible = false
+		# 透明
+		self.modulate.a = 0.0
 		
 	elif self.statemachine.is_typewriter():
 		if not self.is_visible_initialized:
 			# タイプライター風表示中の初回に可視化
-			self.visible = true
+			# 不透明
+			self.modulate.a = 1.0
 			self.is_visible_initialized = true

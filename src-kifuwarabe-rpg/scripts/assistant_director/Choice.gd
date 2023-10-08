@@ -10,9 +10,8 @@ var choice_row_number_array = null
 func do_it(line):
 	print("［選択肢］　前処理だ：[" + line + "]")
 	
-	# head
 	var csv = line.substr(7).strip_edges()
-	# TODO 昇順であること
+	# TODO 数は昇順であること
 	var string_packed_array = csv.split(",", true, 0)
 	# 文字列パック配列を、数値の配列に変換
 	self.choice_row_number_array = self.convert_string_packed_array_to_number_array(string_packed_array)

@@ -4,7 +4,7 @@ extends Node
 
 #	それをする
 func do_it(line):
-	# head
+
 	var node_name = line.substr(5).strip_edges()
 	print("［中央ビューイング・ウィンドウ］　名前：[" + node_name + "]")
 	

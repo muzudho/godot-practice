@@ -26,7 +26,7 @@ func split_head_line_or_tail(text):
 	#	最初の改行を見つける
 	var index = text.find("\n")
 	var head = text.substr(0, index)
-	var tail = text.substr(index+1, text.length() - (index+1))
+	var tail = text.substr(index+1)
 	# print("［メッセージ・ウィンドウ］　head：　[" + head + "]")
 	# print("［メッセージ・ウィンドウ］　tail：　[" + tail + "]")
 	return [head, tail]
@@ -93,7 +93,10 @@ func on_choice_selected():
 #	サブツリーが全てインスタンス化されたときに呼び出される
 func _ready():
 	# ステートマシーンを、子にも参照させる
+	# TODO ここの決め打ちどうするか？
 	$"下".statemachine = self.statemachine
+	$"中央".statemachine = self.statemachine
+	
 	$"System/TextBlock".statemachine = self.statemachine
 	$"System/TextBlock/BlinkerTriangle".statemachine = self.statemachine
 	$"System/TextBlock/BlinkerUnderscore".statemachine = self.statemachine
