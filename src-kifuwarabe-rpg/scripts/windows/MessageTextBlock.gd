@@ -37,7 +37,7 @@ func initialize():
 	# テキストが空っぽ
 	self.text = ""
 	
-	#	全てのブリンカーを消す
+	#	全てのブリンカーを透明にして非表示にしておく
 	$"BlinkerTriangle".initialize()
 	$"BlinkerUnderscore".initialize()
 	$"ChoiceCursor".initialize()
