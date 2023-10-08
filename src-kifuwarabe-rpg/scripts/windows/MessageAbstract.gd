@@ -7,18 +7,18 @@ var statemachine = load("scripts/windows/MessageStatemachine.gd").new()
 
 
 #	メッセージを出力する対象となるノードの名前
-var target_message_window_name = null
+var concrete_message_window_name = null
 
 
 #	メッセージを出力する対象となるノードの名前
 func set_target_message_window_name(node_name):
 
 	# 以前のウィンドウは閉じる	
-	if self.target_message_window_name != null:
+	if self.concrete_message_window_name != null:
 		self.get_target_message_window().initialize()
 	
 	# 新しいウィンドウ
-	self.target_message_window_name = node_name
+	self.concrete_message_window_name = node_name
 	
 	# ステートマシーンを、子にも参照させる
 	self.get_target_message_window().set_statemachine(self.statemachine)
@@ -26,7 +26,7 @@ func set_target_message_window_name(node_name):
 
 #	メッセージを出力する対象となるノードの名前
 func get_target_message_window():
-	return self.get_node(self.target_message_window_name)
+	return self.get_node(self.concrete_message_window_name)
 
 
 #	選択肢カーソルを表示
