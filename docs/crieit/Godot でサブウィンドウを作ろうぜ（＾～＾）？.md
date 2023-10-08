@@ -13,4 +13,12 @@
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　とりあえず　既存の分は　やってしまえば？」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+（カタ　カタ　カタ　カタ）  
+
+![202310__godot__08-1429-WindowsRestructure-o2o0.png](https://crieit.now.sh/upload_images/48ea5e7cc40fde214fdf5d29506b157865223e69917ac.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ひとまず　既存の分を移動したぜ」  
+
 .
