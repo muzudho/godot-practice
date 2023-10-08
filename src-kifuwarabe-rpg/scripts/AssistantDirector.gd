@@ -35,9 +35,9 @@ func play_paragraph(paragraph_name):
 	self.statemachine.play()
 
 
-# どのメッセージ・ウィンドウにメッセージを出力するか？ そのノード名
-func set_target_message_window_name(node_name):
-	$"../Windows/Message".set_target_message_window_name(node_name)
+# メッセージ出力先ウィンドウ変更。ノード名を指定
+func redirect_concrete_message_window_by_name(node_name):
+	$"../Windows/Message".redirect_concrete_message_window_by_name(node_name)
 
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
@@ -111,8 +111,8 @@ func parse_message(temp_text):
 		while second_head_tail != null:
 			var second_head = second_head_tail[0].strip_edges()
 			var second_tail = second_head_tail[1]
-			print("［アシスタント・ディレクター］　second_head：[" + second_head + "]")
-			print("［アシスタント・ディレクター］　second_tail：[" + second_tail + "]")
+			# print("［アシスタント・ディレクター］　second_head：[" + second_head + "]")
+			# print("［アシスタント・ディレクター］　second_tail：[" + second_tail + "]")
 
 			# 以下の命令は、アルファベット順で並べてある
 			#
@@ -136,9 +136,9 @@ func parse_message(temp_text):
 			elif second_head.begins_with("goto:"):
 				$"Goto".do_it(second_head, self.play_paragraph)
 
-			# メッセージ・ウィンドウ変更
+			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("msg:"):
-				$"Msg".do_it(second_head, self.set_target_message_window_name)
+				$"Msg".do_it(second_head, self.redirect_concrete_message_window_by_name)
 
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
