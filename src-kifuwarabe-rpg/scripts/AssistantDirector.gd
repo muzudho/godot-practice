@@ -28,8 +28,8 @@ func play_paragraph(paragraph_name):
 
 	# # ウィンドウを空っぽにします
 	# $"../Windows/Message".clear_text()
-	# 次の指示を待ちます
-	$"../Windows/Message".awaiting_order()
+	# メッセージ・ウィンドウは、次の指示を待っています
+	self.is_message_window_waiting_for_order = true
 
 	# 再生中へ
 	self.statemachine.play()

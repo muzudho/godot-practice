@@ -10,13 +10,27 @@ var statemachine = load("scripts/windows/MessageStatemachine.gd").new()
 var concrete_message_window_name = null
 
 
+#	メッセージ出力先ウィンドウを閉じる
+func initialize():
+	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　初期化")
+	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").initialize()
+	self.statemachine.all_page_flushed()
+
+
+#	メッセージ出力先ウィンドウを空っぽにします
+func clear_text():
+	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　クリアーテキスト")
+	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").text = ""
+
+
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
 func redirect_concrete_message_window_by_name(node_name):
-	print("［抽象的な伝言窓］　リダイレクト　ノード名：[" + node_name + "]")
 
 	# 以前のウィンドウは閉じる
 	if self.concrete_message_window_name != null:
 		self.get_concrete_message_window().initialize()
+
+	print("［" + node_name + "］メッセージ・ウィンドウ　リダイレクト")
 	
 	# 新しいウィンドウ
 	self.concrete_message_window_name = node_name
@@ -32,24 +46,12 @@ func get_concrete_message_window():
 
 #	選択肢カーソルを表示
 func show_choice_cursor():
+	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選択肢カーソル表示")
 	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").show()
-
-
-#	メッセージ出力先ウィンドウを閉じる
-func initialize():
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").initialize()
-	self.statemachine.all_page_flushed()
-
-
-#	メッセージ出力先ウィンドウを空っぽにします
-func clear_text():
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").text = ""
 
 
 #	次の指示を待ちます
 func awaiting_order():
-	print("［メッセージ・ウィンドウ］　次の指示を待ちます")
-
 	#	メッセージウィンドウは指示待ちだ
 	$"../../AssistantDirector".is_message_window_waiting_for_order = true
 
@@ -68,7 +70,7 @@ func split_head_line_or_tail(text):
 #	メッセージを追加
 func push_message(text):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
-	print("［メッセージ・ウィンドウ］　台詞：[" + text + "]")
+	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　台詞：[" + text + "]")
 
 	#	文章を消す
 	self.clear_text()
@@ -87,7 +89,7 @@ func push_message(text):
 
 #	選択肢を追加
 func push_choices(row_numbers, text):
-	print("［メッセージ・ウィンドウ］　選択肢：[" + text + "]")
+	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選択肢：[" + text + "]")
 
 	#	文章を消す
 	self.clear_text()
@@ -107,6 +109,8 @@ func push_choices(row_numbers, text):
 
 #	ページ送り
 func on_page_forward():
+	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　ページ送り")
+	
 	#	効果音
 	$"../../Musician".playSe("ページめくり音")
 
@@ -124,7 +128,7 @@ func on_choice_selected():
 	$"../../Musician".playSe("選択肢確定音")
 
 	var row_number = self.get_concrete_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number	
-	print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
+	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選んだ選択肢行番号：" + str(row_number))
 
 	#	選択肢の行番号を、上位ノードへエスカレーションします
 	$"../../AssistantDirector".on_choice_selected(row_number)
