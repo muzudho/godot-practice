@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="13_a1tuv"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
-[ext_resource type="Script" path="res://scripts/windows/CenterWindow.gd" id="14_nx11c"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/MessageWindowTextBlock.gd" id="16_2x1rq"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBlinker.gd" id="17_xwgcj"]
@@ -29,12 +28,13 @@
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou_se_sound17.ogg" id="26_1kp2p"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Scene.gd" id="26_d8rxk"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
-[ext_resource type="Script" path="res://scripts/windows/MessageWindow.gd" id="26_jdfvj"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Se.gd" id="27_b3qcr"]
+[ext_resource type="Script" path="res://scripts/windows/Message.gd" id="27_g8ouh"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="27_xwe46"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="28_1r0xx"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/MessageWindow.png" id="28_skskk"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/system_window.png" id="34_wja0x"]
+[ext_resource type="Script" path="res://scripts/windows/Viewing.gd" id="35_s10tl"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/CenterWindow.png" id="35_sw6cw"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
@@ -256,7 +256,7 @@ texture = ExtResource("26_fgfga")
 
 [node name="メッセージ" type="Node2D" parent="Windows"]
 visible = false
-script = ExtResource("26_jdfvj")
+script = ExtResource("27_g8ouh")
 
 [node name="System" type="Sprite2D" parent="Windows/メッセージ"]
 visible = false
@@ -311,7 +311,7 @@ position = Vector2(640, 360)
 texture = ExtResource("34_wja0x")
 
 [node name="ビューイング" type="Node2D" parent="Windows"]
-script = ExtResource("14_nx11c")
+script = ExtResource("35_s10tl")
 
 [node name="System" type="Node2D" parent="Windows/ビューイング"]
 

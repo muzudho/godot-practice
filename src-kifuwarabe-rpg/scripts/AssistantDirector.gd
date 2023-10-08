@@ -147,7 +147,7 @@ func parse_message(temp_text):
 
 		# この台詞は選択肢として扱う
 		$"../Windows".show()
-		$"../Windows/メッセージ".push_choices($"Choice".choice_row_number_array, temp_text)
+		$"../Windows/メッセージ".push_choices($"Choice".choice_row_number_array, temp_text, "下ウィンドウ")
 		self.is_message_window_waiting_for_order = false
 
 		#	処理終わり
@@ -156,5 +156,5 @@ func parse_message(temp_text):
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
 	$"../Windows".show()
-	$"../Windows/メッセージ".push_message(temp_text)
+	$"../Windows/メッセージ".push_message(temp_text, "下ウィンドウ")
 	self.is_message_window_waiting_for_order = false

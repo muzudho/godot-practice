@@ -1,4 +1,4 @@
-#	メッセージ・ウィンドウ（Message Window）
+#	メッセージ・ウィンドウ（Message Window；伝言窓）
 extends Node2D
 
 
@@ -33,15 +33,15 @@ func split_head_line_or_tail(text):
 
 
 #	メッセージを追加
-func push_message(text):
+func push_message(text, node_name):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
-	print("［メッセージ・ウィンドウ］　台詞：　[" + text + "]")
+	print("［メッセージ・ウィンドウ］　台詞：　[" + node_name + "][" + text + "]")
 
 	#	表示
 	self.show()
 	$"System".show()
-	$"下ウィンドウ".show()
-	
+	self.get_node(node_name).show()
+
 	#	メッセージ追加
 	$"System/TextBlock".push_message(text)
 
@@ -50,20 +50,20 @@ func push_message(text):
 
 
 #	選択肢を追加
-func push_choices(row_numbers, text):
-	print("［メッセージ・ウィンドウ］　選択肢：　[" + text + "]")
+func push_choices(row_numbers, text, node_name):
+	print("［メッセージ・ウィンドウ］　選択肢：　[" + node_name + "][" + text + "]")
 
 	#	表示
 	self.show()
 	$"System".show()
-	$"下ウィンドウ".show()
+	self.get_node(node_name).show()
 
 	#	メッセージ追加
 	$"System/TextBlock".push_choices(row_numbers, text)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
-	
+
 
 
 #	ページ送り

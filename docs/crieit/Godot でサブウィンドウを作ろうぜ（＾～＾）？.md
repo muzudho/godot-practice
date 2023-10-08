@@ -273,4 +273,17 @@ func hide_window():
 こいつは　システム・ウィンドウ　ではなくて、  
 **中央メッセージ・ウィンドウ**　だぜ」  
 
+![202310__godot__08-1635-BottomMessageWindow.png](https://crieit.now.sh/upload_images/5a7dac3bf1902219aa7cd8de87921f9765225bf0cb426.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こいつは　**下メッセージ・ウィンドウ**　だぜ」  
+
+![202310__godot__08-1646-CenterViewingWindow.png](https://crieit.now.sh/upload_images/a116fef9722b7b5c736bc5aeac6e6c5565225e80b5997.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こいつは　**中央ビューイング・ウィンドウ**　だぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　別物と割り切ったわけだな　実践的だぜ」  
+
 .
