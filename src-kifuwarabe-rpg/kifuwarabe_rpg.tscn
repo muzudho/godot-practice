@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://dn4xwaqrr4prd"]
+[gd_scene load_steps=52 format=3 uid="uid://dn4xwaqrr4prd"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -56,12 +56,48 @@ shadow_offset = Vector2(10, 10)
 [sub_resource type="LabelSettings" id="LabelSettings_8g2fx"]
 line_spacing = 1.0
 font = ExtResource("6_bei22")
+font_size = 20
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oqy5n"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
 font_size = 32
 outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_size = 5
 shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s3a30"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nc3n7"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xxk4"]
+line_spacing = 1.0
+font = ExtResource("5_24vd4")
+font_size = 20
+font_color = Color(0.85098, 0, 0.219608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6ksp3"]
 line_spacing = 8.0
@@ -135,11 +171,11 @@ position = Vector2(640, 360)
 texture = ExtResource("12_nlarn")
 
 [node name="エンディング" type="Sprite2D" parent="Background"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("13_sy6jl")
 
 [node name="崎川駅周辺地図" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("14_xhnqt")
 
@@ -150,6 +186,7 @@ script = ExtResource("4_mkh8y")
 visible = false
 
 [node name="きふわらべRPG" type="Label" parent="Scenes/タイトル"]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -184,7 +221,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="エンディング" type="CanvasLayer" parent="Scenes"]
-visible = false
 
 [node name="エンドロール" type="Label" parent="Scenes/エンディング"]
 anchors_preset = 8
@@ -211,7 +247,7 @@ text = "　　　　　　音楽　魔王魂
 　　　　　　監督　むずでょ
 
 　同人サークル　ぐれーすけーる"
-label_settings = SubResource("LabelSettings_8g2fx")
+label_settings = SubResource("LabelSettings_oqy5n")
 vertical_alignment = 1
 
 [node name="完" type="Label" parent="Scenes/エンディング"]
@@ -228,6 +264,174 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "完"
 label_settings = SubResource("LabelSettings_t63ks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="崎川駅周辺地図" type="CanvasLayer" parent="Scenes"]
+visible = false
+
+[node name="NR崎川駅" type="Label" parent="Scenes/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -635.0
+offset_top = -17.0
+offset_right = -442.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0465592
+text = "ＮＲ 崎川駅"
+label_settings = SubResource("LabelSettings_s3a30")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="西口" type="Label" parent="Scenes/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -164.0
+offset_right = -299.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00380094
+text = "西 口"
+label_settings = SubResource("LabelSettings_nc3n7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="東口" type="Label" parent="Scenes/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = 93.0
+offset_right = -300.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.141261
+text = "東 口"
+label_settings = SubResource("LabelSettings_nc3n7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="最強振興会館" type="Label" parent="Scenes/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 385.0
+offset_top = -101.0
+offset_right = 578.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0134654
+text = "最強振興会館"
+label_settings = SubResource("LabelSettings_8g2fx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ゾラーナ崎川プラザ" type="Label" parent="Scenes/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -355.0
+offset_right = -151.0
+offset_bottom = -306.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.121196
+text = "ゾラーナ崎川プラザ"
+label_settings = SubResource("LabelSettings_8g2fx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="リキッドスクエア" type="Label" parent="Scenes/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 323.0
+offset_top = -189.0
+offset_right = 516.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0246742
+text = "リキッドスクエア"
+label_settings = SubResource("LabelSettings_7xxk4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="香急崎川駅" type="Label" parent="Scenes/崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 223.0
+offset_right = 268.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.16054
+text = "香急崎川駅"
+label_settings = SubResource("LabelSettings_8g2fx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="バドバシメカラ" type="Label" parent="Scenes/崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 219.0
+offset_top = 127.0
+offset_right = 412.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.11144
+text = "バドバシメカラ"
+label_settings = SubResource("LabelSettings_8g2fx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="アトレ崎川" type="Label" parent="Scenes/崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = 157.0
+offset_right = -257.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.107918
+text = "アトレ崎川"
+label_settings = SubResource("LabelSettings_8g2fx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -272,8 +476,10 @@ position = Vector2(640, 360)
 texture = ExtResource("26_fgfga")
 
 [node name="Windows" type="Node2D" parent="."]
+visible = false
 
 [node name="Message" type="Node2D" parent="Windows"]
+visible = false
 script = ExtResource("27_g8ouh")
 
 [node name="下" type="Sprite2D" parent="Windows/Message"]
@@ -284,6 +490,7 @@ texture = ExtResource("28_skskk")
 script = ExtResource("30_bblis")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Windows/Message/下"]
+visible = false
 
 [node name="TextBlock" type="Label" parent="Windows/Message/下/CanvasLayer"]
 offset_left = 319.0
@@ -324,12 +531,14 @@ label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("34_0fjc7")
 
 [node name="中央" type="Sprite2D" parent="Windows/Message"]
+visible = false
 z_index = 10
 position = Vector2(640, 360)
 texture = ExtResource("34_wja0x")
 script = ExtResource("30_bblis")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Windows/Message/中央"]
+visible = false
 
 [node name="TextBlock" type="Label" parent="Windows/Message/中央/CanvasLayer"]
 offset_left = 510.0

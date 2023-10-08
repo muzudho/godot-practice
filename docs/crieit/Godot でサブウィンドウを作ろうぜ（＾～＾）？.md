@@ -407,4 +407,11 @@ func hide_window():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　こういうマップだろ」  
 
+# Z-index のルール分からん
+
+![202310__godot__09-0001--ZIndex.png](https://crieit.now.sh/upload_images/057f3c888d4c86157e6f9bccf9bd84246522c49f288ed.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　Z-index で前景、後景の調整ができない……　分けわからん……」  
+
 .
