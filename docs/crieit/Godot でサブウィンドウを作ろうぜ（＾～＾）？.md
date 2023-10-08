@@ -307,4 +307,10 @@ func hide_window():
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　コピー貼り付けするしか　ないんじゃない？　動的にやったら　レイアウトの機能の利便性を損なうんだし」  
 
+![202310__godot__08-1955-Copy-o2o0.png](https://crieit.now.sh/upload_images/f2e7b8be72a714ce4264e639ba0dabe965228ac5bd523.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　同じものが　コピーされて　ＤＲＹの法則が破れているように見えるが、  
+座標位置を覚えておくデータだから　残しておいた方が　エディターが活きるのか～」  
+
 .
