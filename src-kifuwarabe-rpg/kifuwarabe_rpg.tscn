@@ -49,7 +49,7 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_offset = Vector2(10, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8g2fx"]
-line_spacing = 10.0
+line_spacing = 1.0
 font = ExtResource("6_bei22")
 font_size = 32
 outline_size = 10
@@ -185,16 +185,19 @@ offset_right = 542.0
 offset_bottom = 358.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "　　　　音楽　魔王魂
+text = "　　　　　　音楽　魔王魂
 　
 　『きふわらべファイター２』
-　　　　作曲　桜丸
+　　　　　　作曲　桜丸
 　
-　　イラスト
-　プログラム
-　制作・監督　むずでょ／　　　
-　　　　　　　同人サークル
-　　　　　　　ぐれーすけーる"
+　ゲームエンジン　Ｇｏｄｏｔ
+
+　　　　イラスト
+　　　　シナリオ
+　　　プログラム
+　　　　　　監督　むずでょ
+
+　同人サークル　ぐれーすけーる"
 label_settings = SubResource("LabelSettings_8g2fx")
 vertical_alignment = 1
 
