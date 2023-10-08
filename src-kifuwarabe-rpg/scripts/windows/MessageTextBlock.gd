@@ -44,6 +44,9 @@ func push_message(new_text):
 	self.choice_row_numbers = []
 	self.text_buffer = new_text
 
+	# 表示
+	self.show()
+
 	# ブリンカーを非表示にするのは解除
 	$"BlinkerTriangle".modulate.a = 0.0
 	$"BlinkerTriangle".visible = true
@@ -57,6 +60,9 @@ func push_choices(row_numbers, new_text):
 	self.choice_row_numbers = row_numbers
 	self.text_buffer = new_text
 	self.is_choice_mode = true
+
+	# 表示
+	self.show()
 
 	# ブリンカーを非表示にする
 	$"BlinkerTriangle".modulate.a = 0.0
@@ -76,32 +82,35 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-		
-	# タイプライター風表示中
-	if self.statemachine.is_typewriter():
-		
-		if not self.is_visible_initialized:
-			# 初回に可視化
-			self.visible = true
-			self.is_visible_initialized = true
-		
-		count_of_typewriter += delta
-
-		# １文字 50ms でも、結構ゆっくり
-		var wait_time = 0.05
 	
-		# メッセージの早送り
-		if Input.is_key_pressed(KEY_R):
-			# print("［テキストブロック］　メッセージの早送り")
-			wait_time = 0.01
+	# 非表示のときは働かない
+	if self.visible:
 	
-		if wait_time <= count_of_typewriter:
-			if 0 < self.text_buffer.length():
-				# １文字追加
-				self.text += self.text_buffer.substr(0, 1)
-				self.text_buffer = self.text_buffer.substr(1, self.text_buffer.length()-1)
-			else:
-				# 完全表示中
-				self.statemachine.all_character_pushed()
+		# タイプライター風表示中
+		if self.statemachine.is_typewriter():
 			
-			count_of_typewriter -= wait_time
+			if not self.is_visible_initialized:
+				# 初回に可視化
+				self.visible = true
+				self.is_visible_initialized = true
+			
+			count_of_typewriter += delta
+
+			# １文字 50ms でも、結構ゆっくり
+			var wait_time = 0.05
+		
+			# メッセージの早送り
+			if Input.is_key_pressed(KEY_R):
+				# print("［テキストブロック］　メッセージの早送り")
+				wait_time = 0.01
+		
+			if wait_time <= count_of_typewriter:
+				if 0 < self.text_buffer.length():
+					# １文字追加
+					self.text += self.text_buffer.substr(0, 1)
+					self.text_buffer = self.text_buffer.substr(1, self.text_buffer.length()-1)
+				else:
+					# 完全表示中
+					self.statemachine.all_character_pushed()
+				
+				count_of_typewriter -= wait_time
