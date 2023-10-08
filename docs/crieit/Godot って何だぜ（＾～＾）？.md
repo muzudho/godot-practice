@@ -588,13 +588,15 @@ Author: Zylann
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　パソコンに向かうのも　ツラい」  
 
+## シナリオの分岐を作りなさい？
+
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　選択肢を選んだあと、次のシナリオに飛ぶような仕組みを作りなさい」  
 
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
 
-## 別記事：Godot でシナリオの分岐を作ろうぜ（＾～＾）？
+### 別記事：Godot でシナリオの分岐を作ろうぜ（＾～＾）？
 
 📖　[Godot でシナリオの分岐を作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-651d677787d5e)  
 
@@ -647,7 +649,7 @@ Author: Zylann
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
 
-## 別記事：　センター・ウィンドウを作ろうぜ？
+### 別記事：　センター・ウィンドウを作ろうぜ？
 
 📖　[センターウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/a6659d9d63482dc81d9c259facf4bde7)  
 
@@ -664,6 +666,8 @@ Author: Zylann
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　いや、疲れた」  
 
+## BGMを付けてくれだぜ
+
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　ヒマなら　ＢＧＭを付けてくれだぜ」  
 
@@ -673,7 +677,7 @@ Author: Zylann
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
 
-## 別記事：　Godot で BGM を付けようぜ（＾～＾）？
+### 別記事：　Godot で BGM を付けようぜ（＾～＾）？
 
 📖　[Godot で BGM を付けようぜ（＾～＾）？](https://crieit.net/posts/Godot-BGM-6520132c5a067)  
 
@@ -709,7 +713,7 @@ Author: Zylann
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　表示するイラストも　変えれるようにしたいよな」  
 
-## 別記事：　再掲
+### 別記事：　再掲
 
 📖　[センターウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/a6659d9d63482dc81d9c259facf4bde7)  
 
@@ -748,7 +752,7 @@ Author: Zylann
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
 
-## 別記事：　Godot で選択肢のカーソルをブリンクさせようぜ（＾～＾）？
+### 別記事：　Godot で選択肢のカーソルをブリンクさせようぜ（＾～＾）？
 
 📖　[Godot で選択肢のカーソルをブリンクさせようぜ（＾～＾）？](https://crieit.net/posts/Godot-6521546c52a8d)  
 
@@ -830,7 +834,7 @@ var document = {
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　これで充分よ」  
 
-## ⏰ 同日 13:23
+# ⏰ 同日 13:23
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　ふぁーあ　起きた」  
@@ -867,7 +871,7 @@ var document = {
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　もう　`box`　でいいのでは？」  
 
-### シナリオの仕様
+## シナリオの仕様
 
 ![202310__godot__08-1340-Scenario.png](https://crieit.now.sh/upload_images/d173bc26f6c601faab502fb079d64e21652232dca333d.png)  
 
@@ -907,7 +911,7 @@ var document = {
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
 
-## 別記事：　Godot でサブウィンドウを作ろうぜ（＾～＾）？
+### 別記事：　Godot でサブウィンドウを作ろうぜ（＾～＾）？
 
 📖　[Godot でサブウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-65223ea29da40)  
 
@@ -927,7 +931,7 @@ var document = {
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
 
-## 別記事：　Godot で BGM をループするようにしてくれだぜ（＾～＾）？
+### 別記事：　Godot で BGM をループするようにしてくれだぜ（＾～＾）？
 
 📖　[Godot で BGM をループするようにしてくれだぜ（＾～＾）？](https://crieit.net/posts/Godot-BGM-6522d567addce)  
 
@@ -935,5 +939,18 @@ var document = {
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　やり方分かった　疲れた」  
+
+## 実行ファイルを作りましょうよ？
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　配布の練習をするために　実行ファイルを作りましょうよ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ネットで配れるのかな？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
+### 別記事：　
 
 .

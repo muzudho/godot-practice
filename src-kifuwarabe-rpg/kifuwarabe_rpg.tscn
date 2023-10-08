@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://dn4xwaqrr4prd"]
+[gd_scene load_steps=54 format=3 uid="uid://dn4xwaqrr4prd"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -53,7 +53,7 @@ outline_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_offset = Vector2(10, 10)
 
-[sub_resource type="LabelSettings" id="LabelSettings_8g2fx"]
+[sub_resource type="LabelSettings" id="LabelSettings_v0hgs"]
 line_spacing = 1.0
 font = ExtResource("6_bei22")
 font_size = 32
@@ -84,6 +84,26 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nc3n7"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6krhj"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8g2fx"]
 line_spacing = 1.0
 font = ExtResource("6_bei22")
 font_size = 24
@@ -158,6 +178,7 @@ stream = ExtResource("28_1r0xx")
 volume_db = -10.0
 
 [node name="Background" type="Node2D" parent="."]
+visible = false
 script = ExtResource("7_ehwng")
 
 [node name="イベントルーム" type="Sprite2D" parent="Background"]
@@ -166,6 +187,7 @@ position = Vector2(640, 360)
 texture = ExtResource("11_lxy0m")
 
 [node name="崎川駅前" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_nlarn")
 
@@ -180,6 +202,7 @@ position = Vector2(640, 360)
 texture = ExtResource("14_xhnqt")
 
 [node name="Scenes" type="Node2D" parent="."]
+visible = false
 script = ExtResource("4_mkh8y")
 
 [node name="タイトル" type="CanvasLayer" parent="Scenes"]
@@ -215,7 +238,7 @@ offset_bottom = 356.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
-label_settings = SubResource("LabelSettings_8g2fx")
+label_settings = SubResource("LabelSettings_v0hgs")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -330,15 +353,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 385.0
-offset_top = -101.0
-offset_right = 578.0
-offset_bottom = -52.0
+offset_left = 411.0
+offset_top = -90.0
+offset_right = 604.0
+offset_bottom = -41.0
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.0134654
 text = "最強振興会館"
-label_settings = SubResource("LabelSettings_8g2fx")
+label_settings = SubResource("LabelSettings_6krhj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
