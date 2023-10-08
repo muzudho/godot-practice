@@ -60,7 +60,7 @@ func _ready():
 	# 最初は非表示
 	self.visible = false
 	
-	# 最初のテキスト
+	# 最初はテキストが空っぽ
 	self.text = ""
 
 

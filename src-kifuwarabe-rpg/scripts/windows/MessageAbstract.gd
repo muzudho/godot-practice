@@ -7,7 +7,19 @@ var statemachine = load("scripts/windows/MessageStatemachine.gd").new()
 
 
 #	メッセージを出力する対象となるノードの名前
-var target_message_window_name = "下"
+var target_message_window_name = null
+
+
+#	メッセージを出力する対象となるノードの名前
+func set_target_message_window_name(node_name):
+	self.target_message_window_name = node_name
+	
+	# ステートマシーンを、子にも参照させる
+	self.get_target_message_window().statemachine = self.statemachine	
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock").statemachine = self.statemachine
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerTriangle").statemachine = self.statemachine
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerUnderscore").statemachine = self.statemachine
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").statemachine = self.statemachine
 
 
 #	メッセージを出力する対象となるノードの名前
@@ -21,10 +33,14 @@ func initialize():
 	self.statemachine.all_page_flushed()
 
 
-#	ウィンドウを空っぽにして、次の指示を待ちます
-func clear_and_awaiting_order():
-	print("［メッセージ・ウィンドウ］　ウィンドウを空っぽにして、次の指示を待ちます")
+#	メッセージ・ウィンドウを空っぽにします
+func clear_text():
 	self.get_target_message_window().get_node("CanvasLayer/TextBlock").text = ""
+
+	
+#	次の指示を待ちます
+func awaiting_order():
+	print("［メッセージ・ウィンドウ］　次の指示を待ちます")
 
 	#	メッセージウィンドウは指示待ちだ
 	$"../../AssistantDirector".is_message_window_waiting_for_order = true
@@ -46,6 +62,9 @@ func push_message(text):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
 	print("［メッセージ・ウィンドウ］　台詞：[" + text + "]")
 
+	#	文章を消す
+	self.clear_text()
+
 	#	表示
 	self.show()
 	self.get_target_message_window().show()
@@ -61,6 +80,9 @@ func push_message(text):
 #	選択肢を追加
 func push_choices(row_numbers, text):
 	print("［メッセージ・ウィンドウ］　選択肢：[" + text + "]")
+
+	#	文章を消す
+	self.clear_text()
 
 	#	表示
 	self.show()
@@ -84,7 +106,8 @@ func on_page_forward():
 	self.get_target_message_window().get_node("CanvasLayer/TextBlock").clear_blinker()
 
 	#	ウィンドウを空っぽにして、次の指示を待ちます
-	self.clear_and_awaiting_order()
+	self.clear_text()
+	self.awaiting_order()
 
 
 #	下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
@@ -97,19 +120,6 @@ func on_choice_selected():
 
 	#	選択肢の行番号を、上位ノードへエスカレーションします
 	$"../../AssistantDirector".on_choice_selected(row_number)
-
-
-#	サブツリーが全てインスタンス化されたときに呼び出される
-func _ready():
-	# ステートマシーンを、子にも参照させる
-	self.get_target_message_window().statemachine = self.statemachine	
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock").statemachine = self.statemachine
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerTriangle").statemachine = self.statemachine
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerUnderscore").statemachine = self.statemachine
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").statemachine = self.statemachine
-
-	#	ウィンドウを空っぽにする
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock").text = ""
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う

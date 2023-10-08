@@ -21,8 +21,10 @@ func play_paragraph(paragraph_name):
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
 	self.scenario_array = $"../ScenarioBook".document[self.current_paragraph_name]
 
-	# ウィンドウを空っぽにして、次の指示を待ちます（強制的に、そういうことにしておく）
-	$"../Windows/Message".clear_and_awaiting_order()
+	# # ウィンドウを空っぽにします
+	# $"../Windows/Message".clear_text()
+	# 次の指示を待ちます
+	$"../Windows/Message".awaiting_order()
 
 	# 再生中へ
 	self.statemachine.play()
@@ -30,7 +32,7 @@ func play_paragraph(paragraph_name):
 
 # どのメッセージ・ウィンドウにメッセージを出力するか？ そのノード名
 func set_target_message_window_name(node_name):
-	$"../Windows/Message".target_message_window_name = node_name
+	$"../Windows/Message".set_target_message_window_name(node_name)
 
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
