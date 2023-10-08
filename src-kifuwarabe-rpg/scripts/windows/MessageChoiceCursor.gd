@@ -71,11 +71,17 @@ func on_cursor_down(target_index):
 	self.elapsed_seconds = 0.0
 
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+#	初期化
+func initialize():
 	# 最初は非表示、透明
 	self.hide()
 	self.modulate.a = 0.0
+	self.is_first_displayed_immediately = false
+	
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	self.initialize()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

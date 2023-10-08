@@ -28,6 +28,9 @@ func initialize():
 	print("［テキストブロック］　台詞は終わった")
 	self.visible = false
 	self.is_visible_initialized = false
+	$"BlinkerTriangle".initialize()
+	$"BlinkerUnderscore".initialize()
+	$"ChoiceCursor".initialize()
 
 
 # ブリンカーを消す
