@@ -414,4 +414,20 @@ func hide_window():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　Z-index で前景、後景の調整ができない……　分けわからん……」  
 
+# 導線を中断するのが　難しい
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　サブ・ウィンドウが　どうのこうのより  
+メインで　ゲームが進行していて　それを　停止させるのが難しい」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`_process()`　で動かしてるんだから　嚙み合わせを外したらいいじゃない」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　それを１個１個　仕込んでいくのが大変だ。　いったん休憩するぜ」  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .

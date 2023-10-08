@@ -911,4 +911,9 @@ var document = {
 
 📖　[Godot でサブウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-65223ea29da40)  
 
+# 📅 (2023-10-09 mon スポーツの日) サブウィンドウは途中
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　いろいろ　やらなければならいことが　分かったので　サブ・ウィンドウの開発は中断だぜ」  
+
 .
