@@ -82,6 +82,11 @@ Could not start rcedit executable. Configure rcedit path in the Editor Settings 
 
 📖　[実行ファイル](https://github.com/muzudho/godot-practice/releases/tag/20231009_0256)  
 
+![202310__godot__09-0317--Exe.png](https://crieit.now.sh/upload_images/c67cf4918d3ae565e68f784ba62a7bbe6522f26a26fcf.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　中身はこんな感じ」  
+
 # 親記事へ戻る
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
