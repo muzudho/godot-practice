@@ -156,6 +156,9 @@ func parse_message(temp_text):
 	if $"Choice".choice_row_number_array != null:
 		print("［アシスタント・ディレクター］　選択肢だ：[" + temp_text + "]")
 
+		# 選択肢カーソル表示
+		$"../Windows/Message".show_choice_cursor()
+
 		# この台詞は選択肢として扱う
 		$"../Windows".show()
 		$"../Windows/Message".push_choices($"Choice".choice_row_number_array, temp_text)

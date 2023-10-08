@@ -23,6 +23,11 @@ func get_target_message_window():
 	return self.get_node(self.target_message_window_name)
 
 
+#	選択肢カーソルを表示
+func show_choice_cursor():
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").show()
+
+
 #	メッセージ・ウィンドウを閉じる
 func initialize():
 	self.get_target_message_window().get_node("CanvasLayer/TextBlock").initialize()

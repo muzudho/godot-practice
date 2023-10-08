@@ -73,7 +73,8 @@ func on_cursor_down(target_index):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# 最初は透明
+	# 最初は非表示、透明
+	self.visible = false
 	self.modulate.a = 0.0
 
 
