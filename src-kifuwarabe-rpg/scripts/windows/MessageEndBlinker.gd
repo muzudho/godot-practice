@@ -26,29 +26,32 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
-	#	点滅
-	self.blinker_seconds += delta
+	# 非表示のときは働かない
+	if self.visible:
 
-	if self.blinker_interval <= self.blinker_seconds:
-		if 0 < self.modulate.a:
-			self.modulate.a = 0.0
+		#	点滅
+		self.blinker_seconds += delta
+
+		if self.blinker_interval <= self.blinker_seconds:
+			if 0 < self.modulate.a:
+				self.modulate.a = 0.0
+			else:
+				self.modulate.a = 1.0
+				
+			self.blinker_seconds -= self.blinker_interval
+
+		
+		# 完全表示中	
+		if self.statemachine.is_completed():
+
+			#	初回はすぐに不透明
+			if not self.is_first_displayed_immediately:
+				self.modulate.a = 1.0
+				self.blinker_seconds = 0.0
+				self.is_first_displayed_immediately = true
+
+		# それ以外
 		else:
-			self.modulate.a = 1.0
-			
-		self.blinker_seconds -= self.blinker_interval
-
-	
-	# 完全表示中	
-	if self.statemachine.is_completed():
-
-		#	初回はすぐに不透明
-		if not self.is_first_displayed_immediately:
-			self.modulate.a = 1.0
-			self.blinker_seconds = 0.0
-			self.is_first_displayed_immediately = true
-
-	# それ以外
-	else:
-		# 透明
-		self.is_first_displayed_immediately = false
-		self.modulate.a = 0.0
+			# 透明
+			self.is_first_displayed_immediately = false
+			self.modulate.a = 0.0
