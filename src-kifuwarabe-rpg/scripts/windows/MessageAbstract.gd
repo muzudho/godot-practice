@@ -110,12 +110,12 @@ func push_choices(row_numbers, text):
 #	ページ送り
 func on_page_forward():
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　ページ送り")
-	
+
 	#	効果音
 	$"../../Musician".playSe("ページめくり音")
 
-	#	全てのブリンカーを消す
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").clear_all_blinkers()
+	#	空欄に戻します（ウィンドウは消しません）
+	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").emptize()
 
 	#	ウィンドウを空っぽにして、次の指示を待ちます
 	self.clear_text()

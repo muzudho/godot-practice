@@ -14,14 +14,24 @@ var choice_row_numbers = []
 
 
 #	初期化
+#		ウィンドウが無い状態に戻します
 func initialize():
 	print("［テキストブロック］　初期化")
 
-	#	全てのブリンカーを消す
-	self.clear_all_blinkers()
+	#	空欄に戻します
+	self.emptize()
 
 	self.visible = false
 	self.is_visible_initialized = false
+
+
+#	空欄化
+#		初期化の一種ですが、ウィンドウは残しておきます
+func emptize():
+	#	全てのブリンカーを消す
+	$"BlinkerTriangle".initialize()
+	$"BlinkerUnderscore".initialize()
+	$"ChoiceCursor".initialize()
 
 
 # 親からステートマシンを受け取る
@@ -32,13 +42,6 @@ func set_statemachine(parent_statemachine):
 	$"BlinkerTriangle".statemachine = self.statemachine
 	$"BlinkerUnderscore".statemachine = self.statemachine
 	$"ChoiceCursor".statemachine = self.statemachine
-
-
-#	全てのブリンカーを消す
-func clear_all_blinkers():
-	$"BlinkerTriangle".initialize()
-	$"BlinkerUnderscore".initialize()
-	$"ChoiceCursor".initialize()
 
 
 # メッセージを追加
