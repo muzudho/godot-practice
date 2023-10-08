@@ -18,7 +18,7 @@ func clear_and_awaiting_order():
 	$"TextBlock".text = ""
 
 	#	メッセージウィンドウは指示待ちだ
-	$"../AssistantDirector".is_message_window_waiting_for_order = true
+	$"../../AssistantDirector".is_message_window_waiting_for_order = true
 
 
 #	先頭行と、それ以外に分けます
@@ -61,7 +61,7 @@ func push_choices(row_numbers, text):
 #	ページ送り
 func on_page_forward():
 	#	効果音
-	$"../Musician".playSe("ページめくり音")
+	$"../../Musician".playSe("ページめくり音")
 	
 	#	ブリンカーを消す
 	$"TextBlock".clear_blinker()
@@ -73,13 +73,13 @@ func on_page_forward():
 #	下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected():
 	#	カーソル音
-	$"../Musician".playSe("選択肢確定音")
+	$"../../Musician".playSe("選択肢確定音")
 	
 	var row_number = $"TextBlock/ChoiceCursor".selected_row_number	
 	print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
 
 	#	選択肢の行番号を、上位ノードへエスカレーションします
-	$"../AssistantDirector".on_choice_selected(row_number)
+	$"../../AssistantDirector".on_choice_selected(row_number)
 
 
 #	サブツリーが全てインスタンス化されたときに呼び出される
@@ -109,7 +109,7 @@ func _unhandled_key_input(event):
 				
 				#	確定ボタン以外は無効
 				if event.keycode != KEY_ENTER:
-					print("［メッセージ・ウィンドウ］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
+					# print("［メッセージ・ウィンドウ］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
 					return
 					
 				else:

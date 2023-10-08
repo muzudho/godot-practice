@@ -43,7 +43,7 @@ func lerp(src, dst, progress):
 # カーソルが上に移動します
 func on_cursor_up(target_index):
 	# 効果音鳴らす
-	$"../../../Musician".playSe("選択肢カーソル移動音")
+	$"../../../../Musician".playSe("選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
 	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index - 1]
@@ -58,7 +58,7 @@ func on_cursor_up(target_index):
 # カーソルが下に移動します
 func on_cursor_down(target_index):
 	# 効果音鳴らす
-	$"../../../Musician".playSe("選択肢カーソル移動音")
+	$"../../../../Musician".playSe("選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
 	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index + 1]

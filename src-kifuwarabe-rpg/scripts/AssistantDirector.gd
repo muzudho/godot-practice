@@ -22,7 +22,7 @@ func play_paragraph(paragraph_name):
 	self.scenario_array = $"../ScenarioBook".document[self.current_paragraph_name]
 
 	# ウィンドウを空っぽにして、次の指示を待ちます（強制的に、そういうことにしておく）
-	$"../MessageWindow".clear_and_awaiting_order()
+	$"../Windows/メッセージ".clear_and_awaiting_order()
 
 	# 再生中へ
 	self.statemachine.play()
@@ -60,9 +60,9 @@ func _process(_delta):
 
 			# もう無いよ
 			else:
-				if not $"../MessageWindow".statemachine.is_none():
+				if not $"../Windows/メッセージ".statemachine.is_none():
 					# メッセージ・ウィンドウを閉じる
-					$"../MessageWindow".initialize()
+					$"../Windows/メッセージ".initialize()
 
 
 #	先頭行と、それ以外に分けます。できなければヌル
@@ -146,7 +146,7 @@ func parse_message(temp_text):
 		print("［アシスタント・ディレクター］　選択肢だ：[" + temp_text + "]")
 
 		# この台詞は選択肢として扱う
-		$"../MessageWindow".push_choices($"Choice".choice_row_number_array, temp_text)
+		$"../Windows/メッセージ".push_choices($"Choice".choice_row_number_array, temp_text)
 		self.is_message_window_waiting_for_order = false
 
 		#	処理終わり
@@ -154,5 +154,5 @@ func parse_message(temp_text):
 		return
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
-	$"../MessageWindow".push_message(temp_text)
+	$"../Windows/メッセージ".push_message(temp_text)
 	self.is_message_window_waiting_for_order = false

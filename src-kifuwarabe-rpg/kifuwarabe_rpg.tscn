@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="8_nhng7"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/background/in_front_of_sakiwaka_station.png" id="9_ictj0"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/Grid.png" id="10_mvkqw"]
-[ext_resource type="Script" path="res://scripts/MessageWindow.gd" id="11_oskba"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/background/ending.png" id="12_g1upj"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="12_mcay5"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="13_a1tuv"]
@@ -34,6 +33,7 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/Quit.gd" id="25_xmliw"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou_se_sound17.ogg" id="26_1kp2p"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Scene.gd" id="26_d8rxk"]
+[ext_resource type="Script" path="res://scripts/windows/MessageWindow.gd" id="26_jdfvj"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Se.gd" id="27_b3qcr"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="27_xwe46"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="28_1r0xx"]
@@ -242,17 +242,22 @@ script = ExtResource("26_d8rxk")
 [node name="Se" type="Node" parent="AssistantDirector"]
 script = ExtResource("27_b3qcr")
 
-[node name="MessageWindow" type="Node2D" parent="."]
+[node name="Grid" type="Sprite2D" parent="."]
 visible = false
-z_index = 100
-script = ExtResource("11_oskba")
+position = Vector2(640, 360)
+texture = ExtResource("10_mvkqw")
 
-[node name="Background" type="Sprite2D" parent="MessageWindow"]
+[node name="Windows" type="Node2D" parent="."]
+
+[node name="メッセージ" type="Node2D" parent="Windows"]
+script = ExtResource("26_jdfvj")
+
+[node name="Background" type="Sprite2D" parent="Windows/メッセージ"]
 position = Vector2(640, 360)
 texture = ExtResource("12_mcay5")
 script = ExtResource("13_a1tuv")
 
-[node name="TextBlock" type="Label" parent="MessageWindow"]
+[node name="TextBlock" type="Label" parent="Windows/メッセージ"]
 offset_left = 319.0
 offset_top = 507.0
 offset_right = 1053.0
@@ -260,7 +265,7 @@ offset_bottom = 708.0
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("16_2x1rq")
 
-[node name="BlinkerTriangle" type="Label" parent="MessageWindow/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="Windows/メッセージ/TextBlock"]
 layout_mode = 0
 offset_left = 642.0
 offset_top = 95.0
@@ -270,7 +275,7 @@ text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("17_xwgcj")
 
-[node name="BlinkerUnderscore" type="Label" parent="MessageWindow/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="Windows/メッセージ/TextBlock"]
 layout_mode = 0
 offset_left = 640.0
 offset_top = 103.0
@@ -280,7 +285,7 @@ text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("17_xwgcj")
 
-[node name="ChoiceCursor" type="Label" parent="MessageWindow/TextBlock"]
+[node name="ChoiceCursor" type="Label" parent="Windows/メッセージ/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -289,15 +294,6 @@ offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("18_qth5v")
-
-[node name="Grid" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("10_mvkqw")
-
-[node name="Windows" type="Node2D" parent="."]
-
-[node name="メッセージ" type="Node2D" parent="Windows"]
 
 [node name="センター" type="Node2D" parent="Windows"]
 script = ExtResource("14_nx11c")
