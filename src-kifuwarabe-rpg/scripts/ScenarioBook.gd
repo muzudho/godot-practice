@@ -29,9 +29,13 @@ var document = {
 		choice:	1,2
 		msg:	下
 		""",
-		
+
 # TODO 消す msg:	下
 # TODO 消す msg:	中央
+# TODO 練習 消す
+#		"""\
+#		msg:	中央
+#		""",
 		
 		"""\
 		　・スタート

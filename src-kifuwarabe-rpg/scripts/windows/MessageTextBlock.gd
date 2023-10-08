@@ -32,8 +32,8 @@ func initialize():
 
 # ブリンカーを消す
 func clear_blinker():
-	$"BlinkerTriangle".reset()
-	$"BlinkerUnderscore".reset()
+	$"BlinkerTriangle".initialize()
+	$"BlinkerUnderscore".initialize()
 
 
 # メッセージを追加

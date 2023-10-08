@@ -10,18 +10,17 @@ var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
 
-func reset():
-	# 透明
+# 初期化
+func initialize():
+	# 最初は非表示、透明
+	self.hide()
 	self.modulate.a = 0.0
 	self.is_first_displayed_immediately = false
 
 
-# サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# 最初は非表示、透明
-	self.hide()
-	self.modulate.a = 0.0
+	self.initialize()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
