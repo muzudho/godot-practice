@@ -286,4 +286,25 @@ func hide_window():
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　別物と割り切ったわけだな　実践的だぜ」  
 
+![202310__godot__08-1659-Msg-o2o0.png](https://crieit.now.sh/upload_images/fe45beebc8776503cf54d52917f31b34652262102a0aa.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　どのメッセージ・ウィンドウを使うか指定できるようにしようぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　状態を持っていいいの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そこは　ごめんなさい　しようぜ？」  
+
+## 位置合わせ
+
+![202310__godot__08-1725-Center-o2o0.png](https://crieit.now.sh/upload_images/b1f6b32e51fca68ab4250d4cd5cbe599652267a38d355.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　テキストの表示位置をどうするか。　Godot の思想だと　コピー貼り付けして　座標変えて……」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　コピー貼り付けするしか　ないんじゃない？　動的にやったら　レイアウトの機能の利便性を損なうんだし」  
+
 .
