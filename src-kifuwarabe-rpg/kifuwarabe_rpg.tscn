@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c13mmy8aajnio"]
+[gd_scene load_steps=45 format=3 uid="uid://b4jwcneqo71ac"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -10,11 +10,8 @@
 [ext_resource type="Script" path="res://scripts/Background.gd" id="7_ehwng"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="11_lxy0m"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
-[ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="13_a1tuv"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
-[ext_resource type="Script" path="res://scripts/MessageWindowTextBlock.gd" id="16_2x1rq"]
-[ext_resource type="Script" path="res://scripts/MessageWindowBlinker.gd" id="17_xwgcj"]
 [ext_resource type="Script" path="res://scripts/ChoiceCursor.gd" id="18_qth5v"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bg.gd" id="20_qxivy"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bgm.gd" id="21_dqion"]
@@ -30,10 +27,13 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/Scene.gd" id="26_d8rxk"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Se.gd" id="27_b3qcr"]
-[ext_resource type="Script" path="res://scripts/windows/Message.gd" id="27_g8ouh"]
+[ext_resource type="Script" path="res://scripts/windows/MessageAbstract.gd" id="27_g8ouh"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="27_xwe46"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="28_1r0xx"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/MessageWindow.png" id="28_skskk"]
+[ext_resource type="Script" path="res://scripts/windows/MessageConcrete.gd" id="30_bblis"]
+[ext_resource type="Script" path="res://scripts/windows/MessageWindowTextBlock.gd" id="32_stmi4"]
+[ext_resource type="Script" path="res://scripts/windows/MessageWindowBlinker.gd" id="33_dhq7m"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/system_window.png" id="34_wja0x"]
 [ext_resource type="Script" path="res://scripts/windows/Viewing.gd" id="35_s10tl"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/CenterWindow.png" id="35_sw6cw"]
@@ -268,7 +268,7 @@ visible = false
 z_index = 10
 position = Vector2(640, 360)
 texture = ExtResource("28_skskk")
-script = ExtResource("13_a1tuv")
+script = ExtResource("30_bblis")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Windows/メッセージ/下"]
 
@@ -278,7 +278,7 @@ offset_top = 507.0
 offset_right = 1053.0
 offset_bottom = 708.0
 label_settings = SubResource("LabelSettings_6ksp3")
-script = ExtResource("16_2x1rq")
+script = ExtResource("32_stmi4")
 
 [node name="BlinkerTriangle" type="Label" parent="Windows/メッセージ/下/CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -288,7 +288,7 @@ offset_right = 674.0
 offset_bottom = 140.0
 text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
-script = ExtResource("17_xwgcj")
+script = ExtResource("33_dhq7m")
 
 [node name="BlinkerUnderscore" type="Label" parent="Windows/メッセージ/下/CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -298,7 +298,7 @@ offset_right = 672.0
 offset_bottom = 148.0
 text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
-script = ExtResource("17_xwgcj")
+script = ExtResource("33_dhq7m")
 
 [node name="ChoiceCursor" type="Label" parent="Windows/メッセージ/下/CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -314,7 +314,7 @@ script = ExtResource("18_qth5v")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("34_wja0x")
-script = ExtResource("13_a1tuv")
+script = ExtResource("30_bblis")
 
 [node name="ビューイング" type="Node2D" parent="Windows"]
 visible = false

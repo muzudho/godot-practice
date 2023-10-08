@@ -1,9 +1,9 @@
-#	メッセージ・ウィンドウ（Message Window；伝言窓）
+#	アブストラクト・メッセージ・ウィンドウ（Abstract Message Window；抽象的な伝言窓）
 extends Node2D
 
 
 #	状態遷移機械
-var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
+var statemachine = load("scripts/windows/MessageWindowStatemachine.gd").new()
 
 
 #	メッセージを出力する対象となるノードの名前
