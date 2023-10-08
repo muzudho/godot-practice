@@ -35,6 +35,14 @@
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　**Playing** チェックボックスを　On　にしたら　視聴でけた……」  
 
+# ファイルをダブルクリックすると便利そうなものが
+
+![202310__godot__09-0117--DoubleClick.png](https://crieit.now.sh/upload_images/ffdb15a43758e2bfe51ccdb445fdb5206522d68461b61.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　疲れから　単に　`.ogg`　ファイルを誤ってダブル・クリックしたら　便利そうなウィンドウが出てきた。  
+こんな隠し機能は　やめてほしい」  
+
 # 親記事へ戻る
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
