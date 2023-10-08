@@ -11,11 +11,6 @@ var target_message_window_name = "下"
 
 
 #	メッセージを出力する対象となるノードの名前
-func set_target_message_window_name(node_name):
-	self.target_message_window_name = node_name
-
-
-#	メッセージを出力する対象となるノードの名前
 func get_target_message_window():
 	return self.get_node(self.target_message_window_name)
 
@@ -47,11 +42,9 @@ func split_head_line_or_tail(text):
 
 
 #	メッセージを追加
-func push_message(text, node_name):
+func push_message(text):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
-	print("［メッセージ・ウィンドウ］　台詞：　[" + node_name + "][" + text + "]")
-
-	self.target_message_window_name = node_name
+	print("［メッセージ・ウィンドウ］　台詞：[" + text + "]")
 
 	#	表示
 	self.show()
@@ -66,10 +59,8 @@ func push_message(text, node_name):
 
 
 #	選択肢を追加
-func push_choices(row_numbers, text, node_name):
-	print("［メッセージ・ウィンドウ］　選択肢：　[" + node_name + "][" + text + "]")
-
-	self.target_message_window_name = node_name
+func push_choices(row_numbers, text):
+	print("［メッセージ・ウィンドウ］　選択肢：[" + text + "]")
 
 	#	表示
 	self.show()

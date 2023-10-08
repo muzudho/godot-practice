@@ -13,10 +13,6 @@ var current_paragraph_name = null
 var scenario_array = []
 
 
-# どのメッセージ・ウィンドウにメッセージを出力するか？ そのノード名
-var target_message_window = null;
-
-
 # 台本の再生の開始の合図
 func play_paragraph(paragraph_name):
 	self.current_paragraph_name = paragraph_name
@@ -33,8 +29,8 @@ func play_paragraph(paragraph_name):
 
 
 # どのメッセージ・ウィンドウにメッセージを出力するか？ そのノード名
-func set_target_message_window(node_name):
-	self.target_message_window = node_name
+func set_target_message_window_name(node_name):
+	$"../Windows/Message".target_message_window_name = node_name
 
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
@@ -135,7 +131,7 @@ func parse_message(temp_text):
 
 			# メッセージ・ウィンドウ変更
 			elif second_head.begins_with("msg:"):
-				$"Msg".do_it(second_head, self.set_target_message_window)
+				$"Msg".do_it(second_head, self.set_target_message_window_name)
 
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
@@ -160,7 +156,7 @@ func parse_message(temp_text):
 
 		# この台詞は選択肢として扱う
 		$"../Windows".show()
-		$"../Windows/Message".push_choices($"Choice".choice_row_number_array, temp_text, self.target_message_window)
+		$"../Windows/Message".push_choices($"Choice".choice_row_number_array, temp_text)
 		self.is_message_window_waiting_for_order = false
 
 		#	処理終わり
@@ -169,5 +165,5 @@ func parse_message(temp_text):
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
 	$"../Windows".show()
-	$"../Windows/Message".push_message(temp_text, self.target_message_window)
+	$"../Windows/Message".push_message(temp_text)
 	self.is_message_window_waiting_for_order = false
