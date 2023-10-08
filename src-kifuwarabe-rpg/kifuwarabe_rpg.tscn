@@ -267,7 +267,9 @@ script = ExtResource("27_g8ouh")
 visible = false
 z_index = 10
 
-[node name="TextBlock" type="Label" parent="Windows/メッセージ/System"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Windows/メッセージ/System"]
+
+[node name="TextBlock" type="Label" parent="Windows/メッセージ/System/CanvasLayer"]
 offset_left = 319.0
 offset_top = 507.0
 offset_right = 1053.0
@@ -275,7 +277,7 @@ offset_bottom = 708.0
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("16_2x1rq")
 
-[node name="BlinkerTriangle" type="Label" parent="Windows/メッセージ/System/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="Windows/メッセージ/System/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 642.0
 offset_top = 95.0
@@ -285,7 +287,7 @@ text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("17_xwgcj")
 
-[node name="BlinkerUnderscore" type="Label" parent="Windows/メッセージ/System/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="Windows/メッセージ/System/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 640.0
 offset_top = 103.0
@@ -295,7 +297,7 @@ text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("17_xwgcj")
 
-[node name="ChoiceCursor" type="Label" parent="Windows/メッセージ/System/TextBlock"]
+[node name="ChoiceCursor" type="Label" parent="Windows/メッセージ/System/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0

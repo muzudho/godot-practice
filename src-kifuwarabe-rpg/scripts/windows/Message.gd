@@ -8,14 +8,14 @@ var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
 
 #	メッセージ・ウィンドウを閉じる
 func initialize():
-	$"System/TextBlock".initialize()
+	$"System/CanvasLayer/TextBlock".initialize()
 	self.statemachine.all_page_flushed()
 
 
 #	ウィンドウを空っぽにして、次の指示を待ちます
 func clear_and_awaiting_order():
 	print("［メッセージ・ウィンドウ］　ウィンドウを空っぽにして、次の指示を待ちます")
-	$"System/TextBlock".text = ""
+	$"System/CanvasLayer/TextBlock".text = ""
 
 	#	メッセージウィンドウは指示待ちだ
 	$"../../AssistantDirector".is_message_window_waiting_for_order = true
@@ -40,10 +40,11 @@ func push_message(text, node_name):
 	#	表示
 	self.show()
 	$"System".show()
+	$"System/CanvasLayer".show()
 	self.get_node(node_name).show()
 
 	#	メッセージ追加
-	$"System/TextBlock".push_message(text)
+	$"System/CanvasLayer/TextBlock".push_message(text)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
@@ -56,10 +57,11 @@ func push_choices(row_numbers, text, node_name):
 	#	表示
 	self.show()
 	$"System".show()
+	$"System/CanvasLayer".show()
 	self.get_node(node_name).show()
 
 	#	メッセージ追加
-	$"System/TextBlock".push_choices(row_numbers, text)
+	$"System/CanvasLayer/TextBlock".push_choices(row_numbers, text)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
@@ -72,7 +74,7 @@ func on_page_forward():
 	$"../../Musician".playSe("ページめくり音")
 	
 	#	ブリンカーを消す
-	$"System/TextBlock".clear_blinker()
+	$"System/CanvasLayer/TextBlock".clear_blinker()
 
 	#	ウィンドウを空っぽにして、次の指示を待ちます
 	self.clear_and_awaiting_order()
@@ -83,7 +85,7 @@ func on_choice_selected():
 	#	カーソル音
 	$"../../Musician".playSe("選択肢確定音")
 	
-	var row_number = $"System/TextBlock/ChoiceCursor".selected_row_number	
+	var row_number = $"System/CanvasLayer/TextBlock/ChoiceCursor".selected_row_number	
 	print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
 
 	#	選択肢の行番号を、上位ノードへエスカレーションします
@@ -97,13 +99,13 @@ func _ready():
 	$"下".statemachine = self.statemachine
 	$"中央".statemachine = self.statemachine
 	
-	$"System/TextBlock".statemachine = self.statemachine
-	$"System/TextBlock/BlinkerTriangle".statemachine = self.statemachine
-	$"System/TextBlock/BlinkerUnderscore".statemachine = self.statemachine
-	$"System/TextBlock/ChoiceCursor".statemachine = self.statemachine
+	$"System/CanvasLayer/TextBlock".statemachine = self.statemachine
+	$"System/CanvasLayer/TextBlock/BlinkerTriangle".statemachine = self.statemachine
+	$"System/CanvasLayer/TextBlock/BlinkerUnderscore".statemachine = self.statemachine
+	$"System/CanvasLayer/TextBlock/ChoiceCursor".statemachine = self.statemachine
 
 	#	ウィンドウを空っぽにする
-	$"System/TextBlock".text = ""
+	$"System/CanvasLayer/TextBlock".text = ""
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -113,7 +115,7 @@ func _unhandled_key_input(event):
 	if self.statemachine.is_completed():
 
 		#	選択肢モードなら
-		if $"System/TextBlock".is_choice_mode:
+		if $"System/CanvasLayer/TextBlock".is_choice_mode:
 			
 			#	何かキーを押したとき
 			if event.is_pressed():
