@@ -11,6 +11,11 @@ var target_message_window_name = "下"
 
 
 #	メッセージを出力する対象となるノードの名前
+func set_target_message_window_name(node_name):
+	self.target_message_window_name = node_name
+
+
+#	メッセージを出力する対象となるノードの名前
 func get_target_message_window():
 	return self.get_node(self.target_message_window_name)
 
@@ -106,10 +111,7 @@ func on_choice_selected():
 #	サブツリーが全てインスタンス化されたときに呼び出される
 func _ready():
 	# ステートマシーンを、子にも参照させる
-	# TODO ここの決め打ちどうするか？
-	self.get_target_message_window().statemachine = self.statemachine
-	$"中央".statemachine = self.statemachine
-	
+	self.get_target_message_window().statemachine = self.statemachine	
 	self.get_target_message_window().get_node("CanvasLayer/TextBlock").statemachine = self.statemachine
 	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerTriangle").statemachine = self.statemachine
 	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerUnderscore").statemachine = self.statemachine

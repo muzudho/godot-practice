@@ -17,7 +17,7 @@ func _ready():
 	# ウィンドウはとにかく隠す
 	#
 	# メッセージ・ウィンドウはとにかく隠す
-	for sprite2d_node in $"Windows/メッセージ".get_children():
+	for sprite2d_node in $"Windows/Message".get_children():
 		sprite2d_node.hide()
 
 	# ビューイング・ウィンドウはとにかく隠す
