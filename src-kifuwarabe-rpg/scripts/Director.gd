@@ -18,10 +18,10 @@ func _ready():
 	for sprite2d_node in $"Windows/メッセージ".get_children():
 		sprite2d_node.hide()
 
-	# センターウィンドウはとにかく隠す
-	for sprite2d_node in $"Windows/センター".get_children():
+	# ビューイング・ウィンドウはとにかく隠す
+	for sprite2d_node in $"Windows/ビューイング".get_children():
 		sprite2d_node.hide()
-	$"Windows/センター/System/Frame".hide()
+	$"Windows/ビューイング/System/Frame".hide()
 
 	# シーンはとにかく非表示にする
 	for canvas_layer in $"Scenes".get_children():

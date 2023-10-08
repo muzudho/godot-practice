@@ -1,14 +1,14 @@
-#	センター・ウィンドウ（Center Window；中央窓）
+#	ビューイング・ウィンドウ（Viewing Window；覗き窓）
 extends Node2D
 
 
-#	現在表示中のセンターウィンドウ画像のノード名
+#	現在表示中のビューイング・ウィンドウ画像のノード名
 var current_name = null
 
 
 #	ウィンドウを表示する
 func show_window(node_name):
-	print("［センター・ウィンドウ］　表示：[" + node_name + "]")
+	print("［ビューイング・ウィンドウ］　表示：[" + node_name + "]")
 	
 	#	既に表示中の画像を非表示にする（上に乗っかっていて、表示したい絵が見えないケースがある）
 	if 	self.current_name != null:
@@ -26,7 +26,7 @@ func hide_window():
 	if self.current_name == null:
 		return
 
-	print("［センター・ウィンドウ］　非表示：[" + str(self.current_name) + "]")
+	print("［ビューイング・ウィンドウ］　非表示：[" + str(self.current_name) + "]")
 	self.get_node(self.current_name).hide()	
 	$"System/Frame".hide()
 	self.current_name = null

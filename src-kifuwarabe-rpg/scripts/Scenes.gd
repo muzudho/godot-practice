@@ -24,6 +24,6 @@ func hide_scene():
 	if 	self.current_name == null:
 		return
 
-	print("［センター・ウィンドウ］　非表示：[" + str(self.current_name) + "]")
+	print("［シーンズ］　非表示：[" + str(self.current_name) + "]")
 	self.get_node(self.current_name).hide()	
 	self.current_name = null

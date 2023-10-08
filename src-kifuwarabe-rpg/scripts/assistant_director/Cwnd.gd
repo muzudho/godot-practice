@@ -1,4 +1,4 @@
-#	シーワンド、センター・ウィンドウ（Cwnd, Center Window；中央窓）
+#	シーワンド、ビューイング・ウィンドウ（Cwnd, Center Viewing Window；中央覗き窓）
 extends Node
 
 
@@ -6,9 +6,9 @@ extends Node
 func do_it(line):
 	# head
 	var node_name = line.substr(5).strip_edges()
-	print("［センター・ウィンドウ］　名前：[" + node_name + "]")
+	print("［中央ビューイング・ウィンドウ］　名前：[" + node_name + "]")
 	
 	if node_name == "":
-		$"../../Windows/センター".hide_window()
+		$"../../Windows/ビューイング".hide_window()
 	else:
-		$"../../Windows/センター".show_window(node_name)
+		$"../../Windows/ビューイング".show_window(node_name)

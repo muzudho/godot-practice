@@ -116,7 +116,7 @@ func parse_message(temp_text):
 			elif second_head.begins_with("choice:"):
 				$"Choice".do_it(second_head)
 			
-			# センター・ウィンドウの表示／非表示
+			# 中央ビューイング・ウィンドウの表示／非表示
 			elif second_head.begins_with("cwnd:"):
 				$"Cwnd".do_it(second_head)
 				
