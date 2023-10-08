@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkfsr571tdwqf"
-path="res://.godot/imported/Grid.png-1f69c057229ddb27e6f14f93f333e709.ctex"
+uid="uid://dcao5gmtt113o"
+path="res://.godot/imported/event_room.png-207454625fb8ee4e4a7f93b4dec8d56d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/Grid.png"
-dest_files=["res://.godot/imported/Grid.png-1f69c057229ddb27e6f14f93f333e709.ctex"]
+source_file="res://images/1280x720/event_room.png"
+dest_files=["res://.godot/imported/event_room.png-207454625fb8ee4e4a7f93b4dec8d56d.ctex"]
 
 [params]
 

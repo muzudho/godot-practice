@@ -8,21 +8,18 @@
 [ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://audio/bgm/maou_bgm_acoustic05.ogg" id="6_7oykx"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="6_bei22"]
 [ext_resource type="Script" path="res://scripts/Background.gd" id="7_ehwng"]
-[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/background/event_room.png" id="8_nhng7"]
-[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/background/in_front_of_sakiwaka_station.png" id="9_ictj0"]
-[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/Grid.png" id="10_mvkqw"]
-[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/background/ending.png" id="12_g1upj"]
+[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="11_lxy0m"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/MessageWindow.png" id="12_mcay5"]
+[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBackground.gd" id="13_a1tuv"]
+[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
 [ext_resource type="Script" path="res://scripts/windows/CenterWindow.gd" id="14_nx11c"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/MessageWindowTextBlock.gd" id="16_2x1rq"]
 [ext_resource type="Script" path="res://scripts/MessageWindowBlinker.gd" id="17_xwgcj"]
 [ext_resource type="Script" path="res://scripts/ChoiceCursor.gd" id="18_qth5v"]
-[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/center_window/ShogiBan.png" id="20_gotyj"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bg.gd" id="20_qxivy"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bgm.gd" id="21_dqion"]
-[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/center_window/file_and_rank.png" id="21_na47b"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/CenterWindow.png" id="22_06g4y"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Choice.gd" id="22_cj5lk"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Cwnd.gd" id="23_5s8w2"]
@@ -33,10 +30,13 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/Quit.gd" id="25_xmliw"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou_se_sound17.ogg" id="26_1kp2p"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Scene.gd" id="26_d8rxk"]
+[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
 [ext_resource type="Script" path="res://scripts/windows/MessageWindow.gd" id="26_jdfvj"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Se.gd" id="27_b3qcr"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou_se_sound19.ogg" id="27_xwe46"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou_se_sound_switch02.ogg" id="28_1r0xx"]
+[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
+[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -121,15 +121,16 @@ script = ExtResource("7_ehwng")
 
 [node name="イベントルーム" type="Sprite2D" parent="Background"]
 position = Vector2(640, 360)
-texture = ExtResource("8_nhng7")
+texture = ExtResource("11_lxy0m")
 
 [node name="崎川駅前" type="Sprite2D" parent="Background"]
 position = Vector2(640, 360)
-texture = ExtResource("9_ictj0")
+texture = ExtResource("12_nlarn")
 
 [node name="エンディング" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(640, 360)
-texture = ExtResource("12_g1upj")
+texture = ExtResource("13_sy6jl")
 
 [node name="Scenes" type="Node2D" parent="."]
 script = ExtResource("4_mkh8y")
@@ -172,6 +173,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="エンディング" type="CanvasLayer" parent="Scenes"]
+visible = false
 
 [node name="エンドロール" type="Label" parent="Scenes/エンディング"]
 anchors_preset = 8
@@ -248,7 +250,7 @@ script = ExtResource("27_b3qcr")
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("10_mvkqw")
+texture = ExtResource("26_fgfga")
 
 [node name="Windows" type="Node2D" parent="."]
 visible = false
@@ -312,9 +314,9 @@ texture = ExtResource("22_06g4y")
 [node name="将棋盤" type="Sprite2D" parent="Windows/センター"]
 z_index = 100
 position = Vector2(640, 272)
-texture = ExtResource("20_gotyj")
+texture = ExtResource("36_0psl7")
 
 [node name="ファイルとランク" type="Sprite2D" parent="Windows/センター"]
 z_index = 100
 position = Vector2(640, 272)
-texture = ExtResource("21_na47b")
+texture = ExtResource("37_lwbng")

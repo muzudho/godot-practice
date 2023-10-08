@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwg68n0qnvqvb"
-path="res://.godot/imported/ShogiBan.png-73b2043919c1a00e2f6f36ef132f93be.ctex"
+uid="uid://bkfsr571tdwqf"
+path="res://.godot/imported/Grid.png-45d5278716bef32f01a89bf7a8ac02d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/center_window/ShogiBan.png"
-dest_files=["res://.godot/imported/ShogiBan.png-73b2043919c1a00e2f6f36ef132f93be.ctex"]
+source_file="res://images/1280x720/Grid.png"
+dest_files=["res://.godot/imported/Grid.png-45d5278716bef32f01a89bf7a8ac02d1.ctex"]
 
 [params]
 

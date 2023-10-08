@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcao5gmtt113o"
-path="res://.godot/imported/event_room.png-6a95abc9efad5f690d873033c4fda914.ctex"
+uid="uid://bwg68n0qnvqvb"
+path="res://.godot/imported/ShogiBan.png-bd4570878c942a27e83f2e804362327c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/background/event_room.png"
-dest_files=["res://.godot/imported/event_room.png-6a95abc9efad5f690d873033c4fda914.ctex"]
+source_file="res://images/0512x288/ShogiBan.png"
+dest_files=["res://.godot/imported/ShogiBan.png-bd4570878c942a27e83f2e804362327c.ctex"]
 
 [params]
 
