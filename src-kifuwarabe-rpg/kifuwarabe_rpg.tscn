@@ -280,7 +280,6 @@ texture = ExtResource("28_skskk")
 script = ExtResource("30_bblis")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Windows/Message/下"]
-visible = false
 
 [node name="TextBlock" type="Label" parent="Windows/Message/下/CanvasLayer"]
 offset_left = 319.0
@@ -338,20 +337,21 @@ script = ExtResource("32_b10pj")
 
 [node name="BlinkerTriangle" type="Label" parent="Windows/Message/中央/CanvasLayer/TextBlock"]
 layout_mode = 0
-offset_left = 228.0
-offset_top = 157.0
-offset_right = 260.0
-offset_bottom = 202.0
+offset_left = 230.0
+offset_top = 154.0
+offset_right = 262.0
+offset_bottom = 199.0
 text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
 
 [node name="BlinkerUnderscore" type="Label" parent="Windows/Message/中央/CanvasLayer/TextBlock"]
+visible = false
 layout_mode = 0
-offset_left = 226.0
-offset_top = 155.0
-offset_right = 258.0
-offset_bottom = 200.0
+offset_left = 228.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 202.0
 text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")

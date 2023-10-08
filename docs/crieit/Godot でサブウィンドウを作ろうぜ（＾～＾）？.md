@@ -85,7 +85,7 @@ func push_choices(row_numbers, text):
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
-
+	
 
 
 #	ページ送り
@@ -312,5 +312,11 @@ func hide_window():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　同じものが　コピーされて　ＤＲＹの法則が破れているように見えるが、  
 座標位置を覚えておくデータだから　残しておいた方が　エディターが活きるのか～」  
+
+![202310__godot__08-2207--CenterMessageWindow.png](https://crieit.now.sh/upload_images/320be789987f88a7396e99f3a1fbb72e6522a9bf8189f.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　文字数を調整しないと  
+ＣＳＳチョットワカル　みたいになるんだな」  
 
 .
