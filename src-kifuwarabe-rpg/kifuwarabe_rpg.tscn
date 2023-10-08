@@ -119,13 +119,16 @@ stream = ExtResource("28_1r0xx")
 volume_db = -10.0
 
 [node name="Background" type="Node2D" parent="."]
+visible = false
 script = ExtResource("7_ehwng")
 
 [node name="イベントルーム" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("11_lxy0m")
 
 [node name="崎川駅前" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_nlarn")
 

@@ -15,11 +15,7 @@ func set_target_message_window_name(node_name):
 	self.target_message_window_name = node_name
 	
 	# ステートマシーンを、子にも参照させる
-	self.get_target_message_window().statemachine = self.statemachine	
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock").statemachine = self.statemachine
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerTriangle").statemachine = self.statemachine
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerUnderscore").statemachine = self.statemachine
-	self.get_target_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").statemachine = self.statemachine
+	self.get_target_message_window().set_statemachine(self.statemachine)
 
 
 #	メッセージを出力する対象となるノードの名前

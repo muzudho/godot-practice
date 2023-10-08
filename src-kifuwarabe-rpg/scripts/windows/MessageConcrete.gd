@@ -5,10 +5,20 @@ extends Sprite2D
 var statemachine = null
 var is_visible_initialized = false
 
+
+# 親からステートマシンを受け取る
+func set_statemachine(parent_statemachine):
+	self.statemachine = parent_statemachine
+	
+	# 子どもにも渡す
+	self.get_node("CanvasLayer/TextBlock").set_statemachine(self.statemachine)
+	
+
 func _ready():
 	# 最初は非表示、透明
 	self.hide()
 	self.modulate.a = 0.0
+
 
 func _process(_delta):
 	if self.visible:

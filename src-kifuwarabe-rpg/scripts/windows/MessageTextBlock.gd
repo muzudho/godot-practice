@@ -13,6 +13,16 @@ var is_choice_mode = false
 var choice_row_numbers = []
 
 
+# 親からステートマシンを受け取る
+func set_statemachine(parent_statemachine):
+	self.statemachine = parent_statemachine
+	
+	# 子どもにも渡す
+	$"BlinkerTriangle".statemachine = self.statemachine
+	$"BlinkerUnderscore".statemachine = self.statemachine
+	$"ChoiceCursor".statemachine = self.statemachine
+
+
 # 窓をクリアーします
 func initialize():
 	print("［テキストブロック］　台詞は終わった")
