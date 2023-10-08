@@ -319,6 +319,46 @@ position = Vector2(640, 360)
 texture = ExtResource("34_wja0x")
 script = ExtResource("30_bblis")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="Windows/Message/中央"]
+
+[node name="TextBlock" type="Label" parent="Windows/Message/中央/CanvasLayer"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1053.0
+offset_bottom = 708.0
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("32_b10pj")
+
+[node name="BlinkerTriangle" type="Label" parent="Windows/Message/中央/CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 642.0
+offset_top = 95.0
+offset_right = 674.0
+offset_bottom = 140.0
+text = "▼"
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("33_1xmx8")
+
+[node name="BlinkerUnderscore" type="Label" parent="Windows/Message/中央/CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 640.0
+offset_top = 103.0
+offset_right = 672.0
+offset_bottom = 148.0
+text = "＿"
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("33_1xmx8")
+
+[node name="ChoiceCursor" type="Label" parent="Windows/Message/中央/CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("34_0fjc7")
+
 [node name="ビューイング" type="Node2D" parent="Windows"]
 visible = false
 script = ExtResource("35_s10tl")
