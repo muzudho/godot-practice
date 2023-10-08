@@ -21,13 +21,18 @@ func initialize():
 	#	空欄に戻します
 	self.emptize()
 
-	self.visible = false
+	#	非表示にします
+	self.hide()
 	self.is_visible_initialized = false
 
 
 #	空欄化
 #		初期化の一種ですが、ウィンドウは残しておきます
 func emptize():
+
+	# テキストが空っぽ
+	self.text = ""
+	
 	#	全てのブリンカーを消す
 	$"BlinkerTriangle".initialize()
 	$"BlinkerUnderscore".initialize()
@@ -81,11 +86,7 @@ func push_choices(row_numbers, new_text):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# 最初は非表示
-	self.visible = false
-	
-	# 最初はテキストが空っぽ
-	self.text = ""
+	self.initialize()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
