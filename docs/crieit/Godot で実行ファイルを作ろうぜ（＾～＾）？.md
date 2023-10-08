@@ -54,4 +54,36 @@
 Could not start rcedit executable. Configure rcedit path in the Editor Settings (Export > Windows > rcedit), or disable "Application > Modify Resources" in the export preset.
 ```
 
+# 実行ファイル自体はでけた
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　実行ファイルはできてたぜ」  
+
+📺　[動画](https://x.com/muzudho1/status/1711069507748565189?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　これを配布できるかな？」  
+
+![202310__godot__09-0241--PckFile.png](https://crieit.now.sh/upload_images/10243507d7e4979ec0f5882e9863ba096522e9e1252a6.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`.pck` ファイルも一緒に同梱しないといけないのか、勉強になったな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　取り扱い説明書も　必要じゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　簡単ながら書いた」  
+
+# 配ってみた
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　ここからダウンロードできるはずだぜ」  
+
+📖　[実行ファイル](https://github.com/muzudho/godot-practice/releases/tag/20231009_0256)  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .
