@@ -40,8 +40,17 @@ func before_initialize(parent_statemachine):
 #		引数を渡さずに呼び出せることが **初期化の前に** との違いです
 func initialize():
 	#	最初は非表示、透明
-	self.hide()
 	self.modulate.a = 0.0
+	self.hide()
+	self.is_first_displayed_immediately = false
+
+
+#	空欄化
+#		初期化の一種ですが、ウィンドウを残した状態を想定していることが違います
+func emptize():
+	#	透明にして表示しておく
+	self.modulate.a = 0.0
+	self.show()
 	self.is_first_displayed_immediately = false
 
 

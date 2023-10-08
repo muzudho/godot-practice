@@ -34,10 +34,15 @@ func before_initialize(parent_statemachine):
 func initialize():
 	print("［テキストブロック］　初期化")
 
-	#	空欄に戻します
-	self.emptize()
+	# テキストが空っぽ
+	self.text = ""
+	
+	#	全てのブリンカーを消す
+	$"BlinkerTriangle".initialize()
+	$"BlinkerUnderscore".initialize()
+	$"ChoiceCursor".initialize()
 
-	#	非表示にします
+	#	非表示
 	self.hide()
 	self.is_visible_initialized = false
 
@@ -49,10 +54,14 @@ func emptize():
 	# テキストが空っぽ
 	self.text = ""
 	
-	#	全てのブリンカーを消す
-	$"BlinkerTriangle".initialize()
-	$"BlinkerUnderscore".initialize()
-	$"ChoiceCursor".initialize()
+	# ブリンカーを透明にして表示しておく
+	$"BlinkerTriangle".emptize()
+	$"BlinkerUnderscore".emptize()
+	$"ChoiceCursor".emptize()
+
+	#	表示
+	self.show()
+	self.is_visible_initialized = false
 
 
 # メッセージを追加
@@ -63,14 +72,8 @@ func push_message(new_text):
 	self.choice_row_numbers = []
 	self.text_buffer = new_text
 
-	# 表示
-	self.show()
-
-	# ブリンカーを非表示にするのは解除
-	$"BlinkerTriangle".modulate.a = 0.0
-	$"BlinkerTriangle".visible = true
-	$"BlinkerUnderscore".modulate.a = 0.0
-	$"BlinkerUnderscore".visible = true
+	# 空欄化
+	self.emptize()
 
 
 # 選択肢を追加
@@ -80,14 +83,12 @@ func push_choices(row_numbers, new_text):
 	self.text_buffer = new_text
 	self.is_choice_mode = true
 
-	# 表示
-	self.show()
+	# 空欄化
+	self.emptize()
 
-	# ブリンカーを非表示にする
-	$"BlinkerTriangle".modulate.a = 0.0
-	$"BlinkerTriangle".visible = false
-	$"BlinkerUnderscore".modulate.a = 0.0
-	$"BlinkerUnderscore".visible = false
+	# さらに、ブリンカーは無いことにする
+	$"BlinkerTriangle".initialize()
+	$"BlinkerUnderscore".initialize()
 
 
 # Called when the node enters the scene tree for the first time.
