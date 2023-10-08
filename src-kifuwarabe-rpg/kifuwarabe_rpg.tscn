@@ -248,6 +248,7 @@ position = Vector2(640, 360)
 texture = ExtResource("10_mvkqw")
 
 [node name="Windows" type="Node2D" parent="."]
+visible = false
 
 [node name="メッセージ" type="Node2D" parent="Windows"]
 script = ExtResource("26_jdfvj")

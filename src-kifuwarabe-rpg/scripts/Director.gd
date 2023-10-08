@@ -14,6 +14,10 @@ func _ready():
 	for sprite2d_node in $"Background".get_children():
 		sprite2d_node.hide()
 
+	# ウィンドウはとにかく隠す
+	for sprite2d_node in $"Windows/メッセージ".get_children():
+		sprite2d_node.hide()
+
 	# センターウィンドウはとにかく隠す
 	for sprite2d_node in $"Windows/センター".get_children():
 		sprite2d_node.hide()

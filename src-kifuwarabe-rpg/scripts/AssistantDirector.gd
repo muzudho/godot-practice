@@ -146,6 +146,7 @@ func parse_message(temp_text):
 		print("［アシスタント・ディレクター］　選択肢だ：[" + temp_text + "]")
 
 		# この台詞は選択肢として扱う
+		$"../Windows".show()
 		$"../Windows/メッセージ".push_choices($"Choice".choice_row_number_array, temp_text)
 		self.is_message_window_waiting_for_order = false
 
@@ -154,5 +155,6 @@ func parse_message(temp_text):
 		return
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
+	$"../Windows".show()
 	$"../Windows/メッセージ".push_message(temp_text)
 	self.is_message_window_waiting_for_order = false
