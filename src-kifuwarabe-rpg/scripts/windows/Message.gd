@@ -6,16 +6,25 @@ extends Node2D
 var statemachine = load("scripts/MessageWindowStatemachine.gd").new()
 
 
+#	メッセージを出力する対象となるノードの名前
+var target_message_window_name = "下"
+
+
+#	メッセージを出力する対象となるノードの名前
+func get_target_message_window():
+	return self.get_node(self.target_message_window_name)
+
+
 #	メッセージ・ウィンドウを閉じる
 func initialize():
-	$"下/CanvasLayer/TextBlock".initialize()
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock").initialize()
 	self.statemachine.all_page_flushed()
 
 
 #	ウィンドウを空っぽにして、次の指示を待ちます
 func clear_and_awaiting_order():
 	print("［メッセージ・ウィンドウ］　ウィンドウを空っぽにして、次の指示を待ちます")
-	$"下/CanvasLayer/TextBlock".text = ""
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock").text = ""
 
 	#	メッセージウィンドウは指示待ちだ
 	$"../../AssistantDirector".is_message_window_waiting_for_order = true
@@ -37,14 +46,15 @@ func push_message(text, node_name):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
 	print("［メッセージ・ウィンドウ］　台詞：　[" + node_name + "][" + text + "]")
 
+	self.target_message_window_name = node_name
+
 	#	表示
 	self.show()
-	$"下".show()
-	$"下/CanvasLayer".show()
-	self.get_node(node_name).show()
+	self.get_target_message_window().show()
+	self.get_target_message_window().get_node("CanvasLayer").show()
 
 	#	メッセージ追加
-	$"下/CanvasLayer/TextBlock".push_message(text)
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock").push_message(text)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
@@ -54,14 +64,15 @@ func push_message(text, node_name):
 func push_choices(row_numbers, text, node_name):
 	print("［メッセージ・ウィンドウ］　選択肢：　[" + node_name + "][" + text + "]")
 
+	self.target_message_window_name = node_name
+
 	#	表示
 	self.show()
-	$"下".show()
-	$"下/CanvasLayer".show()
-	self.get_node(node_name).show()
+	self.get_target_message_window().show()
+	self.get_target_message_window().get_node("CanvasLayer").show()
 
 	#	メッセージ追加
-	$"下/CanvasLayer/TextBlock".push_choices(row_numbers, text)
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock").push_choices(row_numbers, text)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
@@ -74,7 +85,7 @@ func on_page_forward():
 	$"../../Musician".playSe("ページめくり音")
 	
 	#	ブリンカーを消す
-	$"下/CanvasLayer/TextBlock".clear_blinker()
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock").clear_blinker()
 
 	#	ウィンドウを空っぽにして、次の指示を待ちます
 	self.clear_and_awaiting_order()
@@ -85,7 +96,7 @@ func on_choice_selected():
 	#	カーソル音
 	$"../../Musician".playSe("選択肢確定音")
 	
-	var row_number = $"下/CanvasLayer/TextBlock/ChoiceCursor".selected_row_number	
+	var row_number = self.get_target_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number	
 	print("［メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number))
 
 	#	選択肢の行番号を、上位ノードへエスカレーションします
@@ -96,16 +107,16 @@ func on_choice_selected():
 func _ready():
 	# ステートマシーンを、子にも参照させる
 	# TODO ここの決め打ちどうするか？
-	$"下".statemachine = self.statemachine
+	self.get_target_message_window().statemachine = self.statemachine
 	$"中央".statemachine = self.statemachine
 	
-	$"下/CanvasLayer/TextBlock".statemachine = self.statemachine
-	$"下/CanvasLayer/TextBlock/BlinkerTriangle".statemachine = self.statemachine
-	$"下/CanvasLayer/TextBlock/BlinkerUnderscore".statemachine = self.statemachine
-	$"下/CanvasLayer/TextBlock/ChoiceCursor".statemachine = self.statemachine
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock").statemachine = self.statemachine
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerTriangle").statemachine = self.statemachine
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock/BlinkerUnderscore").statemachine = self.statemachine
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").statemachine = self.statemachine
 
 	#	ウィンドウを空っぽにする
-	$"下/CanvasLayer/TextBlock".text = ""
+	self.get_target_message_window().get_node("CanvasLayer/TextBlock").text = ""
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -115,7 +126,7 @@ func _unhandled_key_input(event):
 	if self.statemachine.is_completed():
 
 		#	選択肢モードなら
-		if $"下/CanvasLayer/TextBlock".is_choice_mode:
+		if self.get_target_message_window().get_node("CanvasLayer/TextBlock").is_choice_mode:
 			
 			#	何かキーを押したとき
 			if event.is_pressed():
