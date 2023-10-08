@@ -19,7 +19,8 @@ func reset():
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# 最初は透明
+	# 最初は非表示、透明
+	self.hide()
 	self.modulate.a = 0.0
 
 
