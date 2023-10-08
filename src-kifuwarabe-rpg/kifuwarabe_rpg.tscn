@@ -256,11 +256,6 @@ texture = ExtResource("26_fgfga")
 [node name="メッセージ" type="Node2D" parent="Windows"]
 script = ExtResource("26_jdfvj")
 
-[node name="Background" type="Sprite2D" parent="Windows/メッセージ"]
-position = Vector2(640, 360)
-texture = ExtResource("28_skskk")
-script = ExtResource("13_a1tuv")
-
 [node name="System" type="Sprite2D" parent="Windows/メッセージ"]
 z_index = 10
 
@@ -301,6 +296,11 @@ offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("18_qth5v")
+
+[node name="下ウィンドウ" type="Sprite2D" parent="Windows/メッセージ"]
+position = Vector2(640, 360)
+texture = ExtResource("28_skskk")
+script = ExtResource("13_a1tuv")
 
 [node name="センター" type="Node2D" parent="Windows"]
 visible = false
