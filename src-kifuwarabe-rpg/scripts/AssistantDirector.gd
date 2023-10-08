@@ -158,6 +158,7 @@ func parse_message(temp_text):
 		#	［ト書き］終わり
 		return
 
+	# 選択肢だ
 	if $"Choice".choice_row_number_array != null:
 		$"NormalTextChoice".do_it(
 			temp_text,
@@ -167,6 +168,6 @@ func parse_message(temp_text):
 		return
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
-	$"../Windows".show()
-	$"../Windows/Message".push_message(temp_text)
-	self.is_message_window_waiting_for_order = false
+	$"NormalText".do_it(
+		temp_text,
+		self.set_message_window_waiting_for_order)

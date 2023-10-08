@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dn4xwaqrr4prd"]
+[gd_scene load_steps=47 format=3 uid="uid://dn4xwaqrr4prd"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -25,6 +25,7 @@
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou_se_sound17.ogg" id="26_1kp2p"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Scene.gd" id="26_d8rxk"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
+[ext_resource type="Script" path="res://scripts/assistant_director/NormalText.gd" id="27_1um3d"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Se.gd" id="27_b3qcr"]
 [ext_resource type="Script" path="res://scripts/windows/MessageAbstract.gd" id="27_g8ouh"]
 [ext_resource type="Script" path="res://scripts/assistant_director/NormalTextChoice.gd" id="27_punsk"]
@@ -255,6 +256,9 @@ script = ExtResource("26_d8rxk")
 
 [node name="Se" type="Node" parent="AssistantDirector"]
 script = ExtResource("27_b3qcr")
+
+[node name="NormalText" type="Node" parent="AssistantDirector"]
+script = ExtResource("27_1um3d")
 
 [node name="NormalTextChoice" type="Node" parent="AssistantDirector"]
 script = ExtResource("27_punsk")
