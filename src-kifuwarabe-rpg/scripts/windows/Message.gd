@@ -93,7 +93,7 @@ func on_choice_selected():
 #	サブツリーが全てインスタンス化されたときに呼び出される
 func _ready():
 	# ステートマシーンを、子にも参照させる
-	$"下ウィンドウ".statemachine = self.statemachine
+	$"下".statemachine = self.statemachine
 	$"System/TextBlock".statemachine = self.statemachine
 	$"System/TextBlock/BlinkerTriangle".statemachine = self.statemachine
 	$"System/TextBlock/BlinkerUnderscore".statemachine = self.statemachine

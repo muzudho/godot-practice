@@ -27,6 +27,7 @@ var document = {
 		scene:	タイトル
 		bg:		崎川駅前
 		choice:	1,2
+		msg:	下
 		""",
 		"""\
 		　・スタート
