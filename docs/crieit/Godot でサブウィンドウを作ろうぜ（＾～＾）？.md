@@ -229,4 +229,48 @@ func hide_window():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　ひとまず　サイズ別のフォルダーを採用だぜ」  
 
+## 静的なウィンドウ
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ゲームプログラムの観点から言うと　自由自在なウィンドウが欲しいような  
+設計の固まってない状態が　いつまでも続いて　進捗が進んでたら　良くないぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　それはそうだが……」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　試しに　ゲームを終了するための　システム・メニューを設計してみればいいんじゃない？」  
+
+![202310__godot__08-1532-Schetch-o2o0.png](https://crieit.now.sh/upload_images/fbf2790ae772628dc66d62bc6b614e5e65224fab7add1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　グリッドに合わさないと　サイズ感は　分からないものだ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　そんな小さなウィンドウでは　英語が入らないだろう。  
+ローカライズして大丈夫か？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　間に合わないんで　ローカライズで」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　半透明の黒い所は　ＲＧＢＡが　32, 32, 32, 192　か。　192 は、百分率の 75% でもいいことにしよう」  
+
+![202310__godot__08-1546--SystemMenu.png](https://crieit.now.sh/upload_images/b0b94a959b4c1e002f961e2c9123d63065225538cdaa0.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　位置も　サイズも　色も　素材を作る手間がかからないように妥協したぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　画面上に置いてみましょう」  
+
+## 名前を変更
+
+![202310__godot__08-1633-CenterMessageWindow.png](https://crieit.now.sh/upload_images/499105cd0666650490d7eaba5525579365225b5a23727.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　分かった。名前が悪いんだ。名前を変えよう。  
+こいつは　システム・ウィンドウ　ではなくて、  
+**中央メッセージ・ウィンドウ**　だぜ」  
+
 .
