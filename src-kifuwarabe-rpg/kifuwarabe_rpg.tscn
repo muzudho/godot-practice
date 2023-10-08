@@ -131,9 +131,6 @@ texture = ExtResource("9_ictj0")
 position = Vector2(640, 360)
 texture = ExtResource("12_g1upj")
 
-[node name="CenterWindow" type="Node2D" parent="."]
-visible = false
-
 [node name="Scenes" type="Node2D" parent="."]
 script = ExtResource("4_mkh8y")
 
