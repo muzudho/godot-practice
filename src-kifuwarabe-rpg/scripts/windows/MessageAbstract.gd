@@ -173,9 +173,3 @@ func on_unhandled_key_input(event):
 				
 				#	ページ送り
 				self.on_page_forward()
-
-
-#	TODO _unhandled_key_input はルート要素にまとめたい
-#	テキストボックスなどにフォーカスが無いときの入力を拾う
-func _unhandled_key_input(event):
-	self.on_unhandled_key_input(event)

@@ -166,11 +166,11 @@ position = Vector2(640, 360)
 texture = ExtResource("11_lxy0m")
 
 [node name="崎川駅前" type="Sprite2D" parent="Background"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_nlarn")
 
 [node name="エンディング" type="Sprite2D" parent="Background"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("13_sy6jl")
 
@@ -183,6 +183,7 @@ texture = ExtResource("14_xhnqt")
 script = ExtResource("4_mkh8y")
 
 [node name="タイトル" type="CanvasLayer" parent="Scenes"]
+visible = false
 
 [node name="きふわらべRPG" type="Label" parent="Scenes/タイトル"]
 anchors_preset = 8
@@ -601,5 +602,3 @@ visible = false
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("37_lwbng")
-
-[node name="Node" type="Node" parent="."]

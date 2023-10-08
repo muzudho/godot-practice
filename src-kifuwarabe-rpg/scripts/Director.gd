@@ -37,13 +37,20 @@ func _ready():
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
+#
+#		子要素から親要素の順で呼び出されるようだ。
+#		このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
 	print("［ディレクター］　アンハンドルド・キー入力")
 
 	#	何かキーを押したとき
 	if event.is_pressed():
 		
-		#	確定ボタン以外は無効
+		#	エスケープ・キー
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
-			pass
+			#	子要素には渡しません
+			return
+
+		#	子要素へ渡す
+		$"Windows/Message".on_unhandled_key_input(event)
