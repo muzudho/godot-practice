@@ -13,6 +13,11 @@ var current_paragraph_name = null
 var scenario_array = []
 
 
+# メッセージウィンドウが指示待ちか？
+func set_message_window_waiting_for_order(flag):
+	self.is_message_window_waiting_for_order = flag
+
+
 # 台本の再生の開始の合図
 func play_paragraph(paragraph_name):
 	self.current_paragraph_name = paragraph_name
@@ -154,18 +159,11 @@ func parse_message(temp_text):
 		return
 
 	if $"Choice".choice_row_number_array != null:
-		print("［アシスタント・ディレクター］　選択肢だ：[" + temp_text + "]")
-
-		# 選択肢カーソル表示
-		$"../Windows/Message".show_choice_cursor()
-
-		# この台詞は選択肢として扱う
-		$"../Windows".show()
-		$"../Windows/Message".push_choices($"Choice".choice_row_number_array, temp_text)
-		self.is_message_window_waiting_for_order = false
-
-		#	処理終わり
-		$"Choice".choice_row_number_array = null
+		$"NormalTextChoice".do_it(
+			temp_text,
+			$"Choice".get_choice_row_number_array,
+			$"Choice".set_choice_row_number_array,
+			self.set_message_window_waiting_for_order)
 		return
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")

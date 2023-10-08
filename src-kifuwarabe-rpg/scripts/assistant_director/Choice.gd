@@ -6,6 +6,14 @@ extends Node
 var choice_row_number_array = null
 
 
+func get_choice_row_number_array():
+	return self.choice_row_number_array
+
+
+func set_choice_row_number_array(array):
+	self.choice_row_number_array = array
+
+
 #	それをする
 func do_it(line):
 	print("［選択肢］　前処理だ：[" + line + "]")
