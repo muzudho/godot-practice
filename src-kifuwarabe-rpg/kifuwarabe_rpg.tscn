@@ -263,13 +263,16 @@ visible = false
 visible = false
 script = ExtResource("27_g8ouh")
 
-[node name="System" type="Sprite2D" parent="Windows/メッセージ"]
+[node name="下" type="Sprite2D" parent="Windows/メッセージ"]
 visible = false
 z_index = 10
+position = Vector2(640, 360)
+texture = ExtResource("28_skskk")
+script = ExtResource("13_a1tuv")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="Windows/メッセージ/System"]
+[node name="CanvasLayer" type="CanvasLayer" parent="Windows/メッセージ/下"]
 
-[node name="TextBlock" type="Label" parent="Windows/メッセージ/System/CanvasLayer"]
+[node name="TextBlock" type="Label" parent="Windows/メッセージ/下/CanvasLayer"]
 offset_left = 319.0
 offset_top = 507.0
 offset_right = 1053.0
@@ -277,7 +280,7 @@ offset_bottom = 708.0
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("16_2x1rq")
 
-[node name="BlinkerTriangle" type="Label" parent="Windows/メッセージ/System/CanvasLayer/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="Windows/メッセージ/下/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 642.0
 offset_top = 95.0
@@ -287,7 +290,7 @@ text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("17_xwgcj")
 
-[node name="BlinkerUnderscore" type="Label" parent="Windows/メッセージ/System/CanvasLayer/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="Windows/メッセージ/下/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 640.0
 offset_top = 103.0
@@ -297,7 +300,7 @@ text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("17_xwgcj")
 
-[node name="ChoiceCursor" type="Label" parent="Windows/メッセージ/System/CanvasLayer/TextBlock"]
+[node name="ChoiceCursor" type="Label" parent="Windows/メッセージ/下/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -306,12 +309,6 @@ offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("18_qth5v")
-
-[node name="下" type="Sprite2D" parent="Windows/メッセージ"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("28_skskk")
-script = ExtResource("13_a1tuv")
 
 [node name="中央" type="Sprite2D" parent="Windows/メッセージ"]
 visible = false
