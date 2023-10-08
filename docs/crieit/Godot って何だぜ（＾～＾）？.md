@@ -916,4 +916,24 @@ var document = {
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　いろいろ　やらなければならいことが　分かったので　サブ・ウィンドウの開発は中断だぜ」  
 
+## BGMがループしないの、直しなさいよ
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　BGMがループしないの、直しなさいよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ループ地点を設定できるのかと思ったら　そういう設定がない……」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
+## 別記事：　Godot で BGM をループするようにしてくれだぜ（＾～＾）？
+
+📖　[Godot で BGM をループするようにしてくれだぜ（＾～＾）？](https://crieit.net/posts/Godot-BGM-6522d567addce)  
+
+## BGM のループはできそう
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　やり方分かった　疲れた」  
+
 .
