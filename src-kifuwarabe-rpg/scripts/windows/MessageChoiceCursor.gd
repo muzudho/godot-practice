@@ -27,8 +27,17 @@ var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
 
+#	初期化の前に
+#		初期化の一種ですが、初期化より先に行います。
+#		引数を渡すことが **初期化** との違いです
+func before_initialize(parent_statemachine):
+	#	親からステートマシンを受け取る
+	self.statemachine = parent_statemachine
+
+
 #	初期化
-#		ウィンドウが消えている状態を想定しています
+#		ウィンドウが消えている状態を想定しています。
+#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
 func initialize():
 	#	最初は非表示、透明
 	self.hide()

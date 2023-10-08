@@ -18,8 +18,10 @@ func initialize():
 	self.statemachine.all_page_flushed()
 
 
-#	メッセージ出力先ウィンドウを空っぽにします
-func clear_text():
+#	空欄化
+#		空っぽのウィンドウに戻すことを想定しています。
+#		初期化の一種ですが、ウィンドウは消しません
+func emptize():
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　クリアーテキスト")
 	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").text = ""
 
@@ -74,8 +76,8 @@ func push_message(text):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　台詞：[" + text + "]")
 
-	#	文章を消す
-	self.clear_text()
+	#	空っぽのウィンドウを残します
+	self.emptize()
 
 	#	表示
 	self.show()
@@ -93,8 +95,8 @@ func push_message(text):
 func push_choices(row_numbers, text):
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選択肢：[" + text + "]")
 
-	#	文章を消す
-	self.clear_text()
+	#	空っぽのウィンドウを残します
+	self.emptize()
 
 	#	表示
 	self.show()
@@ -119,8 +121,8 @@ func on_page_forward():
 	#	空欄に戻します（ウィンドウは消しません）
 	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").emptize()
 
-	#	ウィンドウを空っぽにして、次の指示を待ちます
-	self.clear_text()
+	#	空っぽのウィンドウを残して、次の指示を待ちます
+	self.emptize()
 	self.awaiting_order()
 
 

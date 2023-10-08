@@ -13,20 +13,24 @@ var is_choice_mode = false
 var choice_row_numbers = []
 
 
-#	初期化
-#		初期化の一種ですが、初期化より先に行います
+#	初期化の前に
+#		初期化の一種ですが、初期化より先に行います。
+#		引数を渡すことが **初期化** との違いです
 func before_initialize(parent_statemachine):
+	print("［テキストブロック］　初期化の前に")
+	
 	#	親からステートマシンを受け取る
 	self.statemachine = parent_statemachine
 	
 	#	子どもにも渡す
-	$"BlinkerTriangle".statemachine = self.statemachine
-	$"BlinkerUnderscore".statemachine = self.statemachine
-	$"ChoiceCursor".statemachine = self.statemachine
+	$"BlinkerTriangle".before_initialize(self.statemachine)
+	$"BlinkerUnderscore".before_initialize(self.statemachine)
+	$"ChoiceCursor".before_initialize(self.statemachine)
 
 
 #	初期化
-#		ウィンドウが無い状態に戻します
+#		ウィンドウが無い状態に戻すことを想定しています。
+#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
 func initialize():
 	print("［テキストブロック］　初期化")
 

@@ -26,8 +26,6 @@ func play_paragraph(paragraph_name):
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
 	self.scenario_array = $"../ScenarioBook".document[self.current_paragraph_name]
 
-	# # ウィンドウを空っぽにします
-	# $"../Windows/Message".clear_text()
 	# メッセージ・ウィンドウは、次の指示を待っています
 	self.is_message_window_waiting_for_order = true
 

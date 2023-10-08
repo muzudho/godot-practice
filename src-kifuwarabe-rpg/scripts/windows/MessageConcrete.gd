@@ -7,7 +7,8 @@ var is_visible_initialized = false
 
 
 #	初期化の前に
-#		 初期化の一種ですが、初期化より前に行います
+#		初期化の一種ですが、初期化より前に行います。
+#		引数を渡すことが **初期化** との違いです
 func before_initialize(parent_statemachine):
 	#	親からステートマシンを引き継ぐ
 	self.statemachine = parent_statemachine
