@@ -10,7 +10,8 @@ var statemachine = load("scripts/windows/MessageStatemachine.gd").new()
 var concrete_message_window_name = null
 
 
-#	メッセージ出力先ウィンドウを閉じる
+#	初期化
+#		ウィンドウが閉じた状態を想定しています
 func initialize():
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　初期化")
 	self.get_concrete_message_window().initialize()
@@ -36,7 +37,8 @@ func redirect_concrete_message_window_by_name(node_name):
 	self.concrete_message_window_name = node_name
 	
 	# ステートマシーンを、子にも参照させる
-	self.get_concrete_message_window().set_statemachine(self.statemachine)
+	self.get_concrete_message_window().before_initialize(self.statemachine)
+	self.get_concrete_message_window().initialize()
 
 
 #	メッセージ出力先ウィンドウのノード名

@@ -6,24 +6,27 @@ var statemachine = null
 var is_visible_initialized = false
 
 
-#	このウィンドウを閉じます
+#	初期化の前に
+#		 初期化の一種ですが、初期化より前に行います
+func before_initialize(parent_statemachine):
+	#	親からステートマシンを引き継ぐ
+	self.statemachine = parent_statemachine
+
+	#	子どもにもステートマシンを渡す
+	self.get_node("CanvasLayer/TextBlock").before_initialize(self.statemachine)
+
+
+#	初期化
+#		ウィンドウが閉じた状態を想定しています
 func initialize():
-	
+
 	# 子要素を初期化
 	self.get_node("CanvasLayer/TextBlock").initialize()
-	
+
 	# この要素の初期状態は、非表示、透明
 	self.hide()
 	self.modulate.a = 0.0
 
-
-# 親からステートマシンを受け取る
-func set_statemachine(parent_statemachine):
-	self.statemachine = parent_statemachine
-	
-	# 子どもにも渡す
-	self.get_node("CanvasLayer/TextBlock").set_statemachine(self.statemachine)
-	
 
 func _ready():
 	self.initialize()
@@ -34,7 +37,7 @@ func _process(_delta):
 		if self.statemachine.is_none():
 			# 透明
 			self.modulate.a = 0.0
-			
+
 		elif self.statemachine.is_typewriter():
 			if not self.is_visible_initialized:
 				# タイプライター風表示中の初回に可視化

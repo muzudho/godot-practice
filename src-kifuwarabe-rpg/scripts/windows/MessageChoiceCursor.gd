@@ -27,6 +27,15 @@ var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
 
+#	初期化
+#		ウィンドウが消えている状態を想定しています
+func initialize():
+	#	最初は非表示、透明
+	self.hide()
+	self.modulate.a = 0.0
+	self.is_first_displayed_immediately = false
+
+
 func get_parent_choice_row_numbers():
 	# print("［選択肢カーソル］　選択肢行番号一覧")
 	# for row_num in $"..".choice_row_numbers:
@@ -69,14 +78,6 @@ func on_cursor_down(target_index):
 	self.dst_y = self.offset_top + difference * (self.font_height + self.line_space_height)
 	self.total_seconds = 0.3
 	self.elapsed_seconds = 0.0
-
-
-#	初期化
-func initialize():
-	# 最初は非表示、透明
-	self.hide()
-	self.modulate.a = 0.0
-	self.is_first_displayed_immediately = false
 	
 
 # Called when the node enters the scene tree for the first time.

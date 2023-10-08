@@ -14,6 +14,18 @@ var choice_row_numbers = []
 
 
 #	初期化
+#		初期化の一種ですが、初期化より先に行います
+func before_initialize(parent_statemachine):
+	#	親からステートマシンを受け取る
+	self.statemachine = parent_statemachine
+	
+	#	子どもにも渡す
+	$"BlinkerTriangle".statemachine = self.statemachine
+	$"BlinkerUnderscore".statemachine = self.statemachine
+	$"ChoiceCursor".statemachine = self.statemachine
+
+
+#	初期化
 #		ウィンドウが無い状態に戻します
 func initialize():
 	print("［テキストブロック］　初期化")
@@ -37,16 +49,6 @@ func emptize():
 	$"BlinkerTriangle".initialize()
 	$"BlinkerUnderscore".initialize()
 	$"ChoiceCursor".initialize()
-
-
-# 親からステートマシンを受け取る
-func set_statemachine(parent_statemachine):
-	self.statemachine = parent_statemachine
-	
-	# 子どもにも渡す
-	$"BlinkerTriangle".statemachine = self.statemachine
-	$"BlinkerUnderscore".statemachine = self.statemachine
-	$"ChoiceCursor".statemachine = self.statemachine
 
 
 # メッセージを追加
