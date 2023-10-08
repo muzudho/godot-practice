@@ -110,8 +110,8 @@ func on_page_forward():
 	#	効果音
 	$"../../Musician".playSe("ページめくり音")
 
-	#	ブリンカーを消す
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").clear_blinker()
+	#	全てのブリンカーを消す
+	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").clear_all_blinkers()
 
 	#	ウィンドウを空っぽにして、次の指示を待ちます
 	self.clear_text()

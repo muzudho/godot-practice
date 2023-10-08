@@ -23,20 +23,22 @@ func set_statemachine(parent_statemachine):
 	$"ChoiceCursor".statemachine = self.statemachine
 
 
-# 窓をクリアーします
+#	初期化
 func initialize():
-	print("［テキストブロック］　台詞は終わった")
+	print("［テキストブロック］　初期化")
+
+	#	全てのブリンカーを消す
+	self.clear_all_blinkers()
+
 	self.visible = false
 	self.is_visible_initialized = false
+
+
+#	全てのブリンカーを消す
+func clear_all_blinkers():
 	$"BlinkerTriangle".initialize()
 	$"BlinkerUnderscore".initialize()
 	$"ChoiceCursor".initialize()
-
-
-# ブリンカーを消す
-func clear_blinker():
-	$"BlinkerTriangle".initialize()
-	$"BlinkerUnderscore".initialize()
 
 
 # メッセージを追加

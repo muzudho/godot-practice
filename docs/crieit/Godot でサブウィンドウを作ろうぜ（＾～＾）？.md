@@ -85,7 +85,7 @@ func push_choices(row_numbers, text):
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
-	
+
 
 
 #	ページ送り
