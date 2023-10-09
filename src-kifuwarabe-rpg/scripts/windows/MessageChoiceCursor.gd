@@ -29,7 +29,7 @@ var blinker_interval = 0.5
 
 #	音楽家を取得
 func get_musician():
-	return $"../../../../../../../Musician"
+	return $"../../../../../../Musician"
 
 
 #	初期化の前に

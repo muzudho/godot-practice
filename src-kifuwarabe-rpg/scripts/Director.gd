@@ -19,7 +19,7 @@ func _ready():
 	# ウィンドウはとにかく隠す
 	#
 	# メッセージ・ウィンドウはとにかく隠す
-	for sprite2d_node in $"GuiArtist/Windows/Message".get_children():
+	for sprite2d_node in $"GuiArtist/WindowsOfMessage".get_children():
 		sprite2d_node.hide()
 
 	# ビューイング・ウィンドウはとにかく隠す
@@ -50,15 +50,16 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
 			
-			if not get_tree().paused:
-				# 全体を止める
-				get_tree().paused = true
-			else:
-				# 全体を止めているのを解除
-				get_tree().paused = false
-			
+			#if not get_tree().paused:
+			#	# 全体を止める
+			#	get_tree().paused = true
+			#else:
+			#	# 全体を止めているのを解除
+			#	get_tree().paused = false
+			#
+
 			#	子要素には渡しません
 			return
 
 		#	子要素へ渡す
-		$"GuiArtist/Windows/Message".on_unhandled_key_input(event)
+		$"GuiArtist/WindowsOfMessage".on_unhandled_key_input(event)

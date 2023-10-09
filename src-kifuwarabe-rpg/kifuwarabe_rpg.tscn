@@ -466,20 +466,18 @@ vertical_alignment = 1
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
-[node name="Windows" type="Node2D" parent="GuiArtist"]
-
-[node name="Message" type="Node2D" parent="GuiArtist/Windows"]
+[node name="WindowsOfMessage" type="Node2D" parent="GuiArtist"]
 script = ExtResource("27_g8ouh")
 
-[node name="下" type="Sprite2D" parent="GuiArtist/Windows/Message"]
+[node name="下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
 z_index = 10
 position = Vector2(640, 360)
 texture = ExtResource("28_skskk")
 script = ExtResource("30_bblis")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="GuiArtist/Windows/Message/下"]
+[node name="CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage/下"]
 
-[node name="TextBlock" type="Label" parent="GuiArtist/Windows/Message/下/CanvasLayer"]
+[node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer"]
 offset_left = 319.0
 offset_top = 507.0
 offset_right = 1013.0
@@ -487,7 +485,7 @@ offset_bottom = 663.0
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("32_b10pj")
 
-[node name="BlinkerTriangle" type="Label" parent="GuiArtist/Windows/Message/下/CanvasLayer/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 642.0
 offset_top = 95.0
@@ -497,7 +495,7 @@ text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
 
-[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/Windows/Message/下/CanvasLayer/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 640.0
 offset_top = 103.0
@@ -507,7 +505,7 @@ text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
 
-[node name="ChoiceCursor" type="Label" parent="GuiArtist/Windows/Message/下/CanvasLayer/TextBlock"]
+[node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -517,17 +515,17 @@ text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("34_0fjc7")
 
-[node name="中央" type="Sprite2D" parent="GuiArtist/Windows/Message"]
+[node name="中央" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
 visible = false
 z_index = 10
 position = Vector2(640, 360)
 texture = ExtResource("34_wja0x")
 script = ExtResource("30_bblis")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="GuiArtist/Windows/Message/中央"]
+[node name="CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage/中央"]
 visible = false
 
-[node name="TextBlock" type="Label" parent="GuiArtist/Windows/Message/中央/CanvasLayer"]
+[node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer"]
 offset_left = 510.0
 offset_top = 244.0
 offset_right = 824.0
@@ -535,7 +533,7 @@ offset_bottom = 490.0
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("32_b10pj")
 
-[node name="BlinkerTriangle" type="Label" parent="GuiArtist/Windows/Message/中央/CanvasLayer/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 154.0
@@ -545,7 +543,7 @@ text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
 
-[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/Windows/Message/中央/CanvasLayer/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer/TextBlock"]
 visible = false
 layout_mode = 0
 offset_left = 228.0
@@ -556,7 +554,7 @@ text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
 
-[node name="ChoiceCursor" type="Label" parent="GuiArtist/Windows/Message/中央/CanvasLayer/TextBlock"]
+[node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0

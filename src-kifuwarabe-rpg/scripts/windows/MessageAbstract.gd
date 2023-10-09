@@ -12,12 +12,12 @@ var concrete_message_window_name = null
 
 #	アシスタント・ディレクターを取得
 func get_assistant_director():
-	return $"../../../AssistantDirector"
+	return $"../../AssistantDirector"
 
 
 #	音楽家を取得
 func get_musician():
-	return $"../../../Musician"
+	return $"../../Musician"
 
 
 #	初期化
@@ -110,6 +110,7 @@ func push_choices(row_numbers, text):
 
 	#	表示
 	self.show()
+	self.show_choice_cursor()
 	self.get_concrete_message_window().show()
 	self.get_concrete_message_window().get_node("CanvasLayer").show()
 

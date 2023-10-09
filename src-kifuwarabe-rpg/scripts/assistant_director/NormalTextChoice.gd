@@ -11,13 +11,8 @@ func do_it(
 
 	print("［ノーマル・テキスト・チョイス］　選択肢だ：[" + temp_text + "]")
 
-	# 表示
-	$"../../GuiArtist/Windows".show()
-	$"../../GuiArtist/Windows/Message".show()
-	$"../../GuiArtist/Windows/Message".show_choice_cursor()
-
 	# この台詞は選択肢として扱う
-	$"../../GuiArtist/Windows/Message".push_choices(get_choice_row_number_array.call(), temp_text)
+	$"../../GuiArtist/WindowsOfMessage".push_choices(get_choice_row_number_array.call(), temp_text)
 	set_message_window_waiting_for_order.call(false)
 
 	#	処理終わり
