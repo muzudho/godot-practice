@@ -143,7 +143,9 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_lfp38")
 
-[node name="ScenarioBook" type="Node" parent="."]
+[node name="ScenarioWriter" type="Node" parent="."]
+
+[node name="VisualNovelBook" type="Node" parent="ScenarioWriter"]
 script = ExtResource("2_be741")
 
 [node name="Musician" type="Node" parent="."]
