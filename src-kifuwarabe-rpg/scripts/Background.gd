@@ -1,4 +1,5 @@
-#	バックグラウンド（Background；背景）
+#	バックグラウンド・アーティスト（Background Artist；背景美術）
+#		画面全体を覆う一番後ろの絵を担当する人
 extends Node
 
 

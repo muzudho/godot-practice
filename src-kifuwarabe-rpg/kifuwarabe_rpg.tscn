@@ -179,26 +179,26 @@ volume_db = -15.0
 stream = ExtResource("28_1r0xx")
 volume_db = -10.0
 
-[node name="Background" type="Node2D" parent="."]
+[node name="BackgroundArtist" type="Node2D" parent="."]
 visible = false
 script = ExtResource("7_ehwng")
 
-[node name="イベントルーム" type="Sprite2D" parent="Background"]
+[node name="イベントルーム" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("11_lxy0m")
 
-[node name="崎川駅前" type="Sprite2D" parent="Background"]
+[node name="崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_nlarn")
 
-[node name="エンディング" type="Sprite2D" parent="Background"]
+[node name="エンディング" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("13_sy6jl")
 
-[node name="崎川駅周辺地図" type="Sprite2D" parent="Background"]
+[node name="崎川駅周辺地図" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("14_xhnqt")

@@ -1,4 +1,5 @@
 #	ビージー（Bg, Background；背景）
+#		背景画像の変更
 extends Node
 
 
@@ -9,4 +10,4 @@ func do_it(line):
 	print("［背景］　名前：[" + node_name + "]")
 
 	# 背景設定
-	$"../../Background".show(node_name)
+	$"../../BackgroundArtist".show(node_name)

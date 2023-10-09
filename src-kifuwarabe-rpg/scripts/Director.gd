@@ -11,9 +11,9 @@ func _ready():
 
 	# グリッドは隠す
 	$"Grid".hide()
-	
+
 	# 背景画像は全部隠す
-	for sprite2d_node in $"Background".get_children():
+	for sprite2d_node in $"BackgroundArtist".get_children():
 		sprite2d_node.hide()
 
 	# ウィンドウはとにかく隠す
