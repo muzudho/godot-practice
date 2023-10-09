@@ -566,25 +566,25 @@ text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("34_0fjc7")
 
-[node name="ビューイング" type="Node2D" parent="GuiArtist/Windows"]
+[node name="WindowsOfViewing" type="Node2D" parent="GuiArtist"]
 visible = false
 script = ExtResource("35_s10tl")
 
-[node name="System" type="Node2D" parent="GuiArtist/Windows/ビューイング"]
+[node name="System" type="Node2D" parent="GuiArtist/WindowsOfViewing"]
 visible = false
 
-[node name="Frame" type="Sprite2D" parent="GuiArtist/Windows/ビューイング/System"]
+[node name="Frame" type="Sprite2D" parent="GuiArtist/WindowsOfViewing/System"]
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("35_sw6cw")
 
-[node name="将棋盤" type="Sprite2D" parent="GuiArtist/Windows/ビューイング"]
+[node name="将棋盤" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
 visible = false
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("36_0psl7")
 
-[node name="ファイルとランク" type="Sprite2D" parent="GuiArtist/Windows/ビューイング"]
+[node name="ファイルとランク" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
 visible = false
 z_index = 100
 position = Vector2(640, 272)

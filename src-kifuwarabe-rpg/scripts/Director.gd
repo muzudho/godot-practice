@@ -23,9 +23,9 @@ func _ready():
 		sprite2d_node.hide()
 
 	# ビューイング・ウィンドウはとにかく隠す
-	for sprite2d_node in $"GuiArtist/Windows/ビューイング".get_children():
+	for sprite2d_node in $"GuiArtist/WindowsOfViewing".get_children():
 		sprite2d_node.hide()
-	$"GuiArtist/Windows/ビューイング/System/Frame".hide()
+	$"GuiArtist/WindowsOfViewing/System/Frame".hide()
 
 	# シーンはとにかく非表示にする
 	for canvas_layer in $"LocationCoordinator".get_children():

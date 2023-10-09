@@ -214,4 +214,27 @@ func _unhandled_key_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　それを保証する仕組みが　あるかどうか分からん」  
 
+# 状態を持つものと、持たないもの
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　状態を持つものと、持たないものがあるのよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そうそう」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　Godot の GUI の思想が中途半端なんだぜ。  
+位置情報のような固定できる設定と、  
+メッセージ表示のような　ランタイム時に状態を持つ設定が　分かれていない」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　今どきのエディター、ほとんどの素材が　ダイナミックだしな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ラベルなどのコントロールは　`CanvasLayer`　の下に管理される前提よね」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　入力系や　自律的な系は　`Director` と `AssistantDirector` に抑えさせよう。  
+他は　指示待ちで」  
+
 .

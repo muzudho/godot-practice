@@ -9,6 +9,6 @@ func do_it(line):
 	print("［中央ビューイング・ウィンドウ］　名前：[" + node_name + "]")
 
 	if node_name == "":
-		$"../../GuiArtist/Windows/ビューイング".hide_window()
+		$"../../GuiArtist/WindowsOfViewing".hide_window()
 	else:
-		$"../../GuiArtist/Windows/ビューイング".show_window(node_name)
+		$"../../GuiArtist/WindowsOfViewing".show_window(node_name)
