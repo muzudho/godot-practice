@@ -172,4 +172,46 @@ func _unhandled_key_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　そこは　あとで考えよう」  
 
+![202310__godot__09-1556--SecondFolders.png](https://crieit.now.sh/upload_images/f4a1bde6ddef7a8f930c28d4701d2a6c6523a44b90b06.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　第２階層は　こんな感じでどうだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　オンエアが始まる前に仕事が終わってる人たちと、  
+オンエアに仕事をしてる人たちで　別れるんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　上演中にシナリオを書き換えるシェークスピアみたいなやつとか　分類できないだろ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ツリー構造には向いてないなあ」  
+
+# 自律するかどうか
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　現状の実装では　ユーザーがキー入力すると  
+メッセージ・ウィンドウへ送られ、  
+台本の次の行が読み込まれ、それに従って　さらに動く、  
+オートマタが　完成しているのが、　一時停止を都合悪くする原因だろう」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　**自律** するかどうかより　**連続** かどうかが問題だぜ。  
+連続に　切れ目なんか無いぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　停止した瞬間は　どんな状態にあるの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　数学的には　無限の狭間を永遠に彷徨っていて定まらないと思うが、  
+情報処理的には　プログラム・カウンターが止まっているところだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　都合のわるい所、変なところであったとしても、  
+止まっているノードに対して　編集を行わず、かつ、行う処理が　再開　だけなのであれば  
+問題は起こらないと思うぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　それを保証する仕組みが　あるかどうか分からん」  
+
 .
