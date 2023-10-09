@@ -91,4 +91,9 @@ func _unhandled_key_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　`Background` も、 `BackgroundArtist` にリネームしよう」  
 
+![202310__godot__09-1510--LocationCoordinator-o2o0.png](https://crieit.now.sh/upload_images/aa5c6b48ab44a197ec691249dc2bf2fa652399a4520b1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`Scenes` も、 `LocationCoordinator` にリネームしよう」  
+
 .
