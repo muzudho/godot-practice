@@ -28,7 +28,7 @@ func _ready():
 	$"Windows/ビューイング/System/Frame".hide()
 
 	# シーンはとにかく非表示にする
-	for canvas_layer in $"Scenes".get_children():
+	for canvas_layer in $"LocationCoordinator".get_children():
 		canvas_layer.hide()
 
 
