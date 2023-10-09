@@ -55,4 +55,20 @@ func _unhandled_key_input(event):
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　素直な挙動だから、これで　狙って指定したノードだけ　一時停止できそうね」  
 
+# どのノードを止めたらゲームが止まるの？
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　どのノードを止めたらゲームが止まるの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　アミバみたいだな」  
+
+![202310__godot__09-1437--Tree.png](https://crieit.now.sh/upload_images/f69d80dd4338d8bcd3aa2b45f6f28ed5652391b469b49.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　どのノードを止めるといった　分け方をしてないしな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　なんか　よく分からんなあ。　お父ん、いったん　思うように　再構成してみてくれだぜ」  
+
 .
