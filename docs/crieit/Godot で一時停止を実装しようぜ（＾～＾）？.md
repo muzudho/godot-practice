@@ -310,4 +310,19 @@ $"GuiArtist".get_tree().paused = true
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　じゃあ　メソッドを自作ねえ」  
 
+# ノード毎にメソッドを自作
+
+![202310__godot__10-0254--PauseSubtree.png](https://crieit.now.sh/upload_images/57cf4ec169a0644d2a96135de092a11765243e8a2304a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　この書き方　かっこよくね？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ちゃんと動くのかな？」  
+
+![202310__godot__10-0304--ProcessSubtree.png](https://crieit.now.sh/upload_images/dbce999d709a36e7a807a0297719db1a652440e3bc345.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　Godot の習慣に合わせると、こっちの　書き方の方がいいか？」  
+
 .

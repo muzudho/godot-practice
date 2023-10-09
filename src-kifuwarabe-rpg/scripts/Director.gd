@@ -56,13 +56,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　GuiArtist は処理中")
 				
 				# 停止
-				$"GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock/ChoiceCursor".set_process(false)
+				$"GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock/ChoiceCursor".set_process_subtree(false)
 				
 			else:
 				print("［ディレクター］　GuiArtist は処理中ではない")
 				
 				# 再開
-				$"GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock/ChoiceCursor".set_process(true)
+				$"GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock/ChoiceCursor".set_process_subtree(true)
 
 			#	子要素には渡しません
 			return

@@ -1,4 +1,4 @@
-#	チョイスカーソル（Choice Cursor；選択肢カーソル）
+#	チョイス・カーソル（Choice Cursor；選択肢カーソル）
 extends Label
 
 #	文字の縦幅px
@@ -70,6 +70,20 @@ func get_parent_choice_row_numbers():
 #	線形補間
 func do_lerp(src, dst, progress):
 	return src + (dst - src) * progress
+
+
+#	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
+func set_process_subtree(is_process):
+	print("［チョイス・カーソル］　プロセッシング：" + str(is_process))
+
+	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
+	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
+	#	処理しろ　（true） という指示のとき、処理していなければ（false）、再開する　（true）。
+	#	処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
+	if is_process != self.is_processing():
+		self.set_process(is_process)
+
+		#	子ノード無し
 
 
 #	カーソルが上に移動します
