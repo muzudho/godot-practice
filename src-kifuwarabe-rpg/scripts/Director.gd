@@ -49,6 +49,14 @@ func _unhandled_key_input(event):
 		#	エスケープ・キー
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
+			
+			if not get_tree().paused:
+				# 全体を止める
+				get_tree().paused = true
+			else:
+				# 全体を止めているのを解除
+				get_tree().paused = false
+			
 			#	子要素には渡しません
 			return
 

@@ -955,4 +955,28 @@ var document = {
 
 📖　[Godot で実行ファイルを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-6522e2bf69161)  
 
+# ⏰ 同日 13:16
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ふぁーあ　起きた」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Windows Desktop 用の実行ファイルも作れた。充分だろ」  
+
+## ゲーム中の特定の動作をいつでも一時停止する機能を作りなさい
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ゲーム中の特定の動作をいつでも一時停止する機能を作りなさい。  
+この機能がないと　サブ・ウィンドウなどの様々な機能の実装が　先に進まないわよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　簡単そうで　自力実装しろと言われると　あれっ？　と思う機能だよな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　長くなりそうだ。日記の中では流れていってしまう。別記事にまとめてくれだぜ」  
+
+### 別記事：　Godot で一時停止を実装しようぜ（＾～＾）？
+
+📖　[Godot で一時停止を実装しようぜ（＾～＾）？](https://crieit.net/posts/Godot-6523840bafde8)  
+
 .
