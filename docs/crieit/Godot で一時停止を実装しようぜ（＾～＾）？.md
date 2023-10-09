@@ -157,4 +157,19 @@ func _unhandled_key_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　あと `UI` は意味が広すぎる。 `GUI` にしよう」  
 
+![202310__godot__09-1551--GuiArtist-o2o0.png](https://crieit.now.sh/upload_images/5365e464f713af4c6da23311c76ccd956523a33435d19.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　他の職業は　制作の裏方さんという感じなのに、  
+`GuiArtist` は　本番中に　めっちゃ　働くんだけど」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　実態は　ウィンドウだからな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　裏方と　オン・エアで　大分類を切った方がベターなのかしらねえ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そこは　あとで考えよう」  
+
 .
