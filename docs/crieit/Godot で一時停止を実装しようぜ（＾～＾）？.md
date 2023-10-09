@@ -325,4 +325,41 @@ $"GuiArtist".get_tree().paused = true
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　Godot の習慣に合わせると、こっちの　書き方の方がいいか？」  
 
+## ノードが自作のメソッドを持っているか確認
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　ダック・タイピング　できるのか」  
+
+📖　[How to check have the node a custom function?](https://ask.godotengine.org/116004/how-to-check-have-the-node-a-custom-function)  
+
+```gd
+#	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
+func set_process_subtree(is_process):
+	print("［テキストブロック］　プロセッシング：" + str(is_process))
+
+	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
+	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
+	#	処理しろ　（true） という指示のとき、処理していなければ（false）、再開する　（true）。
+	#	処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
+	if is_process != self.is_processing():
+		self.set_process(is_process)
+
+		#	子ノード
+		for child in self.get_children():
+			if child.has_method("set_process_subtree"):
+				child.set_process_subtree(is_process)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　これを　各ノードのスクリプトに貼り付けていけば良さげ、めんどくせ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　ポーズ・ボタンを実装したぜ」  　
+
+📺　[動画](https://x.com/muzudho1/status/1711452292531314946?s=20)  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .

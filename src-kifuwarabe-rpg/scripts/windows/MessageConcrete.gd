@@ -29,6 +29,23 @@ func initialize():
 	self.modulate.a = 0.0
 
 
+#	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
+func set_process_subtree(is_process):
+	print("［具体的メッセージウィンドウ］　プロセッシング：" + str(is_process))
+
+	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
+	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
+	#	処理しろ　（true） という指示のとき、処理していなければ（false）、再開する　（true）。
+	#	処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
+	if is_process != self.is_processing():
+		self.set_process(is_process)
+
+		#	子ノード
+		for child in $"CanvasLayer".get_children():
+			if child.has_method("set_process_subtree"):
+				child.set_process_subtree(is_process)
+
+
 func _ready():
 	self.initialize()
 

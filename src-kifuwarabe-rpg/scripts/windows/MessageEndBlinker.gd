@@ -37,6 +37,20 @@ func emptize():
 	self.is_first_displayed_immediately = false
 
 
+#	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
+func set_process_subtree(is_process):
+	print("［メッセージエンド・ブリンカー］　プロセッシング：" + str(is_process))
+
+	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
+	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
+	#	処理しろ　（true） という指示のとき、処理していなければ（false）、再開する　（true）。
+	#	処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
+	if is_process != self.is_processing():
+		self.set_process(is_process)
+
+		#	子ノード無し
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.initialize()
