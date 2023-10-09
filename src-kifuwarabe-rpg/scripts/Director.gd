@@ -50,13 +50,16 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
 			
-			#if not get_tree().paused:
-			#	# 全体を止める
-			#	get_tree().paused = true
-			#else:
-			#	# 全体を止めているのを解除
-			#	get_tree().paused = false
-			#
+			# TODO ポーズ
+			# とりあえず、ウィンドウを止めてみる
+			if not get_tree().paused:
+				# 停止
+				$"GuiArtist".get_tree().paused = true
+				# get_tree().paused = true
+			else:
+				# 再開
+				$"GuiArtist".get_tree().paused = false
+				# get_tree().paused = false
 
 			#	子要素には渡しません
 			return

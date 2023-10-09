@@ -237,4 +237,49 @@ func _unhandled_key_input(event):
 「　入力系や　自律的な系は　`Director` と `AssistantDirector` に抑えさせよう。  
 他は　指示待ちで」  
 
+# 階層は浅く
+
+![202310__godot__09-1645--GuiArtistFolder-o2o0.png](https://crieit.now.sh/upload_images/a5d6a6b6d27e404e9db6e6d2259933886523b00f1f34a.png)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👆　`GuiArtist` のフォルダーが深くて　開けるのが手間よ」  
+
+![202310__godot__09-1659--GuiArtistFolderToShallow-o2o0.png](https://crieit.now.sh/upload_images/8c4550e44c680a04dcb4dfeaf1a573d46523b30f7ca1c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　少し浅くしたぜ」  
+
+# 時間軸で勝手に動いているもののうち、邪魔なものは止めろだぜ
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　何を　pause　すればいいのか分かってきた……、  
+入力は一元的に抑え、
+時間軸で勝手に動いているもののうち、邪魔なものを止めればいいんだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　今の実装だと　ブリンカー　ぐらいねえ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　停止する世界と　停止しない世界　が共存していえ、  
+デッドロックしない仕組みを　どう実現しているのか　分からないが……」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　容赦なくデッドロックするんだぜ。  
+勝手に上手く停止させろよ、という方針なのだろうなんだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　パイトニックだな……」  
+
+# 全部止まった
+
+```gd
+$"GuiArtist".get_tree().paused = true
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ウィンドウだけ止めようと思って `.get_tree().paused = true` したら、音楽も止まった……」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　サブ・ツリーだけ　止められないの？」  
+
 .
