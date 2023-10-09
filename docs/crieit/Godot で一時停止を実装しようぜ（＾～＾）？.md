@@ -71,4 +71,19 @@ func _unhandled_key_input(event):
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　なんか　よく分からんなあ。　お父ん、いったん　思うように　再構成してみてくれだぜ」  
 
+# ツリーを再構成しようぜ？
+
+![202310__godot__09-1445--ScenarioWritere-o2o0.png](https://crieit.now.sh/upload_images/d75cd1af5624d7b6865ec8a79013b25d652393a824217.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ゲーム制作の　チーム作業を　模擬して、  
+第２階層のフォルダーには　誰がそのフォルダーを開ければいいのかが分かるように  
+役職名を書いていこう」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ある種の　ダイナミック・プログラミング（Dynamic Programming；動的計画法）を行うのね」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　手の付けやすいところを先に固めていけば　難しい所が最後に残るわけか」  
+
 .
