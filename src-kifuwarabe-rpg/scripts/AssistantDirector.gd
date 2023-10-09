@@ -35,7 +35,7 @@ func play_paragraph(paragraph_name):
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
 func redirect_concrete_message_window_by_name(node_name):
-	$"../Windows/Message".redirect_concrete_message_window_by_name(node_name)
+	$"../GuiArtist/Windows/Message".redirect_concrete_message_window_by_name(node_name)
 
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
@@ -70,9 +70,9 @@ func _process(_delta):
 
 			# もう無いよ
 			else:
-				if not $"../Windows/Message".statemachine.is_none():
+				if not $"../GuiArtist/Windows/Message".statemachine.is_none():
 					# メッセージ・ウィンドウを閉じる
-					$"../Windows/Message".initialize()
+					$"../GuiArtist/Windows/Message".initialize()
 
 
 #	先頭行と、それ以外に分けます。できなければヌル

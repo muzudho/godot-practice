@@ -96,4 +96,65 @@ func _unhandled_key_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　`Scenes` も、 `LocationCoordinator` にリネームしよう」  
 
+![202310__godot__09-1517--Windows-o2o0.png](https://crieit.now.sh/upload_images/7eb4b8b43579cc744e9e348b2947b76065239b4790e41.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ウィンドウって　誰の仕事なんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　誰なんだろな？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　マシ―ナリー（machinery；機械装置）なんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ウィンドウは、わたしの思っている機械と違う」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　`スクウェアエニックス　中途採用　ゲーム開発` で検索。  
+どんな職種があるか　調べたろ」  
+
+📖　[募集中の職種](https://www.jp.square-enix.com/recruit/career/career/de/game/index.html)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`UI デザイナー` と、 `UI アーティスト` は何が違うんだぜ？　表記ゆれ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　デザイナーと　アーティストの違いが　さっぱり分からん。  
+実態は　どう違うんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　アーティストは　自分勝手なやつで、  
+デザイナーは　顧客が思っていた本当に欲しかったものとは違うものを作ってくる勝手なやつじゃないのか？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　だから　違いが分からん」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　👇　調べましょう」  
+
+📖　[デザイナーとアーティストの違いって？ 実は存在目的が明確に違うんです！](https://niigatainsatsu.co.jp/topics/20221109/)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　アーティストは　その人本人に価値があって　それを会社側が　ゲヘヘ　と下心をこめて利用するもので、  
+デザイナーは　下請けか」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　お父んの頭では　それぐらいの理解が　精一杯だな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　あんたは　どの役職なら入れそうなの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ゲーム制作は専門技術なんで、それ用の技術を持ってないので　どこも無理だぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　なんで　そんなやつが　きふわらべＲＰＧ　作ろうとするんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`Designer` と `Artist` だと、 `Artist` の方が　つづりが短いから　こっちを採用しよう」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　あと `UI` は意味が広すぎる。 `GUI` にしよう」  
+
 .

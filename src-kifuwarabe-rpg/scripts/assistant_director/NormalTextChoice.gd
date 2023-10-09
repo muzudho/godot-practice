@@ -8,16 +8,16 @@ func do_it(
 	get_choice_row_number_array,
 	set_choice_row_number_array,
 	set_message_window_waiting_for_order):
-		
-	print("［アシスタント・ディレクター］　選択肢だ：[" + temp_text + "]")
+
+	print("［ノーマル・テキスト・チョイス］　選択肢だ：[" + temp_text + "]")
 
 	# 表示
-	$"../../Windows".show()
-	$"../../Windows/Message".show()
-	$"../../Windows/Message".show_choice_cursor()
+	$"../../GuiArtist/Windows".show()
+	$"../../GuiArtist/Windows/Message".show()
+	$"../../GuiArtist/Windows/Message".show_choice_cursor()
 
 	# この台詞は選択肢として扱う
-	$"../../Windows/Message".push_choices(get_choice_row_number_array.call(), temp_text)
+	$"../../GuiArtist/Windows/Message".push_choices(get_choice_row_number_array.call(), temp_text)
 	set_message_window_waiting_for_order.call(false)
 
 	#	処理終わり

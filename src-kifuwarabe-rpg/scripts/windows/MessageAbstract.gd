@@ -10,6 +10,16 @@ var statemachine = load("scripts/windows/MessageStatemachine.gd").new()
 var concrete_message_window_name = null
 
 
+#	アシスタント・ディレクターを取得
+func get_assistant_director():
+	return $"../../../AssistantDirector"
+
+
+#	音楽家を取得
+func get_musician():
+	return $"../../../Musician"
+
+
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func initialize():
@@ -57,7 +67,7 @@ func show_choice_cursor():
 #	次の指示を待ちます
 func awaiting_order():
 	#	メッセージウィンドウは指示待ちだ
-	$"../../AssistantDirector".is_message_window_waiting_for_order = true
+	self.get_assistant_director().is_message_window_waiting_for_order = true
 
 
 #	先頭行と、それ以外に分けます
@@ -116,7 +126,7 @@ func on_page_forward():
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　ページ送り")
 
 	#	効果音
-	$"../../Musician".playSe("ページめくり音")
+	self.get_musician().playSe("ページめくり音")
 
 	#	空欄に戻します（ウィンドウは消しません）
 	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").emptize()
@@ -129,13 +139,13 @@ func on_page_forward():
 #	下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected():
 	#	カーソル音
-	$"../../Musician".playSe("選択肢確定音")
+	self.get_musician().playSe("選択肢確定音")
 
 	var row_number = self.get_concrete_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number	
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選んだ選択肢行番号：" + str(row_number))
 
 	#	選択肢の行番号を、上位ノードへエスカレーションします
-	$"../../AssistantDirector".on_choice_selected(row_number)
+	self.get_assistant_director().on_choice_selected(row_number)
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う

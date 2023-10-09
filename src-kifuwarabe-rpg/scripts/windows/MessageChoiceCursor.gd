@@ -27,6 +27,11 @@ var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
 
+#	音楽家を取得
+func get_musician():
+	return $"../../../../../../../Musician"
+
+
 #	初期化の前に
 #		初期化の一種ですが、初期化より先に行います。
 #		引数を渡すことが **初期化** との違いです
@@ -62,15 +67,15 @@ func get_parent_choice_row_numbers():
 	return $"..".choice_row_numbers
 
 
-# 線形補間
+#	線形補間
 func do_lerp(src, dst, progress):
 	return src + (dst - src) * progress
 
 
-# カーソルが上に移動します
+#	カーソルが上に移動します
 func on_cursor_up(target_index):
-	# 効果音鳴らす
-	$"../../../../../../Musician".playSe("選択肢カーソル移動音")
+	#	効果音鳴らす
+	self.get_musician().playSe("選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
 	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index - 1]
@@ -82,10 +87,10 @@ func on_cursor_up(target_index):
 	self.elapsed_seconds = 0.0
 
 
-# カーソルが下に移動します
+#	カーソルが下に移動します
 func on_cursor_down(target_index):
 	# 効果音鳴らす
-	$"../../../../../../Musician".playSe("選択肢カーソル移動音")
+	self.get_musician().playSe("選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
 	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index + 1]

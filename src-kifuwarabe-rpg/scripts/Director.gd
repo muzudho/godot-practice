@@ -19,13 +19,13 @@ func _ready():
 	# ウィンドウはとにかく隠す
 	#
 	# メッセージ・ウィンドウはとにかく隠す
-	for sprite2d_node in $"Windows/Message".get_children():
+	for sprite2d_node in $"GuiArtist/Windows/Message".get_children():
 		sprite2d_node.hide()
 
 	# ビューイング・ウィンドウはとにかく隠す
-	for sprite2d_node in $"Windows/ビューイング".get_children():
+	for sprite2d_node in $"GuiArtist/Windows/ビューイング".get_children():
 		sprite2d_node.hide()
-	$"Windows/ビューイング/System/Frame".hide()
+	$"GuiArtist/Windows/ビューイング/System/Frame".hide()
 
 	# シーンはとにかく非表示にする
 	for canvas_layer in $"LocationCoordinator".get_children():
@@ -61,4 +61,4 @@ func _unhandled_key_input(event):
 			return
 
 		#	子要素へ渡す
-		$"Windows/Message".on_unhandled_key_input(event)
+		$"GuiArtist/Windows/Message".on_unhandled_key_input(event)
