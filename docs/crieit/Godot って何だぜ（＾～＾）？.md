@@ -979,4 +979,15 @@ var document = {
 
 📖　[Godot で一時停止を実装しようぜ（＾～＾）？](https://crieit.net/posts/Godot-6523840bafde8)  
 
+# 📅 (2023-10-10 tue) Pause Ok
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Pause も実装したぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　じゃあ　サブ・ウィンドウ　の実装に進めそうねえ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　これから寝る」  
+
 .
