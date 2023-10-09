@@ -52,14 +52,17 @@ func _unhandled_key_input(event):
 			
 			# TODO ポーズ
 			# とりあえず、ウィンドウを止めてみる
-			if not get_tree().paused:
+			if $"GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock/ChoiceCursor".is_processing():
+				print("［ディレクター］　GuiArtist は処理中")
+				
 				# 停止
-				$"GuiArtist".get_tree().paused = true
-				# get_tree().paused = true
+				$"GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock/ChoiceCursor".set_process(false)
+				
 			else:
+				print("［ディレクター］　GuiArtist は処理中ではない")
+				
 				# 再開
-				$"GuiArtist".get_tree().paused = false
-				# get_tree().paused = false
+				$"GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock/ChoiceCursor".set_process(true)
 
 			#	子要素には渡しません
 			return
