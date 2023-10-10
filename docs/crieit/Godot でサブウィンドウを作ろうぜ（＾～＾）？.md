@@ -464,7 +464,17 @@ func set_visible_subtree(is_visible):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　背景を残して、それ以外を非表示にしたぜ」  
 
+## 中央メッセージ・ウィンドウを表示してくれだぜ
+
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
-「　次は　中央ビューイング・ウィンドウを表示してくれだぜ」  
+「　続けて　中央メッセージ・ウィンドウを表示してくれだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`cwnd` って命令を前に作ってたよな。あれを `v-wnd` に名前を変えようかな」  
+
+![202310__godot__10-2320--ViewingWindow.png](https://crieit.now.sh/upload_images/b41f755f324be679a46c649ad0c5f74865255dd17107b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　あっ、これは　ビューイング・ウィンドウだ。間違えた」  
 
 .
