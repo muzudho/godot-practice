@@ -125,18 +125,14 @@ func parse_message(temp_text):
 			# 選択肢かどうか判定
 			elif second_head.begins_with("choice:"):
 				$"Choice".do_it(second_head)
-			
-			# ビューイング・ウィンドウの表示／非表示
-			elif second_head.begins_with("v-wnd:"):
-				$"VWnd".do_it(second_head)
 				
 			# 次の段落へ飛ぶ
 			elif second_head.begins_with("goto:"):
 				$"Goto".do_it(second_head, self.play_paragraph)
 
 			# メッセージ出力先ウィンドウ変更
-			elif second_head.begins_with("msg:"):
-				$"Msg".do_it(second_head, self.redirect_concrete_message_window_by_name)
+			elif second_head.begins_with("m-wnd:"):
+				$"MWnd".do_it(second_head, self.redirect_concrete_message_window_by_name)
 
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
@@ -149,6 +145,10 @@ func parse_message(temp_text):
 			# 効果音
 			elif second_head.begins_with("se:"):
 				$"Se".do_it(second_head)
+			
+			# ビューイング・ウィンドウの表示／非表示
+			elif second_head.begins_with("v-wnd:"):
+				$"VWnd".do_it(second_head)
 
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)

@@ -600,13 +600,10 @@ script = ExtResource("21_dqion")
 [node name="Choice" type="Node" parent="AssistantDirector"]
 script = ExtResource("22_cj5lk")
 
-[node name="VWnd" type="Node" parent="AssistantDirector"]
-script = ExtResource("23_5s8w2")
-
 [node name="Goto" type="Node" parent="AssistantDirector"]
 script = ExtResource("24_envpd")
 
-[node name="Msg" type="Node" parent="AssistantDirector"]
+[node name="MWnd" type="Node" parent="AssistantDirector"]
 script = ExtResource("23_a7vfu")
 
 [node name="Quit" type="Node" parent="AssistantDirector"]
@@ -623,3 +620,6 @@ script = ExtResource("27_1um3d")
 
 [node name="NormalTextChoice" type="Node" parent="AssistantDirector"]
 script = ExtResource("27_punsk")
+
+[node name="VWnd" type="Node" parent="AssistantDirector"]
+script = ExtResource("23_5s8w2")
