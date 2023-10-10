@@ -141,14 +141,13 @@ func parse_message(temp_text):
 		return
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
-	$"NormalText".do_it(
-		temp_text,
-		self.set_message_window_waiting_for_order)
+	$"NormalText".do_it(temp_text)
 
 
 func _ready():
 	#	関数を渡す
 	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
+	$"NormalText".before_initialize(self.set_message_window_waiting_for_order)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

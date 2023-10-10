@@ -45,7 +45,7 @@ func redirect_concrete_message_window_by_name(node_name):
 	if self.concrete_message_window_name != null:
 		self.get_concrete_message_window().initialize()
 
-	print("［" + node_name + "］メッセージ・ウィンドウ　リダイレクト")
+	print("［" + node_name + "］メッセージ・ウィンドウへ　リダイレクト")
 	
 	# 新しいウィンドウ
 	self.concrete_message_window_name = node_name

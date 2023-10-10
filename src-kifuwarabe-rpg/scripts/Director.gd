@@ -80,6 +80,7 @@ func _unhandled_key_input(event):
 
 			#	［中央］メッセージ・ウィンドウを表示する
 			$"AssistantDirector/MWnd".redirect_message_window("中央")
+			$"AssistantDirector/NormalText".put_message("かいはつちゅう")
 			#	［中央］ビューイング・ウィンドウを表示する
 			# $"AssistantDirector/VWnd".show_viewing_window("中央", "将棋盤")
 
