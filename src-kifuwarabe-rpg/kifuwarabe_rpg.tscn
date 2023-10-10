@@ -578,7 +578,6 @@ position = Vector2(640, 360)
 texture = ExtResource("35_sw6cw")
 
 [node name="将棋盤" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
-visible = false
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("36_0psl7")
@@ -601,7 +600,7 @@ script = ExtResource("21_dqion")
 [node name="Choice" type="Node" parent="AssistantDirector"]
 script = ExtResource("22_cj5lk")
 
-[node name="Cwnd" type="Node" parent="AssistantDirector"]
+[node name="VWnd" type="Node" parent="AssistantDirector"]
 script = ExtResource("23_5s8w2")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]

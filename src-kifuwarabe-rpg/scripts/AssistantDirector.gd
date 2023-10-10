@@ -126,9 +126,9 @@ func parse_message(temp_text):
 			elif second_head.begins_with("choice:"):
 				$"Choice".do_it(second_head)
 			
-			# 中央ビューイング・ウィンドウの表示／非表示
-			elif second_head.begins_with("cwnd:"):
-				$"Cwnd".do_it(second_head)
+			# ビューイング・ウィンドウの表示／非表示
+			elif second_head.begins_with("v-wnd:"):
+				$"VWnd".do_it(second_head)
 				
 			# 次の段落へ飛ぶ
 			elif second_head.begins_with("goto:"):
