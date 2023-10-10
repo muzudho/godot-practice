@@ -990,4 +990,16 @@ var document = {
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　これから寝る」  
 
+# ⏰ 同日 21:53
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　疲れた」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　システム・メニューを出す続きをやってくれだぜ」  
+
+### 再掲：　Godot でサブウィンドウを作ろうぜ（＾～＾）？
+
+📖　[Godot でサブウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-65223ea29da40)  
+
 .

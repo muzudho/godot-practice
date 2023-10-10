@@ -86,6 +86,20 @@ func set_process_subtree(is_process):
 		#	子ノード無し
 
 
+#	サブツリーの visible を設定
+func set_visible_subtree(is_visible):
+	print("［チョイス・カーソル］　可視性：" + str(is_visible))
+
+	#	見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
+	#	隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
+	#	見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
+	#	隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
+	if is_visible != self.visible:
+		self.visible = is_visible
+
+		#	子ノード無し
+
+
 #	カーソルが上に移動します
 func on_cursor_up(target_index):
 	#	効果音鳴らす

@@ -58,7 +58,7 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
 			
-			#	TODO ポーズ
+			#	ポーズ
 			#		とりあえず、ウィンドウを止めてみる
 			#		is_processing は、初回は false
 			if $"GuiArtist/WindowsOfMessage".is_processing():
@@ -72,6 +72,14 @@ func _unhandled_key_input(event):
 				
 				#	再開
 				$"GuiArtist/WindowsOfMessage".set_process_subtree(true)
+
+			#	表示中の［下］ウィンドウを隠す
+			if $"GuiArtist/WindowsOfMessage/下".visible:
+				$"GuiArtist/WindowsOfMessage/下".set_visible_subtree(false)
+
+			#	［中央］ウィンドウを表示する
+			if $"GuiArtist/WindowsOfMessage/中央".visible:
+				$"GuiArtist/WindowsOfMessage/中央".set_visible_subtree(true)
 
 			#	子要素には渡しません
 			return
