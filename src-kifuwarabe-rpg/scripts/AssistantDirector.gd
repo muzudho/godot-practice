@@ -50,31 +50,6 @@ func on_choice_selected(row_number):
 	self.play_paragraph(next_paragraph_name)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
-		
-	# 再生中
-	if self.statemachine.is_playing():
-		
-		# メッセージウィンドウが指示待ちか？
-		if is_message_window_waiting_for_order:
-			
-			# まだあるよ
-			if 0 < self.scenario_array.size():
-			
-				# 次に表示するべきメッセージを取得
-				var latest_message = self.scenario_array.pop_front()
-
-				# TODO ここで、命令と、台詞に分解したい
-				self.parse_message(latest_message)
-
-			# もう無いよ
-			else:
-				if not $"../GuiArtist/WindowsOfMessage".statemachine.is_none():
-					# メッセージ・ウィンドウを閉じる
-					$"../GuiArtist/WindowsOfMessage".initialize()
-
-
 #	先頭行と、それ以外に分けます。できなければヌル
 func split_head_line_or_tail(text):
 	# 最初の改行を見つける
@@ -132,7 +107,7 @@ func parse_message(temp_text):
 
 			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("m-wnd:"):
-				$"MWnd".do_it(second_head, self.redirect_concrete_message_window_by_name)
+				$"MWnd".do_it(second_head)
 
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
@@ -169,3 +144,33 @@ func parse_message(temp_text):
 	$"NormalText".do_it(
 		temp_text,
 		self.set_message_window_waiting_for_order)
+
+
+func _ready():
+	#	関数を渡す
+	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta):
+		
+	# 再生中
+	if self.statemachine.is_playing():
+		
+		# メッセージウィンドウが指示待ちか？
+		if is_message_window_waiting_for_order:
+			
+			# まだあるよ
+			if 0 < self.scenario_array.size():
+			
+				# 次に表示するべきメッセージを取得
+				var latest_message = self.scenario_array.pop_front()
+
+				# TODO ここで、命令と、台詞に分解したい
+				self.parse_message(latest_message)
+
+			# もう無いよ
+			else:
+				if not $"../GuiArtist/WindowsOfMessage".statemachine.is_none():
+					# メッセージ・ウィンドウを閉じる
+					$"../GuiArtist/WindowsOfMessage".initialize()

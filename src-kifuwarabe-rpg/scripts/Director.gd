@@ -78,19 +78,10 @@ func _unhandled_key_input(event):
 				$"GuiArtist/WindowsOfMessage/下".set_visible_subtree(false)
 
 
+			#	［中央］メッセージ・ウィンドウを表示する
+			$"AssistantDirector/MWnd".redirect_message_window("中央")
 			#	［中央］ビューイング・ウィンドウを表示する
-			$"AssistantDirector/VWnd".show_viewing_window("中央", "将棋盤")
-			##	［中央］ビューイング・ウィンドウを処理中にする
-			#print("［ディレクター］　中央ビューイング・ウィンドウは処理中：" + str($"GuiArtist/WindowsOfMessage/中央".is_processing()))
-			#if not $"GuiArtist/WindowsOfMessage/中央".is_processing():
-			#	$"GuiArtist/WindowsOfMessage/中央".set_process_subtree(true)
-			#print("［ディレクター］　中央ビューイング・ウィンドウは処理中：" + str($"GuiArtist/WindowsOfMessage/中央".is_processing()))
-			#
-			##	［中央］ビューイング・ウィンドウを表示する
-			#print("［ディレクター］　中央ビューイング・ウィンドウの可視性：" + str($"GuiArtist/WindowsOfMessage/中央".visible))
-			#if not $"GuiArtist/WindowsOfMessage/中央".visible:
-			#	$"GuiArtist/WindowsOfMessage/中央".set_visible_subtree(true)
-			#print("［ディレクター］　中央ビューイング・ウィンドウの可視性：" + str($"GuiArtist/WindowsOfMessage/中央".visible))
+			# $"AssistantDirector/VWnd".show_viewing_window("中央", "将棋盤")
 
 
 			#	現在表示中のシーンを非表示にする
