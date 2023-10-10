@@ -78,8 +78,10 @@ func _unhandled_key_input(event):
 				$"GuiArtist/WindowsOfMessage/下".set_visible_subtree(false)
 
 			#	［中央］ウィンドウを表示する
+			print("［ディレクター］　中央ビューイング・ウィンドウの可視性：" + str($"GuiArtist/WindowsOfMessage/中央".visible))
 			if not $"GuiArtist/WindowsOfMessage/中央".visible:
 				$"GuiArtist/WindowsOfMessage/中央".set_visible_subtree(true)
+			print("［ディレクター］　中央ビューイング・ウィンドウの可視性：" + str($"GuiArtist/WindowsOfMessage/中央".visible))
 
 			#	現在表示中のシーンを非表示にする
 			$"LocationCoordinator".hide_current_scene()

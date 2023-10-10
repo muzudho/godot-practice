@@ -185,7 +185,6 @@ stream = ExtResource("28_1r0xx")
 volume_db = -10.0
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
-visible = false
 script = ExtResource("10_03wut")
 
 [node name="イベントルーム" type="Sprite2D" parent="BackgroundArtist"]
@@ -520,14 +519,12 @@ label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("34_0fjc7")
 
 [node name="中央" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
-visible = false
 z_index = 10
 position = Vector2(640, 360)
 texture = ExtResource("34_wja0x")
 script = ExtResource("30_bblis")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage/中央"]
-visible = false
 
 [node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer"]
 offset_left = 510.0

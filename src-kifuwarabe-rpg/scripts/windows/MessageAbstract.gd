@@ -1,4 +1,6 @@
 #	アブストラクト・メッセージ・ウィンドウ（Abstract Message Window；抽象的な伝言窓）
+#
+#		このノードは常に visible にしておいてください
 extends Node2D
 
 
@@ -48,8 +50,7 @@ func redirect_concrete_message_window_by_name(node_name):
 	# 新しいウィンドウ
 	self.concrete_message_window_name = node_name
 	
-	# ステートマシーンを、子にも参照させる
-	self.get_concrete_message_window().before_initialize(self.statemachine)
+	# 初期化
 	self.get_concrete_message_window().initialize()
 
 
@@ -90,7 +91,6 @@ func push_message(text):
 	self.emptize()
 
 	#	表示
-	self.show()
 	self.get_concrete_message_window().show()
 	self.get_concrete_message_window().get_node("CanvasLayer").show()
 
@@ -109,7 +109,6 @@ func push_choices(row_numbers, text):
 	self.emptize()
 
 	#	表示
-	self.show()
 	self.show_choice_cursor()
 	self.get_concrete_message_window().show()
 	self.get_concrete_message_window().get_node("CanvasLayer").show()
@@ -200,3 +199,12 @@ func on_unhandled_key_input(event):
 				
 				#	ページ送り
 				self.on_page_forward()
+
+
+func _ready():
+	# このノードは常に visible にしておいてください
+	self.show()
+
+	#	全ての子どもにステートマシンを渡す
+	for concrete_message_window in self.get_children():
+		concrete_message_window.before_initialize(self.statemachine)

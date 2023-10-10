@@ -430,4 +430,41 @@ func hide_window():
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
+# 📅 (2023-10-10 tue) 再開
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　エスケープ・キーを押したら　一時停止する機能は実装してきたぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　じゃあ　ついでに　現在表示しているメッセージ・ウィンドウも非表示にしてくれだぜ」  
+
+```gd
+#	サブツリーの visible を設定
+func set_visible_subtree(is_visible):
+	print("［チョイス・カーソル］　可視性：" + str(is_visible))
+
+	#	見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
+	#	隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
+	#	見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
+	#	隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
+	if is_visible != self.visible:
+		self.visible = is_visible
+
+		#	子ノード
+		for child in self.get_children():
+			if child.has_method("set_visible_subtree"):
+				child.set_visible_subtree(is_visible)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな感じのメソッドを　ノードに持たせていくかだぜ」  
+
+![202310__godot__10-2243--ElaseWindow.png](https://crieit.now.sh/upload_images/1792fd6fef152781225792a8aeeff1d8652555429b1c4.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　背景を残して、それ以外を非表示にしたぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　次は　中央ビューイング・ウィンドウを表示してくれだぜ」  
+
 .
