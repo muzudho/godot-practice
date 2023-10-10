@@ -488,4 +488,26 @@ func set_visible_subtree(is_visible):
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　じゃあ　そこに　選択肢を表示してくれだぜ。　再開と　続行でいいかな」  
 
+![202310__godot__10-2355--Choice.png](https://crieit.now.sh/upload_images/644f88be50b6e0f152a5367ca49d38ce6525661ae4648.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　枠のサイズが　なんか余ったな」  
+
+## 復帰処理
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　じゃあ　そこで　エスケープ・キーを押したら　元の状態に戻してくれだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　元の状態を保存してないから　難しいなあ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　何を消したか　覚えておくしかなくない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　それか、何も消さず　背景の後ろに隠しておくかだな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　Godot での `z-index` の処理は　分けが分からないのではなかったか？」  
+
 .

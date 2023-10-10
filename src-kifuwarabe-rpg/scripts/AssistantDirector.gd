@@ -133,11 +133,7 @@ func parse_message(temp_text):
 
 	# 選択肢だ
 	if $"Choice".choice_row_number_array != null:
-		$"NormalTextChoice".do_it(
-			temp_text,
-			$"Choice".get_choice_row_number_array,
-			$"Choice".set_choice_row_number_array,
-			self.set_message_window_waiting_for_order)
+		$"NormalTextChoice".do_it(temp_text)
 		return
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
@@ -148,6 +144,10 @@ func _ready():
 	#	関数を渡す
 	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
 	$"NormalText".before_initialize(self.set_message_window_waiting_for_order)
+	$"NormalTextChoice".before_initialize(
+		$"Choice".get_choice_row_number_array,
+		$"Choice".set_choice_row_number_array,
+		self.set_message_window_waiting_for_order)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
