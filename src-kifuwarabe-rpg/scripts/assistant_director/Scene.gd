@@ -10,6 +10,6 @@ func do_it(line):
 	print("［シーン］　名前：[" + node_name + "]")
 
 	if node_name == "":
-		$"../../LocationCoordinator".hide_scene()
+		$"../../LocationCoordinator".hide_current_scene()
 	else:
 		$"../../LocationCoordinator".show_scene(node_name)

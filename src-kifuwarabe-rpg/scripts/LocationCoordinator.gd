@@ -20,8 +20,8 @@ func show_scene(node_name):
 	self.get_node(self.current_name).show()
 
 
-#	シーンを非表示にする
-func hide_scene():
+#	現在表示中のシーンがあれば、非表示にする
+func hide_current_scene():
 	if 	self.current_name == null:
 		return
 

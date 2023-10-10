@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dg14jpqrl5ard"]
+[gd_scene load_steps=55 format=3 uid="uid://dg14jpqrl5ard"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="14_xhnqt"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/LocationCoordinator.gd" id="15_ajtoo"]
+[ext_resource type="Script" path="res://scripts/ConcreteLocation.gd" id="17_ibqgx"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bg.gd" id="20_qxivy"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Bgm.gd" id="21_dqion"]
 [ext_resource type="Script" path="res://scripts/assistant_director/Choice.gd" id="22_cj5lk"]
@@ -213,6 +214,7 @@ script = ExtResource("15_ajtoo")
 
 [node name="タイトル" type="CanvasLayer" parent="LocationCoordinator"]
 visible = false
+script = ExtResource("17_ibqgx")
 
 [node name="きふわらべRPG" type="Label" parent="LocationCoordinator/タイトル"]
 anchors_preset = 8
@@ -250,6 +252,7 @@ vertical_alignment = 1
 
 [node name="エンディング" type="CanvasLayer" parent="LocationCoordinator"]
 visible = false
+script = ExtResource("17_ibqgx")
 
 [node name="エンドロール" type="Label" parent="LocationCoordinator/エンディング"]
 anchors_preset = 8
@@ -298,6 +301,7 @@ vertical_alignment = 1
 
 [node name="崎川駅周辺地図" type="CanvasLayer" parent="LocationCoordinator"]
 visible = false
+script = ExtResource("17_ibqgx")
 
 [node name="NR崎川駅" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
 anchors_preset = 8
