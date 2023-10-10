@@ -5,8 +5,14 @@ extends Node
 #	それをする
 func do_it(line):
 
-	var node_name = line.substr(6).strip_edges()
-	print("［ビューイング・ウィンドウ］　名前：[" + node_name + "]")
+	var csv = line.substr(6).strip_edges()
+	var string_packed_array = csv.split(",", true, 0)
+
+	#	現状、常に　”中央”　が入っている想定
+	var position = string_packed_array[0]
+	
+	var node_name = string_packed_array[1]
+	print("［ビューイング・ウィンドウ］　配置：[" + position + "]　ノード名：[" + node_name + "]")
 
 	if node_name == "":
 		$"../../GuiArtist/WindowsOfViewing".hide_window()
