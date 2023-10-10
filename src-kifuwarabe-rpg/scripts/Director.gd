@@ -59,29 +59,37 @@ func _unhandled_key_input(event):
 			print("［ディレクター］　エスケープ・キーが押された")
 			
 			#	ポーズ
-			#		とりあえず、ウィンドウを止めてみる
+			#		とりあえず、［下］メッセージ・ウィンドウを止めてみる
 			#		is_processing は、初回は false
-			if $"GuiArtist/WindowsOfMessage".is_processing():
+			if $"GuiArtist/WindowsOfMessage/下".is_processing():
 				print("［ディレクター］　GuiArtist は処理中")
 				
 				#	停止
-				$"GuiArtist/WindowsOfMessage".set_process_subtree(false)
+				$"GuiArtist/WindowsOfMessage/下".set_process_subtree(false)
 				
 			else:
 				print("［ディレクター］　GuiArtist は処理中ではない")
 				
 				#	再開
-				$"GuiArtist/WindowsOfMessage".set_process_subtree(true)
+				$"GuiArtist/WindowsOfMessage/下".set_process_subtree(true)
 
 			#	表示中の［下］ウィンドウを隠す
 			if $"GuiArtist/WindowsOfMessage/下".visible:
 				$"GuiArtist/WindowsOfMessage/下".set_visible_subtree(false)
 
-			#	［中央］ウィンドウを表示する
+
+			#	［中央］ビューイング・ウィンドウを処理中にする
+			print("［ディレクター］　中央ビューイング・ウィンドウは処理中：" + str($"GuiArtist/WindowsOfMessage/中央".is_processing()))
+			if not $"GuiArtist/WindowsOfMessage/中央".is_processing():
+				$"GuiArtist/WindowsOfMessage/中央".set_process_subtree(true)
+			print("［ディレクター］　中央ビューイング・ウィンドウは処理中：" + str($"GuiArtist/WindowsOfMessage/中央".is_processing()))
+			
+			#	［中央］ビューイング・ウィンドウを表示する
 			print("［ディレクター］　中央ビューイング・ウィンドウの可視性：" + str($"GuiArtist/WindowsOfMessage/中央".visible))
 			if not $"GuiArtist/WindowsOfMessage/中央".visible:
 				$"GuiArtist/WindowsOfMessage/中央".set_visible_subtree(true)
 			print("［ディレクター］　中央ビューイング・ウィンドウの可視性：" + str($"GuiArtist/WindowsOfMessage/中央".visible))
+
 
 			#	現在表示中のシーンを非表示にする
 			$"LocationCoordinator".hide_current_scene()
