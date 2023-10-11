@@ -150,7 +150,7 @@ texture = ExtResource("26_fgfga")
 
 [node name="ScenarioWriter" type="Node" parent="."]
 
-[node name="VisualNovelBook" type="Node" parent="ScenarioWriter"]
+[node name="VisualNovelDepartment" type="Node" parent="ScenarioWriter"]
 script = ExtResource("2_be741")
 
 [node name="Musician" type="Node" parent="."]

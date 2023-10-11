@@ -24,7 +24,7 @@ func play_paragraph(paragraph_name):
 	
 	# シナリオ・ブックから、内容を取出す
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
-	self.scenario_array = $"../ScenarioWriter/VisualNovelBook".document[self.current_paragraph_name]
+	self.scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.current_paragraph_name]
 
 	# メッセージ・ウィンドウは、次の指示を待っています
 	self.is_message_window_waiting_for_order = true
@@ -44,7 +44,7 @@ func on_choice_selected(row_number):
 	print("［アシスタント・ディレクター］　選んだ選択肢行番号：" + str(row_number))
 
 	# 次の段落名
-	var next_paragraph_name = $"../ScenarioWriter/VisualNovelBook".index[self.current_paragraph_name][row_number]
+	var next_paragraph_name = $"../ScenarioWriter/VisualNovelDepartment".index[self.current_paragraph_name][row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
 	self.play_paragraph(next_paragraph_name)
