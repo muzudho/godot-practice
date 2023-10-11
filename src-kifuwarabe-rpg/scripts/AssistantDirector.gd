@@ -7,10 +7,12 @@ var statemachine = load("scripts/AssistantDirectorStatemachine.gd").new()
 # メッセージウィンドウが指示待ちか？
 var is_message_window_waiting_for_order = false
 
-# 現在実行中の段落名
-var current_paragraph_name = null
-
 var scenario_array = []
+
+
+# ビジュアル・ノベル部のこの瞬間の状態
+func get_visual_novel_department_snapshot():
+	return $"../System/Snapshots/VisualNovelDepartment"
 
 
 # メッセージウィンドウが指示待ちか？
@@ -20,11 +22,11 @@ func set_message_window_waiting_for_order(flag):
 
 # 台本の再生の開始の合図
 func play_paragraph(paragraph_name):
-	self.current_paragraph_name = paragraph_name
-	
+	self.get_visual_novel_department_snapshot().paragraph_name = paragraph_name
+
 	# シナリオ・ブックから、内容を取出す
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
-	self.scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.current_paragraph_name]
+	self.scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.get_visual_novel_department_snapshot().paragraph_name]
 
 	# メッセージ・ウィンドウは、次の指示を待っています
 	self.is_message_window_waiting_for_order = true
@@ -40,11 +42,11 @@ func redirect_concrete_message_window_by_name(node_name):
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
-	print("［アシスタント・ディレクター］　現在の段落名　　　：" + self.current_paragraph_name)
+	print("［アシスタント・ディレクター］　現在の段落名　　　：" + self.get_visual_novel_department_snapshot().paragraph_name)
 	print("［アシスタント・ディレクター］　選んだ選択肢行番号：" + str(row_number))
 
 	# 次の段落名
-	var next_paragraph_name = $"../ScenarioWriter/VisualNovelDepartment".index[self.current_paragraph_name][row_number]
+	var next_paragraph_name = $"../ScenarioWriter/VisualNovelDepartment".index[self.get_visual_novel_department_snapshot().paragraph_name][row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
 	self.play_paragraph(next_paragraph_name)
