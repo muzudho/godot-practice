@@ -4,3 +4,6 @@ extends Node
 
 # 段落名
 var paragraph_name = null
+
+# メッセージウィンドウが指示待ちか？
+var is_message_window_waiting_for_order = false

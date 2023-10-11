@@ -68,7 +68,7 @@ func show_choice_cursor():
 #	次の指示を待ちます
 func awaiting_order():
 	#	メッセージウィンドウは指示待ちだ
-	self.get_assistant_director().is_message_window_waiting_for_order = true
+	self.get_assistant_director().get_visual_novel_department_snapshot().is_message_window_waiting_for_order = true
 
 
 #	先頭行と、それ以外に分けます

@@ -1,11 +1,9 @@
 # アシスタント・ディレクター（Assistant Director；助監督）
 extends Node
 
+
 # 状態遷移機械
 var statemachine = load("scripts/AssistantDirectorStatemachine.gd").new()
-
-# メッセージウィンドウが指示待ちか？
-var is_message_window_waiting_for_order = false
 
 var scenario_array = []
 
@@ -17,7 +15,7 @@ func get_visual_novel_department_snapshot():
 
 # メッセージウィンドウが指示待ちか？
 func set_message_window_waiting_for_order(flag):
-	self.is_message_window_waiting_for_order = flag
+	self.get_visual_novel_department_snapshot().is_message_window_waiting_for_order = flag
 
 
 # 台本の再生の開始の合図
@@ -29,7 +27,7 @@ func play_paragraph(paragraph_name):
 	self.scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.get_visual_novel_department_snapshot().paragraph_name]
 
 	# メッセージ・ウィンドウは、次の指示を待っています
-	self.is_message_window_waiting_for_order = true
+	self.get_visual_novel_department_snapshot().is_message_window_waiting_for_order = true
 
 	# 再生中へ
 	self.statemachine.play()
@@ -159,7 +157,7 @@ func _process(_delta):
 	if self.statemachine.is_playing():
 		
 		# メッセージウィンドウが指示待ちか？
-		if is_message_window_waiting_for_order:
+		if self.get_visual_novel_department_snapshot().is_message_window_waiting_for_order:
 			
 			# まだあるよ
 			if 0 < self.scenario_array.size():
