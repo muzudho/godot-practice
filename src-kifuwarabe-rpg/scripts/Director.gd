@@ -3,14 +3,9 @@
 extends Node2D
 
 
-#	ビジュアル・ノベル部
-func get_visual_novel_department_manager():
-	return $"System/Managers/VisualNovelDepartment"
-
-
-#	システム・メニュー部
-func get_system_menu_department_manager():
-	return $"System/Managers/SystemMenuDepartment"
+#	部管理人
+func get_department_manager(node_name):
+	return $"System/Managers/".get_node(node_name)
 
 
 #	サブツリーが全てインスタンス化されたときに呼び出される
@@ -51,7 +46,7 @@ func _ready():
 
 
 	#	ビジュアル・ノベル部を表示する
-	self.get_visual_novel_department_manager().appear()
+	self.get_department_manager("VisualNovelDepartment").appear()
 
 
 	#	台本の再生の開始の合図
@@ -73,22 +68,22 @@ func _unhandled_key_input(event):
 			print("［ディレクター］　エスケープ・キーが押された")
 			
 			#	ビジュアル・ノベル部
-			if self.get_visual_novel_department_manager().is_appear:
+			if self.get_department_manager("VisualNovelDepartment").is_appear:
 				#	隠す
-				self.get_visual_novel_department_manager().disappear()
+				self.get_department_manager("VisualNovelDepartment").disappear()
 				
 			else:
 				#	表示する
-				self.get_visual_novel_department_manager().appear()
+				self.get_department_manager("VisualNovelDepartment").appear()
 			
 			#	システム・メニュー部
-			if self.get_system_menu_department_manager().is_appear:
+			if self.get_department_manager("SystemMenuDepartment").is_appear:
 				#	隠す
-				self.get_system_menu_department_manager().disappear()
+				self.get_department_manager("SystemMenuDepartment").disappear()
 				
 			else:
 				#	表示する
-				self.get_system_menu_department_manager().appear()
+				self.get_department_manager("SystemMenuDepartment").appear()
 
 			#	［中央］メッセージ・ウィンドウを表示する
 			$"AssistantDirector/MWnd".redirect_message_window("中央")
