@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://dg14jpqrl5ard"]
+[gd_scene load_steps=56 format=3 uid="uid://dg14jpqrl5ard"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -43,6 +43,7 @@
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/CenterWindow.png" id="35_sw6cw"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
+[ext_resource type="Script" path="res://scripts/snapshots/VisualNovelDepartment.gd" id="44_uxi6d"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -623,3 +624,10 @@ script = ExtResource("27_punsk")
 
 [node name="VWnd" type="Node" parent="AssistantDirector"]
 script = ExtResource("23_5s8w2")
+
+[node name="System" type="Node" parent="."]
+
+[node name="Snapshots" type="Node" parent="System"]
+
+[node name="VisualNovelDepartment" type="Node" parent="System/Snapshots"]
+script = ExtResource("44_uxi6d")
