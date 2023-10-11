@@ -3,6 +3,11 @@
 extends Node2D
 
 
+#	ビジュアル・ノベル部
+func get_visual_novel_department():
+	return $"System/Departments/VisualNovel"
+
+
 #	サブツリーが全てインスタンス化されたときに呼び出される
 #	Called when the node enters the scene tree for the first time.
 func _ready():
@@ -40,6 +45,10 @@ func _ready():
 		$"GuiArtist/WindowsOfMessage".set_process(true)
 
 
+	#	ビジュアル・ノベル部を表示する
+	self.get_visual_novel_department().appear()
+
+
 	#	台本の再生の開始の合図
 	$"./AssistantDirector".play_paragraph("タイトル画面")
 
@@ -58,27 +67,15 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
 			
-			# TODO VisualNovelDepartment を止めたい
 			
-			#	ポーズ
-			#		とりあえず、［下］メッセージ・ウィンドウを止めてみる
-			#		is_processing は、初回は false
-			if $"GuiArtist/WindowsOfMessage/下".is_processing():
-				print("［ディレクター］　GuiArtist は処理中")
-				
-				#	停止
-				$"GuiArtist/WindowsOfMessage/下".set_process_subtree(false)
+			if self.get_visual_novel_department().is_appear:
+				# ビジュアル・ノベル部を隠す
+				self.get_visual_novel_department().disappear()
 				
 			else:
-				print("［ディレクター］　GuiArtist は処理中ではない")
-				
-				#	再開
-				$"GuiArtist/WindowsOfMessage/下".set_process_subtree(true)
-
-			#	表示中の［下］ウィンドウを隠す
-			if $"GuiArtist/WindowsOfMessage/下".visible:
-				$"GuiArtist/WindowsOfMessage/下".set_visible_subtree(false)
-
+				# ビジュアル・ノベル部を表示する
+				self.get_visual_novel_department().appear()
+			
 
 			#	［中央］メッセージ・ウィンドウを表示する
 			$"AssistantDirector/MWnd".redirect_message_window("中央")
