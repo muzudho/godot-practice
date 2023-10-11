@@ -11,6 +11,9 @@ var is_message_window_waiting_for_order = false
 # メッセージが入っている
 var scenario_array = []
 
+#	現在表示中の場所のノード名
+var location_node_name = null
+
 
 # メッセージウィンドウが指示待ちか？
 func set_message_window_waiting_for_order(flag):
