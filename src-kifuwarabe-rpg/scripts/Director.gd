@@ -71,10 +71,16 @@ func _unhandled_key_input(event):
 			if self.get_visual_novel_department_manager().is_appear:
 				# ビジュアル・ノベル部を隠す
 				self.get_visual_novel_department_manager().disappear()
+
+				#	現在表示中のシーンを非表示にする
+				$"LocationCoordinator".hide_current_location("VisualNovelDepartment")
 				
 			else:
 				# ビジュアル・ノベル部を表示する
 				self.get_visual_novel_department_manager().appear()
+
+				#	現在非表示中のシーンを表示する
+				$"LocationCoordinator".show_current_location("VisualNovelDepartment")
 			
 
 			#	［中央］メッセージ・ウィンドウを表示する
@@ -88,10 +94,6 @@ func _unhandled_key_input(event):
 
 			#	［中央］ビューイング・ウィンドウを表示する
 			# $"AssistantDirector/VWnd".show_viewing_window("中央", "将棋盤")
-
-
-			#	現在表示中のシーンを非表示にする
-			$"LocationCoordinator".hide_current_scene()
 
 			#	子要素には渡しません
 			return

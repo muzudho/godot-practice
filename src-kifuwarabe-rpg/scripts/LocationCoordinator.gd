@@ -7,8 +7,8 @@ func get_snapshot(department_node_name):
 	return $"../System/Snapshots".get_node(department_node_name)
 
 
-#	シーンを切り替える
-func move_scene(department_node_name, new_location_node_name):
+#	場所を替える
+func move_location(department_node_name, new_location_node_name):
 	print("［ロケーション・コーディネーター］　切替：[" + new_location_node_name + "]")
 
 	#	変数名を短くする
@@ -28,7 +28,7 @@ func move_scene(department_node_name, new_location_node_name):
 
 
 #	場所が非表示中なら、表示にする
-func show_current_scene(department_node_name):
+func show_current_location(department_node_name):
 	#	変数名を短くする
 	var current_location_node_name = self.get_snapshot(department_node_name).location_node_name
 
@@ -40,7 +40,7 @@ func show_current_scene(department_node_name):
 
 
 #	場所が表示中なら、非表示にする
-func hide_current_scene(department_node_name):
+func hide_current_location(department_node_name):
 	#	変数名を短くする
 	var current_location_node_name = self.get_snapshot(department_node_name).location_node_name
 
