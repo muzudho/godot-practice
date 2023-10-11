@@ -10,3 +10,8 @@ var is_message_window_waiting_for_order = false
 
 # メッセージが入っている
 var scenario_array = []
+
+
+# メッセージウィンドウが指示待ちか？
+func set_message_window_waiting_for_order(flag):
+	self.is_message_window_waiting_for_order = flag

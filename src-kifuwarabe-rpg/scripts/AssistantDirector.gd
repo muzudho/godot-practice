@@ -11,11 +11,6 @@ func get_visual_novel_department_snapshot():
 	return $"../System/Snapshots/VisualNovelDepartment"
 
 
-# メッセージウィンドウが指示待ちか？
-func set_message_window_waiting_for_order(flag):
-	self.get_visual_novel_department_snapshot().is_message_window_waiting_for_order = flag
-
-
 # 台本の再生の開始の合図
 func play_paragraph(paragraph_name):
 	self.get_visual_novel_department_snapshot().paragraph_name = paragraph_name
@@ -141,11 +136,11 @@ func parse_message(temp_text):
 func _ready():
 	#	関数を渡す
 	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
-	$"NormalText".before_initialize(self.set_message_window_waiting_for_order)
+	$"NormalText".before_initialize(self.get_visual_novel_department_snapshot().set_message_window_waiting_for_order)
 	$"NormalTextChoice".before_initialize(
 		$"Choice".get_choice_row_number_array,
 		$"Choice".set_choice_row_number_array,
-		self.set_message_window_waiting_for_order)
+		self.get_visual_novel_department_snapshot().set_message_window_waiting_for_order)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
