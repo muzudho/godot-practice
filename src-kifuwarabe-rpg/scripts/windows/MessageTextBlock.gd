@@ -110,7 +110,7 @@ func set_process_subtree(is_process):
 
 #	サブツリーの visible を設定
 func set_visible_subtree(is_visible):
-	print("［チョイス・カーソル］　可視性：" + str(is_visible))
+	print("［テキストブロック］　可視性：" + str(is_visible))
 
 	#	見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	#	隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。

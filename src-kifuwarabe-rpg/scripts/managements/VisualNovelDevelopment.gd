@@ -36,6 +36,7 @@ func appear():
 	#	表示中の［下］メッセージ・ウィンドウを表示する
 	if not self.get_message_window("下").visible:
 		self.get_message_window("下").set_visible_subtree(true)
+		# TODO 最後に表示していた途中のメッセージを追加しないと、ウィンドウは表示されない？
 
 	#	再開
 	if not self.get_message_window("下").is_processing():
