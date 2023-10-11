@@ -1002,4 +1002,16 @@ var document = {
 
 📖　[Godot でサブウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-65223ea29da40)  
 
+# 📅 (2023-10-11 wed) まだサブ・ウィンドウ
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　はー、難しすぎるなー」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　まだ続きだぜ」  
+
+### 再掲：　Godot でサブウィンドウを作ろうぜ（＾～＾）？
+
+📖　[Godot でサブウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-65223ea29da40)  
+
 .
