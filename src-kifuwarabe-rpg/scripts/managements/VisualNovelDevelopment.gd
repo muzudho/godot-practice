@@ -8,12 +8,13 @@ var is_appear = false
 func get_message_window(node_name):
 	return $"../../../GuiArtist/WindowsOfMessage".get_node(node_name)
 
+
 #	居なくなる
 func disappear():
-	print("［ビジュアル・ノベル部］　隠す")
+	print("［ビジュアル・ノベル部管理人］　隠す")
 	is_appear = false
 	
-	#	表示中の［下］ウィンドウを隠す
+	#	表示中の［下］メッセージ・ウィンドウを隠す
 	if self.get_message_window("下").visible:
 		self.get_message_window("下").set_visible_subtree(false)
 
@@ -23,16 +24,16 @@ func disappear():
 	if self.get_message_window("下").is_processing():
 		self.get_message_window("下").set_process_subtree(false)
 		
-	#	現在表示中のシーンを非表示にする
+	#	場所が表示中なら、非表示にする
 	$"../../../LocationCoordinator".hide_current_location(str(self.name))
 
 
 #	現れる
 func appear():
-	print("［ビジュアル・ノベル部］　表示")
+	print("［ビジュアル・ノベル部管理人］　表示")
 	is_appear = true
 
-	#	表示中の［下］ウィンドウを表示する
+	#	表示中の［下］メッセージ・ウィンドウを表示する
 	if not self.get_message_window("下").visible:
 		self.get_message_window("下").set_visible_subtree(true)
 
@@ -40,5 +41,5 @@ func appear():
 	if not self.get_message_window("下").is_processing():
 		self.get_message_window("下").set_process_subtree(true)
 
-	#	現在非表示中のシーンを表示する
+	#	場所が非表示中なら、表示する
 	$"../../../LocationCoordinator".show_current_location(str(self.name))

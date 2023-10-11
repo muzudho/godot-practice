@@ -8,6 +8,11 @@ func get_visual_novel_department_manager():
 	return $"System/Managers/VisualNovelDepartment"
 
 
+#	システム・メニュー部
+func get_system_menu_department_manager():
+	return $"System/Managers/SystemMenuDepartment"
+
+
 #	サブツリーが全てインスタンス化されたときに呼び出される
 #	Called when the node enters the scene tree for the first time.
 func _ready():
@@ -67,15 +72,23 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
 			
-			
+			#	ビジュアル・ノベル部
 			if self.get_visual_novel_department_manager().is_appear:
-				# ビジュアル・ノベル部を隠す
+				#	隠す
 				self.get_visual_novel_department_manager().disappear()
 				
 			else:
-				# ビジュアル・ノベル部を表示する
+				#	表示する
 				self.get_visual_novel_department_manager().appear()
 			
+			#	システム・メニュー部
+			if self.get_system_menu_department_manager().is_appear:
+				#	隠す
+				self.get_system_menu_department_manager().disappear()
+				
+			else:
+				#	表示する
+				self.get_system_menu_department_manager().appear()
 
 			#	［中央］メッセージ・ウィンドウを表示する
 			$"AssistantDirector/MWnd".redirect_message_window("中央")

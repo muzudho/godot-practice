@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://dg14jpqrl5ard"]
+[gd_scene load_steps=58 format=3 uid="uid://dg14jpqrl5ard"]
 
 [ext_resource type="Script" path="res://scripts/Director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/ScenarioBook.gd" id="2_be741"]
@@ -43,8 +43,9 @@
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/CenterWindow.png" id="35_sw6cw"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
-[ext_resource type="Script" path="res://scripts/departments/VisualNovel.gd" id="44_dt0o4"]
+[ext_resource type="Script" path="res://scripts/managements/VisualNovelDevelopment.gd" id="44_k7233"]
 [ext_resource type="Script" path="res://scripts/snapshots/VisualNovelDepartment.gd" id="44_uxi6d"]
+[ext_resource type="Script" path="res://scripts/managements/SystemMenuDepartment.gd" id="45_eu2ok"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -631,7 +632,10 @@ script = ExtResource("23_5s8w2")
 [node name="Managers" type="Node" parent="System"]
 
 [node name="VisualNovelDepartment" type="Node" parent="System/Managers"]
-script = ExtResource("44_dt0o4")
+script = ExtResource("44_k7233")
+
+[node name="SystemMenuDepartment" type="Node" parent="System/Managers"]
+script = ExtResource("45_eu2ok")
 
 [node name="Snapshots" type="Node" parent="System"]
 
