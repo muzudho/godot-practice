@@ -8,8 +8,4 @@ func do_it(line):
 
 	var location_node_name = line.substr(6).strip_edges()
 	print("［シーン］　名前：[" + location_node_name + "]")
-
-	if location_node_name == "":
-		$"../../LocationCoordinator".hide_current_scene("VisualNovelDepartment")
-	else:
-		$"../../LocationCoordinator".show_scene("VisualNovelDepartment", location_node_name)
+	$"../../LocationCoordinator".move_scene("VisualNovelDepartment", location_node_name)

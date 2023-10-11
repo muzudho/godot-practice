@@ -7,24 +7,50 @@ func get_snapshot(department_node_name):
 	return $"../System/Snapshots".get_node(department_node_name)
 
 
-#	シーンを表示する
-func show_scene(department_node_name, location_node_name):
-	print("［ロケーション・コーディネーター］　表示：[" + location_node_name + "]")
+#	シーンを切り替える
+func move_scene(department_node_name, new_location_node_name):
+	print("［ロケーション・コーディネーター］　切替：[" + new_location_node_name + "]")
+
+	#	変数名を短くする
+	var old_location_node_name = self.get_snapshot(department_node_name).location_node_name
+	
 
 	#	既に表示中の画像を非表示にする（上に乗っかっていて、表示したい絵が見えないケースがある）
-	if self.get_snapshot(department_node_name).location_node_name != null:
-		$"Images".get_node(self.get_snapshot(department_node_name).location_node_name).hide()
+	if old_location_node_name != "":
+		self.get_node(old_location_node_name).hide()
 
-	self.get_snapshot(department_node_name).location_node_name = location_node_name
-	self.visible = true
-	self.get_node(self.get_snapshot(department_node_name).location_node_name).show()
+	#	記憶
+	self.get_snapshot(department_node_name).location_node_name = new_location_node_name
+
+	#	表示
+	if new_location_node_name != "":
+		self.get_node(new_location_node_name).show()
 
 
-#	現在表示中のシーンがあれば、非表示にする
-func hide_current_scene(department_node_name):
-	if self.get_snapshot(department_node_name).location_node_name == null:
+#	場所が非表示中なら、表示にする
+func show_current_scene(department_node_name):
+	#	変数名を短くする
+	var current_location_node_name = self.get_snapshot(department_node_name).location_node_name
+
+	if current_location_node_name == "":
 		return
 
-	print("［ロケーション・コーディネーター］　非表示：[" + str(self.get_snapshot(department_node_name).location_node_name) + "]")
-	self.get_node(self.get_snapshot(department_node_name).location_node_name).hide()
-	self.get_snapshot(department_node_name).location_node_name = null
+	print("［ロケーション・コーディネーター］　表示：[" + str(current_location_node_name) + "]")
+	self.get_node(current_location_node_name).show()
+
+
+#	場所が表示中なら、非表示にする
+func hide_current_scene(department_node_name):
+	#	変数名を短くする
+	var current_location_node_name = self.get_snapshot(department_node_name).location_node_name
+
+	if current_location_node_name == "":
+		return
+
+	print("［ロケーション・コーディネーター］　非表示：[" + str(current_location_node_name) + "]")
+	self.get_node(current_location_node_name).hide()
+
+
+func _ready():
+	#	自分自身は常に可視
+	self.show()
