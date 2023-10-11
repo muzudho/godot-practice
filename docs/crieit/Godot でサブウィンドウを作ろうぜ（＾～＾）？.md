@@ -555,8 +555,25 @@ func set_visible_subtree(is_visible):
 「　デパートメント（Department；部）で　いいんじゃない？」  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　それだ！  
+「　それだぜ！  
 ビジュアル・ノベル・デパートメント、　バトル・デパートメント、　システム・メニュー・デパートメント、  
 これで行こう」  
+
+## ビジュアル・ノベル・デパートメント
+
+![202310__godot__11-2022--VisualNovelDepartment-o2o0.png](https://crieit.now.sh/upload_images/090f9c7aa2ca6206b751cd8f9b06551e652685a853463.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　シナリオを書くというのは、  
+`VisualNovelDepartment` のスナップショットを変更することだと、  
+そういう概念にしてしまおう」  
+
+![202310__godot__11-2102--VisualNovelDepartment-o2o0.png](https://crieit.now.sh/upload_images/182126091be3bef4a6aae6db55fa2d4d65268ef701a32.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　スナップショットではない　ビジュアル・ノベル部　も作っておこう」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ファイル名を間違えそうだ」  
 
 .

@@ -58,6 +58,8 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
 			
+			# TODO VisualNovelDepartment を止めたい
+			
 			#	ポーズ
 			#		とりあえず、［下］メッセージ・ウィンドウを止めてみる
 			#		is_processing は、初回は false
