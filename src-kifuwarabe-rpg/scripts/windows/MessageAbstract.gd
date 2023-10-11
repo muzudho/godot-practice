@@ -83,6 +83,7 @@ func split_head_line_or_tail(text):
 
 
 #	メッセージを追加
+#	TODO ★ タイプライター機能は、スナップショット、またはメッセージの方に持たせたい
 func push_message(text):
 	# print("［メッセージ・ウィンドウ］　台詞追加")
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　台詞：[" + text + "]")
@@ -102,6 +103,7 @@ func push_message(text):
 
 
 #	選択肢を追加
+#	TODO ★ タイプライター機能は、スナップショット、またはメッセージの方に持たせたい
 func push_choices(row_numbers, text):
 	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選択肢：[" + text + "]")
 

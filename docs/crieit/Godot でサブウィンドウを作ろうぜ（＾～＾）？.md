@@ -587,4 +587,16 @@ func set_visible_subtree(is_visible):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　なんで　こんなに難しいのだろう？」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　スナップショットは　グローバル変数のように　変数を持っておきたくて、  
+オブジェクト指向のカプセル化とは　反するんだが、  
+データを１か所で管理したいときは　オブジェクト指向じゃない方がいいんだ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　テキストブロックが　タイプライター表示をしていて  
+文字列を切り分けたりしているが、この機能は　デパートメント　の方に持たせたい」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　また　次の日ねえ」  
+
 .

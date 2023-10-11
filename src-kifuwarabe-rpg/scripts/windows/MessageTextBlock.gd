@@ -131,6 +131,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
+#	TODO ★ タイプライター機能は、スナップショット、またはメッセージの方に持たせたい
 func _process(delta):
 	
 	# 非表示のときは働かない

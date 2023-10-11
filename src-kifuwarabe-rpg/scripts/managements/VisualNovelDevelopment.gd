@@ -44,3 +44,10 @@ func appear():
 
 	#	場所が非表示中なら、表示する
 	$"../../../LocationCoordinator".show_current_location(str(self.name))
+
+
+#	メッセージの追加
+func push_message(temp_text):
+	# メッセージ・ウィンドウの表示
+	# TODO メッセージ・ウィンドウが　どれぐらい文字を表示してるかを　スナップショットに記憶したい
+	$"../../../GuiArtist/WindowsOfMessage".push_message(temp_text)

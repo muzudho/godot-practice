@@ -15,8 +15,8 @@ func do_it(temp_text):
 	self.put_message(temp_text)
 
 
+#	メッセージの追加
 func put_message(temp_text):
-	# メッセージ・ウィンドウの表示
-	$"../../GuiArtist/WindowsOfMessage".push_message(temp_text)
-
+	$"../../System/Managers/VisualNovelDepartment".push_message(temp_text)
+	
 	self.set_message_window_waiting_for_order.call(false)
