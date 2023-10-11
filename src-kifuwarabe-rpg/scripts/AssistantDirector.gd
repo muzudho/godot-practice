@@ -5,6 +5,13 @@ extends Node
 # 状態遷移機械
 var statemachine = load("scripts/AssistantDirectorStatemachine.gd").new()
 
+# メッセージが入っている
+var scenario_array = []
+
+
+# ビジュアル・ノベル部のこの瞬間の状態
+func get_director():
+	return $"../../Director"
 
 # ビジュアル・ノベル部のこの瞬間の状態
 func get_visual_novel_department_snapshot():
@@ -17,7 +24,7 @@ func play_paragraph(paragraph_name):
 
 	# シナリオ・ブックから、内容を取出す
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
-	self.get_visual_novel_department_snapshot().scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.get_visual_novel_department_snapshot().paragraph_name]
+	self.scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.get_visual_novel_department_snapshot().paragraph_name]
 
 	# メッセージ・ウィンドウは、次の指示を待っています
 	self.get_visual_novel_department_snapshot().is_message_window_waiting_for_order = true
@@ -153,10 +160,10 @@ func _process(_delta):
 		if self.get_visual_novel_department_snapshot().is_message_window_waiting_for_order:
 			
 			# まだあるよ
-			if 0 < self.get_visual_novel_department_snapshot().scenario_array.size():
+			if 0 < self.scenario_array.size():
 			
 				# 次に表示するべきメッセージを取得
-				var latest_message = self.get_visual_novel_department_snapshot().scenario_array.pop_front()
+				var latest_message = self.scenario_array.pop_front()
 
 				# TODO ここで、命令と、台詞に分解したい
 				self.parse_message(latest_message)
