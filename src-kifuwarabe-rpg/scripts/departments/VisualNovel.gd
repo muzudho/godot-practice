@@ -24,7 +24,7 @@ func disappear():
 		self.get_message_window("下").set_process_subtree(false)
 		
 	#	現在表示中のシーンを非表示にする
-	$"../../../LocationCoordinator".hide_current_location("VisualNovelDepartment")
+	$"../../../LocationCoordinator".hide_current_location(str(self.name))
 
 
 #	現れる
@@ -41,4 +41,4 @@ func appear():
 		self.get_message_window("下").set_process_subtree(true)
 
 	#	現在非表示中のシーンを表示する
-	$"../../../LocationCoordinator".show_current_location("VisualNovelDepartment")
+	$"../../../LocationCoordinator".show_current_location(str(self.name))
