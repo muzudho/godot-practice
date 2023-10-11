@@ -4,8 +4,8 @@ extends Node2D
 
 
 #	ビジュアル・ノベル部
-func get_visual_novel_department():
-	return $"System/Departments/VisualNovel"
+func get_visual_novel_department_manager():
+	return $"System/Managers/VisualNovelDepartment"
 
 
 #	サブツリーが全てインスタンス化されたときに呼び出される
@@ -46,7 +46,7 @@ func _ready():
 
 
 	#	ビジュアル・ノベル部を表示する
-	self.get_visual_novel_department().appear()
+	self.get_visual_novel_department_manager().appear()
 
 
 	#	台本の再生の開始の合図
@@ -68,13 +68,13 @@ func _unhandled_key_input(event):
 			print("［ディレクター］　エスケープ・キーが押された")
 			
 			
-			if self.get_visual_novel_department().is_appear:
+			if self.get_visual_novel_department_manager().is_appear:
 				# ビジュアル・ノベル部を隠す
-				self.get_visual_novel_department().disappear()
+				self.get_visual_novel_department_manager().disappear()
 				
 			else:
 				# ビジュアル・ノベル部を表示する
-				self.get_visual_novel_department().appear()
+				self.get_visual_novel_department_manager().appear()
 			
 
 			#	［中央］メッセージ・ウィンドウを表示する

@@ -628,9 +628,9 @@ script = ExtResource("23_5s8w2")
 
 [node name="System" type="Node" parent="."]
 
-[node name="Departments" type="Node" parent="System"]
+[node name="Managers" type="Node" parent="System"]
 
-[node name="VisualNovel" type="Node" parent="System/Departments"]
+[node name="VisualNovelDepartment" type="Node" parent="System/Managers"]
 script = ExtResource("44_dt0o4")
 
 [node name="Snapshots" type="Node" parent="System"]

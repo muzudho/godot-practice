@@ -1,4 +1,4 @@
-#	ビジュアル・ノベル・デパートメント（Visual Novel Department；ビジュアル・ノベル部）
+#	ビジュアル・ノベル・デパートメント・マネージャー（Visual Novel Department Manager；ビジュアル・ノベル部管理人）
 extends Node
 
 
