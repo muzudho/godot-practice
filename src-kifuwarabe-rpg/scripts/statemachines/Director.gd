@@ -18,7 +18,7 @@ class_name AssistantDirectorStatemachine
 # ｜　　　　　　　｜　０．停止中　｜
 # ｜　　　　　　　＋ーーー＋ーーー＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　ビジュアルノベル部＿再生　＃ステートマシーン外部からの開始の合図。段落番号を渡される
+# ｜　　　　　　　　　　　｜　ビジュアルノベル部＿再生
 # ｜　　　　　　　　　　　｜
 # ｜　　　＋ーーーーーー＞＋
 # ｜　　　｜　　　　　　　｜
@@ -34,10 +34,15 @@ class_name AssistantDirectorStatemachine
 # ｜　　　　　　　　　　　｜
 # ＋ーーーーーーーーーーー＋　停止　＃段落が終わった
 #
-enum States {None, PlayingVisualNovelDepartment}
+enum States {
+	None,
+	PlayingVisualNovelDepartment,
+	PlayingSystemMenuDepartment
+}
 
 # 状態
 var state = States.None
+
 
 # 停止中か？
 func is_none():	
@@ -47,10 +52,20 @@ func is_none():
 func is_playing_visual_novel_department():
 	return self.state == States.PlayingVisualNovelDepartment
 
-# 再生
+# システム・メニュー部　再生中か？
+func is_playing_system_menu_department():
+	return self.state == States.PlayingSystemMenuDepartment
+
+
+# 再生　ビジュアルノベル部
 func play_visual_novel_department():
 	print("［ステートマシーン］　ビジュアルノベル部のパラグラフの再生")
 	self.state = States.PlayingVisualNovelDepartment
+
+# 再生　システム・メニュー部
+func play_system_menu_department():
+	print("［ステートマシーン］　システム・メニュー部の再生")
+	self.state = States.PlayingSystemMenuDepartment
 
 # 停止
 func stop():

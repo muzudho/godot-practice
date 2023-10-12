@@ -82,37 +82,30 @@ func _unhandled_key_input(event):
 		#	エスケープ・キー
 		if event.keycode == KEY_ESCAPE:
 			print("［ディレクター］　エスケープ・キーが押された")
-			
-			#	ビジュアル・ノベル部
-			if self.get_department_manager("VisualNovelDepartment").is_appear:
-				#	隠す
+
+			#	ビジュアルノベル部　再生中
+			if self.statemachine.is_playing_visual_novel_department():
+				#	ビジュアル・ノベル部を隠す
 				self.get_department_manager("VisualNovelDepartment").disappear()
-				
-			else:
-				#	表示する
-				self.get_department_manager("VisualNovelDepartment").appear()
-			
-			#	システム・メニュー部
-			if self.get_department_manager("SystemMenuDepartment").is_appear:
-				#	隠す
-				self.get_department_manager("SystemMenuDepartment").disappear()
-				
-			else:
-				#	表示する
+				#	システム・メニュー部を表示する
 				self.get_department_manager("SystemMenuDepartment").appear()
 
-			#	［中央］メッセージ・ウィンドウを表示する
-			$"AssistantDirector/MWnd".redirect_message_window("中央")
-
-			# $"AssistantDirector/NormalText".put_message("かいはつちゅう")
-			$"AssistantDirector/NormalTextChoice".push_message("""\
+				#	［中央］メッセージ・ウィンドウを表示する
+				$"AssistantDirector/MWnd".redirect_message_window("中央")
+				$"AssistantDirector/NormalTextChoice".push_message("""\
 　・再開
 　・終了
 """,
 				[1,2])
+			
+			else:
+				#	システム・メニュー部を隠す
+				self.get_department_manager("SystemMenuDepartment").disappear()
+				#	ビジュアルノベル部を表示する
+				self.get_department_manager("VisualNovelDepartment").appear()
+				#	元のメッセージを復元する
+				# $"AssistantDirector/NormalText".put_message("かいはつちゅう")
 
-			#	［中央］ビューイング・ウィンドウを表示する
-			# $"AssistantDirector/VWnd".show_viewing_window("中央", "将棋盤")
 
 			#	子要素には渡しません
 			return
