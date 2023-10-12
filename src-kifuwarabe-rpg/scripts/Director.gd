@@ -97,7 +97,10 @@ func _unhandled_key_input(event):
 　・終了
 """,
 				[1,2])
-			
+
+				#	システム・メニュー部へ状態遷移
+				self.statemachine.play_system_menu_department()
+
 			else:
 				#	システム・メニュー部を隠す
 				self.get_department_manager("SystemMenuDepartment").disappear()
@@ -105,6 +108,9 @@ func _unhandled_key_input(event):
 				self.get_department_manager("VisualNovelDepartment").appear()
 				#	元のメッセージを復元する
 				# $"AssistantDirector/NormalText".put_message("かいはつちゅう")
+
+				#	ビジュアルノベル部へ状態遷移
+				self.statemachine.play_visual_novel_department()
 
 
 			#	子要素には渡しません
