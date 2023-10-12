@@ -84,8 +84,10 @@ func _process(delta):
 		if self.blinker_interval <= self.blinker_seconds:
 			if 0 < self.modulate.a:
 				print("［メッセージエンド・ブリンカー］　点滅による透明化")
+				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 0.0	# 点滅による透明化
 			else:
+				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 1.0
 				
 			self.blinker_seconds -= self.blinker_interval
@@ -96,6 +98,7 @@ func _process(delta):
 
 			#	初回はすぐに不透明
 			if not self.is_first_displayed_immediately:
+				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 1.0
 				self.blinker_seconds = 0.0
 				self.is_first_displayed_immediately = true
@@ -107,4 +110,5 @@ func _process(delta):
 
 			if self.modulate.a != 0.0:
 				print("［メッセージエンド・ブリンカー］　遷移状態による透明化")
+				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 0.0	# 透明化

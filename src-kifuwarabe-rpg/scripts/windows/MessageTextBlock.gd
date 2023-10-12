@@ -141,6 +141,7 @@ func _process(delta):
 			
 			if not self.is_visible_initialized:
 				# 初回に可視化
+				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.visible = true
 				self.is_visible_initialized = true
 			

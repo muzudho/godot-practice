@@ -166,6 +166,7 @@ func _process(delta):
 			
 			#	初回はすぐに不透明
 			if not self.is_first_displayed_immediately:
+				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 1.0
 				self.blinker_seconds = 0.0
 				self.is_first_displayed_immediately = true
@@ -217,6 +218,7 @@ func _process(delta):
 			# 透明
 			if self.modulate.a != 0.0:
 				print("［選択肢カーソル］　状態による透明化")
+				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 0.0	# 状態による透明化
 
 

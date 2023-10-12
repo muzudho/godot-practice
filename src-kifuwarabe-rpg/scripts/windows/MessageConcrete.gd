@@ -89,11 +89,13 @@ func _process(_delta):
 			# 透明
 			if self.modulate.a != 0.0:
 				print("［”" + self.name + "”メッセージウィンドウ］　状態が無いので透明化")
+
+				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 0.0	# 状態が無いので透明化
 
 		elif self.statemachine.is_typewriter():
 			if not self.is_visible_initialized:
-				# タイプライター風表示中の初回に可視化
+				# タイプライター風表示中の初回に可視化				
 				# 不透明
-				self.modulate.a = 1.0
+				self.modulate.a = 1.0	# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.is_visible_initialized = true
