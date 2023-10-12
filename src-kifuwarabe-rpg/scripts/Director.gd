@@ -20,6 +20,14 @@ func is_playing_visual_novel_department():
 	return self.statemachine.is_playing_visual_novel_department()
 
 
+func play_system_menu_department():
+	self.statemachine.play_system_menu_department()
+
+
+func is_playing_system_menu_department():
+	return self.statemachine.is_playing_system_menu_department()
+
+
 #	サブツリーが全てインスタンス化されたときに呼び出される
 #	Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +35,9 @@ func _ready():
 	#	関数を渡す
 	$"AssistantDirector".director_play_visual_novel_department = self.play_visual_novel_department
 	$"AssistantDirector".director_is_playing_visual_novel_department = self.is_playing_visual_novel_department
+
+	$"AssistantDirector".director_play_system_menu_department = self.play_system_menu_department
+	$"AssistantDirector".director_is_playing_system_menu_department = self.is_playing_system_menu_department
 
 	#	開発中にいじったものが残ってるかもしれないから、掃除
 
@@ -77,14 +88,14 @@ func _unhandled_key_input(event):
 
 	#	何かキーを押したとき
 	if event.is_pressed():
-		print("［ディレクター］　アンハンドルド・キー　押下")
 		
 		#	エスケープ・キー
 		if event.keycode == KEY_ESCAPE:
-			print("［ディレクター］　エスケープ・キーが押された")
 
 			#	ビジュアルノベル部　再生中
 			if self.statemachine.is_playing_visual_novel_department():
+				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
+				
 				#	ビジュアル・ノベル部を隠す
 				self.get_department_manager("VisualNovelDepartment").disappear()
 				#	システム・メニュー部を表示する
@@ -102,12 +113,17 @@ func _unhandled_key_input(event):
 				self.statemachine.play_system_menu_department()
 
 			else:
+				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
+				
 				#	システム・メニュー部を隠す
 				self.get_department_manager("SystemMenuDepartment").disappear()
 				#	ビジュアルノベル部を表示する
 				self.get_department_manager("VisualNovelDepartment").appear()
-				#	元のメッセージを復元する
-				# $"AssistantDirector/NormalText".put_message("かいはつちゅう")
+
+				#	［下］メッセージ・ウィンドウを表示する
+				$"AssistantDirector/MWnd".redirect_message_window("下")
+				#	TODO 元のメッセージを復元する
+				$"AssistantDirector/NormalText".put_message("かいはつちゅう")
 
 				#	ビジュアルノベル部へ状態遷移
 				self.statemachine.play_visual_novel_department()
@@ -115,6 +131,8 @@ func _unhandled_key_input(event):
 
 			#	子要素には渡しません
 			return
+
+		print("［ディレクター］　アンハンドルド・キー押下　その他のキー")
 
 		#	子要素へ渡す
 		$"GuiArtist/WindowsOfMessage".on_unhandled_key_input(event)

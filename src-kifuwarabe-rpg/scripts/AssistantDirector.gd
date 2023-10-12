@@ -6,6 +6,9 @@ extends Node
 var director_play_visual_novel_department = null
 var director_is_playing_visual_novel_department = null
 
+var director_play_system_menu_department = null
+var director_is_playing_system_menu_department = null
+
 #	メッセージが入っている
 var scenario_array = []
 
