@@ -669,4 +669,14 @@ func push_message(new_text, choice_row_numbers = null):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　関数を増やしたくないんで　１本化するぜ」  
 
+## 元の状態に復元するのが難しい
+
+![202310__godot__12-2241--RestoreToFailed.png](https://crieit.now.sh/upload_images/416acb184eb5e46e1066d8a21bd587636527f7b5bf9ff.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　難しい！」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　しかし　不具合の状況はマシになってきたぜ」  
+
 .
