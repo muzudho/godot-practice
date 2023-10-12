@@ -604,4 +604,69 @@ func set_visible_subtree(is_visible):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　テキストブロックを見るか」  
 
+```gd
+# メッセージを追加
+func push_message(new_text):
+	# print("［テキストブロック］　台詞追加")
+	print("［テキストブロック］　台詞：　[" + new_text + "]")
+	self.get_snapshot("VisualNovelDepartment").is_choice_mode = false
+	self.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
+	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
+
+	# 空欄化
+	self.emptize()
+
+
+# 選択肢を追加
+func push_choices(row_numbers, new_text):
+	print("［テキストブロック］　選択肢：　[" + new_text + "]")
+	self.get_snapshot("VisualNovelDepartment").choice_row_numbers = row_numbers
+	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
+	self.get_snapshot("VisualNovelDepartment").is_choice_mode = true
+
+	# 空欄化
+	self.emptize()
+
+	# さらに、ブリンカーは無いことにする
+	$"BlinkerTriangle".initialize()
+	$"BlinkerUnderscore".initialize()
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　通常のメッセージと、選択肢でメソッドが分かれているの、  
+改造の邪魔なんで　１本化したいぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　前処理として `.setup_normal_mode()` と、 `.setup_choices_mode()` を作ったら？」  
+
+```gd
+# メッセージを追加
+func push_message(new_text, choice_row_numbers = null):
+
+	#	テキスト設定
+	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
+
+	#	空欄化
+	self.emptize()
+
+	#	選択肢なら
+	if choice_row_numbers != null:
+		print("［テキストブロック］　選択肢：　[" + new_text + "]")
+		self.get_snapshot("VisualNovelDepartment").is_choice_mode = true
+		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = choice_row_numbers
+
+		# メッセージエンド・ブリンカーは無いことにする
+		$"BlinkerTriangle".initialize()
+		$"BlinkerUnderscore".initialize()
+
+	#	それ以外なら
+	else:
+		print("［テキストブロック］　台詞：　[" + new_text + "]")
+		self.get_snapshot("VisualNovelDepartment").is_choice_mode = false
+		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　関数を増やしたくないんで　１本化するぜ」  
+
 .
