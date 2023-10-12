@@ -22,8 +22,8 @@ func get_musician():
 	return $"../../Musician"
 
 
-func get_visual_novel_department_snapshot():
-	return $"../../System/Snapshots/VisualNovelDepartment"
+func get_snapshot(department_node_name):
+	return $"../../System/Snapshots".get_node(department_node_name)
 
 
 #	初期化
@@ -72,7 +72,7 @@ func show_choice_cursor():
 #	次の指示を待ちます
 func awaiting_order():
 	#	メッセージウィンドウは指示待ちだ
-	self.get_assistant_director().get_visual_novel_department_snapshot().is_message_window_waiting_for_order = true
+	self.get_assistant_director().get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order = true
 
 
 #	先頭行と、それ以外に分けます
@@ -178,7 +178,7 @@ func on_unhandled_key_input(event):
 	if self.statemachine.is_completed():
 
 		#	選択肢モードなら
-		if self.get_visual_novel_department_snapshot().is_choice_mode:
+		if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
 			
 			#	何かキーを押したとき
 			if event.is_pressed():

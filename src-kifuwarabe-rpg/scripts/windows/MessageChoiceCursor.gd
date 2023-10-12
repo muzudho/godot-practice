@@ -32,8 +32,8 @@ func get_musician():
 	return $"../../../../../../Musician"
 
 
-func get_visual_novel_department_snapshot():
-	return $"../../../../../../System/Snapshots/VisualNovelDepartment"
+func get_snapshot(department_node_name):
+	return $"../../../../../../System/Snapshots".get_node(department_node_name)
 
 
 #	初期化の前に
@@ -65,10 +65,10 @@ func emptize():
 
 func get_parent_choice_row_numbers():
 	# print("［選択肢カーソル］　選択肢行番号一覧")
-	# for row_num in self.get_visual_novel_department_snapshot().choice_row_numbers:
+	# for row_num in self.get_snapshot("VisualNovelDepartment").choice_row_numbers:
 	# 	print(row_num)
 	
-	return self.get_visual_novel_department_snapshot().choice_row_numbers
+	return self.get_snapshot("VisualNovelDepartment").choice_row_numbers
 
 
 #	線形補間
@@ -159,7 +159,7 @@ func _process(delta):
 
 
 		# 完全表示中	　かつ　選択肢モード
-		if self.statemachine.is_completed() and self.get_visual_novel_department_snapshot().is_choice_mode:
+		if self.statemachine.is_completed() and self.get_snapshot("VisualNovelDepartment").is_choice_mode:
 			
 			#	初回はすぐに不透明
 			if not self.is_first_displayed_immediately:

@@ -7,8 +7,8 @@ var statemachine = null
 var is_visible_initialized = false
 
 
-func get_visual_novel_department_snapshot():
-	return $"../../../../../System/Snapshots/VisualNovelDepartment"
+func get_snapshot(department_node_name):
+	return $"../../../../../System/Snapshots".get_node(department_node_name)
 
 
 #	初期化の前に
@@ -66,9 +66,9 @@ func emptize():
 func push_message(new_text):
 	# print("［テキストブロック］　台詞追加")
 	print("［テキストブロック］　台詞：　[" + new_text + "]")
-	self.get_visual_novel_department_snapshot().is_choice_mode = false
-	self.get_visual_novel_department_snapshot().choice_row_numbers = []
-	self.get_visual_novel_department_snapshot().text_block_buffer = new_text
+	self.get_snapshot("VisualNovelDepartment").is_choice_mode = false
+	self.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
+	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
 
 	# 空欄化
 	self.emptize()
@@ -77,9 +77,9 @@ func push_message(new_text):
 # 選択肢を追加
 func push_choices(row_numbers, new_text):
 	print("［テキストブロック］　選択肢：　[" + new_text + "]")
-	self.get_visual_novel_department_snapshot().choice_row_numbers = row_numbers
-	self.get_visual_novel_department_snapshot().text_block_buffer = new_text
-	self.get_visual_novel_department_snapshot().is_choice_mode = true
+	self.get_snapshot("VisualNovelDepartment").choice_row_numbers = row_numbers
+	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
+	self.get_snapshot("VisualNovelDepartment").is_choice_mode = true
 
 	# 空欄化
 	self.emptize()
@@ -143,7 +143,7 @@ func _process(delta):
 				self.visible = true
 				self.is_visible_initialized = true
 			
-			self.get_visual_novel_department_snapshot().count_of_typewriter += delta
+			self.get_snapshot("VisualNovelDepartment").count_of_typewriter += delta
 
 			# １文字 50ms でも、結構ゆっくり
 			var wait_time = 0.05
@@ -153,13 +153,13 @@ func _process(delta):
 				# print("［テキストブロック］　メッセージの早送り")
 				wait_time = 0.01
 		
-			if wait_time <= self.get_visual_novel_department_snapshot().count_of_typewriter:
-				if 0 < self.get_visual_novel_department_snapshot().text_block_buffer.length():
+			if wait_time <= self.get_snapshot("VisualNovelDepartment").count_of_typewriter:
+				if 0 < self.get_snapshot("VisualNovelDepartment").text_block_buffer.length():
 					# １文字追加
-					self.text += self.get_visual_novel_department_snapshot().text_block_buffer.substr(0, 1)
-					self.get_visual_novel_department_snapshot().text_block_buffer = self.get_visual_novel_department_snapshot().text_block_buffer.substr(1, self.get_visual_novel_department_snapshot().text_block_buffer.length()-1)
+					self.text += self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(0, 1)
+					self.get_snapshot("VisualNovelDepartment").text_block_buffer = self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(1, self.get_snapshot("VisualNovelDepartment").text_block_buffer.length()-1)
 				else:
 					# 完全表示中
 					self.statemachine.all_character_pushed()
 				
-				self.get_visual_novel_department_snapshot().count_of_typewriter -= wait_time
+				self.get_snapshot("VisualNovelDepartment").count_of_typewriter -= wait_time

@@ -13,21 +13,22 @@ var scenario_array = []
 func get_director():
 	return $"../../Director"
 
+
 # ビジュアル・ノベル部のこの瞬間の状態
-func get_visual_novel_department_snapshot():
-	return $"../System/Snapshots/VisualNovelDepartment"
+func get_snapshot(department_node_name):
+	return $"../System/Snapshots".get_node(department_node_name)
 
 
 # 台本の再生の開始の合図
 func play_paragraph(paragraph_name):
-	self.get_visual_novel_department_snapshot().paragraph_name = paragraph_name
+	self.get_snapshot("VisualNovelDepartment").paragraph_name = paragraph_name
 
 	# シナリオ・ブックから、内容を取出す
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
-	self.scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.get_visual_novel_department_snapshot().paragraph_name]
+	self.scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.get_snapshot("VisualNovelDepartment").paragraph_name]
 
 	# メッセージ・ウィンドウは、次の指示を待っています
-	self.get_visual_novel_department_snapshot().is_message_window_waiting_for_order = true
+	self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order = true
 
 	# 再生中へ
 	self.statemachine.play()
@@ -40,11 +41,11 @@ func redirect_concrete_message_window_by_name(node_name):
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
-	print("［アシスタント・ディレクター］　現在の段落名　　　：" + self.get_visual_novel_department_snapshot().paragraph_name)
+	print("［アシスタント・ディレクター］　現在の段落名　　　：" + self.get_snapshot("VisualNovelDepartment").paragraph_name)
 	print("［アシスタント・ディレクター］　選んだ選択肢行番号：" + str(row_number))
 
 	# 次の段落名
-	var next_paragraph_name = $"../ScenarioWriter/VisualNovelDepartment".index[self.get_visual_novel_department_snapshot().paragraph_name][row_number]
+	var next_paragraph_name = $"../ScenarioWriter/VisualNovelDepartment".index[self.get_snapshot("VisualNovelDepartment").paragraph_name][row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
 	self.play_paragraph(next_paragraph_name)
@@ -143,11 +144,11 @@ func parse_message(temp_text):
 func _ready():
 	#	関数を渡す
 	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
-	$"NormalText".before_initialize(self.get_visual_novel_department_snapshot().set_message_window_waiting_for_order)
+	$"NormalText".before_initialize(self.get_snapshot("VisualNovelDepartment").set_message_window_waiting_for_order)
 	$"NormalTextChoice".before_initialize(
 		$"Choice".get_choice_row_number_array,
 		$"Choice".set_choice_row_number_array,
-		self.get_visual_novel_department_snapshot().set_message_window_waiting_for_order)
+		self.get_snapshot("VisualNovelDepartment").set_message_window_waiting_for_order)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -157,7 +158,7 @@ func _process(_delta):
 	if self.statemachine.is_playing():
 		
 		# メッセージウィンドウが指示待ちか？
-		if self.get_visual_novel_department_snapshot().is_message_window_waiting_for_order:
+		if self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order:
 			
 			# まだあるよ
 			if 0 < self.scenario_array.size():
