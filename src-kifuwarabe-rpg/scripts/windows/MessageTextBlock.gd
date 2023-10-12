@@ -63,30 +63,30 @@ func emptize():
 
 
 # メッセージを追加
-func push_message(new_text):
-	# print("［テキストブロック］　台詞追加")
-	print("［テキストブロック］　台詞：　[" + new_text + "]")
-	self.get_snapshot("VisualNovelDepartment").is_choice_mode = false
-	self.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
+func push_message(new_text, choice_row_numbers = null):
+
+	#	テキスト設定
 	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
 
-	# 空欄化
+	#	空欄化
 	self.emptize()
 
+	#	選択肢なら
+	if choice_row_numbers != null:
+		print("［テキストブロック］　選択肢：　[" + new_text + "]")
+		self.get_snapshot("VisualNovelDepartment").is_choice_mode = true
+		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = choice_row_numbers
 
-# 選択肢を追加
-func push_choices(row_numbers, new_text):
-	print("［テキストブロック］　選択肢：　[" + new_text + "]")
-	self.get_snapshot("VisualNovelDepartment").choice_row_numbers = row_numbers
-	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
-	self.get_snapshot("VisualNovelDepartment").is_choice_mode = true
+		# メッセージエンド・ブリンカーは無いことにする
+		$"BlinkerTriangle".initialize()
+		$"BlinkerUnderscore".initialize()
 
-	# 空欄化
-	self.emptize()
+	#	それ以外なら
+	else:
+		print("［テキストブロック］　台詞：　[" + new_text + "]")
+		self.get_snapshot("VisualNovelDepartment").is_choice_mode = false
+		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
 
-	# さらに、ブリンカーは無いことにする
-	$"BlinkerTriangle".initialize()
-	$"BlinkerUnderscore".initialize()
 
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作

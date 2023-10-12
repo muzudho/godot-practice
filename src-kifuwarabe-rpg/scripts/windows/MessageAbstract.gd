@@ -120,7 +120,7 @@ func push_choices(row_numbers, text):
 	self.get_concrete_message_window().get_node("CanvasLayer").show()
 
 	#	メッセージ追加
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").push_choices(row_numbers, text)
+	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").push_message(text, row_numbers)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
