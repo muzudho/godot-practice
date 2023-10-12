@@ -20,14 +20,22 @@ func before_initialize(parent_statemachine):
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func initialize():
-	print("［”" + self.name + "”メッセージウィンドウ］　初期化")
+	print("［”" + self.name + "”メッセージウィンドウ］　初期化（非表示）")
 
 	# 子要素を初期化
 	self.get_node("CanvasLayer/TextBlock").initialize()
 
 	# この要素の初期状態は、非表示、透明
 	self.hide()
-	self.modulate.a = 0.0
+	print("［”" + self.name + "”メッセージウィンドウ］　初期化による透明化")
+	self.modulate.a = 0.0	# 初期化による透明化
+
+
+#	空欄化
+func emptize():
+	print("［”" + self.name + "”メッセージウィンドウ］　空欄化")
+	#	空欄に戻します（ウィンドウは消しません）
+	self.get_node("CanvasLayer/TextBlock").emptize()
 
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
@@ -64,6 +72,13 @@ func set_visible_subtree(is_visible):
 				child.set_visible_subtree(is_visible)
 
 
+#	メッセージ追加
+func push_message(text, choices_row_numbers):
+	print("［”" + self.name + "”メッセージウィンドウ］　メッセージ追加（表示、不透明化）")
+	self.get_node("CanvasLayer/TextBlock").push_message(text, choices_row_numbers)
+	self.modulate.a = 1.0	# メッセージ追加による不透明化
+	
+
 func _ready():
 	self.initialize()
 
@@ -72,7 +87,9 @@ func _process(_delta):
 	if self.visible:
 		if self.statemachine.is_none():
 			# 透明
-			self.modulate.a = 0.0
+			if self.modulate.a != 0.0:
+				print("［”" + self.name + "”メッセージウィンドウ］　状態が無いので透明化")
+				self.modulate.a = 0.0	# 状態が無いので透明化
 
 		elif self.statemachine.is_typewriter():
 			if not self.is_visible_initialized:

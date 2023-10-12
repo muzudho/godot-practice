@@ -39,7 +39,9 @@ func initialize():
 #		初期化の一種ですが、ウィンドウは消しません
 func emptize():
 	print("［抽象メッセージ・ウィンドウ］　クリアーテキスト　具体：［" + self.concrete_message_window_name + "］")
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").text = ""
+
+	#	空欄に戻します（ウィンドウは消しません）
+	self.get_concrete_message_window().emptize()
 
 
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -107,7 +109,7 @@ func push_message(text, choices_row_numbers = null):
 	self.get_concrete_message_window().get_node("CanvasLayer").show()
 
 	#	メッセージ追加
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").push_message(text, choices_row_numbers)
+	self.get_concrete_message_window().push_message(text, choices_row_numbers)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
@@ -136,9 +138,6 @@ func on_page_forward():
 
 	#	効果音
 	self.get_musician().playSe("ページめくり音")
-
-	#	空欄に戻します（ウィンドウは消しません）
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").emptize()
 
 	#	空っぽのウィンドウを残して、次の指示を待ちます
 	self.emptize()
