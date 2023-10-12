@@ -29,7 +29,7 @@ func get_snapshot(department_node_name):
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func initialize():
-	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　初期化")
+	print("［抽象メッセージ・ウィンドウ］　初期化　具体：" + self.concrete_message_window_name + "］")
 	self.get_concrete_message_window().initialize()
 	self.statemachine.all_page_flushed()
 
@@ -38,7 +38,7 @@ func initialize():
 #		空っぽのウィンドウに戻すことを想定しています。
 #		初期化の一種ですが、ウィンドウは消しません
 func emptize():
-	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　クリアーテキスト")
+	print("［抽象メッセージ・ウィンドウ］　クリアーテキスト　具体：［" + self.concrete_message_window_name + "］")
 	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").text = ""
 
 
@@ -49,7 +49,7 @@ func redirect_concrete_message_window_by_name(node_name):
 	if self.concrete_message_window_name != null:
 		self.get_concrete_message_window().initialize()
 
-	print("［" + node_name + "］メッセージ・ウィンドウへ　リダイレクト")
+	print("［抽象メッセージ・ウィンドウ］　［" + node_name + "］メッセージ・ウィンドウへ　リダイレクト")
 	
 	# 新しいウィンドウ
 	self.concrete_message_window_name = node_name
@@ -65,7 +65,7 @@ func get_concrete_message_window():
 
 #	選択肢カーソルを表示
 func show_choice_cursor():
-	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選択肢カーソル表示")
+	print("［抽象メッセージ・ウィンドウ］　選択肢カーソル表示　具体：［" + self.concrete_message_window_name + "］")
 	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").show()
 
 
@@ -94,14 +94,15 @@ func push_message(text, choices_row_numbers = null):
 
 	#	選択肢なら
 	if choices_row_numbers != null:
-		print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選択肢：[" + text + "]")
+		print("［抽象メッセージ・ウィンドウ］　選択肢：[" + text + "]　具体：［" + self.concrete_message_window_name + "］")
 		self.show_choice_cursor()
 
 	#	それ以外なら
 	else:
-		print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　台詞：[" + text + "]")
+		print("［抽象メッセージ・ウィンドウ］　台詞：[" + text + "]　具体：［" + self.concrete_message_window_name + "］")
 
 	#	表示
+	self.show()
 	self.get_concrete_message_window().show()
 	self.get_concrete_message_window().get_node("CanvasLayer").show()
 
@@ -114,7 +115,7 @@ func push_message(text, choices_row_numbers = null):
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(is_process):
-	print("［抽象的メッセージウィンドウ］　プロセッシング：" + str(is_process))
+	print("［抽象メッセージウィンドウ］　プロセッシング：" + str(is_process) + "　具体：［" + self.concrete_message_window_name + "］")
 
 	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
 	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
@@ -131,7 +132,7 @@ func set_process_subtree(is_process):
 
 #	ページ送り
 func on_page_forward():
-	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　ページ送り")
+	print("［抽象メッセージ・ウィンドウ］　ページ送り　具体：［" + self.concrete_message_window_name + "］")
 
 	#	効果音
 	self.get_musician().playSe("ページめくり音")
@@ -150,7 +151,7 @@ func on_choice_selected():
 	self.get_musician().playSe("選択肢確定音")
 
 	var row_number = self.get_concrete_message_window().get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number	
-	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選んだ選択肢行番号：" + str(row_number))
+	print("［抽象メッセージ・ウィンドウ］　選んだ選択肢行番号：" + str(row_number) + "　具体：［" + self.concrete_message_window_name + "］")
 
 	#	選択肢の行番号を、上位ノードへエスカレーションします
 	self.get_assistant_director().on_choice_selected(row_number)
@@ -171,7 +172,7 @@ func on_unhandled_key_input(event):
 				
 				#	確定ボタン以外は無効
 				if event.keycode != KEY_ENTER:
-					# print("［メッセージ・ウィンドウ］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
+					# print("［抽象メッセージ・ウィンドウ］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
 					return
 					
 				else:
@@ -186,7 +187,7 @@ func on_unhandled_key_input(event):
 			if event.is_pressed():
 				
 				if event.keycode == KEY_R:
-					# print("［メッセージ・ウィンドウ］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+					# print("［抽象メッセージ・ウィンドウ］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
 					return
 				
 				#	ページ送り

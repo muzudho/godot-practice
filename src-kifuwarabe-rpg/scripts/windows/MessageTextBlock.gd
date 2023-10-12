@@ -30,7 +30,7 @@ func before_initialize(parent_statemachine):
 #		ウィンドウが無い状態に戻すことを想定しています。
 #		引数を渡さずに呼び出せることが **初期化の前に** との違いです
 func initialize():
-	print("［テキストブロック］　初期化")
+	print("［テキストブロック］　初期化（非表示）")
 
 	# テキストが空っぽ
 	self.text = ""
@@ -48,6 +48,7 @@ func initialize():
 #	空欄化
 #		初期化の一種ですが、ウィンドウは残しておきます
 func emptize():
+	print("［テキストブロック］　空欄化（表示）")
 
 	# テキストが空っぽ
 	self.text = ""

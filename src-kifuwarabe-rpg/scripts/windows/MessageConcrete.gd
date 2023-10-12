@@ -20,6 +20,7 @@ func before_initialize(parent_statemachine):
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func initialize():
+	print("［”" + self.name + "”メッセージウィンドウ］　初期化")
 
 	# 子要素を初期化
 	self.get_node("CanvasLayer/TextBlock").initialize()
@@ -31,7 +32,7 @@ func initialize():
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(is_process):
-	print("［具体的メッセージウィンドウ］　プロセッシング：" + str(is_process))
+	print("［”" + self.name + "”メッセージウィンドウ］　プロセッシング：" + str(is_process))
 
 	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
 	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
@@ -48,7 +49,7 @@ func set_process_subtree(is_process):
 
 #	サブツリーの visible を設定
 func set_visible_subtree(is_visible):
-	print("［具体的メッセージウィンドウ］　可視性：" + str(is_visible))
+	print("［”" + self.name + "”メッセージウィンドウ］　可視性：" + str(is_visible))
 
 	#	見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	#	隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
