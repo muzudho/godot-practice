@@ -1035,4 +1035,12 @@ var document = {
 
 📖　[Godot でサブウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-65223ea29da40)  
 
+## 不存在なのか、不可視なのか、不透明なのか？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ウィンドウを **消す** という行為に一貫性を見出していないので、また明日再挑戦だぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　不存在という状態を作るしかなくない？」  
+
 .
