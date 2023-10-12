@@ -89,10 +89,11 @@ func _unhandled_key_input(event):
 			$"AssistantDirector/MWnd".redirect_message_window("中央")
 			$"AssistantDirector/NormalText".put_message("かいはつちゅう")
 
-			$"AssistantDirector/NormalTextChoice".redirect_message_window([1,2],"""\
+			$"AssistantDirector/NormalTextChoice".redirect_message_window("""\
 　・再開
 　・終了
-""")
+""",
+				[1,2])
 
 			#	［中央］ビューイング・ウィンドウを表示する
 			# $"AssistantDirector/VWnd".show_viewing_window("中央", "将棋盤")
