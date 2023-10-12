@@ -8,9 +8,13 @@ var is_visible_initialized = false
 
 var count_of_typewriter = 0
 var text_buffer = ""
+
 # 選択肢モード
-var is_choice_mode = false
 var choice_row_numbers = []
+
+
+func get_visual_novel_department_snapshot():
+	return $"../../../../../System/Snapshots/VisualNovelDepartment"
 
 
 #	初期化の前に
@@ -68,7 +72,7 @@ func emptize():
 func push_message(new_text):
 	# print("［テキストブロック］　台詞追加")
 	print("［テキストブロック］　台詞：　[" + new_text + "]")
-	self.is_choice_mode = false
+	self.get_visual_novel_department_snapshot().is_choice_mode = false
 	self.choice_row_numbers = []
 	self.text_buffer = new_text
 
@@ -81,7 +85,7 @@ func push_choices(row_numbers, new_text):
 	print("［テキストブロック］　選択肢：　[" + new_text + "]")
 	self.choice_row_numbers = row_numbers
 	self.text_buffer = new_text
-	self.is_choice_mode = true
+	self.get_visual_novel_department_snapshot().is_choice_mode = true
 
 	# 空欄化
 	self.emptize()

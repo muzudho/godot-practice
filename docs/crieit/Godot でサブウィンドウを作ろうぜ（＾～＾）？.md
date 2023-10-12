@@ -599,4 +599,9 @@ func set_visible_subtree(is_visible):
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　また　次の日ねえ」  
 
+# 📅 (2023-10-12 thu 20:12) 再開
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　テキストブロックを見るか」  
+
 .

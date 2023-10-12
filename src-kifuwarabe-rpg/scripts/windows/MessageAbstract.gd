@@ -22,6 +22,10 @@ func get_musician():
 	return $"../../Musician"
 
 
+func get_visual_novel_department_snapshot():
+	return $"../../System/Snapshots/VisualNovelDepartment"
+
+
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func initialize():
@@ -174,7 +178,7 @@ func on_unhandled_key_input(event):
 	if self.statemachine.is_completed():
 
 		#	選択肢モードなら
-		if self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").is_choice_mode:
+		if self.get_visual_novel_department_snapshot().is_choice_mode:
 			
 			#	何かキーを押したとき
 			if event.is_pressed():

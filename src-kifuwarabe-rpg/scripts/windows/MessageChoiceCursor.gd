@@ -32,6 +32,10 @@ func get_musician():
 	return $"../../../../../../Musician"
 
 
+func get_visual_novel_department_snapshot():
+	return $"../../../../../../System/Snapshots/VisualNovelDepartment"
+
+
 #	初期化の前に
 #		初期化の一種ですが、初期化より先に行います。
 #		引数を渡すことが **初期化** との違いです
@@ -155,7 +159,7 @@ func _process(delta):
 
 
 		# 完全表示中	　かつ　選択肢モード
-		if self.statemachine.is_completed() and $"..".is_choice_mode:
+		if self.statemachine.is_completed() and self.get_visual_novel_department_snapshot().is_choice_mode:
 			
 			#	初回はすぐに不透明
 			if not self.is_first_displayed_immediately:
