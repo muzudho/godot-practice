@@ -65,10 +65,10 @@ func emptize():
 
 func get_parent_choice_row_numbers():
 	# print("［選択肢カーソル］　選択肢行番号一覧")
-	# for row_num in $"..".choice_row_numbers:
+	# for row_num in self.get_visual_novel_department_snapshot().choice_row_numbers:
 	# 	print(row_num)
 	
-	return $"..".choice_row_numbers
+	return self.get_visual_novel_department_snapshot().choice_row_numbers
 
 
 #	線形補間
