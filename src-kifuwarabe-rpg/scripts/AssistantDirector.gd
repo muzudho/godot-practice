@@ -1,25 +1,26 @@
-# アシスタント・ディレクター（Assistant Director；助監督）
+#	アシスタント・ディレクター（Assistant Director；助監督）
 extends Node
 
 
-# 状態遷移機械
-var statemachine = load("res://scripts/statemachines/AssistantDirector.gd").new()
+#	関数
+var director_play_paragraph = null
+var director_is_playing = null
 
-# メッセージが入っている
+#	メッセージが入っている
 var scenario_array = []
 
 
-# ビジュアル・ノベル部のこの瞬間の状態
+#	ビジュアル・ノベル部のこの瞬間の状態
 func get_director():
 	return $"../../Director"
 
 
-# ビジュアル・ノベル部のこの瞬間の状態
+#	ビジュアル・ノベル部のこの瞬間の状態
 func get_snapshot(department_node_name):
 	return $"../System/Snapshots".get_node(department_node_name)
 
 
-# 台本の再生の開始の合図
+#	台本の再生の開始の合図
 func play_paragraph(paragraph_name):
 	self.get_snapshot("VisualNovelDepartment").paragraph_name = paragraph_name
 
@@ -31,7 +32,7 @@ func play_paragraph(paragraph_name):
 	self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order = true
 
 	# 再生中へ
-	self.statemachine.play()
+	self.director_play_paragraph.call()
 
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -155,7 +156,7 @@ func _ready():
 func _process(_delta):
 		
 	# 再生中
-	if self.statemachine.is_playing():
+	if self.director_is_playing.call():
 		
 		# メッセージウィンドウが指示待ちか？
 		if self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order:

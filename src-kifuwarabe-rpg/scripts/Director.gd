@@ -3,14 +3,30 @@
 extends Node2D
 
 
+# 状態遷移機械
+var statemachine = load("res://scripts/statemachines/Director.gd").new()
+
+
 #	部管理人
 func get_department_manager(node_name):
 	return $"System/Managers/".get_node(node_name)
 
 
+func play_paragraph():
+	self.statemachine.play()
+
+
+func is_playing():
+	return self.statemachine.is_playing()
+
+
 #	サブツリーが全てインスタンス化されたときに呼び出される
 #	Called when the node enters the scene tree for the first time.
 func _ready():
+
+	#	関数を渡す
+	$"AssistantDirector".director_play_paragraph = self.play_paragraph
+	$"AssistantDirector".director_is_playing = self.is_playing
 
 	#	開発中にいじったものが残ってるかもしれないから、掃除
 
