@@ -6,8 +6,6 @@ var statemachine = null
 
 var is_visible_initialized = false
 
-var count_of_typewriter = 0
-
 
 func get_visual_novel_department_snapshot():
 	return $"../../../../../System/Snapshots/VisualNovelDepartment"
@@ -145,7 +143,7 @@ func _process(delta):
 				self.visible = true
 				self.is_visible_initialized = true
 			
-			count_of_typewriter += delta
+			self.get_visual_novel_department_snapshot().count_of_typewriter += delta
 
 			# １文字 50ms でも、結構ゆっくり
 			var wait_time = 0.05
@@ -155,7 +153,7 @@ func _process(delta):
 				# print("［テキストブロック］　メッセージの早送り")
 				wait_time = 0.01
 		
-			if wait_time <= count_of_typewriter:
+			if wait_time <= self.get_visual_novel_department_snapshot().count_of_typewriter:
 				if 0 < self.get_visual_novel_department_snapshot().text_block_buffer.length():
 					# １文字追加
 					self.text += self.get_visual_novel_department_snapshot().text_block_buffer.substr(0, 1)
@@ -164,4 +162,4 @@ func _process(delta):
 					# 完全表示中
 					self.statemachine.all_character_pushed()
 				
-				count_of_typewriter -= wait_time
+				self.get_visual_novel_department_snapshot().count_of_typewriter -= wait_time

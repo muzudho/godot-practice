@@ -18,6 +18,9 @@ var choice_row_numbers = []
 #		テキストブロックに表示したい文章
 var text_block_buffer = ""
 
+#		タイプライターのカウント
+var count_of_typewriter = 0
+
 
 #	表示中の場所のノード名。無ければ空文字列
 var location_node_name = ""
