@@ -18,14 +18,14 @@ class_name AssistantDirectorStatemachine
 # ｜　　　　　　　｜　０．停止中　｜
 # ｜　　　　　　　＋ーーー＋ーーー＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　再生　＃ステートマシーン外部からの開始の合図。段落番号を渡される
+# ｜　　　　　　　　　　　｜　ビジュアルノベル部＿再生　＃ステートマシーン外部からの開始の合図。段落番号を渡される
 # ｜　　　　　　　　　　　｜
 # ｜　　　＋ーーーーーー＞＋
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　Ｖ
-# ｜　　　｜　　　＋ーーーーーーー＋
-# ｜　　　｜　　　｜　１．再生中　｜
-# ｜　　　｜　　　＋ーーー＋ーーー＋
+# ｜　　　｜　　　＋ーーーーーーーーーーーーーーーーー＋
+# ｜　　　｜　　　｜　１．ビジュアルノベル部＿再生中　｜
+# ｜　　　｜　　　＋ーーー＋ーーーーーーーーーーーーー＋
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜
@@ -34,7 +34,7 @@ class_name AssistantDirectorStatemachine
 # ｜　　　　　　　　　　　｜
 # ＋ーーーーーーーーーーー＋　停止　＃段落が終わった
 #
-enum States {None, Playing}
+enum States {None, PlayingVisualNovelDepartment}
 
 # 状態
 var state = States.None
@@ -43,14 +43,14 @@ var state = States.None
 func is_none():	
 	return self.state == States.None
 
-# 再生中か？
-func is_playing():
-	return self.state == States.Playing
+# ビジュアルノベル部　再生中か？
+func is_playing_visual_novel_department():
+	return self.state == States.PlayingVisualNovelDepartment
 
 # 再生
-func play():
-	print("［ステートマシーン］　パラグラフの再生")
-	self.state = States.Playing
+func play_visual_novel_department():
+	print("［ステートマシーン］　ビジュアルノベル部のパラグラフの再生")
+	self.state = States.PlayingVisualNovelDepartment
 
 # 停止
 func stop():

@@ -12,12 +12,12 @@ func get_department_manager(node_name):
 	return $"System/Managers/".get_node(node_name)
 
 
-func play_paragraph():
-	self.statemachine.play()
+func play_visual_novel_department():
+	self.statemachine.play_visual_novel_department()
 
 
-func is_playing():
-	return self.statemachine.is_playing()
+func is_playing_visual_novel_department():
+	return self.statemachine.is_playing_visual_novel_department()
 
 
 #	サブツリーが全てインスタンス化されたときに呼び出される
@@ -25,8 +25,8 @@ func is_playing():
 func _ready():
 
 	#	関数を渡す
-	$"AssistantDirector".director_play_paragraph = self.play_paragraph
-	$"AssistantDirector".director_is_playing = self.is_playing
+	$"AssistantDirector".director_play_visual_novel_department = self.play_visual_novel_department
+	$"AssistantDirector".director_is_playing_visual_novel_department = self.is_playing_visual_novel_department
 
 	#	開発中にいじったものが残ってるかもしれないから、掃除
 
@@ -66,7 +66,7 @@ func _ready():
 
 
 	#	台本の再生の開始の合図
-	$"./AssistantDirector".play_paragraph("タイトル画面")
+	$"./AssistantDirector".play_visual_novel_department("タイトル画面")
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
