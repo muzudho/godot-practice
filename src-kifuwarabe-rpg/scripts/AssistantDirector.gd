@@ -3,7 +3,7 @@ extends Node
 
 
 # 状態遷移機械
-var statemachine = load("scripts/AssistantDirectorStatemachine.gd").new()
+var statemachine = load("res://scripts/statemachines/AssistantDirector.gd").new()
 
 # メッセージが入っている
 var scenario_array = []

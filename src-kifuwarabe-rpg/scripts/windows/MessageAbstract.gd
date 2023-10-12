@@ -5,7 +5,7 @@ extends Node2D
 
 
 #	状態遷移機械
-var statemachine = load("scripts/windows/MessageStatemachine.gd").new()
+var statemachine = load("res://scripts/statemachines/MessageWindow.gd").new()
 
 
 #	メッセージを出力する対象となるノードの名前
