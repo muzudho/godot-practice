@@ -679,4 +679,26 @@ func push_message(new_text, choice_row_numbers = null):
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　しかし　不具合の状況はマシになってきたぜ」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　部門切り替え時に　下メッセージ・ウィンドウの初期化をやってしまっていて、そのとき透明になってるようだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　初期化するのは　正しいんじゃない？　そのあと表示しないのが悪いだけで」  
+
+![202310__godot__12-2351--Opaque.png](https://crieit.now.sh/upload_images/d15ff0bede22da547e18c5ce28288dc365280838bf7c0.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　可視性ではなく、不透明性で　見えなくなっていたのだった」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　不具合は　少しずつ　マシになってきているぜ」  
+
+# アクティブ
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot のオブジェクトは、存在しない、という設定にできないのかだぜ？ `.set_active()` みたいな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　不可視だったら　存在しない　という取り決めにするしかなくない？」  
+
 .
