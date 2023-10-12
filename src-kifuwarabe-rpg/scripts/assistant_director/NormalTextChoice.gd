@@ -13,7 +13,7 @@ func before_initialize(
 	get_choice_row_number_array,
 	set_choice_row_number_array,
 	set_message_window_waiting_for_order):
-		
+	
 	self.get_choice_row_number_array = get_choice_row_number_array
 	self.set_choice_row_number_array = set_choice_row_number_array
 	self.set_message_window_waiting_for_order = set_message_window_waiting_for_order
@@ -25,10 +25,10 @@ func do_it(temp_text):
 
 
 func redirect_message_window(choice_row_number_array, temp_text):
-	print("［ノーマル・テキスト・チョイス］　選択肢だ：[" + temp_text + "]")
+	print("［ノーマル・テキスト・チョイス］　メッセージ：[" + temp_text + "]")
 
-	# この台詞は選択肢として扱う
-	$"../../GuiArtist/WindowsOfMessage".push_choices(choice_row_number_array, temp_text)
+	# メッセージ追加
+	$"../../GuiArtist/WindowsOfMessage".push_message(temp_text, choice_row_number_array)
 	
 	self.set_message_window_waiting_for_order.call(false)
 	

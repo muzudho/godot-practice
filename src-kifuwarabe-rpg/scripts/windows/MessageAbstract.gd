@@ -87,40 +87,26 @@ func split_head_line_or_tail(text):
 
 
 #	メッセージを追加
-#	TODO ★ タイプライター機能は、スナップショット、またはメッセージの方に持たせたい
-func push_message(text):
-	# print("［メッセージ・ウィンドウ］　台詞追加")
-	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　台詞：[" + text + "]")
+func push_message(text, choices_row_numbers = null):
 
 	#	空っぽのウィンドウを残します
 	self.emptize()
+
+	#	選択肢なら
+	if choices_row_numbers != null:
+		print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選択肢：[" + text + "]")
+		self.show_choice_cursor()
+
+	#	それ以外なら
+	else:
+		print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　台詞：[" + text + "]")
 
 	#	表示
 	self.get_concrete_message_window().show()
 	self.get_concrete_message_window().get_node("CanvasLayer").show()
 
 	#	メッセージ追加
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").push_message(text)
-
-	#	タイプライター風表示へ状態遷移
-	self.statemachine.scenario_seted()
-
-
-#	選択肢を追加
-#	TODO ★ タイプライター機能は、スナップショット、またはメッセージの方に持たせたい
-func push_choices(row_numbers, text):
-	print("［" + self.concrete_message_window_name + "］メッセージ・ウィンドウ　選択肢：[" + text + "]")
-
-	#	空っぽのウィンドウを残します
-	self.emptize()
-
-	#	表示
-	self.show_choice_cursor()
-	self.get_concrete_message_window().show()
-	self.get_concrete_message_window().get_node("CanvasLayer").show()
-
-	#	メッセージ追加
-	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").push_message(text, row_numbers)
+	self.get_concrete_message_window().get_node("CanvasLayer/TextBlock").push_message(text, choices_row_numbers)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
