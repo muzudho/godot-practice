@@ -7,7 +7,6 @@ var statemachine = null
 var is_visible_initialized = false
 
 var count_of_typewriter = 0
-var text_buffer = ""
 
 
 func get_visual_novel_department_snapshot():
@@ -71,7 +70,7 @@ func push_message(new_text):
 	print("［テキストブロック］　台詞：　[" + new_text + "]")
 	self.get_visual_novel_department_snapshot().is_choice_mode = false
 	self.get_visual_novel_department_snapshot().choice_row_numbers = []
-	self.text_buffer = new_text
+	self.get_visual_novel_department_snapshot().text_block_buffer = new_text
 
 	# 空欄化
 	self.emptize()
@@ -81,7 +80,7 @@ func push_message(new_text):
 func push_choices(row_numbers, new_text):
 	print("［テキストブロック］　選択肢：　[" + new_text + "]")
 	self.get_visual_novel_department_snapshot().choice_row_numbers = row_numbers
-	self.text_buffer = new_text
+	self.get_visual_novel_department_snapshot().text_block_buffer = new_text
 	self.get_visual_novel_department_snapshot().is_choice_mode = true
 
 	# 空欄化
@@ -157,10 +156,10 @@ func _process(delta):
 				wait_time = 0.01
 		
 			if wait_time <= count_of_typewriter:
-				if 0 < self.text_buffer.length():
+				if 0 < self.get_visual_novel_department_snapshot().text_block_buffer.length():
 					# １文字追加
-					self.text += self.text_buffer.substr(0, 1)
-					self.text_buffer = self.text_buffer.substr(1, self.text_buffer.length()-1)
+					self.text += self.get_visual_novel_department_snapshot().text_block_buffer.substr(0, 1)
+					self.get_visual_novel_department_snapshot().text_block_buffer = self.get_visual_novel_department_snapshot().text_block_buffer.substr(1, self.get_visual_novel_department_snapshot().text_block_buffer.length()-1)
 				else:
 					# 完全表示中
 					self.statemachine.all_character_pushed()
