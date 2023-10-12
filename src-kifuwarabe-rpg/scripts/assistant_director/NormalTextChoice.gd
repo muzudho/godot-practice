@@ -21,10 +21,10 @@ func before_initialize(
 
 #	それをする
 func do_it(temp_text):
-	self.redirect_message_window(temp_text, self.get_choice_row_number_array.call())
+	self.push_message(temp_text, self.get_choice_row_number_array.call())
 
 
-func redirect_message_window(temp_text, choice_row_number_array):
+func push_message(temp_text, choice_row_number_array):
 	print("［ノーマル・テキスト・チョイス］　メッセージ：[" + temp_text + "]")
 
 	# メッセージ追加

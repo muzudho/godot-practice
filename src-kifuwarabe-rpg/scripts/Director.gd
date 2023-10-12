@@ -87,9 +87,9 @@ func _unhandled_key_input(event):
 
 			#	［中央］メッセージ・ウィンドウを表示する
 			$"AssistantDirector/MWnd".redirect_message_window("中央")
-			$"AssistantDirector/NormalText".put_message("かいはつちゅう")
 
-			$"AssistantDirector/NormalTextChoice".redirect_message_window("""\
+			# $"AssistantDirector/NormalText".put_message("かいはつちゅう")
+			$"AssistantDirector/NormalTextChoice".push_message("""\
 　・再開
 　・終了
 """,
