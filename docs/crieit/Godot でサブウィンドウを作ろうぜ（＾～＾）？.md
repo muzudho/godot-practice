@@ -718,4 +718,18 @@ func push_message(new_text, choice_row_numbers = null):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　統合して　１ファイル減らしたぜ」  
 
+# セリフと選択肢は別状態か？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　台詞は　最後に　▼　が出て、  
+選択肢は　最後に移動できる　▶　が出るのが　違いなんだよな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　メッセージエンド・ブリンカー（Message-end Blinker※造語）が違うだけか」  
+
+![202310__godot__14-0002--MessageEndBlinker-o2o0.png](https://crieit.now.sh/upload_images/5898073a182d1df22d1883137c85c00f65295c367f8eb.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ここらへんのスクリプトを　内部的に１種類に統合したいぜ」  
+
 .
