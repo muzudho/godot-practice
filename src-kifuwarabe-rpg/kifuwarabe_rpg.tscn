@@ -19,32 +19,32 @@
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/LocationCoordinator.gd" id="15_ajtoo"]
 [ext_resource type="Script" path="res://scripts/ConcreteLocation.gd" id="17_ibqgx"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Bg.gd" id="20_qxivy"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Bgm.gd" id="21_dqion"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Choice.gd" id="22_cj5lk"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Cwnd.gd" id="23_5s8w2"]
+[ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="22_cj5lk"]
+[ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
 [ext_resource type="Script" path="res://scripts/Musician.gd" id="23_6ylqn"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Msg.gd" id="23_a7vfu"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Goto.gd" id="24_envpd"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Quit.gd" id="25_xmliw"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Scene.gd" id="26_d8rxk"]
+[ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="23_a7vfu"]
+[ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="24_envpd"]
+[ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="25_xmliw"]
+[ext_resource type="Script" path="res://scripts/assistant_director/scene.gd" id="26_d8rxk"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
-[ext_resource type="Script" path="res://scripts/assistant_director/NormalText.gd" id="27_1um3d"]
-[ext_resource type="Script" path="res://scripts/assistant_director/Se.gd" id="27_b3qcr"]
-[ext_resource type="Script" path="res://scripts/assistant_director/NormalTextChoice.gd" id="27_punsk"]
+[ext_resource type="Script" path="res://scripts/assistant_director/normal_text.gd" id="27_1um3d"]
+[ext_resource type="Script" path="res://scripts/assistant_director/se.gd" id="27_b3qcr"]
+[ext_resource type="Script" path="res://scripts/assistant_director/normal_text_choice.gd" id="27_punsk"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/MessageWindow.png" id="28_skskk"]
 [ext_resource type="Script" path="res://scripts/windows/MessageConcrete.gd" id="30_bblis"]
 [ext_resource type="Script" path="res://scripts/windows/MessageTextBlock.gd" id="32_b10pj"]
+[ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="32_uu41d"]
 [ext_resource type="Script" path="res://scripts/windows/MessageEndBlinker.gd" id="33_1xmx8"]
+[ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="33_ogwo6"]
 [ext_resource type="Script" path="res://scripts/windows/MessageChoiceCursor.gd" id="34_0fjc7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/system_window.png" id="34_wja0x"]
 [ext_resource type="Script" path="res://scripts/windows/Viewing.gd" id="35_s10tl"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/CenterWindow.png" id="35_sw6cw"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
-[ext_resource type="Script" path="res://scripts/managements/VisualNovelDepartment.gd" id="44_eavrs"]
+[ext_resource type="Script" path="res://scripts/managements/visual_novel_department.gd" id="44_eavrs"]
 [ext_resource type="Script" path="res://scripts/snapshots/VisualNovelDepartment.gd" id="44_uxi6d"]
-[ext_resource type="Script" path="res://scripts/managements/SystemMenuDepartment.gd" id="45_eu2ok"]
+[ext_resource type="Script" path="res://scripts/managements/system_menu_department.gd" id="45_eu2ok"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -594,10 +594,10 @@ texture = ExtResource("37_lwbng")
 script = ExtResource("3_nnvgw")
 
 [node name="Bg" type="Node" parent="AssistantDirector"]
-script = ExtResource("20_qxivy")
+script = ExtResource("32_uu41d")
 
 [node name="Bgm" type="Node" parent="AssistantDirector"]
-script = ExtResource("21_dqion")
+script = ExtResource("33_ogwo6")
 
 [node name="Choice" type="Node" parent="AssistantDirector"]
 script = ExtResource("22_cj5lk")
