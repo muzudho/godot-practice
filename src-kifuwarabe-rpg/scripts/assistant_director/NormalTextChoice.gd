@@ -9,8 +9,9 @@ var set_message_window_waiting_for_order = null
 
 
 #	メッセージ・ウィンドウ取得
-func get_message_window(message_window_name):
-	return $"../../GuiArtist/WindowsOfMessage".get_node(message_window_name)
+func get_message_window(
+	message_window_name_obj):	# StringName
+	return $"../../GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
 
 
 #	スナップショット取得
@@ -32,18 +33,18 @@ func before_initialize(
 #	それをする
 func do_it(
 	temp_text):				# str
-	var message_window_name = self.get_snapshot("VisualNovelDepartment").message_window_name
-	self.push_message(message_window_name, temp_text, self.get_choice_row_number_array.call())
+	var message_window_name_obj = self.get_snapshot("VisualNovelDepartment").message_window_name_obj
+	self.push_message(message_window_name_obj, temp_text, self.get_choice_row_number_array.call())
 
 
 func push_message(
-	message_window_name,		# str
+	message_window_name_obj,	# StringName
 	temp_text,					# str
 	choice_row_number_array):	# number_array
 	print("［ノーマル・テキスト・チョイス］　メッセージ：[" + temp_text + "]")
 
 	# メッセージ追加
-	self.get_message_window(message_window_name).push_message(temp_text, choice_row_number_array)
+	self.get_message_window(message_window_name_obj).push_message(temp_text, choice_row_number_array)
 	
 	self.set_message_window_waiting_for_order.call(false)
 	

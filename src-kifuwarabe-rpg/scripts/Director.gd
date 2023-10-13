@@ -31,8 +31,8 @@ func get_department_manager(node_name):
 #	メッセージ・ウィンドウ
 func get_message_window():
 	# TODO ちゃんと作る必要がある
-	var message_window_name = $"System/Snapshots/VisualNovelDepartment".message_window_name
-	return $"GuiArtist/WindowsOfMessage".get_node(message_window_name)
+	var message_window_name_obj = $"System/Snapshots/VisualNovelDepartment".message_window_name_obj
+	return $"GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
 
 
 #	サブツリーが全てインスタンス化されたときに呼び出される

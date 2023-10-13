@@ -9,7 +9,7 @@ var paragraph_name = null
 var is_message_window_waiting_for_order = false
 
 #	メッセージを出力する対象となるノードの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-var message_window_name = "下"
+var message_window_name_obj = &"下"		# StringName 型 シンタックス・シュガー
 
 #	選択肢
 # 		選択肢モード

@@ -86,7 +86,7 @@ func redirect_me():
 	print("［メッセージウィンドウ　”" + self.name + "”］　リダイレクトしてきた")
 	
 	# 新しいウィンドウ
-	self.get_snapshot("VisualNovelDepartment").message_window_name = str(self.name) # StringName to String
+	self.get_snapshot("VisualNovelDepartment").message_window_name_obj = self.name # StringName 型。 String ではない
 	
 	# 初期化
 	self.initialize_concrete_message_window()
