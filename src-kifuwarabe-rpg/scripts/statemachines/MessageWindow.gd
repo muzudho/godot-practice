@@ -17,7 +17,7 @@ class_name MessageWindowStatemachine
 # ｜　　　　　　　　｜　　None　　｜　※ウィンドウが存在しない唯一の状態
 # ｜　　　　　　　　＋ーー＋ーーー＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　Talk　※メッセージ追加、ウィンドウは存在する状態へ
+# ｜　　　　　　　　　　　｜　talk　※メッセージ追加、ウィンドウは存在する状態へ
 # ｜　　　　　　　　　　　｜
 # ｜　　　＋ーーーーーー＞＋
 # ｜　　　｜　　　　　　　｜
@@ -38,7 +38,7 @@ class_name MessageWindowStatemachine
 # ｜　　　｜　　　　　　　※外部からの入力
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜
-# ｜　　　＋ーーーー＜ーー＋　まだ続きがある。ページ・フォワード
+# ｜　　　＋ーーーー＜ーー＋　page_forward　※まだ続きがある。ページ・フォワード
 # ｜　　　　　　　　はい　｜
 # ｜　　　　　　　　　　　｜
 # ＋ーーーーーーーーーーー＋　すべての文字を吐き出した。オール・ページ・フラッシュド
@@ -50,6 +50,7 @@ var state = States.None
 
 # 関数の変数
 var on_talk = null
+var on_page_forward = null
 
 
 func is_none():
@@ -69,6 +70,9 @@ func talk(text, choices_row_numbers = null):
 	self.state = States.Typewriter
 
 func page_forward():
+	if on_page_forward != null:
+		on_page_forward.call()
+	
 	print("［ステートマシーン］　ページ送りした。タイプライター風表示へ状態遷移")
 	self.state = States.Typewriter
 

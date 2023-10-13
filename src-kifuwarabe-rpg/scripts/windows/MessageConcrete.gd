@@ -163,18 +163,6 @@ func set_visible_subtree(
 				child.set_visible_subtree(is_visible)
 
 
-#	ページ送り
-func on_page_forward():
-	print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
-
-	#	効果音
-	self.get_musician().playSe("ページめくり音")
-
-	#	空っぽのウィンドウを残して、次の指示を待ちます
-	self.emptize()
-	self.awaiting_order()
-
-
 #	下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected():
 	#	カーソル音
@@ -221,7 +209,7 @@ func on_unhandled_key_input(event):
 					return
 				
 				#	ページ送り
-				self.on_page_forward()
+				self.statemachine.page_forward()
 
 
 func on_talk(text, choices_row_numbers = null):
@@ -246,9 +234,22 @@ func on_talk(text, choices_row_numbers = null):
 	self.push_message_concrete(text, choices_row_numbers)
 
 
+#	ページ送り
+func on_page_forward():
+	print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
+
+	#	効果音
+	self.get_musician().playSe("ページめくり音")
+
+	#	空っぽのウィンドウを残して、次の指示を待ちます
+	self.emptize()
+	self.awaiting_order()
+
+
 func _ready():
 	#	状態機械のセットアップ
 	self.statemachine.on_talk = self.on_talk
+	self.statemachine.on_page_forward = self.on_page_forward
 
 	#	このノードは常に visible にしておいてください
 	#	TODO これは不要？
@@ -270,7 +271,7 @@ func _process(_delta):
 
 		elif self.statemachine_concrete.is_typewriter():
 			if not self.is_visible_initialized_concrete:
-				# タイプライター風表示中の初回に可視化				
+				# タイプライター風表示中の初回に可視化
 				# 不透明
 				self.modulate.a = 1.0	# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.is_visible_initialized_concrete = true
