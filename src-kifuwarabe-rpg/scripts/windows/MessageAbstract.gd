@@ -31,7 +31,7 @@ func get_snapshot(department_node_name):
 #		引数を渡すことが **初期化** との違いです
 func before_initialize(concrete_message_window_name_obj, parent_statemachine):
 	#	親からステートマシンを引き継ぐ
-	self.get_node(str(concrete_message_window_name_obj)).statemachine = parent_statemachine
+	self.get_node(str(concrete_message_window_name_obj)).statemachine_concrete = parent_statemachine
 
 	#	子どもにもステートマシンを渡す
 	self.get_node(str(concrete_message_window_name_obj)).get_node("CanvasLayer/TextBlock").before_initialize(self.statemachine)
