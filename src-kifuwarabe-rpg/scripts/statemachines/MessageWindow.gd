@@ -6,32 +6,31 @@ class_name MessageWindowStatemachine
 # 　状態遷移図
 # 　ーーーーー
 #
-# 　　　　　　　　　＋ーーーーー＋
-# 　　　　　　　　　｜　はじめ　｜
-# 　　　　　　　　　＋ーー＋ーー＋
+# 　　　　　　　　　　　　Entry
+# 　　　　　　　　　　　　＋
 # 　　　　　　　　　　　　｜
 # 　　　　　　　　　　　　｜
 # ＋ーーーーーーーーーー＞＋
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　Ｖ
-# ｜　　　　　　　＋ーーーーーーーー＋
-# ｜　　　　　　　｜　０．不存在　　｜	※ウィンドウが存在しない唯一の状態
-# ｜　　　　　　　＋ーーー＋ーーーー＋
+# ｜　　　　　　　　＋ーーーーーー＋
+# ｜　　　　　　　　｜　　None　　｜　※ウィンドウが存在しない唯一の状態
+# ｜　　　　　　　　＋ーー＋ーーー＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　※メッセージ追加、ウィンドウは存在する状態へ
+# ｜　　　　　　　　　　　｜　Talk　※メッセージ追加、ウィンドウは存在する状態へ
 # ｜　　　　　　　　　　　｜
 # ｜　　　＋ーーーーーー＞＋
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　Ｖ
-# ｜　　　｜　　　＋ーーーーーーーーーーーーーーー＋
-# ｜　　　｜　　　｜　１．タイプライター風表示中　｜
-# ｜　　　｜　　　＋ーーー＋ーーーーーーーーーーー＋
+# ｜　　　｜　　　　＋ーーーーーーーーーー＋
+# ｜　　　｜　　　　｜　　Typewriter 　　｜　※タイプライター風表示中
+# ｜　　　｜　　　　＋ーー＋ーーーーーーー＋
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜　バッファーが空になった
 # ｜　　　｜　　　　　　　Ｖ
-# ｜　　　｜　　　＋ーーーーーーーーー＋
-# ｜　　　｜　　　｜　２．完全表示中　｜
-# ｜　　　｜　　　＋ーーー＋ーーーーー＋
+# ｜　　　｜　　　　＋ーーーーーーーーー＋
+# ｜　　　｜　　　　｜　　Completed 　　｜　※完全表示中
+# ｜　　　｜　　　　＋ーー＋ーーーーーー＋
 # ｜　　　｜　　　　　　　※上位のオブジェクトに指示待ちの通知を送る
 # ｜　　　｜　　　　　　　※これにて自律を停止
 # ｜　　　｜
@@ -49,6 +48,10 @@ enum States {None, Typewriter, Completed}
 # 状態
 var state = States.None
 
+# 関数の変数
+var on_talk = null
+
+
 func is_none():
 	return self.state == States.None
 
@@ -58,7 +61,10 @@ func is_typewriter():
 func is_completed():
 	return self.state == States.Completed
 
-func scenario_seted():
+func talk(text, choices_row_numbers = null):
+	if on_talk != null:
+		on_talk.call(text, choices_row_numbers)
+	
 	print("［ステートマシーン］　シナリオをセットした。タイプライター風表示へ状態遷移")
 	self.state = States.Typewriter
 

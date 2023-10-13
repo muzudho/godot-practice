@@ -115,32 +115,6 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
-#	メッセージを追加
-func push_message(text, choices_row_numbers = null):
-
-	#	空っぽのウィンドウを残します
-	self.emptize()
-
-	#	選択肢なら
-	if choices_row_numbers != null:
-		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢：[" + text + "]")
-		self.show_choice_cursor()
-
-	#	それ以外なら
-	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］　台詞：[" + text + "]")
-
-	#	表示
-	self.show()
-	self.get_node("CanvasLayer").show()
-
-	#	メッセージ追加
-	self.push_message_concrete(text, choices_row_numbers)
-
-	#	タイプライター風表示へ状態遷移
-	self.statemachine.scenario_seted()
-
-
 #	メッセージ追加
 func push_message_concrete(
 	text,					# str
@@ -250,8 +224,34 @@ func on_unhandled_key_input(event):
 				self.on_page_forward()
 
 
+func on_talk(text, choices_row_numbers = null):
+
+	#	空っぽのウィンドウを残します
+	self.emptize()
+
+	#	選択肢なら
+	if choices_row_numbers != null:
+		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢：[" + text + "]")
+		self.show_choice_cursor()
+
+	#	それ以外なら
+	else:
+		print("［メッセージウィンドウ　”" + self.name + "”］　台詞：[" + text + "]")
+
+	#	表示
+	self.show()
+	self.get_node("CanvasLayer").show()
+
+	#	メッセージ追加
+	self.push_message_concrete(text, choices_row_numbers)
+
+
 func _ready():
-	# このノードは常に visible にしておいてください
+	#	状態機械のセットアップ
+	self.statemachine.on_talk = self.on_talk
+
+	#	このノードは常に visible にしておいてください
+	#	TODO これは不要？
 	self.show()
 
 	self.initialize_concrete_message_window()

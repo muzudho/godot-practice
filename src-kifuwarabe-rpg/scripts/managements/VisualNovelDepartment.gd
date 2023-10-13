@@ -47,4 +47,4 @@ func appear():
 func push_message(temp_text):
 	# メッセージ・ウィンドウの表示
 	# TODO メッセージ・ウィンドウが　どれぐらい文字を表示してるかを　スナップショットに記憶したい
-	self.get_message_window("下").push_message(temp_text)
+	self.get_message_window("下").statemachine.talk(temp_text)
