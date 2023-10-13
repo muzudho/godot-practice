@@ -18,7 +18,7 @@ func disappear():
 	is_appear = false
 	
 	#	表示中の［中央］メッセージ・ウィンドウを隠す
-	self.get_message_window("中央").set_visible_subtree(false)
+	self.get_abstract_message_window().set_visible_subtree_concrete("中央", false)
 
 	#	ポーズ
 	#		とりあえず、［下］メッセージ・ウィンドウを止めてみる
@@ -35,7 +35,7 @@ func appear():
 	is_appear = true
 
 	#	表示中の［中央］メッセージ・ウィンドウを表示する
-	self.get_message_window("中央").set_visible_subtree(true)
+	self.get_abstract_message_window().set_visible_subtree_concrete("中央", true)
 
 	#	再開
 	self.get_abstract_message_window().set_process_subtree_concrete("中央", true)

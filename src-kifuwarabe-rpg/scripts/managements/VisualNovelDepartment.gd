@@ -18,7 +18,7 @@ func disappear():
 	is_appear = false
 	
 	#	表示中の［下］メッセージ・ウィンドウを隠す
-	self.get_message_window("下").set_visible_subtree(false)
+	self.get_abstract_message_window().set_visible_subtree_concrete("下", false)
 
 	#	ポーズ
 	#		とりあえず、［下］メッセージ・ウィンドウを止めてみる
@@ -36,7 +36,7 @@ func appear():
 	is_appear = true
 
 	#	表示中の［下］メッセージ・ウィンドウを表示する
-	self.get_message_window("下").set_visible_subtree(true)
+	self.get_abstract_message_window().set_visible_subtree_concrete("下", true)
 		# TODO 最後に表示していた途中のメッセージを追加しないと、ウィンドウは表示されない？
 
 	#	再開

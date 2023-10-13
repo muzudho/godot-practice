@@ -6,23 +6,6 @@ var statemachine = null
 var is_visible_initialized = false
 
 
-#	サブツリーの visible を設定
-func set_visible_subtree(is_visible):
-	print("［”" + self.name + "”メッセージウィンドウ］　可視性：" + str(is_visible))
-
-	#	見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
-	#	隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
-	#	見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
-	#	隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
-	if is_visible != self.visible:
-		self.visible = is_visible
-
-		#	子ノード
-		for child in $"CanvasLayer".get_children():
-			if child.has_method("set_visible_subtree"):
-				child.set_visible_subtree(is_visible)
-
-
 #	メッセージ追加
 func push_message(text, choices_row_numbers):
 	print("［”" + self.name + "”メッセージウィンドウ］　メッセージ追加（表示、不透明化）")
