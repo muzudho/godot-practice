@@ -2,7 +2,7 @@
 extends Label
 
 #	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
-var statemachine = null
+var statemachine_of_message_window = null
 
 #	カーソルが点滅するための時間カウント
 var is_first_displayed_immediately = false
@@ -15,7 +15,7 @@ var blinker_interval = 0.5
 #		引数を渡すことが **初期化** との違いです
 func before_initialize(parent_statemachine):
 	#	親からステートマシンを受け取る
-	self.statemachine = parent_statemachine
+	self.statemachine_of_message_window = parent_statemachine
 
 
 #	初期化
@@ -94,7 +94,7 @@ func _process(delta):
 
 		
 		# 完全表示中	
-		if self.statemachine.is_completed():
+		if self.statemachine_of_message_window.is_completed():
 
 			#	初回はすぐに不透明
 			if not self.is_first_displayed_immediately:

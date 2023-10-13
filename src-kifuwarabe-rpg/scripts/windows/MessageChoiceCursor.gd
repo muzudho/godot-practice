@@ -7,7 +7,7 @@ const font_height = 32
 const line_space_height = 16
 
 #	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
-var statemachine = null
+var statemachine_of_message_window = null
 
 #	カーソルが移動する前の位置
 var src_y = 0.0
@@ -41,7 +41,7 @@ func get_snapshot(department_node_name):
 #		引数を渡すことが **初期化** との違いです
 func before_initialize(parent_statemachine):
 	#	親からステートマシンを受け取る
-	self.statemachine = parent_statemachine
+	self.statemachine_of_message_window = parent_statemachine
 
 
 #	初期化
@@ -162,7 +162,7 @@ func _process(delta):
 
 
 		# 完全表示中	　かつ　選択肢モード
-		if self.statemachine.is_completed() and self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+		if self.statemachine_of_message_window.is_completed() and self.get_snapshot("VisualNovelDepartment").is_choice_mode:
 			
 			#	初回はすぐに不透明
 			if not self.is_first_displayed_immediately:
