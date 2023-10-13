@@ -162,6 +162,6 @@ func _process(delta):
 					self.get_snapshot("VisualNovelDepartment").text_block_buffer = self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(1, self.get_snapshot("VisualNovelDepartment").text_block_buffer.length()-1)
 				else:
 					# 完全表示中
-					self.statemachine.all_character_pushed()
+					self.statemachine.all_characters_pushed()
 				
 				self.get_snapshot("VisualNovelDepartment").count_of_typewriter -= wait_time

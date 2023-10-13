@@ -235,6 +235,10 @@ func on_page_forward():
 	self.awaiting_order()
 
 
+func on_all_characters_pushed():
+	pass
+
+
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func on_all_pages_flushed():
@@ -246,6 +250,7 @@ func _ready():
 	#	状態機械のセットアップ
 	self.statemachine.on_talk = self.on_talk
 	self.statemachine.on_page_forward = self.on_page_forward
+	self.statemachine.on_all_characters_pushed = self.on_all_characters_pushed
 	self.statemachine.on_all_pages_flushed = self.on_all_pages_flushed
 
 	#	このノードは常に visible にしておいてください

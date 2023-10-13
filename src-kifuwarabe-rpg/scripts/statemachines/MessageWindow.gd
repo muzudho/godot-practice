@@ -28,7 +28,8 @@ class_name MessageWindowStatemachine
 # ｜　　　｜　　　　｜　　Typewriter 　　｜　※タイプライター風表示中
 # ｜　　　｜　　　　＋ーー＋ーーーーーーー＋
 # ｜　　　｜　　　　　　　｜
-# ｜　　　｜　　　　　　　｜　バッファーが空になった
+# ｜　　　｜　　　　　　　｜　all_characters_pushed　※バッファーが空になった
+# ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　Ｖ
 # ｜　　　｜　　　　＋ーーーーーーーーー＋
 # ｜　　　｜　　　　｜　　Completed 　　｜　※完全表示中
@@ -54,6 +55,7 @@ var state = States.None
 # 関数の変数
 var on_talk = null
 var on_page_forward = null
+var on_all_characters_pushed = null
 var on_all_pages_flushed = null
 
 
@@ -80,7 +82,10 @@ func page_forward():
 	print("［ステートマシーン］　ページ送りした。タイプライター風表示へ状態遷移")
 	self.state = States.Typewriter
 
-func all_character_pushed():
+func all_characters_pushed():
+	if on_all_characters_pushed != null:
+		on_all_characters_pushed.call()
+
 	print("［ステートマシーン］　全ての文字を出力した。完全表示中へ状態遷移")	
 	self.state = States.Completed
 
