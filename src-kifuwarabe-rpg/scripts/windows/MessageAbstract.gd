@@ -145,10 +145,21 @@ func push_message(text, choices_row_numbers = null):
 	self.get_concrete_message_window().get_node("CanvasLayer").show()
 
 	#	メッセージ追加
-	self.get_concrete_message_window().push_message(text, choices_row_numbers)
+	self.push_message_concrete(self.concrete_message_window_name, text, choices_row_numbers)
 
 	#	タイプライター風表示へ状態遷移
 	self.statemachine.scenario_seted()
+
+
+#	メッセージ追加
+func push_message_concrete(
+	concrete_message_window_name,	# str
+	text,							# str
+	choices_row_numbers):			# number_array
+		
+	print("［”" + concrete_message_window_name + "”メッセージウィンドウ］　メッセージ追加（表示、不透明化）")
+	self.get_node(concrete_message_window_name).get_node("CanvasLayer/TextBlock").push_message(text, choices_row_numbers)
+	self.get_node(concrete_message_window_name).modulate.a = 1.0	# メッセージ追加による不透明化
 
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作

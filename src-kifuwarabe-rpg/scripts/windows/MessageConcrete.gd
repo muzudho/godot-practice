@@ -4,13 +4,6 @@ extends Sprite2D
 #	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine = null
 var is_visible_initialized = false
-
-
-#	メッセージ追加
-func push_message(text, choices_row_numbers):
-	print("［”" + self.name + "”メッセージウィンドウ］　メッセージ追加（表示、不透明化）")
-	self.get_node("CanvasLayer/TextBlock").push_message(text, choices_row_numbers)
-	self.modulate.a = 1.0	# メッセージ追加による不透明化
 	
 
 func _process(_delta):
