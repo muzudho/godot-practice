@@ -8,6 +8,9 @@ var paragraph_name = null
 # メッセージウィンドウが指示待ちか？
 var is_message_window_waiting_for_order = false
 
+#	メッセージを出力する対象となるノードの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
+var message_window_name = "下"
+
 #	選択肢
 # 		選択肢モード
 var is_choice_mode = false

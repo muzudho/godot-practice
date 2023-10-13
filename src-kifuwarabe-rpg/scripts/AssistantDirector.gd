@@ -18,6 +18,18 @@ func get_director():
 	return $"../../Director"
 
 
+#	メッセージ・ウィンドウ
+func get_message_window(
+	message_window_name):		# str
+	return $"../GuiArtist/WindowsOfMessage".get_node(message_window_name)
+
+#	メッセージ・ウィンドウ
+func get_current_message_window():
+	# TODO ちゃんと作る必要がある
+	var message_window_name = $"../System/Snapshots/VisualNovelDepartment".message_window_name
+	return $"../GuiArtist/WindowsOfMessage".get_node(message_window_name)
+
+
 #	ビジュアル・ノベル部のこの瞬間の状態
 func get_snapshot(department_node_name):
 	return $"../System/Snapshots".get_node(department_node_name)
@@ -40,7 +52,7 @@ func play_visual_novel_department(paragraph_name):
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
 func redirect_concrete_message_window_by_name(node_name):
-	$"../GuiArtist/WindowsOfMessage".redirect_concrete_message_window_by_name(node_name)
+	self.get_message_window(node_name).redirect_me()
 
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
@@ -175,6 +187,6 @@ func _process(_delta):
 
 			# もう無いよ
 			else:
-				if not $"../GuiArtist/WindowsOfMessage".statemachine.is_none():
+				if not self.get_current_message_window().statemachine_concrete.is_none():
 					# メッセージ・ウィンドウを閉じる
-					$"../GuiArtist/WindowsOfMessage".initialize()
+					self.get_current_message_window().initialize()

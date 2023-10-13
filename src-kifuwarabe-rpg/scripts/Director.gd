@@ -7,11 +7,6 @@ extends Node2D
 var statemachine = load("res://scripts/statemachines/Director.gd").new()
 
 
-#	部管理人
-func get_department_manager(node_name):
-	return $"System/Managers/".get_node(node_name)
-
-
 func play_visual_novel_department():
 	self.statemachine.play_visual_novel_department()
 
@@ -26,6 +21,18 @@ func play_system_menu_department():
 
 func is_playing_system_menu_department():
 	return self.statemachine.is_playing_system_menu_department()
+
+
+#	部管理人
+func get_department_manager(node_name):
+	return $"System/Managers/".get_node(node_name)
+
+
+#	メッセージ・ウィンドウ
+func get_message_window():
+	# TODO ちゃんと作る必要がある
+	var message_window_name = $"System/Snapshots/VisualNovelDepartment".message_window_name
+	return $"GuiArtist/WindowsOfMessage".get_node(message_window_name)
 
 
 #	サブツリーが全てインスタンス化されたときに呼び出される
@@ -135,7 +142,7 @@ func _unhandled_key_input(event):
 		print("［ディレクター］　アンハンドルド・キー押下　その他のキー")
 
 		#	子要素へ渡す
-		$"GuiArtist/WindowsOfMessage".on_unhandled_key_input(event)
+		self.get_message_window().on_unhandled_key_input(event)
 
 	else:
 		print("［ディレクター］　アンハンドルド・キー　押下以外")
