@@ -701,4 +701,16 @@ func push_message(new_text, choice_row_numbers = null):
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　不可視だったら　存在しない　という取り決めにするしかなくない？」  
 
+# 📅 (2023-10-13 fri 21:21) 再開
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　状態機械をガチガチに作ろうぜ？」  
+
+## スクリプトを統合しよう
+
+![202310__godot__13-2125--Tree-o2o0.png](https://crieit.now.sh/upload_images/51be8f31f2f2d45b13c17b9aa984326d6529376fd274a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　その前に　スクリプトの機能分担が　煩雑になってきたので　シンプルにしていこうぜ？」  
+
 .
