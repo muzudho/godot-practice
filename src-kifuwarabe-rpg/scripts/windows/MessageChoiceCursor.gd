@@ -1,30 +1,31 @@
 #	チョイス・カーソル（Choice Cursor；選択肢カーソル）
 extends Label
 
-#	文字の縦幅px
-const font_height = 32
-#	行間の縦幅
-const line_space_height = 16
-
-#	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
+#	メッセージエンド・ブリンカーの共通項目
+#
+#		メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine_of_message_window = null
-
-#	カーソルが移動する前の位置
-var src_y = 0.0
-#	カーソルが移動する先の位置
-var dst_y = 0.0
-#	カーソルの移動にかかる全体の時間（秒）
-var total_seconds = 0.0
-#	経過時間（秒）
-var elapsed_seconds = 0.0
-
-#	カーソルが現在指している行番号。序数
-var selected_row_number = 1
-
-#	カーソルが点滅するための時間カウント
+#		カーソルが点滅するための時間カウント
 var is_first_displayed_immediately = false
 var blinker_seconds = 0.0
 var blinker_interval = 0.5
+
+#	選択肢カーソルのためのもの
+#
+#		文字の縦幅px
+const font_height = 32
+#		行間の縦幅
+const line_space_height = 16
+#		カーソルが移動する前の位置
+var src_y = 0.0
+#		カーソルが移動する先の位置
+var dst_y = 0.0
+#		カーソルの移動にかかる全体の時間（秒）
+var total_seconds = 0.0
+#		経過時間（秒）
+var elapsed_seconds = 0.0
+#		カーソルが現在指している行番号。序数
+var selected_row_number = 1
 
 
 #	音楽家を取得
@@ -34,14 +35,6 @@ func get_musician():
 
 func get_snapshot(department_node_name):
 	return $"../../../../../../System/Snapshots".get_node(department_node_name)
-
-
-#	初期化の前に
-#		初期化の一種ですが、初期化より先に行います。
-#		引数を渡すことが **初期化** との違いです
-func before_initialize(parent_statemachine):
-	#	親からステートマシンを受け取る
-	self.statemachine_of_message_window = parent_statemachine
 
 
 #	初期化

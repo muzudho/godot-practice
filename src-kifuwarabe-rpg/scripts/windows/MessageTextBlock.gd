@@ -21,9 +21,9 @@ func before_initialize(parent_statemachine):
 	self.statemachine = parent_statemachine
 	
 	#	子どもにも渡す
-	$"BlinkerTriangle".before_initialize(self.statemachine)
-	$"BlinkerUnderscore".before_initialize(self.statemachine)
-	$"ChoiceCursor".before_initialize(self.statemachine)
+	$"BlinkerTriangle".statemachine_of_message_window = self.statemachine
+	$"BlinkerUnderscore".statemachine_of_message_window = self.statemachine
+	$"ChoiceCursor".statemachine_of_message_window = self.statemachine
 
 
 #	初期化
