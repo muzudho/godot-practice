@@ -713,4 +713,9 @@ func push_message(new_text, choice_row_numbers = null):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　その前に　スクリプトの機能分担が　煩雑になってきたので　シンプルにしていこうぜ？」  
 
+![202310__godot__13-2315--MessageWindow-o2o0.png](https://crieit.now.sh/upload_images/84c71f7298ef5938f040a875bc567df86529511686b3e.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　統合して　１ファイル減らしたぜ」  
+
 .
