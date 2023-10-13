@@ -6,23 +6,6 @@ var statemachine = null
 var is_visible_initialized = false
 
 
-#	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
-func set_process_subtree(is_process):
-	print("［”" + self.name + "”メッセージウィンドウ］　プロセッシング：" + str(is_process))
-
-	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
-	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
-	#	処理しろ　（true） という指示のとき、処理していなければ（false）、再開する　（true）。
-	#	処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
-	if is_process != self.is_processing():
-		self.set_process(is_process)
-
-		#	子ノード
-		for child in $"CanvasLayer".get_children():
-			if child.has_method("set_process_subtree"):
-				child.set_process_subtree(is_process)
-
-
 #	サブツリーの visible を設定
 func set_visible_subtree(is_visible):
 	print("［”" + self.name + "”メッセージウィンドウ］　可視性：" + str(is_visible))

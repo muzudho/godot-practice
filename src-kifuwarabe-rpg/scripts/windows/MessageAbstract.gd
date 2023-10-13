@@ -164,6 +164,24 @@ func set_process_subtree(is_process):
 
 		#	子ノード
 		for child in self.get_children():
+			self.set_process_subtree_concrete(str(child.name), is_process)
+
+
+#	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
+func set_process_subtree_concrete(
+	concrete_message_window_name,	# str
+	is_process):					# bool
+	print("［”" + concrete_message_window_name + "”メッセージウィンドウ］　プロセッシング：" + str(is_process))
+
+	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
+	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
+	#	処理しろ　（true） という指示のとき、処理していなければ（false）、再開する　（true）。
+	#	処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
+	if is_process != self.get_node(concrete_message_window_name).is_processing():
+		self.get_node(concrete_message_window_name).set_process(is_process)
+
+		#	子ノード
+		for child in self.get_node(concrete_message_window_name).get_node("CanvasLayer").get_children():
 			if child.has_method("set_process_subtree"):
 				child.set_process_subtree(is_process)
 
