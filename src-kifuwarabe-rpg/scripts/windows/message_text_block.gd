@@ -2,7 +2,7 @@
 extends Label
 
 # メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
-var statemachine = null
+var statemachine_of_message_window = null
 
 var is_visible_initialized = false
 
@@ -18,12 +18,12 @@ func before_initialize(parent_statemachine):
 	print("［テキストブロック］　初期化の前に")
 	
 	#	親からステートマシンを受け取る
-	self.statemachine = parent_statemachine
+	self.statemachine_of_message_window = parent_statemachine
 	
 	#	子どもにも渡す
-	$"BlinkerTriangle".statemachine_of_message_window = self.statemachine
-	$"BlinkerUnderscore".statemachine_of_message_window = self.statemachine
-	$"ChoiceCursor".statemachine_of_message_window = self.statemachine
+	$"BlinkerTriangle".statemachine_of_message_window = self.statemachine_of_message_window
+	$"BlinkerUnderscore".statemachine_of_message_window = self.statemachine_of_message_window
+	$"ChoiceCursor".statemachine_of_message_window = self.statemachine_of_message_window
 
 
 #	初期化
@@ -137,7 +137,7 @@ func _process(delta):
 	if self.visible:
 	
 		# タイプライター風表示中
-		if self.statemachine.is_typewriter():
+		if self.statemachine_of_message_window.is_typewriter():
 			
 			if not self.is_visible_initialized:
 				# 初回に可視化
@@ -162,6 +162,6 @@ func _process(delta):
 					self.get_snapshot("VisualNovelDepartment").text_block_buffer = self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(1, self.get_snapshot("VisualNovelDepartment").text_block_buffer.length()-1)
 				else:
 					# 完全表示中
-					self.statemachine.all_characters_pushed()
+					self.statemachine_of_message_window.all_characters_pushed()
 				
 				self.get_snapshot("VisualNovelDepartment").count_of_typewriter -= wait_time

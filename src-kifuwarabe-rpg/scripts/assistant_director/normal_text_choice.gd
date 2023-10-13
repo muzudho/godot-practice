@@ -44,7 +44,7 @@ func push_message(
 	print("［ノーマル・テキスト・チョイス］　メッセージ：[" + temp_text + "]")
 
 	# メッセージ追加
-	self.get_message_window(message_window_name_obj).statemachine.talk(temp_text, choice_row_number_array)
+	self.get_message_window(message_window_name_obj).statemachine_of_message_window.talk(temp_text, choice_row_number_array)
 	
 	self.set_message_window_waiting_for_order.call(false)
 	

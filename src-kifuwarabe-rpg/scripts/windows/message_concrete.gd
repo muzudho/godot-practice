@@ -3,7 +3,7 @@ extends Sprite2D
 
 
 #	状態遷移機械
-var statemachine = load("res://scripts/statemachines/message_window.gd").new()
+var statemachine_of_message_window = load("res://scripts/statemachines/message_window.gd").new()
 
 
 #	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
@@ -33,7 +33,7 @@ func before_initialize(parent_statemachine):
 	self.statemachine_concrete = parent_statemachine
 
 	#	子どもにもステートマシンを渡す
-	self.get_node("CanvasLayer/TextBlock").before_initialize(self.statemachine)
+	self.get_node("CanvasLayer/TextBlock").before_initialize(self.statemachine_of_message_window)
 
 
 #	初期化
@@ -73,7 +73,7 @@ func emptize_concrete_message_window():
 func redirect_me():
 
 	# 全ての文字は吐き出されたものとする
-	self.statemachine.all_pages_flushed()
+	self.statemachine_of_message_window.all_pages_flushed()
 
 	print("［メッセージウィンドウ　”" + self.name + "”］　リダイレクトしてきた")
 	
@@ -169,7 +169,7 @@ func on_unhandled_key_input(event):
 	print("［メッセージウィンドウ　”" + self.name + "”］　アンハンドルド・キー入力")
 
 	#	完全表示中
-	if self.statemachine.is_completed():
+	if self.statemachine_of_message_window.is_completed():
 
 		#	選択肢モードなら
 		if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
@@ -198,7 +198,7 @@ func on_unhandled_key_input(event):
 					return
 				
 				#	ページ送り
-				self.statemachine.page_forward()
+				self.statemachine_of_message_window.page_forward()
 
 
 func on_talk(text, choices_row_numbers = null):
@@ -248,19 +248,19 @@ func on_all_pages_flushed():
 
 func _ready():
 	#	状態機械のセットアップ
-	self.statemachine.on_talk = self.on_talk
-	self.statemachine.on_page_forward = self.on_page_forward
-	self.statemachine.on_all_characters_pushed = self.on_all_characters_pushed
-	self.statemachine.on_all_pages_flushed = self.on_all_pages_flushed
+	self.statemachine_of_message_window.on_talk = self.on_talk
+	self.statemachine_of_message_window.on_page_forward = self.on_page_forward
+	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
+	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
 	#	このノードは常に visible にしておいてください
 	#	TODO これは不要？
 	self.show()
 
 	#	全ての文字は吐き出されたものとする
-	self.statemachine.all_pages_flushed()
+	self.statemachine_of_message_window.all_pages_flushed()
 
-	self.before_initialize(self.statemachine)
+	self.before_initialize(self.statemachine_of_message_window)
 
 
 func _process(_delta):

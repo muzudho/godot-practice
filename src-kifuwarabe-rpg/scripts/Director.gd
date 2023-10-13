@@ -4,23 +4,23 @@ extends Node2D
 
 
 # 状態遷移機械
-var statemachine = load("res://scripts/statemachines/director.gd").new()
+var statemachine_of_director = load("res://scripts/statemachines/director.gd").new()
 
 
 func play_visual_novel_department():
-	self.statemachine.play_visual_novel_department()
+	self.statemachine_of_director.play_visual_novel_department()
 
 
 func is_playing_visual_novel_department():
-	return self.statemachine.is_playing_visual_novel_department()
+	return self.statemachine_of_director.is_playing_visual_novel_department()
 
 
 func play_system_menu_department():
-	self.statemachine.play_system_menu_department()
+	self.statemachine_of_director.play_system_menu_department()
 
 
 func is_playing_system_menu_department():
-	return self.statemachine.is_playing_system_menu_department()
+	return self.statemachine_of_director.is_playing_system_menu_department()
 
 
 #	部管理人
@@ -100,7 +100,7 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 
 			#	ビジュアルノベル部　再生中
-			if self.statemachine.is_playing_visual_novel_department():
+			if self.statemachine_of_director.is_playing_visual_novel_department():
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
 				
 				#	ビジュアル・ノベル部を隠す
@@ -117,7 +117,7 @@ func _unhandled_key_input(event):
 				[1,2])
 
 				#	システム・メニュー部へ状態遷移
-				self.statemachine.play_system_menu_department()
+				self.statemachine_of_director.play_system_menu_department()
 
 			else:
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
@@ -133,7 +133,7 @@ func _unhandled_key_input(event):
 				$"AssistantDirector/NormalText".put_message("かいはつちゅう")
 
 				#	ビジュアルノベル部へ状態遷移
-				self.statemachine.play_visual_novel_department()
+				self.statemachine_of_director.play_visual_novel_department()
 
 
 			#	子要素には渡しません
