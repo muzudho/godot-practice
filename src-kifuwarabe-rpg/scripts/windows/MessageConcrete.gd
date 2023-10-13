@@ -6,13 +6,6 @@ var statemachine = null
 var is_visible_initialized = false
 
 
-#	空欄化
-func emptize():
-	print("［”" + self.name + "”メッセージウィンドウ］　空欄化")
-	#	空欄に戻します（ウィンドウは消しません）
-	self.get_node("CanvasLayer/TextBlock").emptize()
-
-
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(is_process):
 	print("［”" + self.name + "”メッセージウィンドウ］　プロセッシング：" + str(is_process))

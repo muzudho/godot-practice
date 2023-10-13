@@ -47,7 +47,9 @@ func initialize():
 
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
-func initialize_concrete_message_window(concrete_message_window_name):
+func initialize_concrete_message_window(
+	concrete_message_window_name):		# 文字列
+		
 	print("［”" + concrete_message_window_name + "”メッセージウィンドウ］　初期化（非表示）")
 
 	# 子要素を初期化
@@ -66,7 +68,16 @@ func emptize():
 	print("［抽象メッセージ・ウィンドウ］　クリアーテキスト　具体：［" + self.concrete_message_window_name + "］")
 
 	#	空欄に戻します（ウィンドウは消しません）
-	self.get_concrete_message_window().emptize()
+	self.emptize_concrete_message_window(self.concrete_message_window_name)
+
+
+#	空欄化
+func emptize_concrete_message_window(
+	concrete_message_window_name):		# 文字列
+
+	print("［”" + concrete_message_window_name + "”メッセージウィンドウ］　空欄化")
+	#	空欄に戻します（ウィンドウは消しません）
+	self.get_node(concrete_message_window_name).get_node("CanvasLayer/TextBlock").emptize()
 
 
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
