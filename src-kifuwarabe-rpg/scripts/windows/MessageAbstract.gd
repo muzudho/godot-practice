@@ -26,6 +26,17 @@ func get_snapshot(department_node_name):
 	return $"../../System/Snapshots".get_node(department_node_name)
 
 
+#	初期化の前に
+#		初期化の一種ですが、初期化より前に行います。
+#		引数を渡すことが **初期化** との違いです
+func before_initialize(concrete_message_window_name_obj, parent_statemachine):
+	#	親からステートマシンを引き継ぐ
+	self.get_node(str(concrete_message_window_name_obj)).statemachine = parent_statemachine
+
+	#	子どもにもステートマシンを渡す
+	self.get_node(str(concrete_message_window_name_obj)).get_node("CanvasLayer/TextBlock").before_initialize(self.statemachine)
+
+
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func initialize():
@@ -199,4 +210,4 @@ func _ready():
 
 	#	全ての子どもにステートマシンを渡す
 	for concrete_message_window in self.get_children():
-		concrete_message_window.before_initialize(self.statemachine)
+		self.before_initialize(concrete_message_window.name, self.statemachine)

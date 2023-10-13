@@ -6,17 +6,6 @@ var statemachine = null
 var is_visible_initialized = false
 
 
-#	初期化の前に
-#		初期化の一種ですが、初期化より前に行います。
-#		引数を渡すことが **初期化** との違いです
-func before_initialize(parent_statemachine):
-	#	親からステートマシンを引き継ぐ
-	self.statemachine = parent_statemachine
-
-	#	子どもにもステートマシンを渡す
-	self.get_node("CanvasLayer/TextBlock").before_initialize(self.statemachine)
-
-
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func initialize():
