@@ -8,7 +8,7 @@ extends Node2D
 var statemachine = load("res://scripts/statemachines/MessageWindow.gd").new()
 
 
-#	メッセージを出力する対象となるノードの名前
+#	メッセージを出力する対象となるノードの名前（文字列）
 var concrete_message_window_name = null
 
 
@@ -41,8 +41,22 @@ func before_initialize(concrete_message_window_name_obj, parent_statemachine):
 #		ウィンドウが閉じた状態を想定しています
 func initialize():
 	print("［抽象メッセージ・ウィンドウ］　初期化　具体：" + self.concrete_message_window_name + "］")
-	self.get_concrete_message_window().initialize()
+	self.initialize_concrete_message_window(self.concrete_message_window_name)
 	self.statemachine.all_page_flushed()
+
+
+#	初期化
+#		ウィンドウが閉じた状態を想定しています
+func initialize_concrete_message_window(concrete_message_window_name):
+	print("［”" + concrete_message_window_name + "”メッセージウィンドウ］　初期化（非表示）")
+
+	# 子要素を初期化
+	self.get_node(concrete_message_window_name).get_node("CanvasLayer/TextBlock").initialize()
+
+	# この要素の初期状態は、非表示、透明
+	self.get_node(concrete_message_window_name).hide()
+	print("［”" + concrete_message_window_name + "”メッセージウィンドウ］　初期化による透明化")
+	self.get_node(concrete_message_window_name).modulate.a = 0.0	# 初期化による透明化
 
 
 #	空欄化
@@ -68,7 +82,7 @@ func redirect_concrete_message_window_by_name(node_name):
 	self.concrete_message_window_name = node_name
 	
 	# 初期化
-	self.get_concrete_message_window().initialize()
+	self.initialize_concrete_message_window(self.concrete_message_window_name)
 
 
 #	メッセージ出力先ウィンドウのノード名
@@ -210,4 +224,7 @@ func _ready():
 
 	#	全ての子どもにステートマシンを渡す
 	for concrete_message_window in self.get_children():
+		
+		self.initialize_concrete_message_window(str(concrete_message_window.name))
+		
 		self.before_initialize(concrete_message_window.name, self.statemachine)

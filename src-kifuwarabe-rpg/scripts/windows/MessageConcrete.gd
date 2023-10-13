@@ -6,20 +6,6 @@ var statemachine = null
 var is_visible_initialized = false
 
 
-#	初期化
-#		ウィンドウが閉じた状態を想定しています
-func initialize():
-	print("［”" + self.name + "”メッセージウィンドウ］　初期化（非表示）")
-
-	# 子要素を初期化
-	self.get_node("CanvasLayer/TextBlock").initialize()
-
-	# この要素の初期状態は、非表示、透明
-	self.hide()
-	print("［”" + self.name + "”メッセージウィンドウ］　初期化による透明化")
-	self.modulate.a = 0.0	# 初期化による透明化
-
-
 #	空欄化
 func emptize():
 	print("［”" + self.name + "”メッセージウィンドウ］　空欄化")
@@ -67,10 +53,6 @@ func push_message(text, choices_row_numbers):
 	self.get_node("CanvasLayer/TextBlock").push_message(text, choices_row_numbers)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 	
-
-func _ready():
-	self.initialize()
-
 
 func _process(_delta):
 	if self.visible:
