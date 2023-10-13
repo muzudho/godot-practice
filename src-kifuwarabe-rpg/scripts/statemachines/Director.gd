@@ -1,7 +1,7 @@
 # アシスタント・ディレクター・ステートマシーン（Assistant Director Statemachine；助監督状態機械）
 extends Node
 
-class_name AssistantDirectorStatemachine
+# class_name AssistantDirectorStatemachine
 
 # 　状態遷移図
 # 　ーーーーー

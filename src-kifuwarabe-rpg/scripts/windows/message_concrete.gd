@@ -3,7 +3,7 @@ extends Sprite2D
 
 
 #	状態遷移機械
-var statemachine = load("res://scripts/statemachines/MessageWindow.gd").new()
+var statemachine = load("res://scripts/statemachines/message_window.gd").new()
 
 
 #	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）

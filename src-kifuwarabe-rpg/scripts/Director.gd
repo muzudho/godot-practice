@@ -4,7 +4,7 @@ extends Node2D
 
 
 # 状態遷移機械
-var statemachine = load("res://scripts/statemachines/Director.gd").new()
+var statemachine = load("res://scripts/statemachines/director.gd").new()
 
 
 func play_visual_novel_department():
