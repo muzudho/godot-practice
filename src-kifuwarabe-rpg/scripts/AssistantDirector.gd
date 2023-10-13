@@ -189,4 +189,4 @@ func _process(_delta):
 			else:
 				if not self.get_current_message_window().statemachine_concrete.is_none():
 					# メッセージ・ウィンドウを閉じる
-					self.get_current_message_window().initialize()
+					self.get_current_message_window().initialize_all_pages_flushed()

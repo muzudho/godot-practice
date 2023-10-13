@@ -38,10 +38,10 @@ func before_initialize(parent_statemachine):
 
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
-func initialize():
+func initialize_all_pages_flushed():
 	print("［メッセージ・ウィンドウ　”" + self.name + "”］　初期化］")
 	self.initialize_concrete_message_window()
-	self.statemachine.all_page_flushed()
+	self.statemachine.all_pages_flushed()
 
 
 #	初期化
@@ -81,7 +81,7 @@ func emptize_concrete_message_window():
 func redirect_me():
 
 	# 以前のウィンドウは閉じる
-	self.initialize()
+	self.initialize_all_pages_flushed()
 
 	print("［メッセージウィンドウ　”" + self.name + "”］　リダイレクトしてきた")
 	

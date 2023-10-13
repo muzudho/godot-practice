@@ -38,10 +38,10 @@ class_name MessageWindowStatemachine
 # ｜　　　｜　　　　　　　※外部からの入力
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜
-# ｜　　　＋ーーーー＜ーー＋　page_forward　※まだ続きがある。ページ・フォワード
+# ｜　　　＋ーーーー＜ーー＋　page_forward　※まだ続きがある
 # ｜　　　　　　　　はい　｜
 # ｜　　　　　　　　　　　｜
-# ＋ーーーーーーーーーーー＋　すべての文字を吐き出した。オール・ページ・フラッシュド
+# ＋ーーーーーーーーーーー＋　all_pages_flushed　※すべての文字を吐き出した
 #
 enum States {None, Typewriter, Completed}
 
@@ -51,6 +51,7 @@ var state = States.None
 # 関数の変数
 var on_talk = null
 var on_page_forward = null
+var on_all_pages_flushed = null
 
 
 func is_none():
@@ -80,6 +81,9 @@ func all_character_pushed():
 	print("［ステートマシーン］　全ての文字を出力した。完全表示中へ状態遷移")	
 	self.state = States.Completed
 
-func all_page_flushed():
+func all_pages_flushed():
+	if on_all_pages_flushed != null:
+		on_all_pages_flushed.call()
+
 	print("［ステートマシーン］　全てのページを送った。非表示へ状態遷移")	
 	self.state = States.None
