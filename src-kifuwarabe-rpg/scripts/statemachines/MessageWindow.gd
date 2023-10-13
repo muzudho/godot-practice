@@ -12,6 +12,8 @@ class_name MessageWindowStatemachine
 # 　　　　　　　　　　　　｜
 # ＋ーーーーーーーーーー＞＋
 # ｜　　　　　　　　　　　｜
+# ｜　　　　　　　　　　　｜　all_pages_flushed　※すべての文字を吐き出した
+# ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　Ｖ
 # ｜　　　　　　　　＋ーーーーーー＋
 # ｜　　　　　　　　｜　　None　　｜　※ウィンドウが存在しない唯一の状態
@@ -41,7 +43,8 @@ class_name MessageWindowStatemachine
 # ｜　　　＋ーーーー＜ーー＋　page_forward　※まだ続きがある
 # ｜　　　　　　　　はい　｜
 # ｜　　　　　　　　　　　｜
-# ＋ーーーーーーーーーーー＋　all_pages_flushed　※すべての文字を吐き出した
+# ｜　　　　　　　　　　　｜
+# ＋ーーーーーーーーーーー＋
 #
 enum States {None, Typewriter, Completed}
 

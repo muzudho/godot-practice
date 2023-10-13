@@ -38,14 +38,6 @@ func before_initialize(parent_statemachine):
 
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
-func initialize_all_pages_flushed():
-	print("［メッセージ・ウィンドウ　”" + self.name + "”］　初期化］")
-	self.initialize_concrete_message_window()
-	self.statemachine.all_pages_flushed()
-
-
-#	初期化
-#		ウィンドウが閉じた状態を想定しています
 func initialize_concrete_message_window():
 	
 	print("［メッセージウィンドウ　”" + self.name + "”］　初期化（非表示）")
@@ -80,16 +72,13 @@ func emptize_concrete_message_window():
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
 func redirect_me():
 
-	# 以前のウィンドウは閉じる
-	self.initialize_all_pages_flushed()
+	# 全ての文字は吐き出されたものとする
+	self.statemachine.all_pages_flushed()
 
 	print("［メッセージウィンドウ　”" + self.name + "”］　リダイレクトしてきた")
 	
 	# 新しいウィンドウ
 	self.get_snapshot("VisualNovelDepartment").message_window_name_obj = self.name # StringName 型。 String ではない
-	
-	# 初期化
-	self.initialize_concrete_message_window()
 
 
 #	選択肢カーソルを表示
@@ -246,16 +235,26 @@ func on_page_forward():
 	self.awaiting_order()
 
 
+#	初期化
+#		ウィンドウが閉じた状態を想定しています
+func on_all_pages_flushed():
+	print("［メッセージ・ウィンドウ　”" + self.name + "”］　初期化］")
+	self.initialize_concrete_message_window()
+
+
 func _ready():
 	#	状態機械のセットアップ
 	self.statemachine.on_talk = self.on_talk
 	self.statemachine.on_page_forward = self.on_page_forward
+	self.statemachine.on_all_pages_flushed = self.on_all_pages_flushed
 
 	#	このノードは常に visible にしておいてください
 	#	TODO これは不要？
 	self.show()
 
-	self.initialize_concrete_message_window()
+	#	全ての文字は吐き出されたものとする
+	self.statemachine.all_pages_flushed()
+
 	self.before_initialize(self.statemachine)
 
 
