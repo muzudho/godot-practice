@@ -49,17 +49,17 @@ func set_director_get_current_snapshot_subtree(it):
 func play_paragraph(paragraph_name):
 	var snapshot = self.director_get_current_snapshot.call()
 
-	self.get_snapshot("VisualNovelDepartment").paragraph_name = paragraph_name
+	snapshot.paragraph_name = paragraph_name
 
 	# シナリオ・ブックから、内容を取出す
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
-	self.scenario_array = $"../ScenarioWriter/VisualNovelDepartment".document[self.get_snapshot("VisualNovelDepartment").paragraph_name]
+	self.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
 	# メッセージ・ウィンドウは、次の指示を待っています
-	self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order = true
+	snapshot.is_message_window_waiting_for_order = true
 
 	# TODO 再生中へ
-	self.statemachine_of_director.play_visual_novel()
+	# self.statemachine_of_director.play_visual_novel()
 
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
