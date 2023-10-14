@@ -292,9 +292,15 @@ func on_all_characters_pushed():
 	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 	#		エンド・オブ・メッセージ・ブリンカー	状態機械［考える］
-	text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
-	text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
-	text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
+	#
+	#			選択肢
+	if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
+
+	#			それ以外
+	else:
+		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
+		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
 
 
 #	初期化
