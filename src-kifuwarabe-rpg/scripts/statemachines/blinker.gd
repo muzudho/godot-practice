@@ -1,8 +1,8 @@
-#	ブリンカー（Blinker；点滅するもの）
+# ブリンカー（Blinker；点滅するもの）
 extends Node
 
-# 　状態遷移図
-# 　ーーーーー
+# 状態遷移図
+# ーーーーー
 #
 # 　　　　　　　　　　　　Entry
 # 　　　　　　　　　　　　＋
@@ -90,7 +90,7 @@ func switch_on():
 	if on_switched_on != null:
 		on_switched_on.call()
 	
-	print("［ブリンカー］　スイッチ・オン")
+	#print("［ブリンカー］　スイッチ・オン")
 	self.state = States.BrightAtFirst
 
 
@@ -98,7 +98,7 @@ func switch_off():
 	if on_switched_off != null:
 		on_switched_off.call()
 	
-	print("［ブリンカー］　スイッチ・オフ")
+	#print("［ブリンカー］　スイッチ・オフ")
 	self.state = States.None
 
 
@@ -106,7 +106,7 @@ func turn_on():
 	if on_turned_on != null:
 		on_turned_on.call()
 	
-	# print("［ブリンカー］　点灯")
+	#print("［ブリンカー］　点灯")
 	self.state = States.Bright
 
 
@@ -114,5 +114,5 @@ func turn_off():
 	if on_turned_off != null:
 		on_turned_off.call()
 	
-	# print("［ブリンカー］　消灯")
+	#print("［ブリンカー］　消灯")
 	self.state = States.Off
