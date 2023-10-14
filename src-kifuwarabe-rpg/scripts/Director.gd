@@ -96,33 +96,27 @@ func _unhandled_key_input(event):
 	# 何かキーを押したとき
 	if event.is_pressed():
 
-		# エスケープ・キー
-		if event.keycode == KEY_ESCAPE:
+		if self.current_department in self.get_main_scenario().key_pressed_mappings:
+			var key_pressed_mappings_1 = self.get_main_scenario().key_pressed_mappings[self.current_department]
+			if event.keycode in key_pressed_mappings_1:
+				var next_department = key_pressed_mappings_1[event.keycode]
+				
+				print("［ディレクター］　アンハンドルド・キー押下　部門移動")
 
-			# 現在の部門を隠す
-			self.get_current_snapshot().get_manager().disappear()
+				# 現在の部門を隠す
+				self.get_current_snapshot().get_manager().disappear()
 
-			# ビジュアルノベル部　再生中
-			if self.current_department == "VisualNovelDepartment":
-				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
+				# 部門変更
+				self.current_department = next_department
 
-				# システムメニュー再生
-				self.current_department = "SystemMenuDepartment"
+				# 現在の部門を再表示
+				self.get_current_snapshot().get_manager().appear()
 
-			elif self.current_department == "SystemMenuDepartment":
-				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
+				# 台本の段落の再生
+				$"./AssistantDirector".play_paragraph()
 
-				# ビジュアルノベル再生
-				self.current_department = "VisualNovelDepartment"
-
-			# 現在の部門を再表示
-			self.get_current_snapshot().get_manager().appear()
-
-			# 台本の段落の再生
-			$"./AssistantDirector".play_paragraph()
-
-			# 子要素には渡しません
-			return
+				# 子要素には渡しません
+				return
 
 		print("［ディレクター］　アンハンドルド・キー押下　その他のキー")
 
