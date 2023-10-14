@@ -186,13 +186,6 @@ func on_remembered(
 	new_text,						# str
 	choices_row_numbers = null):	# number_array
 
-	# 空っぽのウィンドウを残します
-	# テキストブロック
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	if true:
-		# テキストが空っぽ
-		text_block_node.text = ""
-
 	# 表示
 	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
@@ -201,6 +194,9 @@ func on_remembered(
 
 	# テキスト設定
 	snapshot.text_block_buffer = new_text
+
+	# テキストブロック
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 
 	# 選択肢なら
 	if choices_row_numbers != null:
@@ -311,6 +307,10 @@ func on_all_pages_flushed():
 
 
 func _ready():
+	
+	# 最初は、テスト用文字列が入ってたりするので消す
+	$"CanvasLayer/TextBlock".text = ""
+	
 	# 状態機械のセットアップ
 	self.statemachine_of_message_window.on_remembered = self.on_remembered
 	self.statemachine_of_message_window.on_talked_2 = self.on_talked_2
