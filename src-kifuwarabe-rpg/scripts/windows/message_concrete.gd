@@ -137,25 +137,6 @@ func set_appear_subtree(
 				child.set_appear_subtree(is_appear)
 
 
-# メッセージを記録するだけ
-func remember(
-	new_text):		# str
-
-	var snapshot = self.director_get_current_snapshot.call()
-
-	# 設定
-	snapshot.text_block_buffer = new_text
-	snapshot.choices_row_numbers = snapshot.choices_row_numbers
-
-	# 選択肢なら
-	if snapshot.is_choices():
-		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
-
-	# それ以外なら
-	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
-
-
 # テキストボックスなどにフォーカスが無いときの入力を拾う
 func on_unhandled_key_input(event):
 	print("［メッセージウィンドウ　”" + self.name + "”］　アンハンドルド・キー入力")

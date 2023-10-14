@@ -40,8 +40,8 @@ func push_message(
 
 
 	# メッセージ追加、会話
+	snapshot.remember(temp_text)
 	var message_window = self.get_message_window(str(snapshot.message_window_name_obj))
-	message_window.remember(temp_text)
 	message_window.statemachine_of_message_window.talk_2()
 	
 	self.snapshot_set_message_window_waiting_for_order.call(false)

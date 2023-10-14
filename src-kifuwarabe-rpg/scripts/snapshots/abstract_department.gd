@@ -36,3 +36,19 @@ func get_manager():
 # 選択肢か？
 func is_choices():
 	return self.choices_row_numbers != null
+
+
+# メッセージを記録するだけ
+func remember(
+	new_text):		# str
+
+	# 設定
+	self.text_block_buffer = new_text
+
+	# 選択肢なら
+	if self.is_choices():
+		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
+
+	# それ以外なら
+	else:
+		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
