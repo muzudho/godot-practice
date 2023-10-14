@@ -4,9 +4,6 @@ extends Node
 class_name AbstractDepartmentManager
 
 
-var is_appear = false
-
-
 func get_scenarion_writer():
 	return $"../../../ScenarioWriter"
 
@@ -30,9 +27,9 @@ func talk():
 
 # 居なくなる
 func disappear():
-	if self.is_appear:
+	if self.get_snapshot().is_appear:
 		print("［部門管理人］　居なくなる")
-		self.is_appear = false
+		self.get_snapshot().is_appear = false
 		
 		# メッセージ・ウィンドウを、一時的に居なくする
 		self.get_message_window().set_appear_subtree(false)
@@ -43,9 +40,9 @@ func disappear():
 
 # 現れる
 func appear():
-	if not self.is_appear:
+	if not self.get_snapshot().is_appear:
 		print("［部門管理人］　居なくなっていたのを解除する")
-		self.is_appear = true
+		self.get_snapshot().is_appear = true
 
 		# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
 		self.get_message_window().set_appear_subtree(true)

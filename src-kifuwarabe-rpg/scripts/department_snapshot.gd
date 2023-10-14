@@ -30,6 +30,10 @@ var paragraph_name = null
 # 部門名。StringName 型
 var name = null
 
+# 居るか？
+var is_appear = false
+
+
 # パースをするな
 func set_parse_lock(flag):
 	self.parse_lock_flag = flag
