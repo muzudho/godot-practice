@@ -106,7 +106,7 @@ func turn_on():
 	if on_turned_on != null:
 		on_turned_on.call()
 	
-	print("［ブリンカー］　点灯")
+	# print("［ブリンカー］　点灯")
 	self.state = States.Bright
 
 
@@ -114,5 +114,5 @@ func turn_off():
 	if on_turned_off != null:
 		on_turned_off.call()
 	
-	print("［ブリンカー］　消灯")
+	# print("［ブリンカー］　消灯")
 	self.state = States.Off
