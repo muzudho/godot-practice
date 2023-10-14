@@ -208,6 +208,13 @@ func on_choice_selected():
 	#	選択肢の行番号を、上位ノードへエスカレーションします
 	self.get_assistant_director().on_choice_selected(row_number)
 
+	#	テキストブロック	
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	#		全てのブリンカー　状態機械［決めた］
+	text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
+	text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+	text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
 func on_unhandled_key_input(event):
@@ -280,6 +287,13 @@ func on_page_forward():
 	self.emptize_end_of_message_blinker()
 	self.is_visible_initialized = false
 	self.awaiting_order()
+
+	#	テキストブロック	
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	#		全てのブリンカー　状態機械［決めた］
+	text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
+	text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+	text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 
 
 func on_all_characters_pushed():

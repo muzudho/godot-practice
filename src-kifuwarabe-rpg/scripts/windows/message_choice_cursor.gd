@@ -12,7 +12,6 @@ var statemachine_of_blinker = load("res://scripts/statemachines/blinker.gd").new
 #		メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine_of_message_window = null
 #		カーソルが点滅するための時間カウント
-var is_first_displayed_immediately = false
 var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
@@ -123,7 +122,9 @@ func on_decided():
 	print("［選択肢カーソル］　初期化による透明化")
 	self.modulate.a = 0.0	# 初期化による透明化
 	self.hide()
-	self.is_first_displayed_immediately = false
+
+	#	ブリンカーのスイッチ・オフ
+	self.statemachine_of_blinker.switch_off()
 
 	
 func on_thought():
@@ -134,7 +135,9 @@ func on_thought():
 	print("［選択肢カーソル］　空欄化による透明化")
 	self.modulate.a = 0.0	# 空欄化による透明化
 	self.show()
-	self.is_first_displayed_immediately = false
+
+	#	ブリンカーのスイッチ・オン
+	self.statemachine_of_blinker.switch_on()
 
 
 func on_sought():
@@ -149,24 +152,21 @@ func on_arrived():
 func on_switched_on():
 	self.modulate.a = 1.0
 	self.blinker_seconds = 0.0
-	self.is_first_displayed_immediately = true
 
 
-#	スイッチ・オフ
+#	終回消灯
 func on_switched_off():
-	pass
+	self.modulate.a = 0.0
 	
 
-#	点灯
+#	時間経過による点灯
 func on_turned_on():
-	# TODO 状態機械化したい
 	self.modulate.a = 1.0
 
 
-#	消灯
+#	時間経過による消灯
 func on_turned_off():
-	# TODO 状態機械化したい
-	self.modulate.a = 0.0	# 状態による透明化
+	self.modulate.a = 0.0
 		
 
 # Called when the node enters the scene tree for the first time.
@@ -197,10 +197,10 @@ func _process(delta):
 
 		if self.blinker_interval <= self.blinker_seconds:
 			if 0 < self.modulate.a:
-				#	消灯
+				#	時間経過による消灯
 				self.statemachine_of_blinker.turn_off()
 			else:
-				#	点灯
+				#	時間経過による点灯
 				self.statemachine_of_blinker.turn_on()
 				
 			self.blinker_seconds -= self.blinker_interval
@@ -209,11 +209,6 @@ func _process(delta):
 		# 完全表示中	　かつ　選択肢モード
 		if self.statemachine_of_message_window.is_completed() and self.get_snapshot("VisualNovelDepartment").is_choice_mode:
 			
-			#	初回はすぐに不透明
-			if not self.is_first_displayed_immediately:
-				#	初回点灯
-				self.statemachine_of_blinker.switch_on()
-					
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:
 				
@@ -256,11 +251,3 @@ func _process(delta):
 
 					# カーソルが下に移動します
 					self.on_cursor_down(index)
-			
-		else:
-			# 透明
-			if self.modulate.a != 0.0:
-				print("［選択肢カーソル］　状態による透明化")
-				self.statemachine_of_blinker.turn_off()
-
-

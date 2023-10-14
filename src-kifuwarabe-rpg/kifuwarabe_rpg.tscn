@@ -189,7 +189,6 @@ volume_db = -15.0
 
 [node name="ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("8_s3xj3")
-volume_db = -5.0
 
 [node name="選択肢カーソル移動音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("9_y0joy")

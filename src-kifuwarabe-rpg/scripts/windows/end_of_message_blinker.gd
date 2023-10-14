@@ -12,7 +12,6 @@ var statemachine_of_blinker = load("res://scripts/statemachines/blinker.gd").new
 #		メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
 var statemachine_of_message_window = null
 #		カーソルが点滅するための時間カウント
-var is_first_displayed_immediately = false
 var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
@@ -53,7 +52,9 @@ func on_decided():
 	print("［メッセージエンド・ブリンカー］　初期化による透明化")
 	self.modulate.a = 0.0	# 初期化による透明化
 	self.hide()
-	self.is_first_displayed_immediately = false
+
+	#	ブリンカーのスイッチ・オフ
+	self.statemachine_of_blinker.switch_off()
 
 	
 func on_thought():
@@ -64,7 +65,9 @@ func on_thought():
 	print("［メッセージエンド・ブリンカー］　空欄化による透明化")
 	self.modulate.a = 0.0	# 空欄化による透明化
 	self.show()
-	self.is_first_displayed_immediately = false
+
+	#	ブリンカーのスイッチ・オン
+	self.statemachine_of_blinker.switch_on()
 
 
 func on_sought():
@@ -79,22 +82,21 @@ func on_arrived():
 func on_switched_on():
 	self.modulate.a = 1.0
 	self.blinker_seconds = 0.0
-	self.is_first_displayed_immediately = true
 
 
-#	スイッチ・オフ
+#	終回消灯
 func on_switched_off():
-	pass
+	self.modulate.a = 0.0
 
 
-#	点灯
+#	時間経過による点灯
 func on_turned_on():
 	self.modulate.a = 1.0
 
 
-#	消灯
+#	時間経過による消灯
 func on_turned_off():
-	self.modulate.a = 0.0	# 点滅による透明化
+	self.modulate.a = 0.0
 
 
 # Called when the node enters the scene tree for the first time.
@@ -125,30 +127,10 @@ func _process(delta):
 
 		if self.blinker_interval <= self.blinker_seconds:
 			if 0 < self.modulate.a:
-				print("［メッセージエンド・ブリンカー］　点滅による透明化")
-				#	消灯
+				#	時間経過による消灯
 				self.statemachine_of_blinker.turn_off()
 			else:
-				#	点灯
+				#	時間経過による点灯
 				self.statemachine_of_blinker.turn_on()
 				
 			self.blinker_seconds -= self.blinker_interval
-
-		
-		# 完全表示中	
-		if self.statemachine_of_message_window.is_completed():
-
-			#	初回はすぐに不透明
-			if not self.is_first_displayed_immediately:
-				#	初回点灯
-				self.statemachine_of_blinker.switch_on()
-
-		# それ以外
-		else:
-			# 透明
-			self.is_first_displayed_immediately = false
-
-			if self.modulate.a != 0.0:
-				print("［メッセージエンド・ブリンカー］　遷移状態による透明化")
-				#	消灯
-				self.statemachine_of_blinker.turn_off()
