@@ -52,7 +52,7 @@ func play_paragraph(paragraph_name):
 	snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
 	# パースを開始してよい
-	snapshot.is_ready_parse = true
+	snapshot.set_parse_lock(false)
 
 	# 再生中へ
 	# self.statemachine_of_director.play_visual_novel()
@@ -192,8 +192,8 @@ func _process(_delta):
 
 	var snapshot = self.director_get_current_snapshot.call()
 
-	# パースを開始してよいか？（ここで待機しないと何も始まらない？）
-	if snapshot.is_ready_parse:
+	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
+	if not snapshot.is_parse_lock():
 		
 		# まだあるよ
 		if 0 < snapshot.scenario_array.size():

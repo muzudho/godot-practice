@@ -46,13 +46,6 @@ func redirect_me():
 	snapshot.message_window_name_obj = self.name # StringName 型。 String ではない
 
 
-# 次の指示を待ちます
-func awaiting_order():
-
-	# パースを開始してよい
-	self.director_get_current_snapshot.call().is_ready_parse = true
-
-
 # 先頭行と、それ以外に分けます
 func split_head_line_or_tail(text):
 	# 最初の改行を見つける
@@ -234,7 +227,8 @@ func on_page_forward():
 		# 効果音
 		self.get_musician().playSe("ページめくり音")
 		
-		self.awaiting_order()
+		# パースを開始してよい
+		self.director_get_current_snapshot.call().set_parse_lock(false)
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック

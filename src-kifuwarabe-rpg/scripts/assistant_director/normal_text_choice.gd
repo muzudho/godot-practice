@@ -41,5 +41,5 @@ func talk():
 	var message_window = self.get_message_window(str(snapshot.message_window_name_obj))
 	message_window.statemachine_of_message_window.talk()
 
-	# パースを開始するのは待て
-	snapshot.set_ready_parse(false)
+	# パースをするな
+	snapshot.set_parse_lock(true)

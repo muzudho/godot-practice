@@ -28,5 +28,5 @@ func talk():
 	var manager = snapshot.get_manager()
 	manager.talk()
 
-	# パースを開始するのは待て
-	snapshot.set_ready_parse(false)
+	# パースをするな
+	snapshot.set_parse_lock(true)

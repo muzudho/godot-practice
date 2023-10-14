@@ -32,7 +32,7 @@ func load_current_scenario():
 	snapshot.scenario_array = get_scenarion_writer().get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
 	# パースを開始してよい
-	#snapshot.is_ready_parse = true
+	#snapshot.set_parse_lock(false)
 
 # 会話開始
 func talk():

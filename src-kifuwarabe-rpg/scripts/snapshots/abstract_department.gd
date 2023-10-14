@@ -3,8 +3,8 @@ extends Node
 
 class_name AbstractDepartmentSnapshot
 
-# パースを開始してよい
-var is_ready_parse = false
+# パースをするな
+var parse_lock_flag = true
 
 # 選択肢
 #	選択肢の行番号用配列。無ければヌル
@@ -22,9 +22,13 @@ var count_of_typewriter = 0
 var location_node_name = ""
 
 
-# パースを開始してよい
-func set_ready_parse(flag):
-	self.is_ready_parse = flag
+# パースをするな
+func set_parse_lock(flag):
+	self.parse_lock_flag = flag
+
+# パース禁止か？
+func is_parse_lock():
+	return self.parse_lock_flag
 
 
 # 同名のデパートメント・マネージャー取得
