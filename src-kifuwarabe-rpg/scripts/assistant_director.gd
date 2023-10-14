@@ -183,7 +183,9 @@ func parse_message(temp_text):
 func _ready():
 	#	関数を渡す
 	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
-	$"NormalText".before_initialize(self.get_snapshot("VisualNovelDepartment").set_message_window_waiting_for_order)
+
+	$"NormalText".snapshot_set_message_window_waiting_for_order = self.get_snapshot("VisualNovelDepartment").set_message_window_waiting_for_order
+
 	$"NormalTextChoice".before_initialize(
 		$"Choice".get_choice_row_number_array,
 		$"Choice".set_choice_row_number_array,

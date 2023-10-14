@@ -4,11 +4,7 @@ extends Node
 
 #	関数の変数
 var director_get_current_snapshot = null
-var set_message_window_waiting_for_order = null
-
-
-func before_initialize(set_message_window_waiting_for_order):
-	self.set_message_window_waiting_for_order = set_message_window_waiting_for_order
+var snapshot_set_message_window_waiting_for_order = null
 
 
 func set_director_get_current_snapshot_subtree(it):
@@ -27,4 +23,4 @@ func put_message(temp_text):
 	
 	$"../../System/Managers".get_node(str(snapshot.name)).push_message(temp_text)
 	
-	self.set_message_window_waiting_for_order.call(false)
+	self.snapshot_set_message_window_waiting_for_order.call(false)

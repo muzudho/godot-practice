@@ -6,7 +6,7 @@ extends Node
 var director_get_current_snapshot = null
 var get_choice_row_number_array = null
 var set_choice_row_number_array = null
-var set_message_window_waiting_for_order = null
+var snapshot_set_message_window_waiting_for_order = null
 
 
 #	メッセージ・ウィンドウ取得
@@ -24,11 +24,11 @@ func get_snapshot(department_name):
 func before_initialize(
 	get_choice_row_number_array,
 	set_choice_row_number_array,
-	set_message_window_waiting_for_order):
+	snapshot_set_message_window_waiting_for_order):
 	
 	self.get_choice_row_number_array = get_choice_row_number_array
 	self.set_choice_row_number_array = set_choice_row_number_array
-	self.set_message_window_waiting_for_order = set_message_window_waiting_for_order
+	self.snapshot_set_message_window_waiting_for_order = snapshot_set_message_window_waiting_for_order
 
 
 func set_director_get_current_snapshot_subtree(it):
@@ -54,7 +54,7 @@ func push_message(
 	# メッセージ追加
 	self.get_message_window(message_window_name_obj).statemachine_of_message_window.talk(temp_text, choice_row_number_array)
 	
-	self.set_message_window_waiting_for_order.call(false)
+	self.snapshot_set_message_window_waiting_for_order.call(false)
 	
 	#	処理終わり
 	self.set_choice_row_number_array.call(null)
