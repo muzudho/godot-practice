@@ -119,11 +119,17 @@ func _unhandled_key_input(event):
 			#	ビジュアルノベル部　再生中
 			if self.statemachine_of_director.is_playing_visual_novel():
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
+
+				#	ビジュアルノベル部を想定
+				var snapshot = self.get_current_snapshot()
+				#	隠す
+				snapshot.get_manager().disappear()
 				
-				#	ビジュアル・ノベル部を隠す
-				self.get_department_manager("VisualNovelDepartment").disappear()
-				#	システム・メニュー部を表示する
-				self.get_department_manager("SystemMenuDepartment").appear()
+				#	システムメニュー再生
+				self.statemachine_of_director.play_system_menu()
+				snapshot = self.get_current_snapshot()
+				#	表示
+				snapshot.get_manager().appear()
 
 				#	［中央］メッセージ・ウィンドウを表示する
 				$"AssistantDirector/MWnd".redirect_message_window("中央")
@@ -133,28 +139,25 @@ func _unhandled_key_input(event):
 """,
 				[1,2])
 
-				#	システム・メニュー部へ状態遷移
-				self.statemachine_of_director.play_system_menu()
-
 			else:
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
+
+				#	システムメニュー部を想定
+				var snapshot = self.get_current_snapshot()
+				#	隠す
+				snapshot.get_manager().disappear()
 				
-				#	システム・メニュー部を隠す
-				self.get_department_manager("SystemMenuDepartment").disappear()
-				#	ビジュアルノベル部を表示する
-				self.get_department_manager("VisualNovelDepartment").appear()
+				#	ビジュアルノベル再生
+				self.statemachine_of_director.play_visual_novel()
+				snapshot = self.get_current_snapshot()
+				#	表示
+				snapshot.get_manager().appear()
 
 				#	［下］メッセージ・ウィンドウを表示する
 				$"AssistantDirector/MWnd".redirect_message_window("下")
 				
 				#	TODO 元のメッセージを復元する
-				var snapshot = self.get_snapshot("VisualNovelDepartment")
-				
-				$"AssistantDirector/NormalText".put_message("かいはつちゅう")
-
-				#	ビジュアルノベル再生
-				self.statemachine_of_director.play_visual_novel()
-
+				$"AssistantDirector/NormalText".put_message(snapshot.text_block_buffer)
 
 			#	子要素には渡しません
 			return
