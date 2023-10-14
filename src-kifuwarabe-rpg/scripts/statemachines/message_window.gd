@@ -49,7 +49,7 @@ enum States {None, Typewriter, Completed}
 var state = States.None
 
 # 関数の変数
-var on_talk = null
+var on_talked_1 = null
 var on_talked_2 = null
 var on_page_forward = null
 var on_all_characters_pushed = null
@@ -74,9 +74,9 @@ func talk_2():
 	self.state = States.Typewriter
 
 # TODO 廃止したい
-func talk(text, choices_row_numbers = null):
-	if on_talk != null:
-		on_talk.call(text, choices_row_numbers)
+func talk_1(text, choices_row_numbers = null):
+	if on_talked_1 != null:
+		on_talked_1.call(text, choices_row_numbers)
 	
 	print("［ステートマシーン］　シナリオをセットした。タイプライター風表示へ状態遷移")
 	self.state = States.Typewriter

@@ -40,7 +40,7 @@ func push_message(
 
 
 	# メッセージ追加
-	self.get_message_window(str(snapshot.message_window_name_obj)).statemachine_of_message_window.talk(temp_text, snapshot.choices_row_number_array)
+	self.get_message_window(str(snapshot.message_window_name_obj)).statemachine_of_message_window.talk_1(temp_text, snapshot.choices_row_number_array)
 	
 	self.snapshot_set_message_window_waiting_for_order.call(false)
 	
