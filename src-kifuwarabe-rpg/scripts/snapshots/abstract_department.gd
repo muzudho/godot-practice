@@ -38,6 +38,11 @@ func is_choices():
 	return self.choices_row_numbers != null
 
 
+# メッセージが残っているか？
+func has_message():
+	return 0 < self.text_block_buffer.length()
+
+
 # メッセージを記録するだけ
 func remember(
 	new_text):		# str
