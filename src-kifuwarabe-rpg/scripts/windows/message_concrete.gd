@@ -211,31 +211,21 @@ func on_talked_2():
 
 # メッセージを記録するだけ
 func on_remembered(
-	new_text,		# str
-	is_override):	# bool
+	new_text):		# bool
 
 	var snapshot = self.director_get_current_snapshot.call()
 
-	var choices_row_numbers = null
-
-	if is_override:
-		choices_row_numbers = snapshot.choices_row_numbers
-
-	# テキスト設定
+	# 設定
 	snapshot.text_block_buffer = new_text
-
-	# テキストブロック
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	snapshot.choices_row_numbers = snapshot.choices_row_numbers
 
 	# 選択肢なら
-	if choices_row_numbers != null:
+	if snapshot.is_choices():
 		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
-		snapshot.choices_row_numbers = choices_row_numbers
 
 	# それ以外なら
 	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
-		snapshot.choices_row_numbers = null
 
 
 # ページ送り
