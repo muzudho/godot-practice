@@ -16,16 +16,6 @@ var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
 
-#	空欄化
-#		初期化の一種ですが、ウィンドウを残しておくことが違います
-func emptize():
-	#	透明にして表示しておく
-	print("［メッセージエンド・ブリンカー］　空欄化による透明化")
-	self.modulate.a = 0.0	# 空欄化による透明化
-	self.show()
-	self.is_first_displayed_immediately = false
-
-
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(is_process):
 	print("［メッセージエンド・ブリンカー］　プロセッシング：" + str(is_process))
@@ -52,6 +42,16 @@ func set_visible_subtree(is_visible):
 		self.visible = is_visible
 
 		#	子ノード無し
+
+
+#	空欄化
+#		初期化の一種ですが、ウィンドウを残しておくことが違います
+func emptize():
+	#	透明にして表示しておく
+	print("［メッセージエンド・ブリンカー］　空欄化による透明化")
+	self.modulate.a = 0.0	# 空欄化による透明化
+	self.show()
+	self.is_first_displayed_immediately = false
 
 
 #	初期化

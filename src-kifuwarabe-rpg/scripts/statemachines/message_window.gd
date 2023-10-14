@@ -41,7 +41,7 @@ class_name MessageWindowStatemachine
 # ｜　　　｜　　　　　　　※外部からの入力
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜
-# ｜　　　＋ーーーー＜ーー＋　page_forward　※まだ続きがある
+# ｜　　　＋ーーーー＜ーー＋　page_forward　※まだ続きがある。空欄にするだけで、ウィンドウは消さない
 # ｜　　　　　　　　はい　｜
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　｜

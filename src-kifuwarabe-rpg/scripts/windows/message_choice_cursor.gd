@@ -42,16 +42,6 @@ func get_snapshot(department_node_name):
 	return $"../../../../../../System/Snapshots".get_node(department_node_name)
 
 
-#	空欄化
-#		初期化の一種ですが、ウィンドウを残した状態を想定していることが違います
-func emptize():
-	#	透明にして表示しておく
-	print("［選択肢カーソル］　空欄化による透明化")
-	self.modulate.a = 0.0	# 空欄化による透明化
-	self.show()
-	self.is_first_displayed_immediately = false
-
-
 func get_parent_choice_row_numbers():
 	# print("［選択肢カーソル］　選択肢行番号一覧")
 	# for row_num in self.get_snapshot("VisualNovelDepartment").choice_row_numbers:
@@ -124,6 +114,16 @@ func on_cursor_down(target_index):
 	self.elapsed_seconds = 0.0
 
 
+#	空欄化
+#		初期化の一種ですが、ウィンドウを残した状態を想定していることが違います
+func emptize():
+	#	透明にして表示しておく
+	print("［選択肢カーソル］　空欄化による透明化")
+	self.modulate.a = 0.0	# 空欄化による透明化
+	self.show()
+	self.is_first_displayed_immediately = false
+
+
 #	初期化
 #		ウィンドウが消えている状態を想定しています。
 #		引数を渡さずに呼び出せることが **初期化の前に** との違いです
@@ -133,7 +133,7 @@ func on_decided():
 	self.modulate.a = 0.0	# 初期化による透明化
 	self.hide()
 	self.is_first_displayed_immediately = false
-	
+
 	
 func on_thought():
 	pass

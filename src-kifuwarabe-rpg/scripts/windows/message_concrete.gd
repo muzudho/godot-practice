@@ -78,7 +78,7 @@ func initialize_textblock():
 #	空欄化
 #		空っぽのウィンドウに戻すことを想定しています。
 #		初期化の一種ですが、ウィンドウは消しません
-func emptize():
+func emptize_end_of_message_blinker():
 	#	空欄に戻します（ウィンドウは消しません）
 	print("［メッセージウィンドウ　”" + self.name + "”］　空欄化")
 
@@ -86,7 +86,7 @@ func emptize():
 
 	# テキストが空っぽ
 	text_block_node.text = ""
-	
+
 	# ブリンカーを透明にして表示しておく
 	text_block_node.get_node("BlinkerTriangle").emptize()
 	text_block_node.get_node("BlinkerUnderscore").emptize()
@@ -94,7 +94,6 @@ func emptize():
 
 	#	表示
 	text_block_node.show()
-	self.is_visible_initialized = false
 
 
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -139,8 +138,10 @@ func push_message_concrete(
 	
 	print("［メッセージウィンドウ　”" + self.name + "”］　メッセージ追加（表示、不透明化）")
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
+
 	#	空欄化
-	self.emptize()
+	self.emptize_end_of_message_blinker()
+	self.is_visible_initialized = false
 
 	#	テキスト設定
 	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
@@ -254,7 +255,8 @@ func on_unhandled_key_input(event):
 func on_talk(text, choices_row_numbers = null):
 
 	#	空っぽのウィンドウを残します
-	self.emptize()
+	self.emptize_end_of_message_blinker()
+	self.is_visible_initialized = false
 
 	#	選択肢なら
 	if choices_row_numbers != null:
@@ -281,12 +283,18 @@ func on_page_forward():
 	self.get_musician().playSe("ページめくり音")
 
 	#	空っぽのウィンドウを残して、次の指示を待ちます
-	self.emptize()
+	self.emptize_end_of_message_blinker()
+	self.is_visible_initialized = false
 	self.awaiting_order()
 
 
 func on_all_characters_pushed():
-	pass
+	#	テキストブロック
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	#		エンド・オブ・メッセージ・ブリンカー	状態機械［考える］
+	text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
+	text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
+	text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 
 
 #	初期化
