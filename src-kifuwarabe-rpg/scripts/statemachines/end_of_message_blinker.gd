@@ -1,8 +1,8 @@
 #	エンド・オブ・メッセージ・ブリンカー（End of message Blinker）
 extends Node
 
-# 　操作系の状態
-# 　ーーーーーー
+# 　状態遷移図
+# 　ーーーーー
 #
 # 　　　　　　　　　　　　Entry
 # 　　　　　　　　　　　　＋
