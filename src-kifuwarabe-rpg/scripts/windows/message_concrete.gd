@@ -220,8 +220,6 @@ func on_page_forward():
 	if true:
 		#		テキストが空っぽ
 		text_block_node.text = ""
-		#		表示
-		text_block_node.show()
 		#		全てのブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
@@ -281,49 +279,42 @@ func _ready():
 
 func _process(delta):
 
-	# 非表示のときは働かない
-	if self.visible:
+	#	メッセージ・ウィンドウが存在しないなら、働かない
+	if self.statemachine_of_message_window.is_none():
+		pass
 
-		if self.statemachine_of_message_window.is_none():
-			# 透明
-			if self.modulate.a != 0.0:
-				print("［メッセージウィンドウ　”" + self.name + "”］　状態が無いので透明化")
+	#	タイプライター風表示中
+	elif self.statemachine_of_message_window.is_typewriter():
 
-				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
-				self.modulate.a = 0.0	# 状態が無いので透明化
+		# タイプライター風表示中の初回に可視化
+		if not self.is_visible_initialized:
+			# 不透明
+			self.visible = true		# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
+			self.modulate.a = 1.0	# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
+			self.is_visible_initialized = true
 
-		# タイプライター風表示中
-		elif self.statemachine_of_message_window.is_typewriter():
+		self.get_snapshot("VisualNovelDepartment").count_of_typewriter += delta
 
-			# タイプライター風表示中の初回に可視化
-			if not self.is_visible_initialized:
-				# 不透明
-				self.visible = true		# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
-				self.modulate.a = 1.0	# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
-				self.is_visible_initialized = true
+		# １文字 50ms でも、結構ゆっくり
+		var wait_time = 0.05
+	
+		# メッセージの早送り
+		if Input.is_key_pressed(KEY_R):
+			# print("［テキストブロック］　メッセージの早送り")
+			wait_time = 0.01
+	
+		if wait_time <= self.get_snapshot("VisualNovelDepartment").count_of_typewriter:
 
-			self.get_snapshot("VisualNovelDepartment").count_of_typewriter += delta
+			#	TODO キャッシュ化したい
+			#	テキストブロック
+			var text_block_node = self.get_node("CanvasLayer/TextBlock")
 
-			# １文字 50ms でも、結構ゆっくり
-			var wait_time = 0.05
-		
-			# メッセージの早送り
-			if Input.is_key_pressed(KEY_R):
-				# print("［テキストブロック］　メッセージの早送り")
-				wait_time = 0.01
-		
-			if wait_time <= self.get_snapshot("VisualNovelDepartment").count_of_typewriter:
-
-				#	TODO キャッシュ化したい
-				#	テキストブロック
-				var text_block_node = self.get_node("CanvasLayer/TextBlock")
-
-				if 0 < self.get_snapshot("VisualNovelDepartment").text_block_buffer.length():
-					# １文字追加
-					text_block_node.text += self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(0, 1)
-					self.get_snapshot("VisualNovelDepartment").text_block_buffer = self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(1, self.get_snapshot("VisualNovelDepartment").text_block_buffer.length()-1)
-				else:
-					# 完全表示中
-					self.statemachine_of_message_window.all_characters_pushed()
-				
-				self.get_snapshot("VisualNovelDepartment").count_of_typewriter -= wait_time
+			if 0 < self.get_snapshot("VisualNovelDepartment").text_block_buffer.length():
+				# １文字追加
+				text_block_node.text += self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(0, 1)
+				self.get_snapshot("VisualNovelDepartment").text_block_buffer = self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(1, self.get_snapshot("VisualNovelDepartment").text_block_buffer.length()-1)
+			else:
+				# 完全表示中
+				self.statemachine_of_message_window.all_characters_pushed()
+			
+			self.get_snapshot("VisualNovelDepartment").count_of_typewriter -= wait_time
