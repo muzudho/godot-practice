@@ -1,7 +1,8 @@
-[gd_scene load_steps=58 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=60 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/main.gd" id="3_jssjb"]
 [ext_resource type="Script" path="res://scripts/assistant_director.gd" id="3_nnvgw"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/system_menu_department.gd" id="4_7teq2"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="5_24vd4"]
@@ -44,6 +45,7 @@
 [ext_resource type="Script" path="res://scripts/managers/visual_novel_department.gd" id="42_4vwru"]
 [ext_resource type="Script" path="res://scripts/managers/system_menu_department.gd" id="43_u5e5k"]
 [ext_resource type="Script" path="res://scripts/snapshots/visual_novel_department.gd" id="44_uxi6d"]
+[ext_resource type="Script" path="res://scripts/snapshots/main.gd" id="45_ae2lq"]
 [ext_resource type="Script" path="res://scripts/snapshots/system_menu_department.gd" id="45_e8lmg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
@@ -165,6 +167,9 @@ position = Vector2(640, 360)
 texture = ExtResource("26_fgfga")
 
 [node name="ScenarioWriter" type="Node" parent="."]
+
+[node name="Main" type="Node" parent="ScenarioWriter"]
+script = ExtResource("3_jssjb")
 
 [node name="VisualNovelDepartment" type="Node" parent="ScenarioWriter"]
 script = ExtResource("3_75puo")
@@ -656,6 +661,9 @@ script = ExtResource("42_4vwru")
 script = ExtResource("43_u5e5k")
 
 [node name="Snapshots" type="Node" parent="System"]
+
+[node name="Main" type="Node" parent="System/Snapshots"]
+script = ExtResource("45_ae2lq")
 
 [node name="VisualNovelDepartment" type="Node" parent="System/Snapshots"]
 script = ExtResource("44_uxi6d")

@@ -9,7 +9,6 @@ func disappear():
 	
 	# メッセージ・ウィンドウを隠す。プロセスも止める
 	self.get_message_window().set_appear_subtree(false)
-	self.get_message_window().set_process_subtree(false)
 	
 	# 場所が表示中なら、非表示にする
 	#$"../../../LocationCoordinator".hide_current_location(str(self.name))
@@ -22,7 +21,6 @@ func appear():
 
 	# メッセージ・ウィンドウを表示する。プロセスも再開する
 	self.get_message_window().set_appear_subtree(true)
-	self.get_message_window().set_process_subtree(true)
 
 	# 場所が非表示中なら、表示する
 	#$"../../../LocationCoordinator".show_current_location(str(self.name))
