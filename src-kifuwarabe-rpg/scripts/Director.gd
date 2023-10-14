@@ -118,13 +118,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　部門移動")
 
 				# 現在の部門を隠す
-				self.get_current_snapshot_data().get_manager().disappear()
+				self.get_department_manager(str(self.get_current_snapshot_data().name)).disappear()
 
 				# 部門変更
 				self.current_department = next_department
 
 				# 現在の部門を再表示
-				self.get_current_snapshot_data().get_manager().appear()
+				self.get_department_manager(str(self.get_current_snapshot_data().name)).appear()
 
 				# 台本の段落の再生
 				$"./AssistantDirector".play_paragraph()
