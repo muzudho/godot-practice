@@ -52,7 +52,7 @@ func _ready():
 
 	#	子要素にメンバーを渡す
 	$"AssistantDirector".statemachine_of_director = self.statemachine_of_director
-	$"AssistantDirector".director_get_current_snapshot = self.get_current_snapshot
+	$"AssistantDirector".set_director_get_current_snapshot_subtree(self.get_current_snapshot)
 
 	#		メッセージ・ウィンドウ
 	for message_window in $"GuiArtist/WindowsOfMessage".get_children():

@@ -2,7 +2,8 @@
 extends Node
 
 
-#	関数
+#	関数の変数
+var director_get_current_snapshot = null
 var get_choice_row_number_array = null
 var set_choice_row_number_array = null
 var set_message_window_waiting_for_order = null
@@ -30,10 +31,17 @@ func before_initialize(
 	self.set_message_window_waiting_for_order = set_message_window_waiting_for_order
 
 
+func set_director_get_current_snapshot_subtree(it):
+	self.director_get_current_snapshot = it
+
+
 #	それをする
 func do_it(
 	temp_text):				# str
-	var message_window_name_obj = self.get_snapshot("VisualNovelDepartment").message_window_name_obj
+	
+	var snapshot = self.director_get_current_snapshot.call()
+		
+	var message_window_name_obj = self.get_snapshot(str(snapshot.name)).message_window_name_obj
 	self.push_message(message_window_name_obj, temp_text, self.get_choice_row_number_array.call())
 
 

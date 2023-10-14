@@ -40,16 +40,16 @@ func get_musician():
 	return $"../../../../../../Musician"
 
 
-func get_snapshot(department_node_name):
-	return $"../../../../../../System/Snapshots".get_node(department_node_name)
+# func get_snapshot(department_node_name):
+#	return $"../../../../../../System/Snapshots".get_node(department_node_name)
 
 
 func get_parent_choice_row_numbers():
 	# print("［選択肢カーソル］　選択肢行番号一覧")
-	# for row_num in self.get_snapshot("VisualNovelDepartment").choice_row_numbers:
-	# 	print(row_num)
-	
-	return self.get_snapshot("VisualNovelDepartment").choice_row_numbers
+
+	var snapshot = self.director_get_current_snapshot.call()
+
+	return snapshot.choice_row_numbers
 
 
 #	線形補間

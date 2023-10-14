@@ -36,6 +36,15 @@ func get_snapshot(department_node_name):
 	return $"../System/Snapshots".get_node(department_node_name)
 
 
+func set_director_get_current_snapshot_subtree(it):
+	self.director_get_current_snapshot = it
+
+	#	子ノード
+	for child in self.get_children():
+		if child.has_method("set_director_get_current_snapshot_subtree"):
+			child.set_director_get_current_snapshot_subtree(it)
+
+
 #	台本の再生の開始の合図
 func play_visual_novel(paragraph_name):
 	self.get_snapshot("VisualNovelDepartment").paragraph_name = paragraph_name
