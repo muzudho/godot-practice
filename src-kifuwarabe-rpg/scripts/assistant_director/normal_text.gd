@@ -12,19 +12,18 @@ func set_director_get_current_snapshot_subtree(it):
 
 # それをする
 func do_it(temp_text):
-	self.remember(temp_text)
-	self.talk()
+	self.put_textblock(temp_text)
 
 
-# メッセージの追加
-func remember(temp_text):
+# メッセージ追加、会話開始
+func put_textblock(
+		temp_text):		# str
+
+	# メッセージの追加
 	var snapshot = self.director_get_current_snapshot.call()
 	snapshot.remember(temp_text)
 
-
-# 会話の開始
-func talk():
-	var snapshot = self.director_get_current_snapshot.call()
+	# 会話の開始
 	var manager = snapshot.get_manager()
 	manager.talk()
 
