@@ -248,8 +248,6 @@ func on_all_pages_flushed():
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
-		#		非表示
-		text_block_node.hide()
 
 	#	この要素の初期状態は、非表示、透明
 	self.hide()
