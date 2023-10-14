@@ -51,12 +51,6 @@ func redirect_me():
 	self.get_snapshot("VisualNovelDepartment").message_window_name_obj = self.name # StringName 型。 String ではない
 
 
-#	選択肢カーソルを表示
-func show_choice_cursor():
-	print("［メッセージウィンドウ　”" + self.name + "”］　選択肢カーソル表示")
-	self.get_node("CanvasLayer/TextBlock/ChoiceCursor").show()
-
-
 #	次の指示を待ちます
 func awaiting_order():
 	#	メッセージウィンドウは指示待ちだ
@@ -125,10 +119,11 @@ func on_choice_selected():
 
 	#	テキストブロック	
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	#		全てのブリンカー　状態機械［決めた］
-	text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
-	text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
-	text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+	if true:
+		#		全てのブリンカー　状態機械［決めた］
+		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
+		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -189,7 +184,6 @@ func on_talk(
 	#	選択肢なら
 	if choices_row_numbers != null:
 		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢：[" + new_text + "]")
-		self.show_choice_cursor()
 
 		var snapshot = self.get_snapshot("VisualNovelDepartment")
 		if true:
@@ -202,6 +196,9 @@ func on_talk(
 			# メッセージエンド・ブリンカー　状態機械［決めた］
 			text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
 			text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+			
+			# メッセージエンド・ブリンカー　状態機械［考える］
+			text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 
 	#	それ以外なら
 	else:
@@ -211,6 +208,16 @@ func on_talk(
 		if true:
 			snapshot.is_choice_mode = false
 			snapshot.choice_row_numbers = []
+
+		#	テキストブロック
+		var text_block_node = self.get_node("CanvasLayer/TextBlock")
+		if true:
+			# メッセージエンド・ブリンカー　状態機械［決めた］
+			text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+			
+			# メッセージエンド・ブリンカー　状態機械［考える］
+			text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
+			text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
 
 
 #	ページ送り
