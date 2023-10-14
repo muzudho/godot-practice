@@ -160,6 +160,10 @@ func parse_message(temp_text):
 			# 選択肢かどうか判定
 			elif second_head.begins_with("choice:"):
 				$"Choice".do_it(second_head)
+
+			# 部門変更
+			elif second_head.begins_with("department:"):
+				$"Department".do_it(second_head)
 				
 			# 次の段落へ飛ぶ
 			elif second_head.begins_with("goto:"):

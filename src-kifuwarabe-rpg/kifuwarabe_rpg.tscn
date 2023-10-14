@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=57 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -39,6 +39,7 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="32_uu41d"]
 [ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="33_1xmx8"]
 [ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="33_ogwo6"]
+[ext_resource type="Script" path="res://scripts/assistant_director/department.gd" id="35_m4xkq"]
 [ext_resource type="Script" path="res://scripts/windows/viewing.gd" id="35_s10tl"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
@@ -625,6 +626,9 @@ script = ExtResource("33_ogwo6")
 
 [node name="Choice" type="Node" parent="AssistantDirector"]
 script = ExtResource("22_cj5lk")
+
+[node name="Department" type="Node" parent="AssistantDirector"]
+script = ExtResource("35_m4xkq")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]
 script = ExtResource("24_envpd")

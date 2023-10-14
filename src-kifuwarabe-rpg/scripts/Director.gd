@@ -17,7 +17,7 @@ func get_main_scenario():
 	return $"ScenarioWriter/Main"
 
 
-# 部管理人
+# 部門管理人
 func get_department_manager():
 	return $"System/DepartmentManager"
 
@@ -116,19 +116,9 @@ func _unhandled_key_input(event):
 			if event.keycode in key_pressed_mappings_1:
 				var next_department = key_pressed_mappings_1[event.keycode]
 				
-				print("［ディレクター］　アンハンドルド・キー押下　部門移動")
+				print("［ディレクター］　アンハンドルド・キー押下　部門変更")
 
-				# 現在の部門を隠す
-				self.get_department_manager().disappear()
-
-				# 部門変更
-				self.current_department = next_department
-
-				# 現在の部門を再表示
-				self.get_department_manager().appear()
-
-				# 台本の段落の再生
-				$"./AssistantDirector".play_paragraph()
+				$"AssistantDirector/Department".change_department(next_department)
 
 				# 子要素には渡しません
 				return
