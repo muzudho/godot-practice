@@ -4,6 +4,7 @@ extends Label
 
 # 状態機械
 var statemachine_of_end_of_message_blinker = load("res://scripts/statemachines/end_of_message_blinker.gd").new()
+var statemachine_of_blinker = load("res://scripts/statemachines/blinker.gd").new()
 
 
 #	メッセージエンド・ブリンカーの共通項目
@@ -145,21 +146,25 @@ func on_arrived():
 
 
 #	初回点灯
-func on_turn_on_at_first():
-	# TODO 状態機械化したい
+func on_switched_on():
 	self.modulate.a = 1.0
 	self.blinker_seconds = 0.0
 	self.is_first_displayed_immediately = true
+
+
+#	スイッチ・オフ
+func on_switched_off():
+	pass
 	
 
 #	点灯
-func on_turn_on():
+func on_turned_on():
 	# TODO 状態機械化したい
 	self.modulate.a = 1.0
 
 
 #	消灯
-func on_turn_off():
+func on_turned_off():
 	# TODO 状態機械化したい
 	self.modulate.a = 0.0	# 状態による透明化
 		
@@ -172,6 +177,12 @@ func _ready():
 	self.statemachine_of_end_of_message_blinker.on_sought = self.on_sought
 	self.statemachine_of_end_of_message_blinker.on_arrived = self.on_arrived
 	
+	#	状態機械のセットアップ
+	self.statemachine_of_blinker.on_switched_on = self.on_switched_on
+	self.statemachine_of_blinker.on_switched_off = self.on_switched_off
+	self.statemachine_of_blinker.on_turned_on = self.on_turned_on
+	self.statemachine_of_blinker.on_turned_off = self.on_turned_off
+
 	self.statemachine_of_end_of_message_blinker.decide()
 
 
@@ -187,10 +198,10 @@ func _process(delta):
 		if self.blinker_interval <= self.blinker_seconds:
 			if 0 < self.modulate.a:
 				#	消灯
-				self.on_turn_off()
+				self.statemachine_of_blinker.turn_off()
 			else:
 				#	点灯
-				self.on_turn_on()
+				self.statemachine_of_blinker.turn_on()
 				
 			self.blinker_seconds -= self.blinker_interval
 
@@ -201,7 +212,7 @@ func _process(delta):
 			#	初回はすぐに不透明
 			if not self.is_first_displayed_immediately:
 				#	初回点灯
-				self.on_turn_on_at_first()
+				self.statemachine_of_blinker.switch_on()
 					
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:
@@ -250,6 +261,6 @@ func _process(delta):
 			# 透明
 			if self.modulate.a != 0.0:
 				print("［選択肢カーソル］　状態による透明化")
-				self.on_turn_off()
+				self.statemachine_of_blinker.turn_off()
 
 
