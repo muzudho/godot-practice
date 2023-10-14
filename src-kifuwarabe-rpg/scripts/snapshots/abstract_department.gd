@@ -34,4 +34,5 @@ func set_message_window_waiting_for_order(flag):
 
 #	同名のデパートメント・マネージャー取得
 func get_manager():
-	return $"../../Managers".get_node(str(self.name))
+	var department_name = str(self.name)
+	return $"../../Managers".get_node(department_name)

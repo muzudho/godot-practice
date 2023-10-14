@@ -3,7 +3,7 @@
 extends Node2D
 
 
-# 状態機械
+#	状態機械
 var statemachine_of_director = load("res://scripts/statemachines/director.gd").new()
 
 
@@ -96,7 +96,7 @@ func _ready():
 
 	#	初回起動時
 	self.statemachine_of_director.play_visual_novel()
-
+		
 	#	ビジュアル・ノベル部を表示する
 	self.get_department_manager("VisualNovelDepartment").appear()
 
