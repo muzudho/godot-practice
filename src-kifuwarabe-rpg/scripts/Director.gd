@@ -54,6 +54,10 @@ func _ready():
 	$"AssistantDirector".statemachine_of_director = self.statemachine_of_director
 	$"AssistantDirector".director_get_current_snapshot = self.get_current_snapshot
 
+	#		メッセージ・ウィンドウ
+	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
+		message_window.set_director_get_current_snapshot_subtree(self.get_current_snapshot)
+
 
 	#	開発中にいじったものが残ってるかもしれないから、掃除
 	#
@@ -67,8 +71,8 @@ func _ready():
 	#	ウィンドウはとにかく隠す
 	#
 	#	メッセージ・ウィンドウはとにかく隠す
-	for sprite2d_node in $"GuiArtist/WindowsOfMessage".get_children():
-		sprite2d_node.hide()
+	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
+		message_window.hide()
 
 	#	ビューイング・ウィンドウはとにかく隠す
 	for sprite2d_node in $"GuiArtist/WindowsOfViewing".get_children():

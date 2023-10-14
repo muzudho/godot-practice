@@ -7,6 +7,10 @@ var statemachine_of_end_of_message_blinker = load("res://scripts/statemachines/e
 var statemachine_of_blinker = load("res://scripts/statemachines/blinker.gd").new()
 
 
+#	関数の変数
+var director_get_current_snapshot = null
+
+
 #	メッセージエンド・ブリンカーの共通項目
 #
 #		カーソルが点滅するための時間カウント
@@ -51,6 +55,10 @@ func get_parent_choice_row_numbers():
 #	線形補間
 func do_lerp(src, dst, progress):
 	return src + (dst - src) * progress
+
+
+func set_director_get_current_snapshot_subtree(it):
+	self.director_get_current_snapshot = it
 
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作

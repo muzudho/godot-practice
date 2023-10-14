@@ -6,6 +6,10 @@ extends Sprite2D
 var statemachine_of_message_window = load("res://scripts/statemachines/message_window.gd").new()
 
 
+#	関数の変数
+var director_get_current_snapshot = null
+
+
 #	アシスタント・ディレクターを取得
 func get_assistant_director():
 	return $"../../../AssistantDirector"
@@ -16,8 +20,17 @@ func get_musician():
 	return $"../../../Musician"
 
 
-func get_snapshot(department_node_name):
-	return $"../../../System/Snapshots".get_node(department_node_name)
+# func get_snapshot(department_node_name):
+#	return $"../../../System/Snapshots".get_node(department_node_name)
+
+
+func set_director_get_current_snapshot_subtree(it):
+	self.director_get_current_snapshot = it
+
+	#	子ノード
+	for child in $"CanvasLayer/TextBlock".get_children():
+		if child.has_method("set_director_get_current_snapshot_subtree"):
+			child.set_director_get_current_snapshot_subtree(it)
 
 
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -27,15 +40,20 @@ func redirect_me():
 	# self.statemachine_of_message_window.all_pages_flushed()
 
 	print("［メッセージウィンドウ　”" + self.name + "”］　リダイレクトしてきた")
-	
+
+	var snapshot = self.director_get_current_snapshot.call()
+
 	# 新しいウィンドウ
-	self.get_snapshot("VisualNovelDepartment").message_window_name_obj = self.name # StringName 型。 String ではない
+	snapshot.message_window_name_obj = self.name # StringName 型。 String ではない
 
 
 #	次の指示を待ちます
 func awaiting_order():
+
+	var snapshot = self.director_get_current_snapshot.call()
+
 	#	メッセージウィンドウは指示待ちだ
-	self.get_assistant_director().get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order = true
+	snapshot.is_message_window_waiting_for_order = true
 
 
 #	先頭行と、それ以外に分けます
@@ -95,8 +113,10 @@ func on_unhandled_key_input(event):
 	#	完全表示中
 	if self.statemachine_of_message_window.is_completed():
 
+		var snapshot = self.director_get_current_snapshot.call()
+
 		#	選択肢モードなら
-		if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+		if snapshot.is_choice_mode:
 			
 			#	何かキーを押したとき
 			if event.is_pressed():
@@ -142,18 +162,17 @@ func on_talk(
 	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
+	var snapshot = self.director_get_current_snapshot.call()
 
 	#	テキスト設定
-	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
+	snapshot.text_block_buffer = new_text
 
 	#	選択肢なら
 	if choices_row_numbers != null:
 		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢：[" + new_text + "]")
 
-		var snapshot = self.get_snapshot("VisualNovelDepartment")
-		if true:
-			snapshot.is_choice_mode = true
-			snapshot.choice_row_numbers = choices_row_numbers
+		snapshot.is_choice_mode = true
+		snapshot.choice_row_numbers = choices_row_numbers
 
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
@@ -166,10 +185,8 @@ func on_talk(
 	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　台詞：[" + new_text + "]")
 
-		var snapshot = self.get_snapshot("VisualNovelDepartment")
-		if true:
-			snapshot.is_choice_mode = false
-			snapshot.choice_row_numbers = []
+		snapshot.is_choice_mode = false
+		snapshot.choice_row_numbers = []
 
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
@@ -181,19 +198,21 @@ func on_talk(
 
 #	ページ送り
 func on_page_forward():
+	var snapshot = self.director_get_current_snapshot.call()
+
 	#	選択肢モードなら
-	if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+	if snapshot.is_choice_mode:
 
 		#	カーソル音
 		self.get_musician().playSe("選択肢確定音")
 
-		var row_number = self.get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number	
+		var row_number = self.get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number
 		print("［メッセージウィンドウ　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		#	選択肢の行番号を、上位ノードへエスカレーションします
 		self.get_assistant_director().on_choice_selected(row_number)
 		
-	else:	
+	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
 
 		#	効果音
@@ -214,10 +233,12 @@ func on_page_forward():
 
 
 func on_all_characters_pushed():
+	var snapshot = self.director_get_current_snapshot.call()
+
 	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 	#	選択肢
-	if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+	if snapshot.is_choice_mode:
 		#	文末ブリンカー	状態機械［考える］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 
@@ -237,8 +258,11 @@ func on_all_pages_flushed():
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 	#		テキストが空っぽ
 	text_block_node.text = ""
+
+	var snapshot = self.director_get_current_snapshot.call()
+
 	#	選択肢
-	if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+	if snapshot.is_choice_mode:
 		#	全てのブリンカー　状態機械［決めた］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 	else:
@@ -271,7 +295,9 @@ func _process(delta):
 	#	タイプライター風表示中
 	elif self.statemachine_of_message_window.is_typewriter():
 
-		self.get_snapshot("VisualNovelDepartment").count_of_typewriter += delta
+		var snapshot = self.director_get_current_snapshot.call()
+
+		snapshot.count_of_typewriter += delta
 
 		# １文字 50ms でも、結構ゆっくり
 		var wait_time = 0.05
@@ -281,18 +307,18 @@ func _process(delta):
 			# print("［テキストブロック］　メッセージの早送り")
 			wait_time = 0.01
 	
-		if wait_time <= self.get_snapshot("VisualNovelDepartment").count_of_typewriter:
+		if wait_time <= snapshot.count_of_typewriter:
 
 			#	TODO キャッシュ化したい
 			#	テキストブロック
 			var text_block_node = self.get_node("CanvasLayer/TextBlock")
 
-			if 0 < self.get_snapshot("VisualNovelDepartment").text_block_buffer.length():
+			if 0 < snapshot.text_block_buffer.length():
 				# １文字追加
-				text_block_node.text += self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(0, 1)
-				self.get_snapshot("VisualNovelDepartment").text_block_buffer = self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(1, self.get_snapshot("VisualNovelDepartment").text_block_buffer.length()-1)
+				text_block_node.text += snapshot.text_block_buffer.substr(0, 1)
+				snapshot.text_block_buffer = snapshot.text_block_buffer.substr(1, snapshot.text_block_buffer.length()-1)
 			else:
 				# 完全表示中
 				self.statemachine_of_message_window.all_characters_pushed()
 			
-			self.get_snapshot("VisualNovelDepartment").count_of_typewriter -= wait_time
+			snapshot.count_of_typewriter -= wait_time
