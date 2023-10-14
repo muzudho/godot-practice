@@ -61,9 +61,3 @@ func remember(
 	# それ以外なら
 	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
-
-
-# 会話開始
-func talk():
-	var message_window = self.get_manager().get_message_window()
-	message_window.statemachine_of_message_window.talk()
