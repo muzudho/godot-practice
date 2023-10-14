@@ -50,12 +50,22 @@ func change_paragraph(paragraph_name):
 # 台本の再生段落の変更
 func play_paragraph():
 	var snapshot = self.director_get_current_snapshot.call()
-
+	var message_window = self.get_current_message_window()
+		
+	# 全部消化済みの場合
 	if snapshot.scenario_array.size() < 1:
+		
+		# かつ、コンプリート中の場合、ユーザー入力を待つ
+		#if message_window.statemachine_of_message_window.is_completed():
+		#	print("［アシスタント・ディレクター］　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
+		#	# 自動で何かしない
+		#	return
+		
 		# シナリオ・ブックから、内容を取出す
-		print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
+		print("［アシスタント・ディレクター］　（段落バッファーが空になってるから）シナリオ・ブックから、段落を取出す")
 		snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
+	print("［アシスタント・ディレクター］　パースを開始してよい")
 	# パースを開始してよい
 	snapshot.set_parse_lock(false)
 

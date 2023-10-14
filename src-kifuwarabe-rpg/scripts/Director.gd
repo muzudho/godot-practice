@@ -90,21 +90,25 @@ func _ready():
 	# メッセージ・ウィンドウの is_processing() で false が返ってくるので、 true を入れてやる
 	# ポーズ・ボタンを押したとき、最初の状態が　is_processing() == false なので　ポーズが空振りするので
 	# 仕方なく入れた処理
-	if not $"GuiArtist/WindowsOfMessage".is_processing():
-		print("［ディレクター］　メッセージ・ウィンドウの is_processing() で false が返ってくるので、 true を入れてやる")
-		$"GuiArtist/WindowsOfMessage".set_process(true)
+	#if not $"GuiArtist/WindowsOfMessage".is_processing():
+	#	print("［ディレクター］　メッセージ・ウィンドウの is_processing() で false が返ってくるので、 true を入れてやる")
+	#	$"GuiArtist/WindowsOfMessage".set_process(true)
 
-	# とりあえず、全ての部門で、シナリオのロードだけやっておく
-	for department_manager in $"System/Managers".get_children():
-		department_manager.load_current_scenario()
+	## とりあえず、全ての部門で、シナリオのロードだけやっておく
+	#for department_manager in $"System/Managers".get_children():
+	#	department_manager.load_current_scenario()
 
 	# 初回起動時、ビジュアルノベル部を再生
 	self.statemachine_of_director.play_visual_novel()
+	var snapshot = self.get_current_snapshot()	
+
+	# パースするな
+	snapshot.set_parse_lock(true)
+
 	# 台本の段落の再生
 	$"./AssistantDirector".play_paragraph()
 
 	# 表示
-	var snapshot = self.get_current_snapshot()	
 	snapshot.get_manager().appear()
 
 

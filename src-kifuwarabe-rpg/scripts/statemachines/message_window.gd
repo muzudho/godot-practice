@@ -72,7 +72,7 @@ func talk():
 	if on_talked_2 != null:
 		on_talked_2.call()
 	
-	print("［ステートマシーン］　シナリオをセットした。タイプライター風表示へ状態遷移")
+	print("［状態機械　伝言窓］　シナリオをセットした。タイプライター風表示へ状態遷移")
 	self.state = States.Typewriter
 
 
@@ -80,7 +80,7 @@ func page_forward():
 	if on_page_forward != null:
 		on_page_forward.call()
 	
-	print("［ステートマシーン］　ページ送りした。タイプライター風表示へ状態遷移")
+	print("［状態機械　伝言窓］　ページ送りした。タイプライター風表示へ状態遷移")
 	self.state = States.Typewriter
 
 
@@ -88,7 +88,7 @@ func all_characters_pushed():
 	if on_all_characters_pushed != null:
 		on_all_characters_pushed.call()
 
-	print("［ステートマシーン］　全ての文字を出力した。完全表示中へ状態遷移")	
+	print("［状態機械　伝言窓］　全ての文字を出力した。完全表示中へ状態遷移")	
 	self.state = States.Completed
 
 
@@ -96,5 +96,5 @@ func all_pages_flushed():
 	if on_all_pages_flushed != null:
 		on_all_pages_flushed.call()
 
-	print("［ステートマシーン］　全てのページを送った。非表示へ状態遷移")	
+	print("［状態機械　伝言窓］　全てのページを送った。非表示へ状態遷移")	
 	self.state = States.None

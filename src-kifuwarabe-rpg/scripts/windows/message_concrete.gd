@@ -1,4 +1,4 @@
-# コンクリート・メッセージ・ウィンドウ（Concrete Message Window；具体的な伝言窓）
+# メッセージ・ウィンドウ（Concrete Message Window；伝言窓）
 extends Sprite2D
 
 
@@ -38,7 +38,7 @@ func redirect_me():
 	# 全ての文字は吐き出されたものとする
 	#self.statemachine_of_message_window.all_pages_flushed()
 
-	print("［メッセージウィンドウ　”" + self.name + "”］　リダイレクトしてきた")
+	print("［伝言窓　”" + self.name + "”］　リダイレクトしてきた")
 
 	var snapshot = self.director_get_current_snapshot.call()
 
@@ -61,7 +61,7 @@ func split_head_line_or_tail(text):
 func set_process_subtree(
 	is_process):	# bool
 	
-	print("［メッセージウィンドウ　”" + self.name + "”］　プロセッシング：" + str(is_process))
+	print("［伝言窓　”" + self.name + "”］　プロセッシング：" + str(is_process))
 
 	# 処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
 	# 処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
@@ -80,7 +80,7 @@ func set_process_subtree(
 func set_visible_subtree(
 	is_visible):					# bool
 
-	print("［メッセージウィンドウ　”" + self.name + "”］　可視性：" + str(is_visible))
+	print("［伝言窓　”" + self.name + "”］　可視性：" + str(is_visible))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
@@ -100,7 +100,7 @@ func set_visible_subtree(
 func set_appear_subtree(
 	is_appear):		# bool
 
-	print("［メッセージウィンドウ　”" + self.name + "”］　appear：" + str(is_appear))
+	print("［伝言窓　”" + self.name + "”］　appear：" + str(is_appear))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
@@ -132,7 +132,6 @@ func set_appear_subtree(
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う
 func on_unhandled_key_input(event):
-	print("［メッセージウィンドウ　”" + self.name + "”］　アンハンドルド・キー入力")
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
@@ -142,32 +141,43 @@ func on_unhandled_key_input(event):
 		# 選択肢モードなら
 		if snapshot.is_choices():
 			
-			# 何かキーを押したとき
+			# 押下時
 			if event.is_pressed():
 				
 				# 確定ボタン以外は無効
 				if event.keycode != KEY_ENTER:
-					#print("［抽象メッセージ・ウィンドウ］　選択肢モードでは、エンターキー以外ではメッセージ送りしません")
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢　押下時　エンターキーではないのでメッセージ送りしません")
 					return
 					
 				else:
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢　押下時　エンターキー　ページ送りする")
 					# 選択肢を確定した
 					# ページ送り
 					self.statemachine_of_message_window.page_forward()
 					return
+
+			else:
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢　押下時ではない")
 		
 		# それ以外なら
 		else:
-		
 			# 何かキーを押したとき
 			if event.is_pressed():
 				
 				if event.keycode == KEY_R:
-					# print("［抽象メッセージ・ウィンドウ］　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
 					return
-				
+
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　Ｒキー以外　ページ送りする")				
 				# ページ送り
 				self.statemachine_of_message_window.page_forward()
+
+			else:
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
+				pass
+
+	else:
+		print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　完全表示中ではないから何もしない")
 
 
 # 状態遷移するだけ
@@ -337,6 +347,7 @@ func _process(delta):
 				snapshot.text_block_buffer = snapshot.text_block_buffer.substr(1)
 			else:
 				# 完全表示中
+				print("［伝言窓　”" + self.name + "”］　プロセス　完全表示中だ")			
 				self.statemachine_of_message_window.all_characters_pushed()
 			
 			snapshot.count_of_typewriter -= wait_time
