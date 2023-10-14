@@ -12,15 +12,10 @@ func get_message_window(node_name):
 #	居なくなる
 func disappear():
 	print("［ビジュアル・ノベル部管理人］　隠す")
-	is_appear = false
+	self.is_appear = false
 	
-	#	表示中の［下］メッセージ・ウィンドウを隠す
+	#	表示中の［下］メッセージ・ウィンドウを隠す。プロセスも止める
 	self.get_message_window("下").set_visible_subtree(false)
-
-	#	ポーズ
-	#		とりあえず、［下］メッセージ・ウィンドウを止めてみる
-	#		is_processing は、初回は false
-	# if self.get_message_window("下").is_processing():
 	self.get_message_window("下").set_process_subtree(false)
 		
 	#	場所が表示中なら、非表示にする

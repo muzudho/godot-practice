@@ -32,3 +32,8 @@ var location_node_name = ""
 # メッセージウィンドウが指示待ちか？
 func set_message_window_waiting_for_order(flag):
 	self.is_message_window_waiting_for_order = flag
+
+
+#	同名のデパートメント・マネージャー取得
+func get_manager():
+	return $"../../Managers".get_node(str(self.name))

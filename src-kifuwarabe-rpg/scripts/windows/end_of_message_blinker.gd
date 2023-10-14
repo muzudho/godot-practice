@@ -40,8 +40,9 @@ func get_musician():
 	return $"../../../../../../Musician"
 
 
-# func get_snapshot(department_node_name):
-#	return $"../../../../../../System/Snapshots".get_node(department_node_name)
+#	メッセージ・ウィンドウ名を取得
+func get_message_window_name_obj():
+	return $"../../..".name
 
 
 func get_parent_choice_row_numbers():
@@ -63,7 +64,7 @@ func set_director_get_current_snapshot_subtree(it):
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(is_process):
-	print("［メッセージエンド・ブリンカー］　プロセッシング：" + str(is_process))
+	print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　プロセス：" + str(is_process))
 
 	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
 	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
@@ -77,7 +78,7 @@ func set_process_subtree(is_process):
 
 #	サブツリーの visible を設定
 func set_visible_subtree(is_visible):
-	print("［メッセージエンド・ブリンカー］　可視性：" + str(is_visible))
+	print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　可視性：" + str(is_visible))
 
 	#	見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	#	隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
@@ -92,19 +93,14 @@ func set_visible_subtree(is_visible):
 #	初期化
 #		ウィンドウが消えている状態を想定しています。
 func on_decided():
-	#	透明にして非表示にしておく
-	print("［エンド・オブ・メッセージ・ブリンカー］　初期化による透明化")
+	print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　オン・デサイデッド")
 
 	#	ブリンカーのスイッチ・オフ
 	self.statemachine_of_blinker.switch_off()
 
 	
 func on_thought():
-	#	エンプタイズ（Emptize；空欄化）
-	#
-	#		初期化の一種ですが、ウィンドウを残しておくことが違います
-	#		透明にして表示しておく
-	print("［エンド・オブ・メッセージ・ブリンカー］　空欄化による透明化")
+	print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　オン・ソート")
 	self.modulate.a = 0.0	# 空欄化による透明化
 	self.show()
 
