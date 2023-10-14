@@ -3,8 +3,8 @@
 extends Node2D
 
 
-# 状態機械
-var statemachine_of_director = load("res://scripts/statemachines/director.gd").new()
+# 現在の部門
+var current_department = "VisualNovelDepartment"
 
 
 # 部管理人
@@ -18,13 +18,14 @@ func get_snapshot(department_name):
 
 
 func get_current_snapshot():
-	if self.statemachine_of_director.is_playing_visual_novel():
+	if self.current_department == "VisualNovelDepartment":
 		return self.get_snapshot("VisualNovelDepartment")
 		
-	elif self.statemachine_of_director.is_playing_system_menu():
+	elif self.current_department == "SystemMenuDepartment":
 		return self.get_snapshot("SystemMenuDepartment")
 	
 	else:
+		# エラー
 		return null
 
 
@@ -35,26 +36,11 @@ func get_message_window():
 	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
 
 
-# ビジュアルノベルを再生した
-func on_played_visual_novel():
-	pass
-
-
-# システムメニューを再生した
-func on_played_system_menu():
-	pass
-
-
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	# 状態機械をセットアップ
-	self.statemachine_of_director.on_played_visual_novel = self.on_played_visual_novel
-	self.statemachine_of_director.on_played_system_menu = self.on_played_system_menu
-
 	# 子要素にメンバーを渡す
-	$"AssistantDirector".statemachine_of_director = self.statemachine_of_director
 	$"AssistantDirector".set_director_get_current_snapshot_subtree(self.get_current_snapshot)
 
 	# メッセージ・ウィンドウ
@@ -64,6 +50,8 @@ func _ready():
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	#
+	# ディレクターは表示する必要がある
+	self.show()
 	# グリッドは隠す
 	$"Grid".hide()
 
@@ -99,7 +87,8 @@ func _ready():
 	#	department_manager.load_current_scenario()
 
 	# 初回起動時、ビジュアルノベル部を再生
-	self.statemachine_of_director.play_visual_novel()
+	self.current_department = "VisualNovelDepartment"
+
 	var snapshot = self.get_current_snapshot()	
 
 	# パースするな
@@ -125,15 +114,15 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 
 			# ビジュアルノベル部　再生中
-			if self.statemachine_of_director.is_playing_visual_novel():
+			if self.current_department == "VisualNovelDepartment":
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
 
 				# 現在の部門を隠す
 				self.get_current_snapshot().get_manager().disappear()
-				
+
 				# システムメニュー再生
-				self.statemachine_of_director.play_system_menu()
-								
+				self.current_department = "SystemMenuDepartment"
+
 				# 現在の部門を再表示
 				self.get_current_snapshot().get_manager().appear()
 
@@ -150,15 +139,15 @@ func _unhandled_key_input(event):
 				#		""")
 				#$"AssistantDirector/NormalTextChoice".talk()
 
-			else:
+			elif self.current_department == "SystemMenuDepartment":
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
 
 				# 現在の部門を隠す
 				self.get_current_snapshot().get_manager().disappear()
-				
+
 				# ビジュアルノベル再生
-				self.statemachine_of_director.play_visual_novel()
-								
+				self.current_department = "VisualNovelDepartment"
+
 				# 現在の部門を再表示
 				self.get_current_snapshot().get_manager().appear()
 

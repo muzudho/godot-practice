@@ -1007,4 +1007,33 @@ func turn_off():
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　順調だけど　遅いなあ」  
 
+## Department も一般化しないと　きつい
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
+「　ビジュアルノベル部門とか、システムメニュー部門も　一般化しないと　きつくなってきた」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　再開するのに？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
+「　そう。個別にハードコーディングではきつい」  
+
+```gd
+func get_current_snapshot():
+	if self.statemachine_of_director.is_playing_visual_novel():
+		return self.get_snapshot("VisualNovelDepartment")
+		
+	elif self.statemachine_of_director.is_playing_system_menu():
+		return self.get_snapshot("SystemMenuDepartment")
+	
+	else:
+		return null
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
+「　👆　状態遷移にしていたが、 `Department` は、ただの変数にしたい」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`Department` は状態ではないという建付けにするわけだな」  
+
 .

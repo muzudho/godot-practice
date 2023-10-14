@@ -2,10 +2,6 @@
 extends Node
 
 
-# 状態機械
-var statemachine_of_director = null
-
-
 # 関数の変数
 var director_get_current_snapshot = null
 
@@ -210,10 +206,6 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-
-	# ディレクターが止まってるなら、働かない
-	if self.statemachine_of_director.is_none():
-		return
 
 	var snapshot = self.director_get_current_snapshot.call()
 
