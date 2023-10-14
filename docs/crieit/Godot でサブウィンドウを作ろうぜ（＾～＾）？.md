@@ -980,6 +980,10 @@ func turn_off():
 ![202310__godot__14-1528--Cursor-o2o0.png](https://crieit.now.sh/upload_images/f6c0d0ba4f5995d32780e9635324b50f652a3551abf91.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　非表示のウィンドウのカーソルが　見えてる」  
+「　👆　非表示のウィンドウのカーソルが　見えてる」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot の `.show()` 、 `.hide()` メソッドは　アホが考えたメソッドなんだ。  
+わたしが考えた `.set_visible_subtree()` メソッドを使うことで解決！」  
 
 .
