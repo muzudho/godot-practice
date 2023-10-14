@@ -183,6 +183,7 @@ func show_current_department():
 	snapshot.get_manager().appear()
 
 	var temp_text = snapshot.text_block_buffer
+	# TODO メッセージを吐き出し終えているケースがある
 	print("［ディレクター］　メッセージを復元する：［" + temp_text + "］")
 
 	# TODO 元のメッセージを復元する
