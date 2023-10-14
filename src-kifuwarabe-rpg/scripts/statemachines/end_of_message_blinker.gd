@@ -14,7 +14,7 @@ extends Node
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　Ｖ
 # ｜　　　　　　　　＋ーーーーーー＋
-# ｜　　　　　　　　｜　　None　　｜　※メッセージエンド・ブリンカーが存在しない唯一の状態
+# ｜　　　　　　　　｜　　None　　｜　※文末ブリンカーが存在しない唯一の状態
 # ｜　　　　　　　　＋ーー＋ーーー＋
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　｜　think　※考える
@@ -73,7 +73,7 @@ func decide():
 	if on_decided != null:
 		on_decided.call()
 	
-	print("［メッセージエンド・ブリンカー］　決めた")
+	print("［文末ブリンカー］　決めた")
 	self.state = States.None
 
 
@@ -81,7 +81,7 @@ func think():
 	if on_thought != null:
 		on_thought.call()
 	
-	print("［メッセージエンド・ブリンカー］　悩む")
+	print("［文末ブリンカー］　悩む")
 	self.state = States.Staying
 
 
@@ -89,7 +89,7 @@ func seek():
 	if on_sought != null:
 		on_sought.call()
 	
-	print("［メッセージエンド・ブリンカー］　カーソルを動かす")
+	print("［文末ブリンカー］　カーソルを動かす")
 	self.state = States.Floating
 
 
@@ -97,5 +97,5 @@ func arrive():
 	if on_arrived != null:
 		on_arrived.call()
 	
-	print("［メッセージエンド・ブリンカー］　カーソルは移動した")
+	print("［文末ブリンカー］　カーソルは移動した")
 	self.state = States.Staying
