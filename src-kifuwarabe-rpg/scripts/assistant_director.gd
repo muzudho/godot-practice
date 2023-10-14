@@ -70,13 +70,21 @@ func redirect_concrete_message_window_by_name(node_name):
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
 	var snapshot = self.director_get_current_snapshot.call()
+	var department_name = str(snapshot.name)
+	var paragraph_name = snapshot.paragraph_name
 	
-	print("［アシスタント・ディレクター］　現在の部門名　　　：" + snapshot.name)
-	print("［アシスタント・ディレクター］　現在の段落名　　　：" + snapshot.paragraph_name)
+	print("［アシスタント・ディレクター］　現在の部門名　　　：" + department_name)
+	print("［アシスタント・ディレクター］　現在の段落名　　　：" + paragraph_name)
 	print("［アシスタント・ディレクター］　選んだ選択肢行番号：" + str(row_number))
 
-	# 次の段落名
-	var next_paragraph_name = $"../ScenarioWriter".get_node(str(snapshot.name)).index[snapshot.paragraph_name][row_number]
+	#	シナリオ・ノード
+	var scenario_node = $"../ScenarioWriter".get_node(department_name)
+
+	#	索引の段落。実質的には選択肢の配列
+	var paragraph = scenario_node.index[paragraph_name]
+
+	#	次の段落名
+	var next_paragraph_name = paragraph[row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
 	self.play_paragraph(next_paragraph_name)
