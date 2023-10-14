@@ -71,7 +71,7 @@ func set_process_subtree(
 #	サブツリーの visible を設定
 func set_visible_subtree(
 	is_visible):					# bool
-	
+
 	print("［メッセージウィンドウ　”" + self.name + "”］　可視性：" + str(is_visible))
 
 	#	見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
@@ -80,6 +80,7 @@ func set_visible_subtree(
 	#	隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if is_visible != self.visible:
 		self.visible = is_visible
+		self.get_node("CanvasLayer").visible = is_visible
 
 		#	子ノード
 		for child in $"CanvasLayer/TextBlock".get_children():
@@ -136,12 +137,9 @@ func on_talk(
 	if true:
 		#		テキストが空っぽ
 		text_block_node.text = ""
-		#		表示
-		text_block_node.show()
 
 	#	表示
-	self.show()
-	self.get_node("CanvasLayer").show()
+	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
 
