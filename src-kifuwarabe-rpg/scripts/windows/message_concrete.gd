@@ -172,7 +172,7 @@ func on_talk(
 		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢：[" + new_text + "]")
 
 		snapshot.is_choice_mode = true
-		snapshot.choice_row_numbers = choices_row_numbers
+		snapshot.choices_row_numbers = choices_row_numbers
 
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
@@ -186,7 +186,7 @@ func on_talk(
 		print("［メッセージウィンドウ　”" + self.name + "”］　台詞：[" + new_text + "]")
 
 		snapshot.is_choice_mode = false
-		snapshot.choice_row_numbers = []
+		snapshot.choices_row_numbers = []
 
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()

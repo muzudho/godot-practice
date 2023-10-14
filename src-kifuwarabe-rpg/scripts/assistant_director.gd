@@ -171,8 +171,10 @@ func parse_message(temp_text):
 		#	［ト書き］終わり
 		return
 
+	var snapshot = self.director_get_current_snapshot.call()
+
 	# 選択肢だ
-	if $"Choice".choice_row_number_array != null:
+	if snapshot.choices_row_number_array != null:
 		$"NormalTextChoice".do_it(temp_text)
 		return
 
@@ -184,11 +186,11 @@ func _ready():
 	#	関数を渡す
 	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
 
+	# TODO デパートメントは変数にしたい
 	$"NormalText".snapshot_set_message_window_waiting_for_order = self.get_snapshot("VisualNovelDepartment").set_message_window_waiting_for_order
 
+	# TODO デパートメントは変数にしたい
 	$"NormalTextChoice".before_initialize(
-		$"Choice".get_choice_row_number_array,
-		$"Choice".set_choice_row_number_array,
 		self.get_snapshot("VisualNovelDepartment").set_message_window_waiting_for_order)
 
 

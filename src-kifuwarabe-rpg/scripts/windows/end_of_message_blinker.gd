@@ -50,7 +50,7 @@ func get_parent_choice_row_numbers():
 
 	var snapshot = self.director_get_current_snapshot.call()
 
-	return snapshot.choice_row_numbers
+	return snapshot.choices_row_numbers
 
 
 #	線形補間
