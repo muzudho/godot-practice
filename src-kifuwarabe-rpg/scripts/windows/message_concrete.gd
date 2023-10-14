@@ -31,11 +31,6 @@ func before_initialize(parent_statemachine):
 	#	親からステートマシンを引き継ぐ
 	self.statemachine_of_message_window = parent_statemachine
 
-	#	テキストブロック
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	#		子どもにも渡す
-	text_block_node.get_node("ChoiceCursor").statemachine_of_message_window = self.statemachine_of_message_window
-
 
 #	初期化
 #		ウィンドウが閉じた状態を想定しています

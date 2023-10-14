@@ -9,8 +9,6 @@ var statemachine_of_blinker = load("res://scripts/statemachines/blinker.gd").new
 
 #	メッセージエンド・ブリンカーの共通項目
 #
-#		メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
-var statemachine_of_message_window = null
 #		カーソルが点滅するための時間カウント
 var blinker_seconds = 0.0
 var blinker_interval = 0.5
@@ -205,49 +203,45 @@ func _process(delta):
 				
 			self.blinker_seconds -= self.blinker_interval
 
-
-		# 完全表示中	
-		if self.statemachine_of_message_window.is_completed():
+		# カーソルが動く量が指定されているなら
+		if 0.0 < self.total_seconds:
 			
-			# カーソルが動く量が指定されているなら
-			if 0.0 < self.total_seconds:
+			# 移動する
+			self.elapsed_seconds += delta
+			var progress = self.elapsed_seconds/self.total_seconds
+			if 1.0 <= progress:
+				progress = 1.0
+				self.total_seconds = 0.0
+			self.offset_top = self.do_lerp(self.src_y, self.dst_y, progress)
+
+			
+		# 移動量が残ってないなら
+		else:
+
+			# 上へ移動する分
+			if Input.is_action_pressed(&"ui_up"):
+				# print("［選択肢カーソル］　上へ")
 				
-				# 移動する
-				self.elapsed_seconds += delta
-				var progress = self.elapsed_seconds/self.total_seconds
-				if 1.0 <= progress:
-					progress = 1.0
-					self.total_seconds = 0.0
-				self.offset_top = self.do_lerp(self.src_y, self.dst_y, progress)
+				# 上へ移動できるか？
+				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
+				if index < 1:
+					return
 
+				# カーソルが上に移動します
+				self.on_cursor_up(index)
 				
-			# 移動量が残ってないなら
-			else:
+			# 下へ移動する分
+			if Input.is_action_pressed(&"ui_down"):
+				# print("［選択肢カーソル］　下へ")
+				# print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
+				var choice_size = self.get_parent_choice_row_numbers().size()
+				# print("［選択肢カーソル］　選択肢数：" + str(choice_size))
+				
+				# 下へ移動できるか？
+				var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
+				# print("［選択肢カーソル］　インデックス：" + str(index))
+				if index < 0 or choice_size <= index + 1:
+					return
 
-				# 上へ移動する分
-				if Input.is_action_pressed(&"ui_up"):
-					# print("［選択肢カーソル］　上へ")
-					
-					# 上へ移動できるか？
-					var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
-					if index < 1:
-						return
-
-					# カーソルが上に移動します
-					self.on_cursor_up(index)
-					
-				# 下へ移動する分
-				if Input.is_action_pressed(&"ui_down"):
-					# print("［選択肢カーソル］　下へ")
-					# print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
-					var choice_size = self.get_parent_choice_row_numbers().size()
-					# print("［選択肢カーソル］　選択肢数：" + str(choice_size))
-					
-					# 下へ移動できるか？
-					var index = self.get_parent_choice_row_numbers().find(self.selected_row_number)
-					# print("［選択肢カーソル］　インデックス：" + str(index))
-					if index < 0 or choice_size <= index + 1:
-						return
-
-					# カーソルが下に移動します
-					self.on_cursor_down(index)
+				# カーソルが下に移動します
+				self.on_cursor_down(index)
