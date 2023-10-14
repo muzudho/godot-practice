@@ -34,8 +34,6 @@ func before_initialize(parent_statemachine):
 	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 	#		子どもにも渡す
-	text_block_node.get_node("BlinkerTriangle").statemachine_of_message_window = self.statemachine_of_message_window
-	text_block_node.get_node("BlinkerUnderscore").statemachine_of_message_window = self.statemachine_of_message_window
 	text_block_node.get_node("ChoiceCursor").statemachine_of_message_window = self.statemachine_of_message_window
 
 

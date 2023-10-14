@@ -206,8 +206,8 @@ func _process(delta):
 			self.blinker_seconds -= self.blinker_interval
 
 
-		# 完全表示中	　かつ　選択肢モード
-		if self.statemachine_of_message_window.is_completed() and self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+		# 完全表示中	
+		if self.statemachine_of_message_window.is_completed():
 			
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:

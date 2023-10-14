@@ -9,8 +9,6 @@ var statemachine_of_blinker = load("res://scripts/statemachines/blinker.gd").new
 
 #	メッセージエンド・ブリンカーの共通項目
 #
-#		メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
-var statemachine_of_message_window = null
 #		カーソルが点滅するための時間カウント
 var blinker_seconds = 0.0
 var blinker_interval = 0.5
