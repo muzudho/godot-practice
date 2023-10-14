@@ -39,8 +39,10 @@ func push_message(
 	print("［ノーマル・テキスト・チョイス］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")
 
 
-	# メッセージ追加
-	self.get_message_window(str(snapshot.message_window_name_obj)).statemachine_of_message_window.talk_1(temp_text, snapshot.choices_row_number_array)
+	# メッセージ追加、会話
+	var message_window = self.get_message_window(str(snapshot.message_window_name_obj))
+	message_window.statemachine_of_message_window.remember(temp_text, snapshot.choices_row_number_array)
+	message_window.statemachine_of_message_window.talk_2()
 	
 	self.snapshot_set_message_window_waiting_for_order.call(false)
 	

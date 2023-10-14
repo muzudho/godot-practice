@@ -181,8 +181,8 @@ func on_unhandled_key_input(event):
 func on_talked_2():
 	pass
 
-# メッセージ追加
-func on_talked_1(
+# メッセージを記録するだけ
+func on_remembered(
 	new_text,						# str
 	choices_row_numbers = null):	# number_array
 
@@ -312,7 +312,7 @@ func on_all_pages_flushed():
 
 func _ready():
 	# 状態機械のセットアップ
-	self.statemachine_of_message_window.on_talked_1 = self.on_talked_1
+	self.statemachine_of_message_window.on_remembered = self.on_remembered
 	self.statemachine_of_message_window.on_talked_2 = self.on_talked_2
 	self.statemachine_of_message_window.on_page_forward = self.on_page_forward
 	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
