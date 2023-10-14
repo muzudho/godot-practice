@@ -42,8 +42,8 @@ func is_choices():
 	return self.choices_row_numbers != null
 
 
-# メッセージが残っているか？
-func has_message():
+# テキストブロックのバッファーが残っているか？
+func has_text_block_buffer():
 	return 0 < self.text_block_buffer.length()
 
 

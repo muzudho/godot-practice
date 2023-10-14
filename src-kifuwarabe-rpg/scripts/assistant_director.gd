@@ -62,9 +62,15 @@ func play_paragraph():
 		print("［アシスタント・ディレクター］　（段落バッファーが空になってるから）シナリオ・ブックから、段落を取出す")
 		snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
-	print("［アシスタント・ディレクター］　パースを開始してよい")
-	# パースを開始してよい
-	snapshot.set_parse_lock(false)
+	# パースを開始してよくないケースもあるが？
+	# バッファーが残ってるときとか
+	if not snapshot.has_text_block_buffer():
+		# Completed 時もパース始めたらよくない
+		if not message_window.statemachine_of_message_window.is_completed():
+			# TODO 選択肢のときもややこしいが
+			print("［アシスタント・ディレクター］　パースを開始してよい（本当か？）")
+			# パースを開始してよい
+			snapshot.set_parse_lock(false)
 
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
