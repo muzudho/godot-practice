@@ -100,7 +100,7 @@ func _ready():
 
 	# 初回起動時、ビジュアルノベル部を再生
 	self.statemachine_of_director.play_visual_novel()
-	# 台本の再生の開始の合図
+	# 台本の段落の再生
 	$"./AssistantDirector".play_paragraph()
 
 	# 表示
@@ -132,7 +132,10 @@ func _unhandled_key_input(event):
 								
 				# 現在の部門を再表示
 				self.get_current_snapshot().get_manager().appear()
-				
+
+				# 台本の段落の再生
+				$"./AssistantDirector".play_paragraph()
+
 				# ［中央］メッセージ・ウィンドウを表示する
 				#self.get_current_snapshot().choices_row_numbers = [1,2]
 				#$"AssistantDirector/MWnd".redirect_message_window("中央")
@@ -154,6 +157,9 @@ func _unhandled_key_input(event):
 								
 				# 現在の部門を再表示
 				self.get_current_snapshot().get_manager().appear()
+
+				# 台本の段落の再生
+				$"./AssistantDirector".play_paragraph()
 
 			# 子要素には渡しません
 			return

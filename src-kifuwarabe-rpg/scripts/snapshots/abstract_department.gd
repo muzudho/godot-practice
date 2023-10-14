@@ -11,7 +11,7 @@ var parse_lock_flag = true
 var choices_row_numbers = null
 
 # テキストブロック汎用
-#	読込んだメッセージの配列が入っている
+#	読込んだメッセージの配列が入っている。どんどんポップされて減っていく
 var scenario_array = []
 #	表示したい文章
 var text_block_buffer = ""

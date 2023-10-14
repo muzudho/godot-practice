@@ -51,15 +51,13 @@ func change_paragraph(paragraph_name):
 func play_paragraph():
 	var snapshot = self.director_get_current_snapshot.call()
 
-	# シナリオ・ブックから、内容を取出す
-	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
-	snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
+	if snapshot.scenario_array.size() < 1:
+		# シナリオ・ブックから、内容を取出す
+		print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
+		snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
 	# パースを開始してよい
 	snapshot.set_parse_lock(false)
-
-	# 再生中へ
-	# self.statemachine_of_director.play_visual_novel()
 
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
