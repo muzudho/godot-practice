@@ -24,14 +24,6 @@ func get_snapshot(department_node_name):
 	return $"../../../System/Snapshots".get_node(department_node_name)
 
 
-#	初期化の前に
-#		初期化の一種ですが、初期化より前に行います。
-#		引数を渡すことが **初期化** との違いです
-func before_initialize(parent_statemachine):
-	#	親からステートマシンを引き継ぐ
-	self.statemachine_of_message_window = parent_statemachine
-
-
 #	初期化
 #		ウィンドウが閉じた状態を想定しています
 func initialize_concrete_message_window():
@@ -326,8 +318,6 @@ func _ready():
 
 	#	全ての文字は吐き出されたものとする
 	self.statemachine_of_message_window.all_pages_flushed()
-
-	self.before_initialize(self.statemachine_of_message_window)
 
 
 func _process(delta):
