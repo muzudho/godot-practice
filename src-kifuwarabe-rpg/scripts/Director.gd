@@ -100,11 +100,11 @@ func _ready():
 
 	# 初回起動時、ビジュアルノベル部を再生
 	self.statemachine_of_director.play_visual_novel()
-	
-	var snapshot = self.get_current_snapshot()	
 	# 台本の再生の開始の合図
-	$"./AssistantDirector".play_paragraph(snapshot.paragraph_name)
+	$"./AssistantDirector".play_paragraph()
+
 	# 表示
+	var snapshot = self.get_current_snapshot()	
 	snapshot.get_manager().appear()
 
 

@@ -41,12 +41,15 @@ func set_director_get_current_snapshot_subtree(it):
 			child.set_director_get_current_snapshot_subtree(it)
 
 
+func change_paragraph(paragraph_name):
+	var snapshot = self.director_get_current_snapshot.call()
+	snapshot.paragraph_name = paragraph_name
+
+
 # TODO 自律的自動実行できないか？
 # 台本の再生段落の変更
-func play_paragraph(paragraph_name):
+func play_paragraph():
 	var snapshot = self.director_get_current_snapshot.call()
-
-	snapshot.paragraph_name = paragraph_name
 
 	# シナリオ・ブックから、内容を取出す
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
@@ -84,7 +87,8 @@ func on_choice_selected(row_number):
 	var next_paragraph_name = paragraph[row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
-	self.play_paragraph(next_paragraph_name)
+	self.change_paragraph(next_paragraph_name)
+	self.play_paragraph()
 
 
 # 先頭行と、それ以外に分けます。できなければヌル
@@ -182,6 +186,7 @@ func parse_message(temp_text):
 func _ready():
 	#	関数を渡す
 	$"MWnd".message_window_redirect_by_name = self.redirect_message_window_by_name
+	$"Goto".assistant_director_change_paragraph = self.change_paragraph
 	$"Goto".assistant_director_play_paragraph = self.play_paragraph
 
 

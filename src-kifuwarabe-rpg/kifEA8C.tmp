@@ -1,0 +1,664 @@
+[gd_scene load_steps=58 format=3 uid="uid://2wbh8nu3lhjc"]
+
+[ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
+[ext_resource type="Script" path="res://scripts/assistant_director.gd" id="3_nnvgw"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/system_menu_department.gd" id="4_7teq2"]
+[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="5_24vd4"]
+[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="5_q2nol"]
+[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="6_bei22"]
+[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://audio/bgm/maou.audio/maou_game_town05.ogg" id="6_wirdc"]
+[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="7_j1q8q"]
+[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou.audio/maou_se_sound17.ogg" id="8_s3xj3"]
+[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou.audio/maou_se_sound19.ogg" id="9_y0joy"]
+[ext_resource type="Script" path="res://scripts/background_artist.gd" id="10_03wut"]
+[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou.audio/maou_se_sound_switch02.ogg" id="10_d7hpp"]
+[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="11_lxy0m"]
+[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
+[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
+[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="14_xhnqt"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
+[ext_resource type="Script" path="res://scripts/location_coordinator.gd" id="15_ajtoo"]
+[ext_resource type="Script" path="res://scripts/concrete_location.gd" id="17_ibqgx"]
+[ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="22_cj5lk"]
+[ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
+[ext_resource type="Script" path="res://scripts/musician.gd" id="23_6ylqn"]
+[ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="23_a7vfu"]
+[ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="24_envpd"]
+[ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="25_xmliw"]
+[ext_resource type="Script" path="res://scripts/assistant_director/scene.gd" id="26_d8rxk"]
+[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
+[ext_resource type="Script" path="res://scripts/assistant_director/normal_text.gd" id="27_1um3d"]
+[ext_resource type="Script" path="res://scripts/assistant_director/se.gd" id="27_b3qcr"]
+[ext_resource type="Script" path="res://scripts/assistant_director/normal_text_choice.gd" id="27_punsk"]
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/MessageWindow.png" id="28_skskk"]
+[ext_resource type="Script" path="res://scripts/windows/message_concrete.gd" id="30_bblis"]
+[ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="32_uu41d"]
+[ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="33_1xmx8"]
+[ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="33_ogwo6"]
+[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/system_window.png" id="34_wja0x"]
+[ext_resource type="Script" path="res://scripts/windows/viewing.gd" id="35_s10tl"]
+[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/CenterWindow.png" id="35_sw6cw"]
+[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
+[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
+[ext_resource type="Script" path="res://scripts/managers/visual_novel_department.gd" id="42_4vwru"]
+[ext_resource type="Script" path="res://scripts/managers/system_menu_department.gd" id="43_u5e5k"]
+[ext_resource type="Script" path="res://scripts/snapshots/visual_novel_department.gd" id="44_uxi6d"]
+[ext_resource type="Script" path="res://scripts/snapshots/system_menu_department.gd" id="45_e8lmg"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t63ks"]
+font = ExtResource("5_24vd4")
+font_size = 128
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="LabelSettings" id="LabelSettings_v0hgs"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_oqy5n"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_s3a30"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nc3n7"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6krhj"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8g2fx"]
+line_spacing = 1.0
+font = ExtResource("6_bei22")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_7xxk4"]
+line_spacing = 1.0
+font = ExtResource("5_24vd4")
+font_size = 20
+font_color = Color(0.85098, 0, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ksp3"]
+line_spacing = 8.0
+font = ExtResource("15_164yy")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2oa1m"]
+line_spacing = 8.0
+font = ExtResource("15_164yy")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="GDScript" id="GDScript_tmxbw"]
+script/source = "# テキスト・ブロック（TextBlock）
+extends Label
+
+# メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
+var statemachine_of_message_window = null
+
+var is_visible_initialized = false
+
+
+
+
+"
+
+[node name="Director" type="Node2D"]
+material = SubResource("CanvasItemMaterial_glhd8")
+script = ExtResource("1_lfp38")
+
+[node name="Grid" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("26_fgfga")
+
+[node name="ScenarioWriter" type="Node" parent="."]
+
+[node name="VisualNovelDepartment" type="Node" parent="ScenarioWriter"]
+script = ExtResource("3_75puo")
+
+[node name="SystemMenuDepartment" type="Node" parent="ScenarioWriter"]
+script = ExtResource("4_7teq2")
+
+[node name="Musician" type="Node" parent="."]
+script = ExtResource("23_6ylqn")
+
+[node name="BGM" type="Node" parent="Musician"]
+
+[node name="きふわらべファイター２" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("5_q2nol")
+volume_db = -20.0
+
+[node name="タイトル" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("6_wirdc")
+volume_db = -20.0
+
+[node name="エンディング" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("7_j1q8q")
+volume_db = -15.0
+
+[node name="SE" type="Node" parent="Musician"]
+
+[node name="ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("8_s3xj3")
+
+[node name="選択肢カーソル移動音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("9_y0joy")
+volume_db = -15.0
+
+[node name="選択肢確定音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("10_d7hpp")
+volume_db = -10.0
+
+[node name="BackgroundArtist" type="Node2D" parent="."]
+script = ExtResource("10_03wut")
+
+[node name="イベントルーム" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("11_lxy0m")
+
+[node name="崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("12_nlarn")
+
+[node name="エンディング" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("13_sy6jl")
+
+[node name="崎川駅周辺地図" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("14_xhnqt")
+
+[node name="LocationCoordinator" type="Node2D" parent="."]
+script = ExtResource("15_ajtoo")
+
+[node name="タイトル" type="CanvasLayer" parent="LocationCoordinator"]
+visible = false
+script = ExtResource("17_ibqgx")
+
+[node name="きふわらべRPG" type="Label" parent="LocationCoordinator/タイトル"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -232.0
+offset_right = 512.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "きふわらべＲＰＧ"
+label_settings = SubResource("LabelSettings_t63ks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Copyright" type="Label" parent="LocationCoordinator/タイトル"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -639.0
+offset_top = 305.0
+offset_right = 637.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
+label_settings = SubResource("LabelSettings_v0hgs")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="エンディング" type="CanvasLayer" parent="LocationCoordinator"]
+visible = false
+script = ExtResource("17_ibqgx")
+
+[node name="エンドロール" type="Label" parent="LocationCoordinator/エンディング"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = -356.0
+offset_right = 542.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "　　　　　　音楽　魔王魂
+　
+　『きふわらべファイター２』
+　　　　　　作曲　桜丸
+　
+　ゲームエンジン　Ｇｏｄｏｔ
+
+　　　　イラスト
+　　　　シナリオ
+　　　プログラム
+　　　　　　監督　むずでょ
+
+　同人サークル　ぐれーすけーる"
+label_settings = SubResource("LabelSettings_oqy5n")
+vertical_alignment = 1
+
+[node name="完" type="Label" parent="LocationCoordinator/エンディング"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = 111.0
+offset_right = -4.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "完"
+label_settings = SubResource("LabelSettings_t63ks")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="崎川駅周辺地図" type="CanvasLayer" parent="LocationCoordinator"]
+visible = false
+script = ExtResource("17_ibqgx")
+
+[node name="NR崎川駅" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -635.0
+offset_top = -17.0
+offset_right = -442.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0465592
+text = "ＮＲ 崎川駅"
+label_settings = SubResource("LabelSettings_s3a30")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="西口" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -164.0
+offset_right = -299.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00380094
+text = "西 口"
+label_settings = SubResource("LabelSettings_nc3n7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="東口" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = 93.0
+offset_right = -300.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.141261
+text = "東 口"
+label_settings = SubResource("LabelSettings_nc3n7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="最強振興会館" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 411.0
+offset_top = -90.0
+offset_right = 604.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0134654
+text = "最強振興会館"
+label_settings = SubResource("LabelSettings_6krhj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ゾラーナ崎川プラザ" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -355.0
+offset_right = -151.0
+offset_bottom = -306.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.121196
+text = "ゾラーナ崎川プラザ"
+label_settings = SubResource("LabelSettings_8g2fx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="リキッドスクエア" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 323.0
+offset_top = -189.0
+offset_right = 516.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0246742
+text = "リキッドスクエア"
+label_settings = SubResource("LabelSettings_7xxk4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="香急崎川駅" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 223.0
+offset_right = 268.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.16054
+text = "香急崎川駅"
+label_settings = SubResource("LabelSettings_8g2fx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="バドバシメカラ" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 219.0
+offset_top = 127.0
+offset_right = 412.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.11144
+text = "バドバシメカラ"
+label_settings = SubResource("LabelSettings_8g2fx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="アトレ崎川" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = 157.0
+offset_right = -257.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.107918
+text = "アトレ崎川"
+label_settings = SubResource("LabelSettings_8g2fx")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GuiArtist" type="Node2D" parent="."]
+
+[node name="WindowsOfMessage" type="Node2D" parent="GuiArtist"]
+
+[node name="下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
+visible = false
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 10
+position = Vector2(640, 360)
+texture = ExtResource("28_skskk")
+script = ExtResource("30_bblis")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage/下"]
+
+[node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1013.0
+offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = SubResource("LabelSettings_6ksp3")
+
+[node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 675.0
+offset_bottom = 135.0
+text = "▼"
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("33_1xmx8")
+
+[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 143.0
+text = "＿"
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("33_1xmx8")
+
+[node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("33_1xmx8")
+
+[node name="中央" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
+z_index = 10
+position = Vector2(640, 360)
+texture = ExtResource("34_wja0x")
+script = ExtResource("30_bblis")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage/中央"]
+
+[node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer"]
+offset_left = 510.0
+offset_top = 244.0
+offset_right = 824.0
+offset_bottom = 490.0
+label_settings = SubResource("LabelSettings_6ksp3")
+script = SubResource("GDScript_tmxbw")
+
+[node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 154.0
+offset_right = 262.0
+offset_bottom = 199.0
+text = "▼"
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("33_1xmx8")
+
+[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer/TextBlock"]
+visible = false
+layout_mode = 0
+offset_left = 228.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 202.0
+text = "＿"
+label_settings = SubResource("LabelSettings_6ksp3")
+script = ExtResource("33_1xmx8")
+
+[node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/中央/CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("33_1xmx8")
+
+[node name="WindowsOfViewing" type="Node2D" parent="GuiArtist"]
+visible = false
+script = ExtResource("35_s10tl")
+
+[node name="System" type="Node2D" parent="GuiArtist/WindowsOfViewing"]
+visible = false
+
+[node name="Frame" type="Sprite2D" parent="GuiArtist/WindowsOfViewing/System"]
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("35_sw6cw")
+
+[node name="将棋盤" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
+visible = false
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("36_0psl7")
+
+[node name="ファイルとランク" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
+visible = false
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("37_lwbng")
+
+[node name="AssistantDirector" type="Node" parent="."]
+script = ExtResource("3_nnvgw")
+
+[node name="Bg" type="Node" parent="AssistantDirector"]
+script = ExtResource("32_uu41d")
+
+[node name="Bgm" type="Node" parent="AssistantDirector"]
+script = ExtResource("33_ogwo6")
+
+[node name="Choice" type="Node" parent="AssistantDirector"]
+script = ExtResource("22_cj5lk")
+
+[node name="Goto" type="Node" parent="AssistantDirector"]
+script = ExtResource("24_envpd")
+
+[node name="MWnd" type="Node" parent="AssistantDirector"]
+script = ExtResource("23_a7vfu")
+
+[node name="Quit" type="Node" parent="AssistantDirector"]
+script = ExtResource("25_xmliw")
+
+[node name="Scene" type="Node" parent="AssistantDirector"]
+script = ExtResource("26_d8rxk")
+
+[node name="Se" type="Node" parent="AssistantDirector"]
+script = ExtResource("27_b3qcr")
+
+[node name="NormalText" type="Node" parent="AssistantDirector"]
+script = ExtResource("27_1um3d")
+
+[node name="NormalTextChoice" type="Node" parent="AssistantDirector"]
+script = ExtResource("27_punsk")
+
+[node name="VWnd" type="Node" parent="AssistantDirector"]
+script = ExtResource("23_5s8w2")
+
+[node name="System" type="Node" parent="."]
+
+[node name="Managers" type="Node" parent="System"]
+
+[node name="VisualNovelDepartment" type="Node" parent="System/Managers"]
+script = ExtResource("42_4vwru")
+
+[node name="SystemMenuDepartment" type="Node" parent="System/Managers"]
+script = ExtResource("43_u5e5k")
+
+[node name="Snapshots" type="Node" parent="System"]
+
+[node name="VisualNovelDepartment" type="Node" parent="System/Snapshots"]
+script = ExtResource("44_uxi6d")
+
+[node name="SystemMenuDepartment" type="Node" parent="System/Snapshots"]
+script = ExtResource("45_e8lmg")
