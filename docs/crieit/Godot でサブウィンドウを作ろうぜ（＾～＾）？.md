@@ -841,4 +841,14 @@ func moved():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　こんな感じか」  
 
+# 📅 2023-10-14 sat ⏰ 12:10 再開
+
+![202310__godot__14-1206--TextBlock-o2o0.png](https://crieit.now.sh/upload_images/8bca3c27f5411dea0e29d6218949ea9a652a06ac8a4e6.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　スクリプトが分かれてると　つらいから　統合するぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　使ってみると　最適が分かってくるな」  
+
 .

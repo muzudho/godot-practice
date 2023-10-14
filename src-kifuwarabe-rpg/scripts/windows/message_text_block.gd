@@ -11,21 +11,6 @@ func get_snapshot(department_node_name):
 	return $"../../../../../System/Snapshots".get_node(department_node_name)
 
 
-#	初期化の前に
-#		初期化の一種ですが、初期化より先に行います。
-#		引数を渡すことが **初期化** との違いです
-func before_initialize(parent_statemachine):
-	print("［テキストブロック］　初期化の前に")
-	
-	#	親からステートマシンを受け取る
-	self.statemachine_of_message_window = parent_statemachine
-	
-	#	子どもにも渡す
-	$"BlinkerTriangle".statemachine_of_message_window = self.statemachine_of_message_window
-	$"BlinkerUnderscore".statemachine_of_message_window = self.statemachine_of_message_window
-	$"ChoiceCursor".statemachine_of_message_window = self.statemachine_of_message_window
-
-
 #	初期化
 #		ウィンドウが無い状態に戻すことを想定しています。
 #		引数を渡さずに呼び出せることが **初期化の前に** との違いです
@@ -43,51 +28,6 @@ func initialize():
 	#	非表示
 	self.hide()
 	self.is_visible_initialized = false
-
-
-#	空欄化
-#		初期化の一種ですが、ウィンドウは残しておきます
-func emptize():
-	print("［テキストブロック］　空欄化（表示）")
-
-	# テキストが空っぽ
-	self.text = ""
-	
-	# ブリンカーを透明にして表示しておく
-	$"BlinkerTriangle".emptize()
-	$"BlinkerUnderscore".emptize()
-	$"ChoiceCursor".emptize()
-
-	#	表示
-	self.show()
-	self.is_visible_initialized = false
-
-
-# メッセージを追加
-func push_message(new_text, choice_row_numbers = null):
-
-	#	テキスト設定
-	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
-
-	#	空欄化
-	self.emptize()
-
-	#	選択肢なら
-	if choice_row_numbers != null:
-		print("［テキストブロック］　選択肢：　[" + new_text + "]")
-		self.get_snapshot("VisualNovelDepartment").is_choice_mode = true
-		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = choice_row_numbers
-
-		# メッセージエンド・ブリンカー　状態機械［決めた］
-		$"BlinkerTriangle".statemachine_of_end_of_message_blinker.decide()
-		$"BlinkerUnderscore".statemachine_of_end_of_message_blinker.decide()
-
-	#	それ以外なら
-	else:
-		print("［テキストブロック］　台詞：　[" + new_text + "]")
-		self.get_snapshot("VisualNovelDepartment").is_choice_mode = false
-		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
-
 
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作

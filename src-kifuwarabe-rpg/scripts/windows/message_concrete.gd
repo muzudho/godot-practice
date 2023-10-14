@@ -32,8 +32,14 @@ func before_initialize(parent_statemachine):
 	#	親からステートマシンを引き継ぐ
 	self.statemachine_concrete = parent_statemachine
 
-	#	子どもにもステートマシンを渡す
-	self.get_node("CanvasLayer/TextBlock").before_initialize(self.statemachine_of_message_window)
+	#	テキストブロック
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	#		親からステートマシンを受け取る
+	text_block_node.statemachine_of_message_window = self.statemachine_of_message_window
+	#		子どもにも渡す
+	text_block_node.get_node("BlinkerTriangle").statemachine_of_message_window = text_block_node.statemachine_of_message_window
+	text_block_node.get_node("BlinkerUnderscore").statemachine_of_message_window = text_block_node.statemachine_of_message_window
+	text_block_node.get_node("ChoiceCursor").statemachine_of_message_window = text_block_node.statemachine_of_message_window
 
 
 #	初期化
@@ -55,18 +61,22 @@ func initialize_concrete_message_window():
 #		空っぽのウィンドウに戻すことを想定しています。
 #		初期化の一種ですが、ウィンドウは消しません
 func emptize():
-	print("［メッセージウィンドウ　”" + self.name + "”］　クリアーテキスト")
-
 	#	空欄に戻します（ウィンドウは消しません）
-	self.emptize_concrete_message_window()
-
-
-#	空欄化
-func emptize_concrete_message_window():
-
 	print("［メッセージウィンドウ　”" + self.name + "”］　空欄化")
-	#	空欄に戻します（ウィンドウは消しません）
-	self.get_node("CanvasLayer/TextBlock").emptize()
+
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+
+	# テキストが空っぽ
+	text_block_node.text = ""
+	
+	# ブリンカーを透明にして表示しておく
+	text_block_node.get_node("BlinkerTriangle").emptize()
+	text_block_node.get_node("BlinkerUnderscore").emptize()
+	text_block_node.get_node("ChoiceCursor").emptize()
+
+	#	表示
+	text_block_node.show()
+	text_block_node.is_visible_initialized = false
 
 
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -106,12 +116,33 @@ func split_head_line_or_tail(text):
 
 #	メッセージ追加
 func push_message_concrete(
-	text,					# str
-	choices_row_numbers):	# number_array
+	new_text,					# str
+	choices_row_numbers = null):	# number_array
 	
 	print("［メッセージウィンドウ　”" + self.name + "”］　メッセージ追加（表示、不透明化）")
-	self.get_node("CanvasLayer/TextBlock").push_message(text, choices_row_numbers)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
+	#	空欄化
+	self.emptize()
+
+	#	テキストブロック	
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	#		テキスト設定
+	text_block_node.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
+	#	選択肢なら
+	if choices_row_numbers != null:
+		print("［テキストブロック］　選択肢：　[" + new_text + "]")
+		text_block_node.get_snapshot("VisualNovelDepartment").is_choice_mode = true
+		text_block_node.get_snapshot("VisualNovelDepartment").choice_row_numbers = choices_row_numbers
+
+		# メッセージエンド・ブリンカー　状態機械［決めた］
+		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
+		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+
+	#	それ以外なら
+	else:
+		print("［テキストブロック］　台詞：　[" + new_text + "]")
+		text_block_node.get_snapshot("VisualNovelDepartment").is_choice_mode = false
+		text_block_node.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
 
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
