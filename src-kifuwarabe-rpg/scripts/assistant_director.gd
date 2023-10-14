@@ -41,7 +41,7 @@ func set_director_get_current_snapshot_subtree(it):
 			child.set_director_get_current_snapshot_subtree(it)
 
 
-#	台本の再生の開始の合図
+#	台本の再生段落の変更
 func play_paragraph(paragraph_name):
 	var snapshot = self.director_get_current_snapshot.call()
 

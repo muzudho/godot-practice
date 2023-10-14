@@ -49,10 +49,8 @@ func redirect_me():
 # 次の指示を待ちます
 func awaiting_order():
 
-	var snapshot = self.director_get_current_snapshot.call()
-
 	# メッセージウィンドウは指示待ちだ
-	snapshot.is_message_window_waiting_for_order = true
+	self.director_get_current_snapshot.call().is_message_window_waiting_for_order = true
 
 
 # 先頭行と、それ以外に分けます
@@ -123,6 +121,11 @@ func set_appear_subtree(
 			self.position += Vector2(0, -720)
 			$"CanvasLayer/TextBlock".position += Vector2(0, -720)
 
+			# 停止してしまっているなら、再開する（すぐ停止するかもしれない）
+			if self.statemachine_of_message_window.is_none():
+				print("［メッセージウィンドウ　”" + self.name + "”］　停止してしまっているので、再開する")
+				self.statemachine_of_message_window.talk_2()
+
 		else:
 			# 画面下の外に押し出す
 			self.position += Vector2(0, 720)
@@ -173,6 +176,10 @@ func on_unhandled_key_input(event):
 				# ページ送り
 				self.statemachine_of_message_window.page_forward()
 
+
+# 状態遷移するだけ
+func on_talked_2():
+	pass
 
 # メッセージ追加
 func on_talk(
@@ -306,6 +313,7 @@ func on_all_pages_flushed():
 func _ready():
 	# 状態機械のセットアップ
 	self.statemachine_of_message_window.on_talk = self.on_talk
+	self.statemachine_of_message_window.on_talked_2 = self.on_talked_2
 	self.statemachine_of_message_window.on_page_forward = self.on_page_forward
 	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed

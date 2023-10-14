@@ -13,11 +13,11 @@ class_name MessageWindowStatemachine
 # ＋ーーーーーーーーーー＞＋
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　Ｖ
-# ｜　　　　　　　　＋ーーーーーー＋
-# ｜　　　　　　　　｜　　None　　｜　※ウィンドウが存在しない唯一の状態
 # ｜　　　　　　　　＋ーー＋ーーー＋
+# ｜　　　　　　　　｜　　None　　｜　※ウィンドウは存在せず、活動もしていない状態だが、
+# ｜　　　　　　　　＋ーー＋ーーー＋　　メッセージを溜め込むことはできる
+# ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　｜　talk　※メッセージ追加、ウィンドウは存在する状態へ
 # ｜　　　　　　　　　　　｜
@@ -50,6 +50,7 @@ var state = States.None
 
 # 関数の変数
 var on_talk = null
+var on_talked_2 = null
 var on_page_forward = null
 var on_all_characters_pushed = null
 var on_all_pages_flushed = null
@@ -64,6 +65,15 @@ func is_typewriter():
 func is_completed():
 	return self.state == States.Completed
 
+# TODO こちらを使いたい
+func talk_2():
+	if on_talked_2 != null:
+		on_talked_2.call()
+	
+	print("［ステートマシーン］　シナリオをセットした。タイプライター風表示へ状態遷移")
+	self.state = States.Typewriter
+
+# TODO 廃止したい
 func talk(text, choices_row_numbers = null):
 	if on_talk != null:
 		on_talk.call(text, choices_row_numbers)

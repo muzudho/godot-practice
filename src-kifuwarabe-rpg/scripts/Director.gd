@@ -94,14 +94,18 @@ func _ready():
 		print("［ディレクター］　メッセージ・ウィンドウの is_processing() で false が返ってくるので、 true を入れてやる")
 		$"GuiArtist/WindowsOfMessage".set_process(true)
 
+	# とりあえず、全ての部門で、シナリオのロードだけやっておく
+	for department_manager in $"System/Managers".get_children():
+		department_manager.load_current_scenario()
+
 	# 初回起動時、ビジュアルノベル部を再生
 	self.statemachine_of_director.play_visual_novel()
 	
 	var snapshot = self.get_current_snapshot()	
-	# 表示
-	snapshot.get_manager().appear()
 	# 台本の再生の開始の合図
 	$"./AssistantDirector".play_paragraph(snapshot.paragraph_name)
+	# 表示
+	snapshot.get_manager().appear()
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う
