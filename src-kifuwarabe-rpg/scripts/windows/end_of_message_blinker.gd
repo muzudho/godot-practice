@@ -86,8 +86,6 @@ func set_visible_subtree(is_visible):
 func on_decided():
 	#	透明にして非表示にしておく
 	print("［エンド・オブ・メッセージ・ブリンカー］　初期化による透明化")
-	self.modulate.a = 0.0	# 初期化による透明化
-	self.hide()
 
 	#	ブリンカーのスイッチ・オフ
 	self.statemachine_of_blinker.switch_off()
