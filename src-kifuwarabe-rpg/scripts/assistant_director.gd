@@ -50,7 +50,7 @@ func play_section():
 		
 	# 全部消化済みの場合
 	if snapshot.scenario_array.size() < 1:
-		print("［アシスタント・ディレクター］　段落バッファーが空になってる")
+		print("［アシスタント・ディレクター］　セクション・バッファーが空になってる")
 		
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
 		if message_window.statemachine_of_message_window.is_completed():
@@ -59,7 +59,7 @@ func play_section():
 			return
 		
 		# シナリオ・ブックから、内容を取出す
-		print("［アシスタント・ディレクター］　（段落バッファーが空になってるから）シナリオ・ブックから、段落を取出す")
+		print("［アシスタント・ディレクター］　（セクション・バッファーが空になってるから）シナリオ・ブックから、セクションを取出す")
 		snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.section_name]
 
 	# パースを開始してよくないケースもあるが？
@@ -102,9 +102,9 @@ func on_choice_selected(row_number):
 	# 区画名。実質的には選択肢の配列
 	var section_obj = scenario_node.index[section_name]
 
-	# 次の段落名
+	# 次のセクション名
 	var next_section_name = section_obj[row_number]
-	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_section_name)
+	print("［アシスタント・ディレクター］　次の区画名　　　　：" + next_section_name)
 	
 	self.change_section(next_section_name)
 	self.play_section()
@@ -165,7 +165,7 @@ func parse_message(temp_text):
 			elif second_head.begins_with("department:"):
 				$"Department".do_it(second_head)
 				
-			# 次の段落へ飛ぶ
+			# 次のセクションへ飛ぶ
 			elif second_head.begins_with("goto:"):
 				$"Goto".do_it(second_head)
 
