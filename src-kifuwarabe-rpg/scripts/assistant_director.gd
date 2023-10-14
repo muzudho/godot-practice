@@ -50,17 +50,18 @@ func play_section():
 		
 	# 全部消化済みの場合
 	if snapshot.scenario_array.size() < 1:
-		print("［アシスタント・ディレクター］（"+ snapshot.section_name + "）　セクション・バッファーが空になってる")
+		print("［アシスタント・ディレクター］（" + snapshot.name + "　" + snapshot.section_name + "）　セクション・バッファーが空になってる")
 		
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
 		if message_window.statemachine_of_message_window.is_completed():
-			print("［アシスタント・ディレクター］（"+ snapshot.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
+			print("［アシスタント・ディレクター］（" + snapshot.name + "　"+ snapshot.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
 			# 自動で何かしない
 			return
 		
 		# シナリオ・ブックから、内容を取出す
-		print("［アシスタント・ディレクター］（"+ snapshot.section_name + "）　（セクション・バッファーが空になってるから）シナリオ・ブックから、セクションを取出す")
-		snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.section_name]
+		var scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.section_name]
+		print("［アシスタント・ディレクター］（" + snapshot.name + "　"+ snapshot.section_name + "）　（セクション・バッファーが空になってるから）シナリオ・ブックから、セクションを取出す。　サイズ：［" + str(scenario_array.size()) + "］")
+		snapshot.scenario_array = scenario_array
 
 	# パースを開始してよくないケースもあるが？
 	# バッファーが残ってるときとか
@@ -68,7 +69,7 @@ func play_section():
 		# Completed 時もパース始めたらよくない
 		if not message_window.statemachine_of_message_window.is_completed():
 			# TODO 選択肢のときもややこしいが
-			print("［アシスタント・ディレクター］（"+ snapshot.section_name + "）　パースを開始してよい（本当か？）")
+			print("［アシスタント・ディレクター］（" + snapshot.name + "　"+ snapshot.section_name + "）　パースを開始してよい（本当か？）")
 			# パースを開始してよい
 			snapshot.set_parse_lock(false)
 
