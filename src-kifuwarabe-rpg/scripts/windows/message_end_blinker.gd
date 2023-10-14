@@ -3,7 +3,7 @@ extends Label
 
 
 # 状態機械
-var statemachine_of_messageend_blinker = load("res://scripts/statemachines/messageend_blinker.gd").new()
+var statemachine_of_end_of_message_blinker = load("res://scripts/statemachines/end_of_message_blinker.gd").new()
 
 
 #	メッセージエンド・ブリンカーの共通項目
@@ -65,8 +65,30 @@ func set_visible_subtree(is_visible):
 		#	子ノード無し
 
 
+func on_decisided():
+	pass
+	
+	
+func on_thought():
+	pass
+
+
+func on_sought():
+	pass
+	
+	
+func on_arrived():
+	pass
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#	状態機械のセットアップ
+	self.statemachine_of_end_of_message_blinker.on_decisided = self.on_decisided
+	self.statemachine_of_end_of_message_blinker.on_thought = self.on_thought
+	self.statemachine_of_end_of_message_blinker.on_sought = self.on_sought
+	self.statemachine_of_end_of_message_blinker.on_arrived = self.on_arrived
+
 	self.initialize()
 
 

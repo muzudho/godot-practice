@@ -1,4 +1,4 @@
-#	メッセージエンド・ブリンカー（Message-end Blinker）
+#	エンド・オブ・メッセージ・ブリンカー（End of message Blinker）
 extends Node
 
 # 　状態遷移図
