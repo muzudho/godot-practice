@@ -179,16 +179,40 @@ func on_unhandled_key_input(event):
 
 # 状態遷移するだけ
 func on_talked_2():
-	pass
+
+	# 表示
+	self.set_visible_subtree(true)
+	self.modulate.a = 1.0	# メッセージ追加による不透明化
+
+	var snapshot = self.director_get_current_snapshot.call()
+
+	# テキストブロック
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+
+	# 選択肢なら
+	if snapshot.is_choice_mode:
+		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢開始")
+		# メッセージエンド・ブリンカー　状態機械［決めた］
+		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
+		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+		
+		# メッセージエンド・ブリンカー　状態機械［考える］
+		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
+	
+	else:
+		print("［メッセージウィンドウ　”" + self.name + "”］　台詞開始")
+		# メッセージエンド・ブリンカー　状態機械［決めた］
+		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+		
+		# メッセージエンド・ブリンカー　状態機械［考える］
+		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
+		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
+
 
 # メッセージを記録するだけ
 func on_remembered(
 	new_text,						# str
 	choices_row_numbers = null):	# number_array
-
-	# 表示
-	self.set_visible_subtree(true)
-	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
 	var snapshot = self.director_get_current_snapshot.call()
 
@@ -200,31 +224,17 @@ func on_remembered(
 
 	# 選択肢なら
 	if choices_row_numbers != null:
-		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢：[" + new_text + "]")
+		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
 
 		snapshot.is_choice_mode = true
 		snapshot.choices_row_numbers = choices_row_numbers
 
-		# メッセージエンド・ブリンカー　状態機械［決めた］
-		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
-		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
-		
-		# メッセージエンド・ブリンカー　状態機械［考える］
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
-
 	# それ以外なら
 	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］　台詞：[" + new_text + "]")
+		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
 
 		snapshot.is_choice_mode = false
 		snapshot.choices_row_numbers = []
-
-		# メッセージエンド・ブリンカー　状態機械［決めた］
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
-		
-		# メッセージエンド・ブリンカー　状態機械［考える］
-		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
-		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
 
 
 # ページ送り
