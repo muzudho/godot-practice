@@ -990,11 +990,21 @@ func turn_off():
 
 ![202310__godot__14-1621--SubWindow.png](https://crieit.now.sh/upload_images/eab22b8c041d8673816fe13b40f857d5652a41a98db74.png)  
 
-![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
 「　👆　ウィンドウの表示／非表示まででけた。  
 中の文章の復元は　まだ」  
 
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　細かくやってくしかないわねえ」  
+
+# 📅 2023-10-15 sun
+
+![202310__godot__15-0138--Restore.png](https://crieit.now.sh/upload_images/bc3aeded7295d155ac6be34fc85a5183652ac4745434c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
+「　👆　芋づる式に　次から次へと　できてないところが　出てくるぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　順調だけど　遅いなあ」  
 
 .
