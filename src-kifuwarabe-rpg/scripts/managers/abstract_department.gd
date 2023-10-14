@@ -41,4 +41,4 @@ func push_message(temp_text):
 	# TODO メッセージ・ウィンドウが　どれぐらい文字を表示してるかを　スナップショットに記憶したい
 	self.get_snapshot().remember(temp_text)
 	var message_window = self.get_message_window()
-	message_window.statemachine_of_message_window.talk_2()
+	message_window.statemachine_of_message_window.talk()

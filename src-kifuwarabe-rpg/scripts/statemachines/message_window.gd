@@ -68,7 +68,7 @@ func is_completed():
 
 
 # TODO こちらを使いたい
-func talk_2():
+func talk():
 	if on_talked_2 != null:
 		on_talked_2.call()
 	

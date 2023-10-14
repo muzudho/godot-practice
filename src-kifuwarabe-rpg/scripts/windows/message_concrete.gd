@@ -124,7 +124,7 @@ func set_appear_subtree(
 			# 停止してしまっているなら、再開する（すぐ停止するかもしれない）
 			if self.statemachine_of_message_window.is_none():
 				print("［メッセージウィンドウ　”" + self.name + "”］　停止してしまっているので、再開する")
-				self.statemachine_of_message_window.talk_2()
+				self.statemachine_of_message_window.talk()
 
 		else:
 			# 画面下の外に押し出す
