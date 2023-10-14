@@ -13,6 +13,8 @@ var director_get_current_snapshot = null
 var is_appear = true
 
 
+
+
 # アシスタント・ディレクターを取得
 func get_assistant_director():
 	return $"../../../AssistantDirector"
@@ -50,9 +52,9 @@ func redirect_me():
 	# 全ての文字は吐き出されたものとする
 	#self.statemachine_of_message_window.all_pages_flushed()
 
-	print("［伝言窓　”" + self.name + "”］　リダイレクトしてきた")
-
 	var snapshot = self.director_get_current_snapshot.call()
+
+	print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　リダイレクトしてきた")
 
 	# 新しいウィンドウ
 	snapshot.message_window_name_obj = self.name # StringName 型。 String ではない
@@ -64,22 +66,26 @@ func split_head_line_or_tail(text):
 	var index = text.find("\n")
 	var head = text.substr(0, index)
 	var tail = text.substr(index+1)
-	#print("［メッセージ・ウィンドウ］　head：　[" + head + "]")
-	#print("［メッセージ・ウィンドウ］　tail：　[" + tail + "]")
+
+	#print("［伝言窓］　head：　[" + head + "]")
+	#print("［伝言窓］　tail：　[" + tail + "]")
+
 	return [head, tail]
 
 
 # サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(
 	is_process):	# bool
-	
-	print("［伝言窓　”" + self.name + "”］　プロセッシング：" + str(is_process))
 
 	# 処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
 	# 処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
 	# 処理しろ　（true） という指示のとき、処理していなければ（false）、再開する　（true）。
 	# 処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
 	if is_process != self.is_processing():
+
+		var snapshot = self.director_get_current_snapshot.call()
+		print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　プロセッシング：" + str(is_process))
+
 		self.set_process(is_process)
 
 		# 子ノード
@@ -92,13 +98,15 @@ func set_process_subtree(
 func set_visible_subtree(
 	is_visible):					# bool
 
-	print("［伝言窓　”" + self.name + "”］　可視性：" + str(is_visible))
-
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if is_visible != self.visible:
+
+		var snapshot = self.director_get_current_snapshot.call()
+		print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　可視性：" + str(is_visible))
+
 		self.visible = is_visible
 		self.get_canvas_layer().visible = is_visible
 
@@ -112,13 +120,15 @@ func set_visible_subtree(
 func set_appear_subtree(
 	is_appear):		# bool
 
-	print("［伝言窓　”" + self.name + "”］　appear：" + str(is_appear))
-
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if is_appear != self.is_appear:
+
+		var snapshot = self.director_get_current_snapshot.call()
+		print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　appear：" + str(is_appear))
+
 		self.is_appear = is_appear
 
 		if self.is_appear:
@@ -128,7 +138,7 @@ func set_appear_subtree(
 
 			# 停止してしまっているなら、再開する（すぐ停止するかもしれない）
 			if self.statemachine_of_message_window.is_none():
-				print("［メッセージウィンドウ　”" + self.name + "”］　停止してしまっているので、再開する")
+				print("［メッセージウィンドウ　”" + self.name + "”］（" + snapshot.section_name + "）　停止してしまっているので、再開する")
 				self.statemachine_of_message_window.talk()
 
 		else:
@@ -145,10 +155,10 @@ func set_appear_subtree(
 # テキストボックスなどにフォーカスが無いときの入力を拾う
 func on_unhandled_key_input(event):
 
+	var snapshot = self.director_get_current_snapshot.call()
+
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
-
-		var snapshot = self.director_get_current_snapshot.call()
 
 		# 選択肢モードなら
 		if snapshot.is_choices():
@@ -158,18 +168,18 @@ func on_unhandled_key_input(event):
 				
 				# 確定ボタン以外は無効
 				if event.keycode != KEY_ENTER:
-					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢　押下時　エンターキーではないのでメッセージ送りしません")
+					print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢　押下時　エンターキーではないのでメッセージ送りしません")
 					return
 					
 				else:
-					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢　押下時　エンターキー　ページ送りする")
+					print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢　押下時　エンターキー　ページ送りする")
 					# 選択肢を確定した
 					# ページ送り
 					self.statemachine_of_message_window.page_forward()
 					return
 
 			else:
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢　押下時ではない")
+				print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢　押下時ではない")
 		
 		# それ以外なら
 		else:
@@ -177,19 +187,19 @@ func on_unhandled_key_input(event):
 			if event.is_pressed():
 				
 				if event.keycode == KEY_R:
-					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+					print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
 					return
 
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　Ｒキー以外　ページ送りする")
+				print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時　Ｒキー以外　ページ送りする")
 				# ページ送り
 				self.statemachine_of_message_window.page_forward()
 
 			else:
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
+				print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
 				pass
 
 	else:
-		print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　完全表示中ではないから何もしない")
+		print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　アンハンドルド・キー入力　完全表示中ではないから何もしない")
 
 
 # 状態遷移するだけ
@@ -206,7 +216,7 @@ func on_talked_2():
 
 	# 選択肢なら
 	if snapshot.is_choices():
-		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢開始")
+		print("［メッセージウィンドウ　”" + self.name + "”］（" + snapshot.section_name + "）　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
@@ -215,7 +225,7 @@ func on_talked_2():
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 	
 	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］　台詞開始")
+		print("［メッセージウィンドウ　”" + self.name + "”］（" + snapshot.section_name + "）　台詞開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 		
@@ -235,7 +245,7 @@ func on_page_forward():
 		self.get_musician().playSe("選択肢確定音")
 
 		var row_number = self.get_text_block().get_node("ChoiceCursor").selected_row_number
-		print("［メッセージウィンドウ　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
+		print("［メッセージウィンドウ　”" + self.name + "”］（" + snapshot.section_name + "）　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
 		self.get_assistant_director().on_choice_selected(row_number)
@@ -244,7 +254,7 @@ func on_page_forward():
 		snapshot.choices_row_numbers = null
 		
 	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
+		print("［メッセージウィンドウ　”" + self.name + "”］（" + snapshot.section_name + "）　ページ送り")
 
 		# 効果音
 		self.get_musician().playSe("ページめくり音")
@@ -284,14 +294,13 @@ func on_all_characters_pushed():
 # 初期化
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
-	print("［メッセージ・ウィンドウ　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
+	var snapshot = self.director_get_current_snapshot.call()
+	print("［メッセージ・ウィンドウ　”" + self.name + "”］（" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	# テキストブロック
 	var text_block_node = self.get_text_block()
 	# テキストが空っぽ
 	text_block_node.text = ""
-
-	var snapshot = self.director_get_current_snapshot.call()
 
 	# 選択肢
 	if snapshot.is_choices():
@@ -319,7 +328,7 @@ func _ready():
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
 	# 最初は非表示
-	self.set_visible_subtree(false)
+	# self.set_visible_subtree(false)
 
 
 func _process(delta):
@@ -344,7 +353,7 @@ func _process(delta):
 	
 		# メッセージの早送り
 		if Input.is_key_pressed(KEY_R):
-			# print("［テキストブロック］　メッセージの早送り")
+			# print("［テキストブロック］（" + snapshot.section_name + "）　メッセージの早送り")
 			wait_time = 0.01
 	
 		if wait_time <= snapshot.count_of_typewriter:
@@ -359,7 +368,7 @@ func _process(delta):
 				snapshot.text_block_buffer = snapshot.text_block_buffer.substr(1)
 			else:
 				# 完全表示中
-				print("［伝言窓　”" + self.name + "”］　プロセス　完全表示中だ")
+				print("［伝言窓　”" + self.name + "”］（" + snapshot.section_name + "）　プロセス　完全表示中だ")
 				self.statemachine_of_message_window.all_characters_pushed()
 			
 			snapshot.count_of_typewriter -= wait_time
