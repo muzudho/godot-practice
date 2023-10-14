@@ -33,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/MessageWindow.png" id="28_skskk"]
 [ext_resource type="Script" path="res://scripts/windows/message_concrete.gd" id="30_bblis"]
 [ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="32_uu41d"]
-[ext_resource type="Script" path="res://scripts/windows/message_end_blinker.gd" id="33_1xmx8"]
+[ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="33_1xmx8"]
 [ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="33_ogwo6"]
 [ext_resource type="Script" path="res://scripts/windows/message_choice_cursor.gd" id="34_0fjc7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/system_window.png" id="34_wja0x"]

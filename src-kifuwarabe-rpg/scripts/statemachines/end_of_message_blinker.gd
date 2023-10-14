@@ -1,8 +1,8 @@
 #	エンド・オブ・メッセージ・ブリンカー（End of message Blinker）
 extends Node
 
-# 　状態遷移図
-# 　ーーーーー
+# 　操作系の状態
+# 　ーーーーーー
 #
 # 　　　　　　　　　　　　Entry
 # 　　　　　　　　　　　　＋
@@ -22,9 +22,9 @@ extends Node
 # ｜　　　＋ーーーーーー＞＋
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　Ｖ
-# ｜　　　｜　　　　＋ーーーーーーーーー＋
-# ｜　　　｜　　　　｜　　BlinkHere 　　｜　※その場で点滅中
-# ｜　　　｜　　　　＋ーー＋ーーーーーー＋
+# ｜　　　｜　　　　＋ーーーーーーーー＋
+# ｜　　　｜　　　　｜　　Staying 　　｜　※その場に居る
+# ｜　　　｜　　　　＋ーー＋ーーーーー＋
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　◇ ーーーーーーーーーーーーーーーーーーーーー＋
@@ -33,9 +33,9 @@ extends Node
 # ｜　　　｜　　　　　　　｜　seek　※カーソルを動かす　　　　　　　　｜
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　｜　　　　　　　Ｖ　　　　　　　　　　　　　　　　　　　　　｜
-# ｜　　　｜　　　　＋ーーーーーーーーーー＋　　　　　　　　　　　　　｜
-# ｜　　　｜　　　　｜　　BlinkMoving 　　｜　※点滅しながら　　　　　｜
-# ｜　　　｜　　　　＋ーー＋ーーーーーーー＋　　カーソル移動中　　　　｜
+# ｜　　　｜　　　　＋ーーーーーーーー＋　　　　　　　　　　　　　　　｜
+# ｜　　　｜　　　　｜　　Floating　　｜　※点滅しながら　　　　　　　｜
+# ｜　　　｜　　　　＋ーー＋ーーーーー＋　　カーソル移動中　　　　　　｜
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
@@ -45,7 +45,7 @@ extends Node
 # ｜　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　｜
 # ＋ーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーーー＋
 #
-enum States {None, BlinkHere, BlinkMoving}
+enum States {None, Staying, Floating}
 
 # 状態
 var state = States.None
@@ -61,12 +61,12 @@ func is_none():
 	return self.state == States.None
 
 
-func is_blink_here():
-	return self.state == States.BlinkHere
+func is_staying():
+	return self.state == States.Staying
 
 
-func is_blink_moving():
-	return self.state == States.BlinkMoving
+func is_floating():
+	return self.state == States.Floating
 
 
 func decide():
@@ -82,7 +82,7 @@ func think():
 		on_thought.call()
 	
 	print("［メッセージエンド・ブリンカー］　悩む")
-	self.state = States.BlinkHere
+	self.state = States.Staying
 
 
 func seek():
@@ -90,7 +90,7 @@ func seek():
 		on_sought.call()
 	
 	print("［メッセージエンド・ブリンカー］　カーソルを動かす")
-	self.state = States.BlinkMoving
+	self.state = States.Floating
 
 
 func arrive():
@@ -98,4 +98,4 @@ func arrive():
 		on_arrived.call()
 	
 	print("［メッセージエンド・ブリンカー］　カーソルは移動した")
-	self.state = States.BlinkHere
+	self.state = States.Staying

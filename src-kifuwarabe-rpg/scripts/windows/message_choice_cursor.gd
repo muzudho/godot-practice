@@ -144,6 +144,26 @@ func on_arrived():
 	pass
 
 
+#	初回点灯
+func on_turn_on_at_first():
+	# TODO 状態機械化したい
+	self.modulate.a = 1.0
+	self.blinker_seconds = 0.0
+	self.is_first_displayed_immediately = true
+	
+
+#	点灯
+func on_turn_on():
+	# TODO 状態機械化したい
+	self.modulate.a = 1.0
+
+
+#	消灯
+func on_turn_off():
+	# TODO 状態機械化したい
+	self.modulate.a = 0.0	# 状態による透明化
+		
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#	状態機械のセットアップ
@@ -166,10 +186,11 @@ func _process(delta):
 
 		if self.blinker_interval <= self.blinker_seconds:
 			if 0 < self.modulate.a:
-				print("［チョイス・カーソル］　点滅による透明化")
-				self.modulate.a = 0.0	# 点滅による透明化
+				#	消灯
+				self.on_turn_off()
 			else:
-				self.modulate.a = 1.0
+				#	点灯
+				self.on_turn_on()
 				
 			self.blinker_seconds -= self.blinker_interval
 
@@ -179,10 +200,8 @@ func _process(delta):
 			
 			#	初回はすぐに不透明
 			if not self.is_first_displayed_immediately:
-				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
-				self.modulate.a = 1.0
-				self.blinker_seconds = 0.0
-				self.is_first_displayed_immediately = true
+				#	初回点灯
+				self.on_turn_on_at_first()
 					
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:
@@ -231,7 +250,6 @@ func _process(delta):
 			# 透明
 			if self.modulate.a != 0.0:
 				print("［選択肢カーソル］　状態による透明化")
-				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
-				self.modulate.a = 0.0	# 状態による透明化
+				self.on_turn_off()
 
 
