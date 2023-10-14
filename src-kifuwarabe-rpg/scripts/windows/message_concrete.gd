@@ -250,7 +250,7 @@ func on_all_pages_flushed():
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 
 	#	この要素の初期状態は、非表示、透明
-	self.hide()
+	self.set_visible_subtree(false)
 	self.modulate.a = 0.0	# 初期化による透明化
 
 
@@ -262,7 +262,7 @@ func _ready():
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
 	#	最初は非表示
-	self.hide()
+	self.set_visible_subtree(false)
 
 
 func _process(delta):
