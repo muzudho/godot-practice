@@ -260,6 +260,11 @@ func on_page_forward():
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
 		self.get_assistant_director().on_choice_selected(row_number)
+
+		# 選択肢はお役御免
+		snapshot.choices_row_number_array = null
+		snapshot.choices_row_numbers = null
+		snapshot.is_choice_mode = false
 		
 	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
