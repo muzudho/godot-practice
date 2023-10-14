@@ -24,8 +24,13 @@ func is_playing_system_menu_department():
 
 
 #	部管理人
-func get_department_manager(node_name):
-	return $"System/Managers/".get_node(node_name)
+func get_department_manager(department_name):
+	return $"System/Managers/".get_node(department_name)
+
+
+#	スナップショット
+func get_snapshot(department_name):
+	return $"System/Snapshots".get_node(department_name)
 
 
 #	メッセージ・ウィンドウ
@@ -129,7 +134,10 @@ func _unhandled_key_input(event):
 
 				#	［下］メッセージ・ウィンドウを表示する
 				$"AssistantDirector/MWnd".redirect_message_window("下")
+				
 				#	TODO 元のメッセージを復元する
+				var snapshot = self.get_snapshot("VisualNovelDepartment")
+				
 				$"AssistantDirector/NormalText".put_message("かいはつちゅう")
 
 				#	ビジュアルノベル部へ状態遷移

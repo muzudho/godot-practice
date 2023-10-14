@@ -986,4 +986,15 @@ func turn_off():
 「　Godot の `.show()` 、 `.hide()` メソッドは　アホが考えたメソッドなんだ。  
 わたしが考えた `.set_visible_subtree()` メソッドを使うことで解決！」  
 
+## ウィンドウの表示／非表示まででけた
+
+![202310__godot__14-1621--SubWindow.png](https://crieit.now.sh/upload_images/eab22b8c041d8673816fe13b40f857d5652a41a98db74.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ウィンドウの表示／非表示まででけた。  
+中の文章の復元は　まだ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　細かくやってくしかないわねえ」  
+
 .
