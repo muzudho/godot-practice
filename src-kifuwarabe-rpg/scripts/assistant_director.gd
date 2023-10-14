@@ -3,11 +3,11 @@ extends Node
 
 
 #	関数
-var director_play_visual_novel_department = null
-var director_is_playing_visual_novel_department = null
+var director_play_visual_novel = null
+var director_is_playing_visual_novel = null
 
-var director_play_system_menu_department = null
-var director_is_playing_system_menu_department = null
+var director_play_system_menu = null
+var director_is_playing_system_menu = null
 
 #	メッセージが入っている
 var scenario_array = []
@@ -36,7 +36,7 @@ func get_snapshot(department_node_name):
 
 
 #	台本の再生の開始の合図
-func play_visual_novel_department(paragraph_name):
+func play_visual_novel(paragraph_name):
 	self.get_snapshot("VisualNovelDepartment").paragraph_name = paragraph_name
 
 	# シナリオ・ブックから、内容を取出す
@@ -47,7 +47,7 @@ func play_visual_novel_department(paragraph_name):
 	self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order = true
 
 	# 再生中へ
-	self.director_play_visual_novel_department.call()
+	self.director_play_visual_novel.call()
 
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -64,7 +64,7 @@ func on_choice_selected(row_number):
 	var next_paragraph_name = $"../ScenarioWriter/VisualNovelDepartment".index[self.get_snapshot("VisualNovelDepartment").paragraph_name][row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
-	self.play_visual_novel_department(next_paragraph_name)
+	self.play_visual_novel(next_paragraph_name)
 
 
 #	先頭行と、それ以外に分けます。できなければヌル
@@ -120,7 +120,7 @@ func parse_message(temp_text):
 				
 			# 次の段落へ飛ぶ
 			elif second_head.begins_with("goto:"):
-				$"Goto".do_it(second_head, self.play_visual_novel_department)
+				$"Goto".do_it(second_head, self.play_visual_novel)
 
 			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("m-wnd:"):
@@ -170,8 +170,8 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 		
-	# 再生中
-	if self.director_is_playing_visual_novel_department.call():
+	# ビジュアルノベル再生中
+	if self.director_is_playing_visual_novel.call():
 		
 		# メッセージウィンドウが指示待ちか？
 		if self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order:

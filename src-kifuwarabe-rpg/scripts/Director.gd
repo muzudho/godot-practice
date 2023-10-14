@@ -7,20 +7,20 @@ extends Node2D
 var statemachine_of_director = load("res://scripts/statemachines/director.gd").new()
 
 
-func play_visual_novel_department():
-	self.statemachine_of_director.play_visual_novel_department()
+func play_visual_novel():
+	self.statemachine_of_director.play_visual_novel()
 
 
-func is_playing_visual_novel_department():
-	return self.statemachine_of_director.is_playing_visual_novel_department()
+func is_playing_visual_novel():
+	return self.statemachine_of_director.is_playing_visual_novel()
 
 
-func play_system_menu_department():
-	self.statemachine_of_director.play_system_menu_department()
+func play_system_menu():
+	self.statemachine_of_director.play_system_menu()
 
 
-func is_playing_system_menu_department():
-	return self.statemachine_of_director.is_playing_system_menu_department()
+func is_playing_system_menu():
+	return self.statemachine_of_director.is_playing_system_menu()
 
 
 #	部管理人
@@ -45,11 +45,11 @@ func get_message_window():
 func _ready():
 
 	#	関数を渡す
-	$"AssistantDirector".director_play_visual_novel_department = self.play_visual_novel_department
-	$"AssistantDirector".director_is_playing_visual_novel_department = self.is_playing_visual_novel_department
+	$"AssistantDirector".director_play_visual_novel = self.play_visual_novel
+	$"AssistantDirector".director_is_playing_visual_novel = self.is_playing_visual_novel
 
-	$"AssistantDirector".director_play_system_menu_department = self.play_system_menu_department
-	$"AssistantDirector".director_is_playing_system_menu_department = self.is_playing_system_menu_department
+	$"AssistantDirector".director_play_system_menu = self.play_system_menu
+	$"AssistantDirector".director_is_playing_system_menu = self.is_playing_system_menu
 
 	#	開発中にいじったものが残ってるかもしれないから、掃除
 
@@ -89,7 +89,7 @@ func _ready():
 
 
 	#	台本の再生の開始の合図
-	$"./AssistantDirector".play_visual_novel_department("タイトル画面")
+	$"./AssistantDirector".play_visual_novel("タイトル画面")
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -140,8 +140,8 @@ func _unhandled_key_input(event):
 				
 				$"AssistantDirector/NormalText".put_message("かいはつちゅう")
 
-				#	ビジュアルノベル部へ状態遷移
-				self.statemachine_of_director.play_visual_novel_department()
+				#	ビジュアルノベル再生
+				self.statemachine_of_director.play_visual_novel()
 
 
 			#	子要素には渡しません

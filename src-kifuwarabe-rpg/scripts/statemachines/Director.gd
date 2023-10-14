@@ -6,26 +6,25 @@ extends Node
 # 　状態遷移図
 # 　ーーーーー
 #
-# 　　　　　　　　　＋ーーーーー＋
-# 　　　　　　　　　｜　はじめ　｜
-# 　　　　　　　　　＋ーー＋ーー＋
+#　　　　　　　　　　　　　Entry
+# 　　　　　　　　　　　　＋
 # 　　　　　　　　　　　　｜
 # 　　　　　　　　　　　　｜
 # ＋ーーーーーーーーーー＞＋
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　Ｖ
-# ｜　　　　　　　＋ーーーーーーー＋
-# ｜　　　　　　　｜　０．停止中　｜
-# ｜　　　　　　　＋ーーー＋ーーー＋
+# ｜　　　　　　　　＋ーーーーーー＋
+# ｜　　　　　　　　｜　　None　　｜　※部が存在しない唯一の状態
+# ｜　　　　　　　　＋ーー＋ーーー＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　ビジュアルノベル部＿再生
+# ｜　　　　　　　　　　　｜　play_visual_novel
 # ｜　　　　　　　　　　　｜
 # ｜　　　＋ーーーーーー＞＋
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　Ｖ
-# ｜　　　｜　　　＋ーーーーーーーーーーーーーーーーー＋
-# ｜　　　｜　　　｜　１．ビジュアルノベル部＿再生中　｜
-# ｜　　　｜　　　＋ーーー＋ーーーーーーーーーーーーー＋
+# ｜　　　｜　　　　＋ーーーーーーーーーーーーー＋
+# ｜　　　｜　　　　｜　　PlayVisualNovel　　｜
+# ｜　　　｜　　　　＋ーー＋ーーーーーーーーーー＋
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜
 # ｜　　　｜　　　　　　　｜
@@ -36,38 +35,48 @@ extends Node
 #
 enum States {
 	None,
-	PlayingVisualNovelDepartment,
-	PlayingSystemMenuDepartment
+	PlayingVisualNovel,
+	PlayingSystemMenu,
 }
 
-# 状態
+#	状態
 var state = States.None
 
+#	関数の変数
+var on_played_visual_novel = null
+var on_played_system_menu = null
 
-# 停止中か？
+
+#	停止中か？
 func is_none():	
 	return self.state == States.None
 
-# ビジュアルノベル部　再生中か？
-func is_playing_visual_novel_department():
-	return self.state == States.PlayingVisualNovelDepartment
+#	ビジュアルノベル　再生中か？
+func is_playing_visual_novel():
+	return self.state == States.PlayingVisualNovel
 
-# システム・メニュー部　再生中か？
-func is_playing_system_menu_department():
-	return self.state == States.PlayingSystemMenuDepartment
+#	システム・メニュー　再生中か？
+func is_playing_system_menu():
+	return self.state == States.PlayingSystemMenu
 
 
-# 再生　ビジュアルノベル部
-func play_visual_novel_department():
-	print("［ステートマシーン］　ビジュアルノベル部のパラグラフの再生")
-	self.state = States.PlayingVisualNovelDepartment
+#	再生　ビジュアルノベル部
+func play_visual_novel():
+	if on_played_visual_novel != null:
+		on_played_visual_novel.call()
+		
+	print("［ステートマシーン］　ビジュアルノベルの再生")
+	self.state = States.PlayingVisualNovel
 
-# 再生　システム・メニュー部
-func play_system_menu_department():
-	print("［ステートマシーン］　システム・メニュー部の再生")
-	self.state = States.PlayingSystemMenuDepartment
+#	再生　システム・メニュー部
+func play_system_menu():
+	if on_played_system_menu != null:
+		on_played_system_menu.call()
+		
+	print("［ステートマシーン］　システム・メニューの再生")
+	self.state = States.PlayingSystemMenu
 
-# 停止
+#	停止
 func stop():
 	print("［ステートマシーン］　停止")
 	self.state = States.None
