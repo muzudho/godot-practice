@@ -54,7 +54,7 @@ func play_paragraph(paragraph_name):
 	# パースを開始してよい
 	snapshot.is_ready_parse = true
 
-	# TODO 再生中へ
+	# 再生中へ
 	# self.statemachine_of_director.play_visual_novel()
 
 
@@ -181,13 +181,6 @@ func parse_message(temp_text):
 func _ready():
 	#	関数を渡す
 	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
-
-	# TODO デパートメントは変数にしたい
-	$"NormalText".snapshot_set_ready_parse = self.get_snapshot("VisualNovelDepartment").set_ready_parse
-
-	# TODO デパートメントは変数にしたい
-	$"NormalTextChoice".before_initialize(
-		self.get_snapshot("VisualNovelDepartment").set_ready_parse)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

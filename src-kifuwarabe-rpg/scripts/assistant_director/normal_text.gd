@@ -4,7 +4,6 @@ extends Node
 
 # 関数の変数
 var director_get_current_snapshot = null
-var snapshot_set_ready_parse = null
 
 
 func set_director_get_current_snapshot_subtree(it):
@@ -28,6 +27,6 @@ func talk():
 	var snapshot = self.director_get_current_snapshot.call()
 	var manager = snapshot.get_manager()
 	manager.talk()
-	
+
 	# パースを開始するのは待て
-	self.snapshot_set_ready_parse.call(false)
+	snapshot.set_ready_parse(false)

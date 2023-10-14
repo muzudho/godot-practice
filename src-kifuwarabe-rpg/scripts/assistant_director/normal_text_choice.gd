@@ -4,20 +4,12 @@ extends Node
 
 # 関数の変数
 var director_get_current_snapshot = null
-var snapshot_set_ready_parse = null
 
 
 # メッセージ・ウィンドウ取得
 func get_message_window(
 	message_window_name_obj):	# StringName
 	return $"../../GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
-
-
-# 初期化の前に
-func before_initialize(
-	snapshot_set_ready_parse):
-	
-	self.snapshot_set_ready_parse = snapshot_set_ready_parse
 
 
 func set_director_get_current_snapshot_subtree(it):
@@ -27,7 +19,7 @@ func set_director_get_current_snapshot_subtree(it):
 #	それをする
 func do_it(
 	temp_text):		# str
-	
+
 	self.remember(temp_text)
 	self.talk()
 
@@ -50,4 +42,4 @@ func talk():
 	message_window.statemachine_of_message_window.talk()
 
 	# パースを開始するのは待て
-	self.snapshot_set_ready_parse.call(false)
+	snapshot.set_ready_parse(false)
