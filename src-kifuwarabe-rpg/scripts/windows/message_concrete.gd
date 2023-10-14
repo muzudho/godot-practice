@@ -6,10 +6,6 @@ extends Sprite2D
 var statemachine_of_message_window = load("res://scripts/statemachines/message_window.gd").new()
 
 
-#	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
-var is_visible_initialized = false
-
-
 #	アシスタント・ディレクターを取得
 func get_assistant_director():
 	return $"../../../AssistantDirector"
@@ -143,8 +139,6 @@ func on_talk(
 		#		表示
 		text_block_node.show()
 
-	self.is_visible_initialized = false
-
 	#	表示
 	self.show()
 	self.get_node("CanvasLayer").show()
@@ -211,7 +205,6 @@ func on_page_forward():
 		#	効果音
 		self.get_musician().playSe("ページめくり音")
 		
-		self.is_visible_initialized = false
 		self.awaiting_order()
 
 	#	空っぽのウィンドウを残して、次の指示を待ちます
@@ -244,7 +237,7 @@ func on_all_characters_pushed():
 #	初期化
 #		ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
-	print("［メッセージ・ウィンドウ　”" + self.name + "”］　初期化］（非表示）")
+	print("［メッセージ・ウィンドウ　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
@@ -257,10 +250,8 @@ func on_all_pages_flushed():
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 		#		非表示
 		text_block_node.hide()
-		
+
 	#	この要素の初期状態は、非表示、透明
-	print("［メッセージウィンドウ　”" + self.name + "”］　初期化による透明化")
-	self.is_visible_initialized = false
 	self.hide()
 	self.modulate.a = 0.0	# 初期化による透明化
 
@@ -284,13 +275,6 @@ func _process(delta):
 
 	#	タイプライター風表示中
 	elif self.statemachine_of_message_window.is_typewriter():
-
-		# タイプライター風表示中の初回に可視化
-		if not self.is_visible_initialized:
-			# 不透明
-			self.visible = true		# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
-			self.modulate.a = 1.0	# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
-			self.is_visible_initialized = true
 
 		self.get_snapshot("VisualNovelDepartment").count_of_typewriter += delta
 
