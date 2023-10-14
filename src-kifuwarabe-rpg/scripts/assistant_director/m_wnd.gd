@@ -3,12 +3,8 @@
 extends Node
 
 
-# 関数
-var redirect_concrete_message_window_by_name = null
-
-
-func before_initialize(redirect_concrete_message_window_by_name):
-	self.redirect_concrete_message_window_by_name = redirect_concrete_message_window_by_name
+# 関数の変数
+var message_window_redirect_by_name = null
 
 
 # それをする
@@ -21,4 +17,4 @@ func do_it(line):
 
 
 func redirect_message_window(node_name):
-	self.redirect_concrete_message_window_by_name.call(node_name)
+	self.message_window_redirect_by_name.call(node_name)
