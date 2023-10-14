@@ -23,13 +23,16 @@ func get_current_snapshot():
 		
 	elif self.statemachine_of_director.is_playing_system_menu:
 		return self.get_snapshot("SystemMenuDepartment")
+	
+	else:
+		return null
 
 
 #	メッセージ・ウィンドウ
 func get_message_window():
-	# TODO ちゃんと作る必要がある
-	var message_window_name_obj = $"System/Snapshots/VisualNovelDepartment".message_window_name_obj
-	return $"GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
+	var snapshot = self.get_current_snapshot()
+
+	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
 
 
 #	ビジュアルノベルを再生した
@@ -91,10 +94,11 @@ func _ready():
 		print("［ディレクター］　メッセージ・ウィンドウの is_processing() で false が返ってくるので、 true を入れてやる")
 		$"GuiArtist/WindowsOfMessage".set_process(true)
 
+	#	初回起動時
+	self.statemachine_of_director.play_visual_novel()
 
 	#	ビジュアル・ノベル部を表示する
 	self.get_department_manager("VisualNovelDepartment").appear()
-
 
 	#	台本の再生の開始の合図
 	$"./AssistantDirector".play_visual_novel("タイトル画面")

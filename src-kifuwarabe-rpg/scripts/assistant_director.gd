@@ -26,9 +26,9 @@ func get_message_window(
 
 #	メッセージ・ウィンドウ
 func get_current_message_window():
-	# TODO ちゃんと作る必要がある
-	var message_window_name_obj = $"../System/Snapshots/VisualNovelDepartment".message_window_name_obj
-	return $"../GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
+	var snapshot = self.director_get_current_snapshot.call()
+
+	return $"../GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
 
 
 #	ビジュアル・ノベル部のこの瞬間の状態
@@ -47,6 +47,8 @@ func set_director_get_current_snapshot_subtree(it):
 
 #	台本の再生の開始の合図
 func play_visual_novel(paragraph_name):
+	var snapshot = self.director_get_current_snapshot.call()
+
 	self.get_snapshot("VisualNovelDepartment").paragraph_name = paragraph_name
 
 	# シナリオ・ブックから、内容を取出す
