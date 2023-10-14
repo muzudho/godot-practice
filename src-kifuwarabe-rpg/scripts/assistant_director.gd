@@ -51,8 +51,8 @@ func play_paragraph(paragraph_name):
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
 	snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
-	# メッセージ・ウィンドウは、次の指示を待っています
-	snapshot.is_message_window_waiting_for_order = true
+	# パースを開始してよい
+	snapshot.is_ready_parse = true
 
 	# TODO 再生中へ
 	# self.statemachine_of_director.play_visual_novel()
@@ -183,11 +183,11 @@ func _ready():
 	$"MWnd".before_initialize(self.redirect_concrete_message_window_by_name)
 
 	# TODO デパートメントは変数にしたい
-	$"NormalText".snapshot_set_message_window_waiting_for_order = self.get_snapshot("VisualNovelDepartment").set_message_window_waiting_for_order
+	$"NormalText".snapshot_set_ready_parse = self.get_snapshot("VisualNovelDepartment").set_ready_parse
 
 	# TODO デパートメントは変数にしたい
 	$"NormalTextChoice".before_initialize(
-		self.get_snapshot("VisualNovelDepartment").set_message_window_waiting_for_order)
+		self.get_snapshot("VisualNovelDepartment").set_ready_parse)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -199,23 +199,20 @@ func _process(_delta):
 
 	var snapshot = self.director_get_current_snapshot.call()
 
-	# ビジュアルノベル再生中
-	if true: #self.statemachine_of_director.is_playing_visual_novel():
+	# パースを開始してよいか？（ここで待機しないと何も始まらない？）
+	if snapshot.is_ready_parse:
 		
-		# メッセージウィンドウが指示待ちか？
-		if snapshot.is_message_window_waiting_for_order:
-			
-			# まだあるよ
-			if 0 < snapshot.scenario_array.size():
-			
-				# 次に表示するべきメッセージを取得
-				var latest_message = snapshot.scenario_array.pop_front()
+		# まだあるよ
+		if 0 < snapshot.scenario_array.size():
+		
+			# 次に表示するべきメッセージを取得
+			var latest_message = snapshot.scenario_array.pop_front()
 
-				# TODO ここで、命令と、台詞に分解したい
-				self.parse_message(latest_message)
+			# TODO ここで、命令と、台詞に分解したい
+			self.parse_message(latest_message)
 
-			# もう無いよ
-			else:
-				if not self.get_current_message_window().statemachine_of_message_window.is_none():
-					# メッセージ・ウィンドウを閉じる
-					self.get_current_message_window().statemachine_of_message_window.all_pages_flushed()
+		# もう無いよ
+		else:
+			if not self.get_current_message_window().statemachine_of_message_window.is_none():
+				# メッセージ・ウィンドウを閉じる
+				self.get_current_message_window().statemachine_of_message_window.all_pages_flushed()

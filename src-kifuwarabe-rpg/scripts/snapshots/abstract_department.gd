@@ -3,8 +3,8 @@ extends Node
 
 class_name AbstractDepartmentSnapshot
 
-# メッセージウィンドウが指示待ちか？
-var is_message_window_waiting_for_order = false
+# パースを開始してよい
+var is_ready_parse = false
 
 # 選択肢
 #	選択肢の行番号用配列。無ければヌル
@@ -22,9 +22,9 @@ var count_of_typewriter = 0
 var location_node_name = ""
 
 
-# メッセージウィンドウが指示待ちか？
-func set_message_window_waiting_for_order(flag):
-	self.is_message_window_waiting_for_order = flag
+# パースを開始してよい
+func set_ready_parse(flag):
+	self.is_ready_parse = flag
 
 
 # 同名のデパートメント・マネージャー取得

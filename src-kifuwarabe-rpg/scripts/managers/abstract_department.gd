@@ -31,8 +31,8 @@ func load_current_scenario():
 	print("［抽象部門管理人］　シナリオ・ブックから、内容を取出す　部門：［" + str(snapshot.name) + "］　段落名：［" + snapshot.paragraph_name + "］")
 	snapshot.scenario_array = get_scenarion_writer().get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
-	# メッセージ・ウィンドウは、次の指示を待っています
-	#snapshot.is_message_window_waiting_for_order = true
+	# パースを開始してよい
+	#snapshot.is_ready_parse = true
 
 # 会話開始
 func talk():

@@ -4,7 +4,7 @@ extends Node
 
 # 関数の変数
 var director_get_current_snapshot = null
-var snapshot_set_message_window_waiting_for_order = null
+var snapshot_set_ready_parse = null
 
 
 # メッセージ・ウィンドウ取得
@@ -15,9 +15,9 @@ func get_message_window(
 
 # 初期化の前に
 func before_initialize(
-	snapshot_set_message_window_waiting_for_order):
+	snapshot_set_ready_parse):
 	
-	self.snapshot_set_message_window_waiting_for_order = snapshot_set_message_window_waiting_for_order
+	self.snapshot_set_ready_parse = snapshot_set_ready_parse
 
 
 func set_director_get_current_snapshot_subtree(it):
@@ -49,4 +49,5 @@ func talk():
 	var message_window = self.get_message_window(str(snapshot.message_window_name_obj))
 	message_window.statemachine_of_message_window.talk()
 
-	self.snapshot_set_message_window_waiting_for_order.call(false)
+	# パースを開始するのは待て
+	self.snapshot_set_ready_parse.call(false)

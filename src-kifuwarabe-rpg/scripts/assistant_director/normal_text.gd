@@ -4,7 +4,7 @@ extends Node
 
 # 関数の変数
 var director_get_current_snapshot = null
-var snapshot_set_message_window_waiting_for_order = null
+var snapshot_set_ready_parse = null
 
 
 func set_director_get_current_snapshot_subtree(it):
@@ -29,4 +29,5 @@ func talk():
 	var manager = snapshot.get_manager()
 	manager.talk()
 	
-	self.snapshot_set_message_window_waiting_for_order.call(false)
+	# パースを開始するのは待て
+	self.snapshot_set_ready_parse.call(false)

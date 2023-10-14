@@ -49,8 +49,8 @@ func redirect_me():
 # 次の指示を待ちます
 func awaiting_order():
 
-	# メッセージウィンドウは指示待ちだ
-	self.director_get_current_snapshot.call().is_message_window_waiting_for_order = true
+	# パースを開始してよい
+	self.director_get_current_snapshot.call().is_ready_parse = true
 
 
 # 先頭行と、それ以外に分けます
