@@ -121,13 +121,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
 
 				# 現在の部門を隠す
-				self.disappear_current_department()
+				self.get_current_snapshot().get_manager().disappear()
 				
 				# システムメニュー再生
 				self.statemachine_of_director.play_system_menu()
 								
-				# 現在の部門を表示
-				self.appear_current_department()
+				# 現在の部門を再表示
+				self.get_current_snapshot().get_manager().appear()
 				
 				# ［中央］メッセージ・ウィンドウを表示する
 				$"AssistantDirector/Choice".set_array([1,2])
@@ -142,16 +142,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
 
 				# 現在の部門を隠す
-				self.disappear_current_department()
+				self.get_current_snapshot().get_manager().disappear()
 				
 				# ビジュアルノベル再生
 				self.statemachine_of_director.play_visual_novel()
 								
-				# 現在の部門を表示
-				self.appear_current_department()
-				
-				##	［下］メッセージ・ウィンドウを表示する
-				#$"AssistantDirector/MWnd".redirect_message_window("下")
+				# 現在の部門を再表示
+				self.get_current_snapshot().get_manager().appear()
 
 			# 子要素には渡しません
 			return
@@ -163,22 +160,3 @@ func _unhandled_key_input(event):
 
 	else:
 		print("［ディレクター］　アンハンドルド・キー　押下以外")
-
-
-# 現在の部門を隠す
-func disappear_current_department():
-	var snapshot = self.get_current_snapshot()
-	snapshot.get_manager().disappear()
-
-
-# 現在の部門を表示
-func appear_current_department():
-	var snapshot = self.get_current_snapshot()
-	snapshot.get_manager().appear()
-
-	var temp_text = snapshot.text_block_buffer
-	# TODO メッセージを吐き出し終えているケースがある
-	print("［ディレクター］　メッセージを復元する：［" + temp_text + "］")
-
-	# TODO 元のメッセージを復元する
-	$"AssistantDirector/NormalText".put_message(temp_text)
