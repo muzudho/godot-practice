@@ -316,6 +316,10 @@ func _ready():
 
 func _process(delta):
 
+	# 一時的にどこかに消えているのなら処理しない
+	if not self.is_appear:
+		return
+
 	# メッセージ・ウィンドウが存在しないなら、働かない
 	if self.statemachine_of_message_window.is_none():
 		pass

@@ -209,6 +209,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
+	# 一時的にどこかに消えているのなら処理しない
+	if not self.is_appear:
+		return
+
 	# 存在するときだけ働く
 	if not self.statemachine_of_blinker.is_none():
 
