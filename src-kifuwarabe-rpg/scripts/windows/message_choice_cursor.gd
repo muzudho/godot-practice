@@ -42,17 +42,6 @@ func get_snapshot(department_node_name):
 	return $"../../../../../../System/Snapshots".get_node(department_node_name)
 
 
-#	初期化
-#		ウィンドウが消えている状態を想定しています。
-#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
-func initialize():
-	#	透明にして非表示にしておく
-	print("［選択肢カーソル］　初期化による透明化")
-	self.modulate.a = 0.0	# 初期化による透明化
-	self.hide()
-	self.is_first_displayed_immediately = false
-
-
 #	空欄化
 #		初期化の一種ですが、ウィンドウを残した状態を想定していることが違います
 func emptize():
@@ -135,8 +124,15 @@ func on_cursor_down(target_index):
 	self.elapsed_seconds = 0.0
 
 
-func on_decisided():
-	pass
+#	初期化
+#		ウィンドウが消えている状態を想定しています。
+#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
+func on_decided():
+	#	透明にして非表示にしておく
+	print("［選択肢カーソル］　初期化による透明化")
+	self.modulate.a = 0.0	# 初期化による透明化
+	self.hide()
+	self.is_first_displayed_immediately = false
 	
 	
 func on_thought():
@@ -154,12 +150,12 @@ func on_arrived():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#	状態機械のセットアップ
-	self.statemachine_of_end_of_message_blinker.on_decisided = self.on_decisided
+	self.statemachine_of_end_of_message_blinker.on_decided = self.on_decided
 	self.statemachine_of_end_of_message_blinker.on_thought = self.on_thought
 	self.statemachine_of_end_of_message_blinker.on_sought = self.on_sought
 	self.statemachine_of_end_of_message_blinker.on_arrived = self.on_arrived
 	
-	self.initialize()
+	self.statemachine_of_end_of_message_blinker.decide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

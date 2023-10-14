@@ -10,7 +10,7 @@ extends Node
 # 　　　　　　　　　　　　｜
 # ＋ーーーーーーーーーー＞＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　deciside　※決める
+# ｜　　　　　　　　　　　｜　decide　※決める
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　Ｖ
 # ｜　　　　　　　　＋ーーーーーー＋
@@ -51,7 +51,7 @@ enum States {None, BlinkHere, BlinkMoving}
 var state = States.None
 
 # 関数の変数
-var on_decisided = null
+var on_decided = null
 var on_thought = null
 var on_sought = null
 var on_arrived = null
@@ -69,9 +69,9 @@ func is_blink_moving():
 	return self.state == States.BlinkMoving
 
 
-func deciside():
-	if on_decisided != null:
-		on_decisided.call()
+func decide():
+	if on_decided != null:
+		on_decided.call()
 	
 	print("［メッセージエンド・ブリンカー］　決めた")
 	self.state = States.None

@@ -35,10 +35,10 @@ func initialize():
 	# テキストが空っぽ
 	self.text = ""
 	
-	#	全てのブリンカーを透明にして非表示にしておく
-	$"BlinkerTriangle".initialize()
-	$"BlinkerUnderscore".initialize()
-	$"ChoiceCursor".initialize()
+	#	全てのブリンカー　状態機械［決めた］
+	$"BlinkerTriangle".statemachine_of_end_of_message_blinker.decide()
+	$"BlinkerUnderscore".statemachine_of_end_of_message_blinker.decide()
+	$"ChoiceCursor".statemachine_of_end_of_message_blinker.decide()
 
 	#	非表示
 	self.hide()
@@ -78,9 +78,9 @@ func push_message(new_text, choice_row_numbers = null):
 		self.get_snapshot("VisualNovelDepartment").is_choice_mode = true
 		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = choice_row_numbers
 
-		# メッセージエンド・ブリンカーは無いことにする
-		$"BlinkerTriangle".initialize()
-		$"BlinkerUnderscore".initialize()
+		# メッセージエンド・ブリンカー　状態機械［決めた］
+		$"BlinkerTriangle".statemachine_of_end_of_message_blinker.decide()
+		$"BlinkerUnderscore".statemachine_of_end_of_message_blinker.decide()
 
 	#	それ以外なら
 	else:

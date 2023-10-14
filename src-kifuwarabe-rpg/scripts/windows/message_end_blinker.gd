@@ -16,17 +16,6 @@ var blinker_seconds = 0.0
 var blinker_interval = 0.5
 
 
-#	初期化
-#		ウィンドウが消えている状態を想定しています。
-#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
-func initialize():
-	#	透明にして非表示にしておく
-	print("［メッセージエンド・ブリンカー］　初期化による透明化")
-	self.modulate.a = 0.0	# 初期化による透明化
-	self.hide()
-	self.is_first_displayed_immediately = false
-
-
 #	空欄化
 #		初期化の一種ですが、ウィンドウを残しておくことが違います
 func emptize():
@@ -65,9 +54,16 @@ func set_visible_subtree(is_visible):
 		#	子ノード無し
 
 
-func on_decisided():
-	pass
-	
+#	初期化
+#		ウィンドウが消えている状態を想定しています。
+#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
+func on_decided():
+	#	透明にして非表示にしておく
+	print("［メッセージエンド・ブリンカー］　初期化による透明化")
+	self.modulate.a = 0.0	# 初期化による透明化
+	self.hide()
+	self.is_first_displayed_immediately = false
+
 	
 func on_thought():
 	pass
@@ -84,12 +80,12 @@ func on_arrived():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#	状態機械のセットアップ
-	self.statemachine_of_end_of_message_blinker.on_decisided = self.on_decisided
+	self.statemachine_of_end_of_message_blinker.on_decided = self.on_decided
 	self.statemachine_of_end_of_message_blinker.on_thought = self.on_thought
 	self.statemachine_of_end_of_message_blinker.on_sought = self.on_sought
 	self.statemachine_of_end_of_message_blinker.on_arrived = self.on_arrived
 
-	self.initialize()
+	self.statemachine_of_end_of_message_blinker.decide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
