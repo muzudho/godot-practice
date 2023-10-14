@@ -211,10 +211,18 @@ func on_talked_2():
 
 # メッセージを記録するだけ
 func on_remembered(
-	new_text,						# str
-	choices_row_numbers = null):	# number_array
+	new_text,		# str
+	is_override):	# bool
 
 	var snapshot = self.director_get_current_snapshot.call()
+
+	var choices_row_numbers = null
+
+	if is_override:
+		choices_row_numbers = snapshot.choices_row_number_array
+
+		# クリアー
+		snapshot.choices_row_number_array = null
 
 	# テキスト設定
 	snapshot.text_block_buffer = new_text

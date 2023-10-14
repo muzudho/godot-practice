@@ -67,9 +67,9 @@ func is_completed():
 
 # TODO 状態遷移と関係無いので、移動したい
 # 台詞を記憶する
-func remember(text, choices_row_numbers = null):
+func remember(text, is_override = false):
 	if on_remembered != null:
-		on_remembered.call(text, choices_row_numbers)
+		on_remembered.call(text, is_override)
 
 # TODO こちらを使いたい
 func talk_2():
