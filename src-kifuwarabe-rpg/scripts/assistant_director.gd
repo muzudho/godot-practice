@@ -2,12 +2,9 @@
 extends Node
 
 
-#	関数
-var director_play_visual_novel = null
-var director_is_playing_visual_novel = null
+#	状態機械
+var statemachine_of_director = null
 
-var director_play_system_menu = null
-var director_is_playing_system_menu = null
 
 #	メッセージが入っている
 var scenario_array = []
@@ -47,7 +44,7 @@ func play_visual_novel(paragraph_name):
 	self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order = true
 
 	# 再生中へ
-	self.director_play_visual_novel.call()
+	self.statemachine_of_director.play_visual_novel()
 
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -171,7 +168,7 @@ func _ready():
 func _process(_delta):
 		
 	# ビジュアルノベル再生中
-	if self.director_is_playing_visual_novel.call():
+	if self.statemachine_of_director.is_playing_visual_novel():
 		
 		# メッセージウィンドウが指示待ちか？
 		if self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order:

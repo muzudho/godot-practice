@@ -7,22 +7,6 @@ extends Node2D
 var statemachine_of_director = load("res://scripts/statemachines/director.gd").new()
 
 
-func play_visual_novel():
-	self.statemachine_of_director.play_visual_novel()
-
-
-func is_playing_visual_novel():
-	return self.statemachine_of_director.is_playing_visual_novel()
-
-
-func play_system_menu():
-	self.statemachine_of_director.play_system_menu()
-
-
-func is_playing_system_menu():
-	return self.statemachine_of_director.is_playing_system_menu()
-
-
 #	部管理人
 func get_department_manager(department_name):
 	return $"System/Managers/".get_node(department_name)
@@ -40,16 +24,26 @@ func get_message_window():
 	return $"GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
 
 
+#	ビジュアルノベルを再生した
+func on_played_visual_novel():
+	pass
+
+
+#	システムメニューを再生した
+func on_played_system_menu():
+	pass
+
+
 #	サブツリーが全てインスタンス化されたときに呼び出される
 #	Called when the node enters the scene tree for the first time.
 func _ready():
 
-	#	関数を渡す
-	$"AssistantDirector".director_play_visual_novel = self.play_visual_novel
-	$"AssistantDirector".director_is_playing_visual_novel = self.is_playing_visual_novel
+	#	状態機械をセットアップ
+	self.statemachine_of_director.on_played_visual_novel = self.on_played_visual_novel
+	self.statemachine_of_director.on_played_system_menu = self.on_played_system_menu
 
-	$"AssistantDirector".director_play_system_menu = self.play_system_menu
-	$"AssistantDirector".director_is_playing_system_menu = self.is_playing_system_menu
+	#	状態機械を渡す
+	$"AssistantDirector".statemachine_of_director = self.statemachine_of_director
 
 	#	開発中にいじったものが残ってるかもしれないから、掃除
 
@@ -105,7 +99,7 @@ func _unhandled_key_input(event):
 		if event.keycode == KEY_ESCAPE:
 
 			#	ビジュアルノベル部　再生中
-			if self.statemachine_of_director.is_playing_visual_novel_department():
+			if self.statemachine_of_director.is_playing_visual_novel():
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
 				
 				#	ビジュアル・ノベル部を隠す
