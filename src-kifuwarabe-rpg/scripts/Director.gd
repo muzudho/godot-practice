@@ -18,10 +18,10 @@ func get_snapshot(department_name):
 
 
 func get_current_snapshot():
-	if self.statemachine_of_director.is_playing_visual_novel:
+	if self.statemachine_of_director.is_playing_visual_novel():
 		return self.get_snapshot("VisualNovelDepartment")
 		
-	elif self.statemachine_of_director.is_playing_system_menu:
+	elif self.statemachine_of_director.is_playing_system_menu():
 		return self.get_snapshot("SystemMenuDepartment")
 	
 	else:
@@ -126,16 +126,20 @@ func _unhandled_key_input(event):
 				#	システムメニュー再生
 				self.statemachine_of_director.play_system_menu()
 				
+				var snapshot = self.get_current_snapshot()
+				print("［ディレクター］　システムメニュー再生後　部門名：［" + str(snapshot.name) + "］")
+				
 				# 現在の部門を表示
 				self.show_current_department()
 				
-#				#	［中央］メッセージ・ウィンドウを表示する
+				#	［中央］メッセージ・ウィンドウを表示する
+				$"AssistantDirector/Choice".set_array([1,2])
 #				$"AssistantDirector/MWnd".redirect_message_window("中央")
-				$"AssistantDirector/NormalTextChoice".push_message(&"中央", """\
-　・再開
-　・終了
-""",
-				[1,2])
+				$"AssistantDirector/NormalTextChoice".push_message(
+						"""\
+						　・再開
+						　・終了
+						""")
 
 			else:
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
@@ -145,6 +149,9 @@ func _unhandled_key_input(event):
 				
 				#	ビジュアルノベル再生
 				self.statemachine_of_director.play_visual_novel()
+				
+				var snapshot = self.get_current_snapshot()
+				print("［ディレクター］　ビジュアルノベル再生後　部門名：［" + str(snapshot.name) + "］")
 				
 				# 現在の部門を表示
 				self.show_current_department()

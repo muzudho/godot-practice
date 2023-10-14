@@ -19,8 +19,12 @@ func do_it(line):
 	var string_packed_array = csv.split(",", true, 0)
 	# 文字列パック配列を、数値の配列に変換	
 	var number_array = self.convert_string_packed_array_to_number_array(string_packed_array)
-	
-	# 設定
+
+	self.set_array(number_array)	
+
+
+# 配列のセット
+func set_array(number_array):
 	var snapshot = self.director_get_current_snapshot.call()
 	snapshot.choices_row_number_array = number_array
 

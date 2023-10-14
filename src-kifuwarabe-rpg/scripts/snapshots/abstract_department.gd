@@ -33,11 +33,3 @@ func set_message_window_waiting_for_order(flag):
 func get_manager():
 	var department_name = str(self.name)
 	return $"../../Managers".get_node(department_name)
-
-
-func get_choices_row_number_array():
-	return self.choices_row_number_array
-
-
-func set_choices_row_number_array(array):
-	self.choices_row_number_array = array

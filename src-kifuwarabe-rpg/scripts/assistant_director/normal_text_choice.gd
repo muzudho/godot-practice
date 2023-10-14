@@ -33,14 +33,16 @@ func do_it(
 
 func push_message(
 	temp_text):		# str
-	print("［ノーマル・テキスト・チョイス］　メッセージ：[" + temp_text + "]")
 
 	var snapshot = self.director_get_current_snapshot.call()
+
+	print("［ノーマル・テキスト・チョイス］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")
+
 
 	# メッセージ追加
 	self.get_message_window(str(snapshot.message_window_name_obj)).statemachine_of_message_window.talk(temp_text, snapshot.choices_row_number_array)
 	
 	self.snapshot_set_message_window_waiting_for_order.call(false)
 	
-	# 設定
-	snapshot.set_choices_row_number_array.call(null)
+	# クリアー
+	snapshot.choices_row_number_array = null
