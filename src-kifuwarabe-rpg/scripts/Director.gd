@@ -17,6 +17,14 @@ func get_snapshot(department_name):
 	return $"System/Snapshots".get_node(department_name)
 
 
+func get_current_snapshot():
+	if self.statemachine_of_director.is_playing_visual_novel:
+		return self.get_snapshot("VisualNovelDepartment")
+		
+	elif self.statemachine_of_director.is_playing_system_menu:
+		return self.get_snapshot("SystemMenuDepartment")
+
+
 #	メッセージ・ウィンドウ
 func get_message_window():
 	# TODO ちゃんと作る必要がある
@@ -42,11 +50,13 @@ func _ready():
 	self.statemachine_of_director.on_played_visual_novel = self.on_played_visual_novel
 	self.statemachine_of_director.on_played_system_menu = self.on_played_system_menu
 
-	#	状態機械を渡す
+	#	子要素にメンバーを渡す
 	$"AssistantDirector".statemachine_of_director = self.statemachine_of_director
+	$"AssistantDirector".director_get_current_snapshot = self.get_current_snapshot
+
 
 	#	開発中にいじったものが残ってるかもしれないから、掃除
-
+	#
 	#	グリッドは隠す
 	$"Grid".hide()
 
@@ -116,7 +126,7 @@ func _unhandled_key_input(event):
 				[1,2])
 
 				#	システム・メニュー部へ状態遷移
-				self.statemachine_of_director.play_system_menu_department()
+				self.statemachine_of_director.play_system_menu()
 
 			else:
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")

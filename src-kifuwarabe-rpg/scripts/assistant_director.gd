@@ -6,8 +6,12 @@ extends Node
 var statemachine_of_director = null
 
 
-#	メッセージが入っている
+#	読込んだメッセージの配列が入っている
 var scenario_array = []
+
+
+#	関数の変数
+var director_get_current_snapshot = null
 
 
 #	ビジュアル・ノベル部のこの瞬間の状態
@@ -54,11 +58,14 @@ func redirect_concrete_message_window_by_name(node_name):
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
-	print("［アシスタント・ディレクター］　現在の段落名　　　：" + self.get_snapshot("VisualNovelDepartment").paragraph_name)
+	var snapshot = self.director_get_current_snapshot.call()
+	
+	print("［アシスタント・ディレクター］　現在の部門名　　　：" + snapshot.name)
+	print("［アシスタント・ディレクター］　現在の段落名　　　：" + snapshot.paragraph_name)
 	print("［アシスタント・ディレクター］　選んだ選択肢行番号：" + str(row_number))
 
 	# 次の段落名
-	var next_paragraph_name = $"../ScenarioWriter/VisualNovelDepartment".index[self.get_snapshot("VisualNovelDepartment").paragraph_name][row_number]
+	var next_paragraph_name = $"../ScenarioWriter".get_node(str(snapshot.name)).index[snapshot.paragraph_name][row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
 	self.play_visual_novel(next_paragraph_name)
@@ -166,12 +173,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-		
+
+	var snapshot = self.director_get_current_snapshot.call()
+
 	# ビジュアルノベル再生中
 	if self.statemachine_of_director.is_playing_visual_novel():
 		
 		# メッセージウィンドウが指示待ちか？
-		if self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order:
+		if snapshot.is_message_window_waiting_for_order:
 			
 			# まだあるよ
 			if 0 < self.scenario_array.size():
