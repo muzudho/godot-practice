@@ -28,21 +28,25 @@ func set_director_get_current_snapshot_subtree(it):
 func do_it(
 	temp_text):		# str
 	
-	self.push_message(temp_text)
+	self.remember(temp_text)
+	self.talk()
 
 
-func push_message(
+# メッセージ追加
+func remember(
 	temp_text):		# str
 
 	var snapshot = self.director_get_current_snapshot.call()
-
 	print("［ノーマル・テキスト・チョイス］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")
 
-
-	# メッセージ追加、会話
 	snapshot.remember(temp_text)
+
+
+# 会話開始
+func talk():
+	# TODO 簡単に書けないか？
+	var snapshot = self.director_get_current_snapshot.call()
 	var message_window = self.get_message_window(str(snapshot.message_window_name_obj))
 	message_window.statemachine_of_message_window.talk()
-	
+
 	self.snapshot_set_message_window_waiting_for_order.call(false)
-	

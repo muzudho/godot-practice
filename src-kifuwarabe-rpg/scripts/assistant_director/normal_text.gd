@@ -20,7 +20,9 @@ func do_it(temp_text):
 func put_message(temp_text):
 	
 	var snapshot = self.director_get_current_snapshot.call()
+	var manager = snapshot.get_manager()
 	
-	$"../../System/Managers".get_node(str(snapshot.name)).push_message(temp_text)
+	manager.remember(temp_text)
+	manager.talk()
 	
 	self.snapshot_set_message_window_waiting_for_order.call(false)
