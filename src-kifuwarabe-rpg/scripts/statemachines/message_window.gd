@@ -49,7 +49,6 @@ enum States {None, Typewriter, Completed}
 var state = States.None
 
 # 関数の変数
-var on_remembered = null
 var on_talked_2 = null
 var on_page_forward = null
 var on_all_characters_pushed = null
@@ -59,17 +58,14 @@ var on_all_pages_flushed = null
 func is_none():
 	return self.state == States.None
 
+
 func is_typewriter():
 	return self.state == States.Typewriter
+
 
 func is_completed():
 	return self.state == States.Completed
 
-# TODO 状態遷移と関係無いので、移動したい
-# 台詞を記憶する
-func remember(text):
-	if on_remembered != null:
-		on_remembered.call(text)
 
 # TODO こちらを使いたい
 func talk_2():
@@ -79,6 +75,7 @@ func talk_2():
 	print("［ステートマシーン］　シナリオをセットした。タイプライター風表示へ状態遷移")
 	self.state = States.Typewriter
 
+
 func page_forward():
 	if on_page_forward != null:
 		on_page_forward.call()
@@ -86,12 +83,14 @@ func page_forward():
 	print("［ステートマシーン］　ページ送りした。タイプライター風表示へ状態遷移")
 	self.state = States.Typewriter
 
+
 func all_characters_pushed():
 	if on_all_characters_pushed != null:
 		on_all_characters_pushed.call()
 
 	print("［ステートマシーン］　全ての文字を出力した。完全表示中へ状態遷移")	
 	self.state = States.Completed
+
 
 func all_pages_flushed():
 	if on_all_pages_flushed != null:

@@ -137,6 +137,25 @@ func set_appear_subtree(
 				child.set_appear_subtree(is_appear)
 
 
+# メッセージを記録するだけ
+func remember(
+	new_text):		# str
+
+	var snapshot = self.director_get_current_snapshot.call()
+
+	# 設定
+	snapshot.text_block_buffer = new_text
+	snapshot.choices_row_numbers = snapshot.choices_row_numbers
+
+	# 選択肢なら
+	if snapshot.is_choices():
+		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
+
+	# それ以外なら
+	else:
+		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
+
+
 # テキストボックスなどにフォーカスが無いときの入力を拾う
 func on_unhandled_key_input(event):
 	print("［メッセージウィンドウ　”" + self.name + "”］　アンハンドルド・キー入力")
@@ -207,25 +226,6 @@ func on_talked_2():
 		# メッセージエンド・ブリンカー　状態機械［考える］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
-
-
-# メッセージを記録するだけ
-func on_remembered(
-	new_text):		# bool
-
-	var snapshot = self.director_get_current_snapshot.call()
-
-	# 設定
-	snapshot.text_block_buffer = new_text
-	snapshot.choices_row_numbers = snapshot.choices_row_numbers
-
-	# 選択肢なら
-	if snapshot.is_choices():
-		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
-
-	# それ以外なら
-	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
 
 
 # ページ送り
@@ -316,7 +316,6 @@ func _ready():
 	$"CanvasLayer/TextBlock".text = ""
 	
 	# 状態機械のセットアップ
-	self.statemachine_of_message_window.on_remembered = self.on_remembered
 	self.statemachine_of_message_window.on_talked_2 = self.on_talked_2
 	self.statemachine_of_message_window.on_page_forward = self.on_page_forward
 	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
