@@ -170,7 +170,7 @@ func parse_message(temp_text):
 	var snapshot = self.director_get_current_snapshot.call()
 
 	# 選択肢だ
-	if snapshot.choices_row_number_array != null:
+	if snapshot.choices_row_numbers != null:
 		$"NormalTextChoice".do_it(temp_text)
 		return
 

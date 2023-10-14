@@ -231,7 +231,6 @@ func _process(delta):
 			if 0.0 < self.total_seconds:
 				# 自動的にカーソルは移動中
 				self.on_cursor_moving_automatically(delta)
-
 				
 			# 移動量が残ってないなら
 			else:

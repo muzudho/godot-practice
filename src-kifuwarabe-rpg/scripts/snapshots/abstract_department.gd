@@ -9,10 +9,8 @@ var is_message_window_waiting_for_order = false
 # 選択肢
 #	選択肢モード
 var is_choice_mode = false
-#	選択肢用の行番号配列。無ければヌル
-var choices_row_number_array = null
-#	選択肢の行番号
-var choices_row_numbers = []
+#	選択肢の行番号用配列。無ければヌル
+var choices_row_numbers = null
 
 # テキストブロック汎用
 #	読込んだメッセージの配列が入っている

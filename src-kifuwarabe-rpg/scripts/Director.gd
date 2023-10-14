@@ -134,7 +134,7 @@ func _unhandled_key_input(event):
 				self.get_current_snapshot().get_manager().appear()
 				
 				# ［中央］メッセージ・ウィンドウを表示する
-				#self.get_current_snapshot().choices_row_number_array = [1,2]
+				#self.get_current_snapshot().choices_row_numbers = [1,2]
 				#$"AssistantDirector/MWnd".redirect_message_window("中央")
 				#$"AssistantDirector/NormalTextChoice".push_message(
 				#		"""\

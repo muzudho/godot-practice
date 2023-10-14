@@ -219,7 +219,7 @@ func on_remembered(
 	var choices_row_numbers = null
 
 	if is_override:
-		choices_row_numbers = snapshot.choices_row_number_array
+		choices_row_numbers = snapshot.choices_row_numbers
 
 	# テキスト設定
 	snapshot.text_block_buffer = new_text
@@ -259,7 +259,6 @@ func on_page_forward():
 		self.get_assistant_director().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
-		snapshot.choices_row_number_array = null
 		snapshot.choices_row_numbers = null
 		snapshot.is_choice_mode = false
 		
