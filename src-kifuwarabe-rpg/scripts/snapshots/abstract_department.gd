@@ -15,6 +15,8 @@ var choices_row_number_array = null
 var choices_row_numbers = []
 
 # テキストブロック汎用
+#	読込んだメッセージの配列が入っている
+var scenario_array = []
 #	表示したい文章
 var text_block_buffer = ""
 #	タイプライターのカウント

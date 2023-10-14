@@ -6,10 +6,6 @@ extends Node
 var statemachine_of_director = null
 
 
-#	読込んだメッセージの配列が入っている
-var scenario_array = []
-
-
 #	関数の変数
 var director_get_current_snapshot = null
 
@@ -53,7 +49,7 @@ func play_paragraph(paragraph_name):
 
 	# シナリオ・ブックから、内容を取出す
 	print("［アシスタント・ディレクター］　シナリオ・ブックから、内容を取出す")
-	self.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
+	snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
 
 	# メッセージ・ウィンドウは、次の指示を待っています
 	snapshot.is_message_window_waiting_for_order = true
@@ -197,19 +193,23 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 
+	# ディレクターが止まってるなら、働かない
+	if self.statemachine_of_director.is_none():
+		return
+
 	var snapshot = self.director_get_current_snapshot.call()
 
 	# ビジュアルノベル再生中
-	if self.statemachine_of_director.is_playing_visual_novel():
+	if true: #self.statemachine_of_director.is_playing_visual_novel():
 		
 		# メッセージウィンドウが指示待ちか？
 		if snapshot.is_message_window_waiting_for_order:
 			
 			# まだあるよ
-			if 0 < self.scenario_array.size():
+			if 0 < snapshot.scenario_array.size():
 			
 				# 次に表示するべきメッセージを取得
-				var latest_message = self.scenario_array.pop_front()
+				var latest_message = snapshot.scenario_array.pop_front()
 
 				# TODO ここで、命令と、台詞に分解したい
 				self.parse_message(latest_message)

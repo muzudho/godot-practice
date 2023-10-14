@@ -129,14 +129,14 @@ func _unhandled_key_input(event):
 				# 現在の部門を再表示
 				self.get_current_snapshot().get_manager().appear()
 				
-				# ［中央］メッセージ・ウィンドウを表示する
-				$"AssistantDirector/Choice".set_array([1,2])
-#				$"AssistantDirector/MWnd".redirect_message_window("中央")
-				$"AssistantDirector/NormalTextChoice".push_message(
-						"""\
-						　・再開
-						　・終了
-						""")
+#				# ［中央］メッセージ・ウィンドウを表示する
+#				$"AssistantDirector/Choice".set_array([1,2])
+##				$"AssistantDirector/MWnd".redirect_message_window("中央")
+#				$"AssistantDirector/NormalTextChoice".push_message(
+#						"""\
+#						　・再開
+#						　・終了
+#						""")
 
 			else:
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
