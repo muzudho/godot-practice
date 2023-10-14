@@ -94,14 +94,13 @@ func _ready():
 		print("［ディレクター］　メッセージ・ウィンドウの is_processing() で false が返ってくるので、 true を入れてやる")
 		$"GuiArtist/WindowsOfMessage".set_process(true)
 
-	#	初回起動時
+	#	初回起動時、ビジュアルノベル部を再生
 	self.statemachine_of_director.play_visual_novel()
-		
-	#	ビジュアル・ノベル部を表示する
+	#	表示
 	self.get_department_manager("VisualNovelDepartment").appear()
 
 	#	台本の再生の開始の合図
-	$"./AssistantDirector".play_visual_novel("タイトル画面")
+	$"./AssistantDirector".play_paragraph("タイトル画面")
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う

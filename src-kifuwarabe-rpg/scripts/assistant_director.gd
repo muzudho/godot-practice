@@ -46,7 +46,7 @@ func set_director_get_current_snapshot_subtree(it):
 
 
 #	台本の再生の開始の合図
-func play_visual_novel(paragraph_name):
+func play_paragraph(paragraph_name):
 	var snapshot = self.director_get_current_snapshot.call()
 
 	self.get_snapshot("VisualNovelDepartment").paragraph_name = paragraph_name
@@ -58,7 +58,7 @@ func play_visual_novel(paragraph_name):
 	# メッセージ・ウィンドウは、次の指示を待っています
 	self.get_snapshot("VisualNovelDepartment").is_message_window_waiting_for_order = true
 
-	# 再生中へ
+	# TODO 再生中へ
 	self.statemachine_of_director.play_visual_novel()
 
 
@@ -79,7 +79,7 @@ func on_choice_selected(row_number):
 	var next_paragraph_name = $"../ScenarioWriter".get_node(str(snapshot.name)).index[snapshot.paragraph_name][row_number]
 	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
 	
-	self.play_visual_novel(next_paragraph_name)
+	self.play_paragraph(next_paragraph_name)
 
 
 #	先頭行と、それ以外に分けます。できなければヌル
@@ -135,7 +135,7 @@ func parse_message(temp_text):
 				
 			# 次の段落へ飛ぶ
 			elif second_head.begins_with("goto:"):
-				$"Goto".do_it(second_head, self.play_visual_novel)
+				$"Goto".do_it(second_head, self.play_paragraph)
 
 			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("m-wnd:"):
