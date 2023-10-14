@@ -11,6 +11,8 @@ var statemachine_of_blinker = load("res://scripts/statemachines/blinker.gd").new
 var director_get_current_snapshot = null
 
 
+var is_appear = true
+
 # メッセージエンド・ブリンカーの共通項目
 #
 #	カーソルが点滅するための時間カウント
@@ -84,6 +86,27 @@ func set_visible_subtree(is_visible):
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if is_visible != self.visible:
 		self.visible = is_visible
+
+		# 子ノード無し
+
+
+# サブツリーの appear を設定
+func set_appear_subtree(is_appear):
+
+	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
+	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
+	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
+	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
+	if is_appear != self.is_appear:
+		self.is_appear = is_appear
+		
+		if self.is_appear:
+			# 画面内に戻す
+			self.position += Vector2(0, -720)
+
+		else:
+			# 画面下の外に押し出す
+			self.position += Vector2(0, 720)
 
 		# 子ノード無し
 

@@ -10,6 +10,9 @@ var statemachine_of_message_window = load("res://scripts/statemachines/message_w
 var director_get_current_snapshot = null
 
 
+var is_appear = true
+
+
 # アシスタント・ディレクターを取得
 func get_assistant_director():
 	return $"../../../AssistantDirector"
@@ -100,6 +103,35 @@ func set_visible_subtree(
 		for child in $"CanvasLayer/TextBlock".get_children():
 			if child.has_method("set_visible_subtree"):
 				child.set_visible_subtree(is_visible)
+
+
+# サブツリーの appear を設定
+func set_appear_subtree(
+	is_appear):		# bool
+
+	print("［メッセージウィンドウ　”" + self.name + "”］　appear：" + str(is_appear))
+
+	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
+	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
+	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
+	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
+	if is_appear != self.is_appear:
+		self.is_appear = is_appear
+		
+		if self.is_appear:
+			# 画面内に戻す
+			self.position += Vector2(0, -720)
+			$"CanvasLayer/TextBlock".position += Vector2(0, -720)
+
+		else:
+			# 画面下の外に押し出す
+			self.position += Vector2(0, 720)
+			$"CanvasLayer/TextBlock".position -= Vector2(0, -720)
+
+		# 子ノード
+		for child in $"CanvasLayer/TextBlock".get_children():
+			if child.has_method("set_appear_subtree"):
+				child.set_appear_subtree(is_appear)
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う

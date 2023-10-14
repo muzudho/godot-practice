@@ -121,16 +121,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
 
 				# 現在の部門を隠す
-				self.hide_current_department()
+				self.disappear_current_department()
 				
 				# システムメニュー再生
 				self.statemachine_of_director.play_system_menu()
-				
-				#var snapshot = self.get_current_snapshot()
-				#print("［ディレクター］　システムメニュー再生後　部門名：［" + str(snapshot.name) + "］")
-				
+								
 				# 現在の部門を表示
-				self.show_current_department()
+				self.appear_current_department()
 				
 				# ［中央］メッセージ・ウィンドウを表示する
 				$"AssistantDirector/Choice".set_array([1,2])
@@ -145,16 +142,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
 
 				# 現在の部門を隠す
-				self.hide_current_department()
+				self.disappear_current_department()
 				
 				# ビジュアルノベル再生
 				self.statemachine_of_director.play_visual_novel()
-				
-				#var snapshot = self.get_current_snapshot()
-				#print("［ディレクター］　ビジュアルノベル再生後　部門名：［" + str(snapshot.name) + "］")
-				
+								
 				# 現在の部門を表示
-				self.show_current_department()
+				self.appear_current_department()
 				
 				##	［下］メッセージ・ウィンドウを表示する
 				#$"AssistantDirector/MWnd".redirect_message_window("下")
@@ -172,13 +166,13 @@ func _unhandled_key_input(event):
 
 
 # 現在の部門を隠す
-func hide_current_department():
+func disappear_current_department():
 	var snapshot = self.get_current_snapshot()
 	snapshot.get_manager().disappear()
 
 
 # 現在の部門を表示
-func show_current_department():
+func appear_current_department():
 	var snapshot = self.get_current_snapshot()
 	snapshot.get_manager().appear()
 
