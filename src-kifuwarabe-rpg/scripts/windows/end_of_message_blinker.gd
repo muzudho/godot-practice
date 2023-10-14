@@ -47,12 +47,6 @@ func get_message_window_name_obj():
 	return $"../../..".name
 
 
-func get_parent_choice_row_numbers():
-	#print("［選択肢カーソル］　選択肢行番号一覧")
-	var snapshot = self.director_get_current_snapshot.call()
-	return snapshot.choices_row_numbers
-
-
 # 線形補間
 func do_lerp(src, dst, progress):
 	return src + (dst - src) * progress
@@ -164,7 +158,7 @@ func on_cursor_up(target_index):
 	self.get_musician().playSe("選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
-	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index - 1]
+	self.selected_row_number = self.director_get_current_snapshot.call().choices_row_numbers[target_index - 1]
 	var difference = old_selected_row_number - self.selected_row_number
 	
 	self.src_y = self.offset_top
@@ -179,7 +173,7 @@ func on_cursor_down(target_index):
 	self.get_musician().playSe("選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
-	self.selected_row_number = self.get_parent_choice_row_numbers()[target_index + 1]
+	self.selected_row_number = self.director_get_current_snapshot.call().choices_row_numbers[target_index + 1]
 	#print("［選択肢カーソル］　新行番号：" + str(self.selected_row_number))
 	var difference = self.selected_row_number - old_selected_row_number
 
@@ -271,7 +265,7 @@ func on_cursor_moving_automatically(delta):
 
 
 func selected_cursor_index():
-	return self.get_parent_choice_row_numbers().find(self.selected_row_number)
+	return self.director_get_current_snapshot.call().choices_row_numbers.find(self.selected_row_number)
 
 
 # カーソルは上へ移動できるか？
@@ -281,7 +275,7 @@ func can_cursor_up(index):
 
 # カーソルは下へ移動できるか？
 func can_cursor_down(index):
-	var choice_size = self.get_parent_choice_row_numbers().size()
+	var choice_size = self.director_get_current_snapshot.call().choices_row_numbers.size()
 	#print("［選択肢カーソル］　選択肢数：" + str(choice_size))
 	
 	# 下へ移動できるか？
