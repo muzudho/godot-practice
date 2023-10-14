@@ -24,21 +24,6 @@ func get_snapshot(department_node_name):
 	return $"../../../System/Snapshots".get_node(department_node_name)
 
 
-#	空欄化
-#		空っぽのウィンドウに戻すことを想定しています。
-#		初期化の一種ですが、ウィンドウは消しません
-func emptize_end_of_message_blinker():
-	#	空欄に戻します（ウィンドウは消しません）
-	print("［メッセージウィンドウ　”" + self.name + "”］　空欄化")
-
-	#	テキストブロック
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	#		テキストが空っぽ
-	text_block_node.text = ""
-	#		表示
-	text_block_node.show()
-
-
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
 func redirect_me():
 
@@ -169,7 +154,14 @@ func on_talk(
 	choices_row_numbers = null):	# number_array
 
 	#	空っぽのウィンドウを残します
-	self.emptize_end_of_message_blinker()
+	#	テキストブロック
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	if true:
+		#		テキストが空っぽ
+		text_block_node.text = ""
+		#		表示
+		text_block_node.show()
+
 	self.is_visible_initialized = false
 
 	#	表示
@@ -191,7 +183,6 @@ func on_talk(
 			snapshot.choice_row_numbers = choices_row_numbers
 
 		#	テキストブロック
-		var text_block_node = self.get_node("CanvasLayer/TextBlock")
 		if true:
 			# メッセージエンド・ブリンカー　状態機械［決めた］
 			text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
@@ -210,7 +201,6 @@ func on_talk(
 			snapshot.choice_row_numbers = []
 
 		#	テキストブロック
-		var text_block_node = self.get_node("CanvasLayer/TextBlock")
 		if true:
 			# メッセージエンド・ブリンカー　状態機械［決めた］
 			text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
@@ -228,17 +218,20 @@ func on_page_forward():
 	self.get_musician().playSe("ページめくり音")
 
 	#	空っぽのウィンドウを残して、次の指示を待ちます
-	self.emptize_end_of_message_blinker()
-	self.is_visible_initialized = false
-	self.awaiting_order()
-
-	#	テキストブロック	
+	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 	if true:
+		#		テキストが空っぽ
+		text_block_node.text = ""
+		#		表示
+		text_block_node.show()
 		#		全てのブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+
+	self.is_visible_initialized = false
+	self.awaiting_order()
 
 
 func on_all_characters_pushed():
