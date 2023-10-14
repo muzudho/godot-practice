@@ -55,7 +55,7 @@ func _ready():
 			self.snapshots[department.name] = DepartmentSnapshot.new()
 			# （めんどくさいけど）Main シナリオからプロパティを移す
 			var department_initial_properties = self.get_main_scenario().department_initial_properties[department.name]
-			self.snapshots[department.name].name = department.name
+			self.snapshots[department.name].name = department.name		# StringName 型
 			self.snapshots[department.name].message_window_name_obj = department_initial_properties["message_window_name_obj"]
 			self.snapshots[department.name].paragraph_name = department_initial_properties["paragraph_name"]
 

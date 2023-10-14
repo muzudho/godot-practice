@@ -27,7 +27,7 @@ var message_window_name_obj = null		# StringName 型 シンタックス・シュ
 # 段落名
 var paragraph_name = null
 
-# 部門名
+# 部門名。StringName 型
 var name = null
 
 # パースをするな
