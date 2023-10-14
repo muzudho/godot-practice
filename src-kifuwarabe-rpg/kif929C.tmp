@@ -168,10 +168,10 @@ texture = ExtResource("26_fgfga")
 [node name="Main" type="Node" parent="ScenarioWriter"]
 script = ExtResource("3_jssjb")
 
-[node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
+[node name="ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("3_75puo")
 
-[node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
+[node name="システムメニュー部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("4_7teq2")
 
 [node name="Musician" type="Node" parent="."]
