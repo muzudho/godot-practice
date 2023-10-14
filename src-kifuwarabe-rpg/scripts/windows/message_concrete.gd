@@ -272,9 +272,8 @@ func _ready():
 	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
-	#	このノードは常に visible にしておいてください
-	#	TODO これは不要？
-	self.show()
+	#	最初は非表示
+	self.hide()
 
 
 func _process(delta):
