@@ -1,23 +1,24 @@
-#	アブストラクト・デパートメント・マネージャー（Abstract Department Manager；抽象部門管理人）
+#	デパートメント・マネージャー（Department Manager；抽象部門管理人）
 extends Node
 
 class_name AbstractDepartmentManager
 
 
 func get_scenarion_writer():
-	return $"../../../ScenarioWriter"
+	return $"../../ScenarioWriter"
+
+
+#	同名のデパートメント・スナップショット取得
+func get_snapshot():
+	var director = $"../../../Director"
+	return director.snapshots[director.current_department]
+
 
 func get_message_window():
 	var snapshot = self.get_snapshot()
 	var window_name = str(snapshot.message_window_name_obj)
 	
-	return $"../../../GuiArtist/WindowsOfMessage".get_node(window_name)
-
-
-#	同名のデパートメント・スナップショット取得
-func get_snapshot():
-	var department_name = str(self.name)
-	return $"../../../../Director".snapshots[department_name]
+	return $"../../GuiArtist/WindowsOfMessage".get_node(window_name)
 
 
 # 会話開始

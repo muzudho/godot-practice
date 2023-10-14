@@ -24,7 +24,7 @@ func put_textblock(
 	snapshot.remember(temp_text)
 
 	# 会話の開始
-	var manager = $"../../../Director".get_department_manager(str(snapshot.name))
+	var manager = $"../../../Director".get_department_manager()
 	manager.talk()
 
 	# パースをするな

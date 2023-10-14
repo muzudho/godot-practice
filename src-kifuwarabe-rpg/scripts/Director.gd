@@ -18,8 +18,8 @@ func get_main_scenario():
 
 
 # 部管理人
-func get_department_manager(department_name):
-	return $"System/Managers/".get_node(department_name)
+func get_department_manager():
+	return $"System/DepartmentManager"
 
 
 # スナップショット
@@ -98,7 +98,7 @@ func _ready():
 	$"./AssistantDirector".play_paragraph()
 
 	# 表示
-	self.get_department_manager(str(snapshot.name)).appear()
+	self.get_department_manager().appear()
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -118,13 +118,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　部門移動")
 
 				# 現在の部門を隠す
-				self.get_department_manager(str(self.get_current_snapshot().name)).disappear()
+				self.get_department_manager().disappear()
 
 				# 部門変更
 				self.current_department = next_department
 
 				# 現在の部門を再表示
-				self.get_department_manager(str(self.get_current_snapshot().name)).appear()
+				self.get_department_manager().appear()
 
 				# 台本の段落の再生
 				$"./AssistantDirector".play_paragraph()
