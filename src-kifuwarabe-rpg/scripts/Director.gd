@@ -18,15 +18,7 @@ func get_snapshot(department_name):
 
 
 func get_current_snapshot():
-	if self.current_department == "VisualNovelDepartment":
-		return self.get_snapshot("VisualNovelDepartment")
-		
-	elif self.current_department == "SystemMenuDepartment":
-		return self.get_snapshot("SystemMenuDepartment")
-	
-	else:
-		# エラー
-		return null
+	return self.get_snapshot(self.current_department)
 
 
 # メッセージ・ウィンドウ
@@ -86,10 +78,7 @@ func _ready():
 	#for department_manager in $"System/Managers".get_children():
 	#	department_manager.load_current_scenario()
 
-	# 初回起動時、ビジュアルノベル部を再生
-	self.current_department = "VisualNovelDepartment"
-
-	var snapshot = self.get_current_snapshot()	
+	var snapshot = self.get_current_snapshot()
 
 	# パースするな
 	snapshot.set_parse_lock(true)
@@ -109,50 +98,31 @@ func _unhandled_key_input(event):
 
 	# 何かキーを押したとき
 	if event.is_pressed():
-		
+
 		# エスケープ・キー
 		if event.keycode == KEY_ESCAPE:
+
+			# 現在の部門を隠す
+			self.get_current_snapshot().get_manager().disappear()
 
 			# ビジュアルノベル部　再生中
 			if self.current_department == "VisualNovelDepartment":
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
 
-				# 現在の部門を隠す
-				self.get_current_snapshot().get_manager().disappear()
-
 				# システムメニュー再生
 				self.current_department = "SystemMenuDepartment"
-
-				# 現在の部門を再表示
-				self.get_current_snapshot().get_manager().appear()
-
-				# 台本の段落の再生
-				$"./AssistantDirector".play_paragraph()
-
-				# ［中央］メッセージ・ウィンドウを表示する
-				#self.get_current_snapshot().choices_row_numbers = [1,2]
-				#$"AssistantDirector/MWnd".redirect_message_window("中央")
-				#$"AssistantDirector/NormalTextChoice".put_textblock(
-				#		"""\
-				#		　・再開
-				#		　・終了
-				#		""")
-				#$"AssistantDirector/NormalTextChoice".talk()
 
 			elif self.current_department == "SystemMenuDepartment":
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
 
-				# 現在の部門を隠す
-				self.get_current_snapshot().get_manager().disappear()
-
 				# ビジュアルノベル再生
 				self.current_department = "VisualNovelDepartment"
 
-				# 現在の部門を再表示
-				self.get_current_snapshot().get_manager().appear()
+			# 現在の部門を再表示
+			self.get_current_snapshot().get_manager().appear()
 
-				# 台本の段落の再生
-				$"./AssistantDirector".play_paragraph()
+			# 台本の段落の再生
+			$"./AssistantDirector".play_paragraph()
 
 			# 子要素には渡しません
 			return
