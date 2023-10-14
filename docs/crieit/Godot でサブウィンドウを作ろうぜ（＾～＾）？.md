@@ -1036,4 +1036,14 @@ func get_current_snapshot():
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　`Department` は状態ではないという建付けにするわけだな」  
 
+## 再開の機能付けた
+
+![202310__godot__15-0512--Department.png](https://crieit.now.sh/upload_images/94d3e3071be22fcb29f1b626977602e7652af688342b9.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
+「　👆　再開の機能付けたんだが　なぜだか知らないが　このメニューは１回使うと　２回目以降から出てこないぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　作った本人が分かってないの　わらう」  
+
 .
