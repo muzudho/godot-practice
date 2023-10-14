@@ -223,35 +223,38 @@ func _process(delta):
 				
 			self.blinker_seconds -= self.blinker_interval
 
+		var snapshot = self.director_get_current_snapshot.call()
 		# 動くカーソル用
-		# カーソルが動く量が指定されているなら
-		if 0.0 < self.total_seconds:
-			# 自動的にカーソルは移動中
-			self.on_cursor_moving_automatically(delta)
+		if snapshot.is_choice_mode:
 
-			
-		# 移動量が残ってないなら
-		else:
-			# 手動でカーソルは移動開始
-			# 上へ移動する分
-			if Input.is_action_pressed(&"ui_up"):
-				#print("［選択肢カーソル］　上へ")
-				var index = selected_cursor_index();
-				
-				# カーソルは上へ移動できるか？
-				if self.can_cursor_up(index):
-					# カーソルが上に移動します
-					self.on_cursor_up(index)
-				
-			# 下へ移動する分
-			if Input.is_action_pressed(&"ui_down"):
-				#print("［選択肢カーソル］　下へ")
-				#print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
-				var index = selected_cursor_index();
+			# カーソルが動く量が指定されているなら
+			if 0.0 < self.total_seconds:
+				# 自動的にカーソルは移動中
+				self.on_cursor_moving_automatically(delta)
 
-				if self.can_cursor_down(index):
-					# カーソルが下に移動します
-					self.on_cursor_down(index)
+				
+			# 移動量が残ってないなら
+			else:
+				# 手動でカーソルは移動開始
+				# 上へ移動する分
+				if Input.is_action_pressed(&"ui_up"):
+					#print("［選択肢カーソル］　上へ")
+					var index = selected_cursor_index();
+					
+					# カーソルは上へ移動できるか？
+					if self.can_cursor_up(index):
+						# カーソルが上に移動します
+						self.on_cursor_up(index)
+					
+				# 下へ移動する分
+				if Input.is_action_pressed(&"ui_down"):
+					#print("［選択肢カーソル］　下へ")
+					#print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
+					var index = selected_cursor_index();
+
+					if self.can_cursor_down(index):
+						# カーソルが下に移動します
+						self.on_cursor_down(index)
 
 
 # 自動的にカーソルは移動中
