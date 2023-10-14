@@ -265,7 +265,12 @@ func on_cursor_moving_automatically(delta):
 
 
 func selected_cursor_index():
-	return self.director_get_current_snapshot.call().choices_row_numbers.find(self.selected_row_number)
+	var choices_row_numbers = self.director_get_current_snapshot.call().choices_row_numbers
+	
+	if choices_row_numbers != null:
+		return choices_row_numbers.find(self.selected_row_number)
+
+	return -1
 
 
 # カーソルは上へ移動できるか？
@@ -275,10 +280,14 @@ func can_cursor_up(index):
 
 # カーソルは下へ移動できるか？
 func can_cursor_down(index):
-	var choice_size = self.director_get_current_snapshot.call().choices_row_numbers.size()
-	#print("［選択肢カーソル］　選択肢数：" + str(choice_size))
+	var choices_row_numbers = self.director_get_current_snapshot.call().choices_row_numbers
+	if choices_row_numbers != null:
 	
-	# 下へ移動できるか？
-	#print("［選択肢カーソル］　インデックス：" + str(index))
-	return 0 <= index and index + 1 < choice_size
+		var choice_size = choices_row_numbers.size()
+		#print("［選択肢カーソル］　選択肢数：" + str(choice_size))
+	
+		# 下へ移動できるか？
+		#print("［選択肢カーソル］　インデックス：" + str(index))
+		return 0 <= index and index + 1 < choice_size
 
+	return false

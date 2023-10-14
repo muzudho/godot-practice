@@ -239,7 +239,7 @@ func on_remembered(
 		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
 
 		snapshot.is_choice_mode = false
-		snapshot.choices_row_numbers = []
+		snapshot.choices_row_numbers = null
 
 
 # ページ送り
