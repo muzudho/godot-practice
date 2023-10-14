@@ -23,19 +23,19 @@ func get_department_manager(department_name):
 
 
 # スナップショット
-func get_snapshot_data(department_name):
+func get_snapshot(department_name):
 	return self.snapshots[department_name]
 
 
-func get_current_snapshot_data():
-	return self.get_snapshot_data(self.current_department)
+func get_current_snapshot():
+	return self.get_snapshot(self.current_department)
 
 
 # メッセージ・ウィンドウ
 func get_message_window():
-	var snapshot_data = self.get_current_snapshot_data()
+	var snapshot = self.get_current_snapshot()
 
-	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot_data.message_window_name_obj))
+	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
 
 
 # サブツリーが全てインスタンス化されたときに呼び出される
@@ -43,10 +43,10 @@ func get_message_window():
 func _ready():
 
 	# 子要素にメンバーを渡す
-	$"AssistantDirector".set_director_get_current_snapshot_data_subtree(self.get_current_snapshot_data)
+	$"AssistantDirector".set_director_get_current_snapshot_subtree(self.get_current_snapshot)
 	# 	メッセージ・ウィンドウ
 	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
-		message_window.set_director_get_current_snapshot_data_subtree(self.get_current_snapshot_data)
+		message_window.set_director_get_current_snapshot_subtree(self.get_current_snapshot)
 
 	# スナップショット辞書作成
 	for department in $"ScenarioWriter".get_children():
@@ -89,16 +89,16 @@ func _ready():
 	self.current_department = self.get_main_scenario().start_department
 
 
-	var snapshot_data = self.get_current_snapshot_data()
+	var snapshot = self.get_current_snapshot()
 
 	# パースするな
-	snapshot_data.set_parse_lock(true)
+	snapshot.set_parse_lock(true)
 
 	# 台本の段落の再生
 	$"./AssistantDirector".play_paragraph()
 
 	# 表示
-	self.get_department_manager(str(snapshot_data.name)).appear()
+	self.get_department_manager(str(snapshot.name)).appear()
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -118,13 +118,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　部門移動")
 
 				# 現在の部門を隠す
-				self.get_department_manager(str(self.get_current_snapshot_data().name)).disappear()
+				self.get_department_manager(str(self.get_current_snapshot().name)).disappear()
 
 				# 部門変更
 				self.current_department = next_department
 
 				# 現在の部門を再表示
-				self.get_department_manager(str(self.get_current_snapshot_data().name)).appear()
+				self.get_department_manager(str(self.get_current_snapshot().name)).appear()
 
 				# 台本の段落の再生
 				$"./AssistantDirector".play_paragraph()

@@ -11,14 +11,14 @@ func get_scenarion_writer():
 	return $"../../../ScenarioWriter"
 
 func get_message_window():
-	var snapshot_data = self.get_snapshot_data()
-	var window_name = str(snapshot_data.message_window_name_obj)
+	var snapshot = self.get_snapshot()
+	var window_name = str(snapshot.message_window_name_obj)
 	
 	return $"../../../GuiArtist/WindowsOfMessage".get_node(window_name)
 
 
 #	同名のデパートメント・スナップショット取得
-func get_snapshot_data():
+func get_snapshot():
 	var department_name = str(self.name)
 	return $"../../../../Director".snapshots[department_name]
 

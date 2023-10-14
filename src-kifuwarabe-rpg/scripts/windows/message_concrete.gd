@@ -7,7 +7,7 @@ var statemachine_of_message_window = load("res://scripts/statemachines/message_w
 
 
 # 関数の変数
-var director_get_current_snapshot_data = null
+var director_get_current_snapshot = null
 
 
 var is_appear = true
@@ -23,13 +23,13 @@ func get_musician():
 	return $"../../../Musician"
 
 
-func set_director_get_current_snapshot_data_subtree(it):
-	self.director_get_current_snapshot_data = it
+func set_director_get_current_snapshot_subtree(it):
+	self.director_get_current_snapshot = it
 
 	# 子ノード
 	for child in $"CanvasLayer/TextBlock".get_children():
-		if child.has_method("set_director_get_current_snapshot_data_subtree"):
-			child.set_director_get_current_snapshot_data_subtree(it)
+		if child.has_method("set_director_get_current_snapshot_subtree"):
+			child.set_director_get_current_snapshot_subtree(it)
 
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -40,10 +40,10 @@ func redirect_me():
 
 	print("［伝言窓　”" + self.name + "”］　リダイレクトしてきた")
 
-	var snapshot_data = self.director_get_current_snapshot_data.call()
+	var snapshot = self.director_get_current_snapshot.call()
 
 	# 新しいウィンドウ
-	snapshot_data.message_window_name_obj = self.name # StringName 型。 String ではない
+	snapshot.message_window_name_obj = self.name # StringName 型。 String ではない
 
 
 # 先頭行と、それ以外に分けます
@@ -136,10 +136,10 @@ func on_unhandled_key_input(event):
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
 
-		var snapshot_data = self.director_get_current_snapshot_data.call()
+		var snapshot = self.director_get_current_snapshot.call()
 
 		# 選択肢モードなら
-		if snapshot_data.is_choices():
+		if snapshot.is_choices():
 			
 			# 押下時
 			if event.is_pressed():
@@ -187,13 +187,13 @@ func on_talked_2():
 	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
-	var snapshot_data = self.director_get_current_snapshot_data.call()
+	var snapshot = self.director_get_current_snapshot.call()
 
 	# テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 
 	# 選択肢なら
-	if snapshot_data.is_choices():
+	if snapshot.is_choices():
 		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
@@ -214,10 +214,10 @@ func on_talked_2():
 
 # ページ送り
 func on_page_forward():
-	var snapshot_data = self.director_get_current_snapshot_data.call()
+	var snapshot = self.director_get_current_snapshot.call()
 
 	# 選択肢モードなら
-	if snapshot_data.is_choices():
+	if snapshot.is_choices():
 
 		# カーソル音
 		self.get_musician().playSe("選択肢確定音")
@@ -229,7 +229,7 @@ func on_page_forward():
 		self.get_assistant_director().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
-		snapshot_data.choices_row_numbers = null
+		snapshot.choices_row_numbers = null
 		
 	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
@@ -238,7 +238,7 @@ func on_page_forward():
 		self.get_musician().playSe("ページめくり音")
 		
 		# パースを開始してよい
-		self.director_get_current_snapshot_data.call().set_parse_lock(false)
+		self.director_get_current_snapshot.call().set_parse_lock(false)
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック
@@ -253,12 +253,12 @@ func on_page_forward():
 
 
 func on_all_characters_pushed():
-	var snapshot_data = self.director_get_current_snapshot_data.call()
+	var snapshot = self.director_get_current_snapshot.call()
 
 	# テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 	# 選択肢
-	if snapshot_data.is_choices():
+	if snapshot.is_choices():
 		# 文末ブリンカー	状態機械［考える］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 
@@ -279,10 +279,10 @@ func on_all_pages_flushed():
 	# テキストが空っぽ
 	text_block_node.text = ""
 
-	var snapshot_data = self.director_get_current_snapshot_data.call()
+	var snapshot = self.director_get_current_snapshot.call()
 
 	# 選択肢
-	if snapshot_data.is_choices():
+	if snapshot.is_choices():
 		# 全てのブリンカー　状態機械［決めた］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 	else:
@@ -323,9 +323,9 @@ func _process(delta):
 	# タイプライター風表示中
 	elif self.statemachine_of_message_window.is_typewriter():
 
-		var snapshot_data = self.director_get_current_snapshot_data.call()
+		var snapshot = self.director_get_current_snapshot.call()
 
-		snapshot_data.count_of_typewriter += delta
+		snapshot.count_of_typewriter += delta
 
 		# １文字 50ms でも、結構ゆっくり
 		var wait_time = 0.05
@@ -335,19 +335,19 @@ func _process(delta):
 			# print("［テキストブロック］　メッセージの早送り")
 			wait_time = 0.01
 	
-		if wait_time <= snapshot_data.count_of_typewriter:
+		if wait_time <= snapshot.count_of_typewriter:
 
 			# TODO キャッシュ化したい
 			# テキストブロック
 			var text_block_node = self.get_node("CanvasLayer/TextBlock")
 
-			if 0 < snapshot_data.text_block_buffer.length():
+			if 0 < snapshot.text_block_buffer.length():
 				# バッファーの先頭の１文字を切り取って、テキストブロックへ移動
-				text_block_node.text += snapshot_data.text_block_buffer.substr(0, 1)
-				snapshot_data.text_block_buffer = snapshot_data.text_block_buffer.substr(1)
+				text_block_node.text += snapshot.text_block_buffer.substr(0, 1)
+				snapshot.text_block_buffer = snapshot.text_block_buffer.substr(1)
 			else:
 				# 完全表示中
 				print("［伝言窓　”" + self.name + "”］　プロセス　完全表示中だ")
 				self.statemachine_of_message_window.all_characters_pushed()
 			
-			snapshot_data.count_of_typewriter -= wait_time
+			snapshot.count_of_typewriter -= wait_time
