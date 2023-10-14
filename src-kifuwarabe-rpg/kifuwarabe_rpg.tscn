@@ -506,20 +506,20 @@ label_settings = SubResource("LabelSettings_6ksp3")
 
 [node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
 layout_mode = 0
-offset_left = 642.0
-offset_top = 94.0
-offset_right = 674.0
-offset_bottom = 139.0
+offset_left = 643.0
+offset_top = 92.0
+offset_right = 675.0
+offset_bottom = 137.0
 text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
 
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
 layout_mode = 0
-offset_left = 640.0
-offset_top = 102.0
-offset_right = 672.0
-offset_bottom = 147.0
+offset_left = 641.0
+offset_top = 100.0
+offset_right = 673.0
+offset_bottom = 145.0
 text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
