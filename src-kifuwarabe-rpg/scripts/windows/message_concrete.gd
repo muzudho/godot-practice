@@ -91,26 +91,6 @@ func set_visible_subtree(
 				child.set_visible_subtree(is_visible)
 
 
-#	下位ノードで選択肢が選ばれたとき、その行番号が渡されてくる
-func on_choice_selected():
-	#	カーソル音
-	self.get_musician().playSe("選択肢確定音")
-
-	var row_number = self.get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number	
-	print("［メッセージウィンドウ　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
-
-	#	選択肢の行番号を、上位ノードへエスカレーションします
-	self.get_assistant_director().on_choice_selected(row_number)
-
-	#	テキストブロック	
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	if true:
-		#		全てのブリンカー　状態機械［決めた］
-		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
-		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
-
-
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
 func on_unhandled_key_input(event):
 	print("［メッセージウィンドウ　”" + self.name + "”］　アンハンドルド・キー入力")
@@ -131,7 +111,8 @@ func on_unhandled_key_input(event):
 					
 				else:
 					#	選択肢を確定した
-					self.on_choice_selected()
+					#	ページ送り
+					self.statemachine_of_message_window.page_forward()
 					return
 		
 		#	それ以外なら
@@ -212,10 +193,26 @@ func on_talk(
 
 #	ページ送り
 func on_page_forward():
-	print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
+	#	選択肢モードなら
+	if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
 
-	#	効果音
-	self.get_musician().playSe("ページめくり音")
+		#	カーソル音
+		self.get_musician().playSe("選択肢確定音")
+
+		var row_number = self.get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number	
+		print("［メッセージウィンドウ　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
+
+		#	選択肢の行番号を、上位ノードへエスカレーションします
+		self.get_assistant_director().on_choice_selected(row_number)
+		
+	else:	
+		print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
+
+		#	効果音
+		self.get_musician().playSe("ページめくり音")
+		
+		self.is_visible_initialized = false
+		self.awaiting_order()
 
 	#	空っぽのウィンドウを残して、次の指示を待ちます
 	#	テキストブロック
@@ -229,9 +226,6 @@ func on_page_forward():
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
-
-	self.is_visible_initialized = false
-	self.awaiting_order()
 
 
 func on_all_characters_pushed():
