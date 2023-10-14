@@ -1,12 +1,5 @@
 #	システム・メニュー・デパートメント・マネージャー（System Menu Department Manager；システム・メニュー部管理人）
-extends Node
-
-
-var is_appear = false
-
-
-func get_message_window(node_name):
-	return $"../../../GuiArtist/WindowsOfMessage".get_node(node_name)
+extends AbstractDepartmentManager
 
 
 #	居なくなる
@@ -39,3 +32,10 @@ func appear():
 
 	#	場所が非表示中なら、表示する
 	# $"../../../LocationCoordinator".show_current_location(str(self.name))
+
+
+#	メッセージの追加
+func push_message(temp_text):
+	# メッセージ・ウィンドウの表示
+	# TODO メッセージ・ウィンドウが　どれぐらい文字を表示してるかを　スナップショットに記憶したい
+	self.get_message_window("中央").statemachine_of_message_window.talk(temp_text)

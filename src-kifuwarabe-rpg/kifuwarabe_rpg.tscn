@@ -41,10 +41,10 @@
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/CenterWindow.png" id="35_sw6cw"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
-[ext_resource type="Script" path="res://scripts/managements/visual_novel_department.gd" id="44_eavrs"]
+[ext_resource type="Script" path="res://scripts/managers/visual_novel_department.gd" id="42_4vwru"]
+[ext_resource type="Script" path="res://scripts/managers/system_menu_department.gd" id="43_u5e5k"]
 [ext_resource type="Script" path="res://scripts/snapshots/visual_novel_department.gd" id="44_uxi6d"]
 [ext_resource type="Script" path="res://scripts/snapshots/system_menu_department.gd" id="45_e8lmg"]
-[ext_resource type="Script" path="res://scripts/managements/system_menu_department.gd" id="45_eu2ok"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -649,10 +649,10 @@ script = ExtResource("23_5s8w2")
 [node name="Managers" type="Node" parent="System"]
 
 [node name="VisualNovelDepartment" type="Node" parent="System/Managers"]
-script = ExtResource("44_eavrs")
+script = ExtResource("42_4vwru")
 
 [node name="SystemMenuDepartment" type="Node" parent="System/Managers"]
-script = ExtResource("45_eu2ok")
+script = ExtResource("43_u5e5k")
 
 [node name="Snapshots" type="Node" parent="System"]
 

@@ -1,12 +1,5 @@
 #	ビジュアル・ノベル・デパートメント・マネージャー（Visual Novel Department Manager；ビジュアル・ノベル部管理人）
-extends Node
-
-
-var is_appear = false
-
-
-func get_message_window(node_name):
-	return $"../../../GuiArtist/WindowsOfMessage".get_node(node_name)
+extends AbstractDepartmentManager
 
 
 #	居なくなる
