@@ -977,4 +977,9 @@ func turn_off():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　点滅の状態も機械に」  
 
+![202310__godot__14-1528--Cursor-o2o0.png](https://crieit.now.sh/upload_images/f6c0d0ba4f5995d32780e9635324b50f652a3551abf91.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　非表示のウィンドウのカーソルが　見えてる」  
+
 .
