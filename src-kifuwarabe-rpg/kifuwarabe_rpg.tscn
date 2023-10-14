@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=56 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_book.gd" id="2_be741"]
@@ -153,8 +153,6 @@ var is_visible_initialized = false
 
 
 "
-
-[sub_resource type="GDScript" id="GDScript_h4hmn"]
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
@@ -579,7 +577,7 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = SubResource("GDScript_h4hmn")
+script = ExtResource("33_1xmx8")
 
 [node name="WindowsOfViewing" type="Node2D" parent="GuiArtist"]
 visible = false

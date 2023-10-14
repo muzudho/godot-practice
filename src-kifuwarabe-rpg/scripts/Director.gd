@@ -110,7 +110,7 @@ func _unhandled_key_input(event):
 
 				#	［中央］メッセージ・ウィンドウを表示する
 				$"AssistantDirector/MWnd".redirect_message_window("中央")
-				$"AssistantDirector/NormalTextChoice".push_message("""\
+				$"AssistantDirector/NormalTextChoice".push_message(&"中央", """\
 　・再開
 　・終了
 """,

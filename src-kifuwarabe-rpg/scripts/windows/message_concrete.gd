@@ -24,7 +24,7 @@ func get_snapshot(department_node_name):
 func redirect_me():
 
 	# 全ての文字は吐き出されたものとする
-	self.statemachine_of_message_window.all_pages_flushed()
+	# self.statemachine_of_message_window.all_pages_flushed()
 
 	print("［メッセージウィンドウ　”" + self.name + "”］　リダイレクトしてきた")
 	
@@ -155,14 +155,12 @@ func on_talk(
 			snapshot.is_choice_mode = true
 			snapshot.choice_row_numbers = choices_row_numbers
 
-		#	テキストブロック
-		if true:
-			# メッセージエンド・ブリンカー　状態機械［決めた］
-			text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
-			text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
-			
-			# メッセージエンド・ブリンカー　状態機械［考える］
-			text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
+		# メッセージエンド・ブリンカー　状態機械［決めた］
+		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
+		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+		
+		# メッセージエンド・ブリンカー　状態機械［考える］
+		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 
 	#	それ以外なら
 	else:
@@ -173,14 +171,12 @@ func on_talk(
 			snapshot.is_choice_mode = false
 			snapshot.choice_row_numbers = []
 
-		#	テキストブロック
-		if true:
-			# メッセージエンド・ブリンカー　状態機械［決めた］
-			text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
-			
-			# メッセージエンド・ブリンカー　状態機械［考える］
-			text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
-			text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
+		# メッセージエンド・ブリンカー　状態機械［決めた］
+		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+		
+		# メッセージエンド・ブリンカー　状態機械［考える］
+		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
+		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
 
 
 #	ページ送り
@@ -220,14 +216,14 @@ func on_page_forward():
 func on_all_characters_pushed():
 	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	#		エンド・オブ・メッセージ・ブリンカー	状態機械［考える］
-	#
-	#			選択肢
+	#	選択肢
 	if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+		#	文末ブリンカー	状態機械［考える］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 
-	#			それ以外
+	#	それ以外
 	else:
+		#	文末ブリンカー	状態機械［考える］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
 
@@ -239,13 +235,16 @@ func on_all_pages_flushed():
 
 	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	if true:
-		#		テキストが空っぽ
-		text_block_node.text = ""
-		#		全てのブリンカー　状態機械［決めた］
+	#		テキストが空っぽ
+	text_block_node.text = ""
+	#	選択肢
+	if self.get_snapshot("VisualNovelDepartment").is_choice_mode:
+		#	全てのブリンカー　状態機械［決めた］
+		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+	else:
+		#	全てのブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 
 	#	この要素の初期状態は、非表示、透明
 	self.set_visible_subtree(false)
