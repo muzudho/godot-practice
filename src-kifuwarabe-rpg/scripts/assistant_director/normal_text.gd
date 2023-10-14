@@ -3,11 +3,11 @@ extends Node
 
 
 # 関数の変数
-var director_get_current_snapshot = null
+var director_get_current_snapshot_data = null
 
 
-func set_director_get_current_snapshot_subtree(it):
-	self.director_get_current_snapshot = it
+func set_director_get_current_snapshot_data_subtree(it):
+	self.director_get_current_snapshot_data = it
 
 
 # それをする
@@ -20,12 +20,12 @@ func put_textblock(
 		temp_text):		# str
 
 	# メッセージの追加
-	var snapshot = self.director_get_current_snapshot.call()
-	snapshot.remember(temp_text)
+	var snapshot_data = self.director_get_current_snapshot_data.call()
+	snapshot_data.remember(temp_text)
 
 	# 会話の開始
-	var manager = snapshot.get_manager()
+	var manager = $"../../../Director".get_department_manager(str(snapshot_data.name))
 	manager.talk()
 
 	# パースをするな
-	snapshot.set_parse_lock(true)
+	snapshot_data.set_parse_lock(true)

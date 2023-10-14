@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=60 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -44,6 +44,9 @@
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
 [ext_resource type="Script" path="res://scripts/managers/visual_novel_department.gd" id="42_4vwru"]
 [ext_resource type="Script" path="res://scripts/managers/system_menu_department.gd" id="43_u5e5k"]
+[ext_resource type="Script" path="res://scripts/snapshots/visual_novel_department.gd" id="44_uxi6d"]
+[ext_resource type="Script" path="res://scripts/snapshots/main.gd" id="45_ae2lq"]
+[ext_resource type="Script" path="res://scripts/snapshots/system_menu_department.gd" id="45_e8lmg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -656,3 +659,14 @@ script = ExtResource("42_4vwru")
 
 [node name="システムメニュー部門" type="Node" parent="System/Managers"]
 script = ExtResource("43_u5e5k")
+
+[node name="Snapshots" type="Node" parent="System"]
+
+[node name="Main" type="Node" parent="System/Snapshots"]
+script = ExtResource("45_ae2lq")
+
+[node name="ビジュアルノベル部門" type="Node" parent="System/Snapshots"]
+script = ExtResource("44_uxi6d")
+
+[node name="システムメニュー部門" type="Node" parent="System/Snapshots"]
+script = ExtResource("45_e8lmg")

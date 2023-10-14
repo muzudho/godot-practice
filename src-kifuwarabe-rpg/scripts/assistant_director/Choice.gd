@@ -3,11 +3,11 @@ extends Node
 
 
 # 関数の変数
-var director_get_current_snapshot = null
+var director_get_current_snapshot_data = null
 
 
-func set_director_get_current_snapshot_subtree(it):
-	self.director_get_current_snapshot = it
+func set_director_get_current_snapshot_data_subtree(it):
+	self.director_get_current_snapshot_data = it
 
 
 # それをする
@@ -20,7 +20,7 @@ func do_it(line):
 	# 文字列パック配列を、数値の配列に変換	
 	var number_array = self.convert_string_packed_array_to_number_array(string_packed_array)
 
-	self.director_get_current_snapshot.call().choices_row_numbers = number_array
+	self.director_get_current_snapshot_data.call().choices_row_numbers = number_array
 
 
 # 文字列パック配列を、数値の配列に変換

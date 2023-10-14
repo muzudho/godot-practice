@@ -3,9 +3,14 @@
 extends Node2D
 
 
+var DepartmentSnapshot = load("res://scripts/department_snapshot.gd")
+
+
 # 現在の部門
 var current_department = null
 
+# スナップショット辞書
+var snapshots = {}
 
 # 主シナリオ
 func get_main_scenario():
@@ -18,19 +23,19 @@ func get_department_manager(department_name):
 
 
 # スナップショット
-func get_snapshot(department_name):
-	return $"System/Snapshots".get_node(department_name)
+func get_snapshot_data(department_name):
+	return self.snapshots[department_name]
 
 
-func get_current_snapshot():
-	return self.get_snapshot(self.current_department)
+func get_current_snapshot_data():
+	return self.get_snapshot_data(self.current_department)
 
 
 # メッセージ・ウィンドウ
 func get_message_window():
-	var snapshot = self.get_current_snapshot()
+	var snapshot_data = self.get_current_snapshot_data()
 
-	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
+	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot_data.message_window_name_obj))
 
 
 # サブツリーが全てインスタンス化されたときに呼び出される
@@ -38,12 +43,21 @@ func get_message_window():
 func _ready():
 
 	# 子要素にメンバーを渡す
-	$"AssistantDirector".set_director_get_current_snapshot_subtree(self.get_current_snapshot)
-
-	# メッセージ・ウィンドウ
+	$"AssistantDirector".set_director_get_current_snapshot_data_subtree(self.get_current_snapshot_data)
+	# 	メッセージ・ウィンドウ
 	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
-		message_window.set_director_get_current_snapshot_subtree(self.get_current_snapshot)
+		message_window.set_director_get_current_snapshot_data_subtree(self.get_current_snapshot_data)
 
+	# スナップショット辞書作成
+	for department in $"ScenarioWriter".get_children():
+		# Main は覗く
+		if department.name != "Main":
+			self.snapshots[department.name] = DepartmentSnapshot.new()
+			# （めんどくさいけど）Main シナリオからプロパティを移す
+			var department_initial_properties = self.get_main_scenario().department_initial_properties[department.name]
+			self.snapshots[department.name].name = department.name
+			self.snapshots[department.name].message_window_name_obj = department_initial_properties["message_window_name_obj"]
+			self.snapshots[department.name].paragraph_name = department_initial_properties["paragraph_name"]
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	#
@@ -75,16 +89,16 @@ func _ready():
 	self.current_department = self.get_main_scenario().start_department
 
 
-	var snapshot = self.get_current_snapshot()
+	var snapshot_data = self.get_current_snapshot_data()
 
 	# パースするな
-	snapshot.set_parse_lock(true)
+	snapshot_data.set_parse_lock(true)
 
 	# 台本の段落の再生
 	$"./AssistantDirector".play_paragraph()
 
 	# 表示
-	snapshot.get_manager().appear()
+	self.get_department_manager(str(snapshot_data.name)).appear()
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -104,13 +118,13 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　部門移動")
 
 				# 現在の部門を隠す
-				self.get_current_snapshot().get_manager().disappear()
+				self.get_current_snapshot_data().get_manager().disappear()
 
 				# 部門変更
 				self.current_department = next_department
 
 				# 現在の部門を再表示
-				self.get_current_snapshot().get_manager().appear()
+				self.get_current_snapshot_data().get_manager().appear()
 
 				# 台本の段落の再生
 				$"./AssistantDirector".play_paragraph()

@@ -1,7 +1,7 @@
-# アブストラクト・デパートメント・スナップショット（Abstract Department Snapshot；抽象的なこの瞬間の状態）
-extends Node
+# デパートメント・スナップショット（Department Snapshot；部門の瞬間の状態）
+extends Object
 
-class_name AbstractDepartmentSnapshot
+class_name DepartmentSnapshot
 
 # パースをするな
 var parse_lock_flag = true
@@ -21,6 +21,14 @@ var count_of_typewriter = 0
 # 表示中の場所のノード名。無ければ空文字列
 var location_node_name = ""
 
+# メッセージを出力する対象となるノードの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
+var message_window_name_obj = null		# StringName 型 シンタックス・シュガー
+
+# 段落名
+var paragraph_name = null
+
+# 部門名
+var name = null
 
 # パースをするな
 func set_parse_lock(flag):
@@ -29,12 +37,6 @@ func set_parse_lock(flag):
 # パース禁止か？
 func is_parse_lock():
 	return self.parse_lock_flag
-
-
-# 同名のデパートメント・マネージャー取得
-func get_manager():
-	var department_name = str(self.name)
-	return $"../../Managers".get_node(department_name)
 
 
 # 選択肢か？

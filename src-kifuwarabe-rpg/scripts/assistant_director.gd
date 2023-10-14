@@ -3,7 +3,7 @@ extends Node
 
 
 # 関数の変数
-var director_get_current_snapshot = null
+var director_get_current_snapshot_data = null
 
 
 # ビジュアル・ノベル部のこの瞬間の状態
@@ -18,9 +18,9 @@ func get_message_window(
 
 # メッセージ・ウィンドウ
 func get_current_message_window():
-	var snapshot = self.director_get_current_snapshot.call()
+	var snapshot_data = self.director_get_current_snapshot_data.call()
 
-	return $"../GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
+	return $"../GuiArtist/WindowsOfMessage".get_node(str(snapshot_data.message_window_name_obj))
 
 
 # ビジュアル・ノベル部のこの瞬間の状態
@@ -28,28 +28,28 @@ func get_snapshot(department_node_name):
 	return $"../System/Snapshots".get_node(department_node_name)
 
 
-func set_director_get_current_snapshot_subtree(it):
-	self.director_get_current_snapshot = it
+func set_director_get_current_snapshot_data_subtree(it):
+	self.director_get_current_snapshot_data = it
 
 	# 子ノード
 	for child in self.get_children():
-		if child.has_method("set_director_get_current_snapshot_subtree"):
-			child.set_director_get_current_snapshot_subtree(it)
+		if child.has_method("set_director_get_current_snapshot_data_subtree"):
+			child.set_director_get_current_snapshot_data_subtree(it)
 
 
 func change_paragraph(paragraph_name):
-	var snapshot = self.director_get_current_snapshot.call()
-	snapshot.paragraph_name = paragraph_name
+	var snapshot_data = self.director_get_current_snapshot_data.call()
+	snapshot_data.paragraph_name = paragraph_name
 
 
 # TODO 自律的自動実行できないか？
 # 台本の再生段落の変更
 func play_paragraph():
-	var snapshot = self.director_get_current_snapshot.call()
+	var snapshot_data = self.director_get_current_snapshot_data.call()
 	var message_window = self.get_current_message_window()
 		
 	# 全部消化済みの場合
-	if snapshot.scenario_array.size() < 1:
+	if snapshot_data.scenario_array.size() < 1:
 		print("［アシスタント・ディレクター］　段落バッファーが空になってる")
 		
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
@@ -60,17 +60,17 @@ func play_paragraph():
 		
 		# シナリオ・ブックから、内容を取出す
 		print("［アシスタント・ディレクター］　（段落バッファーが空になってるから）シナリオ・ブックから、段落を取出す")
-		snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
+		snapshot_data.scenario_array = $"../ScenarioWriter".get_node(str(snapshot_data.name)).document[snapshot_data.paragraph_name]
 
 	# パースを開始してよくないケースもあるが？
 	# バッファーが残ってるときとか
-	if not snapshot.has_text_block_buffer():
+	if not snapshot_data.has_text_block_buffer():
 		# Completed 時もパース始めたらよくない
 		if not message_window.statemachine_of_message_window.is_completed():
 			# TODO 選択肢のときもややこしいが
 			print("［アシスタント・ディレクター］　パースを開始してよい（本当か？）")
 			# パースを開始してよい
-			snapshot.set_parse_lock(false)
+			snapshot_data.set_parse_lock(false)
 
 
 # メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -88,9 +88,9 @@ func on_choice_selected(row_number):
 	self.get_current_message_window().statemachine_of_message_window.all_pages_flushed()
 
 
-	var snapshot = self.director_get_current_snapshot.call()
-	var department_name = str(snapshot.name)
-	var paragraph_name = snapshot.paragraph_name
+	var snapshot_data = self.director_get_current_snapshot_data.call()
+	var department_name = str(snapshot_data.name)
+	var paragraph_name = snapshot_data.paragraph_name
 	
 	print("［アシスタント・ディレクター］　現在の部門名　　　：" + department_name)
 	print("［アシスタント・ディレクター］　現在の段落名　　　：" + paragraph_name)
@@ -191,10 +191,10 @@ func parse_message(temp_text):
 		#	［ト書き］終わり
 		return
 
-	var snapshot = self.director_get_current_snapshot.call()
+	var snapshot_data = self.director_get_current_snapshot_data.call()
 
 	# 選択肢だ
-	if snapshot.choices_row_numbers != null:
+	if snapshot_data.choices_row_numbers != null:
 		$"NormalTextChoice".do_it(temp_text)
 		return
 
@@ -213,16 +213,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 
-	var snapshot = self.director_get_current_snapshot.call()
+	var snapshot_data = self.director_get_current_snapshot_data.call()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
-	if not snapshot.is_parse_lock():
+	if not snapshot_data.is_parse_lock():
 		
 		# まだあるよ
-		if 0 < snapshot.scenario_array.size():
+		if 0 < snapshot_data.scenario_array.size():
 		
 			# 次に表示するべきメッセージを取得
-			var latest_message = snapshot.scenario_array.pop_front()
+			var latest_message = snapshot_data.scenario_array.pop_front()
 
 			# TODO ここで、命令と、台詞に分解したい
 			self.parse_message(latest_message)
