@@ -225,7 +225,7 @@ func _process(delta):
 
 		var snapshot = self.director_get_current_snapshot.call()
 		# 動くカーソル用
-		if snapshot.is_choice_mode:
+		if snapshot.is_choices():
 
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:

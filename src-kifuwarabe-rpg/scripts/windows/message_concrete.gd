@@ -147,7 +147,7 @@ func on_unhandled_key_input(event):
 		var snapshot = self.director_get_current_snapshot.call()
 
 		# 選択肢モードなら
-		if snapshot.is_choice_mode:
+		if snapshot.is_choices():
 			
 			# 何かキーを押したとき
 			if event.is_pressed():
@@ -190,7 +190,7 @@ func on_talked_2():
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 
 	# 選択肢なら
-	if snapshot.is_choice_mode:
+	if snapshot.is_choices():
 		print("［メッセージウィンドウ　”" + self.name + "”］　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
@@ -230,15 +230,11 @@ func on_remembered(
 	# 選択肢なら
 	if choices_row_numbers != null:
 		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
-
-		snapshot.is_choice_mode = true
 		snapshot.choices_row_numbers = choices_row_numbers
 
 	# それ以外なら
 	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
-
-		snapshot.is_choice_mode = false
 		snapshot.choices_row_numbers = null
 
 
@@ -247,7 +243,7 @@ func on_page_forward():
 	var snapshot = self.director_get_current_snapshot.call()
 
 	# 選択肢モードなら
-	if snapshot.is_choice_mode:
+	if snapshot.is_choices():
 
 		# カーソル音
 		self.get_musician().playSe("選択肢確定音")
@@ -260,7 +256,6 @@ func on_page_forward():
 
 		# 選択肢はお役御免
 		snapshot.choices_row_numbers = null
-		snapshot.is_choice_mode = false
 		
 	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　ページ送り")
@@ -288,7 +283,7 @@ func on_all_characters_pushed():
 	# テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
 	# 選択肢
-	if snapshot.is_choice_mode:
+	if snapshot.is_choices():
 		# 文末ブリンカー	状態機械［考える］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 
@@ -312,7 +307,7 @@ func on_all_pages_flushed():
 	var snapshot = self.director_get_current_snapshot.call()
 
 	# 選択肢
-	if snapshot.is_choice_mode:
+	if snapshot.is_choices():
 		# 全てのブリンカー　状態機械［決めた］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 	else:

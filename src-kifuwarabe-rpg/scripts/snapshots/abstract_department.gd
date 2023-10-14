@@ -7,8 +7,6 @@ class_name AbstractDepartmentSnapshot
 var is_message_window_waiting_for_order = false
 
 # 選択肢
-#	選択肢モード
-var is_choice_mode = false
 #	選択肢の行番号用配列。無ければヌル
 var choices_row_numbers = null
 
@@ -33,3 +31,8 @@ func set_message_window_waiting_for_order(flag):
 func get_manager():
 	var department_name = str(self.name)
 	return $"../../Managers".get_node(department_name)
+
+
+# 選択肢か？
+func is_choices():
+	return self.choices_row_numbers != null
