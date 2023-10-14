@@ -136,7 +136,7 @@ func on_decided():
 
 	
 func on_thought():
-	pass
+	self.emptize()
 
 
 func on_sought():

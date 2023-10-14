@@ -82,17 +82,11 @@ func emptize_end_of_message_blinker():
 	#	空欄に戻します（ウィンドウは消しません）
 	print("［メッセージウィンドウ　”" + self.name + "”］　空欄化")
 
+	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-
-	# テキストが空っぽ
+	#		テキストが空っぽ
 	text_block_node.text = ""
-
-	# ブリンカーを透明にして表示しておく
-	text_block_node.get_node("BlinkerTriangle").emptize()
-	text_block_node.get_node("BlinkerUnderscore").emptize()
-	text_block_node.get_node("ChoiceCursor").emptize()
-
-	#	表示
+	#		表示
 	text_block_node.show()
 
 
