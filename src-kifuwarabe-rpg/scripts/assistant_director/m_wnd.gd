@@ -1,9 +1,9 @@
-#	エム・ワンド、メッセージ・ウィンドウ（M-Wnd, Message Window；伝言窓）
-#		どのメッセージ・ウィンドウにメッセージを出力するか指定する
+# エム・ワンド、メッセージ・ウィンドウ（M-Wnd, Message Window；伝言窓）
+#	どのメッセージ・ウィンドウにメッセージを出力するか指定する
 extends Node
 
 
-#	関数
+# 関数
 var redirect_concrete_message_window_by_name = null
 
 
@@ -11,7 +11,7 @@ func before_initialize(redirect_concrete_message_window_by_name):
 	self.redirect_concrete_message_window_by_name = redirect_concrete_message_window_by_name
 
 
-#	それをする
+# それをする
 func do_it(line):
 
 	var node_name = line.substr(6).strip_edges()

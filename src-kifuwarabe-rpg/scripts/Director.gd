@@ -96,11 +96,12 @@ func _ready():
 
 	#	初回起動時、ビジュアルノベル部を再生
 	self.statemachine_of_director.play_visual_novel()
+	
+	var snapshot = self.get_current_snapshot()	
 	#	表示
-	self.get_department_manager("VisualNovelDepartment").appear()
-
+	snapshot.get_manager().appear()
 	#	台本の再生の開始の合図
-	$"./AssistantDirector".play_paragraph("タイトル画面")
+	$"./AssistantDirector".play_paragraph(snapshot.paragraph_name)
 
 
 #	テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -119,19 +120,17 @@ func _unhandled_key_input(event):
 			if self.statemachine_of_director.is_playing_visual_novel():
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　システム・メニュー部へ遷移")
 
-				#	ビジュアルノベル部を想定
-				var snapshot = self.get_current_snapshot()
-				#	隠す
-				snapshot.get_manager().disappear()
+				# 現在の部門を隠す
+				self.hide_current_department()
 				
 				#	システムメニュー再生
 				self.statemachine_of_director.play_system_menu()
-				snapshot = self.get_current_snapshot()
-				#	表示
-				snapshot.get_manager().appear()
-
-				#	［中央］メッセージ・ウィンドウを表示する
-				$"AssistantDirector/MWnd".redirect_message_window("中央")
+				
+				# 現在の部門を表示
+				self.show_current_department()
+				
+#				#	［中央］メッセージ・ウィンドウを表示する
+#				$"AssistantDirector/MWnd".redirect_message_window("中央")
 				$"AssistantDirector/NormalTextChoice".push_message(&"中央", """\
 　・再開
 　・終了
@@ -141,22 +140,17 @@ func _unhandled_key_input(event):
 			else:
 				print("［ディレクター］　アンハンドルド・キー押下　エスケープ・キー　ビジュアルノベル部へ遷移")
 
-				#	システムメニュー部を想定
-				var snapshot = self.get_current_snapshot()
-				#	隠す
-				snapshot.get_manager().disappear()
+				# 現在の部門を隠す
+				self.hide_current_department()
 				
 				#	ビジュアルノベル再生
 				self.statemachine_of_director.play_visual_novel()
-				snapshot = self.get_current_snapshot()
-				#	表示
-				snapshot.get_manager().appear()
-
-				#	［下］メッセージ・ウィンドウを表示する
-				$"AssistantDirector/MWnd".redirect_message_window("下")
 				
-				#	TODO 元のメッセージを復元する
-				$"AssistantDirector/NormalText".put_message(snapshot.text_block_buffer)
+				# 現在の部門を表示
+				self.show_current_department()
+				
+				##	［下］メッセージ・ウィンドウを表示する
+				#$"AssistantDirector/MWnd".redirect_message_window("下")
 
 			#	子要素には渡しません
 			return
@@ -168,3 +162,18 @@ func _unhandled_key_input(event):
 
 	else:
 		print("［ディレクター］　アンハンドルド・キー　押下以外")
+
+
+# 現在の部門を隠す
+func hide_current_department():
+	var snapshot = self.get_current_snapshot()
+	snapshot.get_manager().disappear()
+
+
+# 現在の部門を表示
+func show_current_department():
+	var snapshot = self.get_current_snapshot()
+	snapshot.get_manager().appear()
+
+	# TODO 元のメッセージを復元する
+	$"AssistantDirector/NormalText".put_message(snapshot.text_block_buffer)
