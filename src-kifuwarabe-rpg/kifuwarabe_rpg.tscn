@@ -499,14 +499,17 @@ offset_left = 319.0
 offset_top = 507.0
 offset_right = 1013.0
 offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
 label_settings = SubResource("LabelSettings_6ksp3")
 
 [node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 642.0
-offset_top = 95.0
+offset_top = 94.0
 offset_right = 674.0
-offset_bottom = 140.0
+offset_bottom = 139.0
 text = "▼"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
@@ -514,9 +517,9 @@ script = ExtResource("33_1xmx8")
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/下/CanvasLayer/TextBlock"]
 layout_mode = 0
 offset_left = 640.0
-offset_top = 103.0
+offset_top = 102.0
 offset_right = 672.0
-offset_bottom = 148.0
+offset_bottom = 147.0
 text = "＿"
 label_settings = SubResource("LabelSettings_6ksp3")
 script = ExtResource("33_1xmx8")
