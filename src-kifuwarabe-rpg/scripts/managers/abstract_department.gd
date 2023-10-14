@@ -34,11 +34,6 @@ func load_current_scenario():
 	# メッセージ・ウィンドウは、次の指示を待っています
 	#snapshot.is_message_window_waiting_for_order = true
 
-
-# メッセージの追加
-func remember(temp_text):
-	self.get_snapshot().remember(temp_text)
-
 # 会話開始
 func talk():
 	self.get_message_window().statemachine_of_message_window.talk()
