@@ -187,6 +187,6 @@ func _process(_delta):
 
 			# もう無いよ
 			else:
-				if not self.get_current_message_window().statemachine_concrete.is_none():
+				if not self.get_current_message_window().statemachine_of_message_window.is_none():
 					# メッセージ・ウィンドウを閉じる
 					self.get_current_message_window().statemachine_of_message_window.all_pages_flushed()

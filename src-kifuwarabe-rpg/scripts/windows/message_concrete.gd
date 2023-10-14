@@ -7,8 +7,7 @@ var statemachine_of_message_window = load("res://scripts/statemachines/message_w
 
 
 #	メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
-var statemachine_concrete = null
-var is_visible_initialized_concrete = false
+var is_visible_initialized = false
 
 
 #	アシスタント・ディレクターを取得
@@ -30,16 +29,14 @@ func get_snapshot(department_node_name):
 #		引数を渡すことが **初期化** との違いです
 func before_initialize(parent_statemachine):
 	#	親からステートマシンを引き継ぐ
-	self.statemachine_concrete = parent_statemachine
+	self.statemachine_of_message_window = parent_statemachine
 
 	#	テキストブロック
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	#		親からステートマシンを受け取る
-	text_block_node.statemachine_of_message_window = self.statemachine_of_message_window
 	#		子どもにも渡す
-	text_block_node.get_node("BlinkerTriangle").statemachine_of_message_window = text_block_node.statemachine_of_message_window
-	text_block_node.get_node("BlinkerUnderscore").statemachine_of_message_window = text_block_node.statemachine_of_message_window
-	text_block_node.get_node("ChoiceCursor").statemachine_of_message_window = text_block_node.statemachine_of_message_window
+	text_block_node.get_node("BlinkerTriangle").statemachine_of_message_window = self.statemachine_of_message_window
+	text_block_node.get_node("BlinkerUnderscore").statemachine_of_message_window = self.statemachine_of_message_window
+	text_block_node.get_node("ChoiceCursor").statemachine_of_message_window = self.statemachine_of_message_window
 
 
 #	初期化
@@ -75,7 +72,7 @@ func initialize_textblock():
 
 	#	非表示
 	text_block_node.hide()
-	text_block_node.is_visible_initialized = false
+	self.is_visible_initialized = false
 
 
 #	空欄化
@@ -97,7 +94,7 @@ func emptize():
 
 	#	表示
 	text_block_node.show()
-	text_block_node.is_visible_initialized = false
+	self.is_visible_initialized = false
 
 
 #	メッセージ出力先ウィンドウ変更。ノード名を指定
@@ -145,15 +142,16 @@ func push_message_concrete(
 	#	空欄化
 	self.emptize()
 
+	#	テキスト設定
+	self.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
+	
 	#	テキストブロック	
 	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-	#		テキスト設定
-	text_block_node.get_snapshot("VisualNovelDepartment").text_block_buffer = new_text
 	#	選択肢なら
 	if choices_row_numbers != null:
 		print("［テキストブロック］　選択肢：　[" + new_text + "]")
-		text_block_node.get_snapshot("VisualNovelDepartment").is_choice_mode = true
-		text_block_node.get_snapshot("VisualNovelDepartment").choice_row_numbers = choices_row_numbers
+		self.get_snapshot("VisualNovelDepartment").is_choice_mode = true
+		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = choices_row_numbers
 
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
@@ -162,8 +160,8 @@ func push_message_concrete(
 	#	それ以外なら
 	else:
 		print("［テキストブロック］　台詞：　[" + new_text + "]")
-		text_block_node.get_snapshot("VisualNovelDepartment").is_choice_mode = false
-		text_block_node.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
+		self.get_snapshot("VisualNovelDepartment").is_choice_mode = false
+		self.get_snapshot("VisualNovelDepartment").choice_row_numbers = []
 
 
 #	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
@@ -317,9 +315,12 @@ func _ready():
 	self.before_initialize(self.statemachine_of_message_window)
 
 
-func _process(_delta):
+func _process(delta):
+
+	# 非表示のときは働かない
 	if self.visible:
-		if self.statemachine_concrete.is_none():
+
+		if self.statemachine_of_message_window.is_none():
 			# 透明
 			if self.modulate.a != 0.0:
 				print("［メッセージウィンドウ　”" + self.name + "”］　状態が無いので透明化")
@@ -327,9 +328,38 @@ func _process(_delta):
 				# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 0.0	# 状態が無いので透明化
 
-		elif self.statemachine_concrete.is_typewriter():
-			if not self.is_visible_initialized_concrete:
-				# タイプライター風表示中の初回に可視化
+		# タイプライター風表示中
+		elif self.statemachine_of_message_window.is_typewriter():
+
+			# タイプライター風表示中の初回に可視化
+			if not self.is_visible_initialized:
 				# 不透明
+				self.visible = true		# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
 				self.modulate.a = 1.0	# TODO ここで自分の状態を変更するコードを書きたくない。エッジ―へ移動したい
-				self.is_visible_initialized_concrete = true
+				self.is_visible_initialized = true
+
+			self.get_snapshot("VisualNovelDepartment").count_of_typewriter += delta
+
+			# １文字 50ms でも、結構ゆっくり
+			var wait_time = 0.05
+		
+			# メッセージの早送り
+			if Input.is_key_pressed(KEY_R):
+				# print("［テキストブロック］　メッセージの早送り")
+				wait_time = 0.01
+		
+			if wait_time <= self.get_snapshot("VisualNovelDepartment").count_of_typewriter:
+
+				#	TODO キャッシュ化したい
+				#	テキストブロック
+				var text_block_node = self.get_node("CanvasLayer/TextBlock")
+
+				if 0 < self.get_snapshot("VisualNovelDepartment").text_block_buffer.length():
+					# １文字追加
+					text_block_node.text += self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(0, 1)
+					self.get_snapshot("VisualNovelDepartment").text_block_buffer = self.get_snapshot("VisualNovelDepartment").text_block_buffer.substr(1, self.get_snapshot("VisualNovelDepartment").text_block_buffer.length()-1)
+				else:
+					# 完全表示中
+					self.statemachine_of_message_window.all_characters_pushed()
+				
+				self.get_snapshot("VisualNovelDepartment").count_of_typewriter -= wait_time
