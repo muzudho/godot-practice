@@ -221,9 +221,6 @@ func on_remembered(
 	if is_override:
 		choices_row_numbers = snapshot.choices_row_number_array
 
-		# クリアー
-		snapshot.choices_row_number_array = null
-
 	# テキスト設定
 	snapshot.text_block_buffer = new_text
 
