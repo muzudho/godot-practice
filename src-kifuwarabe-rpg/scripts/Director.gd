@@ -45,8 +45,9 @@ func _ready():
 	# 子要素にメンバーを渡す
 	$"AssistantDirector".set_director_get_current_snapshot_subtree(self.get_current_snapshot)
 	# 	メッセージ・ウィンドウ
-	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
-		message_window.set_director_get_current_snapshot_subtree(self.get_current_snapshot)
+	for child in $"GuiArtist/WindowsOfMessage".get_children():
+		if child is Sprite2D:
+			child.set_director_get_current_snapshot_subtree(self.get_current_snapshot)
 
 	# スナップショット辞書作成
 	for department in $"ScenarioWriter".get_children():

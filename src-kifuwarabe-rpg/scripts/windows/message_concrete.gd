@@ -1,4 +1,4 @@
-# メッセージ・ウィンドウ（Concrete Message Window；伝言窓）
+# メッセージ・ウィンドウ（Message Window；伝言窓）
 extends Sprite2D
 
 
@@ -23,11 +23,23 @@ func get_musician():
 	return $"../../../Musician"
 
 
+func get_canvas_layer():
+	var canvas_layer_path = "../" + str(self.name) + "_CanvasLayer"
+	var canvas_layer = self.get_node(canvas_layer_path)
+	return canvas_layer
+
+
+func get_text_block():
+	var text_block_path = "../" + str(self.name) + "_CanvasLayer/TextBlock"
+	var text_block = self.get_node(text_block_path)
+	return text_block
+
+
 func set_director_get_current_snapshot_subtree(it):
 	self.director_get_current_snapshot = it
 
 	# 子ノード
-	for child in $"CanvasLayer/TextBlock".get_children():
+	for child in self.get_text_block().get_children():
 		if child.has_method("set_director_get_current_snapshot_subtree"):
 			child.set_director_get_current_snapshot_subtree(it)
 
@@ -71,7 +83,7 @@ func set_process_subtree(
 		self.set_process(is_process)
 
 		# 子ノード
-		for child in $"CanvasLayer/TextBlock".get_children():
+		for child in self.get_text_block().get_children():
 			if child.has_method("set_process_subtree"):
 				child.set_process_subtree(is_process)
 
@@ -88,10 +100,10 @@ func set_visible_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if is_visible != self.visible:
 		self.visible = is_visible
-		self.get_node("CanvasLayer").visible = is_visible
+		self.get_canvas_layer().visible = is_visible
 
 		# 子ノード
-		for child in $"CanvasLayer/TextBlock".get_children():
+		for child in self.get_text_block().get_children():
 			if child.has_method("set_visible_subtree"):
 				child.set_visible_subtree(is_visible)
 
@@ -108,11 +120,11 @@ func set_appear_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if is_appear != self.is_appear:
 		self.is_appear = is_appear
-		
+
 		if self.is_appear:
 			# 画面内に戻す
 			self.position += Vector2(0, -720)
-			$"CanvasLayer/TextBlock".position += Vector2(0, -720)
+			self.get_text_block().position += Vector2(0, -720)
 
 			# 停止してしまっているなら、再開する（すぐ停止するかもしれない）
 			if self.statemachine_of_message_window.is_none():
@@ -122,10 +134,10 @@ func set_appear_subtree(
 		else:
 			# 画面下の外に押し出す
 			self.position += Vector2(0, 720)
-			$"CanvasLayer/TextBlock".position -= Vector2(0, -720)
+			self.get_text_block().position -= Vector2(0, -720)
 
 		# 子ノード
-		for child in $"CanvasLayer/TextBlock".get_children():
+		for child in self.get_text_block().get_children():
 			if child.has_method("set_appear_subtree"):
 				child.set_appear_subtree(is_appear)
 
@@ -190,7 +202,7 @@ func on_talked_2():
 	var snapshot = self.director_get_current_snapshot.call()
 
 	# テキストブロック
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	var text_block_node = self.get_text_block()
 
 	# 選択肢なら
 	if snapshot.is_choices():
@@ -222,7 +234,7 @@ func on_page_forward():
 		# カーソル音
 		self.get_musician().playSe("選択肢確定音")
 
-		var row_number = self.get_node("CanvasLayer/TextBlock/ChoiceCursor").selected_row_number
+		var row_number = self.get_text_block().get_node("ChoiceCursor").selected_row_number
 		print("［メッセージウィンドウ　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
@@ -242,7 +254,7 @@ func on_page_forward():
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	var text_block_node = self.get_text_block()
 	if true:
 		# テキストが空っぽ
 		text_block_node.text = ""
@@ -256,7 +268,7 @@ func on_all_characters_pushed():
 	var snapshot = self.director_get_current_snapshot.call()
 
 	# テキストブロック
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	var text_block_node = self.get_text_block()
 	# 選択肢
 	if snapshot.is_choices():
 		# 文末ブリンカー	状態機械［考える］
@@ -275,7 +287,7 @@ func on_all_pages_flushed():
 	print("［メッセージ・ウィンドウ　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	# テキストブロック
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	var text_block_node = self.get_text_block()
 	# テキストが空っぽ
 	text_block_node.text = ""
 
@@ -298,7 +310,7 @@ func on_all_pages_flushed():
 func _ready():
 	
 	# 最初は、テスト用文字列が入ってたりするので消す
-	$"CanvasLayer/TextBlock".text = ""
+	self.get_text_block().text = ""
 	
 	# 状態機械のセットアップ
 	self.statemachine_of_message_window.on_talked_2 = self.on_talked_2
@@ -339,7 +351,7 @@ func _process(delta):
 
 			# TODO キャッシュ化したい
 			# テキストブロック
-			var text_block_node = self.get_node("CanvasLayer/TextBlock")
+			var text_block_node = self.get_text_block()
 
 			if 0 < snapshot.text_block_buffer.length():
 				# バッファーの先頭の１文字を切り取って、テキストブロックへ移動

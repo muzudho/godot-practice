@@ -39,12 +39,12 @@ var selected_row_number = 1
 
 # 音楽家を取得
 func get_musician():
-	return $"../../../../../../Musician"
+	return $"../../../../../Musician"
 
 
 # メッセージ・ウィンドウ名を取得
 func get_message_window_name_obj():
-	return $"../../..".name
+	return $"../..".name
 
 
 # 線形補間
