@@ -4,7 +4,12 @@ extends Node2D
 
 
 # 現在の部門
-var current_department = "VisualNovelDepartment"
+var current_department = null
+
+
+# 主シナリオ
+func get_main_scenario():
+	return $"ScenarioWriter/Main"
 
 
 # 部管理人
@@ -66,17 +71,9 @@ func _ready():
 	for canvas_layer in $"LocationCoordinator".get_children():
 		canvas_layer.hide()
 
+	# 最初に実行する部門
+	self.current_department = self.get_main_scenario().start_department
 
-	# メッセージ・ウィンドウの is_processing() で false が返ってくるので、 true を入れてやる
-	# ポーズ・ボタンを押したとき、最初の状態が　is_processing() == false なので　ポーズが空振りするので
-	# 仕方なく入れた処理
-	#if not $"GuiArtist/WindowsOfMessage".is_processing():
-	#	print("［ディレクター］　メッセージ・ウィンドウの is_processing() で false が返ってくるので、 true を入れてやる")
-	#	$"GuiArtist/WindowsOfMessage".set_process(true)
-
-	## とりあえず、全ての部門で、シナリオのロードだけやっておく
-	#for department_manager in $"System/Managers".get_children():
-	#	department_manager.load_current_scenario()
 
 	var snapshot = self.get_current_snapshot()
 

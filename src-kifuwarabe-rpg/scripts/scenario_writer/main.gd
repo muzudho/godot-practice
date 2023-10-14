@@ -4,3 +4,5 @@
 extends Node
 
 
+# 最初に実行する部門をここに書く
+var start_department = "VisualNovelDepartment"

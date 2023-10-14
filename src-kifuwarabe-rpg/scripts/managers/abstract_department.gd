@@ -23,17 +23,6 @@ func get_snapshot():
 	return $"../../Snapshots".get_node(department_name)
 
 
-# シナリオ読込
-func load_current_scenario():
-	var snapshot = self.get_snapshot()
-
-	# シナリオ・ブックから、内容を取出す
-	print("［抽象部門管理人］　シナリオ・ブックから、内容を取出す　部門：［" + str(snapshot.name) + "］　段落名：［" + snapshot.paragraph_name + "］")
-	snapshot.scenario_array = get_scenarion_writer().get_node(str(snapshot.name)).document[snapshot.paragraph_name]
-
-	# パースを開始してよい
-	#snapshot.set_parse_lock(false)
-
 # 会話開始
 func talk():
 	self.get_message_window().statemachine_of_message_window.talk()
