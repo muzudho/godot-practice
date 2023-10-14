@@ -54,12 +54,13 @@ func play_paragraph():
 		
 	# 全部消化済みの場合
 	if snapshot.scenario_array.size() < 1:
+		print("［アシスタント・ディレクター］　段落バッファーが空になってる")
 		
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
-		#if message_window.statemachine_of_message_window.is_completed():
-		#	print("［アシスタント・ディレクター］　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
-		#	# 自動で何かしない
-		#	return
+		if message_window.statemachine_of_message_window.is_completed():
+			print("［アシスタント・ディレクター］　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
+			# 自動で何かしない
+			return
 		
 		# シナリオ・ブックから、内容を取出す
 		print("［アシスタント・ディレクター］　（段落バッファーが空になってるから）シナリオ・ブックから、段落を取出す")
@@ -77,6 +78,14 @@ func redirect_message_window_by_name(node_name):
 
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
+	print("［アシスタント・ディレクター］　選択肢を確定させた")
+
+	# メッセージ・ウィンドウの状態遷移
+	#	ずっと Completed だと、困るから
+	print("［アシスタント・ディレクター］　メッセージ・ウィンドウを　オール・ページズ・フラッシュド　する")
+	self.get_current_message_window().statemachine_of_message_window.all_pages_flushed()
+
+
 	var snapshot = self.director_get_current_snapshot.call()
 	var department_name = str(snapshot.name)
 	var paragraph_name = snapshot.paragraph_name
@@ -196,6 +205,7 @@ func _ready():
 	$"MWnd".message_window_redirect_by_name = self.redirect_message_window_by_name
 	$"Goto".assistant_director_change_paragraph = self.change_paragraph
 	$"Goto".assistant_director_play_paragraph = self.play_paragraph
+	$"Goto".assistant_director_get_current_message_window = self.get_current_message_window
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
