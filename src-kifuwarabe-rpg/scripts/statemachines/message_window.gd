@@ -12,7 +12,7 @@ class_name MessageWindowStatemachine
 # 　　　　　　　　　　　　｜
 # ＋ーーーーーーーーーー＞＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　all_pages_flushed　※すべての文字を吐き出した
+# ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　Ｖ
 # ｜　　　　　　　　＋ーーーーーー＋
@@ -45,7 +45,7 @@ class_name MessageWindowStatemachine
 # ｜　　　　　　　　はい　｜
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　｜
-# ＋ーーーーーーーーーーー＋
+# ＋ーーーーーーーーーーー＋　all_pages_flushed　※すべての文字を吐き出した
 #
 enum States {None, Typewriter, Completed}
 
