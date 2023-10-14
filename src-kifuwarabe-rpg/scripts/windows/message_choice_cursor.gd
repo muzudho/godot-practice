@@ -1,6 +1,11 @@
 #	チョイス・カーソル（Choice Cursor；選択肢カーソル）
 extends Label
 
+
+# 状態機械
+var statemachine_of_messageend_blinker = load("res://scripts/statemachines/messageend_blinker.gd").new()
+
+
 #	メッセージエンド・ブリンカーの共通項目
 #
 #		メッセージ・ウィンドウの状態遷移図（親ノードがセットする）

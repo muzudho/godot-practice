@@ -10,14 +10,14 @@ extends Node
 # 　　　　　　　　　　　　｜
 # ＋ーーーーーーーーーー＞＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　resolved　※解決済み
+# ｜　　　　　　　　　　　｜　deciside　※決める
 # ｜　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　Ｖ
 # ｜　　　　　　　　＋ーーーーーー＋
 # ｜　　　　　　　　｜　　None　　｜　※メッセージエンド・ブリンカーが存在しない唯一の状態
 # ｜　　　　　　　　＋ーー＋ーーー＋
 # ｜　　　　　　　　　　　｜
-# ｜　　　　　　　　　　　｜　worry　※悩む
+# ｜　　　　　　　　　　　｜　think　※考える
 # ｜　　　　　　　　　　　｜
 # ｜　　　＋ーーーーーー＞＋
 # ｜　　　｜　　　　　　　｜
@@ -30,7 +30,7 @@ extends Node
 # ｜　　　｜　　　　　　　◇ ーーーーーーーーーーーーーーーーーーーーー＋
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
-# ｜　　　｜　　　　　　　｜　move　※カーソルを動かす　　　　　　　　｜
+# ｜　　　｜　　　　　　　｜　seek　※カーソルを動かす　　　　　　　　｜
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　｜　　　　　　　Ｖ　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　｜　　　　＋ーーーーーーーーーー＋　　　　　　　　　　　　　｜
@@ -39,7 +39,7 @@ extends Node
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　｜　　　　　　　｜　　　　　　　　　　　　　　　　　　　　　｜
-# ｜　　　＋ーーーーーーー＋　moved 　※移動完了　　　　　　　　　　　｜
+# ｜　　　＋ーーーーーーー＋　arrive  　※到着　　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　｜
 # ｜　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　｜
@@ -51,10 +51,10 @@ enum States {None, BlinkHere, BlinkMoving}
 var state = States.None
 
 # 関数の変数
-var on_resolved = null
-var on_worry = null
-var on_move = null
-var on_moved = null
+var on_decisided = null
+var on_thought = null
+var on_sought = null
+var on_arrived = null
 
 
 func is_none():
@@ -69,33 +69,33 @@ func is_blink_moving():
 	return self.state == States.BlinkMoving
 
 
-func resolved():
-	if on_resolved != null:
-		on_resolved.call()
+func deciside():
+	if on_decisided != null:
+		on_decisided.call()
 	
-	print("［メッセージエンド・ブリンカー］　解決済み")
+	print("［メッセージエンド・ブリンカー］　決めた")
 	self.state = States.None
 
 
-func worry():
-	if on_worry != null:
-		on_worry.call()
+func think():
+	if on_thought != null:
+		on_thought.call()
 	
 	print("［メッセージエンド・ブリンカー］　悩む")
 	self.state = States.BlinkHere
 
 
-func move():
-	if on_move != null:
-		on_move.call()
+func seek():
+	if on_sought != null:
+		on_sought.call()
 	
 	print("［メッセージエンド・ブリンカー］　カーソルを動かす")
 	self.state = States.BlinkMoving
 
 
-func moved():
-	if on_moved != null:
-		on_moved.call()
+func arrive():
+	if on_arrived != null:
+		on_arrived.call()
 	
 	print("［メッセージエンド・ブリンカー］　カーソルは移動した")
 	self.state = States.BlinkHere

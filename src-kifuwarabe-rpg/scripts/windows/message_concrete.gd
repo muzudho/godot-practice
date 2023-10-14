@@ -2,7 +2,7 @@
 extends Sprite2D
 
 
-#	状態遷移機械
+#	状態機械
 var statemachine_of_message_window = load("res://scripts/statemachines/message_window.gd").new()
 
 

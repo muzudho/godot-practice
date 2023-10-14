@@ -3,7 +3,7 @@
 extends Node2D
 
 
-# 状態遷移機械
+# 状態機械
 var statemachine_of_director = load("res://scripts/statemachines/director.gd").new()
 
 
