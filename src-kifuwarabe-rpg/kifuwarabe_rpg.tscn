@@ -171,10 +171,10 @@ texture = ExtResource("26_fgfga")
 [node name="Main" type="Node" parent="ScenarioWriter"]
 script = ExtResource("3_jssjb")
 
-[node name="VisualNovelDepartment" type="Node" parent="ScenarioWriter"]
+[node name="ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("3_75puo")
 
-[node name="SystemMenuDepartment" type="Node" parent="ScenarioWriter"]
+[node name="システムメニュー部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("4_7teq2")
 
 [node name="Musician" type="Node" parent="."]
@@ -654,10 +654,10 @@ script = ExtResource("23_5s8w2")
 
 [node name="Managers" type="Node" parent="System"]
 
-[node name="VisualNovelDepartment" type="Node" parent="System/Managers"]
+[node name="ビジュアルノベル部門" type="Node" parent="System/Managers"]
 script = ExtResource("42_4vwru")
 
-[node name="SystemMenuDepartment" type="Node" parent="System/Managers"]
+[node name="システムメニュー部門" type="Node" parent="System/Managers"]
 script = ExtResource("43_u5e5k")
 
 [node name="Snapshots" type="Node" parent="System"]
@@ -665,8 +665,8 @@ script = ExtResource("43_u5e5k")
 [node name="Main" type="Node" parent="System/Snapshots"]
 script = ExtResource("45_ae2lq")
 
-[node name="VisualNovelDepartment" type="Node" parent="System/Snapshots"]
+[node name="ビジュアルノベル部門" type="Node" parent="System/Snapshots"]
 script = ExtResource("44_uxi6d")
 
-[node name="SystemMenuDepartment" type="Node" parent="System/Snapshots"]
+[node name="システムメニュー部門" type="Node" parent="System/Snapshots"]
 script = ExtResource("45_e8lmg")
