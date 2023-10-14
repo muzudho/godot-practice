@@ -11,64 +11,6 @@ func get_snapshot(department_node_name):
 	return $"../../../../../System/Snapshots".get_node(department_node_name)
 
 
-#	初期化
-#		ウィンドウが無い状態に戻すことを想定しています。
-#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
-func initialize():
-	print("［テキストブロック］　初期化（非表示）")
-
-	# テキストが空っぽ
-	self.text = ""
-	
-	#	全てのブリンカー　状態機械［決めた］
-	$"BlinkerTriangle".statemachine_of_end_of_message_blinker.decide()
-	$"BlinkerUnderscore".statemachine_of_end_of_message_blinker.decide()
-	$"ChoiceCursor".statemachine_of_end_of_message_blinker.decide()
-
-	#	非表示
-	self.hide()
-	self.is_visible_initialized = false
-
-
-#	サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
-func set_process_subtree(is_process):
-	print("［テキストブロック］　プロセッシング：" + str(is_process))
-
-	#	処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
-	#	処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
-	#	処理しろ　（true） という指示のとき、処理していなければ（false）、再開する　（true）。
-	#	処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
-	if is_process != self.is_processing():
-		self.set_process(is_process)
-
-		#	子ノード
-		for child in self.get_children():
-			if child.has_method("set_process_subtree"):
-				child.set_process_subtree(is_process)
-
-
-#	サブツリーの visible を設定
-func set_visible_subtree(is_visible):
-	print("［テキストブロック］　可視性：" + str(is_visible))
-
-	#	見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
-	#	隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
-	#	見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
-	#	隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
-	if is_visible != self.visible:
-		self.visible = is_visible
-
-		#	子ノード
-		for child in self.get_children():
-			if child.has_method("set_visible_subtree"):
-				child.set_visible_subtree(is_visible)
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	self.initialize()
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #	TODO ★ タイプライター機能は、スナップショット、またはメッセージの方に持たせたい
 func _process(delta):

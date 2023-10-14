@@ -49,12 +49,33 @@ func initialize_concrete_message_window():
 	print("［メッセージウィンドウ　”" + self.name + "”］　初期化（非表示）")
 
 	# 子要素を初期化
-	self.get_node("CanvasLayer/TextBlock").initialize()
+	self.initialize_textblock()
 
 	# この要素の初期状態は、非表示、透明
 	self.hide()
 	print("［メッセージウィンドウ　”" + self.name + "”］　初期化による透明化")
 	self.modulate.a = 0.0	# 初期化による透明化
+
+
+#	初期化
+#		ウィンドウが無い状態に戻すことを想定しています。
+#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
+func initialize_textblock():
+	print("［テキストブロック］　初期化（非表示）")
+
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+
+	# テキストが空っぽ
+	text_block_node.text = ""
+	
+	#	全てのブリンカー　状態機械［決めた］
+	text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
+	text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+	text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+
+	#	非表示
+	text_block_node.hide()
+	text_block_node.is_visible_initialized = false
 
 
 #	空欄化
@@ -159,7 +180,7 @@ func set_process_subtree(
 		self.set_process(is_process)
 
 		#	子ノード
-		for child in self.get_node("CanvasLayer").get_children():
+		for child in $"CanvasLayer/TextBlock".get_children():
 			if child.has_method("set_process_subtree"):
 				child.set_process_subtree(is_process)
 
@@ -178,7 +199,7 @@ func set_visible_subtree(
 		self.visible = is_visible
 
 		#	子ノード
-		for child in self.get_node("CanvasLayer").get_children():
+		for child in $"CanvasLayer/TextBlock".get_children():
 			if child.has_method("set_visible_subtree"):
 				child.set_visible_subtree(is_visible)
 
@@ -283,6 +304,8 @@ func _ready():
 	self.statemachine_of_message_window.on_page_forward = self.on_page_forward
 	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
+
+	self.initialize_textblock()
 
 	#	このノードは常に visible にしておいてください
 	#	TODO これは不要？
