@@ -58,7 +58,7 @@ func _ready():
 			var department_initial_properties = self.get_main_scenario().department_initial_properties[department.name]
 			self.snapshots[department.name].name = department.name		# StringName 型
 			self.snapshots[department.name].message_window_name_obj = department_initial_properties["message_window_name_obj"]
-			self.snapshots[department.name].paragraph_name = department_initial_properties["paragraph_name"]
+			self.snapshots[department.name].section_name = department_initial_properties["section_name"]
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	#
@@ -95,8 +95,8 @@ func _ready():
 	# パースするな
 	snapshot.set_parse_lock(true)
 
-	# 台本の段落の再生
-	$"./AssistantDirector".play_paragraph()
+	# 台本の「§」セクションの再生
+	$"./AssistantDirector".play_section()
 
 	# 表示
 	self.get_department_manager().appear()

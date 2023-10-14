@@ -37,14 +37,14 @@ func set_director_get_current_snapshot_subtree(it):
 			child.set_director_get_current_snapshot_subtree(it)
 
 
-func change_paragraph(paragraph_name):
+# 「§」セクション変更
+func change_section(section_name):
 	var snapshot = self.director_get_current_snapshot.call()
-	snapshot.paragraph_name = paragraph_name
+	snapshot.section_name = section_name
 
 
-# TODO 自律的自動実行できないか？
-# 台本の再生段落の変更
-func play_paragraph():
+# 「§」セクションの再生
+func play_section():
 	var snapshot = self.director_get_current_snapshot.call()
 	var message_window = self.get_current_message_window()
 		
@@ -60,7 +60,7 @@ func play_paragraph():
 		
 		# シナリオ・ブックから、内容を取出す
 		print("［アシスタント・ディレクター］　（段落バッファーが空になってるから）シナリオ・ブックから、段落を取出す")
-		snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.paragraph_name]
+		snapshot.scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.section_name]
 
 	# パースを開始してよくないケースもあるが？
 	# バッファーが残ってるときとか
@@ -90,24 +90,24 @@ func on_choice_selected(row_number):
 
 	var snapshot = self.director_get_current_snapshot.call()
 	var department_name = str(snapshot.name)
-	var paragraph_name = snapshot.paragraph_name
+	var section_name = snapshot.section_name
 	
 	print("［アシスタント・ディレクター］　現在の部門名　　　：" + department_name)
-	print("［アシスタント・ディレクター］　現在の段落名　　　：" + paragraph_name)
+	print("［アシスタント・ディレクター］　現在の区画名　　　：" + section_name)
 	print("［アシスタント・ディレクター］　選んだ選択肢行番号：" + str(row_number))
 
 	# シナリオ・ノード
 	var scenario_node = $"../ScenarioWriter".get_node(department_name)
 
-	# 索引の段落。実質的には選択肢の配列
-	var paragraph = scenario_node.index[paragraph_name]
+	# 区画名。実質的には選択肢の配列
+	var section_obj = scenario_node.index[section_name]
 
 	# 次の段落名
-	var next_paragraph_name = paragraph[row_number]
-	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_paragraph_name)
+	var next_section_name = section_obj[row_number]
+	print("［アシスタント・ディレクター］　次の段落名　　　　：" + next_section_name)
 	
-	self.change_paragraph(next_paragraph_name)
-	self.play_paragraph()
+	self.change_section(next_section_name)
+	self.play_section()
 
 
 # 先頭行と、それ以外に分けます。できなければヌル
@@ -209,8 +209,8 @@ func parse_message(temp_text):
 func _ready():
 	#	関数を渡す
 	$"MWnd".message_window_redirect_by_name = self.redirect_message_window_by_name
-	$"Goto".assistant_director_change_paragraph = self.change_paragraph
-	$"Goto".assistant_director_play_paragraph = self.play_paragraph
+	$"Goto".assistant_director_change_section = self.change_section
+	$"Goto".assistant_director_play_section = self.play_section
 	$"Goto".assistant_director_get_current_message_window = self.get_current_message_window
 
 

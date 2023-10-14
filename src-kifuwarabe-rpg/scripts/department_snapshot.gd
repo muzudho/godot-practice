@@ -24,8 +24,8 @@ var location_node_name = ""
 # メッセージを出力する対象となるノードの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
 var message_window_name_obj = null		# StringName 型 シンタックス・シュガー
 
-# 段落名
-var paragraph_name = null
+# 「§」セクション名
+var section_name = null
 
 # 部門名。StringName 型
 var name = null

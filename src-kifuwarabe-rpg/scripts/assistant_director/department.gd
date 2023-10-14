@@ -37,6 +37,6 @@ func change_department(next_department_name):
 	# 現在の部門を再表示
 	self.get_department_manager().appear()
 
-	# 台本の段落の再生
-	self.get_assistant_director().play_paragraph()
-	
+	# 台本の「§」セクションの再生
+	self.get_assistant_director().play_section()
+
