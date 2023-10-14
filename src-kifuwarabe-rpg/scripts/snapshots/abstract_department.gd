@@ -52,3 +52,12 @@ func remember(
 	# それ以外なら
 	else:
 		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
+
+
+#	メッセージの追加
+func push_message(temp_text):
+	# メッセージ・ウィンドウの表示
+	# TODO メッセージ・ウィンドウが　どれぐらい文字を表示してるかを　スナップショットに記憶したい
+	self.remember(temp_text)
+	var message_window = self.get_manager().get_message_window()
+	message_window.statemachine_of_message_window.talk_2()

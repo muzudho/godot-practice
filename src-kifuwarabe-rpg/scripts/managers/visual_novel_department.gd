@@ -26,12 +26,3 @@ func appear():
 
 		# 場所が非表示中なら、表示する
 		#$"../../../LocationCoordinator".show_current_location(str(self.name))
-
-
-#	メッセージの追加
-func push_message(temp_text):
-	# メッセージ・ウィンドウの表示
-	# TODO メッセージ・ウィンドウが　どれぐらい文字を表示してるかを　スナップショットに記憶したい
-	self.get_snapshot().remember(temp_text)
-	var message_window = self.get_message_window()
-	message_window.statemachine_of_message_window.talk_2()

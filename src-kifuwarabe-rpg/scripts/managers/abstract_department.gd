@@ -34,3 +34,11 @@ func load_current_scenario():
 	# メッセージ・ウィンドウは、次の指示を待っています
 	#snapshot.is_message_window_waiting_for_order = true
 
+
+#	メッセージの追加
+func push_message(temp_text):
+	# メッセージ・ウィンドウの表示
+	# TODO メッセージ・ウィンドウが　どれぐらい文字を表示してるかを　スナップショットに記憶したい
+	self.get_snapshot().remember(temp_text)
+	var message_window = self.get_message_window()
+	message_window.statemachine_of_message_window.talk_2()
