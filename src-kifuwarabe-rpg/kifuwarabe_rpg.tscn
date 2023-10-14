@@ -35,7 +35,6 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="32_uu41d"]
 [ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="33_1xmx8"]
 [ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="33_ogwo6"]
-[ext_resource type="Script" path="res://scripts/windows/message_choice_cursor.gd" id="34_0fjc7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/system_window.png" id="34_wja0x"]
 [ext_resource type="Script" path="res://scripts/windows/viewing.gd" id="35_s10tl"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/CenterWindow.png" id="35_sw6cw"]
@@ -154,6 +153,8 @@ var is_visible_initialized = false
 
 
 "
+
+[sub_resource type="GDScript" id="GDScript_h4hmn"]
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
@@ -531,7 +532,7 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("34_0fjc7")
+script = ExtResource("33_1xmx8")
 
 [node name="中央" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
 z_index = 10
@@ -578,7 +579,7 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("34_0fjc7")
+script = SubResource("GDScript_h4hmn")
 
 [node name="WindowsOfViewing" type="Node2D" parent="GuiArtist"]
 visible = false

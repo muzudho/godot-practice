@@ -30,34 +30,22 @@ func initialize_concrete_message_window():
 	
 	print("［メッセージウィンドウ　”" + self.name + "”］　初期化（非表示）")
 
-	# 子要素を初期化
-	self.initialize_textblock()
+	#	テキストブロック
+	var text_block_node = self.get_node("CanvasLayer/TextBlock")
+	#		テキストが空っぽ
+	text_block_node.text = ""
+	#		全てのブリンカー　状態機械［決めた］
+	text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
+	text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+	text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+	#		非表示
+	text_block_node.hide()
+	self.is_visible_initialized = false
 
 	# この要素の初期状態は、非表示、透明
 	self.hide()
 	print("［メッセージウィンドウ　”" + self.name + "”］　初期化による透明化")
 	self.modulate.a = 0.0	# 初期化による透明化
-
-
-#	初期化
-#		ウィンドウが無い状態に戻すことを想定しています。
-#		引数を渡さずに呼び出せることが **初期化の前に** との違いです
-func initialize_textblock():
-	print("［テキストブロック］　初期化（非表示）")
-
-	var text_block_node = self.get_node("CanvasLayer/TextBlock")
-
-	# テキストが空っぽ
-	text_block_node.text = ""
-	
-	#	全てのブリンカー　状態機械［決めた］
-	text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
-	text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
-	text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
-
-	#	非表示
-	text_block_node.hide()
-	self.is_visible_initialized = false
 
 
 #	空欄化
@@ -310,14 +298,12 @@ func _ready():
 	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
-	self.initialize_textblock()
-
 	#	このノードは常に visible にしておいてください
 	#	TODO これは不要？
 	self.show()
 
 	#	全ての文字は吐き出されたものとする
-	self.statemachine_of_message_window.all_pages_flushed()
+	# self.statemachine_of_message_window.all_pages_flushed()
 
 
 func _process(delta):
