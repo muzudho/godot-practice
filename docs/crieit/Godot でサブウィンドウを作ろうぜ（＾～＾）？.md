@@ -1046,4 +1046,12 @@ func get_current_snapshot():
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　作った本人が分かってないの　わらう」  
 
+## ポップしてるから、ランタイム中に元データが空になってる
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
+「　ポップしてるから　シナリオが空になってるようだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　カーソルをインクリメントする方が　いいのかしらねえ？」  
+
 .

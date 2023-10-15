@@ -6,15 +6,21 @@ extends Node
 var director_get_current_snapshot = null
 
 
-# ビジュアル・ノベル部のこの瞬間の状態
+# ディレクター取得
 func get_director():
 	return $"../../Director"
+
+
+# シナリオライター取得
+func get_scenario_writer():
+	return $"../ScenarioWriter"
 
 
 # メッセージ・ウィンドウ
 func get_message_window(
 	message_window_name_obj):		# StringName
 	return $"../GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
+
 
 # メッセージ・ウィンドウ
 func get_current_message_window():
@@ -28,6 +34,18 @@ func get_snapshot(department_node_name):
 	return $"../System/Snapshots".get_node(department_node_name)
 
 
+# シナリオの現在セクション配列のサイズを返す
+func get_current_section_size_of_scenario():
+	var snapshot = self.director_get_current_snapshot.call()
+	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name].size()
+
+
+# シナリオの現在セクションのアイテムを返す
+func get_current_section_item_of_scenario():
+	var snapshot = self.director_get_current_snapshot.call()
+	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][snapshot.section_item_index]
+
+
 func set_director_get_current_snapshot_subtree(it):
 	self.director_get_current_snapshot = it
 
@@ -37,31 +55,27 @@ func set_director_get_current_snapshot_subtree(it):
 			child.set_director_get_current_snapshot_subtree(it)
 
 
-# 「§」セクション変更
-func change_section(section_name):
+# 現在の「§」セクション設定
+func set_current_section(section_name):
 	var snapshot = self.director_get_current_snapshot.call()
 	snapshot.section_name = section_name
+	snapshot.section_item_index = 0
 
 
 # 「§」セクションの再生
 func play_section():
 	var snapshot = self.director_get_current_snapshot.call()
 	var message_window = self.get_current_message_window()
-		
+
 	# 全部消化済みの場合
-	if snapshot.scenario_array.size() < 1:
-		print("［アシスタント・ディレクター］（" + snapshot.name + "　" + snapshot.section_name + "）　セクション・バッファーが空になってる")
-		
+	if self.get_current_section_size_of_scenario() <= snapshot.section_item_index:
+		print("［アシスタント・ディレクター］（" + snapshot.name + "　" + snapshot.section_name + "）　セクションを読み終わっている")
+
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
 		if message_window.statemachine_of_message_window.is_completed():
 			print("［アシスタント・ディレクター］（" + snapshot.name + "　"+ snapshot.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
 			# 自動で何かしない
 			return
-		
-		# シナリオ・ブックから、内容を取出す
-		var scenario_array = $"../ScenarioWriter".get_node(str(snapshot.name)).document[snapshot.section_name]
-		print("［アシスタント・ディレクター］（" + snapshot.name + "　"+ snapshot.section_name + "）　（セクション・バッファーが空になってるから）シナリオ・ブックから、セクションを取出す。　サイズ：［" + str(scenario_array.size()) + "］")
-		snapshot.scenario_array = scenario_array
 
 	# パースを開始してよくないケースもあるが？
 	# バッファーが残ってるときとか
@@ -107,7 +121,7 @@ func on_choice_selected(row_number):
 	var next_section_name = section_obj[row_number]
 	print("［アシスタント・ディレクター］　次の区画名　　　　：" + next_section_name)
 	
-	self.change_section(next_section_name)
+	self.set_current_section(next_section_name)
 	self.play_section()
 
 
@@ -210,7 +224,7 @@ func parse_message(temp_text):
 func _ready():
 	#	関数を渡す
 	$"MWnd".message_window_redirect_by_name = self.redirect_message_window_by_name
-	$"Goto".assistant_director_change_section = self.change_section
+	$"Goto".assistant_director_set_current_section = self.set_current_section
 	$"Goto".assistant_director_play_section = self.play_section
 	$"Goto".assistant_director_get_current_message_window = self.get_current_message_window
 
@@ -224,12 +238,15 @@ func _process(_delta):
 	if not snapshot.is_parse_lock():
 		
 		# まだあるよ
-		if 0 < snapshot.scenario_array.size():
+		if snapshot.section_item_index < self.get_current_section_size_of_scenario():
 		
 			# 次に表示するべきメッセージを取得
-			var latest_message = snapshot.scenario_array.pop_front()
+			var latest_message = self.get_current_section_item_of_scenario() + ""	# 文字列を参照ではなく、コピーしたい
 
-			# TODO ここで、命令と、台詞に分解したい
+			# カウントアップ
+			snapshot.section_item_index += 1
+
+			# ここで、命令と、台詞は区別する
 			self.parse_message(latest_message)
 
 		# もう無いよ

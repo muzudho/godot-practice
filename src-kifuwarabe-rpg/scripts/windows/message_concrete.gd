@@ -96,24 +96,24 @@ func set_process_subtree(
 
 # サブツリーの visible を設定
 func set_visible_subtree(
-	is_visible):					# bool
+		visible_flag):			# bool
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
-	if is_visible != self.visible:
+	if visible_flag != self.visible:
 
 		var snapshot = self.director_get_current_snapshot.call()
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　可視性：" + str(is_visible))
+		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　可視性：" + str(visible_flag))
 
-		self.visible = is_visible
-		self.get_canvas_layer().visible = is_visible
+		self.visible = visible_flag
+		self.get_canvas_layer().visible = visible_flag
 
 		# 子ノード
 		for child in self.get_text_block().get_children():
 			if child.has_method("set_visible_subtree"):
-				child.set_visible_subtree(is_visible)
+				child.set_visible_subtree(visible_flag)
 
 
 # サブツリーの appear を設定
