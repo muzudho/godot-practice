@@ -124,7 +124,7 @@ var document = {
 		bg:			崎川駅周辺地図, hide
 		bg:			戦闘シーン
 		bg:			川掘町線ロード
-		bgm:		雑魚戦闘曲, 8.6
+		bgm:		バトル１, 8.6
 		monster:	きふわらべ
 		monster:	コダック
 		""",
@@ -138,7 +138,7 @@ var document = {
 		!
 		monster:	コダック, hide
 		monster:	ハム将棋
-		bgm:		選手権一次予選戦闘曲
+		bgm:		バトル２
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -149,7 +149,7 @@ var document = {
 		!
 		monster:	ハム将棋, hide
 		monster:	れさ改
-		bgm:		選手権二次予選戦闘曲
+		bgm:		バトル３
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\

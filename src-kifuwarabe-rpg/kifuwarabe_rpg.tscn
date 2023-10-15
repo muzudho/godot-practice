@@ -201,15 +201,15 @@ volume_db = -20.0
 stream = ExtResource("7_j1q8q")
 volume_db = -15.0
 
-[node name="雑魚戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
+[node name="バトル１" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("10_582bv")
 volume_db = -15.0
 
-[node name="選手権一次予選戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
+[node name="選手権戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("11_n11v3")
 volume_db = -15.0
 
-[node name="選手権二次予選戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
+[node name="強敵戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("11_hr0b7")
 volume_db = -15.0
 
