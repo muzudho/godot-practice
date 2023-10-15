@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=61 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -15,13 +15,16 @@
 [ext_resource type="Script" path="res://scripts/background_artist.gd" id="10_03wut"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://audio/bgm/maou.audio/maou_game_rock28.ogg" id="10_582bv"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou.audio/maou_se_sound_switch02.ogg" id="10_d7hpp"]
+[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="11_hr0b7"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="11_lxy0m"]
+[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://audio/bgm/maou.audio/maou_bgm_cyber06.ogg" id="11_n11v3"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="14_xhnqt"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/location_coordinator.gd" id="15_ajtoo"]
 [ext_resource type="Script" path="res://scripts/concrete_location.gd" id="17_ibqgx"]
+[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://images/1280x720/kawahori-road.png" id="20_ib2qc"]
 [ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="22_cj5lk"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/bottom_message_window.png" id="22_gqxn5"]
 [ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
@@ -196,6 +199,14 @@ volume_db = -15.0
 stream = ExtResource("10_582bv")
 volume_db = -15.0
 
+[node name="選手権一次予選戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("11_n11v3")
+volume_db = -15.0
+
+[node name="選手権二次予選戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("11_hr0b7")
+volume_db = -15.0
+
 [node name="SE" type="Node" parent="Musician"]
 
 [node name="ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
@@ -231,6 +242,10 @@ texture = ExtResource("13_sy6jl")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("14_xhnqt")
+
+[node name="川掘町線ロード" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("20_ib2qc")
 
 [node name="LocationCoordinator" type="Node2D" parent="."]
 script = ExtResource("15_ajtoo")

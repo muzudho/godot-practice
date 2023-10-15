@@ -1105,4 +1105,9 @@ var document = {
 「　フリー音楽のサイトから　雑魚戦闘曲を探すか。  
 かっこよくても合わないんだよな」  
 
+![202310__photo__15-2202--開発中画面.png](https://crieit.now.sh/upload_images/f2c7dd2ed5e887d260aca0df2b527363652be30ae097c.png)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　ひどい画面だｗｗｗ」  
+
 .
