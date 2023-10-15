@@ -184,6 +184,10 @@ func parse_message(temp_text):
 			elif second_head.begins_with("goto:"):
 				$"Goto".do_it(second_head)
 
+			# モンスター表示
+			elif second_head.begins_with("monster:"):
+				$"Monster".do_it(second_head)
+
 			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("m-wnd:"):
 				$"MWnd".do_it(second_head)

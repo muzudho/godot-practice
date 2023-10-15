@@ -73,22 +73,29 @@ func _ready():
 
 	# ウィンドウはとにかく隠す
 	#
-	# メッセージ・ウィンドウはとにかく隠す
+	#	親ノードは例外
+	$"GuiArtist/WindowsOfMessage".show()
+	#	メッセージ・ウィンドウはとにかく隠す
 	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
 		message_window.hide()
-
-	# ビューイング・ウィンドウはとにかく隠す
+	#
+	#	ビューイング・ウィンドウはとにかく隠す
 	for sprite2d_node in $"GuiArtist/WindowsOfViewing".get_children():
 		sprite2d_node.hide()
 	$"GuiArtist/WindowsOfViewing/System/Frame".hide()
-
-	# シーンはとにかく非表示にする
+	#
+	#	シーンはとにかく非表示にする
 	for canvas_layer in $"LocationCoordinator".get_children():
 		canvas_layer.hide()
+	#
+	#	モンスターはとにかく非表示にする
+	for monster in $"MonsterTrainer".get_children():
+		monster.hide()
+
+	#
 
 	# 最初に実行する部門
 	self.current_department = self.get_main_scenario().start_department
-
 
 	var snapshot = self.get_current_snapshot()
 

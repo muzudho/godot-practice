@@ -10,13 +10,20 @@ var current_se_name = null
 
 
 #	BGM 再生
-func playBgm(node_name):
+func playBgm(node_name, from = null):
 	if self.current_bgm_name!=null:
 		self.stopBgm()
 		
 	print("［音楽家］　ＢＧＭ開始：[" + node_name + "]")
 	self.current_bgm_name = node_name
-	$"BGM".get_node(self.current_bgm_name).play()
+	
+	var audio_node = $"BGM".get_node(self.current_bgm_name)
+	
+	if from == null:
+		audio_node.play()
+	else:
+		audio_node.play(from)
+
 	# $"BGM".get_node(self.current_bgm_name).play(8.4) # 開始地点を指定できる
 
 
