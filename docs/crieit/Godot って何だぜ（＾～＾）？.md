@@ -1115,4 +1115,12 @@ var document = {
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　モンスター画像を置くだけで　精一杯だぜ」  
 
+![202310__godot__16-0007--戦闘シーン.png](https://crieit.now.sh/upload_images/df469dd17508e41db113151cb6cb95f9652c0087a2176.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　上下に　黒いのを付けるだけで　昔のゲームっぽく見えるな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　昔というのが　具体的に　いつなのか　分かんないけど。　似非歴史なんじゃないの？」  
+
 .

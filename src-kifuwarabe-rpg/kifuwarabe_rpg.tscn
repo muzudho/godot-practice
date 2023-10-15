@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=66 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -12,7 +12,6 @@
 [ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="7_j1q8q"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou.audio/maou_se_sound17.ogg" id="8_s3xj3"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou.audio/maou_se_sound19.ogg" id="9_y0joy"]
-[ext_resource type="Script" path="res://scripts/background_artist.gd" id="10_03wut"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://audio/bgm/maou.audio/maou_game_rock28.ogg" id="10_582bv"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou.audio/maou_se_sound_switch02.ogg" id="10_d7hpp"]
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="11_hr0b7"]
@@ -27,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://images/1280x720/kawahori-road.png" id="20_ib2qc"]
 [ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="22_cj5lk"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/bottom_message_window.png" id="22_gqxn5"]
+[ext_resource type="Texture2D" uid="uid://dyfirmiokgpm" path="res://images/1280x720/battle_scene.png" id="22_ioffi"]
 [ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
 [ext_resource type="Script" path="res://scripts/musician.gd" id="23_6ylqn"]
 [ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="23_a7vfu"]
@@ -47,6 +47,7 @@
 [ext_resource type="Script" path="res://scripts/windows/viewing.gd" id="35_s10tl"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
+[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="38_hc66s"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
 [ext_resource type="Script" path="res://scripts/department_manager.gd" id="43_ob5ux"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="49_qua1y"]
@@ -168,6 +169,7 @@ material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_lfp38")
 
 [node name="Grid" type="Sprite2D" parent="."]
+z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("26_fgfga")
 
@@ -225,7 +227,6 @@ stream = ExtResource("10_d7hpp")
 volume_db = -10.0
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
-script = ExtResource("10_03wut")
 
 [node name="イベントルーム" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
@@ -250,6 +251,10 @@ texture = ExtResource("14_xhnqt")
 [node name="川掘町線ロード" type="Sprite2D" parent="BackgroundArtist"]
 position = Vector2(640, 360)
 texture = ExtResource("20_ib2qc")
+
+[node name="戦闘シーン" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("22_ioffi")
 
 [node name="LocationCoordinator" type="Node2D" parent="."]
 script = ExtResource("15_ajtoo")
@@ -513,12 +518,10 @@ vertical_alignment = 1
 [node name="GuiArtist" type="Node2D" parent="."]
 
 [node name="WindowsOfMessage" type="Node2D" parent="GuiArtist"]
-visible = false
 
 [node name="下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
-visible = false
 modulate = Color(1, 1, 1, 0.996078)
-z_index = 10
+z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("22_gqxn5")
 script = ExtResource("30_bblis")
@@ -568,7 +571,7 @@ script = ExtResource("33_1xmx8")
 
 [node name="中央" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
 visible = false
-z_index = 10
+z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("26_o3mvx")
 script = ExtResource("30_bblis")
@@ -642,6 +645,30 @@ z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("37_lwbng")
 
+[node name="MonsterTrainer" type="Node" parent="."]
+
+[node name="れさ改" type="Sprite2D" parent="MonsterTrainer"]
+z_index = 10
+position = Vector2(737, 271)
+scale = Vector2(0.639706, 0.639706)
+texture = ExtResource("49_qua1y")
+
+[node name="ハム将棋" type="Sprite2D" parent="MonsterTrainer"]
+z_index = 10
+position = Vector2(285, 326)
+texture = ExtResource("51_pfarw")
+
+[node name="コダック" type="Sprite2D" parent="MonsterTrainer"]
+z_index = 10
+position = Vector2(627, 319)
+texture = ExtResource("52_lp131")
+
+[node name="きふわらべ" type="Sprite2D" parent="MonsterTrainer"]
+z_index = 10
+position = Vector2(1014, 273)
+scale = Vector2(0.625506, 0.625506)
+texture = ExtResource("38_hc66s")
+
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("3_nnvgw")
 
@@ -688,18 +715,3 @@ script = ExtResource("23_5s8w2")
 
 [node name="DepartmentManager" type="Node" parent="System"]
 script = ExtResource("43_ob5ux")
-
-[node name="MonsterTrainer" type="Node" parent="."]
-
-[node name="れさ改" type="Sprite2D" parent="MonsterTrainer"]
-position = Vector2(736, 472)
-scale = Vector2(0.639706, 0.639706)
-texture = ExtResource("49_qua1y")
-
-[node name="ハム将棋" type="Sprite2D" parent="MonsterTrainer"]
-position = Vector2(388, 467)
-texture = ExtResource("51_pfarw")
-
-[node name="コダック" type="Sprite2D" parent="MonsterTrainer"]
-position = Vector2(648, 496)
-texture = ExtResource("52_lp131")

@@ -2,7 +2,7 @@
 extends Node
 
 
-#	それをする
+# それをする
 func do_it(line):
 
 	var csv = line.substr(8).strip_edges()
@@ -15,6 +15,12 @@ func do_it(line):
 	
 	if 2 <= string_packed_array.size():
 		sub_command = string_packed_array[1].strip_edges()
+
+	self.control_monster(node_name, sub_command)
+
+
+# モンスターを制御
+func control_monster(node_name, sub_command):
 
 	if sub_command == "hide":
 		# モンスター画像非表示
