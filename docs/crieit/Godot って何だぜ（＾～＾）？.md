@@ -1110,4 +1110,9 @@ var document = {
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　👆　ひどい画面だｗｗｗ」  
 
+![202310__photo__15-2240--開発中画面-れさ改.png](https://crieit.now.sh/upload_images/d2e1675409e62d60fe9984922d5b1742652bebfaaddc4.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　モンスター画像を置くだけで　精一杯だぜ」  
+
 .
