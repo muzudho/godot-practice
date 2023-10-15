@@ -1089,4 +1089,20 @@ var document = {
 
 📖　[Godot でサブウィンドウを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-65223ea29da40)  
 
+## サブ・ウィンドウはうまくいった
+
+📺　[動画](https://x.com/muzudho1/status/1713427124487659939?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　サブ・ウィンドウは　うまくいったぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　次は戦闘画面かしらねえ？」  
+
+## 雑魚戦闘曲
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　フリー音楽のサイトから　雑魚戦闘曲を探すか。  
+かっこよくても合わないんだよな」  
+
 .

@@ -17,6 +17,7 @@ func playBgm(node_name):
 	print("［音楽家］　ＢＧＭ開始：[" + node_name + "]")
 	self.current_bgm_name = node_name
 	$"BGM".get_node(self.current_bgm_name).play()
+	# $"BGM".get_node(self.current_bgm_name).play(8.4) # 開始地点を指定できる
 
 
 #	効果音再生
