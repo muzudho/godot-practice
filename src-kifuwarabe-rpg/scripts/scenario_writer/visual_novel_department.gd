@@ -122,7 +122,7 @@ var document = {
 		scene:
 		bg:			川掘町線ロード
 		bgm:		雑魚戦闘曲, 8.6
-		monster:	れさ改
+		monster:	コダック
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -132,7 +132,8 @@ var document = {
 		""",
 		"""\
 		!
-		monster:	れさ改, hide
+		monster:	コダック, hide
+		monster:	ハム将棋
 		bgm:		選手権一次予選戦闘曲
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -142,7 +143,9 @@ var document = {
 		""",
 		"""\
 		!
-		bgm: 選手権二次予選戦闘曲
+		monster:	ハム将棋, hide
+		monster:	れさ改
+		bgm:		選手権二次予選戦闘曲
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -152,7 +155,8 @@ var document = {
 		""",
 		"""\
 		!
-		goto: §崎川市最強振興会館
+		monster:	れさ改, hide
+		goto:		§崎川市最強振興会館
 		""",
 	],
 	#	崎川市最強振興会館
