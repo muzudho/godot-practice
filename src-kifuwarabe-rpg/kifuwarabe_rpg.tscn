@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=58 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou.audio/maou_se_sound17.ogg" id="8_s3xj3"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou.audio/maou_se_sound19.ogg" id="9_y0joy"]
 [ext_resource type="Script" path="res://scripts/background_artist.gd" id="10_03wut"]
+[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://audio/bgm/maou.audio/maou_game_rock28.ogg" id="10_582bv"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou.audio/maou_se_sound_switch02.ogg" id="10_d7hpp"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="11_lxy0m"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
@@ -189,6 +190,10 @@ volume_db = -20.0
 
 [node name="エンディング" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("7_j1q8q")
+volume_db = -15.0
+
+[node name="雑魚戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("10_582bv")
 volume_db = -15.0
 
 [node name="SE" type="Node" parent="Musician"]

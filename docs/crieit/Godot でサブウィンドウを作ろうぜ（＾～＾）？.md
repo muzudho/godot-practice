@@ -1054,4 +1054,18 @@ func get_current_snapshot():
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　カーソルをインクリメントする方が　いいのかしらねえ？」  
 
+# ⏰ 12:57 再開
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
+「　じゃあ　プログラム・カウンターみたいに実装し直すか」  
+
+（カタ　カタ　カタ　カタ）  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)   
+「　直した。うまくいったぜ」  
+
+# 親記事から来た
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .
