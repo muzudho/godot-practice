@@ -23,11 +23,11 @@ var document = {
 	"§タイトル画面":[
 		"""\
 		!
-		bgm:	🎵タイトル
-		telop:	タイトル
-		bg:		崎川駅前
-		choice:	1,2
-		m-wnd:	■下
+		bgm:		🎵タイトル
+		telop:		タイトル
+		bg:			崎川駅前
+		choice:		1,2
+		m-wnd:		■下
 		""",
 		"""\
 		　・スタート

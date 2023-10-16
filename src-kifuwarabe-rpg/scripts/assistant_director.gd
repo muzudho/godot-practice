@@ -141,8 +141,12 @@ func parse_section_item(temp_text):
 
 			# 以下の命令は、アルファベット順で並べてある
 			#
+			# コメント
+			if second_head.begins_with("#"):
+				pass
+				
 			# 実引数セット
-			if second_head.begins_with("arg:"):
+			elif second_head.begins_with("arg:"):
 				$"Arg".do_it(second_head)
 				
 			# 背景切替

@@ -21,7 +21,7 @@ var document = {
 		bg:			戦闘シーン
 		bg:			川掘町線ロード
 		bgm:		🎵バトル１, 8.6
-		monster:	きふわらべ
+		#monster:	きふわらべ
 		monster:	%arg_monster%
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -81,7 +81,7 @@ var document = {
 		""",
 		"""\
 		!
-		monster:	きふわらべ, hide
+		#monster:	きふわらべ, hide
 		monster:	%arg_monster%, hide
 		""",
 		# 部門変更
