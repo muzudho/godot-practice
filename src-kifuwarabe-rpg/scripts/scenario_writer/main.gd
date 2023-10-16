@@ -9,6 +9,7 @@ var start_department = "📗ビジュアルノベル部門"
 
 
 # 各部門の初期プロパティ
+# TODO これらの設定は必要だろうか？ 無くていいなら省きたい
 var department_initial_properties = {
 	"📗ビジュアルノベル部門" : {
 		# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
@@ -19,6 +20,10 @@ var department_initial_properties = {
 	"📗システムメニュー部門" : {
 		"message_window_name_obj" : &"■中央",
 		"section_name" : "§システムメニュー画面",
+	},
+	"📗バトル部門" : {
+		"message_window_name_obj" : &"■下",
+		"section_name" : "§初戦闘シーン",
 	},
 }
 

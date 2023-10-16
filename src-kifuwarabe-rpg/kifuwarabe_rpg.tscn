@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=65 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="5_24vd4"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="5_q2nol"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="6_bei22"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/battle_department.gd" id="6_kr1go"]
 [ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://audio/bgm/maou.audio/maou_game_town05.ogg" id="6_wirdc"]
 [ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="7_j1q8q"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou.audio/maou_se_sound17.ogg" id="8_s3xj3"]
@@ -202,6 +203,9 @@ script = ExtResource("3_75puo")
 
 [node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("4_7teq2")
+
+[node name="📗バトル部門" type="Node" parent="ScenarioWriter"]
+script = ExtResource("6_kr1go")
 
 [node name="Musician" type="Node" parent="."]
 
