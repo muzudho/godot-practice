@@ -31,17 +31,24 @@ func do_it(line):
 
 
 # メッセージ・ウィンドウを見せる
-func show_me(node_name):
+func show_me(node_name_str):
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
 	# 新しいウィンドウ
-	snapshot.message_window_name_obj = StringName(node_name)	# StringName 型。 String ではない
+	snapshot.message_window_name_obj = StringName(node_name_str)	# StringName 型。 String ではない
+
+	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
+	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(true)
 
 
-func hide_me(node_name):
+# メッセージ・ウィンドウを隠す
+func hide_me(node_name_str):
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
 	# 新しいウィンドウ
-	snapshot.message_window_name_obj = null
+	#snapshot.message_window_name_obj = null
+
+	# メッセージ・ウィンドウを、一時的に居なくする
+	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(false)

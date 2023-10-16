@@ -21,7 +21,7 @@ func put_textblock(
 	snapshot.remember(temp_text)
 
 	# 会話の開始
-	self.get_director().get_message_window().statemachine_of_message_window.talk()
+	self.get_director().get_current_message_window().statemachine_of_message_window.talk()
 
 	# パースをするな
 	snapshot.set_parse_lock(true)

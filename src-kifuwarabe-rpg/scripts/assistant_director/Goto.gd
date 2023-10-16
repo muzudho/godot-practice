@@ -22,7 +22,7 @@ func do_it(
 
 	# メッセージ・ウィンドウの状態が Completed で止まってるとフリーズするから、強制解除
 	print("［ゴートゥー］　メッセージ・ウィンドウの状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
-	self.get_director().get_message_window().statemachine_of_message_window.all_pages_flushed()
+	self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()
 
 	self.get_director().set_current_section(next_section_name)
 	self.assistant_director_play_section.call()

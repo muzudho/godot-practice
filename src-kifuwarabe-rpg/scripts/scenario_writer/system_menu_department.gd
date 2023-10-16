@@ -20,7 +20,7 @@ var document = {
 		"""\
 		!
 		choice:	1,2
-		m-wnd:	🖥️中央
+		m-wnd:	■中央
 		""",
 		"""\
 		　・再開
@@ -32,7 +32,9 @@ var document = {
 		# 部門変更
 		"""\
 		!
+		m-wnd:		■中央, hide
 		goto:		§システムメニュー画面
+		m-wnd:		■下
 		department:	📗ビジュアルノベル部門
 		""",
 		# FIXME このままだと、終わってしまって次に表示されない
@@ -41,6 +43,7 @@ var document = {
 	"§終了" : [
 		"""\
 		!
+		m-wnd:		■中央, hide
 		quit:
 		"""
 	],

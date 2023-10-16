@@ -36,10 +36,16 @@ func get_current_snapshot():
 
 
 # メッセージ・ウィンドウ（現在、出力の対象になっているもの）
-func get_message_window():
+func get_message_window(node_name_obj):
+	print("［ディレクター］　メッセージ・ウィンドウ名：［" + str(node_name_obj) + "］")
+	return $"GuiArtist/WindowsOfMessage".get_node(str(node_name_obj))
+
+
+# メッセージ・ウィンドウ（現在、出力の対象になっているもの）
+func get_current_message_window():
 	var snapshot = self.get_current_snapshot()
 	print("［ディレクター］　メッセージ・ウィンドウ名：［" + str(snapshot.message_window_name_obj) + "］")
-	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
+	return self.get_message_window(str(snapshot.message_window_name_obj))
 
 
 # 現在の「§」セクション設定
@@ -111,7 +117,7 @@ func _ready():
 	$"./AssistantDirector".play_section()
 
 	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
-	self.get_message_window().set_appear_subtree(true)
+	self.get_current_message_window().set_appear_subtree(true)
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -146,7 +152,7 @@ func _unhandled_key_input(event):
 		print("［ディレクター］　アンハンドルド・キー押下　その他のキー")
 
 		#	子要素へ渡す
-		self.get_message_window().on_unhandled_key_input(event)
+		self.get_current_message_window().on_unhandled_key_input(event)
 
 	else:
 		print("［ディレクター］　アンハンドルド・キー　押下以外")

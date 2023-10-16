@@ -32,7 +32,7 @@ func get_current_section_item_of_scenario():
 # 「§」セクションの再生
 func play_section():
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window = self.get_director().get_message_window()
+	var message_window = self.get_director().get_current_message_window()
 
 	# 全部消化済みの場合
 	if self.get_current_section_size_of_scenario() <= snapshot.section_item_index:
@@ -62,7 +62,7 @@ func on_choice_selected(row_number):
 	# メッセージ・ウィンドウの状態遷移
 	#	ずっと Completed だと、困るから
 	print("［アシスタント・ディレクター］　メッセージ・ウィンドウを　オール・ページズ・フラッシュド　する")
-	self.get_director().get_message_window().statemachine_of_message_window.all_pages_flushed()
+	self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()
 
 
 	var snapshot = self.get_director().get_current_snapshot()
@@ -215,6 +215,6 @@ func _process(_delta):
 
 		# もう無いよ
 		else:
-			if not self.get_director().get_message_window().statemachine_of_message_window.is_none():
+			if not self.get_director().get_current_message_window().statemachine_of_message_window.is_none():
 				# メッセージ・ウィンドウを閉じる
-				self.get_director().get_message_window().statemachine_of_message_window.all_pages_flushed()
+				self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()
