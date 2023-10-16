@@ -12,11 +12,6 @@ func get_assistant_director():
 	return $"../../AssistantDirector"
 
 
-# 部門管理人取得
-func get_department_manager():
-	return $"../../System/DepartmentManager"
-
-
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
 	return $"../../TelopCoordinator"

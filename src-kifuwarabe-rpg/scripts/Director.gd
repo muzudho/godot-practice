@@ -21,11 +21,6 @@ func get_assistant_director():
 	return $"AssistantDirector"
 
 
-# 部門管理人
-func get_department_manager():
-	return $"System/DepartmentManager"
-
-
 # 主シナリオ取得
 func get_main_scenario():
 	return $"ScenarioWriter/Main"
