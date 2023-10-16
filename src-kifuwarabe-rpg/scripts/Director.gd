@@ -88,8 +88,8 @@ func _ready():
 		sprite2d_node.hide()
 	$"GuiArtist/WindowsOfViewing/System/Frame".hide()
 	#
-	#	シーンはとにかく非表示にする
-	for canvas_layer in $"LocationCoordinator".get_children():
+	#	テロップはとにかく非表示にする
+	for canvas_layer in $"TelopCoordinator".get_children():
 		canvas_layer.hide()
 	#
 	#	モンスターはとにかく非表示にする

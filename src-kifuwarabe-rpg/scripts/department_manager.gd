@@ -40,8 +40,8 @@ func disappear():
 		# メッセージ・ウィンドウを、一時的に居なくする
 		self.get_message_window().set_appear_subtree(false)
 		
-		# 場所が表示中なら、非表示にする
-		#self.get_assitant_director().hide_current_location(str(self.name))
+		# テロップが表示中なら、非表示にする
+		#self.get_assitant_director().hide_current_telop(str(self.name))
 
 
 # 現れる
@@ -53,5 +53,5 @@ func appear():
 		# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
 		self.get_message_window().set_appear_subtree(true)
 
-		# 場所が非表示中なら、表示する
-		#self.get_assitant_director().show_current_location(str(self.name))
+		# テロップが非表示中なら、表示する
+		#self.get_assitant_director().show_current_telop(str(self.name))

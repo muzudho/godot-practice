@@ -253,13 +253,13 @@ texture = ExtResource("20_ib2qc")
 position = Vector2(640, 360)
 texture = ExtResource("22_ioffi")
 
-[node name="LocationCoordinator" type="Node" parent="."]
+[node name="TelopCoordinator" type="Node" parent="."]
 
-[node name="タイトル" type="CanvasLayer" parent="LocationCoordinator"]
+[node name="タイトル" type="CanvasLayer" parent="TelopCoordinator"]
 visible = false
 script = ExtResource("17_ibqgx")
 
-[node name="きふわらべRPG" type="Label" parent="LocationCoordinator/タイトル"]
+[node name="きふわらべRPG" type="Label" parent="TelopCoordinator/タイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -276,7 +276,7 @@ label_settings = SubResource("LabelSettings_t63ks")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Copyright" type="Label" parent="LocationCoordinator/タイトル"]
+[node name="Copyright" type="Label" parent="TelopCoordinator/タイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -293,11 +293,11 @@ label_settings = SubResource("LabelSettings_v0hgs")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="エンディング" type="CanvasLayer" parent="LocationCoordinator"]
+[node name="エンディング" type="CanvasLayer" parent="TelopCoordinator"]
 visible = false
 script = ExtResource("17_ibqgx")
 
-[node name="エンドロール" type="Label" parent="LocationCoordinator/エンディング"]
+[node name="エンドロール" type="Label" parent="TelopCoordinator/エンディング"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -325,7 +325,7 @@ text = "　　　　　　音楽　魔王魂
 label_settings = SubResource("LabelSettings_oqy5n")
 vertical_alignment = 1
 
-[node name="完" type="Label" parent="LocationCoordinator/エンディング"]
+[node name="完" type="Label" parent="TelopCoordinator/エンディング"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -342,11 +342,11 @@ label_settings = SubResource("LabelSettings_t63ks")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="崎川駅周辺地図" type="CanvasLayer" parent="LocationCoordinator"]
+[node name="崎川駅周辺地図" type="CanvasLayer" parent="TelopCoordinator"]
 visible = false
 script = ExtResource("17_ibqgx")
 
-[node name="NR崎川駅" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="NR崎川駅" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -364,7 +364,7 @@ label_settings = SubResource("LabelSettings_s3a30")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="西口" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="西口" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -382,7 +382,7 @@ label_settings = SubResource("LabelSettings_nc3n7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="東口" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="東口" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -400,7 +400,7 @@ label_settings = SubResource("LabelSettings_nc3n7")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="最強振興会館" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="最強振興会館" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -418,7 +418,7 @@ label_settings = SubResource("LabelSettings_6krhj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ゾラーナ崎川プラザ" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="ゾラーナ崎川プラザ" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -436,7 +436,7 @@ label_settings = SubResource("LabelSettings_8g2fx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="リキッドスクエア" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="リキッドスクエア" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -454,7 +454,7 @@ label_settings = SubResource("LabelSettings_7xxk4")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="香急崎川駅" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="香急崎川駅" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -473,7 +473,7 @@ label_settings = SubResource("LabelSettings_8g2fx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="バドバシメカラ" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="バドバシメカラ" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -492,7 +492,7 @@ label_settings = SubResource("LabelSettings_8g2fx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="アトレ崎川" type="Label" parent="LocationCoordinator/崎川駅周辺地図"]
+[node name="アトレ崎川" type="Label" parent="TelopCoordinator/崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5

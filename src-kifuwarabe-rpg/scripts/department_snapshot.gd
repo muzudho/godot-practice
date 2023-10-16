@@ -18,8 +18,8 @@ var text_block_buffer = ""
 #	タイプライターのカウント
 var count_of_typewriter = 0
 
-# 表示中の場所のノード名。無ければ空文字列
-var location_node_name = ""
+# 表示中のテロップのノード名。無ければ空文字列
+var telop_node_name = ""
 
 # メッセージを出力する対象となるノードの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
 var message_window_name_obj = null		# StringName 型 シンタックス・シュガー

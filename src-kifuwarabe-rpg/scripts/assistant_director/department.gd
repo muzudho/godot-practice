@@ -17,9 +17,9 @@ func get_department_manager():
 	return $"../../System/DepartmentManager"
 
 
-# ロケーション・コーディネーター取得
-func get_location_coordinator():
-	return $"../../LocationCoordinator"
+# テロップ・コーディネーター取得
+func get_telop_coordinator():
+	return $"../../TelopCoordinator"
 
 
 # スナップショット取得
@@ -51,26 +51,26 @@ func change_department(next_department_name):
 	self.get_assistant_director().play_section()
 
 
-# 場所が非表示中なら、表示にする
-func show_current_location(department_node_name):
+# テロップが非表示中なら、表示にする
+func show_current_telop(department_node_name):
 	# 変数名を短くする
-	var current_location_node_name = self.get_snapshot(department_node_name).location_node_name
+	var current_telop_node_name = self.get_snapshot(department_node_name).telop_node_name
 
-	if current_location_node_name == "":
+	if current_telop_node_name == "":
 		return
 
-	print("［ロケーション・コーディネーター］　表示：[" + str(current_location_node_name) + "]")
-	self.get_location_coordinator().get_node(current_location_node_name).show()
+	print("［部門］　表示：[" + str(current_telop_node_name) + "]")
+	self.get_telop_coordinator().get_node(current_telop_node_name).show()
 
 
-# 場所が表示中なら、非表示にする
-func hide_current_location(department_node_name):
+# テロップが表示中なら、非表示にする
+func hide_current_telop(department_node_name):
 	# 変数名を短くする
-	var current_location_node_name = self.get_snapshot(department_node_name).location_node_name
+	var current_telop_node_name = self.get_snapshot(department_node_name).telop_node_name
 
-	if current_location_node_name == "":
+	if current_telop_node_name == "":
 		return
 
-	print("［ロケーション・コーディネーター］　非表示：[" + str(current_location_node_name) + "]")
-	self.get_location_coordinator().get_node(current_location_node_name).hide()
+	print("［部門］　非表示：[" + str(current_telop_node_name) + "]")
+	self.get_telop_coordinator().get_node(current_telop_node_name).hide()
 
