@@ -16,14 +16,19 @@ var current_se_name = null
 var snapshots = {}
 
 
-# 主シナリオ
-func get_main_scenario():
-	return $"ScenarioWriter/Main"
+# アシスタント・ディレクター取得
+func get_assistant_director():
+	return $"AssistantDirector"
 
 
 # 部門管理人
 func get_department_manager():
 	return $"System/DepartmentManager"
+
+
+# 主シナリオ取得
+func get_main_scenario():
+	return $"ScenarioWriter/Main"
 
 
 # スナップショット
@@ -137,7 +142,7 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　部門変更")
 
 				# TODO ここで stage_directions をト書きとして実行したいが、できるか？
-				$"AssistantDirector/Department".change_department(stage_directions)
+				self.get_assistant_director().parse_section_item(stage_directions)
 
 				# 子要素には渡しません
 				return
