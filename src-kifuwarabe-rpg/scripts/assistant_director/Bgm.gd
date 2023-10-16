@@ -28,7 +28,7 @@ func do_it(line):
 
 	if node_name == "":
 		# BGM 停止
-		self.get_musician().stop_bgm()
+		self.stop_bgm()
 		
 	else:
 		# じゃあ BGM 流すか
@@ -38,9 +38,9 @@ func do_it(line):
 # BGM 再生
 func play_bgm(node_name, from = null):
 	if self.get_director().current_bgm_name!=null:
-		self.get_musician().stop_bgm()
+		self.stop_bgm()
 		
-	print("［音楽家］　ＢＧＭ開始：[" + node_name + "]")
+	print("［ＢＧＭ］　開始：[" + node_name + "]")
 	self.get_director().current_bgm_name = node_name
 	
 	var audio_node = self.get_musician().get_node("BGM").get_node(self.get_director().current_bgm_name)
@@ -50,3 +50,11 @@ func play_bgm(node_name, from = null):
 	else:
 		# 曲を途中から開始（単位は秒）
 		audio_node.play(from)
+
+
+# BGM 停止
+func stop_bgm():
+	if self.get_director().current_bgm_name != null:
+		print("［ＢＧＭ］　停止")
+		self.get_musician().get_node("BGM").get_node(self.get_director().current_bgm_name).stop()
+		self.get_director().current_bgm_name = null

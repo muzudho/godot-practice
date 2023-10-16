@@ -18,14 +18,6 @@ func playSe(node_name):
 	$"SE".get_node(self.get_director().current_se_name).play()
 
 
-#	BGM 停止
-func stop_bgm():
-	if self.get_director().current_bgm_name != null:
-		print("［音楽家］　ＢＧＭ停止")
-		$"BGM".get_node(self.get_director().current_bgm_name).stop()
-		self.get_director().current_bgm_name = null
-
-
 #	効果音停止
 func stopSe():
 	if self.get_director().current_se_name != null:
