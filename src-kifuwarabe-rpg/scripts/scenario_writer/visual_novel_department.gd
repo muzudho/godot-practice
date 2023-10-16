@@ -116,6 +116,7 @@ var document = {
 		!
 		m-wnd:		■下, hide
 		department:	📗バトル部門
+		arg:		monster, コダック
 		goto:		§初戦闘シーン
 		m-wnd:		■下
 		""",

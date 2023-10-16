@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=66 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -46,6 +46,7 @@
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="38_hc66s"]
+[ext_resource type="Script" path="res://scripts/assistant_director/arg.gd" id="39_qg5jf"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
 [ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="46_tukjy"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="49_qua1y"]
@@ -692,6 +693,9 @@ texture = ExtResource("38_hc66s")
 
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("3_nnvgw")
+
+[node name="Arg" type="Node" parent="AssistantDirector"]
+script = ExtResource("39_qg5jf")
 
 [node name="Bg" type="Node" parent="AssistantDirector"]
 script = ExtResource("32_uu41d")

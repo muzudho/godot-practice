@@ -14,6 +14,8 @@ var current_bgm_name = null
 var current_se_name = null
 # スナップショット辞書
 var snapshots = {}
+# 命令の実引数の辞書
+var instruction_arguments = {}
 
 
 # アシスタント・ディレクター取得

@@ -105,7 +105,14 @@ func split_head_line_or_tail(text):
 func expand_param(line):
 	if line is String:
 		# ここで `%arg_1% などの引数を　変数展開したい
-		return line
+		if line.begins_with("%arg_"):
+
+			# 頭の `%arg_` と、末尾の `%` を除去
+			var key = line.substr(5, line.length() - 6)
+			print("［アシスタント・ディレクター］　実引数キー：［" + key + "］")
+			var value = self.get_director().instruction_arguments[key]
+			print("［アシスタント・ディレクター］　実引数値：［" + value + "］")
+			return value
 	
 	return line
 
@@ -134,12 +141,16 @@ func parse_section_item(temp_text):
 
 			# 以下の命令は、アルファベット順で並べてある
 			#
+			# 実引数セット
+			if second_head.begins_with("arg:"):
+				$"Arg".do_it(second_head)
+				
 			# 背景切替
-			if second_head.begins_with("bg:"):
+			elif second_head.begins_with("bg:"):
 				$"Bg".do_it(second_head)
 
 			# ＢＧＭ再生／停止
-			if second_head.begins_with("bgm:"):
+			elif second_head.begins_with("bgm:"):
 				$"Bgm".do_it(second_head)
 			
 			# 選択肢かどうか判定
