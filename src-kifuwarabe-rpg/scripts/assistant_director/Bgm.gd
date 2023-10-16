@@ -7,6 +7,11 @@ func get_director():
 	return $"../../../Director"
 
 
+# アシスタント・ディレクター
+func get_assistant_director():
+	return $"../../AssistantDirector"
+
+
 # ミュージシャン取得
 func get_musician():
 	return $"../../Musician"
@@ -20,11 +25,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = string_packed_array[0]
+	var node_name = self.get_assistant_director().expand_arg(string_packed_array[0].strip_edges())
 	var from = null
 	
 	if 2 <= string_packed_array.size():
-		from = float(string_packed_array[1])
+		from = float(self.get_assistant_director().expand_arg(string_packed_array[1].strip_edges()))
 
 	if node_name == "":
 		# BGM 停止

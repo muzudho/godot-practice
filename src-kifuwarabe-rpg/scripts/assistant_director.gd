@@ -102,6 +102,14 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
+func expand_arg(line):
+	if line is String:
+		# ここで `%arg_1% などの引数を　変数展開したい
+		return line
+	
+	return line
+
+
 # ［ト書き］か、［台詞］か、によって処理を分けます
 func parse_section_item(temp_text):
 	
@@ -185,12 +193,6 @@ func parse_section_item(temp_text):
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
 	$"NormalText".do_it(temp_text)
-
-
-func _ready():
-	#	関数を渡す
-	$"Goto".assistant_director_set_current_section = self.get_director().set_current_section
-	$"Goto".assistant_director_play_section = self.play_section
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

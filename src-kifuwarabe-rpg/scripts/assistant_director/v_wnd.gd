@@ -2,6 +2,11 @@
 extends Node
 
 
+# アシスタント・ディレクター
+func get_assistant_director():
+	return $"../../AssistantDirector"
+
+
 #	それをする
 func do_it(line):
 
@@ -10,11 +15,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var position = string_packed_array[0].strip_edges()
+	var position = self.get_assistant_director().expand_arg(string_packed_array[0].strip_edges())
 	var node_name = null
 		
 	if 2 <= string_packed_array.size():
-		node_name = string_packed_array[1].strip_edges()
+		node_name = self.get_assistant_director().expand_arg(string_packed_array[1].strip_edges())
 	
 	self.show_viewing_window(position, node_name)
 

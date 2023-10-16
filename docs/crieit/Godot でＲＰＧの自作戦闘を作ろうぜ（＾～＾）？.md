@@ -207,4 +207,19 @@ var key_pressed_stage_directions = {
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　これで　下地は整ったわね」  
 
+## 引数が要るのでは？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　これが関数とするのなら、引数を渡せないと　実用的じゃないな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`%argument1%` とか書ければいいんじゃないか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　命令の至る所を `%argument1%` という書き方に対応させなくちゃいけないし、  
+パーサーから見て　どういう書き方がいいのか　調べないといけないぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`%arg_1%` とかでいいんじゃない？」  
+
 .

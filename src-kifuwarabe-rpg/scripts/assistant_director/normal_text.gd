@@ -7,6 +7,11 @@ func get_director():
 	return $"../../../Director"
 
 
+# アシスタント・ディレクター
+func get_assistant_director():
+	return $"../../AssistantDirector"
+
+
 # それをする
 func do_it(temp_text):
 	self.put_textblock(temp_text)
@@ -17,7 +22,7 @@ func put_textblock(
 		temp_text):		# str
 
 	# メッセージの追加
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 	snapshot.remember(temp_text)
 
 	# 会話の開始

@@ -7,6 +7,11 @@ func get_director():
 	return $"../../../Director"
 
 
+# アシスタント・ディレクター
+func get_assistant_director():
+	return $"../../AssistantDirector"
+
+
 # ミュージシャン取得
 func get_musician():
 	return $"../../Musician"
@@ -17,6 +22,7 @@ func do_it(line):
 
 	var node_name = line.substr(3).strip_edges()
 	print("［効果音］　ノード名：[" + node_name + "]")
+	node_name = self.get_assistant_director().expand_arg(node_name.strip_edges())
 
 	if node_name == "":
 		# 効果音 停止

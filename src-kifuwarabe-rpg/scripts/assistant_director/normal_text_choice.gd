@@ -7,6 +7,11 @@ func get_director():
 	return $"../../../Director"
 
 
+# アシスタント・ディレクター
+func get_assistant_director():
+	return $"../../AssistantDirector"
+
+
 # それをする
 func do_it(
 		temp_text):		# str
