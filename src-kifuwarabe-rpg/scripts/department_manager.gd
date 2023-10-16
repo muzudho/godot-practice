@@ -33,19 +33,13 @@ func talk():
 
 # 居なくなる
 func disappear():
-	if self.get_snapshot().is_appear:
-		print("［部門管理人］　居なくなる")
-		self.get_snapshot().is_appear = false
-		
-		# メッセージ・ウィンドウを、一時的に居なくする
-		self.get_message_window().set_appear_subtree(false)
-		
+	print("［部門管理人］　居なくなる")
+	# メッセージ・ウィンドウを、一時的に居なくする
+	self.get_message_window().set_appear_subtree(false)
+
 
 # 現れる
 func appear():
-	if not self.get_snapshot().is_appear:
-		print("［部門管理人］　居なくなっていたのを解除する")
-		self.get_snapshot().is_appear = true
-
-		# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
-		self.get_message_window().set_appear_subtree(true)
+	print("［部門管理人］　居なくなっていたのを解除する")
+	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
+	self.get_message_window().set_appear_subtree(true)
