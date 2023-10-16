@@ -32,20 +32,16 @@ func do_it(line):
 
 # メッセージ・ウィンドウを見せる
 func show_me(node_name):
-
 	var snapshot = self.get_director().get_current_snapshot()
-
-	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　リダイレクトしてきた")
+	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
 	# 新しいウィンドウ
 	snapshot.message_window_name_obj = StringName(node_name)	# StringName 型。 String ではない
 
 
 func hide_me(node_name):
-
 	var snapshot = self.get_director().get_current_snapshot()
-
-	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　リダイレクトしてきた")
+	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
 	# 新しいウィンドウ
 	snapshot.message_window_name_obj = null
