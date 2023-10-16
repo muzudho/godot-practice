@@ -103,7 +103,7 @@ func split_head_line_or_tail(text):
 
 
 # ［ト書き］か、台詞か、によって処理を分けます
-func parse_message(temp_text):
+func parse_section_item(temp_text):
 	
 	# ［ト書き］かどうか判定
 	var first_head_tail = split_head_line_or_tail(temp_text)
@@ -211,7 +211,7 @@ func _process(_delta):
 			snapshot.section_item_index += 1
 
 			# ここで、命令と、台詞は区別する
-			self.parse_message(latest_message)
+			self.parse_section_item(latest_message)
 
 		# もう無いよ
 		else:

@@ -122,14 +122,22 @@ func _unhandled_key_input(event):
 	# 何かキーを押したとき
 	if event.is_pressed():
 
-		if self.current_department in self.get_main_scenario().key_pressed_mappings:
-			var key_pressed_mappings_1 = self.get_main_scenario().key_pressed_mappings[self.current_department]
-			if event.keycode in key_pressed_mappings_1:
-				var next_department = key_pressed_mappings_1[event.keycode]
+		# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
+		if self.current_department in self.get_main_scenario().key_pressed_stage_directions:
+			
+			# その要素を取得
+			var key_pressed_stage_directions_1 = self.get_main_scenario().key_pressed_stage_directions[self.current_department]
+			
+			# 押したキーに紐づく、ト書きは辞書に記載されているか？
+			if event.keycode in key_pressed_stage_directions_1:
 				
+				# そのト書き
+				var stage_directions = key_pressed_stage_directions_1[event.keycode]
+
 				print("［ディレクター］　アンハンドルド・キー押下　部門変更")
 
-				$"AssistantDirector/Department".change_department(next_department)
+				# TODO ここで stage_directions をト書きとして実行したいが、できるか？
+				$"AssistantDirector/Department".change_department(stage_directions)
 
 				# 子要素には渡しません
 				return
