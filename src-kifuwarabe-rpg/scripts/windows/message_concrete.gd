@@ -31,20 +31,6 @@ func get_text_block():
 	return text_block
 
 
-# メッセージ出力先ウィンドウ変更。ノード名を指定
-func redirect_me():
-
-	# 全ての文字は吐き出されたものとする
-	#self.statemachine_of_message_window.all_pages_flushed()
-
-	var snapshot = self.get_director().get_current_snapshot()
-
-	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　リダイレクトしてきた")
-
-	# 新しいウィンドウ
-	snapshot.message_window_name_obj = self.name # StringName 型。 String ではない
-
-
 # 先頭行と、それ以外に分けます
 func split_head_line_or_tail(text):
 	# 最初の改行を見つける
