@@ -8,9 +8,13 @@ var DepartmentSnapshot = load("res://scripts/department_snapshot.gd")
 
 # 現在の部門
 var current_department = null
-
+# 現在鳴っている背景音楽のノード名
+var current_bgm_name = null
+# 現在鳴っている効果音のノード名
+var current_se_name = null
 # スナップショット辞書
 var snapshots = {}
+
 
 # 主シナリオ
 func get_main_scenario():
