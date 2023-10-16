@@ -7,26 +7,6 @@ func get_snapshot(department_node_name):
 	return $"../../Director".get_snapshot(department_node_name)
 
 
-# 場所を替える
-func move_location(department_node_name, new_location_node_name):
-	print("［ロケーション・コーディネーター］　切替：[" + new_location_node_name + "]")
-
-	# 変数名を短くする
-	var old_location_node_name = self.get_snapshot(department_node_name).location_node_name
-	
-
-	# 既に表示中の画像を非表示にする（上に乗っかっていて、表示したい絵が見えないケースがある）
-	if old_location_node_name != "":
-		self.get_node(old_location_node_name).hide()
-
-	# 記憶
-	self.get_snapshot(department_node_name).location_node_name = new_location_node_name
-
-	# 表示
-	if new_location_node_name != "":
-		self.get_node(new_location_node_name).show()
-
-
 # 場所が非表示中なら、表示にする
 func show_current_location(department_node_name):
 	# 変数名を短くする
