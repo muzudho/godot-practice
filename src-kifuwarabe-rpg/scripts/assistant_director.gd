@@ -102,7 +102,7 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
-# ［ト書き］か、台詞か、によって処理を分けます
+# ［ト書き］か、［台詞］か、によって処理を分けます
 func parse_section_item(temp_text):
 	
 	# ［ト書き］かどうか判定
