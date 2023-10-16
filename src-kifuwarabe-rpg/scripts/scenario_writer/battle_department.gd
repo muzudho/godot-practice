@@ -32,8 +32,21 @@ var document = {
 		""",
 		"""\
 		!
-		monster:	コダック, hide
-		monster:	ハム将棋
+		monster:	%arg_monster%, hide
+		""",
+		# 部門変更
+		"""\
+		!
+		m-wnd:		■下, hide
+		department:	📗ビジュアルノベル部門
+		goto:		%arg_return%
+		m-wnd:		■下
+		""",
+	],
+	"§２回目戦闘シーン":[
+		"""\
+		!
+		monster:	%arg_monster%
 		bgm:		🎵バトル２
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -43,7 +56,10 @@ var document = {
 		""",
 		"""\
 		!
-		monster:	ハム将棋, hide
+		monster:	%arg_monster%, hide
+		""",
+		"""\
+		!
 		monster:	れさ改
 		bgm:		🎵バトル３
 		""",
@@ -63,7 +79,7 @@ var document = {
 		!
 		m-wnd:		■下, hide
 		department:	📗ビジュアルノベル部門
-		goto:		§崎川市最強振興会館
+		goto:		%arg_return%
 		m-wnd:		■下
 		""",
 	],

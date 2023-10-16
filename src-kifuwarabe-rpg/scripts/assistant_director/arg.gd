@@ -30,7 +30,7 @@ func do_it(line):
 		self.set_arg(key, value)
 		return
 
-	if key == "clear":
+	if key == "%clear%":
 		self.clear_arg()
 
 
