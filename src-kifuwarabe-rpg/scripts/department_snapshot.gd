@@ -18,8 +18,8 @@ var text_block_buffer = ""
 #	タイプライターのカウント
 var count_of_typewriter = 0
 
-# メッセージを出力する対象となるノードの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-var message_window_name_obj = null		# StringName 型 シンタックス・シュガー
+# メッセージ・ウィンドウのノード名。スタック構造をしている。文字列ではなく StringName 型
+var message_window_name_obj_stack = []
 
 # 「§」セクション名
 var section_name = null

@@ -18,9 +18,17 @@ func do_it(line):
 
 	var node_name = string_packed_array[0]
 	var sub_command = null
-	
+
 	if 2 <= string_packed_array.size():
 		sub_command = string_packed_array[1].strip_edges()
+
+	if node_name == "%hide_current_it_then_push_it_to_stack%":
+		self.hide_current_it_then_push_it_to_stack()
+		return
+
+	if node_name == "%pop_it_from_stack_then_show_current_it%":
+		self.pop_it_from_stack_then_show_current_it()
+		return
 
 	if sub_command == "hide":
 		# メッセージ・ウィンドウを隠す
@@ -35,9 +43,6 @@ func show_me(node_name_str):
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
-	# 新しいウィンドウ
-	snapshot.message_window_name_obj = StringName(node_name_str)	# StringName 型。 String ではない
-
 	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
 	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(true)
 
@@ -47,8 +52,20 @@ func hide_me(node_name_str):
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
-	# 新しいウィンドウ
-	#snapshot.message_window_name_obj = null
-
 	# メッセージ・ウィンドウを、一時的に居なくする
 	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(false)
+
+
+func hide_current_it_then_push_it_to_stack():
+	var snapshot = self.get_director().get_current_snapshot()
+	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　現在のウィンドウを隠し、そして、それをスタックへプッシュする")
+	self.hide_me(str(snapshot.message_window_name_obj_stack[-1]))
+
+
+func pop_it_from_stack_then_show_current_it():
+	var snapshot = self.get_director().get_current_snapshot()
+	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　スタックからウィンドウをポップし、そして、それを見せる")
+
+	var peek = snapshot.message_window_name_obj_stack.pop_buck()
+	self.show_me(str(peek))
+

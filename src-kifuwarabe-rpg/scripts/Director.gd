@@ -44,8 +44,9 @@ func get_message_window(node_name_obj):
 # メッセージ・ウィンドウ（現在、出力の対象になっているもの）
 func get_current_message_window():
 	var snapshot = self.get_current_snapshot()
-	print("［ディレクター］　メッセージ・ウィンドウ名：［" + str(snapshot.message_window_name_obj) + "］")
-	return self.get_message_window(str(snapshot.message_window_name_obj))
+	var name_str = str(snapshot.message_window_name_obj_stack[-1])
+	print("［ディレクター］　メッセージ・ウィンドウ名：［" + name_str + "］")
+	return self.get_message_window(name_str)
 
 
 # 現在の「§」セクション設定
@@ -68,7 +69,7 @@ func _ready():
 			# （めんどくさいけど）Main シナリオからプロパティを移す
 			var department_initial_properties = self.get_main_scenario().department_initial_properties[department.name]
 			self.snapshots[department.name].name = department.name		# StringName 型
-			self.snapshots[department.name].message_window_name_obj = department_initial_properties["message_window_name_obj"]
+			self.snapshots[department.name].message_window_name_obj_stack.push_back(department_initial_properties["message_window_name_obj"])
 			self.snapshots[department.name].section_name = department_initial_properties["section_name"]
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
