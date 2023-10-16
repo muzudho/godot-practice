@@ -30,17 +30,27 @@
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　まあ　今のままでは何も進まんし  
-**分割して統治せよ** というセオリーもあるしな」  
+ソースコードの掃除ぐらいするか」  
 
-![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
-「　何だぜそれ？」  
-
-📖　[分割統治（Divide and Conquer）について](https://ameblo.jp/ouobpo/entry-10052917344.html)  
+## どこからでも飛ぶ
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　会話シーンと　戦闘シーンは　多分　全然違う苦労をするだろうから  
-苦労は　同じ種類同士で　集めようぜ、という話しだぜ」  
+「　ランダム・エンカウントの戦闘シーンって　いつでも　突然　戦闘シーンへ飛ぶよな」  
 
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
-「　そんな話だったかしらねえ？」  
+「　同義反復よね」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　現在の状態を知っていて、それをオフにしたり、  
+オフにしたときの状態を覚えていて　あとでその状態に戻りたいこととかあるよな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　スタックを使えだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　現在の状態が　プログラムを書いた時点では　分からないこともある」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　専用のコマンドを用意したらいいんじゃない？」  
+
 .
