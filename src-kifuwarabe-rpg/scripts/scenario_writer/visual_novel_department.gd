@@ -45,7 +45,7 @@ var document = {
 	"§はじまり":[
 		"""\
 		!
-		telop:
+		telop:	タイトル, hide
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -120,7 +120,7 @@ var document = {
 	"§初戦闘シーン":[
 		"""\
 		!
-		telop:
+		telop:		崎川駅周辺地図, hide
 		bg:			崎川駅周辺地図, hide
 		bg:			戦闘シーン
 		bg:			川掘町線ロード
@@ -168,7 +168,6 @@ var document = {
 	"§崎川市最強振興会館":[
 		"""\
 		!
-		telop:
 		bgm:
 		bg:		川掘町線ロード, hide
 		bg:		戦闘シーン, hide

@@ -29,12 +29,25 @@ func set_director_get_current_snapshot_subtree(it):
 #	それをする
 func do_it(line):
 
-	var telop_node_name = line.substr(6).strip_edges()
-	print("［テロップ］　名前：[" + telop_node_name + "]")
+	var csv = line.substr(6).strip_edges()
+	print("［テロップ］　CSV：[" + csv + "]")
+	# 文字列の配列に分割
+	var string_packed_array = csv.split(",", true, 0)
+
+	var node_name = string_packed_array[0]
+	var sub_command = null
+	
+	if 2 <= string_packed_array.size():
+		sub_command = string_packed_array[1].strip_edges()
+	
+	if sub_command == "hide":
+		# テロップを隠す
+		self.hide_telop(node_name)
+		return
 	
 	var snapshot = self.director_get_current_snapshot.call()
 	
-	self.change_telop(str(snapshot.name), telop_node_name)
+	self.change_telop(str(snapshot.name), node_name)
 
 
 # 場所を替える
@@ -53,11 +66,20 @@ func change_telop(
 
 	# 既に表示中の画像を非表示にする（上に乗っかっていて、表示したい絵が見えないケースがある）
 	if old_telop_node_name != "":
-		telop_coordinator.get_node(old_telop_node_name).hide()
+		self.hide_telop(old_telop_node_name)
 
 	# 更新
 	snapshot.telop_node_name = new_telop_node_name
 
 	# 表示
 	if new_telop_node_name != "":
-		telop_coordinator.get_node(new_telop_node_name).show()
+		self.show_telop(new_telop_node_name)
+
+
+# テロップを見せる
+func show_telop(node_name):
+	self.get_telop_coordinator().get_node(node_name).show()
+
+# テロップを隠す
+func hide_telop(node_name):
+	self.get_telop_coordinator().get_node(node_name).hide()
