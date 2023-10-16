@@ -88,11 +88,6 @@ func play_section():
 			snapshot.set_parse_lock(false)
 
 
-# メッセージ出力先ウィンドウ変更。ノード名を指定
-func redirect_message_window_by_name(node_name):
-	self.get_message_window(node_name).redirect_me()
-
-
 # メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
 	print("［アシスタント・ディレクター］　選択肢を確定させた")
@@ -227,7 +222,6 @@ func parse_message(temp_text):
 
 func _ready():
 	#	関数を渡す
-	$"MWnd".message_window_redirect_by_name = self.redirect_message_window_by_name
 	$"Goto".assistant_director_set_current_section = self.set_current_section
 	$"Goto".assistant_director_play_section = self.play_section
 	$"Goto".assistant_director_get_current_message_window = self.get_current_message_window
