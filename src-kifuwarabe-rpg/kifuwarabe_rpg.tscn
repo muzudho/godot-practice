@@ -253,7 +253,7 @@ texture = ExtResource("20_ib2qc")
 position = Vector2(640, 360)
 texture = ExtResource("22_ioffi")
 
-[node name="LocationCoordinator" type="Node2D" parent="."]
+[node name="LocationCoordinator" type="Node" parent="."]
 
 [node name="タイトル" type="CanvasLayer" parent="LocationCoordinator"]
 visible = false
