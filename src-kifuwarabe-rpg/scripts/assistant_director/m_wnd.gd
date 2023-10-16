@@ -16,7 +16,7 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = string_packed_array[0]
+	var node_name = string_packed_array[0].strip_edges()
 	var sub_command = null
 
 	if 2 <= string_packed_array.size():
@@ -56,16 +56,26 @@ func hide_me(node_name_str):
 	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(false)
 
 
+# 現在のウィンドウを隠し、そして、それをスタックへプッシュする
 func hide_current_it_then_push_it_to_stack():
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　現在のウィンドウを隠し、そして、それをスタックへプッシュする")
-	self.hide_me(str(snapshot.message_window_name_obj_stack[-1]))
 
+	# 現在のウィンドウを隠す
+	var current_node_name = snapshot.message_window_name_obj_stack[-1]
+	self.hide_me(str(current_node_name))
 
+	# スタックにプッシュする
+	snapshot.message_window_name_obj_stack.push_back(current_node_name)
+
+# スタックからウィンドウをポップし、そして、それを見せる
 func pop_it_from_stack_then_show_current_it():
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　スタックからウィンドウをポップし、そして、それを見せる")
 
-	var peek = snapshot.message_window_name_obj_stack.pop_buck()
-	self.show_me(str(peek))
+	# スタックからウィンドウをポップする
+	var peek_node_name = snapshot.message_window_name_obj_stack.pop_back()
+	
+	# それを見せる
+	self.show_me(str(peek_node_name))
 

@@ -27,20 +27,22 @@ var department_initial_properties = {
 var key_pressed_stage_directions = {
 	"📗ビジュアルノベル部門" : {
 		KEY_ESCAPE :
+			# `%hide_current_it_then_push_it_to_stack%` - 現在のウィンドウを隠し、そして、それをスタックへプッシュする
 			"""\
 			!
-			m-wnd:			■下, hide
+			m-wnd:			%hide_current_it_then_push_it_to_stack%
 			department:		📗システムメニュー部門
 			m-wnd:			■中央
 			""",
 	},
 	"📗システムメニュー部門" : {
 		KEY_ESCAPE :
+			# `%pop_it_from_stack_then_show_current_it%` - スタックからウィンドウをポップし、そして、それを見せる
 			"""\
 			!
 			m-wnd:			■中央, hide
 			department:		📗ビジュアルノベル部門
-			m-wnd:			■下
+			m-wnd:			%pop_it_from_stack_then_show_current_it%
 			""",
 	},
 }
