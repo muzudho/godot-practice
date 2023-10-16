@@ -8,24 +8,6 @@ func get_director():
 	return $"../../Director"
 
 
-#	BGM 再生
-func playBgm(node_name, from = null):
-	if self.get_director().current_bgm_name!=null:
-		self.stopBgm()
-		
-	print("［音楽家］　ＢＧＭ開始：[" + node_name + "]")
-	self.get_director().current_bgm_name = node_name
-	
-	var audio_node = $"BGM".get_node(self.get_director().current_bgm_name)
-	
-	if from == null:
-		audio_node.play()
-	else:
-		audio_node.play(from)
-
-	# $"BGM".get_node(self.get_director().current_bgm_name).play(8.4) # 開始地点を指定できる
-
-
 #	効果音再生
 func playSe(node_name):
 	if self.get_director().current_se_name!=null:
@@ -37,7 +19,7 @@ func playSe(node_name):
 
 
 #	BGM 停止
-func stopBgm():
+func stop_bgm():
 	if self.get_director().current_bgm_name != null:
 		print("［音楽家］　ＢＧＭ停止")
 		$"BGM".get_node(self.get_director().current_bgm_name).stop()
