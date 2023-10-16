@@ -75,4 +75,31 @@ var key_pressed_mappings = {
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　そこを命令ブロックに改造するか……」  
 
+```gd
+# どの部門で、そのキーを押されたら、ト書きを１つ実行できる
+var key_pressed_stage_directions = {
+	"📗ビジュアルノベル部門" : {
+		KEY_ESCAPE :
+			"""\
+			!
+			department:		📗システムメニュー部門
+			""",
+	},
+	"📗システムメニュー部門" : {
+		KEY_ESCAPE :
+			"""\
+			!
+			department:		📗ビジュアルノベル部門
+			""",
+	},
+}
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ここまでは　でけたぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　その　ト書き　に、どのメッセージ・ウィンドウを閉じて、  
+どのメッセージ・ウィンドウを開くか　書けばいいのよ」  
+
 .

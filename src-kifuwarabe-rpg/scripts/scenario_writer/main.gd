@@ -23,7 +23,7 @@ var department_initial_properties = {
 }
 
 
-# どの部門で、そのキーを押されたら、どの部門へ移動するか？
+# どの部門で、そのキーを押されたら、ト書きを１つ実行できる
 var key_pressed_stage_directions = {
 	"📗ビジュアルノベル部門" : {
 		KEY_ESCAPE :
