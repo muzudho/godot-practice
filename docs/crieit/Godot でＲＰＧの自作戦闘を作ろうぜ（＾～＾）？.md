@@ -133,4 +133,38 @@ var key_pressed_stage_directions = {
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　そこを `%current_it_then_push_to_stack%` とか、 `%pop_from_stack_then_current_it%` とか、書けないかだぜ？」  
 
+```gd
+# どの部門で、そのキーを押されたら、ト書きを１つ実行できる
+var key_pressed_stage_directions = {
+	"📗ビジュアルノベル部門" : {
+		KEY_ESCAPE :
+			# `%hide_current_it_then_push_it_to_stack%` - 現在のウィンドウを隠し、そして、それをスタックへプッシュする
+			"""\
+			!
+			m-wnd:			%hide_current_it_then_push_it_to_stack%
+			department:		📗システムメニュー部門
+			m-wnd:			■中央
+			""",
+	},
+	"📗システムメニュー部門" : {
+		KEY_ESCAPE :
+			# `%pop_it_from_stack_then_show_current_it%` - スタックからウィンドウをポップし、そして、それを見せる
+			"""\
+			!
+			m-wnd:			■中央, hide
+			department:		📗ビジュアルノベル部門
+			m-wnd:			%pop_it_from_stack_then_show_current_it%
+			""",
+	},
+}
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こう書けるようにしたぜ」  
+
+# 戦闘シーンを分けたい
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　今回の改造の応用で、ビジュアルノベル部門と、バトル部門を分けなさいよ」  
+
 .
