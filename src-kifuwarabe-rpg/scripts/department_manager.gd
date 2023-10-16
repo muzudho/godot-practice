@@ -41,7 +41,7 @@ func disappear():
 		self.get_message_window().set_appear_subtree(false)
 		
 		# テロップが表示中なら、非表示にする
-		#self.get_assitant_director().hide_current_telop(str(self.name))
+		##self.get_assitant_director().hide_current_telop(str(self.name))
 
 
 # 現れる
@@ -54,4 +54,4 @@ func appear():
 		self.get_message_window().set_appear_subtree(true)
 
 		# テロップが非表示中なら、表示する
-		#self.get_assitant_director().show_current_telop(str(self.name))
+		##self.get_assitant_director().show_current_telop(str(self.name))
