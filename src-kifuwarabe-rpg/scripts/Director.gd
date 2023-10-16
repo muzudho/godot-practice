@@ -43,12 +43,13 @@ func get_current_snapshot():
 # メッセージ・ウィンドウ（現在、出力の対象になっているもの）
 func get_message_window():
 	var snapshot = self.get_current_snapshot()
+	print("［ディレクター］　メッセージ・ウィンドウ名：［" + str(snapshot.message_window_name_obj) + "］")
 	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
 
 
 # 現在の「§」セクション設定
 func set_current_section(section_name):
-	var snapshot = self.get_current_snapshot.call()
+	var snapshot = self.get_current_snapshot()
 	snapshot.section_name = section_name
 	snapshot.section_item_index = 0
 

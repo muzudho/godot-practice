@@ -19,19 +19,19 @@ func get_snapshot(department_node_name):
 
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name].size()
 
 
 # シナリオの現在セクションのアイテムを返す
 func get_current_section_item_of_scenario():
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][snapshot.section_item_index]
 
 
 # 「§」セクションの再生
 func play_section():
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 	var message_window = self.get_director().get_message_window()
 
 	# 全部消化済みの場合
@@ -65,7 +65,7 @@ func on_choice_selected(row_number):
 	self.get_director().get_message_window().statemachine_of_message_window.all_pages_flushed()
 
 
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 	var department_name = str(snapshot.name)
 	var section_name = snapshot.section_name
 	
@@ -176,7 +176,7 @@ func parse_section_item(temp_text):
 		#	［ト書き］終わり
 		return
 
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 
 	# 選択肢だ
 	if snapshot.choices_row_numbers != null:
@@ -196,7 +196,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not snapshot.is_parse_lock():

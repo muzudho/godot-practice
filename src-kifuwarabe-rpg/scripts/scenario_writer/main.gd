@@ -12,12 +12,12 @@ var start_department = "📗ビジュアルノベル部門"
 var department_initial_properties = {
 	"📗ビジュアルノベル部門" : {
 		# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-		"message_window_name_obj" : &"下",		# StringName 型 シンタックス・シュガー
+		"message_window_name_obj" : &"🖥️下",		# StringName 型 シンタックス・シュガー
 		# 最初に実行されるセクション名
 		"section_name" : "§タイトル画面",
 	},
 	"📗システムメニュー部門" : {
-		"message_window_name_obj" : &"中央",
+		"message_window_name_obj" : &"🖥️中央",
 		"section_name" : "§システムメニュー画面",
 	},
 }

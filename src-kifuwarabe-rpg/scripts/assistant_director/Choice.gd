@@ -17,7 +17,7 @@ func do_it(line):
 	# 文字列パック配列を、数値の配列に変換
 	var number_array = self.convert_string_packed_array_to_number_array(string_packed_array)
 
-	self.get_director().get_current_snapshot.call().choices_row_numbers = number_array
+	self.get_director().get_current_snapshot().choices_row_numbers = number_array
 
 
 # 文字列パック配列を、数値の配列に変換

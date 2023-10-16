@@ -54,7 +54,7 @@ func set_process_subtree(
 	# 処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
 	if is_process != self.is_processing():
 
-		var snapshot = self.get_director().get_current_snapshot.call()
+		var snapshot = self.get_director().get_current_snapshot()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　プロセッシング：" + str(is_process))
 
 		self.set_process(is_process)
@@ -75,7 +75,7 @@ func set_visible_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if visible_flag != self.visible:
 
-		var snapshot = self.get_director().get_current_snapshot.call()
+		var snapshot = self.get_director().get_current_snapshot()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　可視性：" + str(visible_flag))
 
 		self.visible = visible_flag
@@ -97,7 +97,7 @@ func set_appear_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if is_appear != self.is_appear:
 
-		var snapshot = self.get_director().get_current_snapshot.call()
+		var snapshot = self.get_director().get_current_snapshot()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　appear：" + str(is_appear))
 
 		self.is_appear = is_appear
@@ -129,7 +129,7 @@ func set_appear_subtree(
 # テキストボックスなどにフォーカスが無いときの入力を拾う
 func on_unhandled_key_input(event):
 
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
@@ -183,7 +183,7 @@ func on_talked_2():
 	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 
 	# テキストブロック
 	var text_block_node = self.get_text_block()
@@ -210,7 +210,7 @@ func on_talked_2():
 
 # ページ送り
 func on_page_forward():
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 
 	# 選択肢モードなら
 	if snapshot.is_choices():
@@ -234,7 +234,7 @@ func on_page_forward():
 		self.get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
 		
 		# パースを開始してよい
-		self.get_director().get_current_snapshot.call().set_parse_lock(false)
+		self.get_director().get_current_snapshot().set_parse_lock(false)
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック
@@ -249,7 +249,7 @@ func on_page_forward():
 
 
 func on_all_characters_pushed():
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 
 	# テキストブロック
 	var text_block_node = self.get_text_block()
@@ -268,7 +268,7 @@ func on_all_characters_pushed():
 # 初期化
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
-	var snapshot = self.get_director().get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot()
 	print("［メッセージ・ウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	# テキストブロック
@@ -318,7 +318,7 @@ func _process(delta):
 	# タイプライター風表示中
 	elif self.statemachine_of_message_window.is_typewriter():
 
-		var snapshot = self.get_director().get_current_snapshot.call()
+		var snapshot = self.get_director().get_current_snapshot()
 
 		snapshot.count_of_typewriter += delta
 

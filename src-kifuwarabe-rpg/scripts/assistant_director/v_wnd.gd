@@ -15,7 +15,6 @@ func do_it(line):
 	self.show_viewing_window(position, node_name)
 
 
-#	`position` - 現状、常に　”中央”　が入っている想定
 func show_viewing_window(position, node_name):
 	print("［ビューイング・ウィンドウ］　配置：[" + position + "]　ノード名：[" + node_name + "]")
 
