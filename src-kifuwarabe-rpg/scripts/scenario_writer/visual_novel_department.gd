@@ -23,7 +23,7 @@ var document = {
 	"§タイトル画面":[
 		"""\
 		!
-		bgm:	タイトル
+		bgm:	🎵タイトル
 		scene:	タイトル
 		bg:		崎川駅前
 		choice:	1,2
@@ -124,7 +124,7 @@ var document = {
 		bg:			崎川駅周辺地図, hide
 		bg:			戦闘シーン
 		bg:			川掘町線ロード
-		bgm:		バトル１, 8.6
+		bgm:		🎵バトル１, 8.6
 		monster:	きふわらべ
 		monster:	コダック
 		""",
@@ -138,7 +138,7 @@ var document = {
 		!
 		monster:	コダック, hide
 		monster:	ハム将棋
-		bgm:		バトル２
+		bgm:		🎵バトル２
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -149,7 +149,7 @@ var document = {
 		!
 		monster:	ハム将棋, hide
 		monster:	れさ改
-		bgm:		バトル３
+		bgm:		🎵バトル３
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -230,7 +230,7 @@ var document = {
 		# 音楽鳴らす
 		"""\
 		!
-		bgm: きふわらべファイター２
+		bgm: 🎵きふわらべファイター２
 		""",
 		"""\
 		きふわらべ
@@ -321,7 +321,7 @@ var document = {
 		""",
 		"""\
 		!
-		bgm:	エンディング
+		bgm:	🎵エンディング
 		bg:		エンディング
 		scene:	エンディング
 		"""

@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=66 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -28,6 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/bottom_message_window.png" id="22_gqxn5"]
 [ext_resource type="Texture2D" uid="uid://dyfirmiokgpm" path="res://images/1280x720/battle_scene.png" id="22_ioffi"]
 [ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
+[ext_resource type="Script" path="res://scripts/musician.gd" id="23_6ylqn"]
 [ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="23_a7vfu"]
 [ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="24_envpd"]
 [ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="25_xmliw"]
@@ -184,6 +185,7 @@ script = ExtResource("3_75puo")
 script = ExtResource("4_7teq2")
 
 [node name="Musician" type="Node" parent="."]
+script = ExtResource("23_6ylqn")
 
 [node name="BGM" type="Node" parent="Musician"]
 

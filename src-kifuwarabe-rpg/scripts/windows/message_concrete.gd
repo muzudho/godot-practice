@@ -20,11 +20,6 @@ func get_assistant_director():
 	return $"../../../AssistantDirector"
 
 
-# 音楽家を取得
-func get_musician():
-	return $"../../../Musician"
-
-
 func get_canvas_layer():
 	var canvas_layer_path = "../" + str(self.name) + "_CanvasLayer"
 	var canvas_layer = self.get_node(canvas_layer_path)
@@ -245,7 +240,7 @@ func on_page_forward():
 	if snapshot.is_choices():
 
 		# カーソル音
-		self.get_musician().playSe("選択肢確定音")
+		self.get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
 
 		var row_number = self.get_text_block().get_node("ChoiceCursor").selected_row_number
 		print("［メッセージウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選んだ選択肢行番号：［" + str(row_number) + "］")
@@ -260,7 +255,7 @@ func on_page_forward():
 		print("［メッセージウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　ページ送り")
 
 		# 効果音
-		self.get_musician().playSe("ページめくり音")
+		self.get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
 		
 		# パースを開始してよい
 		self.director_get_current_snapshot.call().set_parse_lock(false)

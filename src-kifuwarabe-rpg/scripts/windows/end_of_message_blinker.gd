@@ -37,9 +37,9 @@ var elapsed_seconds = 0.0
 var selected_row_number = 1
 
 
-# 音楽家を取得
-func get_musician():
-	return $"../../../../../Musician"
+# アシスタント・ディレクター取得
+func get_assistant_director():
+	return $"../../../../../AssistantDirector"
 
 
 # メッセージ・ウィンドウ名を取得
@@ -155,7 +155,7 @@ func on_turned_off():
 # カーソルが上に移動します
 func on_cursor_up(target_index):
 	# 効果音鳴らす
-	self.get_musician().playSe("選択肢カーソル移動音")
+	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
 	self.selected_row_number = self.director_get_current_snapshot.call().choices_row_numbers[target_index - 1]
@@ -170,7 +170,7 @@ func on_cursor_up(target_index):
 # カーソルが下に移動します
 func on_cursor_down(target_index):
 	# 効果音鳴らす
-	self.get_musician().playSe("選択肢カーソル移動音")
+	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
 	self.selected_row_number = self.director_get_current_snapshot.call().choices_row_numbers[target_index + 1]

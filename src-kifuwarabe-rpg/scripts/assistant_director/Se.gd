@@ -1,5 +1,15 @@
-#	エスイー（SE, Sound Effects；効果音）
+# エスイー（SE, Sound Effects；効果音）
 extends Node
+
+
+# ディレクター取得
+func get_director():
+	return $"../../../Director"
+
+
+# ミュージシャン取得
+func get_musician():
+	return $"../../Musician"
 
 
 #	それをする
@@ -10,8 +20,26 @@ func do_it(line):
 
 	if node_name == "":
 		# 効果音 停止
-		$"../../Musician".stopSe()
+		self.stop_se()
 		
 	else:
 		# 効果音 再生
-		$"../../Musician".playSe(node_name)
+		self.play_se(node_name)
+
+
+# 効果音再生
+func play_se(node_name):
+	if self.get_director().current_se_name!=null:
+		self.stop_se()
+
+	print("［効果音］　開始：[" + node_name + "]")
+	self.get_director().current_se_name = node_name
+	self.get_musician().get_node("SE").get_node(self.get_director().current_se_name).play()
+
+
+# 効果音停止
+func stop_se():
+	if self.get_director().current_se_name != null:
+		print("［効果音］　停止")
+		self.get_musician().get_node("SE").get_node(self.get_director().current_se_name).stop()
+		self.get_director().current_se_name = null
