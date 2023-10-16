@@ -58,9 +58,19 @@ var document = {
 		!
 		monster:	%arg_monster%, hide
 		""",
+		# 部門変更
 		"""\
 		!
-		monster:	れさ改
+		m-wnd:		■下, hide
+		department:	📗ビジュアルノベル部門
+		goto:		%arg_return%
+		m-wnd:		■下
+		""",
+	],
+	"§３回目戦闘シーン":[
+		"""\
+		!
+		monster:	%arg_monster%
 		bgm:		🎵バトル３
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -72,7 +82,7 @@ var document = {
 		"""\
 		!
 		monster:	きふわらべ, hide
-		monster:	れさ改, hide
+		monster:	%arg_monster%, hide
 		""",
 		# 部門変更
 		"""\

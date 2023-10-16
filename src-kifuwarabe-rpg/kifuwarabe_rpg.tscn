@@ -669,18 +669,18 @@ texture = ExtResource("37_lwbng")
 
 [node name="MonsterTrainer" type="Node" parent="."]
 
-[node name="れさ改" type="Sprite2D" parent="MonsterTrainer"]
+[node name="るさ改" type="Sprite2D" parent="MonsterTrainer"]
 z_index = 10
 position = Vector2(737, 271)
 scale = Vector2(0.639706, 0.639706)
 texture = ExtResource("49_qua1y")
 
-[node name="ハム将棋" type="Sprite2D" parent="MonsterTrainer"]
+[node name="ヘム将棋" type="Sprite2D" parent="MonsterTrainer"]
 z_index = 10
 position = Vector2(285, 326)
 texture = ExtResource("51_pfarw")
 
-[node name="コダック" type="Sprite2D" parent="MonsterTrainer"]
+[node name="ケダック" type="Sprite2D" parent="MonsterTrainer"]
 z_index = 10
 position = Vector2(627, 319)
 texture = ExtResource("52_lp131")
