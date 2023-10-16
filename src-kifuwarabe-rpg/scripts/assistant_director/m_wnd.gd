@@ -11,13 +11,26 @@ func get_director():
 # それをする
 func do_it(line):
 
-	var node_name = line.substr(6).strip_edges()
-	print("［メッセージ・ウィンドウ制御］　ノード名：[" + node_name + "]")
+	var csv = line.substr(6).strip_edges()
+	print("［メッセージ・ウィンドウ制御］　CSV：[" + csv + "]")
+	# 文字列の配列に分割
+	var string_packed_array = csv.split(",", true, 0)
+
+	var node_name = string_packed_array[0]
+	var sub_command = null
+	
+	if 2 <= string_packed_array.size():
+		sub_command = string_packed_array[1].strip_edges()
+
+	if sub_command == "hide":
+		# メッセージ・ウィンドウを隠す
+		self.hide_me(node_name)
+		return
 
 	self.show_me(node_name)
 
 
-# メッセージ出力先ウィンドウ変更。ノード名を指定
+# メッセージ・ウィンドウを見せる
 func show_me(node_name):
 
 	var snapshot = self.get_director().get_current_snapshot()
@@ -26,3 +39,13 @@ func show_me(node_name):
 
 	# 新しいウィンドウ
 	snapshot.message_window_name_obj = StringName(node_name)	# StringName 型。 String ではない
+
+
+func hide_me(node_name):
+
+	var snapshot = self.get_director().get_current_snapshot()
+
+	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　リダイレクトしてきた")
+
+	# 新しいウィンドウ
+	snapshot.message_window_name_obj = null
