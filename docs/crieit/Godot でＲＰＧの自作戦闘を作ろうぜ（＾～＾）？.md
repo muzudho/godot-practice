@@ -167,4 +167,44 @@ var key_pressed_stage_directions = {
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　今回の改造の応用で、ビジュアルノベル部門と、バトル部門を分けなさいよ」  
 
+```gd
+        # ...
+        [
+		# 部門変更
+		"""\
+		!
+		m-wnd:		■下, hide
+		department:	📗バトル部門
+		goto:		§初戦闘シーン
+		m-wnd:		■下
+		""",
+	],
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな感じで　バトルシーンへ飛んで」  
+
+```gd
+        # ...
+        [
+		# 部門変更
+		"""\
+		!
+		m-wnd:		■下, hide
+		department:	📗ビジュアルノベル部門
+		goto:		§崎川市最強振興会館
+		m-wnd:		■下
+		""",
+	],
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな感じで　バトルシーンから戻ってこれるようにしたぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　関数みたいだな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　これで　下地は整ったわね」  
+
 .
