@@ -21,8 +21,7 @@ func put_textblock(
 	snapshot.remember(temp_text)
 
 	# 会話の開始
-	var manager = $"../../../Director".get_department_manager()
-	manager.get_message_window().statemachine_of_message_window.talk()
+	self.get_director().get_message_window().statemachine_of_message_window.talk()
 
 	# パースをするな
 	snapshot.set_parse_lock(true)

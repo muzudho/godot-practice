@@ -12,19 +12,6 @@ func get_scenario_writer():
 	return $"../ScenarioWriter"
 
 
-# メッセージ・ウィンドウ
-func get_message_window(
-	message_window_name_obj):		# StringName
-	return $"../GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
-
-
-# メッセージ・ウィンドウ
-func get_current_message_window():
-	var snapshot = self.get_director().get_current_snapshot.call()
-
-	return $"../GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
-
-
 # ビジュアル・ノベル部のこの瞬間の状態
 func get_snapshot(department_node_name):
 	return $"../System/Snapshots".get_node(department_node_name)
@@ -42,17 +29,10 @@ func get_current_section_item_of_scenario():
 	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][snapshot.section_item_index]
 
 
-# 現在の「§」セクション設定
-func set_current_section(section_name):
-	var snapshot = self.get_director().get_current_snapshot.call()
-	snapshot.section_name = section_name
-	snapshot.section_item_index = 0
-
-
 # 「§」セクションの再生
 func play_section():
 	var snapshot = self.get_director().get_current_snapshot.call()
-	var message_window = self.get_current_message_window()
+	var message_window = self.get_director().get_message_window()
 
 	# 全部消化済みの場合
 	if self.get_current_section_size_of_scenario() <= snapshot.section_item_index:
@@ -82,7 +62,7 @@ func on_choice_selected(row_number):
 	# メッセージ・ウィンドウの状態遷移
 	#	ずっと Completed だと、困るから
 	print("［アシスタント・ディレクター］　メッセージ・ウィンドウを　オール・ページズ・フラッシュド　する")
-	self.get_current_message_window().statemachine_of_message_window.all_pages_flushed()
+	self.get_director().get_message_window().statemachine_of_message_window.all_pages_flushed()
 
 
 	var snapshot = self.get_director().get_current_snapshot.call()
@@ -103,7 +83,7 @@ func on_choice_selected(row_number):
 	var next_section_name = section_obj[row_number]
 	print("［アシスタント・ディレクター］　次の区画名　　　　：" + next_section_name)
 	
-	self.set_current_section(next_section_name)
+	self.get_director().set_current_section(next_section_name)
 	self.play_section()
 
 
@@ -209,9 +189,8 @@ func parse_message(temp_text):
 
 func _ready():
 	#	関数を渡す
-	$"Goto".assistant_director_set_current_section = self.set_current_section
+	$"Goto".assistant_director_set_current_section = self.get_director().set_current_section
 	$"Goto".assistant_director_play_section = self.play_section
-	$"Goto".assistant_director_get_current_message_window = self.get_current_message_window
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -236,6 +215,6 @@ func _process(_delta):
 
 		# もう無いよ
 		else:
-			if not self.get_current_message_window().statemachine_of_message_window.is_none():
+			if not self.get_director().get_message_window().statemachine_of_message_window.is_none():
 				# メッセージ・ウィンドウを閉じる
-				self.get_current_message_window().statemachine_of_message_window.all_pages_flushed()
+				self.get_director().get_message_window().statemachine_of_message_window.all_pages_flushed()

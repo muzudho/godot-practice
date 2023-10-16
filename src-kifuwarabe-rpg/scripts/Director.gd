@@ -35,11 +35,17 @@ func get_current_snapshot():
 	return self.get_snapshot(self.current_department)
 
 
-# メッセージ・ウィンドウ
+# メッセージ・ウィンドウ（現在、出力の対象になっているもの）
 func get_message_window():
 	var snapshot = self.get_current_snapshot()
-
 	return $"GuiArtist/WindowsOfMessage".get_node(str(snapshot.message_window_name_obj))
+
+
+# 現在の「§」セクション設定
+func set_current_section(section_name):
+	var snapshot = self.get_current_snapshot.call()
+	snapshot.section_name = section_name
+	snapshot.section_item_index = 0
 
 
 # サブツリーが全てインスタンス化されたときに呼び出される
@@ -104,7 +110,7 @@ func _ready():
 	$"./AssistantDirector".play_section()
 
 	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
-	self.get_department_manager().get_message_window().set_appear_subtree(true)
+	self.get_message_window().set_appear_subtree(true)
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う

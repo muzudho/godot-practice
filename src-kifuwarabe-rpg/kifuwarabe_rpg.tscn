@@ -46,7 +46,6 @@
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="38_hc66s"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
-[ext_resource type="Script" path="res://scripts/department_manager.gd" id="43_ob5ux"]
 [ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="46_tukjy"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="49_qua1y"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="51_pfarw"]
@@ -160,6 +159,28 @@ var is_visible_initialized = false
 
 
 
+"
+
+[sub_resource type="GDScript" id="GDScript_ue7sq"]
+script/source = "# デパートメント・マネージャー（Department Manager；抽象部門管理人）
+extends Node
+
+class_name AbstractDepartmentManager
+
+
+# ディレクター取得
+func get_director():
+	return $\"../../../Director\"
+
+
+# アシスタント・ディレクター取得
+func get_assitant_director():
+	return $\"../../AssistantDirector\"
+
+
+# スナップショット取得
+func get_snapshot():
+	return self.get_director().get_current_snapshot()
 "
 
 [node name="Director" type="Node2D"]
@@ -710,4 +731,4 @@ script = ExtResource("23_5s8w2")
 [node name="System" type="Node" parent="."]
 
 [node name="DepartmentManager" type="Node" parent="System"]
-script = ExtResource("43_ob5ux")
+script = SubResource("GDScript_ue7sq")

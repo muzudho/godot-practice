@@ -7,13 +7,6 @@ func get_director():
 	return $"../../../Director"
 
 
-# メッセージ・ウィンドウ取得
-func get_message_window(
-		message_window_name_obj):	# StringName
-
-	return $"../../GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
-
-
 # それをする
 func do_it(
 		temp_text):		# str
@@ -32,9 +25,7 @@ func put_textblock(
 	snapshot.remember(temp_text)
 
 	# 会話開始
-	# TODO 簡単に書けないか？
-	var message_window = self.get_message_window(str(snapshot.message_window_name_obj))
-	message_window.statemachine_of_message_window.talk()
+	self.get_director().get_message_window().statemachine_of_message_window.talk()
 
 	# パースをするな
 	snapshot.set_parse_lock(true)
