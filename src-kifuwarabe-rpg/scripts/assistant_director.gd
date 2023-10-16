@@ -102,7 +102,7 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
-func expand_arg(line):
+func expand_param(line):
 	if line is String:
 		# ここで `%arg_1% などの引数を　変数展開したい
 		return line

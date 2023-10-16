@@ -16,11 +16,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.get_assistant_director().expand_arg(string_packed_array[0])
+	var node_name = self.get_assistant_director().expand_param(string_packed_array[0])
 	var sub_command = null
 	
 	if 2 <= string_packed_array.size():
-		sub_command = self.get_assistant_director().expand_arg(string_packed_array[1].strip_edges())
+		sub_command = self.get_assistant_director().expand_param(string_packed_array[1].strip_edges())
 
 	self.control_bg(node_name, sub_command)
 
