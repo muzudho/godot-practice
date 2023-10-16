@@ -30,7 +30,6 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="23_a7vfu"]
 [ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="24_envpd"]
 [ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="25_xmliw"]
-[ext_resource type="Script" path="res://scripts/assistant_director/scene.gd" id="26_d8rxk"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/center_message_window.png" id="26_o3mvx"]
 [ext_resource type="Script" path="res://scripts/assistant_director/normal_text.gd" id="27_1um3d"]
@@ -48,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="38_hc66s"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
 [ext_resource type="Script" path="res://scripts/department_manager.gd" id="43_ob5ux"]
+[ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="46_tukjy"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="49_qua1y"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="51_pfarw"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="52_lp131"]
@@ -692,11 +692,11 @@ script = ExtResource("23_a7vfu")
 [node name="Quit" type="Node" parent="AssistantDirector"]
 script = ExtResource("25_xmliw")
 
-[node name="Scene" type="Node" parent="AssistantDirector"]
-script = ExtResource("26_d8rxk")
-
 [node name="Se" type="Node" parent="AssistantDirector"]
 script = ExtResource("27_b3qcr")
+
+[node name="Telop" type="Node" parent="AssistantDirector"]
+script = ExtResource("46_tukjy")
 
 [node name="NormalText" type="Node" parent="AssistantDirector"]
 script = ExtResource("27_1um3d")

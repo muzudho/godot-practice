@@ -1,4 +1,4 @@
-# シーン（Scene；場面）
+# テロップ（Telop, Television opaque projector；テレビ投射映像機）
 #	撮影場所変更
 extends Node
 
@@ -30,18 +30,18 @@ func set_director_get_current_snapshot_subtree(it):
 func do_it(line):
 
 	var telop_node_name = line.substr(6).strip_edges()
-	print("［シーン］　名前：[" + telop_node_name + "]")
+	print("［テロップ］　名前：[" + telop_node_name + "]")
 	
 	var snapshot = self.director_get_current_snapshot.call()
 	
-	self.move_location(str(snapshot.name), telop_node_name)
+	self.change_telop(str(snapshot.name), telop_node_name)
 
 
 # 場所を替える
-func move_location(
+func change_telop(
 	department_node_name,		# str
 	new_telop_node_name):		# str
-	print("［シーン］　テロップ名：[" + new_telop_node_name + "]")
+	print("［テロップ］　テロップ名：[" + new_telop_node_name + "]")
 
 	# テロップ・コーディネーター取得
 	var telop_coordinator = self.get_telop_coordinator()

@@ -196,9 +196,9 @@ func parse_message(temp_text):
 			elif second_head.begins_with("quit:"):
 				$"Quit".do_it(second_head)
 
-			# シーンの表示／非表示
-			elif second_head.begins_with("scene:"):
-				$"Scene".do_it(second_head)
+			# テロップの表示／非表示
+			elif second_head.begins_with("telop:"):
+				$"Telop".do_it(second_head)
 			
 			# 効果音
 			elif second_head.begins_with("se:"):

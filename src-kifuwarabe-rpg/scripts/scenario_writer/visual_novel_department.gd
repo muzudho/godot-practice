@@ -24,7 +24,7 @@ var document = {
 		"""\
 		!
 		bgm:	🎵タイトル
-		scene:	タイトル
+		telop:	タイトル
 		bg:		崎川駅前
 		choice:	1,2
 		m-wnd:	下
@@ -45,7 +45,7 @@ var document = {
 	"§はじまり":[
 		"""\
 		!
-		scene:
+		telop:
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -83,7 +83,7 @@ var document = {
 		!
 		bg:		崎川駅前, hide
 		bg:		崎川駅周辺地図
-		scene:	崎川駅周辺地図
+		telop:	崎川駅周辺地図
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -120,7 +120,7 @@ var document = {
 	"§初戦闘シーン":[
 		"""\
 		!
-		scene:
+		telop:
 		bg:			崎川駅周辺地図, hide
 		bg:			戦闘シーン
 		bg:			川掘町線ロード
@@ -168,7 +168,7 @@ var document = {
 	"§崎川市最強振興会館":[
 		"""\
 		!
-		scene:
+		telop:
 		bgm:
 		bg:		川掘町線ロード, hide
 		bg:		戦闘シーン, hide
@@ -323,7 +323,7 @@ var document = {
 		!
 		bgm:	🎵エンディング
 		bg:		エンディング
-		scene:	エンディング
+		telop:	エンディング
 		"""
 	],
 }
