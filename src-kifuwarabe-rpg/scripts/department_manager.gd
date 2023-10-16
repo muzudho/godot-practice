@@ -1,17 +1,22 @@
-#	デパートメント・マネージャー（Department Manager；抽象部門管理人）
+# デパートメント・マネージャー（Department Manager；抽象部門管理人）
 extends Node
 
 class_name AbstractDepartmentManager
 
 
-func get_scenarion_writer():
-	return $"../../ScenarioWriter"
+# ディレクター取得
+func get_director():
+	return $"../../../Director"
 
 
-#	同名のデパートメント・スナップショット取得
+# アシスタント・ディレクター取得
+func get_assitant_director():
+	return $"../../AssistantDirector"
+
+
+# スナップショット取得
 func get_snapshot():
-	var director = $"../../../Director"
-	return director.snapshots[director.current_department]
+	return self.get_director().get_current_snapshot()
 
 
 func get_message_window():
@@ -36,7 +41,7 @@ func disappear():
 		self.get_message_window().set_appear_subtree(false)
 		
 		# 場所が表示中なら、非表示にする
-		#$"../../../LocationCoordinator".hide_current_location(str(self.name))
+		#self.get_assitant_director().hide_current_location(str(self.name))
 
 
 # 現れる
@@ -49,4 +54,4 @@ func appear():
 		self.get_message_window().set_appear_subtree(true)
 
 		# 場所が非表示中なら、表示する
-		#$"../../../LocationCoordinator".show_current_location(str(self.name))
+		#self.get_assitant_director().show_current_location(str(self.name))
