@@ -3,10 +3,6 @@
 extends Node
 
 
-# 関数の変数
-var director_get_current_snapshot = null
-
-
 # ディレクター取得
 func get_director():
 	return $"../../../Director"
@@ -20,10 +16,6 @@ func get_telop_coordinator():
 # スナップショット取得
 func get_snapshot(department_node_name):
 	return self.get_director().get_snapshot(department_node_name)
-
-
-func set_director_get_current_snapshot_subtree(it):
-	self.director_get_current_snapshot = it
 
 
 #	それをする

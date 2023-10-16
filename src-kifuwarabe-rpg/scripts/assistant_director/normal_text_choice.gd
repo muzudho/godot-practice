@@ -2,8 +2,9 @@
 extends Node
 
 
-# 関数の変数
-var director_get_current_snapshot = null
+# ディレクター取得
+func get_director():
+	return $"../../../Director"
 
 
 # メッセージ・ウィンドウ取得
@@ -11,10 +12,6 @@ func get_message_window(
 		message_window_name_obj):	# StringName
 
 	return $"../../GuiArtist/WindowsOfMessage".get_node(str(message_window_name_obj))
-
-
-func set_director_get_current_snapshot_subtree(it):
-		self.director_get_current_snapshot = it
 
 
 # それをする
@@ -29,7 +26,7 @@ func put_textblock(
 		temp_text):		# str
 
 	# メッセージ追加
-	var snapshot = self.director_get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot.call()
 	print("［ノーマル・テキスト・チョイス］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")
 
 	snapshot.remember(temp_text)

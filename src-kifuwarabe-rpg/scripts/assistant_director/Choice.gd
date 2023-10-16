@@ -2,25 +2,22 @@
 extends Node
 
 
-# 関数の変数
-var director_get_current_snapshot = null
-
-
-func set_director_get_current_snapshot_subtree(it):
-	self.director_get_current_snapshot = it
+# ディレクター取得
+func get_director():
+	return $"../../../Director"
 
 
 # それをする
 func do_it(line):
 	print("［選択肢］　前処理だ：[" + line + "]")
-	
+
 	var csv = line.substr(7).strip_edges()
 	# TODO 数は昇順であること
 	var string_packed_array = csv.split(",", true, 0)
-	# 文字列パック配列を、数値の配列に変換	
+	# 文字列パック配列を、数値の配列に変換
 	var number_array = self.convert_string_packed_array_to_number_array(string_packed_array)
 
-	self.director_get_current_snapshot.call().choices_row_numbers = number_array
+	self.get_director().get_current_snapshot.call().choices_row_numbers = number_array
 
 
 # 文字列パック配列を、数値の配列に変換

@@ -2,12 +2,9 @@
 extends Node
 
 
-# 関数の変数
-var director_get_current_snapshot = null
-
-
-func set_director_get_current_snapshot_subtree(it):
-	self.director_get_current_snapshot = it
+# ディレクター取得
+func get_director():
+	return $"../../../Director"
 
 
 # それをする
@@ -20,7 +17,7 @@ func put_textblock(
 		temp_text):		# str
 
 	# メッセージの追加
-	var snapshot = self.director_get_current_snapshot.call()
+	var snapshot = self.get_director().get_current_snapshot.call()
 	snapshot.remember(temp_text)
 
 	# 会話の開始

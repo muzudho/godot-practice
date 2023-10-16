@@ -47,12 +47,6 @@ func get_message_window():
 func _ready():
 
 	# 子要素にメンバーを渡す
-	$"AssistantDirector".set_director_get_current_snapshot_subtree(self.get_current_snapshot)
-	# 	メッセージ・ウィンドウ
-	for child in $"GuiArtist/WindowsOfMessage".get_children():
-		if child is Sprite2D:
-			child.set_director_get_current_snapshot_subtree(self.get_current_snapshot)
-
 	# スナップショット辞書作成
 	for department in $"ScenarioWriter".get_children():
 		# Main は覗く

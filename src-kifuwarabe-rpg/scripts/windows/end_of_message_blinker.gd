@@ -7,10 +7,6 @@ var statemachine_of_end_of_message_blinker = load("res://scripts/statemachines/e
 var statemachine_of_blinker = load("res://scripts/statemachines/blinker.gd").new()
 
 
-# 関数の変数
-var director_get_current_snapshot = null
-
-
 var is_appear = true
 
 # メッセージエンド・ブリンカーの共通項目
@@ -37,6 +33,11 @@ var elapsed_seconds = 0.0
 var selected_row_number = 1
 
 
+# ディレクター取得
+func get_director():
+	return $"../../../../../../Director"
+
+
 # アシスタント・ディレクター取得
 func get_assistant_director():
 	return $"../../../../../AssistantDirector"
@@ -50,10 +51,6 @@ func get_message_window_name_obj():
 # 線形補間
 func do_lerp(src, dst, progress):
 	return src + (dst - src) * progress
-
-
-func set_director_get_current_snapshot_subtree(it):
-	self.director_get_current_snapshot = it
 
 
 # サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
@@ -158,7 +155,7 @@ func on_cursor_up(target_index):
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
-	self.selected_row_number = self.director_get_current_snapshot.call().choices_row_numbers[target_index - 1]
+	self.selected_row_number = self.get_director().get_current_snapshot.call().choices_row_numbers[target_index - 1]
 	var difference = old_selected_row_number - self.selected_row_number
 	
 	self.src_y = self.offset_top
@@ -173,7 +170,7 @@ func on_cursor_down(target_index):
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
 	var old_selected_row_number = self.selected_row_number
-	self.selected_row_number = self.director_get_current_snapshot.call().choices_row_numbers[target_index + 1]
+	self.selected_row_number = self.get_director().get_current_snapshot.call().choices_row_numbers[target_index + 1]
 	#print("［選択肢カーソル］　新行番号：" + str(self.selected_row_number))
 	var difference = self.selected_row_number - old_selected_row_number
 
@@ -223,7 +220,7 @@ func _process(delta):
 				
 			self.blinker_seconds -= self.blinker_interval
 
-		var snapshot = self.director_get_current_snapshot.call()
+		var snapshot = self.get_director().get_current_snapshot.call()
 		# 動くカーソル用
 		if snapshot.is_choices():
 
@@ -267,7 +264,7 @@ func on_cursor_moving_automatically(delta):
 
 
 func selected_cursor_index():
-	var choices_row_numbers = self.director_get_current_snapshot.call().choices_row_numbers
+	var choices_row_numbers = self.get_director().get_current_snapshot.call().choices_row_numbers
 	
 	if choices_row_numbers != null:
 		return choices_row_numbers.find(self.selected_row_number)
@@ -282,7 +279,7 @@ func can_cursor_up(index):
 
 # カーソルは下へ移動できるか？
 func can_cursor_down(index):
-	var choices_row_numbers = self.director_get_current_snapshot.call().choices_row_numbers
+	var choices_row_numbers = self.get_director().get_current_snapshot.call().choices_row_numbers
 	if choices_row_numbers != null:
 	
 		var choice_size = choices_row_numbers.size()
