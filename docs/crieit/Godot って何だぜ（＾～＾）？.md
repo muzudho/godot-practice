@@ -1123,4 +1123,19 @@ var document = {
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　昔というのが　具体的に　いつなのか　分かんないけど。　似非歴史なんじゃないの？」  
 
+# 📅 (2023-10-16 mon 18:49)
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ＲＰＧの自作戦闘を作らなければいけないのかだぜ？　なんでそんな激務を？」  
+
+## ＲＰＧの自作戦闘を作ろうぜ？
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ＲＰＧと名の付くものは　だいたい　戦闘シーンがあるしなあ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　長くなりそうな話は　別記事でしましょう！」  
+
+### 別記事：
+
 .

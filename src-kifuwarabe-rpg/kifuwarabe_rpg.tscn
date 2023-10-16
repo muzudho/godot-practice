@@ -205,11 +205,11 @@ volume_db = -15.0
 stream = ExtResource("10_582bv")
 volume_db = -15.0
 
-[node name="選手権戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
+[node name="バトル２" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("11_n11v3")
 volume_db = -15.0
 
-[node name="強敵戦闘曲" type="AudioStreamPlayer" parent="Musician/BGM"]
+[node name="バトル３" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("11_hr0b7")
 volume_db = -15.0
 
