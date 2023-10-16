@@ -22,10 +22,5 @@ func get_snapshot():
 func get_message_window():
 	var snapshot = self.get_snapshot()
 	var window_name = str(snapshot.message_window_name_obj)
-	
+
 	return $"../../GuiArtist/WindowsOfMessage".get_node(window_name)
-
-
-# 会話開始
-func talk():
-	self.get_message_window().statemachine_of_message_window.talk()

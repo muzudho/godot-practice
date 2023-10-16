@@ -22,7 +22,7 @@ func put_textblock(
 
 	# 会話の開始
 	var manager = $"../../../Director".get_department_manager()
-	manager.talk()
+	manager.get_message_window().statemachine_of_message_window.talk()
 
 	# パースをするな
 	snapshot.set_parse_lock(true)
