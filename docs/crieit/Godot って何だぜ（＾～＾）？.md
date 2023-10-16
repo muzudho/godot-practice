@@ -1138,4 +1138,6 @@ var document = {
 
 ### 別記事：
 
+📖　[Godot でＲＰＧの自作戦闘を作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-652d0d4895975)  
+
 .
