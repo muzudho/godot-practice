@@ -49,28 +49,3 @@ func change_department(next_department_name):
 
 	# 台本の「§」セクションの再生
 	self.get_assistant_director().play_section()
-
-
-# テロップが非表示中なら、表示にする
-func show_current_telop(department_node_name):
-	# 変数名を短くする
-	var current_telop_node_name = self.get_snapshot(department_node_name).telop_node_name
-
-	if current_telop_node_name == "":
-		return
-
-	print("［部門］　表示：[" + str(current_telop_node_name) + "]")
-	self.get_telop_coordinator().get_node(current_telop_node_name).show()
-
-
-# テロップが表示中なら、非表示にする
-func hide_current_telop(department_node_name):
-	# 変数名を短くする
-	var current_telop_node_name = self.get_snapshot(department_node_name).telop_node_name
-
-	if current_telop_node_name == "":
-		return
-
-	print("［部門］　非表示：[" + str(current_telop_node_name) + "]")
-	self.get_telop_coordinator().get_node(current_telop_node_name).hide()
-
