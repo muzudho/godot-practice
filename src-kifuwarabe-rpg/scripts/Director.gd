@@ -103,8 +103,8 @@ func _ready():
 	# 台本の「§」セクションの再生
 	$"./AssistantDirector".play_section()
 
-	# 表示
-	self.get_department_manager().appear()
+	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
+	self.get_department_manager().get_message_window().set_appear_subtree(true)
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う

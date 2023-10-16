@@ -29,17 +29,3 @@ func get_message_window():
 # 会話開始
 func talk():
 	self.get_message_window().statemachine_of_message_window.talk()
-
-
-# 居なくなる
-func disappear():
-	print("［部門管理人］　居なくなる")
-	# メッセージ・ウィンドウを、一時的に居なくする
-	self.get_message_window().set_appear_subtree(false)
-
-
-# 現れる
-func appear():
-	print("［部門管理人］　居なくなっていたのを解除する")
-	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
-	self.get_message_window().set_appear_subtree(true)

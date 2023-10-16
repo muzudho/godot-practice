@@ -38,14 +38,14 @@ func do_it(line):
 
 # 部門変更
 func change_department(next_department_name):
-	# 現在の部門を隠す
-	self.get_department_manager().disappear()
+	# メッセージ・ウィンドウを、一時的に居なくする
+	self.get_department_manager().get_message_window().set_appear_subtree(false)
 
 	# 部門変更
 	self.get_director().current_department = next_department_name
 
-	# 現在の部門を再表示
-	self.get_department_manager().appear()
+	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
+	self.get_department_manager().get_message_window().set_appear_subtree(true)
 
 	# 台本の「§」セクションの再生
 	self.get_assistant_director().play_section()
