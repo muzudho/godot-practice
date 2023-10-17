@@ -7,9 +7,9 @@ func get_assistant_director():
 	return $"../../AssistantDirector"
 
 
-# モンスター・トレーナー
-func get_monster_trainer():
-	return $"../../MonsterTrainer"
+# モンスターの全身像
+func get_monster_whole_body():
+	return $"../../MonsterTrainer/WholeBody"
 
 
 # それをする
@@ -32,7 +32,7 @@ func do_it(line):
 # モンスターを制御
 func control_monster(node_name, sub_command):
 
-	var monster_node = self.get_monster_trainer().get_node(node_name)
+	var monster_node = self.get_monster_whole_body().get_node(node_name)
 	if monster_node == null:
 		print("［モンスター］　▲エラー　”" + node_name + "”　が無い")
 

@@ -83,6 +83,7 @@ func _ready():
 	# モンスター・トレーナー
 	$"MonsterTrainer".show()
 	$"MonsterTrainer/Faces".show()
+	$"MonsterTrainer/WholeBody".show()
 	
 	# グリッドは隠す
 	$"Grid".hide()
@@ -109,9 +110,10 @@ func _ready():
 		canvas_layer.hide()
 	#
 	#	モンスターは、フォルダ―以外は　とにかく非表示にする
-	for monster in $"MonsterTrainer".get_children():
-		if monster.name != "Faces:":
-			monster.hide()
+	for monster in $"MonsterTrainer/Faces".get_children():
+		monster.hide()
+	for monster in $"MonsterTrainer/WholeBody".get_children():
+		monster.hide()
 
 	#
 
