@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=78 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -40,7 +40,11 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/se.gd" id="27_b3qcr"]
 [ext_resource type="Script" path="res://scripts/assistant_director/normal_text_choice.gd" id="27_punsk"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/center_viewing_window.png" id="28_cy6bv"]
+[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://font_settings/light_red.tres" id="28_ipiqf"]
+[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://font_settings/light_yellow.tres" id="29_a0hf1"]
+[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://font_settings/light_green.tres" id="30_3haqi"]
 [ext_resource type="Script" path="res://scripts/windows/message_concrete.gd" id="30_bblis"]
+[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://font_settings/light_blue.tres" id="31_fl7il"]
 [ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="32_uu41d"]
 [ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="33_1xmx8"]
 [ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="33_ogwo6"]
@@ -51,11 +55,14 @@
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://images/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="36_n17j0"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="38_hc66s"]
+[ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="39_iojay"]
 [ext_resource type="Script" path="res://scripts/assistant_director/arg.gd" id="39_qg5jf"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
+[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://images/monsters/202310__godot__18-0039--shiroBeer.png" id="43_dyuq4"]
 [ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="46_tukjy"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster_face.gd" id="49_n38p5"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="49_qua1y"]
+[ext_resource type="Script" path="res://scripts/assistant_director/label.gd" id="50_yt802"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="51_pfarw"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="52_lp131"]
 
@@ -592,7 +599,7 @@ offset_top = 31.0
 offset_right = 289.0
 offset_bottom = 76.0
 text = "　　　４"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("28_ipiqf")
 
 [node name="城の堅さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 161.0
@@ -600,7 +607,7 @@ offset_top = 125.0
 offset_right = 289.0
 offset_bottom = 173.0
 text = "　　　３"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("28_ipiqf")
 
 [node name="逃げ道の広さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 321.0
@@ -616,7 +623,7 @@ offset_top = 31.0
 offset_right = 481.0
 offset_bottom = 79.0
 text = "　　　０"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("29_a0hf1")
 
 [node name="逃げ道の広さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 353.0
@@ -624,7 +631,7 @@ offset_top = 125.0
 offset_right = 481.0
 offset_bottom = 173.0
 text = "　　　１"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("29_a0hf1")
 
 [node name="駒の働き" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 545.0
@@ -640,7 +647,7 @@ offset_top = 30.0
 offset_right = 673.0
 offset_bottom = 78.0
 text = "　　　１"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("30_3haqi")
 
 [node name="駒の働き_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 544.0
@@ -648,7 +655,7 @@ offset_top = 125.0
 offset_right = 672.0
 offset_bottom = 173.0
 text = "　　　０"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("30_3haqi")
 
 [node name="攻めの速度" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 704.0
@@ -664,7 +671,7 @@ offset_top = 29.0
 offset_right = 833.0
 offset_bottom = 77.0
 text = "　　　２"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("31_fl7il")
 
 [node name="攻めの速度_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 706.0
@@ -672,7 +679,7 @@ offset_top = 125.0
 offset_right = 834.0
 offset_bottom = 173.0
 text = "　　　１"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("31_fl7il")
 
 [node name="主な瑕" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 1059.0
@@ -834,6 +841,7 @@ texture = ExtResource("37_lwbng")
 [node name="Faces" type="Node2D" parent="MonsterTrainer"]
 
 [node name="😁ヘム将棋" type="Sprite2D" parent="MonsterTrainer/Faces"]
+visible = false
 position = Vector2(97, 39)
 scale = Vector2(0.266871, 0.266871)
 texture = ExtResource("35_pjekd")
@@ -842,6 +850,11 @@ texture = ExtResource("35_pjekd")
 position = Vector2(97, 129)
 scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("36_n17j0")
+
+[node name="😁昼ビール" type="Sprite2D" parent="MonsterTrainer/Faces"]
+position = Vector2(97.5, 67.525)
+scale = Vector2(0.221014, 0.197109)
+texture = ExtResource("39_iojay")
 
 [node name="WholeBody" type="Node2D" parent="MonsterTrainer"]
 
@@ -870,6 +883,11 @@ position = Vector2(1014, 273)
 scale = Vector2(0.625506, 0.625506)
 texture = ExtResource("38_hc66s")
 
+[node name="昼ビール" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
+position = Vector2(735, 320)
+scale = Vector2(0.596059, 0.596059)
+texture = ExtResource("43_dyuq4")
+
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("3_nnvgw")
 
@@ -890,6 +908,9 @@ script = ExtResource("35_m4xkq")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]
 script = ExtResource("24_envpd")
+
+[node name="Label" type="Node" parent="AssistantDirector"]
+script = ExtResource("50_yt802")
 
 [node name="Monster" type="Node" parent="AssistantDirector"]
 script = ExtResource("41_0etqc")

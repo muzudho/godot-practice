@@ -102,6 +102,7 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
+# 引数を変数展開する
 func expand_param(line):
 	if line is String:
 		# ここで `%arg_1% などの引数を　変数展開したい
@@ -113,6 +114,14 @@ func expand_param(line):
 			var value = self.get_director().instruction_arguments[key]
 			print("［アシスタント・ディレクター］　実引数値：［" + value + "］")
 			return value
+	
+	return line
+
+
+# １番外側でダブルクォーテーションが挟んでいれば、そのダブルクォーテーションを外します
+func trim_double_quotation(line):
+	if 2 <= line.length() and line[0]=="\"" and line[-1]=="\"":
+		return line.substr(1, line.length()-2)
 	
 	return line
 
@@ -169,6 +178,10 @@ func parse_section_item(temp_text):
 			elif second_head.begins_with("goto:"):
 				$"Goto".do_it(second_head)
 
+			# ラベル設定
+			elif second_head.begins_with("label:"):
+				$"Label".do_it(second_head)
+				
 			# モンスター表示
 			elif second_head.begins_with("monster:"):
 				$"Monster".do_it(second_head)

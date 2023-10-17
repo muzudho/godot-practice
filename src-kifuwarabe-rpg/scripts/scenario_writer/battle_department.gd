@@ -100,4 +100,50 @@ var document = {
 		m_wnd:			■下
 		""",
 	],
+	# 昼ビール
+	"§ＶＳ昼ビール":[
+		# 戦闘開始
+		"""\
+		!
+		telop:			戦闘シーン
+		monster_face:	😁きふわらべ
+		monster:		%arg_monster%
+		monster_face:	%arg_monster_face%
+		bgm:			🎵バトル３
+		""",
+		# 画面設定
+		"""\
+		!
+		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上, "　　　　　　　　　　　　１９"
+		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上, "　　１２３０００００００００"
+		""",
+		# ２３４５６７８９０１２３４５６７８９０
+		"""\
+		審判
+		「ログインしてくださーい！
+		""",
+		"""\
+		昼ビールが現れた！
+		「よろしくお願いします
+		""",
+		"""\
+		きふわらべ
+		「よろしくお願いします
+		""",
+		"""\
+		きふわらべは飛び掛かった
+		""",
+		# 戦闘終了
+		"""\
+		!
+		monster_face:	😁きふわらべ, hide
+		monster:		%arg_monster%, hide
+		monster_face:	%arg_monster_face%, hide
+		telop:			戦闘シーン, hide
+		m_wnd:			■下, hide
+		department:		📗ビジュアルノベル部門
+		goto:			%arg_return%
+		m_wnd:			■下
+		""",
+	],
 }
