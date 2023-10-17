@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cja1nflyxbgox"]
+
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="1_i8amg"]
+
+[resource]
+line_spacing = 1.0
+font = ExtResource("1_i8amg")
+font_size = 32
