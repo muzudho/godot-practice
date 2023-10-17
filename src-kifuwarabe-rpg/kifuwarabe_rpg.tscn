@@ -30,8 +30,8 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
 [ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="23_a7vfu"]
 [ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="24_envpd"]
-[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://font_settings/battle_label_font.tres" id="25_4k7c7"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://font_settings/main_font.tres" id="25_s5t71"]
+[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://font_settings/battle_slategray_font.tres" id="25_wwe3l"]
 [ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="25_xmliw"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/center_message_window.png" id="26_o3mvx"]
@@ -40,11 +40,11 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/se.gd" id="27_b3qcr"]
 [ext_resource type="Script" path="res://scripts/assistant_director/normal_text_choice.gd" id="27_punsk"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/center_viewing_window.png" id="28_cy6bv"]
-[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://font_settings/light_red.tres" id="28_ipiqf"]
-[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://font_settings/light_yellow.tres" id="29_a0hf1"]
-[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://font_settings/light_green.tres" id="30_3haqi"]
+[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://font_settings/battle_light_red.tres" id="28_mkxyl"]
+[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://font_settings/battle_light_yellow.tres" id="29_1ruq0"]
 [ext_resource type="Script" path="res://scripts/windows/message_concrete.gd" id="30_bblis"]
-[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://font_settings/light_blue.tres" id="31_fl7il"]
+[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://font_settings/battle_light_green.tres" id="30_troqk"]
+[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://font_settings/battle_light_blue.tres" id="31_jo5cu"]
 [ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="32_uu41d"]
 [ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="33_1xmx8"]
 [ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="33_ogwo6"]
@@ -551,7 +551,7 @@ offset_top = 61.0
 offset_right = 1026.0
 offset_bottom = 102.0
 text = "玉の遠さ"
-label_settings = ExtResource("25_4k7c7")
+label_settings = ExtResource("25_wwe3l")
 
 [node name="玉の遠さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 129.0
@@ -591,7 +591,7 @@ offset_top = 60.0
 offset_right = 288.0
 offset_bottom = 101.0
 text = "城の堅さ"
-label_settings = ExtResource("25_4k7c7")
+label_settings = ExtResource("25_wwe3l")
 
 [node name="城の堅さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 161.0
@@ -599,7 +599,7 @@ offset_top = 31.0
 offset_right = 289.0
 offset_bottom = 76.0
 text = "　　　４"
-label_settings = ExtResource("28_ipiqf")
+label_settings = ExtResource("28_mkxyl")
 
 [node name="城の堅さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 161.0
@@ -607,7 +607,7 @@ offset_top = 125.0
 offset_right = 289.0
 offset_bottom = 173.0
 text = "　　　３"
-label_settings = ExtResource("28_ipiqf")
+label_settings = ExtResource("28_mkxyl")
 
 [node name="逃げ道の広さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 321.0
@@ -615,7 +615,7 @@ offset_top = 61.0
 offset_right = 513.0
 offset_bottom = 102.0
 text = "逃げ道の広さ"
-label_settings = ExtResource("25_4k7c7")
+label_settings = ExtResource("25_wwe3l")
 
 [node name="逃げ道の広さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 353.0
@@ -623,7 +623,7 @@ offset_top = 31.0
 offset_right = 481.0
 offset_bottom = 79.0
 text = "　　　０"
-label_settings = ExtResource("29_a0hf1")
+label_settings = ExtResource("29_1ruq0")
 
 [node name="逃げ道の広さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 353.0
@@ -631,7 +631,7 @@ offset_top = 125.0
 offset_right = 481.0
 offset_bottom = 173.0
 text = "　　　１"
-label_settings = ExtResource("29_a0hf1")
+label_settings = ExtResource("29_1ruq0")
 
 [node name="駒の働き" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 545.0
@@ -639,7 +639,7 @@ offset_top = 61.0
 offset_right = 673.0
 offset_bottom = 102.0
 text = "駒の働き"
-label_settings = ExtResource("25_4k7c7")
+label_settings = ExtResource("25_wwe3l")
 
 [node name="駒の働き_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 545.0
@@ -647,7 +647,7 @@ offset_top = 30.0
 offset_right = 673.0
 offset_bottom = 78.0
 text = "　　　１"
-label_settings = ExtResource("30_3haqi")
+label_settings = ExtResource("30_troqk")
 
 [node name="駒の働き_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 544.0
@@ -655,7 +655,7 @@ offset_top = 125.0
 offset_right = 672.0
 offset_bottom = 173.0
 text = "　　　０"
-label_settings = ExtResource("30_3haqi")
+label_settings = ExtResource("30_troqk")
 
 [node name="攻めの速度" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 704.0
@@ -663,7 +663,7 @@ offset_top = 61.0
 offset_right = 864.0
 offset_bottom = 102.0
 text = "攻めの速度"
-label_settings = ExtResource("25_4k7c7")
+label_settings = ExtResource("25_wwe3l")
 
 [node name="攻めの速度_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 705.0
@@ -671,7 +671,7 @@ offset_top = 29.0
 offset_right = 833.0
 offset_bottom = 77.0
 text = "　　　２"
-label_settings = ExtResource("31_fl7il")
+label_settings = ExtResource("31_jo5cu")
 
 [node name="攻めの速度_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 706.0
@@ -679,7 +679,7 @@ offset_top = 125.0
 offset_right = 834.0
 offset_bottom = 173.0
 text = "　　　１"
-label_settings = ExtResource("31_fl7il")
+label_settings = ExtResource("31_jo5cu")
 
 [node name="主な瑕" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 1059.0
@@ -687,7 +687,7 @@ offset_top = 61.0
 offset_right = 1187.0
 offset_bottom = 102.0
 text = "主な瑕"
-label_settings = ExtResource("25_4k7c7")
+label_settings = ExtResource("25_wwe3l")
 
 [node name="主な瑕_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 1058.0

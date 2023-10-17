@@ -114,8 +114,13 @@ var document = {
 		# 画面設定
 		"""\
 		!
+		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上, "４３００"
+		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上, "４１００"
+		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上, "４２００"
+		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上, "４１００"
 		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上, "　　　　　　　　　　　　１９"
 		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上, "　　１２３０００００００００"
+		label:		Director/TelopCoordinator/戦闘シーン/主な瑕_上, "定跡無し"
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
