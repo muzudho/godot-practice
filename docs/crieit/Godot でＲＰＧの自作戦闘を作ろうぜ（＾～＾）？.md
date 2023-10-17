@@ -298,4 +298,23 @@ var key_pressed_stage_directions = {
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　モデルがあるから　フリー素材で補えないのが　不利よねえ」  
 
+## 話しは飛ぶが戦闘画面の仕様は固めた
+
+![202310__godot__18-0019--BattleScene.png](https://crieit.now.sh/upload_images/247212bf40d94a26326a909307a589e9652ea6529e85f.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　話しは飛ぶが戦闘画面の仕様は固めたぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　こういうの先に出すと　アイデアマン気取りの変人が  
+わたしはこういう風にした方がいいとか　言ってきて　後から　真似されたとか  
+言い出すんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そういう輩は　自分を大きく見せれるように　ファンがいっぱいいるとこに　噛みつきにいくんだぜ。  
+わたしに嚙みついても　自分を大きく見せられないぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　わらう」  
+
 .
