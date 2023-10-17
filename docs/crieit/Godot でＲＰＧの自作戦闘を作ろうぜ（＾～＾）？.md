@@ -287,4 +287,15 @@ var key_pressed_stage_directions = {
 「　👆　こんな感じで仮引数を受け取れるようにしたぜ。  
 今日はここまでだな」  
 
+# 📅 2023-10-17 tue ⏰ 18:52
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ツツジが咲いている背景画像が欲しいんだが」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　お父んなら　２時間で描けるだろ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　モデルがあるから　フリー素材で補えないのが　不利よねえ」  
+
 .
