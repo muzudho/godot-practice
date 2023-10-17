@@ -47,9 +47,19 @@ func do_it(line):
 
 # テロップを見せる
 func show_telop(node_name):
-	self.get_telop_coordinator().get_node(node_name).show()
+	
+	var telop_node = self.get_telop_coordinator().get_node(node_name)
+	if telop_node == null:
+		print("［効果音］　▲エラー　”" + node_name + "”　が無い")
+	
+	telop_node.show()
 
 
 # テロップを隠す
 func hide_telop(node_name):
-	self.get_telop_coordinator().get_node(node_name).hide()
+	
+	var telop_node = self.get_telop_coordinator().get_node(node_name)
+	if telop_node == null:
+		print("［効果音］　▲エラー　”" + node_name + "”　が無い")
+
+	telop_node.hide()

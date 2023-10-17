@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dpc35dvufjgp4"
-path="res://.godot/imported/kawahori-road.png-5859676a8e57f8eeba8d5cfff3172ddb.ctex"
+path="res://.godot/imported/kawahori_road.png-bfc35b168b86e3976d06c290d886ca75.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/1280x720/kawahori-road.png"
-dest_files=["res://.godot/imported/kawahori-road.png-5859676a8e57f8eeba8d5cfff3172ddb.ctex"]
+source_file="res://images/1280x720/kawahori_road.png"
+dest_files=["res://.godot/imported/kawahori_road.png-bfc35b168b86e3976d06c290d886ca75.ctex"]
 
 [params]
 

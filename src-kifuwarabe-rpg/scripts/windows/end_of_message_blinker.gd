@@ -68,28 +68,28 @@ func set_process_subtree(is_process):
 
 
 # サブツリーの visible を設定
-func set_visible_subtree(is_visible):
-	#print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　可視性：" + str(is_visible))
+func set_visible_subtree(visible_flag):
+	#print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
-	if is_visible != self.visible:
-		self.visible = is_visible
+	if visible_flag != self.visible:
+		self.visible = visible_flag
 
 		# 子ノード無し
 
 
 # サブツリーの appear を設定
-func set_appear_subtree(is_appear):
+func set_appear_subtree(appear_flag):
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
-	if is_appear != self.is_appear:
-		self.is_appear = is_appear
+	if appear_flag != self.is_appear:
+		self.is_appear = appear_flag
 		
 		if self.is_appear:
 			# 画面内に戻す

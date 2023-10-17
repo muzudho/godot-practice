@@ -8,6 +8,11 @@ func get_assistant_director():
 	return $"../../AssistantDirector"
 
 
+# 背景アーティスト
+func get_background_artist():
+	return $"../../BackgroundArtist"
+
+
 #	それをする
 func do_it(line):
 
@@ -28,10 +33,14 @@ func do_it(line):
 # 背景を制御
 func control_bg(node_name, sub_command):
 
+	var node = self.get_background_artist().get_node(node_name)
+	if node == null:
+		print("［背景］　▲エラー　”" + node_name + "”　が無い")
+
 	if sub_command == "hide":
 		# 背景画像非表示
-		$"../../BackgroundArtist".get_node(node_name).hide()
+		node.hide()
 		return
 
 	# 背景画像表示
-	$"../../BackgroundArtist".get_node(node_name).show()
+	self.get_background_artist().get_node(node_name).show()

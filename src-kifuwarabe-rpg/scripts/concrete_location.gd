@@ -33,20 +33,20 @@ func set_appear_subtree(appear_flag):
 	if appear_flag != self.is_appear:
 		self.is_appear = appear_flag
 
-		var offset = null
+		var temp_offset = null
 
 		if self.is_appear:
 			# 画面内に戻す
-			offset = Vector2(0, -720)
+			temp_offset = Vector2(0, -720)
 
 		else:
 			# 画面下の外に押し出す
-			offset = Vector2(0, 720)
+			temp_offset = Vector2(0, 720)
 
 		#	自ノード
-		self.position += offset
+		self.position += temp_offset
 
 		#	子ノード
 		for child in self.get_children():
 			if "position" in child:
-				child.position += offset
+				child.position += temp_offset

@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=67 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -23,8 +23,9 @@
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="14_xhnqt"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="Script" path="res://scripts/concrete_location.gd" id="17_ibqgx"]
-[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://images/1280x720/kawahori-road.png" id="20_ib2qc"]
+[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://images/1280x720/kawahori_road.png" id="20_31kuh"]
 [ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="22_cj5lk"]
+[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://images/1280x720/tsutsuji_road.png" id="22_dmqf5"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/bottom_message_window.png" id="22_gqxn5"]
 [ext_resource type="Texture2D" uid="uid://dyfirmiokgpm" path="res://images/1280x720/battle_scene.png" id="22_ioffi"]
 [ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
@@ -251,31 +252,36 @@ volume_db = -10.0
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 
-[node name="イベントルーム" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("11_lxy0m")
 
-[node name="崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_nlarn")
 
-[node name="エンディング" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🗻エンディング" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("13_sy6jl")
 
-[node name="崎川駅周辺地図" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("14_xhnqt")
 
-[node name="川掘町線ロード" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🗻川掘町線ロード" type="Sprite2D" parent="BackgroundArtist"]
 position = Vector2(640, 360)
-texture = ExtResource("20_ib2qc")
+texture = ExtResource("20_31kuh")
 
-[node name="戦闘シーン" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🗻ツツジロード" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("22_dmqf5")
+
+[node name="🗻戦闘シーン" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_ioffi")
 
@@ -538,6 +544,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GuiArtist" type="Node2D" parent="."]
+visible = false
 
 [node name="WindowsOfMessage" type="Node2D" parent="GuiArtist"]
 
@@ -667,25 +674,28 @@ z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("37_lwbng")
 
-[node name="MonsterTrainer" type="Node" parent="."]
+[node name="MonsterTrainer" type="Node2D" parent="."]
+
+[node name="ヘム将棋" type="Sprite2D" parent="MonsterTrainer"]
+z_index = 10
+position = Vector2(463, 325)
+texture = ExtResource("51_pfarw")
 
 [node name="るさ改" type="Sprite2D" parent="MonsterTrainer"]
+visible = false
 z_index = 10
 position = Vector2(737, 271)
 scale = Vector2(0.639706, 0.639706)
 texture = ExtResource("49_qua1y")
 
-[node name="ヘム将棋" type="Sprite2D" parent="MonsterTrainer"]
-z_index = 10
-position = Vector2(285, 326)
-texture = ExtResource("51_pfarw")
-
 [node name="ケダック" type="Sprite2D" parent="MonsterTrainer"]
+visible = false
 z_index = 10
 position = Vector2(627, 319)
 texture = ExtResource("52_lp131")
 
 [node name="きふわらべ" type="Sprite2D" parent="MonsterTrainer"]
+visible = false
 z_index = 10
 position = Vector2(1014, 273)
 scale = Vector2(0.625506, 0.625506)

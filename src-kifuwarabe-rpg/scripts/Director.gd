@@ -78,6 +78,9 @@ func _ready():
 	#
 	# ディレクターは表示する必要がある
 	self.show()
+	# ＧＵＩアーティスト自身は表示する必要がある
+	$"GuiArtist".show()
+	
 	# グリッドは隠す
 	$"Grid".hide()
 

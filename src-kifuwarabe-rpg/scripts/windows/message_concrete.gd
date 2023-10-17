@@ -89,18 +89,18 @@ func set_visible_subtree(
 
 # サブツリーの appear を設定
 func set_appear_subtree(
-	is_appear):		# bool
+		appear_flag):		# bool
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
-	if is_appear != self.is_appear:
+	if appear_flag != self.is_appear:
 
 		var snapshot = self.get_director().get_current_snapshot()
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　appear：" + str(is_appear))
+		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　appear：" + str(appear_flag))
 
-		self.is_appear = is_appear
+		self.is_appear = appear_flag
 
 		if self.is_appear:
 			# 画面内に戻す
@@ -123,7 +123,7 @@ func set_appear_subtree(
 		# 子ノード
 		for child in self.get_text_block().get_children():
 			if child.has_method("set_appear_subtree"):
-				child.set_appear_subtree(is_appear)
+				child.set_appear_subtree(appear_flag)
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う

@@ -40,12 +40,24 @@ func play_se(node_name):
 
 	print("［効果音］　開始：[" + node_name + "]")
 	self.get_director().current_se_name = node_name
-	self.get_musician().get_node("SE").get_node(self.get_director().current_se_name).play()
+
+	var se_name = self.get_director().current_se_name
+	var se_node = self.get_musician().get_node("SE").get_node(se_name)
+	if se_node == null:
+		print("［効果音］　▲エラー　”" + se_name + "”　が無い")
+	
+	se_node.play()
 
 
 # 効果音停止
 func stop_se():
 	if self.get_director().current_se_name != null:
 		print("［効果音］　停止")
-		self.get_musician().get_node("SE").get_node(self.get_director().current_se_name).stop()
+		
+		var se_name = self.get_director().current_se_name
+		var se_node = self.get_musician().get_node("SE").get_node(se_name)
+		if se_node == null:
+			print("［効果音］　▲エラー　”" + se_name + "”　が無い")
+		
+		se_node.stop()
 		self.get_director().current_se_name = null

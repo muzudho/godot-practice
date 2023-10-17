@@ -48,7 +48,10 @@ func play_bgm(node_name, from = null):
 	print("［ＢＧＭ］　開始：[" + node_name + "]")
 	self.get_director().current_bgm_name = node_name
 	
-	var audio_node = self.get_musician().get_node("BGM").get_node(self.get_director().current_bgm_name)
+	var bgm_name = self.get_director().current_bgm_name
+	var audio_node = self.get_musician().get_node("BGM").get_node(bgm_name)
+	if audio_node == null:
+		print("［ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
 	
 	if from == null:
 		audio_node.play()
@@ -61,5 +64,11 @@ func play_bgm(node_name, from = null):
 func stop_bgm():
 	if self.get_director().current_bgm_name != null:
 		print("［ＢＧＭ］　停止")
-		self.get_musician().get_node("BGM").get_node(self.get_director().current_bgm_name).stop()
+		
+		var bgm_name = self.get_director().current_bgm_name
+		var audio_node = self.get_musician().get_node("BGM").get_node(bgm_name)
+		if audio_node == null:
+			print("［ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
+		
+		audio_node.stop()
 		self.get_director().current_bgm_name = null
