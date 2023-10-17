@@ -80,6 +80,9 @@ func _ready():
 	self.show()
 	# ＧＵＩアーティスト自身は表示する必要がある
 	$"GuiArtist".show()
+	# モンスター・トレーナー
+	$"MonsterTrainer".show()
+	$"MonsterTrainer/Faces".show()
 	
 	# グリッドは隠す
 	$"Grid".hide()
@@ -105,9 +108,10 @@ func _ready():
 	for canvas_layer in $"TelopCoordinator".get_children():
 		canvas_layer.hide()
 	#
-	#	モンスターはとにかく非表示にする
+	#	モンスターは、フォルダ―以外は　とにかく非表示にする
 	for monster in $"MonsterTrainer".get_children():
-		monster.hide()
+		if monster.name != "Faces:":
+			monster.hide()
 
 	#
 
