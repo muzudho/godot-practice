@@ -173,8 +173,12 @@ func parse_section_item(temp_text):
 			elif second_head.begins_with("monster:"):
 				$"Monster".do_it(second_head)
 
+			# モンスター顔表示
+			elif second_head.begins_with("monster_face:"):
+				$"MonsterFace".do_it(second_head)
+
 			# メッセージ出力先ウィンドウ変更
-			elif second_head.begins_with("m-wnd:"):
+			elif second_head.begins_with("m_wnd:"):
 				$"MWnd".do_it(second_head)
 
 			# アプリケーション終了
@@ -190,7 +194,7 @@ func parse_section_item(temp_text):
 				$"Se".do_it(second_head)
 			
 			# ビューイング・ウィンドウの表示／非表示
-			elif second_head.begins_with("v-wnd:"):
+			elif second_head.begins_with("v_wnd:"):
 				$"VWnd".do_it(second_head)
 
 			# さらに先頭行を取得

@@ -16,12 +16,13 @@ var document = {
 		# コダック
 		"""\
 		!
-		bg:			🗻川掘町線ロード
-		bg:			🗻戦闘シーン
-		telop:		戦闘シーン
-		bgm:		🎵バトル１, 8.6
-		#monster:	きふわらべ
-		monster:	%arg_monster%
+		bg:				🗻川掘町線ロード
+		bg:				🗻戦闘シーン
+		telop:			戦闘シーン
+		bgm:			🎵バトル１, 8.6
+		monster_face:	😁きふわらべ
+		monster:		%arg_monster%
+		monster_face:	%arg_monster_face%
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
@@ -30,26 +31,27 @@ var document = {
 		「おっと　戦闘シーンはまだ
 		　できてないらしいぜ
 		""",
-		"""\
-		!
-		monster:	%arg_monster%, hide
-		""",
 		# 戦闘終了
 		"""\
 		!
-		telop:		戦闘シーン, hide
-		m-wnd:		■下, hide
-		department:	📗ビジュアルノベル部門
-		goto:		%arg_return%
-		m-wnd:		■下
+		monster_face:	😁きふわらべ, hide
+		monster:		%arg_monster%, hide
+		monster_face:	%arg_monster_face%, hide
+		telop:			戦闘シーン, hide
+		m_wnd:			■下, hide
+		department:		📗ビジュアルノベル部門
+		goto:			%arg_return%
+		m_wnd:			■下
 		""",
 	],
 	"§２回目戦闘シーン":[
 		"""\
 		!
-		telop:		戦闘シーン
-		monster:	%arg_monster%
-		bgm:		🎵バトル２
+		telop:			戦闘シーン
+		monster_face:	😁きふわらべ
+		monster:		%arg_monster%
+		monster_face:	%arg_monster_face%
+		bgm:			🎵バトル２
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
@@ -57,26 +59,27 @@ var document = {
 		ひよ子
 		「物騒ねぇ
 		""",
-		"""\
-		!
-		monster:	%arg_monster%, hide
-		""",
 		# 戦闘終了
 		"""\
 		!
-		telop:		戦闘シーン, hide
-		m-wnd:		■下, hide
-		department:	📗ビジュアルノベル部門
-		goto:		%arg_return%
-		m-wnd:		■下
+		monster_face:	😁きふわらべ, hide
+		monster:		%arg_monster%, hide
+		monster_face:	%arg_monster_face%, hide
+		telop:			戦闘シーン, hide
+		m_wnd:			■下, hide
+		department:		📗ビジュアルノベル部門
+		goto:			%arg_return%
+		m_wnd:			■下
 		""",
 	],
 	"§３回目戦闘シーン":[
 		"""\
 		!
-		telop:		戦闘シーン
-		monster:	%arg_monster%
-		bgm:		🎵バトル３
+		telop:			戦闘シーン
+		monster_face:	😁きふわらべ
+		monster:		%arg_monster%
+		monster_face:	%arg_monster_face%
+		bgm:			🎵バトル３
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -84,19 +87,17 @@ var document = {
 		「戦闘なんか　これから
 		　いっぱい　するのに……
 		""",
-		"""\
-		!
-		#monster:	きふわらべ, hide
-		monster:	%arg_monster%, hide
-		""",
 		# 戦闘終了
 		"""\
 		!
-		telop:		戦闘シーン, hide
-		m-wnd:		■下, hide
-		department:	📗ビジュアルノベル部門
-		goto:		%arg_return%
-		m-wnd:		■下
+		monster_face:	😁きふわらべ, hide
+		monster:		%arg_monster%, hide
+		monster_face:	%arg_monster_face%, hide
+		telop:			戦闘シーン, hide
+		m_wnd:			■下, hide
+		department:		📗ビジュアルノベル部門
+		goto:			%arg_return%
+		m_wnd:			■下
 		""",
 	],
 }

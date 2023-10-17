@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=71 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -52,6 +52,7 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/arg.gd" id="39_qg5jf"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
 [ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="46_tukjy"]
+[ext_resource type="Script" path="res://scripts/assistant_director/monster_face.gd" id="49_n38p5"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="49_qua1y"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="51_pfarw"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="52_lp131"]
@@ -886,6 +887,9 @@ script = ExtResource("24_envpd")
 
 [node name="Monster" type="Node" parent="AssistantDirector"]
 script = ExtResource("41_0etqc")
+
+[node name="MonsterFace" type="Node" parent="AssistantDirector"]
+script = ExtResource("49_n38p5")
 
 [node name="MWnd" type="Node" parent="AssistantDirector"]
 script = ExtResource("23_a7vfu")
