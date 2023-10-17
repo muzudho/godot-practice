@@ -538,162 +538,163 @@ vertical_alignment = 1
 
 [node name="戦闘シーン" type="CanvasLayer" parent="TelopCoordinator"]
 
-[node name="後" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 2.0
-offset_top = 16.0
-offset_right = 34.0
-offset_bottom = 64.0
-text = "後"
-label_settings = ExtResource("25_s5t71")
-
-[node name="先" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_top = 112.0
-offset_right = 32.0
-offset_bottom = 160.0
-text = "先"
-label_settings = ExtResource("25_s5t71")
-
-[node name="城の堅さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 95.0
-offset_top = 66.0
-offset_right = 223.0
-offset_bottom = 107.0
-text = "城の堅さ"
-label_settings = ExtResource("25_4k7c7")
-
-[node name="城の堅さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 144.0
-offset_top = 18.0
-offset_right = 176.0
-offset_bottom = 63.0
-text = "１"
-label_settings = ExtResource("25_s5t71")
-
-[node name="城の堅さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 144.0
-offset_top = 113.0
-offset_right = 176.0
-offset_bottom = 158.0
-text = "３"
-label_settings = ExtResource("25_s5t71")
-
-[node name="逃げ道の広さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 257.0
-offset_top = 66.0
-offset_right = 449.0
-offset_bottom = 107.0
-text = "逃げ道の広さ"
-label_settings = ExtResource("25_4k7c7")
-
-[node name="逃げ道の広さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 338.0
-offset_top = 18.0
-offset_right = 370.0
-offset_bottom = 63.0
-text = "０"
-label_settings = ExtResource("25_s5t71")
-
-[node name="逃げ道の広さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 337.0
-offset_top = 112.0
-offset_right = 369.0
-offset_bottom = 157.0
-text = "１"
-label_settings = ExtResource("25_s5t71")
-
-[node name="駒の働き" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 480.0
-offset_top = 65.0
-offset_right = 608.0
-offset_bottom = 106.0
-text = "駒の働き"
-label_settings = ExtResource("25_4k7c7")
-
-[node name="駒の働き_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 528.0
-offset_top = 17.0
-offset_right = 560.0
-offset_bottom = 62.0
-text = "１"
-label_settings = ExtResource("25_s5t71")
-
-[node name="駒の働き_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 527.0
-offset_top = 113.0
-offset_right = 559.0
-offset_bottom = 158.0
-text = "０"
-label_settings = ExtResource("25_s5t71")
-
-[node name="攻めの速度" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 642.0
-offset_top = 65.0
-offset_right = 802.0
-offset_bottom = 106.0
-text = "攻めの速度"
-label_settings = ExtResource("25_4k7c7")
-
-[node name="攻めの速度_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 706.0
-offset_top = 18.0
-offset_right = 738.0
-offset_bottom = 63.0
-text = "２"
-label_settings = ExtResource("25_s5t71")
-
-[node name="攻めの速度_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 704.0
-offset_top = 113.0
-offset_right = 736.0
-offset_bottom = 158.0
-text = "１"
-label_settings = ExtResource("25_s5t71")
-
 [node name="玉の遠さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 832.0
-offset_top = 66.0
-offset_right = 960.0
-offset_bottom = 107.0
+offset_left = 898.0
+offset_top = 61.0
+offset_right = 1026.0
+offset_bottom = 102.0
 text = "玉の遠さ"
 label_settings = ExtResource("25_4k7c7")
 
 [node name="玉の遠さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 831.0
-offset_top = 1.0
-offset_right = 959.0
-offset_bottom = 82.0
-text = "１９"
+offset_left = 129.0
+offset_top = -4.0
+offset_right = 1025.0
+offset_bottom = 77.0
+text = "　　　　　　　　　　　　１９"
 label_settings = ExtResource("27_7pwk6")
 
 [node name="玉の遠さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 831.0
-offset_top = 97.0
-offset_right = 959.0
-offset_bottom = 177.0
-text = "２０"
+offset_left = 62.0
+offset_top = 91.0
+offset_right = 1024.0
+offset_bottom = 172.0
+text = "　　　　　　　　　　　　　２０"
 label_settings = ExtResource("27_7pwk6")
 
+[node name="後" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 32.0
+offset_top = 28.0
+offset_right = 64.0
+offset_bottom = 76.0
+text = "後"
+label_settings = ExtResource("25_s5t71")
+
+[node name="先" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 31.0
+offset_top = 124.0
+offset_right = 63.0
+offset_bottom = 172.0
+text = "先"
+label_settings = ExtResource("25_s5t71")
+
+[node name="城の堅さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 160.0
+offset_top = 60.0
+offset_right = 288.0
+offset_bottom = 101.0
+text = "城の堅さ"
+label_settings = ExtResource("25_4k7c7")
+
+[node name="城の堅さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 161.0
+offset_top = 31.0
+offset_right = 289.0
+offset_bottom = 76.0
+text = "　　　４"
+label_settings = ExtResource("25_s5t71")
+
+[node name="城の堅さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 161.0
+offset_top = 125.0
+offset_right = 289.0
+offset_bottom = 173.0
+text = "　　　３"
+label_settings = ExtResource("25_s5t71")
+
+[node name="逃げ道の広さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 321.0
+offset_top = 61.0
+offset_right = 513.0
+offset_bottom = 102.0
+text = "逃げ道の広さ"
+label_settings = ExtResource("25_4k7c7")
+
+[node name="逃げ道の広さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 353.0
+offset_top = 31.0
+offset_right = 481.0
+offset_bottom = 79.0
+text = "　　　０"
+label_settings = ExtResource("25_s5t71")
+
+[node name="逃げ道の広さ_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 353.0
+offset_top = 125.0
+offset_right = 481.0
+offset_bottom = 173.0
+text = "　　　１"
+label_settings = ExtResource("25_s5t71")
+
+[node name="駒の働き" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 545.0
+offset_top = 61.0
+offset_right = 673.0
+offset_bottom = 102.0
+text = "駒の働き"
+label_settings = ExtResource("25_4k7c7")
+
+[node name="駒の働き_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 545.0
+offset_top = 30.0
+offset_right = 673.0
+offset_bottom = 78.0
+text = "　　　１"
+label_settings = ExtResource("25_s5t71")
+
+[node name="駒の働き_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 544.0
+offset_top = 125.0
+offset_right = 672.0
+offset_bottom = 173.0
+text = "　　　０"
+label_settings = ExtResource("25_s5t71")
+
+[node name="攻めの速度" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 704.0
+offset_top = 61.0
+offset_right = 864.0
+offset_bottom = 102.0
+text = "攻めの速度"
+label_settings = ExtResource("25_4k7c7")
+
+[node name="攻めの速度_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 705.0
+offset_top = 29.0
+offset_right = 833.0
+offset_bottom = 77.0
+text = "　　　２"
+label_settings = ExtResource("25_s5t71")
+
+[node name="攻めの速度_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
+offset_left = 706.0
+offset_top = 125.0
+offset_right = 834.0
+offset_bottom = 173.0
+text = "　　　１"
+label_settings = ExtResource("25_s5t71")
+
 [node name="主な瑕" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 993.0
-offset_top = 65.0
-offset_right = 1121.0
-offset_bottom = 106.0
+offset_left = 1059.0
+offset_top = 61.0
+offset_right = 1187.0
+offset_bottom = 102.0
 text = "主な瑕"
 label_settings = ExtResource("25_4k7c7")
 
 [node name="主な瑕_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 992.0
-offset_top = 17.0
-offset_right = 1152.0
-offset_bottom = 65.0
+offset_left = 1058.0
+offset_top = 28.0
+offset_right = 1218.0
+offset_bottom = 76.0
 text = "そっぽの金"
 label_settings = ExtResource("25_s5t71")
 
 [node name="主な瑕_下" type="Label" parent="TelopCoordinator/戦闘シーン"]
-offset_left = 991.0
-offset_top = 111.0
-offset_right = 1055.0
-offset_bottom = 159.0
+offset_left = 1056.0
+offset_top = 124.0
+offset_right = 1120.0
+offset_bottom = 172.0
 text = "壁銀"
 label_settings = ExtResource("25_s5t71")
 
@@ -833,12 +834,12 @@ texture = ExtResource("37_lwbng")
 [node name="Faces" type="Node2D" parent="MonsterTrainer"]
 
 [node name="😁ヘム将棋" type="Sprite2D" parent="MonsterTrainer/Faces"]
-position = Vector2(71, 32)
+position = Vector2(97, 39)
 scale = Vector2(0.266871, 0.266871)
 texture = ExtResource("35_pjekd")
 
 [node name="😁きふわらべ" type="Sprite2D" parent="MonsterTrainer/Faces"]
-position = Vector2(71, 128)
+position = Vector2(97, 129)
 scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("36_n17j0")
 
