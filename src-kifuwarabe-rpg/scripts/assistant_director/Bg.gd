@@ -43,4 +43,4 @@ func control_bg(node_name, sub_command):
 		return
 
 	# 背景画像表示
-	self.get_background_artist().get_node(node_name).show()
+	node.show()

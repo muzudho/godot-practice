@@ -16,7 +16,7 @@ var document = {
 		# 戦闘開始
 		"""\
 		!
-		bg:				🗻川掘町線ロード
+		bg:				%arg_bg%
 		bg:				🗻戦闘シーン
 		telop:			戦闘シーン
 		bgm:			🎵バトル１, 8.6
@@ -44,11 +44,13 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		monster_face:	😁きふわらべ, hide
-		monster:		%arg_monster%, hide
-		monster_face:	%arg_monster_face%, hide
-		telop:			戦闘シーン, hide
-		m_wnd:			■下, hide
+		bg:				%arg_bg%			,hide
+		bg:				🗻戦闘シーン		,hide
+		monster_face:	😁きふわらべ		,hide
+		monster:		%arg_monster%		,hide
+		monster_face:	%arg_monster_face%	,hide
+		telop:			戦闘シーン			,hide
+		m_wnd:			■下					,hide
 		department:		📗ビジュアルノベル部門
 		goto:			%arg_return%
 		m_wnd:			■下
@@ -58,6 +60,8 @@ var document = {
 		# 戦闘開始
 		"""\
 		!
+		bg:				%arg_bg%
+		bg:				🗻戦闘シーン
 		telop:			戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		%arg_monster%
@@ -83,6 +87,8 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
+		bg:				%arg_bg%			,hide
+		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ, hide
 		monster:		%arg_monster%, hide
 		monster_face:	%arg_monster_face%, hide
@@ -97,6 +103,8 @@ var document = {
 		# 戦闘開始
 		"""\
 		!
+		bg:				%arg_bg%
+		bg:				🗻戦闘シーン
 		telop:			戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		%arg_monster%
@@ -122,6 +130,8 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
+		bg:				%arg_bg%			,hide
+		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ, hide
 		monster:		%arg_monster%, hide
 		monster_face:	%arg_monster_face%, hide
@@ -137,6 +147,8 @@ var document = {
 		# 戦闘開始
 		"""\
 		!
+		bg:				%arg_bg%
+		bg:				🗻戦闘シーン
 		telop:			戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		%arg_monster%
@@ -267,6 +279,8 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
+		bg:				%arg_bg%			,hide
+		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ, hide
 		monster:		%arg_monster%, hide
 		monster_face:	%arg_monster_face%, hide

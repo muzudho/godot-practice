@@ -138,9 +138,10 @@ var document = {
 		department:	📗バトル部門
 		goto:		§初戦闘シーン
 		arg:		%clear%
-		arg:		monster, 🐕ヘム将棋
-		arg:		monster_face, 😁ヘム将棋
-		arg:		return, §２回目戦闘シーン
+		arg:		bg				,🗻ツツジロード
+		arg:		monster			,🐕ヘム将棋
+		arg:		monster_face	,😁ヘム将棋
+		arg:		return			,§２回目戦闘シーン
 		m_wnd:		■下
 		""",
 	],
@@ -152,6 +153,7 @@ var document = {
 		department:	📗バトル部門
 		goto:		§２回目戦闘シーン
 		arg:		%clear%
+		arg:		bg				,🗻ツツジロード
 		arg:		monster, 🐕ケダック
 		arg:		monster_face, 😁ケダック
 		arg:		return, §３回目戦闘シーン
@@ -166,9 +168,10 @@ var document = {
 		department:	📗バトル部門
 		goto:		§３回目戦闘シーン
 		arg:		%clear%
-		arg:		monster, 🐕レサぽん改
-		arg:		monster_face, 😁レサぽん改
-		arg:		return, §ＶＳ昼ビール
+		arg:		bg				,🗻川堀町線ロード
+		arg:		monster			,🐕レサぽん改
+		arg:		monster_face	,😁レサぽん改
+		arg:		return			,§ＶＳ昼ビール
 		m_wnd:		■下
 		""",
 	],
@@ -180,9 +183,10 @@ var document = {
 		department:	📗バトル部門
 		goto:		§ＶＳ昼ビール
 		arg:		%clear%
-		arg:		monster, 🐕昼ビール
-		arg:		monster_face, 😁昼ビール
-		arg:		return, §崎川市最強振興会館
+		arg:		bg				,🗻川堀町線ロード
+		arg:		monster			,🐕昼ビール
+		arg:		monster_face	,😁昼ビール
+		arg:		return			,§崎川市最強振興会館
 		m_wnd:		■下
 		""",
 	],
@@ -191,7 +195,7 @@ var document = {
 		"""\
 		!
 		bgm:
-		bg:		🗻川掘町線ロード, hide
+		bg:		🗻川堀町線ロード, hide
 		bg:		🗻戦闘シーン, hide
 		bg:		🗻４Ｆイベントルーム
 		""",

@@ -104,6 +104,9 @@ func split_head_line_or_tail(text):
 
 # 引数を変数展開する
 func expand_param(line):
+	
+	line = line.strip_edges()
+	
 	if line is String:
 		# ここで `%arg_1% などの引数を　変数展開したい
 		if line.begins_with("%arg_"):

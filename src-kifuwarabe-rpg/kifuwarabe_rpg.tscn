@@ -276,7 +276,7 @@ visible = false
 position = Vector2(640, 360)
 texture = ExtResource("14_xhnqt")
 
-[node name="🗻川掘町線ロード" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🗻川堀町線ロード" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("20_31kuh")
