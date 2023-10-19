@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=80 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -58,6 +58,8 @@
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="39_iojay"]
 [ext_resource type="Script" path="res://scripts/assistant_director/arg.gd" id="39_qg5jf"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
+[ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="42_71nia"]
+[ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://images/monster_faces/202310__godot__19-2218--KodackFace.png" id="43_0e61y"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://images/monsters/202310__godot__18-0039--shiroBeer.png" id="43_dyuq4"]
 [ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="46_tukjy"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster_face.gd" id="49_n38p5"]
@@ -814,9 +816,21 @@ texture = ExtResource("37_lwbng")
 [node name="Faces" type="Node2D" parent="MonsterTrainer"]
 
 [node name="😁ヘム将棋" type="Sprite2D" parent="MonsterTrainer/Faces"]
+visible = false
 position = Vector2(97, 70)
 scale = Vector2(0.266871, 0.266871)
 texture = ExtResource("35_pjekd")
+
+[node name="😁レサぽん改" type="Sprite2D" parent="MonsterTrainer/Faces"]
+visible = false
+position = Vector2(94.5, 64.9293)
+scale = Vector2(0.191919, 0.191919)
+texture = ExtResource("42_71nia")
+
+[node name="😁ケダック" type="Sprite2D" parent="MonsterTrainer/Faces"]
+position = Vector2(96.4521, 67.25)
+scale = Vector2(0.80137, 0.80137)
+texture = ExtResource("43_0e61y")
 
 [node name="😁きふわらべ" type="Sprite2D" parent="MonsterTrainer/Faces"]
 position = Vector2(97, 129)

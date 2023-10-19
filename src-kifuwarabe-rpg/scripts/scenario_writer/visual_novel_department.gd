@@ -153,7 +153,7 @@ var document = {
 		goto:		§２回目戦闘シーン
 		arg:		%clear%
 		arg:		monster, 🐕ケダック
-		arg:		monster_face, 😁ヘム将棋
+		arg:		monster_face, 😁ケダック
 		arg:		return, §３回目戦闘シーン
 		m_wnd:		■下
 		""",
@@ -167,7 +167,7 @@ var document = {
 		goto:		§３回目戦闘シーン
 		arg:		%clear%
 		arg:		monster, 🐕レサぽん改
-		arg:		monster_face, 😁ヘム将棋
+		arg:		monster_face, 😁レサぽん改
 		arg:		return, §ＶＳ昼ビール
 		m_wnd:		■下
 		""",
