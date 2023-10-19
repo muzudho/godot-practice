@@ -389,4 +389,14 @@ await get_tree().create_timer(2).timeout
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　`async` が無いのに `await` が効くの？」  
 
+## スリープは自力実装した
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　サンプル動かないので、スリープは自力実装した」  
+
+📺　[動画](https://x.com/muzudho1/status/1715041232815317005?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　トランジションも実装したぜ」  
+
 .
