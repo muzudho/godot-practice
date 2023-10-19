@@ -1,6 +1,7 @@
-[gd_scene load_steps=81 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=88 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
+[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_m3vrv"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/main.gd" id="3_jssjb"]
 [ext_resource type="Script" path="res://scripts/assistant_director.gd" id="3_nnvgw"]
@@ -28,20 +29,26 @@
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/bottom_message_window.png" id="22_gqxn5"]
 [ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://images/1280x720/battle_scene_3.png" id="22_rnsk7"]
 [ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
+[ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://images/1280x720/transition_1_frame_1.png" id="23_8qjrs"]
 [ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="23_a7vfu"]
 [ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="24_envpd"]
+[ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://images/1280x720/transition_1_frame_2.png" id="24_tvkey"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://font_settings/main_font.tres" id="25_s5t71"]
+[ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://images/1280x720/transition_1_frame_3.png" id="25_tmvsa"]
 [ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://font_settings/battle_slategray_font.tres" id="25_wwe3l"]
 [ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="25_xmliw"]
-[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/Grid.png" id="26_fgfga"]
+[ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://images/1280x720/transition_1_frame_4.png" id="26_eldev"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/center_message_window.png" id="26_o3mvx"]
 [ext_resource type="Script" path="res://scripts/assistant_director/normal_text.gd" id="27_1um3d"]
 [ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://font_settings/large_font.tres" id="27_7pwk6"]
 [ext_resource type="Script" path="res://scripts/assistant_director/se.gd" id="27_b3qcr"]
+[ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://images/1280x720/transition_1_frame_5.png" id="27_g8xqb"]
 [ext_resource type="Script" path="res://scripts/assistant_director/normal_text_choice.gd" id="27_punsk"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/center_viewing_window.png" id="28_cy6bv"]
 [ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://font_settings/battle_light_red.tres" id="28_mkxyl"]
+[ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://images/1280x720/transition_1_frame_6.png" id="28_nycgn"]
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://font_settings/battle_light_yellow.tres" id="29_1ruq0"]
+[ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://images/1280x720/transition_1_frame_7.png" id="29_u7nns"]
 [ext_resource type="Script" path="res://scripts/windows/message_concrete.gd" id="30_bblis"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://font_settings/battle_light_green.tres" id="30_troqk"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://font_settings/battle_light_blue.tres" id="31_jo5cu"]
@@ -198,7 +205,7 @@ script = ExtResource("1_lfp38")
 [node name="Grid" type="Sprite2D" parent="."]
 z_index = 5
 position = Vector2(640, 360)
-texture = ExtResource("26_fgfga")
+texture = ExtResource("2_m3vrv")
 
 [node name="ScenarioWriter" type="Node" parent="."]
 
@@ -289,6 +296,34 @@ texture = ExtResource("22_dmqf5")
 [node name="🗻戦闘シーン" type="Sprite2D" parent="BackgroundArtist"]
 position = Vector2(640, 360)
 texture = ExtResource("22_rnsk7")
+
+[node name="🗻トランジション１コマ１" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("23_8qjrs")
+
+[node name="🗻トランジション１コマ２" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("24_tvkey")
+
+[node name="🗻トランジション１コマ３" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("25_tmvsa")
+
+[node name="🗻トランジション１コマ４" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("26_eldev")
+
+[node name="🗻トランジション１コマ５" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("27_g8xqb")
+
+[node name="🗻トランジション１コマ６" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("28_nycgn")
+
+[node name="🗻トランジション１コマ７" type="Sprite2D" parent="BackgroundArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("29_u7nns")
 
 [node name="TelopCoordinator" type="Node" parent="."]
 
