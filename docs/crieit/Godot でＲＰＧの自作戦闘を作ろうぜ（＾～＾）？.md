@@ -317,4 +317,16 @@ var key_pressed_stage_directions = {
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　わらう」  
 
+## 仮組した
+
+📺　[動画](https://x.com/muzudho1/status/1714326815815450982?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　仮組した。今日は終わり」  
+
+# 📅 2023-10-19 thu もうちょい何とかならんの？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　キャラクター画像をもう少し小さくして　データ表示の面積を増やすかな？」  
+
 .
