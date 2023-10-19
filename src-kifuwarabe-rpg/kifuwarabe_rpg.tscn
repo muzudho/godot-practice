@@ -852,7 +852,7 @@ scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("36_n17j0")
 
 [node name="😁昼ビール" type="Sprite2D" parent="MonsterTrainer/Faces"]
-position = Vector2(97.5, 67.525)
+position = Vector2(97.5, 36.525)
 scale = Vector2(0.221014, 0.197109)
 texture = ExtResource("39_iojay")
 

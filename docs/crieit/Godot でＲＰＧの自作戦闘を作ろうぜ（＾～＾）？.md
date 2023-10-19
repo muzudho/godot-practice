@@ -326,7 +326,21 @@ var key_pressed_stage_directions = {
 
 # 📅 2023-10-19 thu もうちょい何とかならんの？
 
+![202310__godot__19-1943--BattleScene.png](https://crieit.now.sh/upload_images/a18022121d30d8ed5574486c8cd8aa626531089475bc9.png)  
+
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　キャラクター画像をもう少し小さくして　データ表示の面積を増やすかな？」  
+「　👆　キャラクター画像をもう少し小さくして　データ表示の面積を増やすかな？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　戦闘中の数字表示は　テロップ　でやるという建付けなの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　会話シーンと同じだぜ。一貫性があるだろ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　城の堅さなどの　４つの数字が　目立たなくないか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ウィンドウの枠も付けるかどうか　考えどこだぜ」  
 
 .
