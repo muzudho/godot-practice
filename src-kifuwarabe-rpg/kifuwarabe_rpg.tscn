@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=93 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_m3vrv"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="14_xhnqt"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
+[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://audio/se/maou.audio/maou_se_magic_fire11.ogg" id="16_kroju"]
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://images/1280x720/kawahori_road.png" id="20_31kuh"]
 [ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="22_cj5lk"]
 [ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://images/1280x720/tsutsuji_road.png" id="22_dmqf5"]
@@ -265,6 +266,11 @@ volume_db = -15.0
 [node name="🔔選択肢確定音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("10_d7hpp")
 volume_db = -10.0
+
+[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("16_kroju")
+volume_db = -15.0
+pitch_scale = 1.5
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 
