@@ -547,17 +547,17 @@ vertical_alignment = 1
 
 [node name="玉の遠さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 898.0
-offset_top = 61.0
+offset_top = -3.0
 offset_right = 1026.0
-offset_bottom = 102.0
+offset_bottom = 38.0
 text = "玉の遠さ"
 label_settings = ExtResource("25_wwe3l")
 
 [node name="玉の遠さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 129.0
-offset_top = -4.0
+offset_top = 28.0
 offset_right = 1025.0
-offset_bottom = 77.0
+offset_bottom = 109.0
 text = "　　　　　　　　　　　　１９"
 label_settings = ExtResource("27_7pwk6")
 
@@ -571,9 +571,9 @@ label_settings = ExtResource("27_7pwk6")
 
 [node name="後" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 32.0
-offset_top = 28.0
+offset_top = 60.0
 offset_right = 64.0
-offset_bottom = 76.0
+offset_bottom = 108.0
 text = "後"
 label_settings = ExtResource("25_s5t71")
 
@@ -587,17 +587,17 @@ label_settings = ExtResource("25_s5t71")
 
 [node name="城の堅さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 160.0
-offset_top = 60.0
+offset_top = -3.0
 offset_right = 288.0
-offset_bottom = 101.0
+offset_bottom = 38.0
 text = "城の堅さ"
 label_settings = ExtResource("25_wwe3l")
 
 [node name="城の堅さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 161.0
-offset_top = 31.0
+offset_top = 62.0
 offset_right = 289.0
-offset_bottom = 76.0
+offset_bottom = 110.0
 text = "　　　４"
 label_settings = ExtResource("28_mkxyl")
 
@@ -611,17 +611,17 @@ label_settings = ExtResource("28_mkxyl")
 
 [node name="逃げ道の広さ" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 321.0
-offset_top = 61.0
+offset_top = -3.0
 offset_right = 513.0
-offset_bottom = 102.0
+offset_bottom = 38.0
 text = "逃げ道の広さ"
 label_settings = ExtResource("25_wwe3l")
 
 [node name="逃げ道の広さ_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 353.0
-offset_top = 31.0
+offset_top = 61.0
 offset_right = 481.0
-offset_bottom = 79.0
+offset_bottom = 109.0
 text = "　　　０"
 label_settings = ExtResource("29_1ruq0")
 
@@ -635,17 +635,17 @@ label_settings = ExtResource("29_1ruq0")
 
 [node name="駒の働き" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 545.0
-offset_top = 61.0
+offset_top = -4.0
 offset_right = 673.0
-offset_bottom = 102.0
+offset_bottom = 37.0
 text = "駒の働き"
 label_settings = ExtResource("25_wwe3l")
 
 [node name="駒の働き_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 545.0
-offset_top = 30.0
+offset_top = 60.0
 offset_right = 673.0
-offset_bottom = 78.0
+offset_bottom = 108.0
 text = "　　　１"
 label_settings = ExtResource("30_troqk")
 
@@ -659,17 +659,17 @@ label_settings = ExtResource("30_troqk")
 
 [node name="攻めの速度" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 704.0
-offset_top = 61.0
+offset_top = -3.0
 offset_right = 864.0
-offset_bottom = 102.0
+offset_bottom = 38.0
 text = "攻めの速度"
 label_settings = ExtResource("25_wwe3l")
 
 [node name="攻めの速度_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 705.0
-offset_top = 29.0
+offset_top = 60.0
 offset_right = 833.0
-offset_bottom = 77.0
+offset_bottom = 108.0
 text = "　　　２"
 label_settings = ExtResource("31_jo5cu")
 
@@ -683,17 +683,17 @@ label_settings = ExtResource("31_jo5cu")
 
 [node name="主な瑕" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 1059.0
-offset_top = 61.0
+offset_top = -3.0
 offset_right = 1187.0
-offset_bottom = 102.0
+offset_bottom = 38.0
 text = "主な瑕"
 label_settings = ExtResource("25_wwe3l")
 
 [node name="主な瑕_上" type="Label" parent="TelopCoordinator/戦闘シーン"]
 offset_left = 1058.0
-offset_top = 28.0
+offset_top = 59.0
 offset_right = 1218.0
-offset_bottom = 76.0
+offset_bottom = 107.0
 text = "そっぽの金"
 label_settings = ExtResource("25_s5t71")
 
@@ -710,7 +710,6 @@ label_settings = ExtResource("25_s5t71")
 [node name="WindowsOfMessage" type="Node2D" parent="GuiArtist"]
 
 [node name="■下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
-visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
@@ -718,7 +717,6 @@ texture = ExtResource("22_gqxn5")
 script = ExtResource("30_bblis")
 
 [node name="■下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
-visible = false
 
 [node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer"]
 offset_left = 319.0
@@ -852,7 +850,7 @@ scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("36_n17j0")
 
 [node name="😁昼ビール" type="Sprite2D" parent="MonsterTrainer/Faces"]
-position = Vector2(97.5, 36.525)
+position = Vector2(97.5, 66.525)
 scale = Vector2(0.221014, 0.197109)
 texture = ExtResource("39_iojay")
 
