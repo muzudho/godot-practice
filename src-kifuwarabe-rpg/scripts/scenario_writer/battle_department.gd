@@ -13,7 +13,7 @@ var choices_mappings = {
 var document = {
 	#	初戦闘シーン
 	"§初戦闘シーン":[
-		# コダック
+		# 戦闘開始
 		"""\
 		!
 		bg:				🗻川掘町線ロード
@@ -23,6 +23,16 @@ var document = {
 		monster_face:	😁きふわらべ
 		monster:		%arg_monster%
 		monster_face:	%arg_monster_face%
+		""",
+		# 画面設定
+		"""\
+		!
+		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"　　　１"
+		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上	,"　　　２"
+		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上		,"　　　０"
+		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上		,"　　　１"
+		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　　１９"
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
@@ -45,6 +55,7 @@ var document = {
 		""",
 	],
 	"§２回目戦闘シーン":[
+		# 戦闘開始
 		"""\
 		!
 		telop:			戦闘シーン
@@ -52,6 +63,16 @@ var document = {
 		monster:		%arg_monster%
 		monster_face:	%arg_monster_face%
 		bgm:			🎵バトル２
+		""",
+		# 画面設定
+		"""\
+		!
+		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"　　２０"
+		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上	,"　　１０"
+		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上		,"　　３０"
+		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上		,"　　１０"
+		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　　４０"
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
@@ -73,6 +94,7 @@ var document = {
 		""",
 	],
 	"§３回目戦闘シーン":[
+		# 戦闘開始
 		"""\
 		!
 		telop:			戦闘シーン
@@ -80,6 +102,16 @@ var document = {
 		monster:		%arg_monster%
 		monster_face:	%arg_monster_face%
 		bgm:			🎵バトル３
+		""",
+		# 画面設定
+		"""\
+		!
+		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"　１００"
+		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上	,"　１２０"
+		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上		,"　１００"
+		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上		,"　１１０"
+		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　１３０"
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -114,13 +146,12 @@ var document = {
 		# 画面設定
 		"""\
 		!
-		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上, "４３００"
-		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上, "４１００"
-		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上, "４２００"
-		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上, "４１００"
-		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上, "　　　　　　　　　　　　１９"
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上, "　　１２３０００００００００"
-		label:		Director/TelopCoordinator/戦闘シーン/主な瑕_上, "定跡無し"
+		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"４３００"
+		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上	,"４１００"
+		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上		,"４２００"
+		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上		,"４１００"
+		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００００"
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -155,7 +186,8 @@ var document = {
 		""",
 		"""\
 		!
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上, "　　１２２９９９９９９９９９"
+		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　１２２９９９９９９９９９"
 		""",
 		"""\
 		昼ビールに　１　のダメージを与えた
@@ -182,8 +214,9 @@ var document = {
 		""",
 		"""\
 		!
-		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上, "４４００"
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上, "　　１２３０００００００９９"
+		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"４４００"
+		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００９９"
 		""",
 		"""\
 		城の堅さが　１００　上がった

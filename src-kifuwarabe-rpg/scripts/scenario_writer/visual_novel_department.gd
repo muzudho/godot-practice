@@ -107,7 +107,7 @@ var document = {
 		telop:		崎川駅周辺地図, hide
 		bg:			🗻崎川駅周辺地図,hide
 		bg:			🗻ツツジロード
-		monster:	ヘム将棋
+		monster:	🐕ヘム将棋
 		""",
 		"""\
 		きふわらべ
@@ -138,7 +138,7 @@ var document = {
 		department:	📗バトル部門
 		goto:		§初戦闘シーン
 		arg:		%clear%
-		arg:		monster, ヘム将棋
+		arg:		monster, 🐕ヘム将棋
 		arg:		monster_face, 😁ヘム将棋
 		arg:		return, §２回目戦闘シーン
 		m_wnd:		■下
@@ -152,7 +152,7 @@ var document = {
 		department:	📗バトル部門
 		goto:		§２回目戦闘シーン
 		arg:		%clear%
-		arg:		monster, ケダック
+		arg:		monster, 🐕ケダック
 		arg:		monster_face, 😁ヘム将棋
 		arg:		return, §３回目戦闘シーン
 		m_wnd:		■下
@@ -166,7 +166,7 @@ var document = {
 		department:	📗バトル部門
 		goto:		§３回目戦闘シーン
 		arg:		%clear%
-		arg:		monster, るさ改
+		arg:		monster, 🐕レサぽん改
 		arg:		monster_face, 😁ヘム将棋
 		arg:		return, §ＶＳ昼ビール
 		m_wnd:		■下
@@ -180,7 +180,7 @@ var document = {
 		department:	📗バトル部門
 		goto:		§ＶＳ昼ビール
 		arg:		%clear%
-		arg:		monster, 昼ビール
+		arg:		monster, 🐕昼ビール
 		arg:		monster_face, 😁昼ビール
 		arg:		return, §崎川市最強振興会館
 		m_wnd:		■下

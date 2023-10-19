@@ -343,4 +343,14 @@ var key_pressed_stage_directions = {
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　ウィンドウの枠も付けるかどうか　考えどこだぜ」  
 
+![202310__godot__19-2143--BattleScene.png](https://crieit.now.sh/upload_images/c4e9961e252fc5af9fb5019c4881702e653124d5332d8.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　シンメトリーに気を使って　バランスを安定させて、  
+**主な瑕** は　画面から省くことにしたぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　すっきりさせたわねえ。  
+ごちゃごちゃ　している画面を　長時間観るのは　つらいですからねえ」  
+
 .
