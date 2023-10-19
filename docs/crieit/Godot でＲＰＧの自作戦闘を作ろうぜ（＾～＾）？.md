@@ -353,4 +353,40 @@ var key_pressed_stage_directions = {
 「　すっきりさせたわねえ。  
 ごちゃごちゃ　している画面を　長時間観るのは　つらいですからねえ」  
 
+## トランジションが欲しくない？
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　トランジションが欲しくない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　シェーダーを書くのは嫌だ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　スリープ機能があれば、シナリオ・スクリプトで疑似的に実装できるのでは？」  
+
+📖　[[Godot] 一時スリープ（ウェイト）を実装する！1行で書けます](https://worktoolsmith.com/godot-sleep-wait/)  
+
+```gd
+yield(get_tree().create_timer(1.0), "timeout")
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　分けわからん命令だが　真似てみるか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot 4.x では使えね」  
+
+📖　[In gdscript, is there codes looks like "python's time.sleep()"](https://ask.godotengine.org/154730/in-gdscript-is-there-codes-looks-like-pythons-time-sleep)  
+
+```gd
+# wait 2 seconds
+await get_tree().create_timer(2).timeout 
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　スリープしないぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`async` が無いのに `await` が効くの？」  
+
 .

@@ -130,10 +130,10 @@ func trim_double_quotation(line):
 
 
 # ［ト書き］か、［台詞］か、によって処理を分けます
-func parse_section_item(temp_text):
+func parse_section_item(paragraph_text):
 	
 	# ［ト書き］かどうか判定
-	var first_head_tail = split_head_line_or_tail(temp_text)
+	var first_head_tail = split_head_line_or_tail(paragraph_text)
 	var first_head = first_head_tail[0].strip_edges()
 	var first_tail = first_head_tail[1] 
 	
@@ -201,6 +201,10 @@ func parse_section_item(temp_text):
 			elif second_head.begins_with("quit:"):
 				$"Quit".do_it(second_head)
 
+			# スリープ
+			elif second_head.begins_with("sleep:"):
+				$"Sleep".do_it(second_head)
+
 			# テロップの表示／非表示
 			elif second_head.begins_with("telop:"):
 				$"Telop".do_it(second_head)
@@ -223,15 +227,21 @@ func parse_section_item(temp_text):
 
 	# 選択肢だ
 	if snapshot.choices_row_numbers != null:
-		$"NormalTextChoice".do_it(temp_text)
+		$"NormalTextChoice".do_it(paragraph_text)
 		return
 
 	# print("［メッセージ・ウィンドウ］　選択肢ではない")
-	$"NormalText".do_it(temp_text)
+	$"NormalText".do_it(paragraph_text)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta):
+func _process(delta):
+
+	if 0.0 < self.get_director().sleep_seconds:
+		self.get_director().sleep_seconds -= delta
+
+		# 疑似スリープ値が残っている間は、シナリオを進めません
+		return
 
 	var snapshot = self.get_director().get_current_snapshot()
 

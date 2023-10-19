@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=81 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
@@ -67,6 +67,7 @@
 [ext_resource type="Script" path="res://scripts/assistant_director/label.gd" id="50_yt802"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="51_pfarw"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="52_lp131"]
+[ext_resource type="Script" path="res://scripts/assistant_director/sleep.gd" id="64_7tdxg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -914,6 +915,9 @@ script = ExtResource("25_xmliw")
 [node name="Se" type="Node" parent="AssistantDirector"]
 script = ExtResource("27_b3qcr")
 
+[node name="Sleep" type="Node" parent="AssistantDirector"]
+script = ExtResource("64_7tdxg")
+
 [node name="Telop" type="Node" parent="AssistantDirector"]
 script = ExtResource("46_tukjy")
 
@@ -927,6 +931,8 @@ script = ExtResource("27_punsk")
 script = ExtResource("23_5s8w2")
 
 [node name="System" type="Node" parent="."]
+
+[node name="Timer" type="Timer" parent="System"]
 
 [node name="DepartmentManager" type="Node" parent="System"]
 script = SubResource("GDScript_ue7sq")

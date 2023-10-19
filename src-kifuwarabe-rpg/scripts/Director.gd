@@ -16,6 +16,8 @@ var current_se_name = null
 var snapshots = {}
 # 命令の実引数の辞書
 var instruction_arguments = {}
+# 疑似的なスリープに使うカウント
+var sleep_seconds = 0.0
 
 
 # アシスタント・ディレクター取得
