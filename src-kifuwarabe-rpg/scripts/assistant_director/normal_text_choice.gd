@@ -23,6 +23,9 @@ func do_it(
 func put_textblock(
 		temp_text):		# str
 
+	# 変数展開
+	temp_text = self.get_assistant_director().expand_variables(temp_text.strip_edges())
+
 	# メッセージ追加
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［ノーマル・テキスト・チョイス］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")

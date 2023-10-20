@@ -114,33 +114,58 @@ func split_head_line_or_tail(text):
 
 
 # 変数展開する
-func expand_variables(line):
+# `target_before_change` - １行かもしれないし、段落かもしれないし、匿名関数かもしれない
+func expand_variables(target_before_change):
 	
-	line = line.strip_edges()
-	
-	if line is String:
+	target_before_change = target_before_change.strip_edges()
+		
+	if target_before_change is String:
 		# ここで `{{banana}} などの引数を　変数展開したい
+		var terget_after_change = ""
 		
 		# テスト
-		var regex = RegEx.new()
-		regex.compile("\\{\\{(\\w)\\}\\}")
-		var results = []
-		for result in regex.search_all(line):
-			var temp_text = result.get_string()
-			print("［変数展開］　テキスト：［" + temp_text + "］")
-			results.push_back(temp_text)
+		#var regex = RegEx.new()
+		#regex.compile("\\{\\{(\\w)\\}\\}")
+		#var results = []
+		#for result in regex.search_all(target_before_change):
+		#	var temp_text2 = result.get_string()
+		#	print("［変数展開］　テキスト：［" + temp_text2 + "］")
+		#	results.push_back(temp_text2)
 		# テスト
 		
-		if line.begins_with("{{"):
+		var from = 0
+		
+		while from < target_before_change.length():
+			var open_index = target_before_change.find("{{", from)
+			var close_index = target_before_change.find("}}", from)
+			
+			if from <= open_index and open_index + 2 < close_index:
 
-			# 頭の `{{` と、末尾の `}}` を除去
-			var key = line.substr(2, line.length() - 4)
-			print("［アシスタント・ディレクター］　変数キー：［" + key + "］")
-			var value = self.get_director().stage_directions_variables[key]
-			print("［アシスタント・ディレクター］　変数値：［" + value + "］")
-			return value
+				# Head
+				terget_after_change += target_before_change.substr(from, open_index - from)
+
+				# 変数名取得
+				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
+				print("［変数展開］　変数キー：［" + key + "］")
+				
+				var value = self.get_director().stage_directions_variables[key]
+				print("［変数展開］　変数値：［" + value + "］")
+				
+				terget_after_change += value
+
+				from = close_index + 2
+		
+			else:
+				print("［変数展開］　対象なし　段落：［" + target_before_change + "］")
+				terget_after_change += target_before_change.substr(from)
+				break
+
+		return terget_after_change
 	
-	return line
+	else:
+		print("［変数展開］　対象なし　非テキスト")
+		return target_before_change
+	
 
 
 # １番外側でダブルクォーテーションが挟んでいれば、そのダブルクォーテーションを外します
