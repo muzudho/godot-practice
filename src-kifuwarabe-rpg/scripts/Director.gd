@@ -158,7 +158,7 @@ func _unhandled_key_input(event):
 				print("［ディレクター］　アンハンドルド・キー押下　部門変更")
 
 				# TODO ここで stage_directions をト書きとして実行したいが、できるか？
-				self.get_assistant_director().parse_section_item(stage_directions)
+				self.get_assistant_director().parse_paragraph(stage_directions)
 
 				# 子要素には渡しません
 				return

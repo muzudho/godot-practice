@@ -140,8 +140,8 @@ func trim_double_quotation(line):
 	return line
 
 
-# ［ト書き］か、［台詞］か、によって処理を分けます
-func parse_section_item(paragraph_text):
+# パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
+func parse_paragraph(paragraph_text):
 	
 	# ［ト書き］かどうか判定
 	var first_head_tail = split_head_line_or_tail(paragraph_text)
@@ -264,19 +264,21 @@ func _process(delta):
 		
 			# 次に表示するべきメッセージを取得
 			var paragraph = self.get_current_paragraph_of_scenario()
+
+			# カウントアップ
+			snapshot.section_item_index += 1
 			
 			if paragraph is String:
 							
 				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
 
-				# カウントアップ
-				snapshot.section_item_index += 1
-
 				# ここで、命令と、台詞は区別する
-				self.parse_section_item(latest_message)
+				self.parse_paragraph(latest_message)
 			
 			else:
-				print("［アシスタント・ディレクター］　TODO 文字列以外のパラグラフに対応したい")
+				# TODO 文字列以外のパラグラフに対応したい
+				print("［アシスタント・ディレクター］　TODO 匿名関数かもしれない呼出してみよ")
+				paragraph.call()
 
 		# もう無いよ
 		else:
