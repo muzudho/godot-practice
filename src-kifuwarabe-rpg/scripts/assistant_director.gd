@@ -125,7 +125,7 @@ func expand_param(line):
 			# 頭の `%arg_` と、末尾の `%` を除去
 			var key = line.substr(5, line.length() - 6)
 			print("［アシスタント・ディレクター］　実引数キー：［" + key + "］")
-			var value = self.get_director().instruction_arguments[key]
+			var value = self.get_director().stage_directions_arguments[key]
 			print("［アシスタント・ディレクター］　実引数値：［" + value + "］")
 			return value
 	

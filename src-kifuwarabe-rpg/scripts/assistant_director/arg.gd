@@ -37,10 +37,10 @@ func do_it(line):
 # 実引数の記憶
 func set_arg(key, value):
 	print("［実引数］　（" + key + "）[" + value + "]")
-	self.get_director().instruction_arguments[key] = value
+	self.get_director().stage_directions_arguments[key] = value
 
 
 # 実引数のクリアー
 func clear_arg():
 	print("［実引数］　クリアー")
-	self.get_director().instruction_arguments = {}
+	self.get_director().stage_directions_arguments = {}
