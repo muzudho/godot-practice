@@ -67,8 +67,8 @@ func _ready():
 	# 子要素にメンバーを渡す
 	# スナップショット辞書作成
 	for department in $"ScenarioWriter".get_children():
-		# Main は覗く
-		if department.name != "Main":
+		# Main と System は除く
+		if department.name != "Main" and department.name != "System":
 			self.snapshots[department.name] = DepartmentSnapshot.new()
 			# （めんどくさいけど）Main シナリオからプロパティを移す
 			var department_initial_properties = self.get_main_scenario().department_initial_properties[department.name]

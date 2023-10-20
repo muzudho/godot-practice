@@ -1,7 +1,8 @@
-[gd_scene load_steps=95 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=96 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_m3vrv"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/system_of_battle.gd" id="3_4ilps"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/main.gd" id="3_jssjb"]
 [ext_resource type="Script" path="res://scripts/assistant_director.gd" id="3_nnvgw"]
@@ -194,6 +195,11 @@ position = Vector2(640, 360)
 texture = ExtResource("2_m3vrv")
 
 [node name="ScenarioWriter" type="Node" parent="."]
+
+[node name="System" type="Node" parent="ScenarioWriter"]
+
+[node name="Battle" type="Node" parent="ScenarioWriter/System"]
+script = ExtResource("3_4ilps")
 
 [node name="Main" type="Node" parent="ScenarioWriter"]
 script = ExtResource("3_jssjb")

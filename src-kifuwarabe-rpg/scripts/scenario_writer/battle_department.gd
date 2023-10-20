@@ -24,6 +24,10 @@ func get_game_sheet_for_battle():
 	return $"../../../Director/Scorer/GameSheetForBattle"
 
 
+func get_system_of_battle():
+	return $"../System/Battle"
+
+
 #	選択肢と移動先
 var choices_mappings = {
 }
@@ -133,7 +137,7 @@ var document = {
 		# 画面設定
 		func():
 			# 先手
-			self.get_telop_coordinator().get_node("戦闘シーン/城の堅さ_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().solidity_of_castle[0], 4)
+			self.get_system_of_battle().refresh_sente_solidity_of_castle()
 			self.get_telop_coordinator().get_node("戦闘シーン/逃げ道の広さ_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().breadth_of_escape_route[0], 4)
 			self.get_telop_coordinator().get_node("戦闘シーン/駒の働き_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().work_of_pieces[0], 4)
 			self.get_telop_coordinator().get_node("戦闘シーン/攻めの速度_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().offensive_speed[0], 4)
@@ -174,18 +178,34 @@ var document = {
 		〇〇
 		「歩を突く
 		""",
+		func():
+			# 後手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[1] -= 5
+			
+			self.get_telop_coordinator().get_node("戦闘シーン/玉の遠さ_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().distance_of_king[1], 17)
+			pass
+			,
 		"""\
 		☆☆
 		「合わせて歩を突く
 		""",
+		func():
+			pass
+			,
 		"""\
 		〇〇
 		「香を１マス突く
 		""",
+		func():
+			pass
+			,
 		"""\
 		☆☆
-		「香を１マス突く
+		「駒組に手を付ける
 		""",
+		func():
+			pass
+			,
 		"""\
 		!
 		goto:	§先手番１
