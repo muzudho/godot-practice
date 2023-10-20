@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=92 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_m3vrv"]
@@ -179,28 +179,6 @@ var is_visible_initialized = false
 
 
 
-"
-
-[sub_resource type="GDScript" id="GDScript_ue7sq"]
-script/source = "# デパートメント・マネージャー（Department Manager；抽象部門管理人）
-extends Node
-
-class_name AbstractDepartmentManager
-
-
-# ディレクター取得
-func get_director():
-	return $\"../../../Director\"
-
-
-# アシスタント・ディレクター取得
-func get_assitant_director():
-	return $\"../../AssistantDirector\"
-
-
-# スナップショット取得
-func get_snapshot():
-	return self.get_director().get_current_snapshot()
 "
 
 [node name="Director" type="Node2D"]
@@ -1003,8 +981,3 @@ script = ExtResource("27_punsk")
 script = ExtResource("23_5s8w2")
 
 [node name="System" type="Node" parent="."]
-
-[node name="Timer" type="Timer" parent="System"]
-
-[node name="DepartmentManager" type="Node" parent="System"]
-script = SubResource("GDScript_ue7sq")
