@@ -544,4 +544,35 @@ await get_tree().create_timer(2).timeout
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　ルックアップ関数と併用してはどうか？」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　それでいこう」  
+
+## 台詞の中の変数
+
+![202310__godot__21-0220--Name--o2o0.png](https://crieit.now.sh/upload_images/f5abcf4165ce9171b71152726ead33046532b7139ed48.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　台詞の中で　変数を使いたいことってあるよな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　Godot で正規表現は使えるのかしら？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　有るようだぜ」  
+
+📖　[RegEx](https://docs.godotengine.org/en/stable/classes/class_regex.html)  
+
+```gd
+		"""\
+		{{arg_sente_name}}
+		「銀が上がる
+		""",
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ハンドルバーズなんかを真似て　こういう書き方の方がいいのかなあ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`%xxxx%` を廃止して `{{xxxx}}` に統一してくれだぜ」  
+
 .
