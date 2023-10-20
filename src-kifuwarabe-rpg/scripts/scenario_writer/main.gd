@@ -23,7 +23,7 @@ var department_initial_properties = {
 	},
 	"📗バトル部門" : {
 		"message_window_name_obj" : &"■下",
-		"section_name" : "§戦闘シーン",
+		"section_name" : "§戦闘デパートメント開始",
 	},
 }
 
