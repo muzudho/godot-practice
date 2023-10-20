@@ -82,14 +82,14 @@ var document = {
 		!
 		bg:				🗻トランジション１コマ４
 		bg:				🗻トランジション１コマ３, hide
-		bg:				%arg_bg_out%, hide
-		bg:				%arg_bg_in%
+		bg:				{{arg_bg_out}}, hide
+		bg:				{{arg_bg_in}}
 		sleep:			0.15
 		""",
 		# ここで画面全体が真っ黒になっている
 		"""\
 		!
-		monster:		%arg_monster%
+		monster:		{{arg_monster}}
 		bg:				🗻トランジション１コマ８
 		bg:				🗻トランジション１コマ４, hide
 		sleep:			0.10
@@ -132,7 +132,7 @@ var document = {
 		telop:			戦闘シーン
 		bgm:			🎵バトル１, 8.6
 		monster_face:	😁きふわらべ
-		monster_face:	%arg_monster_face%
+		monster_face:	{{arg_monster_face}}
 		""",
 		# 画面設定
 		func():
@@ -279,16 +279,16 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				%arg_bg_in%			,hide
-		bg:				%arg_bg_out%
+		bg:				{{arg_bg_in}}			,hide
+		bg:				{{arg_bg_out}}
 		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ		,hide
-		monster:		%arg_monster%		,hide
-		monster_face:	%arg_monster_face%	,hide
+		monster:		{{arg_monster}}		,hide
+		monster_face:	{{arg_monster_face}}	,hide
 		telop:			戦闘シーン			,hide
 		m_wnd:			■下					,hide
 		department:		📗ビジュアルノベル部門
-		goto:			%arg_return%
+		goto:			{{arg_return}}
 		m_wnd:			■下
 		""",
 	],
@@ -296,12 +296,12 @@ var document = {
 		# 戦闘開始
 		"""\
 		!
-		bg:				%arg_bg%
+		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
 		telop:			戦闘シーン
 		monster_face:	😁きふわらべ
-		monster:		%arg_monster%
-		monster_face:	%arg_monster_face%
+		monster:		{{arg_monster}}
+		monster_face:	{{arg_monster_face}}
 		bgm:			🎵バトル２
 		""",
 		# 画面設定
@@ -323,15 +323,15 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				%arg_bg%			,hide
+		bg:				{{arg_bg}}			,hide
 		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ, hide
-		monster:		%arg_monster%, hide
-		monster_face:	%arg_monster_face%, hide
+		monster:		{{arg_monster}}, hide
+		monster_face:	{{arg_monster_face}}, hide
 		telop:			戦闘シーン, hide
 		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
-		goto:			%arg_return%
+		goto:			{{arg_return}}
 		m_wnd:			■下
 		""",
 	],
@@ -339,12 +339,12 @@ var document = {
 		# 戦闘開始
 		"""\
 		!
-		bg:				%arg_bg%
+		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
 		telop:			戦闘シーン
 		monster_face:	😁きふわらべ
-		monster:		%arg_monster%
-		monster_face:	%arg_monster_face%
+		monster:		{{arg_monster}}
+		monster_face:	{{arg_monster_face}}
 		bgm:			🎵バトル３
 		""",
 		# 画面設定
@@ -366,15 +366,15 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				%arg_bg%			,hide
+		bg:				{{arg_bg}}			,hide
 		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ, hide
-		monster:		%arg_monster%, hide
-		monster_face:	%arg_monster_face%, hide
+		monster:		{{arg_monster}}, hide
+		monster_face:	{{arg_monster_face}}, hide
 		telop:			戦闘シーン, hide
 		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
-		goto:			%arg_return%
+		goto:			{{arg_return}}
 		m_wnd:			■下
 		""",
 	],
@@ -383,12 +383,12 @@ var document = {
 		# 戦闘開始
 		"""\
 		!
-		bg:				%arg_bg%
+		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
 		telop:			戦闘シーン
 		monster_face:	😁きふわらべ
-		monster:		%arg_monster%
-		monster_face:	%arg_monster_face%
+		monster:		{{arg_monster}}
+		monster_face:	{{arg_monster_face}}
 		bgm:			🎵バトル３
 		""",
 		# 画面設定
@@ -497,15 +497,15 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				%arg_bg%			,hide
+		bg:				{{arg_bg}}			,hide
 		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ, hide
-		monster:		%arg_monster%, hide
-		monster_face:	%arg_monster_face%, hide
+		monster:		{{arg_monster}}, hide
+		monster_face:	{{arg_monster_face}}, hide
 		telop:			戦闘シーン, hide
 		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
-		goto:			%arg_return%
+		goto:			{{arg_return}}
 		m_wnd:			■下
 		""",
 	],

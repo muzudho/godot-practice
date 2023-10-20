@@ -58,7 +58,7 @@ var document = {
 		func() :
 			print("匿名関数の使い方テスト")
 			
-			# 変数を設定するテスト。あとで `%arg_title%` で使える
+			# 変数を設定するテスト。あとで `{{arg_title}}` で使える
 			self.get_director().stage_directions_arguments["title"] = "タイトル"
 			
 			# セクションの名前を指定して飛ぶ
@@ -76,7 +76,7 @@ var document = {
 		"""\
 		!
 		#telop:	タイトル, hide
-		telop:	%arg_title%, hide
+		telop:	{{arg_title}}, hide
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\

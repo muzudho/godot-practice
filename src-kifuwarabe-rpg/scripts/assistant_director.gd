@@ -119,11 +119,11 @@ func expand_param(line):
 	line = line.strip_edges()
 	
 	if line is String:
-		# ここで `%arg_1% などの引数を　変数展開したい
-		if line.begins_with("%arg_"):
+		# ここで `{{arg_1}} などの引数を　変数展開したい
+		if line.begins_with("{{arg_"):
 
-			# 頭の `%arg_` と、末尾の `%` を除去
-			var key = line.substr(5, line.length() - 6)
+			# 頭の `{{arg_` と、末尾の `}}` を除去
+			var key = line.substr(6, line.length() - 8)
 			print("［アシスタント・ディレクター］　実引数キー：［" + key + "］")
 			var value = self.get_director().stage_directions_arguments[key]
 			print("［アシスタント・ディレクター］　実引数値：［" + value + "］")
