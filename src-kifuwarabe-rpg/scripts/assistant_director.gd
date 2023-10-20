@@ -120,6 +120,17 @@ func expand_variables(line):
 	
 	if line is String:
 		# ここで `{{banana}} などの引数を　変数展開したい
+		
+		# テスト
+		var regex = RegEx.new()
+		regex.compile("\\{\\{(\\w)\\}\\}")
+		var results = []
+		for result in regex.search_all(line):
+			var temp_text = result.get_string()
+			print("［変数展開］　テキスト：［" + temp_text + "］")
+			results.push_back(temp_text)
+		# テスト
+		
 		if line.begins_with("{{"):
 
 			# 頭の `{{` と、末尾の `}}` を除去

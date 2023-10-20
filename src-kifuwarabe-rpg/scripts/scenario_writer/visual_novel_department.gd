@@ -77,6 +77,12 @@ var document = {
 		!
 		#telop:	タイトル, hide
 		telop:	{{arg_title}}, hide
+		var:	test_1,		あいう
+		var:	test_2,		かきく
+		""",
+		"""\
+		テスト中
+		まる{{test_1}}さんかく{{test_2}}しかく
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
