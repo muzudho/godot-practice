@@ -137,18 +137,28 @@ var document = {
 		# 画面設定
 		func():
 			# 先手
+			# 先手の［城の堅さ］表示更新
 			self.get_system_of_battle().refresh_sente_solidity_of_castle()
-			self.get_telop_coordinator().get_node("戦闘シーン/逃げ道の広さ_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().breadth_of_escape_route[0], 4)
-			self.get_telop_coordinator().get_node("戦闘シーン/駒の働き_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().work_of_pieces[0], 4)
-			self.get_telop_coordinator().get_node("戦闘シーン/攻めの速度_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().offensive_speed[0], 4)
-			self.get_telop_coordinator().get_node("戦闘シーン/玉の遠さ_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().distance_of_king[0], 17)
+			# 先手の［逃げ道の広さ］表示更新
+			self.get_system_of_battle().refresh_sente_breadth_of_escape_route()
+			# 先手の［駒の働き］表示更新
+			self.get_system_of_battle().refresh_sente_work_of_pieces()
+			# 先手の［攻めの速度］表示更新
+			self.get_system_of_battle().refresh_sente_offensive_speed()
+			# 先手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_sente_distance_of_king()
 			
 			# 後手
-			self.get_telop_coordinator().get_node("戦闘シーン/城の堅さ_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().solidity_of_castle[1], 4)
-			self.get_telop_coordinator().get_node("戦闘シーン/逃げ道の広さ_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().breadth_of_escape_route[1], 4)
-			self.get_telop_coordinator().get_node("戦闘シーン/駒の働き_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().work_of_pieces[1], 4)
-			self.get_telop_coordinator().get_node("戦闘シーン/攻めの速度_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().offensive_speed[1], 4)
-			self.get_telop_coordinator().get_node("戦闘シーン/玉の遠さ_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().distance_of_king[1], 17)
+			# 後手の［城の堅さ］表示更新
+			self.get_system_of_battle().refresh_gote_solidity_of_castle()
+			# 後手の［逃げ道の広さ］表示更新
+			self.get_system_of_battle().refresh_gote_breadth_of_escape_route()
+			# 後手の［駒の働き］表示更新
+			self.get_system_of_battle().refresh_gote_work_of_pieces()
+			# 後手の［攻めの速度］表示更新
+			self.get_system_of_battle().refresh_gote_offensive_speed()
+			# 後手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_gote_distance_of_king()
 			
 			# 匿名関数の終わりのコンマ
 			,
@@ -182,29 +192,45 @@ var document = {
 			# 後手の［玉の遠さ］を５減らす
 			self.get_game_sheet_for_battle().distance_of_king[1] -= 5
 			
-			self.get_telop_coordinator().get_node("戦闘シーン/玉の遠さ_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().distance_of_king[1], 17)
-			pass
+			# 後手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_gote_distance_of_king()
+
 			,
 		"""\
 		☆☆
 		「合わせて歩を突く
 		""",
 		func():
-			pass
+			# 先手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[0] -= 5
+
+			# 先手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_sente_distance_of_king()
+
 			,
 		"""\
 		〇〇
 		「香を１マス突く
 		""",
 		func():
-			pass
+			# 後手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[1] -= 5
+			
+			# 後手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_gote_distance_of_king()
+
 			,
 		"""\
 		☆☆
 		「駒組に手を付ける
 		""",
 		func():
-			pass
+			# 先手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[0] -= 5
+
+			# 先手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_sente_distance_of_king()
+			
 			,
 		"""\
 		!
@@ -216,6 +242,14 @@ var document = {
 		〇〇
 		「銀が上がる
 		""",
+		func():
+			# 後手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[1] -= 5
+			
+			# 後手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_gote_distance_of_king()
+
+			,
 		"""\
 		!
 		goto:	§後手番１
