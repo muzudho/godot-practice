@@ -42,12 +42,27 @@ var document = {
 		"""
 	],
 	# ゲーム開始
+	# TODO 消す 動作テスト中
 	"§はじまり":[
 		# 関数を要素にするとどうなるか？
 		func() :
 			print("匿名関数の使い方テスト")
-			$"../../../Director".stage_directions_arguments["title"] = "タイトル",
-
+			
+			# 変数を設定するテスト。あとで `%arg_title%` で使える
+			$"../../../Director".stage_directions_arguments["title"] = "タイトル"
+			
+			# セクションの名前を指定して飛ぶ
+			$"../../../Director/AssistantDirector/Goto".goto("§はじまり２")
+			
+			# 匿名関数の最後にカンマを書く
+			,
+	],
+	"§ここには来ない":[
+		"""\
+		ここは飛ばされるぜ
+		""",
+	],
+	"§はじまり２":[
 		"""\
 		!
 		#telop:	タイトル, hide
