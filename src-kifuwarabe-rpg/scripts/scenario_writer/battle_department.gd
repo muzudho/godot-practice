@@ -171,11 +171,6 @@ var document = {
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
-		お父ん
-		「おっと　戦闘シーンはまだ
-		　できてないらしいぜ
-		""",
-		"""\
 		審判
 		「ログインしてくださーい！
 		""",
@@ -185,52 +180,41 @@ var document = {
 		""",
 		"""\
 		{{arg_sente_monster_name}}の先手だ！
-		{{arg_sente_monster_name}}
-		「歩を突く
 		""",
 		func():
-			# 後手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[1] -= 5
+			# ダメージ計算
+			var damage = 1
+			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
 			
+			# 後手の［玉の遠さ］を減らす
+			self.get_game_sheet_for_battle().distance_of_king[1] -= damage
+			,
+		"""\
+		{{arg_sente_monster_name}}
+		「歩を突く
+		　{{arg_gote_monster_name}}の玉に{{arg_damage}}歩近づく
+		""",
+		func():
 			# 後手の［玉の遠さ］表示更新
 			self.get_system_of_battle().refresh_gote_distance_of_king()
-
+			,
+		func():
+			# ダメージ計算
+			var damage = 1
+			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
+			
+			# 先手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[0] -= 1
 			,
 		"""\
 		{{arg_gote_monster_name}}
 		「合わせて歩を突く
+		　{{arg_sente_monster_name}}の玉に{{arg_damage}}歩近づく
 		""",
 		func():
-			# 先手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[0] -= 5
-
 			# 先手の［玉の遠さ］表示更新
 			self.get_system_of_battle().refresh_sente_distance_of_king()
 
-			,
-		"""\
-		{{arg_sente_monster_name}}
-		「香を１マス突く
-		""",
-		func():
-			# 後手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[1] -= 5
-			
-			# 後手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_gote_distance_of_king()
-
-			,
-		"""\
-		{{arg_gote_monster_name}}
-		「駒組に手を付ける
-		""",
-		func():
-			# 先手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[0] -= 5
-
-			# 先手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_sente_distance_of_king()
-			
 			,
 		"""\
 		!
