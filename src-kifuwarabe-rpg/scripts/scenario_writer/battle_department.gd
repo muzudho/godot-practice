@@ -49,8 +49,10 @@ var document = {
 		bg:				%arg_bg_in%
 		sleep:			0.15
 		""",
+		# ここで画面全体が真っ黒になっている
 		"""\
 		!
+		monster:		%arg_monster%
 		bg:				🗻トランジション１コマ８
 		bg:				🗻トランジション１コマ４, hide
 		sleep:			0.10
@@ -93,7 +95,6 @@ var document = {
 		telop:			戦闘シーン
 		bgm:			🎵バトル１, 8.6
 		monster_face:	😁きふわらべ
-		monster:		%arg_monster%
 		monster_face:	%arg_monster_face%
 		""",
 		# 画面設定

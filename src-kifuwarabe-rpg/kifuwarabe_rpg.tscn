@@ -290,56 +290,67 @@ texture = ExtResource("22_rnsk7")
 
 [node name="🗻トランジション１コマ１" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("23_8qjrs")
 
 [node name="🗻トランジション１コマ２" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("24_tvkey")
 
 [node name="🗻トランジション１コマ３" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("25_tmvsa")
 
 [node name="🗻トランジション１コマ４" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("26_eldev")
 
 [node name="🗻トランジション１コマ５" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("27_g8xqb")
 
 [node name="🗻トランジション１コマ６" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("28_nycgn")
 
 [node name="🗻トランジション１コマ７" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("29_u7nns")
 
 [node name="🗻トランジション１コマ８" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("30_wq0ab")
 
 [node name="🗻トランジション１コマ９" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("31_lsg3v")
 
 [node name="🗻トランジション１コマ１０" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("32_iwby6")
 
 [node name="🗻トランジション１コマ１１" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("33_da4mn")
 
