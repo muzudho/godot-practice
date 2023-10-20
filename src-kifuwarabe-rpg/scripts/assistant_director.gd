@@ -140,6 +140,28 @@ func trim_double_quotation(line):
 	return line
 
 
+# 全角数字
+var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
+
+
+# 数値を全角テキストに変換
+func number_to_zenkaku_text(number, figures):
+	var zenkaku_text = ""
+	
+	while 0 < number:
+		var zenkaku_num = zenkaku_numbers[number % 10]
+		number /= 10
+		
+		zenkaku_text = zenkaku_num + zenkaku_text
+	
+	# 左側に全角空白を詰める
+	var spaces = figures - zenkaku_text.length()
+	for i in range(spaces):
+		zenkaku_text = "　" + zenkaku_text
+		
+	return zenkaku_text
+
+
 # パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
 func parse_paragraph(paragraph_text):
 	

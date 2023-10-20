@@ -3,6 +3,15 @@
 #		ビジュアルノベル部門
 extends Node
 
+
+func get_director():
+	return $"../../../Director"
+
+
+func get_assistant_director():
+	return $"../../../Director/AssistantDirector"
+
+
 #	選択肢と移動先
 var choices_mappings = {
 	#	このキーは［セクション名］と呼ぶことにする。頭に「§」を付けているのは見やすさのためで、付けなくても構わない
@@ -16,6 +25,7 @@ var choices_mappings = {
 		2 : "§角道を止める",
 	},
 }
+
 
 #	この書き方だと、実はインデントのタブが台詞データとして入っている。
 #	インデントのタブは、プログラム側で省く処理を入れておくとする
@@ -49,10 +59,10 @@ var document = {
 			print("匿名関数の使い方テスト")
 			
 			# 変数を設定するテスト。あとで `%arg_title%` で使える
-			$"../../../Director".stage_directions_arguments["title"] = "タイトル"
+			self.get_director().stage_directions_arguments["title"] = "タイトル"
 			
 			# セクションの名前を指定して飛ぶ
-			$"../../../Director/AssistantDirector/Goto".goto("§はじまり２")
+			self.get_assistant_director().get_node("Goto").goto("§はじまり２")
 			
 			# 匿名関数の最後にカンマを書く
 			,
@@ -158,11 +168,13 @@ var document = {
 		department:	📗バトル部門
 		goto:		§戦闘シーン
 		arg:		%clear%
-		arg:		bg_out			,🗻ツツジロード
-		arg:		bg_in			,🗻ツツジロード
-		arg:		monster			,🐕ヘム将棋
-		arg:		monster_face	,😁ヘム将棋
-		arg:		return			,§２回目戦闘シーン
+		arg:		bg_out				,🗻ツツジロード
+		arg:		bg_in				,🗻ツツジロード
+		arg:		sente_monster_name	,きふわらべ 
+		arg:		gote_monster_name	,ヘム将棋
+		arg:		monster				,🐕ヘム将棋
+		arg:		monster_face		,😁ヘム将棋
+		arg:		return				,§２回目戦闘シーン
 		m_wnd:		■下
 		""",
 	],

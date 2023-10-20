@@ -533,4 +533,15 @@ await get_tree().create_timer(2).timeout
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　Godot ほんと国語がクソだな」  
 
+![202310__godot__21-0021--MonsterData.png](https://crieit.now.sh/upload_images/a5a489331cedf5f7a7220dda90a7ba3865329af4a42a7.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　モンスターデータは　こんな感じで　書いておこうぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　しかし　Ｉｄって　ソースにハードコーディングするもんじゃないな、分かりづらいな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ルックアップ関数と併用してはどうか？」  
+
 .

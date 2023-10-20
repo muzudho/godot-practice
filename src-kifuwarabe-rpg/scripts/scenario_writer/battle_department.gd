@@ -4,6 +4,26 @@
 extends Node
 
 
+func get_director():
+	return $"../../../Director"
+
+
+func get_assistant_director():
+	return $"../../../Director/AssistantDirector"
+
+
+func get_telop_coordinator():
+	return $"../../../Director/TelopCoordinator"
+
+
+func get_scorer():
+	return $"../../../Director/Scorer"
+
+
+func get_game_sheet_for_battle():
+	return $"../../../Director/Scorer/GameSheetForBattle"
+
+
 #	選択肢と移動先
 var choices_mappings = {
 }
@@ -12,6 +32,19 @@ var choices_mappings = {
 # インデントのタブは、プログラム側で省く処理を入れておくとする
 var document = {
 	"§戦闘シーン":[
+		# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
+		func():
+			var sente_monster_name = self.get_director().stage_directions_arguments["sente_monster_name"]
+			var gote_monster_name = self.get_director().stage_directions_arguments["gote_monster_name"]
+			
+			var sente_monster_id = self.get_scorer().lookup_monster_id_by_name(sente_monster_name)
+			var gote_monster_id = self.get_scorer().lookup_monster_id_by_name(gote_monster_name)
+			
+			# ロード
+			self.get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
+			
+			# 匿名関数の終わりのコンマ
+			,
 		"""\
 		!
 		goto:		§エンカウント・トランジション
@@ -98,14 +131,30 @@ var document = {
 		monster_face:	%arg_monster_face%
 		""",
 		# 画面設定
+		func():
+			# 先手
+			self.get_telop_coordinator().get_node("戦闘シーン/城の堅さ_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().solidity_of_castle[0], 4)
+			self.get_telop_coordinator().get_node("戦闘シーン/逃げ道の広さ_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().breadth_of_escape_route[0], 4)
+			self.get_telop_coordinator().get_node("戦闘シーン/駒の働き_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().work_of_pieces[0], 4)
+			self.get_telop_coordinator().get_node("戦闘シーン/攻めの速度_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().offensive_speed[0], 4)
+			self.get_telop_coordinator().get_node("戦闘シーン/玉の遠さ_下").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().distance_of_king[0], 17)
+			
+			# 後手
+			self.get_telop_coordinator().get_node("戦闘シーン/城の堅さ_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().solidity_of_castle[1], 4)
+			self.get_telop_coordinator().get_node("戦闘シーン/逃げ道の広さ_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().breadth_of_escape_route[1], 4)
+			self.get_telop_coordinator().get_node("戦闘シーン/駒の働き_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().work_of_pieces[1], 4)
+			self.get_telop_coordinator().get_node("戦闘シーン/攻めの速度_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().offensive_speed[1], 4)
+			self.get_telop_coordinator().get_node("戦闘シーン/玉の遠さ_上").text = self.get_assistant_director().number_to_zenkaku_text(self.get_game_sheet_for_battle().distance_of_king[1], 17)
+			
+			# 匿名関数の終わりのコンマ
+			,
 		"""\
 		!
-		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"　　　１"
-		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上	,"　　　２"
-		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上		,"　　　０"
-		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上		,"　　　１"
-		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　　１９"
+		label:		Director/TelopCoordinator/	,
+		label:		Director/TelopCoordinator/		,
+		label:		Director/TelopCoordinator/		,
+		#label:		Director/TelopCoordinator/		,
+		label:		Director/TelopCoordinator/		,
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
