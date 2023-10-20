@@ -20,7 +20,18 @@ func get_snapshot(department_node_name):
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()
-	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name].size()
+	
+	var node_name = snapshot.name
+	var node = self.get_scenario_writer().get_node(str(node_name))
+	if node == null:
+		print("［アシスタント・ディレクター］　▲エラー　”" + node_name + "”ノードが無い")
+	
+	var section_name =  snapshot.section_name
+	var section = node.document[section_name]
+	if section == null:
+		print("［アシスタント・ディレクター］　▲エラー　”" + section_name + "”セクションが無い")
+		
+	return section.size()
 
 
 # シナリオの現在セクションのアイテムを返す
