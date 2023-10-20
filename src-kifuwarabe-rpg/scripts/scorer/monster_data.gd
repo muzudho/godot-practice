@@ -1,10 +1,10 @@
-# キャラクター・データ（Character Data；個性与件）
+# モンスター・データ（Monster Data；怪物与件）
 #	いわゆるマスターデータ（Master Data；元データ）
 extends Node
 
 
-# キャラクター・データ
-var character_data = {
+# モンスター・データ
+var table = {
 	# キーは Id
 	1: {
 		"name": "きふわらべ",
