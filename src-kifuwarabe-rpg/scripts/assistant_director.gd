@@ -113,8 +113,8 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
-# 引数を変数展開する
-func expand_param(line):
+# 変数展開する
+func expand_variables(line):
 	
 	line = line.strip_edges()
 	

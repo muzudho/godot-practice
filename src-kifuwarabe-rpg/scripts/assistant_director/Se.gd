@@ -22,7 +22,7 @@ func do_it(line):
 
 	var node_name = line.substr(3).strip_edges()
 	print("［効果音］　ノード名：[" + node_name + "]")
-	node_name = self.get_assistant_director().expand_param(node_name.strip_edges())
+	node_name = self.get_assistant_director().expand_variables(node_name.strip_edges())
 
 	if node_name == "":
 		# 効果音 停止

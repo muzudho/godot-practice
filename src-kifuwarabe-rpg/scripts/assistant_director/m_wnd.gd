@@ -21,11 +21,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.get_assistant_director().expand_param(string_packed_array[0].strip_edges())
+	var node_name = self.get_assistant_director().expand_variables(string_packed_array[0].strip_edges())
 	var sub_command = null
 
 	if 2 <= string_packed_array.size():
-		sub_command = self.get_assistant_director().expand_param(string_packed_array[1].strip_edges())
+		sub_command = self.get_assistant_director().expand_variables(string_packed_array[1].strip_edges())
 
 	if node_name == "%hide_current_it_then_push_it_to_stack%":
 		self.hide_current_it_then_push_it_to_stack()

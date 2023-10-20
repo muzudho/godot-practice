@@ -19,7 +19,7 @@ func do_it(
 	# 次の「§」セクション名
 	var next_section_name = line.substr(5).strip_edges()
 	print("［ゴートゥー］　次の区画：[" + next_section_name + "]")
-	next_section_name = self.get_assistant_director().expand_param(next_section_name.strip_edges())
+	next_section_name = self.get_assistant_director().expand_variables(next_section_name.strip_edges())
 
 	self.goto(next_section_name)
 
