@@ -40,7 +40,7 @@ var document = {
 		func():
 			var sente_monster_name = self.get_director().stage_directions_variables["arg_sente_monster_name"]
 			var gote_monster_name = self.get_director().stage_directions_variables["arg_gote_monster_name"]
-			
+						
 			var sente_monster_id = self.get_scorer().lookup_monster_id_by_name(sente_monster_name)
 			var gote_monster_id = self.get_scorer().lookup_monster_id_by_name(gote_monster_name)
 			
@@ -184,8 +184,8 @@ var document = {
 		「「よろしくお願いします
 		""",
 		"""\
-		〇〇の先手だ！
-		〇〇
+		{{arg_sente_monster_name}}の先手だ！
+		{{arg_sente_monster_name}}
 		「歩を突く
 		""",
 		func():
@@ -197,7 +197,7 @@ var document = {
 
 			,
 		"""\
-		☆☆
+		{{arg_gote_monster_name}}
 		「合わせて歩を突く
 		""",
 		func():
@@ -209,7 +209,7 @@ var document = {
 
 			,
 		"""\
-		〇〇
+		{{arg_sente_monster_name}}
 		「香を１マス突く
 		""",
 		func():
@@ -221,7 +221,7 @@ var document = {
 
 			,
 		"""\
-		☆☆
+		{{arg_gote_monster_name}}
 		「駒組に手を付ける
 		""",
 		func():
@@ -239,7 +239,7 @@ var document = {
 	],
 	"§先手番１": [
 		"""\
-		〇〇
+		{{arg_sente_monster_name}}
 		「銀が上がる
 		""",
 		func():
@@ -257,9 +257,17 @@ var document = {
 	],
 	"§後手番１": [
 		"""\
-		☆☆
-		「長考します
+		{{arg_gote_monster_name}}
+		「銀が上がる
 		""",
+		func():
+			# 先手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[0] -= 5
+
+			# 先手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_sente_distance_of_king()
+			
+			,
 		"""\
 		!
 		goto:	§後手番２
@@ -267,7 +275,7 @@ var document = {
 	],
 	"§後手番２": [
 		"""\
-		☆☆
+		{{arg_gote_monster_name}}
 		「参りました
 		""",
 		"""\
