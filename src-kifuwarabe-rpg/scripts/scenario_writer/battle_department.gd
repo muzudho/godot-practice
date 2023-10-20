@@ -148,14 +148,6 @@ var document = {
 			
 			# 匿名関数の終わりのコンマ
 			,
-		"""\
-		!
-		label:		Director/TelopCoordinator/	,
-		label:		Director/TelopCoordinator/		,
-		label:		Director/TelopCoordinator/		,
-		#label:		Director/TelopCoordinator/		,
-		label:		Director/TelopCoordinator/		,
-		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
