@@ -424,5 +424,54 @@ await get_tree().create_timer(2).timeout
 
 📖　[GDScript Anonymous Functions](https://gamedevacademy.org/gdscript-functions-tutorial-complete-guide/#GDScript_Anonymous_Functions)  
 
+![202310__godot__20-2005--AnonymousFunction-o2o0.png](https://crieit.now.sh/upload_images/a9dd9b19a09d4d1e299da7d1f8e983d665325f7e78415.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こういう風に　シナリオ・スクリプト　に書くことができたぜ」  
+
+![202310__godot__20-2009--AnonymousFunctionCall-o2o0.png](https://crieit.now.sh/upload_images/dccb204a3b1bb1b3da5c66cf9ea5b21865326005f3f1c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　シナリオ・リーダーの方には　こう書けばいいんだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　これを　どう　シナリオ・スクリプト　に組み込んだら　良さそうだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　引数で渡すものって　無くない？　全部　グローバル変数でいいんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そういう　やり方もある」  
+
+![202310__godot__20-2030--AnonymousFunction_o2o0.png](https://crieit.now.sh/upload_images/fefebb0366d47cc364cca935ab20e62d6532651fb3621.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こういう感じで　変数をセットできるぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　変数の書式は　コマンド・プロンプトの環境変数みたいな　`%xxxx%`　で行くのか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　他にいい案があれば変えてもいいぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　開きと　閉じが　分かんないのよね。  
+`${xxx}` か、 `{xxx}` が　いいんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　その見た目だと　式が書けるように見えてしまう。  
+あくまで　変数なんだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`$'xxx'` で　どうだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　視覚的に見にくいぜ。それだったら `<xxx>` とかの方が良くないかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　HTMLタグを将来的に実装する予定がないなら　いいんじゃない？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`%xxxx%` でいいかもしれないな」  
 
 .
