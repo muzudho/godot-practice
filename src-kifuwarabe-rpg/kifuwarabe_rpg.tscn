@@ -69,7 +69,6 @@
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="38_hc66s"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="39_iojay"]
-[ext_resource type="Script" path="res://scripts/assistant_director/arg.gd" id="39_qg5jf"]
 [ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="42_71nia"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://images/monster_faces/202310__godot__19-2218--KodackFace.png" id="43_0e61y"]
@@ -81,6 +80,7 @@
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="51_pfarw"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="52_lp131"]
 [ext_resource type="Script" path="res://scripts/assistant_director/sleep.gd" id="64_7tdxg"]
+[ext_resource type="Script" path="res://scripts/assistant_director/var.gd" id="80_2172p"]
 [ext_resource type="Script" path="res://scripts/scorer.gd" id="81_h1tnt"]
 [ext_resource type="Script" path="res://scripts/scorer/battle_sheet.gd" id="81_om202"]
 [ext_resource type="Script" path="res://scripts/scorer/monster_data.gd" id="82_5ypbs"]
@@ -949,9 +949,6 @@ texture = ExtResource("43_dyuq4")
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("3_nnvgw")
 
-[node name="Arg" type="Node" parent="AssistantDirector"]
-script = ExtResource("39_qg5jf")
-
 [node name="Bg" type="Node" parent="AssistantDirector"]
 script = ExtResource("32_uu41d")
 
@@ -979,6 +976,12 @@ script = ExtResource("49_n38p5")
 [node name="MWnd" type="Node" parent="AssistantDirector"]
 script = ExtResource("23_a7vfu")
 
+[node name="NormalText" type="Node" parent="AssistantDirector"]
+script = ExtResource("27_1um3d")
+
+[node name="NormalTextChoice" type="Node" parent="AssistantDirector"]
+script = ExtResource("27_punsk")
+
 [node name="Quit" type="Node" parent="AssistantDirector"]
 script = ExtResource("25_xmliw")
 
@@ -991,11 +994,8 @@ script = ExtResource("64_7tdxg")
 [node name="Telop" type="Node" parent="AssistantDirector"]
 script = ExtResource("46_tukjy")
 
-[node name="NormalText" type="Node" parent="AssistantDirector"]
-script = ExtResource("27_1um3d")
-
-[node name="NormalTextChoice" type="Node" parent="AssistantDirector"]
-script = ExtResource("27_punsk")
+[node name="Var" type="Node" parent="AssistantDirector"]
+script = ExtResource("80_2172p")
 
 [node name="VWnd" type="Node" parent="AssistantDirector"]
 script = ExtResource("23_5s8w2")

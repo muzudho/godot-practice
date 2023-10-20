@@ -38,8 +38,8 @@ var document = {
 	"§戦闘デパートメント開始":[
 		# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
 		func():
-			var sente_monster_name = self.get_director().stage_directions_arguments["sente_monster_name"]
-			var gote_monster_name = self.get_director().stage_directions_arguments["gote_monster_name"]
+			var sente_monster_name = self.get_director().stage_directions_variables["arg_sente_monster_name"]
+			var gote_monster_name = self.get_director().stage_directions_variables["arg_gote_monster_name"]
 			
 			var sente_monster_id = self.get_scorer().lookup_monster_id_by_name(sente_monster_name)
 			var gote_monster_id = self.get_scorer().lookup_monster_id_by_name(gote_monster_name)

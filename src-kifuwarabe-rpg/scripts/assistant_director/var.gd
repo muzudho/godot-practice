@@ -27,20 +27,20 @@ func do_it(line):
 	if 2 <= string_packed_array.size():
 		value = string_packed_array[1].strip_edges()
 
-		self.set_arg(key, value)
+		self.set_var(key, value)
 		return
 
 	if key == "%clear%":
-		self.clear_arg()
+		self.clear_var()
 
 
-# 実引数の記憶
-func set_arg(key, value):
+# 変数の記憶
+func set_var(key, value):
 	print("［実引数］　（" + key + "）[" + value + "]")
-	self.get_director().stage_directions_arguments[key] = value
+	self.get_director().stage_directions_variables[key] = value
 
 
-# 実引数のクリアー
-func clear_arg():
+# 変数のクリアー
+func clear_var():
 	print("［実引数］　クリアー")
-	self.get_director().stage_directions_arguments = {}
+	self.get_director().stage_directions_variables = {}

@@ -59,7 +59,7 @@ var document = {
 			print("匿名関数の使い方テスト")
 			
 			# 変数を設定するテスト。あとで `{{arg_title}}` で使える
-			self.get_director().stage_directions_arguments["title"] = "タイトル"
+			self.get_director().stage_directions_variables["arg_title"] = "タイトル"
 			
 			# セクションの名前を指定して飛ぶ
 			self.get_assistant_director().get_node("Goto").goto("§はじまり２")
@@ -167,14 +167,14 @@ var document = {
 		m_wnd:		■下, hide
 		department:	📗バトル部門
 		goto:		§戦闘デパートメント開始
-		arg:		%clear%
-		arg:		bg_out				,🗻ツツジロード
-		arg:		bg_in				,🗻ツツジロード
-		arg:		sente_monster_name	,きふわらべ 
-		arg:		gote_monster_name	,ヘム将棋
-		arg:		monster				,🐕ヘム将棋
-		arg:		monster_face		,😁ヘム将棋
-		arg:		return				,§２回目戦闘シーン
+		var:		%clear%
+		var:		arg_bg_out				,🗻ツツジロード
+		var:		arg_bg_in				,🗻ツツジロード
+		var:		arg_sente_monster_name	,きふわらべ 
+		var:		arg_gote_monster_name	,ヘム将棋
+		var:		arg_monster				,🐕ヘム将棋
+		var:		arg_monster_face		,😁ヘム将棋
+		var:		arg_return				,§２回目戦闘シーン
 		m_wnd:		■下
 		""",
 	],
@@ -185,11 +185,11 @@ var document = {
 		m_wnd:		■下, hide
 		department:	📗バトル部門
 		goto:		§２回目戦闘シーン
-		arg:		%clear%
-		arg:		bg				,🗻ツツジロード
-		arg:		monster, 🐕ケダック
-		arg:		monster_face, 😁ケダック
-		arg:		return, §３回目戦闘シーン
+		var:		%clear%
+		var:		arg_bg				,🗻ツツジロード
+		var:		arg_monster, 🐕ケダック
+		var:		arg_monster_face, 😁ケダック
+		var:		arg_return, §３回目戦闘シーン
 		m_wnd:		■下
 		""",
 	],
@@ -200,11 +200,11 @@ var document = {
 		m_wnd:		■下, hide
 		department:	📗バトル部門
 		goto:		§３回目戦闘シーン
-		arg:		%clear%
-		arg:		bg				,🗻川堀町線ロード
-		arg:		monster			,🐕レサぽん改
-		arg:		monster_face	,😁レサぽん改
-		arg:		return			,§ＶＳ昼ビール
+		var:		%clear%
+		var:		arg_bg				,🗻川堀町線ロード
+		var:		arg_monster			,🐕レサぽん改
+		var:		arg_monster_face	,😁レサぽん改
+		var:		arg_return			,§ＶＳ昼ビール
 		m_wnd:		■下
 		""",
 	],
@@ -215,11 +215,11 @@ var document = {
 		m_wnd:		■下, hide
 		department:	📗バトル部門
 		goto:		§ＶＳ昼ビール
-		arg:		%clear%
-		arg:		bg				,🗻川堀町線ロード
-		arg:		monster			,🐕昼ビール
-		arg:		monster_face	,😁昼ビール
-		arg:		return			,§崎川市最強振興会館
+		var:		%clear%
+		var:		arg_bg				,🗻川堀町線ロード
+		var:		arg_monster			,🐕昼ビール
+		var:		arg_monster_face	,😁昼ビール
+		var:		arg_return			,§崎川市最強振興会館
 		m_wnd:		■下
 		""",
 	],

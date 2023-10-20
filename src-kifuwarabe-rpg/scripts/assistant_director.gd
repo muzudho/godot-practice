@@ -119,14 +119,14 @@ func expand_param(line):
 	line = line.strip_edges()
 	
 	if line is String:
-		# ここで `{{arg_1}} などの引数を　変数展開したい
-		if line.begins_with("{{arg_"):
+		# ここで `{{banana}} などの引数を　変数展開したい
+		if line.begins_with("{{"):
 
-			# 頭の `{{arg_` と、末尾の `}}` を除去
-			var key = line.substr(6, line.length() - 8)
-			print("［アシスタント・ディレクター］　実引数キー：［" + key + "］")
-			var value = self.get_director().stage_directions_arguments[key]
-			print("［アシスタント・ディレクター］　実引数値：［" + value + "］")
+			# 頭の `{{` と、末尾の `}}` を除去
+			var key = line.substr(2, line.length() - 4)
+			print("［アシスタント・ディレクター］　変数キー：［" + key + "］")
+			var value = self.get_director().stage_directions_variables[key]
+			print("［アシスタント・ディレクター］　変数値：［" + value + "］")
 			return value
 	
 	return line
@@ -190,10 +190,6 @@ func parse_paragraph(paragraph_text):
 			if second_head.begins_with("#"):
 				pass
 				
-			# 実引数セット
-			elif second_head.begins_with("arg:"):
-				$"Arg".do_it(second_head)
-				
 			# 背景切替
 			elif second_head.begins_with("bg:"):
 				$"Bg".do_it(second_head)
@@ -233,6 +229,10 @@ func parse_paragraph(paragraph_text):
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
 				$"Quit".do_it(second_head)
+			
+			# 効果音
+			elif second_head.begins_with("se:"):
+				$"Se".do_it(second_head)
 
 			# スリープ
 			elif second_head.begins_with("sleep:"):
@@ -241,11 +241,11 @@ func parse_paragraph(paragraph_text):
 			# テロップの表示／非表示
 			elif second_head.begins_with("telop:"):
 				$"Telop".do_it(second_head)
-			
-			# 効果音
-			elif second_head.begins_with("se:"):
-				$"Se".do_it(second_head)
-			
+							
+			# 変数セット
+			elif second_head.begins_with("var:"):
+				$"Var".do_it(second_head)
+
 			# ビューイング・ウィンドウの表示／非表示
 			elif second_head.begins_with("v_wnd:"):
 				$"VWnd".do_it(second_head)

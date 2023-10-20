@@ -14,8 +14,8 @@ var current_bgm_name = null
 var current_se_name = null
 # スナップショット辞書
 var snapshots = {}
-# ト書き（シナリオの命令パラグラフ）で使える実引数の辞書
-var stage_directions_arguments = {}
+# ト書き（シナリオの命令パラグラフ）で使える変数の辞書
+var stage_directions_variables = {}
 # 疑似的なスリープに使うカウント
 var sleep_seconds = 0.0
 
