@@ -121,6 +121,8 @@ func expand_variables(target_before_change):
 		
 	if target_before_change is String:
 		# ここで `{{banana}} などの引数を　変数展開したい
+		
+		# 無限に変数展開することを防ぐため、変換前文字列と、変換後文字列は別途用意する
 		var terget_after_change = ""
 		
 		# テスト

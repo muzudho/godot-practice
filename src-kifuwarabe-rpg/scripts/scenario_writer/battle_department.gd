@@ -248,12 +248,13 @@ var document = {
 			
 			# 後手の［玉の遠さ］表示更新
 			self.get_system_of_battle().refresh_gote_distance_of_king()
-
+			
+			# 玉の遠さは、 0 になる前に投了することがある
+			if self.get_game_sheet_for_battle().distance_of_king[1] < 5:
+				self.get_assistant_director().get_node("Goto").goto("§後手番投了")
+			else:
+				self.get_assistant_director().get_node("Goto").goto("§後手番１")	
 			,
-		"""\
-		!
-		goto:	§後手番１
-		""",
 	],
 	"§後手番１": [
 		"""\
@@ -267,13 +268,24 @@ var document = {
 			# 先手の［玉の遠さ］表示更新
 			self.get_system_of_battle().refresh_sente_distance_of_king()
 			
+			# 玉の遠さは、 0 になる前に投了することがある
+			if self.get_game_sheet_for_battle().distance_of_king[0] < 5:
+				self.get_assistant_director().get_node("Goto").goto("§先手番投了")
+			else:
+				self.get_assistant_director().get_node("Goto").goto("§先手番１")	
 			,
+	],
+	"§先手番投了": [
+		"""\
+		{{arg_gote_monster_name}}
+		「参りました
+		""",
 		"""\
 		!
-		goto:	§後手番２
+		goto:	§戦闘終了１
 		""",
 	],
-	"§後手番２": [
+	"§後手番投了": [
 		"""\
 		{{arg_gote_monster_name}}
 		「参りました
