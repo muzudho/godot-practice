@@ -474,4 +474,20 @@ await get_tree().create_timer(2).timeout
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　`%xxxx%` でいいかもしれないな」  
 
+## 匿名関数の中で Goto命令を使えないの？
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　匿名関数の中で Goto命令を使えないの？」  
+
+![202310__godot__20-2108--AnonymousFunction-o2o0.png](https://crieit.now.sh/upload_images/0196dfbdfdf66760c4236c59a12a97bf65326e0d65ad2.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　こんな感じで使えるぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　もう　ほとんどの機能は　実装できてるんじゃないか？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　シナリオ・スクリプトじゃなくて　GDScript 剥き出しだけど、いいんじゃないの？」  
+
 .
