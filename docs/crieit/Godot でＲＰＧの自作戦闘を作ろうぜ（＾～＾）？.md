@@ -404,4 +404,12 @@ await get_tree().create_timer(2).timeout
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　戦闘画面じゃなくて、戦闘を作りましょう」  
 
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　**玉の遠さ** を　１０　にして、　１ターン毎に　３　減って　４ターンで戦闘終了するのを  
+試しに作ってみればいいんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　**玉の遠さ** が　１以上か、１未満か　分ける処理が必要だなあ。  
+ト書き　で　どう書こう？」  
+
 .
