@@ -238,16 +238,23 @@ var document = {
 		""",
 	],
 	"§先手番１": [
+		func():
+			# ダメージ計算
+			var damage = 5
+			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
+			
+			# 後手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[1] -= damage
+
+			# 後手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_gote_distance_of_king()
+			,
 		"""\
 		{{arg_sente_monster_name}}
 		「銀が上がる
+		　{{arg_gote_monster_name}}の玉に{{arg_damage}}歩近づく
 		""",
 		func():
-			# 後手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[1] -= 5
-			
-			# 後手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_gote_distance_of_king()
 			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.get_game_sheet_for_battle().distance_of_king[1] < 5:
@@ -257,17 +264,23 @@ var document = {
 			,
 	],
 	"§後手番１": [
+		func():
+			# ダメージ計算
+			var damage = 5
+			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
+			
+			# 先手の［玉の遠さ］を５減らす
+			self.get_game_sheet_for_battle().distance_of_king[0] -= damage
+			
+			# 先手の［玉の遠さ］表示更新
+			self.get_system_of_battle().refresh_sente_distance_of_king()
+			,
 		"""\
 		{{arg_gote_monster_name}}
 		「銀が上がる
+		　{{arg_sente_monster_name}}の玉に{{arg_damage}}歩近づく
 		""",
-		func():
-			# 先手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[0] -= 5
-
-			# 先手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_sente_distance_of_king()
-			
+		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.get_game_sheet_for_battle().distance_of_king[0] < 5:
 				self.get_assistant_director().get_node("Goto").goto("§先手番投了")
