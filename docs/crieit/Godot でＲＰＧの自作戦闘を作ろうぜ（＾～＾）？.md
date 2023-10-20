@@ -490,4 +490,47 @@ await get_tree().create_timer(2).timeout
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　シナリオ・スクリプトじゃなくて　GDScript 剥き出しだけど、いいんじゃないの？」  
 
+## 戦闘データはどこに書く？
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`玉の遠さ` みたいな　戦闘シーンだけで使うデータって　どこに書けばいいの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　どこでもいいんじゃないか？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`BattleArtist` でどうだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そんな肩書きのやつ　いるかな？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　スコアラー（Scorer）で　いいんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　しっくりくるぜ。　それで」  
+
+![202310__godot__20-2359--Scorer-o2o0.png](https://crieit.now.sh/upload_images/5fbef252917411d2e8fad20bdbe6d2c2653295ef35b1b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　スコアラーが　戦闘用紙を持っているという建付けにしようぜ」  
+
+![202310__godot__21-0007--BattleSheet.png](https://crieit.now.sh/upload_images/1471df849730a687d13b65b57d8e8b69653297b83306f.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　データは　これでいいかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　これは　キャラ・データじゃなくて、戦闘シーンのデータだというのを　はっきりさせた方が  
+あとで間違わなくて済むんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　デパートメントという言葉が　なんか合ってないな。　シーンに名称変更していいかな？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　シーンは　Godot　と用語が被るんで」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot ほんと国語がクソだな」  
+
 .

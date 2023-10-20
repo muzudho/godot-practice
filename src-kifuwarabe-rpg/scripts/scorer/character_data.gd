@@ -1,0 +1,49 @@
+# キャラクター・データ（Character Data；個性与件）
+#	いわゆるマスターデータ（Master Data；元データ）
+extends Node
+
+
+# キャラクター・データ
+var character_data = {
+	# キーは Id
+	1: {
+		"name": "きふわらべ",
+		"solidity_of_castle": 1,
+		"breadth_of_escape_route": 1,
+		"work_of_pieces": 1,
+		"offensive_speed": 1,
+		"distance_of_king": 20,
+	},
+	2: {
+		"name": "ヘム将棋",
+		"solidity_of_castle": 1,
+		"breadth_of_escape_route": 1,
+		"work_of_pieces": 1,
+		"offensive_speed": 1,
+		"distance_of_king": 19,
+	},
+	3: {
+		"name": "ケダック",
+		"solidity_of_castle": 2,
+		"breadth_of_escape_route": 3,
+		"work_of_pieces": 2,
+		"offensive_speed": 1,
+		"distance_of_king": 25,
+	},
+	4: {
+		"name": "レサぽん改",
+		"solidity_of_castle": 10,
+		"breadth_of_escape_route": 10,
+		"work_of_pieces": 10,
+		"offensive_speed": 10,
+		"distance_of_king": 100,
+	},
+	5: {
+		"name": "昼ビール",
+		"solidity_of_castle": 4100,
+		"breadth_of_escape_route": 4000,
+		"work_of_pieces": 4300,
+		"offensive_speed": 4100,
+		"distance_of_king": 12300000000000,
+	},
+}
