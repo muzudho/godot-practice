@@ -575,4 +575,9 @@ await get_tree().create_timer(2).timeout
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　`%xxxx%` を廃止して `{{xxxx}}` に統一してくれだぜ」  
 
+📺　[動画](https://x.com/muzudho1/status/1715441212856074393?s=20)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　少し　仮組を進めた　今日はここまで」  
+
 .
