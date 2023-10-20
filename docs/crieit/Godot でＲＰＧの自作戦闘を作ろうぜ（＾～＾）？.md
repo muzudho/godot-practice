@@ -412,4 +412,17 @@ await get_tree().create_timer(2).timeout
 「　**玉の遠さ** が　１以上か、１未満か　分ける処理が必要だなあ。  
 ト書き　で　どう書こう？」  
 
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　**GDScript** 自体がゲームスクリプトなのだから、  
+シナリオの途中で GDScript で書けないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Godot に **匿名関数** が有るかないか　調べてみるか」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　あるのでは？」  
+
+📖　[GDScript Anonymous Functions](https://gamedevacademy.org/gdscript-functions-tutorial-complete-guide/#GDScript_Anonymous_Functions)  
+
+
 .

@@ -34,8 +34,8 @@ func get_current_section_size_of_scenario():
 	return section.size()
 
 
-# シナリオの現在セクションのアイテムを返す
-func get_current_section_item_of_scenario():
+# シナリオの現在パラグラフ（セクションのアイテム）を返す
+func get_current_paragraph_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()
 	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][snapshot.section_item_index]
 
@@ -263,13 +263,20 @@ func _process(delta):
 		if snapshot.section_item_index < self.get_current_section_size_of_scenario():
 		
 			# 次に表示するべきメッセージを取得
-			var latest_message = self.get_current_section_item_of_scenario() + ""	# 文字列を参照ではなく、コピーしたい
+			var paragraph = self.get_current_paragraph_of_scenario()
+			
+			if paragraph is String:
+							
+				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
 
-			# カウントアップ
-			snapshot.section_item_index += 1
+				# カウントアップ
+				snapshot.section_item_index += 1
 
-			# ここで、命令と、台詞は区別する
-			self.parse_section_item(latest_message)
+				# ここで、命令と、台詞は区別する
+				self.parse_section_item(latest_message)
+			
+			else:
+				print("［アシスタント・ディレクター］　TODO 文字列以外のパラグラフに対応したい")
 
 		# もう無いよ
 		else:
