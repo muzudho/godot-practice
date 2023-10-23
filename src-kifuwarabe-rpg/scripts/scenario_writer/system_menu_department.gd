@@ -20,8 +20,8 @@ var document = {
 	"§システムメニュー画面":[
 		"""\
 		!
-		choice:	1,2
-		m_wnd:	■中央
+		m_wnd:		■中央
+		choice:		1,2
 		""",
 		"""\
 		　・再開
