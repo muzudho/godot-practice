@@ -45,6 +45,7 @@ func do_it(line):
 
 
 # 伝言窓を見せる
+#	ただし、表示する文章がない場合は窓は消えています（状態機械の都合、文章が無ければウィンドウを消す）
 func show_me(node_name_str):
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name_str + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
