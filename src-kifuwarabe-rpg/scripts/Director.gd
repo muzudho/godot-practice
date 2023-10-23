@@ -70,11 +70,14 @@ func _ready():
 		# Main と System は除く
 		if department.name != "Main" and department.name != "System":
 			self.snapshots[department.name] = DepartmentSnapshot.new()
+
 			# （めんどくさいけど）Main シナリオからプロパティを移す
 			var department_initial_properties = self.get_main_scenario().department_initial_properties[department.name]
 			self.snapshots[department.name].name = department.name		# StringName 型
 			self.snapshots[department.name].message_window_name_obj_stack.push_back(department_initial_properties["message_window_name_obj"])
-			self.snapshots[department.name].section_name = department_initial_properties["section_name"]
+
+			# 文書辞書の先頭要素のキー取得
+			self.snapshots[department.name].section_name = $"ScenarioWriter".get_node(str(department.name)).document.keys()[0]
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	#

@@ -601,4 +601,18 @@ await get_tree().create_timer(2).timeout
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　今日は　左下に　メニューを作るところまで　がんばるかあ」  
 
+## 下準備
+
+![202310__godot__23-2345--Initialize.png](https://crieit.now.sh/upload_images/c8ec078992ede7c27ba82415b379ef05653687431a91a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　この初期プロパティの設定が　よく頭から忘れられて　思ったように動かない原因になるんで  
+廃止したいぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　じゃあ　初期値は　どうすんだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　最初のセクションは、配列の先頭の要素でいいだろ」  
+
 .
