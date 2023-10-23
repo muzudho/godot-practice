@@ -1,13 +1,13 @@
-#	ブイ・ワンド、ビューイング・ウィンドウ（V-Wnd, Viewing Window；覗き窓）
+# ブイ・ワンド、ビューイング・ウィンドウ（V-Wnd, Viewing Window；覗き窓）
 extends Node
 
 
-# アシスタント・ディレクター
+# 助監取得
 func get_assistant_director():
 	return $"../../AssistantDirector"
 
 
-#	それをする
+# それをする
 func do_it(line):
 
 	var csv = line.substr(6).strip_edges()

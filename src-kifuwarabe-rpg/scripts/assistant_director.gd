@@ -1,8 +1,8 @@
-# アシスタント・ディレクター（Assistant Director；助監督）
+# アシスタント・ディレクター（Assistant Director；助監）
 extends Node
 
 
-# ディレクター取得
+# 監督取得
 func get_director():
 	return $"../../Director"
 
@@ -24,12 +24,12 @@ func get_current_section_size_of_scenario():
 	var node_name = snapshot.name
 	var node = self.get_scenario_writer().get_node(str(node_name))
 	if node == null:
-		print("［ＡＤ］　▲エラー　”" + node_name + "”ノードが無い")
+		print("［助監］　▲エラー　”" + node_name + "”ノードが無い")
 	
 	var section_name =  snapshot.section_name
 	var section = node.document[section_name]
 	if section == null:
-		print("［ＡＤ］　▲エラー　”" + section_name + "”セクションが無い")
+		print("［助監］　▲エラー　”" + section_name + "”セクションが無い")
 		
 	return section.size()
 
@@ -47,11 +47,11 @@ func play_section():
 
 	# 全部消化済みの場合
 	if self.get_current_section_size_of_scenario() <= snapshot.section_item_index:
-		print("［ＡＤ］（" + snapshot.name + "　" + snapshot.section_name + "）　セクションを読み終わっている")
+		print("［助監］（" + snapshot.name + "　" + snapshot.section_name + "）　セクションを読み終わっている")
 
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
 		if message_window.statemachine_of_message_window.is_completed():
-			print("［ＡＤ］（" + snapshot.name + "　"+ snapshot.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
+			print("［助監］（" + snapshot.name + "　"+ snapshot.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
 			# 自動で何かしない
 			return
 
@@ -61,18 +61,18 @@ func play_section():
 		# Completed 時もパース始めたらよくない
 		if not message_window.statemachine_of_message_window.is_completed():
 			# TODO 選択肢のときもややこしいが
-			print("［ＡＤ］（" + snapshot.name + "　"+ snapshot.section_name + "）　パースを開始してよい（本当か？）")
+			print("［助監］（" + snapshot.name + "　"+ snapshot.section_name + "）　パースを開始してよい（本当か？）")
 			# パースを開始してよい
 			snapshot.set_parse_lock(false)
 
 
-# メッセージ・ウィンドウで選択肢が選ばれたとき、その行番号が渡されてくる
+# 伝言窓で選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
-	print("［ＡＤ］　選択肢を確定させた")
+	print("［助監］　選択肢を確定させた")
 
-	# メッセージ・ウィンドウの状態遷移
+	# 伝言窓の状態遷移
 	#	ずっと Completed だと、困るから
-	print("［ＡＤ］　メッセージ・ウィンドウを　オール・ページズ・フラッシュド　する")
+	print("［助監］　伝言窓を　オール・ページズ・フラッシュド　する")
 	self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()
 
 
@@ -80,9 +80,9 @@ func on_choice_selected(row_number):
 	var department_name = str(snapshot.name)
 	var section_name = snapshot.section_name
 	
-	print("［ＡＤ］　現在の部門名　　　：" + department_name)
-	print("［ＡＤ］　現在の区画名　　　：" + section_name)
-	print("［ＡＤ］　選んだ選択肢行番号：" + str(row_number))
+	print("［助監］　現在の部門名　　　：" + department_name)
+	print("［助監］　現在の区画名　　　：" + section_name)
+	print("［助監］　選んだ選択肢行番号：" + str(row_number))
 
 	# シナリオ・ノード
 	var scenario_node = $"../ScenarioWriter".get_node(department_name)
@@ -92,7 +92,7 @@ func on_choice_selected(row_number):
 
 	# 次のセクション名
 	var next_section_name = section_obj[row_number]
-	print("［ＡＤ］　次の区画名　　　　：" + next_section_name)
+	print("［助監］　次の区画名　　　　：" + next_section_name)
 	
 	self.get_director().set_current_section(next_section_name)
 	self.play_section()
@@ -108,8 +108,8 @@ func split_head_line_or_tail(text):
 	
 	var head = text.substr(0, index)
 	var tail = text.substr(index+1)
-	# print("［メッセージ・ウィンドウ］　head：　[" + head + "]")
-	# print("［メッセージ・ウィンドウ］　tail：　[" + tail + "]")
+	# print("［助監］　head：　[" + head + "]")
+	# print("［助監］　tail：　[" + tail + "]")
 	return [head, tail]
 
 
@@ -131,7 +131,7 @@ func expand_variables(target_before_change):
 		#var results = []
 		#for result in regex.search_all(target_before_change):
 		#	var temp_text2 = result.get_string()
-		#	print("［ＡＤ　変数展開］　テキスト：［" + temp_text2 + "］")
+		#	print("［助監　変数展開］　テキスト：［" + temp_text2 + "］")
 		#	results.push_back(temp_text2)
 		# テスト
 		
@@ -148,24 +148,24 @@ func expand_variables(target_before_change):
 
 				# 変数名取得
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
-				print("［ＡＤ　変数展開］　変数キー：［" + key + "］")
+				print("［助監　変数展開］　変数キー：［" + key + "］")
 				
 				var value = self.get_director().stage_directions_variables[key]
-				print("［ＡＤ　変数展開］　変数値：［" + value + "］")
+				print("［助監　変数展開］　変数値：［" + value + "］")
 				
 				terget_after_change += value
 
 				from = close_index + 2
 		
 			else:
-				print("［ＡＤ　変数展開］　対象なし　段落：［" + target_before_change + "］")
+				print("［助監　変数展開］　対象なし　段落：［" + target_before_change + "］")
 				terget_after_change += target_before_change.substr(from)
 				break
 
 		return terget_after_change
 	
 	else:
-		print("［ＡＤ　変数展開］　対象なし　非テキスト")
+		print("［助監　変数展開］　対象なし　非テキスト")
 		return target_before_change
 	
 
@@ -211,7 +211,7 @@ func parse_paragraph(paragraph_text):
 	# ［ト書き］
 	# `.strip_edges()` - 先頭行の最初と、最終行の最後の表示されない文字を消去
 	if first_head.strip_edges() == "!":
-		print("［ＡＤ］　命令テキストだ：[" + first_tail + "]")
+		print("［助監］　命令テキストだ：[" + first_tail + "]")
 
 		# さらに先頭行を取得
 		var second_head_tail = split_head_line_or_tail(first_tail)
@@ -219,8 +219,8 @@ func parse_paragraph(paragraph_text):
 		while second_head_tail != null:
 			var second_head = second_head_tail[0].strip_edges()
 			var second_tail = second_head_tail[1]
-			# print("［ＡＤ］　second_head：[" + second_head + "]")
-			# print("［ＡＤ］　second_tail：[" + second_tail + "]")
+			# print("［助監］　second_head：[" + second_head + "]")
+			# print("［助監］　second_tail：[" + second_tail + "]")
 
 			# 以下の命令は、アルファベット順で並べてある
 			#
@@ -301,7 +301,7 @@ func parse_paragraph(paragraph_text):
 		$"NormalTextChoice".do_it(paragraph_text)
 		return
 
-	# print("［ＡＤ］　選択肢ではない")
+	# print("［助監］　選択肢ではない")
 	$"NormalText".do_it(paragraph_text)
 
 
@@ -337,11 +337,11 @@ func _process(delta):
 			
 			else:
 				# TODO 文字列以外のパラグラフに対応したい
-				print("［ＡＤ］　TODO 匿名関数かもしれない呼出してみよ")
+				print("［助監］　TODO 匿名関数かもしれない呼出してみよ")
 				paragraph.call()
 
 		# もう無いよ
 		else:
 			if not self.get_director().get_current_message_window().statemachine_of_message_window.is_none():
-				# メッセージ・ウィンドウを閉じる
+				# 伝言窓を閉じる
 				self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()

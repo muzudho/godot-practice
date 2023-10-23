@@ -6,7 +6,7 @@ func get_root_relative_path_str():
 	return "../../../"
 
 
-# アシスタント・ディレクター
+# 助監取得
 func get_assistant_director():
 	return $"../../AssistantDirector"
 

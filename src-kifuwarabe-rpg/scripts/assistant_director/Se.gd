@@ -2,12 +2,12 @@
 extends Node
 
 
-# ディレクター取得
+# 監督取得
 func get_director():
 	return $"../../../Director"
 
 
-# アシスタント・ディレクター
+# 助監取得
 func get_assistant_director():
 	return $"../../AssistantDirector"
 
@@ -17,7 +17,7 @@ func get_musician():
 	return $"../../Musician"
 
 
-#	それをする
+# それをする
 func do_it(line):
 
 	var node_name = line.substr(3).strip_edges()

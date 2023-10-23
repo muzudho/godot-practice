@@ -9,12 +9,12 @@ var statemachine_of_message_window = load("res://scripts/statemachines/message_w
 var is_appear = true
 
 
-# ディレクターを取得
+# 監督取得
 func get_director():
 	return $"../../../../Director"
 
 
-# アシスタント・ディレクターを取得
+# 助監取得
 func get_assistant_director():
 	return $"../../../AssistantDirector"
 
@@ -111,7 +111,7 @@ func set_appear_subtree(
 
 			## 会話が停止してしまっているなら、再開する（すぐ停止するかもしれない）
 			#if self.statemachine_of_message_window.is_none():
-			#	print("［メッセージウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　メッセージ・ウィンドウが消えてしまっているので、会話を再開する")
+			#	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　伝言窓が消えてしまっているので、会話を再開する")
 			#	#self.statemachine_of_message_window.talk()
 			#
 			#	# パースをする
@@ -192,7 +192,7 @@ func on_talked_2():
 
 	# 選択肢なら
 	if snapshot.is_choices():
-		print("［メッセージウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選択肢開始")
+		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
 		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
@@ -201,7 +201,7 @@ func on_talked_2():
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
 	
 	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　台詞開始")
+		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　台詞開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
 		
@@ -221,7 +221,7 @@ func on_page_forward():
 		self.get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
 
 		var row_number = self.get_text_block().get_node("ChoiceCursor").selected_row_number
-		print("［メッセージウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選んだ選択肢行番号：［" + str(row_number) + "］")
+		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
 		self.get_assistant_director().on_choice_selected(row_number)
@@ -230,7 +230,7 @@ func on_page_forward():
 		snapshot.choices_row_numbers = null
 		
 	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　ページ送り")
+		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　ページ送り")
 
 		# 効果音
 		self.get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
@@ -271,7 +271,7 @@ func on_all_characters_pushed():
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
 	var snapshot = self.get_director().get_current_snapshot()
-	print("［メッセージ・ウィンドウ　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
+	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	# テキストブロック
 	var text_block_node = self.get_text_block()
@@ -313,7 +313,7 @@ func _process(delta):
 	if not self.is_appear:
 		return
 
-	# メッセージ・ウィンドウが存在しないなら、働かない
+	# 伝言窓が存在しないなら、働かない
 	if self.statemachine_of_message_window.is_none():
 		pass
 

@@ -20,7 +20,7 @@ var stage_directions_variables = {}
 var sleep_seconds = 0.0
 
 
-# アシスタント・ディレクター取得
+# 助監取得
 func get_assistant_director():
 	return $"AssistantDirector"
 
@@ -39,17 +39,17 @@ func get_current_snapshot():
 	return self.get_snapshot(self.current_department)
 
 
-# メッセージ・ウィンドウ（現在、出力の対象になっているもの）
+# 伝言窓（現在、出力の対象になっているもの）
 func get_message_window(node_name_obj):
-	print("［ディレクター］　メッセージ・ウィンドウ名：［" + str(node_name_obj) + "］")
+	print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
 	return $"GuiArtist/WindowsOfMessage".get_node(str(node_name_obj))
 
 
-# メッセージ・ウィンドウ（現在、出力の対象になっているもの）
+# 伝言窓（現在、出力の対象になっているもの）
 func get_current_message_window():
 	var snapshot = self.get_current_snapshot()
 	var name_str = str(snapshot.message_window_name_obj_stack[-1])
-	print("［ディレクター］　メッセージ・ウィンドウ名：［" + name_str + "］")
+	print("［監督］　伝言窓名：［" + name_str + "］")
 	return self.get_message_window(name_str)
 
 
@@ -78,7 +78,7 @@ func _ready():
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	#
-	# ディレクターは表示する必要がある
+	# 監督は表示する必要がある
 	self.show()
 	# ＧＵＩアーティスト自身は表示する必要がある
 	$"GuiArtist".show()
@@ -98,7 +98,7 @@ func _ready():
 	#
 	#	親ノードは例外
 	$"GuiArtist/WindowsOfMessage".show()
-	#	メッセージ・ウィンドウはとにかく隠す
+	#	伝言窓はとにかく隠す
 	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
 		message_window.hide()
 	#
@@ -130,7 +130,7 @@ func _ready():
 	# 台本の「§」セクションの再生
 	$"./AssistantDirector".play_section()
 
-	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
+	# 伝言窓を、一時的に居なくなっていたのを解除する
 	self.get_current_message_window().set_appear_subtree(true)
 
 
@@ -155,7 +155,7 @@ func _unhandled_key_input(event):
 				# そのト書き
 				var stage_directions = key_pressed_stage_directions_1[event.keycode]
 
-				print("［ディレクター］　アンハンドルド・キー押下　部門変更")
+				print("［監督］　アンハンドルド・キー押下　部門変更")
 
 				# TODO ここで stage_directions をト書きとして実行したいが、できるか？
 				self.get_assistant_director().parse_paragraph(stage_directions)
@@ -163,10 +163,10 @@ func _unhandled_key_input(event):
 				# 子要素には渡しません
 				return
 
-		print("［ディレクター］　アンハンドルド・キー押下　その他のキー")
+		print("［監督］　アンハンドルド・キー押下　その他のキー")
 
 		#	子要素へ渡す
 		self.get_current_message_window().on_unhandled_key_input(event)
 
 	else:
-		print("［ディレクター］　アンハンドルド・キー　押下以外")
+		print("［監督］　アンハンドルド・キー　押下以外")

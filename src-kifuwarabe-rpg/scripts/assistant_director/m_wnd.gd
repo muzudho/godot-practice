@@ -1,14 +1,14 @@
 # エム・ワンド、メッセージ・ウィンドウ（M-Wnd, Message Window；伝言窓）
-#	どのメッセージ・ウィンドウにメッセージを出力するか指定する
+#	どの伝言窓にメッセージを出力するか指定する
 extends Node
 
 
-# ディレクター取得
+# 監督取得
 func get_director():
 	return $"../../../Director"
 
 
-# アシスタント・ディレクター
+# 助監取得
 func get_assistant_director():
 	return $"../../AssistantDirector"
 
@@ -36,29 +36,29 @@ func do_it(line):
 		return
 
 	if sub_command == "hide":
-		# メッセージ・ウィンドウを隠す
+		# 伝言窓を隠す
 		self.hide_me(node_name)
 		return
 
-	# メッセージ・ウィンドウを表示する
+	# 伝言窓を表示する
 	self.show_me(node_name)
 
 
-# メッセージ・ウィンドウを見せる
+# 伝言窓を見せる
 func show_me(node_name_str):
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name_str + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
-	# メッセージ・ウィンドウを、一時的に居なくなっていたのを解除する
+	# 伝言窓を、一時的に居なくなっていたのを解除する
 	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(true)
 
 
-# メッセージ・ウィンドウを隠す
+# 伝言窓を隠す
 func hide_me(node_name_str):
 	var snapshot = self.get_director().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name_str + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
-	# メッセージ・ウィンドウを、一時的に居なくする
+	# 伝言窓を、一時的に居なくする
 	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(false)
 
 
@@ -66,11 +66,11 @@ func hide_me(node_name_str):
 func hide_current_it_then_push_it_to_stack():
 	var snapshot = self.get_director().get_current_snapshot()
 
-	# 現在のウィンドウ	
+	# 現在の伝言窓名
 	var current_node_name = snapshot.message_window_name_obj_stack[-1]
-	print("［命令　伝言窓　”" + current_node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　現在のウィンドウを隠し、そして、それをスタックへプッシュする")
+	print("［命令　伝言窓　”" + current_node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　現在の伝言窓を隠し、そして、それをスタックへプッシュする")
 
-	# 現在のウィンドウを隠す
+	# 現在の伝言窓を隠す
 	self.hide_me(str(current_node_name))
 
 	# スタックにプッシュする
@@ -80,11 +80,11 @@ func hide_current_it_then_push_it_to_stack():
 func pop_it_from_stack_then_show_current_it():
 	var snapshot = self.get_director().get_current_snapshot()
 	
-	# スタックからポップしたウィンドウ名
+	# スタックからポップした伝言窓名
 	var peek_node_name = snapshot.message_window_name_obj_stack.pop_back()
 	
-	print("［命令　伝言窓　”" + peek_node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　スタックからウィンドウをポップし、そして、それを見せる")
+	print("［命令　伝言窓　”" + peek_node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　スタックから伝言窓をポップし、そして、それを見せる")
 
-	# スタックからポップしたウィンドウを見せる
+	# スタックからポップした伝言窓を見せる
 	self.show_me(str(peek_node_name))
 

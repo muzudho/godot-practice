@@ -2,12 +2,12 @@
 extends Node
 
 
-# ディレクター取得
+# 監督取得
 func get_director():
 	return $"../../../Director"
 
 
-# アシスタント・ディレクター
+# 助監取得
 func get_assistant_director():
 	return $"../../AssistantDirector"
 
@@ -26,8 +26,8 @@ func do_it(
 
 # 同じ部門内の、指定のセクションに飛ぶ
 func goto(section_name):
-	# メッセージ・ウィンドウの状態が Completed で止まってるとフリーズするから、強制解除
-	print("［命令　ゴートゥー］　メッセージ・ウィンドウの状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
+	# 伝言窓の状態が Completed で止まってるとフリーズするから、強制解除
+	print("［命令　ゴートゥー］　伝言窓の状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
 	self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()
 
 	self.get_director().set_current_section(section_name)

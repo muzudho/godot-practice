@@ -33,17 +33,17 @@ var elapsed_seconds = 0.0
 var selected_row_number = 1
 
 
-# ディレクター取得
+# 監督取得
 func get_director():
 	return $"../../../../../../Director"
 
 
-# アシスタント・ディレクター取得
+# 助監取得
 func get_assistant_director():
 	return $"../../../../../AssistantDirector"
 
 
-# メッセージ・ウィンドウ名を取得
+# 伝言窓名を取得
 func get_message_window_name_obj():
 	return $"../..".name
 

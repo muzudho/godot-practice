@@ -18,7 +18,7 @@ var text_block_buffer = ""
 #	タイプライターのカウント
 var count_of_typewriter = 0
 
-# メッセージ・ウィンドウのノード名。スタック構造をしている。文字列ではなく StringName 型
+# 伝言窓のノード名。スタック構造をしている。文字列ではなく StringName 型
 var message_window_name_obj_stack = []
 
 # 「§」セクション名
@@ -56,8 +56,8 @@ func remember(
 
 	# 選択肢なら
 	if self.is_choices():
-		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
+		print("［部門スナップ写　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
 
 	# それ以外なら
 	else:
-		print("［メッセージウィンドウ　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
+		print("［部門スナップ写　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")

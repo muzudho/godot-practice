@@ -2,12 +2,12 @@
 extends Node
 
 
-# ディレクター取得
+# 監督取得
 func get_director():
 	return $"../../../Director"
 
 
-# アシスタント・ディレクター
+# 助監取得
 func get_assistant_director():
 	return $"../../AssistantDirector"
 
@@ -29,13 +29,13 @@ func do_it(line):
 # 文字列パック配列を、数値の配列に変換
 func convert_string_packed_array_to_number_array(string_packed_array):
 	var size = string_packed_array.size()
-	# print("［メッセージ・ウィンドウ］　選択肢サイズ：" + str(size))
+	# print("［命令　選択肢］　選択肢サイズ：" + str(size))
 
 	# 文字列型の配列を、数の配列に変換
 	var row_numbers = []
 	row_numbers.resize(size)
 	
-	# print("［メッセージ・ウィンドウ］　行番号一覧")
+	# print("［命令　選択肢］　行番号一覧")
 	for i in range(0, size):
 		row_numbers[i] = string_packed_array[i].to_int()
 		# print(str(row_numbers[i])

@@ -3,12 +3,12 @@
 extends Node
 
 
-# ディレクター取得
+# 監督取得
 func get_director():
 	return $"../../../Director"
 
 
-# アシスタント・ディレクター
+# 助監取得
 func get_assistant_director():
 	return $"../../AssistantDirector"
 
