@@ -615,4 +615,33 @@ await get_tree().create_timer(2).timeout
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　最初のセクションは、配列の先頭の要素でいいだろ」  
 
+## ウィンドウの表示状態の現状復帰
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　システムメニュー部門から　ビジュアルノベル部門に戻ってくるとき、  
+新しく表示したウィンドウは閉じて、閉じたウィンドウは開くという  
+復帰処理が難しいな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　差分で行くか、スナップショットで行くか　方法は分かれるけど」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　表示されていてほしいウィンドウ、表示されていてほしくないウィンドウ、  
+網羅的に全部書く　チェックポイントを通るようにしないと  
+一度壊れた　状態　は復元不可能な気がするぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　デバッグのしやすさを取るなら　スナップショット　を選ぶべきでは？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　部門を切り替えるときは　任意の状態から　任意の状態へ　突然ワープするから  全結合、  
+全結合なんか　網羅したくないしな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　表示しておかなければならないウィンドウ、　表示が残っていても消えていてもいずれでも構わないウィンドウ、  
+表示されていてはいけないウィンドウ　を宣言的に記述すればいいんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`Main` っていうノード作ってたけど、 `SwitchDepartment` みたいな名前の方がいいかな？」  
+
 .

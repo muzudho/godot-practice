@@ -4,9 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_m3vrv"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/system_of_battle.gd" id="3_4ilps"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/main.gd" id="3_jssjb"]
 [ext_resource type="Script" path="res://scripts/assistant_director.gd" id="3_nnvgw"]
 [ext_resource type="Script" path="res://scripts/scenario_writer/system_menu_department.gd" id="4_7teq2"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/switch_department.gd" id="4_gacv6"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="5_24vd4"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="5_q2nol"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="6_bei22"]
@@ -202,8 +202,8 @@ texture = ExtResource("2_m3vrv")
 [node name="Battle" type="Node" parent="ScenarioWriter/System"]
 script = ExtResource("3_4ilps")
 
-[node name="Main" type="Node" parent="ScenarioWriter"]
-script = ExtResource("3_jssjb")
+[node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
+script = ExtResource("4_gacv6")
 
 [node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("3_75puo")

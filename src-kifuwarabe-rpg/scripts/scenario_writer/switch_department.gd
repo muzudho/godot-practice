@@ -1,6 +1,6 @@
-# シナリオ・ライター・メイン（Scenario Writer Main）
-#	このノード名の `Main` は変更不可
-#	ここから始まる最初のファイル
+# スイッチ・デパートメント（Switch Department；部門切替え）
+#	このノード名の `SwitchDepartment` は変更不可
+#	部門の切替えを司る
 extends Node
 
 

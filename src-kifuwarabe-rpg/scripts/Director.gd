@@ -25,9 +25,9 @@ func get_assistant_director():
 	return $"AssistantDirector"
 
 
-# 主シナリオ取得
-func get_main_scenario():
-	return $"ScenarioWriter/Main"
+# 部門切替取得
+func get_switch_department():
+	return $"ScenarioWriter/SwitchDepartment"
 
 
 # スナップショット
@@ -67,11 +67,11 @@ func _ready():
 	# 子要素にメンバーを渡す
 	# スナップショット辞書作成
 	for department in $"ScenarioWriter".get_children():
-		# Main と System は除く
-		if department.name != "Main" and department.name != "System":
+		# SwitchDepartment と System は除く
+		if department.name != "SwitchDepartment" and department.name != "System":
 			self.snapshots[department.name] = DepartmentSnapshot.new()
 
-			# （めんどくさいけど）Main シナリオからプロパティを移す
+			# （めんどくさいけど） SwitchDepartment からプロパティを移す
 			self.snapshots[department.name].name = department.name		# StringName 型
 			
 			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
@@ -131,7 +131,7 @@ func _ready():
 	#
 
 	# 最初に実行する部門
-	self.current_department = self.get_main_scenario().start_department
+	self.current_department = self.get_switch_department().start_department
 
 	var snapshot = self.get_current_snapshot()
 
@@ -155,10 +155,10 @@ func _unhandled_key_input(event):
 	if event.is_pressed():
 
 		# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-		if self.current_department in self.get_main_scenario().key_pressed_stage_directions:
+		if self.current_department in self.get_switch_department().key_pressed_stage_directions:
 			
 			# その要素を取得
-			var key_pressed_stage_directions_1 = self.get_main_scenario().key_pressed_stage_directions[self.current_department]
+			var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[self.current_department]
 			
 			# 押したキーに紐づく、ト書きは辞書に記載されているか？
 			if event.keycode in key_pressed_stage_directions_1:
