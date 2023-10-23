@@ -8,22 +8,6 @@ extends Node
 var start_department = "📗ビジュアルノベル部門"
 
 
-# 各部門の初期プロパティ
-# TODO これらの設定は必要だろうか？ 無くていいなら省きたい
-var department_initial_properties = {
-	"📗ビジュアルノベル部門" : {
-		# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-		"message_window_name_obj" : &"■下",		# StringName 型 シンタックス・シュガー
-	},
-	"📗システムメニュー部門" : {
-		"message_window_name_obj" : &"■中央",
-	},
-	"📗バトル部門" : {
-		"message_window_name_obj" : &"■下",
-	},
-}
-
-
 # どの部門で、そのキーを押されたら、ト書きを１つ実行できる
 var key_pressed_stage_directions = {
 	"📗ビジュアルノベル部門" : {

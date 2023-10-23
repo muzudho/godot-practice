@@ -72,15 +72,14 @@ func _ready():
 			self.snapshots[department.name] = DepartmentSnapshot.new()
 
 			# （めんどくさいけど）Main シナリオからプロパティを移す
-			var department_initial_properties = self.get_main_scenario().department_initial_properties[department.name]
 			self.snapshots[department.name].name = department.name		# StringName 型
 			
-			#self.snapshots[department.name].message_window_name_obj_stack.push_back(department_initial_properties["message_window_name_obj"])
 			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
 			if department.name =="📗ビジュアルノベル部門":
 				self.snapshots[department.name].message_window_name_obj_stack.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 			elif department.name =="📗システムメニュー部門":
 				self.snapshots[department.name].message_window_name_obj_stack.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
+				#self.snapshots[department.name].message_window_name_obj_stack.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
 			elif department.name =="📗バトル部門":
 				self.snapshots[department.name].message_window_name_obj_stack.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 
