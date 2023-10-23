@@ -18,7 +18,7 @@ func do_it(
 
 	# 次の「§」セクション名
 	var next_section_name = line.substr(5).strip_edges()
-	print("［ゴートゥー］　次の区画：[" + next_section_name + "]")
+	print("［命令　ゴートゥー］　次の区画：[" + next_section_name + "]")
 	next_section_name = self.get_assistant_director().expand_variables(next_section_name.strip_edges())
 
 	self.goto(next_section_name)
@@ -27,7 +27,7 @@ func do_it(
 # 同じ部門内の、指定のセクションに飛ぶ
 func goto(section_name):
 	# メッセージ・ウィンドウの状態が Completed で止まってるとフリーズするから、強制解除
-	print("［ゴートゥー］　メッセージ・ウィンドウの状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
+	print("［命令　ゴートゥー］　メッセージ・ウィンドウの状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
 	self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()
 
 	self.get_director().set_current_section(section_name)

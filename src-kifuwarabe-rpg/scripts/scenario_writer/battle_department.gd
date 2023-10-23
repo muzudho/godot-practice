@@ -129,10 +129,12 @@ var document = {
 		"""\
 		!
 		se:
-		telop:			戦闘シーン
+		telop:			Ｔ戦闘シーン
 		bgm:			🎵バトル１, 8.6
 		monster_face:	😁きふわらべ
 		monster_face:	{{arg_monster_face}}
+		m_wnd:			■下
+		m_wnd:			■左下
 		""",
 		# 画面設定
 		func():
@@ -298,12 +300,13 @@ var document = {
 		!
 		bg:				{{arg_bg_in}}			,hide
 		bg:				{{arg_bg_out}}
-		bg:				🗻戦闘シーン		,hide
-		monster_face:	😁きふわらべ		,hide
-		monster:		{{arg_monster}}		,hide
+		bg:				🗻戦闘シーン			,hide
+		monster_face:	😁きふわらべ			,hide
+		monster:		{{arg_monster}}			,hide
 		monster_face:	{{arg_monster_face}}	,hide
-		telop:			戦闘シーン			,hide
-		m_wnd:			■下					,hide
+		telop:			Ｔ戦闘シーン			,hide
+		m_wnd:			■下						,hide
+		m_wnd:			■左下					,hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}
 		m_wnd:			■下
@@ -315,7 +318,7 @@ var document = {
 		!
 		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
-		telop:			戦闘シーン
+		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		{{arg_monster}}
 		monster_face:	{{arg_monster_face}}
@@ -324,12 +327,12 @@ var document = {
 		# 画面設定
 		"""\
 		!
-		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"　　２０"
-		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上	,"　　１０"
-		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上		,"　　３０"
-		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上		,"　　１０"
-		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　　４０"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　　２０"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　　１０"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　　３０"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"　　１０"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　　４０"
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
@@ -345,7 +348,7 @@ var document = {
 		monster_face:	😁きふわらべ, hide
 		monster:		{{arg_monster}}, hide
 		monster_face:	{{arg_monster_face}}, hide
-		telop:			戦闘シーン, hide
+		telop:			Ｔ戦闘シーン, hide
 		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}
@@ -358,7 +361,7 @@ var document = {
 		!
 		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
-		telop:			戦闘シーン
+		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		{{arg_monster}}
 		monster_face:	{{arg_monster_face}}
@@ -367,12 +370,12 @@ var document = {
 		# 画面設定
 		"""\
 		!
-		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"　１００"
-		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上	,"　１２０"
-		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上		,"　１００"
-		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上		,"　１１０"
-		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　１３０"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　１００"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　１２０"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　１００"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"　１１０"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　１３０"
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -388,7 +391,7 @@ var document = {
 		monster_face:	😁きふわらべ, hide
 		monster:		{{arg_monster}}, hide
 		monster_face:	{{arg_monster_face}}, hide
-		telop:			戦闘シーン, hide
+		telop:			Ｔ戦闘シーン, hide
 		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}
@@ -402,7 +405,7 @@ var document = {
 		!
 		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
-		telop:			戦闘シーン
+		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		{{arg_monster}}
 		monster_face:	{{arg_monster_face}}
@@ -411,12 +414,12 @@ var document = {
 		# 画面設定
 		"""\
 		!
-		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"４３００"
-		label:		Director/TelopCoordinator/戦闘シーン/逃げ道の広さ_上	,"４１００"
-		label:		Director/TelopCoordinator/戦闘シーン/駒の働き_上		,"４２００"
-		label:		Director/TelopCoordinator/戦闘シーン/攻めの速度_上		,"４１００"
-		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００００"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４３００"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"４１００"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"４２００"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"４１００"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００００"
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -451,8 +454,8 @@ var document = {
 		""",
 		"""\
 		!
-		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　１２２９９９９９９９９９"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２２９９９９９９９９９"
 		""",
 		"""\
 		昼ビールに　１　のダメージを与えた
@@ -479,9 +482,9 @@ var document = {
 		""",
 		"""\
 		!
-		label:		Director/TelopCoordinator/戦闘シーン/城の堅さ_上		,"４４００"
-		#label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００９９"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４４００"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００９９"
 		""",
 		"""\
 		城の堅さが　１００　上がった
@@ -519,7 +522,7 @@ var document = {
 		monster_face:	😁きふわらべ, hide
 		monster:		{{arg_monster}}, hide
 		monster_face:	{{arg_monster_face}}, hide
-		telop:			戦闘シーン, hide
+		telop:			Ｔ戦闘シーン, hide
 		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}

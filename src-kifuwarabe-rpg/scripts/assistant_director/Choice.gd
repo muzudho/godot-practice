@@ -14,7 +14,7 @@ func get_assistant_director():
 
 # それをする
 func do_it(line):
-	print("［選択肢］　前処理だ：[" + line + "]")
+	print("［命令　選択肢］　前処理だ：[" + line + "]")
 
 	var csv = line.substr(7).strip_edges()
 	# TODO 数は昇順であること

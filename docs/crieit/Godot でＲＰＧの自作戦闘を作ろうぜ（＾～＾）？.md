@@ -580,4 +580,25 @@ await get_tree().create_timer(2).timeout
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　少し　仮組を進めた　今日はここまで」  
 
+# 📅 2023-10-23 mon ⏰ 21:28
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　もう疲れた」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　まあ　１回　プレイしてくれだぜ」  
+
+![202310__godot__23-2136--BattleScene.png](https://crieit.now.sh/upload_images/afc62d6d8a806ae1805e08c2b403522b6536691ff13ec.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ここに　**たたかう**　とか　コマンドを付ければいいのかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　とりあえず　**攻める**、 **守る**、 **逃げる**　の３つあればいいんじゃない？」  
+
+![202310__godot__23-2136--BattleScene-o2o0.png](https://crieit.now.sh/upload_images/d25f3144d2b4f2de236c4815e5daabb865366c6b3e3e1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　今日は　左下に　メニューを作るところまで　がんばるかあ」  
+
 .

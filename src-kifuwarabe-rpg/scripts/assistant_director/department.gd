@@ -26,7 +26,7 @@ func get_snapshot(department_node_name):
 func do_it(line):
 
 	var department_name = line.substr(11).strip_edges()
-	print("［部門］　名前：［" + department_name + "］")
+	print("［命令　部門］　名前：［" + department_name + "］")
 	department_name = self.get_assistant_director().expand_variables(department_name.strip_edges())
 
 	self.change_department(department_name)

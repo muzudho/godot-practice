@@ -16,7 +16,7 @@ func get_monster_faces():
 func do_it(line):
 
 	var csv = line.substr(13).strip_edges()
-	print("［怪物顔］　CSV：[" + csv + "]")
+	print("［命令　怪物顔］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
@@ -34,14 +34,14 @@ func control_monster_face(node_name, sub_command):
 
 	var monster_node = self.get_monster_faces().get_node(node_name)
 	if monster_node == null:
-		print("［怪物顔］　▲エラー　”" + node_name + "”　が無い")
+		print("［命令　怪物顔］　▲エラー　”" + node_name + "”　が無い")
 
 	if sub_command == "hide":
 		# モンスター画像非表示
-		print("［怪物顔］　隠す：[" + node_name + "]")
+		print("［命令　怪物顔］　隠す：[" + node_name + "]")
 		monster_node.hide()
 		return
 
 	# モンスター画像表示
-	print("［怪物顔］　見せる：[" + node_name + "]")
+	print("［命令　怪物顔］　見せる：[" + node_name + "]")
 	monster_node.show()

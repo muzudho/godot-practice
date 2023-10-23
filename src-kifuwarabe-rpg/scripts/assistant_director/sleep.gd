@@ -17,7 +17,7 @@ func get_assistant_director():
 func do_it(line):
 
 	var csv = line.substr(6).strip_edges()
-	print("［ＢＧＭ］　CSV：[" + csv + "]")
+	print("［命令　スリープ］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
@@ -30,6 +30,6 @@ func do_it(line):
 #
 #	シナリオのパラグラフを抜けてから、疑似スリープを行います
 func sleep(seconds):
-	print("［スリープ］　秒：[" + str(seconds) + "]")
+	print("［命令　スリープ］　秒：[" + str(seconds) + "]")
 	self.get_director().sleep_seconds = seconds
 	

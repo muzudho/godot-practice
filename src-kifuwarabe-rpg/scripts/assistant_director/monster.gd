@@ -16,7 +16,7 @@ func get_monster_whole_body():
 func do_it(line):
 
 	var csv = line.substr(8).strip_edges()
-	print("［モンスター］　CSV：[" + csv + "]")
+	print("［命令　怪物］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
@@ -34,7 +34,7 @@ func control_monster(node_name, sub_command):
 
 	var monster_node = self.get_monster_whole_body().get_node(node_name)
 	if monster_node == null:
-		print("［モンスター］　▲エラー　”" + node_name + "”　が無い")
+		print("［命令　怪物］　▲エラー　”" + node_name + "”　が無い")
 
 	if sub_command == "hide":
 		# モンスター画像非表示

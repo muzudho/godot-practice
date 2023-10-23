@@ -21,7 +21,7 @@ func get_musician():
 func do_it(line):
 
 	var csv = line.substr(4).strip_edges()
-	print("［ＢＧＭ］　CSV：[" + csv + "]")
+	print("［命令　ＢＧＭ］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
@@ -45,13 +45,13 @@ func play_bgm(node_name, from = null):
 	if self.get_director().current_bgm_name!=null:
 		self.stop_bgm()
 		
-	print("［ＢＧＭ］　開始：[" + node_name + "]")
+	print("［命令　ＢＧＭ］　開始：[" + node_name + "]")
 	self.get_director().current_bgm_name = node_name
 	
 	var bgm_name = self.get_director().current_bgm_name
 	var audio_node = self.get_musician().get_node("BGM").get_node(bgm_name)
 	if audio_node == null:
-		print("［ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
+		print("［命令　ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
 	
 	if from == null:
 		audio_node.play()
@@ -63,12 +63,12 @@ func play_bgm(node_name, from = null):
 # BGM 停止
 func stop_bgm():
 	if self.get_director().current_bgm_name != null:
-		print("［ＢＧＭ］　停止")
+		print("［命令　ＢＧＭ］　停止")
 		
 		var bgm_name = self.get_director().current_bgm_name
 		var audio_node = self.get_musician().get_node("BGM").get_node(bgm_name)
 		if audio_node == null:
-			print("［ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
+			print("［命令　ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
 		
 		audio_node.stop()
 		self.get_director().current_bgm_name = null

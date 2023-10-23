@@ -17,7 +17,7 @@ func get_background_artist():
 func do_it(line):
 
 	var csv = line.substr(3).strip_edges()
-	print("［背景］　CSV：[" + csv + "]")
+	print("［命令　背景］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
@@ -35,7 +35,7 @@ func control_bg(node_name, sub_command):
 
 	var node = self.get_background_artist().get_node(node_name)
 	if node == null:
-		print("［背景］　▲エラー　”" + node_name + "”　が無い")
+		print("［命令　背景］　▲エラー　”" + node_name + "”　が無い")
 
 	if sub_command == "hide":
 		# 背景画像非表示

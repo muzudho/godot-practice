@@ -11,7 +11,7 @@ func get_assistant_director():
 func do_it(line):
 
 	var csv = line.substr(6).strip_edges()
-	print("［ビューイング・ウィンドウ制御］　CSV：[" + csv + "]")
+	print("［命令　覗き窓］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
@@ -25,7 +25,7 @@ func do_it(line):
 
 
 func show_viewing_window(position, node_name):
-	print("［ビューイング・ウィンドウ］　配置：[" + position + "]　ノード名：[" + str(node_name) + "]")
+	print("［命令　覗き窓］　配置：[" + position + "]　ノード名：[" + str(node_name) + "]")
 
 	if node_name == null:
 		$"../../GuiArtist/WindowsOfViewing".hide_window()

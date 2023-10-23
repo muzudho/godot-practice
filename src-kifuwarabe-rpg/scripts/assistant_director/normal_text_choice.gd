@@ -28,7 +28,7 @@ func put_textblock(
 
 	# メッセージ追加
 	var snapshot = self.get_director().get_current_snapshot()
-	print("［ノーマル・テキスト・チョイス］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")
+	print("［命令　選択肢テキスト］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")
 
 	snapshot.remember(temp_text)
 

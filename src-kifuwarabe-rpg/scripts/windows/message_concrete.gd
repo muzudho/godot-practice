@@ -69,6 +69,8 @@ func set_process_subtree(
 func set_visible_subtree(
 		visible_flag):			# bool
 
+	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(self.visible) + "　次可視性：" + str(visible_flag))
+
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。

@@ -27,7 +27,7 @@ func get_snapshot(department_node_name):
 func do_it(line):
 
 	var csv = line.substr(6).strip_edges()
-	print("［テロップ］　CSV：[" + csv + "]")
+	print("［命令　テロップ］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
@@ -50,7 +50,7 @@ func show_telop(node_name):
 	
 	var telop_node = self.get_telop_coordinator().get_node(node_name)
 	if telop_node == null:
-		print("［効果音］　▲エラー　”" + node_name + "”　が無い")
+		print("［命令　テロップ］　▲エラー　”" + node_name + "”　が無い")
 	
 	telop_node.show()
 
@@ -60,6 +60,6 @@ func hide_telop(node_name):
 	
 	var telop_node = self.get_telop_coordinator().get_node(node_name)
 	if telop_node == null:
-		print("［効果音］　▲エラー　”" + node_name + "”　が無い")
+		print("［命令　テロップ］　▲エラー　”" + node_name + "”　が無い")
 
 	telop_node.hide()

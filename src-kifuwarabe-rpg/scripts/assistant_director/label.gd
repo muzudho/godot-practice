@@ -15,7 +15,7 @@ func get_assistant_director():
 func do_it(line):
 
 	var csv = line.substr(6).strip_edges()
-	print("［ラベル］　CSV：[" + csv + "]")
+	print("［命令　ラベル］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
@@ -32,11 +32,11 @@ func do_it(line):
 
 # ラベル設定
 func set_label(node_name, its_text):
-	print("［ラベル］　ノード名：[" + node_name + "]　テキスト：［" + its_text + "］")
+	print("［命令　ラベル］　ノード名：[" + node_name + "]　テキスト：［" + its_text + "］")
 	
 	var label_node = self.get_node(node_name)
 	if label_node == null:
-		print("［ラベル］　▲エラー　”" + node_name + "”　が無い")
+		print("［命令　ラベル］　▲エラー　”" + node_name + "”　が無い")
 		return
 	
 	label_node.text = its_text
