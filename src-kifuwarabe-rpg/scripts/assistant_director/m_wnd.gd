@@ -37,41 +37,47 @@ func do_it(line):
 
 	if sub_command == "hide":
 		# 伝言窓を隠す
-		self.hide_me(node_name)
+		self.hide_me(StringName(node_name))
 		return
 
 	# 伝言窓を表示する
-	self.show_me(node_name)
+	self.show_me(StringName(node_name))
 
 
 # 伝言窓を見せる
 #	ただし、表示する文章がない場合は窓は消えています（状態機械の都合、文章が無ければウィンドウを消す）
-func show_me(node_name_str):
+func show_me(
+		node_name,						# StringName
+		is_department_entered = false):	# bool
 	var snapshot = self.get_director().get_current_snapshot()
-	print("［命令　伝言窓　”" + node_name_str + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
+	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
-	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(true)
+	self.get_director().get_message_window(node_name).set_appear_subtree(true)
 
-	# 現在開いている伝言窓をスナップショットに記憶
-	snapshot.append_currently_displayed_message_window(StringName(node_name_str))
+	if not is_department_entered:
+		# 現在開いている伝言窓をスナップショットに記憶
+		snapshot.append_currently_displayed_message_window(node_name)
 
-	# DEBUG 現在開いているメッセージ・ウィンドウ名の一覧を表示
-	self.get_director().dump_currently_displayed_message_window()
+	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
+	self.get_director().dump_last_displayed_message_window()
 
 # 伝言窓を隠す
-func hide_me(node_name_str):
+func hide_me(
+		node_name,						# StringName
+		is_department_leaved = false):	# bool
 	var snapshot = self.get_director().get_current_snapshot()
-	print("［命令　伝言窓　”" + node_name_str + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
+	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
-	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(false)
+	self.get_director().get_message_window(node_name).set_appear_subtree(false)
 
-	# 現在開いている伝言窓をスナップショットから除外
-	snapshot.remove_currently_displayed_message_window(StringName(node_name_str))
+	if not is_department_leaved:
+		# 現在開いている伝言窓をスナップショットから除外
+		snapshot.remove_currently_displayed_message_window(node_name)
 
-	# DEBUG 現在開いているメッセージ・ウィンドウ名の一覧を表示
-	self.get_director().dump_currently_displayed_message_window()
+	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
+	self.get_director().dump_last_displayed_message_window()
 
 
 # 現在のウィンドウを隠し、そして、それをスタックへプッシュする

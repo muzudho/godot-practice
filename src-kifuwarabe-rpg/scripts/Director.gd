@@ -72,9 +72,9 @@ func get_all_department_names():
 	return array
 
 
-# TODO 現在開いているメッセージ・ウィンドウ名の一覧を表示
-func dump_currently_displayed_message_window():
-	print("［監督］　現在開いているメッセージ・ウィンドウ名の一覧")
+# 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
+func dump_last_displayed_message_window():
+	print("［監督］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
 	
 	# 部門名一覧
 	var department_names = self.get_all_department_names()
