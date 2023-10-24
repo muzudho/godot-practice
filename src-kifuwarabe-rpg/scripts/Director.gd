@@ -60,6 +60,34 @@ func set_current_section(section_name):
 	snapshot.section_item_index = 0
 
 
+# 全ての部門名一覧
+func get_all_department_names():
+	var array = []	# StringName の配列
+	
+	for department in $"ScenarioWriter".get_children():
+		# SwitchDepartment と System は除く
+		if department.name != "SwitchDepartment" and department.name != "System":
+			array.append(department.name)
+
+	return array
+
+
+# TODO 現在開いているメッセージ・ウィンドウ名の一覧を表示
+func dump_currently_displayed_message_window():
+	print("［監督］　現在開いているメッセージ・ウィンドウ名の一覧")
+	
+	# 部門名一覧
+	var department_names = self.get_all_department_names()
+	for department_name in 	department_names:	
+		print("　　部門：　" + department_name)
+
+		# スナップショット
+		var snapshot = self.get_snapshot(department_name)
+		
+		for window_name in snapshot.node_names_obj_of_currently_displayed_message_window:
+			print("　　　　👁 " + window_name)
+
+
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():

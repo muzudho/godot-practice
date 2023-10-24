@@ -53,6 +53,11 @@ func show_me(node_name_str):
 	# 伝言窓を、一時的に居なくなっていたのを解除する
 	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(true)
 
+	# 現在開いている伝言窓をスナップショットに記憶
+	snapshot.append_currently_displayed_message_window(StringName(node_name_str))
+
+	# DEBUG 現在開いているメッセージ・ウィンドウ名の一覧を表示
+	self.get_director().dump_currently_displayed_message_window()
 
 # 伝言窓を隠す
 func hide_me(node_name_str):
@@ -61,6 +66,12 @@ func hide_me(node_name_str):
 
 	# 伝言窓を、一時的に居なくする
 	self.get_director().get_message_window(StringName(node_name_str)).set_appear_subtree(false)
+
+	# 現在開いている伝言窓をスナップショットから除外
+	snapshot.remove_currently_displayed_message_window(StringName(node_name_str))
+
+	# DEBUG 現在開いているメッセージ・ウィンドウ名の一覧を表示
+	self.get_director().dump_currently_displayed_message_window()
 
 
 # 現在のウィンドウを隠し、そして、それをスタックへプッシュする

@@ -3,6 +3,7 @@ extends Object
 
 class_name DepartmentSnapshot
 
+
 # パースをするな
 var parse_lock_flag = true
 
@@ -18,8 +19,14 @@ var text_block_buffer = ""
 #	タイプライターのカウント
 var count_of_typewriter = 0
 
+# TODO こちらは将来的に廃止したい
 # 伝言窓のノード名。スタック構造をしている。文字列ではなく StringName 型
 var message_window_name_obj_stack = []
+
+# TODO こちらは将来的に使いたい
+# 現在表示中の伝言窓のノード名
+#	`m_wnd *` コマンドで追加、 `m_wnd, hide` コマンドで除外
+var node_names_obj_of_currently_displayed_message_window = []
 
 # 「§」セクション名
 var section_name = null
@@ -31,6 +38,7 @@ var name = null
 # パースをするな
 func set_parse_lock(flag):
 	self.parse_lock_flag = flag
+
 
 # パース禁止か？
 func is_parse_lock():
@@ -61,3 +69,16 @@ func remember(
 	# それ以外なら
 	else:
 		print("［部門スナップ写　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
+
+
+# 現在開いているメッセージ・ウィンドウ名を追加
+func append_currently_displayed_message_window(
+		node_name_obj):		# StringName
+	self.node_names_obj_of_currently_displayed_message_window.append(node_name_obj)
+
+# 現在開いているメッセージ・ウィンドウ名を除去
+func remove_currently_displayed_message_window(
+		node_name_obj):		# StringName
+	var index = self.node_names_obj_of_currently_displayed_message_window.find(node_name_obj)
+	if 0<=index:
+		self.node_names_obj_of_currently_displayed_message_window.remove_at(index)

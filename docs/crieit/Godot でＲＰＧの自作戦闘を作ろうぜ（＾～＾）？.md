@@ -660,4 +660,41 @@ await get_tree().create_timer(2).timeout
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　１つ１つ　プログラム組むか～」  
 
+## メッセージ・ウィンドウのコマンド
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　わたしの仕様では　メッセージ・ウィンドウと、ビューイング・ウィンドウという２種類あるんだが、  
+`m_wnd` 、 `v_wnd` というコマンド名と、  
+`wnd_m` 、 `wnd_v` というコマンド名だったら、  
+どっちが　取っつきやすいかだぜ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`gui_m` 、 `gui_v` という第３の案もあるのでは？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　テロップとか　背景とか　はっきりしてるけど、  
+それ以外は GUI という　くくり　よね」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`gui_msg_wnd` 、 `gui_view_wnd` とキータイピングさせるかだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　長い」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　メッセージ・ウィンドウの切替えは　そんなに多く起こらないけど、  
+ビューイング・ウィンドウの方が　将来的にトータルで見ると　多く起こる可能性があるんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　あるいは　ビューイング・ウィンドウなんか　廃止か」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　枠の表示と、メッセージの表示を分けてはどうか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　というより、管理がめんどくさいんで　枠の表示と　メッセージの表示を　わざわざ　くっつけたんだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　じゃあ　現状維持にしましょう」  
+
 .

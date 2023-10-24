@@ -1231,4 +1231,13 @@ Zzz
 
 📖　[Godot でＲＰＧの自作戦闘を作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-652d0d4895975)  
 
+![202310__godot__24-2349--GamePad-PcEngine.png](https://crieit.now.sh/upload_images/082f9438b4fb7a497cca0c1a49d5e0bc6537db263e0d6.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　任天堂、セガ、ソニー、マイクロソフトの４つのゲームパッドを抑えておけば  
+誰かの心に引っかかるだろうと思っていたが、 NEC が無かったので追加で購入」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　わかった、わかった」  
+
 .
