@@ -346,11 +346,8 @@ var document = {
 		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン			,hide
-		m_wnd:			■下						,hide
-		m_wnd:			■左下					,hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}
-		m_wnd:			■下
 		""",
 	],
 	#
@@ -376,13 +373,8 @@ var document = {
 		# 画面設定
 		"""\
 		!
-		bgm:		🎵バトル２
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　　２０"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　　１０"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　　３０"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"　　１０"
-		##label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　　４０"
+		bgm:			🎵バトル２
+		m_wnd:			■下
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
@@ -398,10 +390,8 @@ var document = {
 		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン, hide
-		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}
-		m_wnd:			■下
 		""",
 	],
 	#
@@ -427,13 +417,8 @@ var document = {
 		# 画面設定
 		"""\
 		!
-		bgm:		🎵バトル３
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　１００"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　１２０"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　１００"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"　１１０"
-		##label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　１３０"
+		bgm:			🎵バトル３
+		m_wnd:			■下
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -449,10 +434,8 @@ var document = {
 		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン, hide
-		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}
-		m_wnd:			■下
 		""",
 	],
 	#
@@ -478,13 +461,8 @@ var document = {
 		# 画面設定
 		"""\
 		!
-		bgm:		🎵バトル３
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４３００"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"４１００"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"４２００"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"４１００"
-		##label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００００"
+		bgm:			🎵バトル３
+		m_wnd:			■下
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
