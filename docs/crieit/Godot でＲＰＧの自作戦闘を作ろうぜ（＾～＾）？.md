@@ -697,4 +697,16 @@ await get_tree().create_timer(2).timeout
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　じゃあ　現状維持にしましょう」  
 
+## 窓を非表示にすることと、部門切替で一時的に窓が非表示になることの区別
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　スナップショットは　currently　な状態ではなく、　last　の状態を記憶しなくちゃいけないのか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`department` 命令に　ウィンドウの状態の保存と復元が　盛り込まれたので、  
+`m_wnd` 命令の `%hide_current_it_then_push_it_to_stack%` と、 `%pop_it_from_stack_then_show_current_it%` の機能は廃止だぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　シンプルになったな」  
+
 .

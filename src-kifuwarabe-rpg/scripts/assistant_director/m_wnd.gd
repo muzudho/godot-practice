@@ -27,14 +27,6 @@ func do_it(line):
 	if 2 <= string_packed_array.size():
 		sub_command = self.get_assistant_director().expand_variables(string_packed_array[1].strip_edges())
 
-	if node_name == "%hide_current_it_then_push_it_to_stack%":
-		self.hide_current_it_then_push_it_to_stack()
-		return
-
-	if node_name == "%pop_it_from_stack_then_show_current_it%":
-		self.pop_it_from_stack_then_show_current_it()
-		return
-
 	if sub_command == "hide":
 		# 伝言窓を隠す
 		self.hide_message_window(StringName(node_name))
@@ -79,32 +71,3 @@ func hide_message_window(
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 	self.get_director().dump_last_displayed_message_window()
-
-
-# 現在のウィンドウを隠し、そして、それをスタックへプッシュする
-func hide_current_it_then_push_it_to_stack():
-	var snapshot = self.get_director().get_current_snapshot()
-
-	# 現在の伝言窓名
-	var current_node_name = snapshot.message_window_name_obj_stack[-1]
-	print("［命令　伝言窓　”" + current_node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　現在の伝言窓を隠し、そして、それをスタックへプッシュする")
-
-	# 現在の伝言窓を隠す
-	self.hide_message_window(str(current_node_name))
-
-	# スタックにプッシュする
-	snapshot.message_window_name_obj_stack.push_back(current_node_name)
-
-
-# スタックからウィンドウをポップし、そして、それを見せる
-func pop_it_from_stack_then_show_current_it():
-	var snapshot = self.get_director().get_current_snapshot()
-	
-	# スタックからポップした伝言窓名
-	var peek_node_name = snapshot.message_window_name_obj_stack.pop_back()
-	
-	print("［命令　伝言窓　”" + peek_node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　スタックから伝言窓をポップし、そして、それを見せる")
-
-	# スタックからポップした伝言窓を見せる
-	self.show_message_window(str(peek_node_name))
-
