@@ -38,6 +38,35 @@ var document = {
 	#
 	# 最初に、共通処理を並べる
 	#
+	"§ロード・データ":[
+		# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
+		#
+		# Arguments
+		# =========
+		# {{arg_sente_monster_name}}
+		#	先手対局者名
+		# {{arg_gote_monster_name}}
+		#	後手対局者名
+		#
+		func():
+			# 変数取得
+			var sente_monster_name = self.get_director().stage_directions_variables["arg_sente_monster_name"]
+			var gote_monster_name = self.get_director().stage_directions_variables["arg_gote_monster_name"]
+			
+			# モンスターＩｄ取得
+			var sente_monster_id = self.get_scorer().lookup_monster_id_by_name(sente_monster_name)
+			var gote_monster_id = self.get_scorer().lookup_monster_id_by_name(gote_monster_name)
+			
+			# ロード
+			self.get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
+			
+			# 匿名関数の終わりのコンマ
+			,
+		"""\
+		!
+		goto:		§エンカウント・トランジション
+		""",
+	],
 	"§エンカウント・トランジション":[
 		#
 		# Arguments
@@ -48,7 +77,8 @@ var document = {
 		#	先背景
 		# {{arg_monster_body}}
 		#	怪物の体
-		# {{goto_next_from_encount_transition}}
+		# {{goto_next_section_from_encount_transition}}
+		#	次のセクション
 		#
 		"""\
 		!
@@ -113,49 +143,13 @@ var document = {
 		bg:				🗻戦闘シーン
 		bg:				🗻トランジション１コマ１１, hide
 		sleep:			0.10
-		""",		
+		""",
 		"""\
 		!
-		goto:			{{goto_next_from_encount_transition}}
-		""",		
-	],
-
-	#
-	# 以下、固有処理
-	#
-	"§戦闘デパートメント開始":[
-		# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
-		func():
-			var sente_monster_name = self.get_director().stage_directions_variables["arg_sente_monster_name"]
-			var gote_monster_name = self.get_director().stage_directions_variables["arg_gote_monster_name"]
-						
-			var sente_monster_id = self.get_scorer().lookup_monster_id_by_name(sente_monster_name)
-			var gote_monster_id = self.get_scorer().lookup_monster_id_by_name(gote_monster_name)
-			
-			# ロード
-			self.get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
-			
-			# 匿名関数の終わりのコンマ
-			,
-		"""\
-		!
-		var:		goto_next_from_encount_transition	,§ステータス初期セット
-		goto:		§エンカウント・トランジション
+		goto:			§データの最新表示
 		""",
 	],
-	"§ステータス初期セット":[
-		# 戦闘開始
-		"""\
-		!
-		se:
-		telop:			Ｔ戦闘シーン
-		bgm:			🎵バトル１, 8.6
-		monster_face:	😁きふわらべ
-		monster_face:	{{arg_monster_face}}
-		m_wnd:			■下
-		m_wnd:			■左下
-		""",
-		# 画面設定
+	"§データの最新表示":[
 		func():
 			# 先手
 			# 先手の［城の堅さ］表示更新
@@ -183,6 +177,34 @@ var document = {
 			
 			# 匿名関数の終わりのコンマ
 			,
+		"""\
+		!
+		goto:			{{goto_next_section_from_encount_transition}}
+		""",		
+	],
+
+	#
+	# 以下、固有処理
+	#
+	"§戦闘デパートメント開始":[
+		"""\
+		!
+		var:		goto_next_section_from_encount_transition	,§ステータス初期セット
+		goto:		§ロード・データ
+		""",
+	],
+	"§ステータス初期セット":[
+		# 戦闘開始
+		"""\
+		!
+		se:
+		telop:			Ｔ戦闘シーン
+		bgm:			🎵バトル１, 8.6
+		monster_face:	😁きふわらべ
+		monster_face:	{{arg_monster_face}}
+		m_wnd:			■下
+		m_wnd:			■左下
+		""",
 		"""\
 		!
 		goto:	§対局開始ルーチン
@@ -346,8 +368,8 @@ var document = {
 		""",
 		"""\
 		!
-		var:		goto_next_from_encount_transition	,§２回目戦闘シーン＜開始＞
-		goto:		§エンカウント・トランジション
+		var:		goto_next_section_from_encount_transition	,§２回目戦闘シーン＜開始＞
+		goto:		§ロード・データ
 		""",
 	],
 	"§２回目戦闘シーン＜開始＞":[
@@ -355,12 +377,12 @@ var document = {
 		"""\
 		!
 		bgm:		🎵バトル２
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　　２０"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　　１０"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　　３０"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"　　１０"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　　４０"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　　２０"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　　１０"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　　３０"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"　　１０"
+		##label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　　４０"
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
@@ -397,8 +419,8 @@ var document = {
 		""",
 		"""\
 		!
-		var:		goto_next_from_encount_transition	,§３回目戦闘シーン＜開始＞
-		goto:		§エンカウント・トランジション
+		var:		goto_next_section_from_encount_transition	,§３回目戦闘シーン＜開始＞
+		goto:		§ロード・データ
 		""",
 	],
 	"§３回目戦闘シーン＜開始＞":[
@@ -406,12 +428,12 @@ var document = {
 		"""\
 		!
 		bgm:		🎵バトル３
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　１００"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　１２０"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　１００"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"　１１０"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　１３０"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　１００"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　１２０"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　１００"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"　１１０"
+		##label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　　　　　　　　　　１３０"
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -448,8 +470,8 @@ var document = {
 		""",
 		"""\
 		!
-		var:		goto_next_from_encount_transition	,§ＶＳ昼ビール＜開始＞
-		goto:		§エンカウント・トランジション
+		var:		goto_next_section_from_encount_transition	,§ＶＳ昼ビール＜開始＞
+		goto:		§ロード・データ
 		""",
 	],
 	"§ＶＳ昼ビール＜開始＞":[
@@ -457,12 +479,12 @@ var document = {
 		"""\
 		!
 		bgm:		🎵バトル３
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４３００"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"４１００"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"４２００"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"４１００"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００００"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４３００"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"４１００"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"４２００"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/攻めの速度_上		,"４１００"
+		##label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００００"
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\

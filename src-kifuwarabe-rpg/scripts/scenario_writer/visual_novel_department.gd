@@ -186,6 +186,8 @@ var document = {
 		var:		%clear%
 		var:		arg_bg_out				,🗻ツツジロード
 		var:		arg_bg_in				,🗻ツツジロード
+		var:		arg_sente_monster_name	,きふわらべ
+		var:		arg_gote_monster_name	,ケダック
 		var:		arg_monster_body		,🐕ケダック
 		var:		arg_monster_face		,😁ケダック
 		var:		arg_return				,§３回目戦闘シーン
@@ -202,6 +204,8 @@ var document = {
 		var:		%clear%
 		var:		arg_bg_out				,🗻ツツジロード
 		var:		arg_bg_in				,🗻川堀町線ロード
+		var:		arg_sente_monster_name	,きふわらべ
+		var:		arg_gote_monster_name	,レサぽん改
 		var:		arg_monster_body		,🐕レサぽん改
 		var:		arg_monster_face		,😁レサぽん改
 		var:		arg_return				,§ＶＳ昼ビール
@@ -218,6 +222,8 @@ var document = {
 		var:		%clear%
 		var:		arg_bg_out				,🗻川堀町線ロード
 		var:		arg_bg_in				,🗻川堀町線ロード
+		var:		arg_sente_monster_name	,きふわらべ
+		var:		arg_gote_monster_name	,昼ビール
 		var:		arg_monster_body		,🐕昼ビール
 		var:		arg_monster_face		,😁昼ビール
 		var:		arg_return				,§崎川市最強振興会館
