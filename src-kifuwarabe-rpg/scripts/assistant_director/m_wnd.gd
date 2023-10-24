@@ -51,6 +51,8 @@ func show_message_window(
 		# 現在開いている伝言窓をスナップショットに記憶
 		snapshot.append_currently_displayed_message_window(node_name)
 
+	# TODO 最後に表示した伝言窓を、カレントとする（表示した順を覚えておく必要がある）
+
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 	self.get_director().dump_last_displayed_message_window()
 
@@ -68,6 +70,8 @@ func hide_message_window(
 	if not is_department_leaved:
 		# 現在開いている伝言窓をスナップショットから除外
 		snapshot.remove_currently_displayed_message_window(node_name)
+
+	# TODO 最後に表示した伝言窓を、カレントとする（表示した順を覚えておく必要がある）
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 	self.get_director().dump_last_displayed_message_window()

@@ -19,7 +19,7 @@ var text_block_buffer = ""
 #	タイプライターのカウント
 var count_of_typewriter = 0
 
-# TODO こちらは将来的に廃止したい
+# TODO こちらは将来的に廃止したい。最後に表示した伝言窓をカレントにするために、まだ使うかも知れない
 # 伝言窓のノード名。スタック構造をしている。文字列ではなく StringName 型
 var message_window_name_obj_stack = []
 
