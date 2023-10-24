@@ -180,7 +180,14 @@ var document = {
 		"""\
 		!
 		goto:			{{goto_next_section_from_encount_transition}}
-		""",		
+		""",
+	],
+	"§撤収":[
+		"""\
+		!
+		department:		📗ビジュアルノベル部門
+		goto:			{{arg_return}}
+		""",
 	],
 
 	#
@@ -346,8 +353,7 @@ var document = {
 		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン			,hide
-		department:		📗ビジュアルノベル部門
-		goto:			{{arg_return}}
+		goto:			§撤収
 		""",
 	],
 	#
@@ -390,8 +396,7 @@ var document = {
 		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン, hide
-		department:		📗ビジュアルノベル部門
-		goto:			{{arg_return}}
+		goto:			§撤収
 		""",
 	],
 	#
@@ -434,8 +439,7 @@ var document = {
 		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン, hide
-		department:		📗ビジュアルノベル部門
-		goto:			{{arg_return}}
+		goto:			§撤収
 		""",
 	],
 	#
@@ -565,10 +569,7 @@ var document = {
 		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン				,hide
-		m_wnd:			■下						,hide
-		department:		📗ビジュアルノベル部門
-		goto:			{{arg_return}}
-		m_wnd:			■下
+		goto:			§撤収
 		""",
 	],
 }
