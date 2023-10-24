@@ -644,4 +644,20 @@ await get_tree().create_timer(2).timeout
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　`Main` っていうノード作ってたけど、 `SwitchDepartment` みたいな名前の方がいいかな？」  
 
+# 📅 (2023-10-24 tue) ⏰23:35 部門切替
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　最近眠いし、２時までな」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`goto` は　シナリオを飛ぶが、 `department` は 部門を切り替えるんだぜ。  
+コマンドの意味は似ているが　動きは全然　異なるな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`department` では、 **（１）最後に表示していたウィンドウの状態の記憶** と、  
+**（２）以前に記憶していたウィンドウの状態の復元** の２つの機能がほしいわよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　１つ１つ　プログラム組むか～」  
+
 .

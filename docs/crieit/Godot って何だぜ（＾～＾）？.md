@@ -1207,4 +1207,28 @@ Zzz
 
 📖　[Godot でＲＰＧの自作戦闘を作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-652d0d4895975)  
 
+# 📅 2023-10-24 tue ゲームパッドを買った
+
+![202310__godot__24-2323--GamePad.png](https://crieit.now.sh/upload_images/03ed4e722d54307d75cfb57f9b15fea26537d3b214f6a.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ゲームパッドを７個買った。届いたら Godot で使えるか確認するぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　１９９６年の次世代機戦争の頃のゲームパッドねえ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Nintendo Switch 風のゲームパッドも買っておいたぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ロクヨン、ゲームキューブ、ウィーユーのリモコンは無いの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　即売会の長机の卓上に置くスペースが無いんで」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　じゃあ　戦闘画面の開発に戻れだぜ」  
+
+📖　[Godot でＲＰＧの自作戦闘を作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-652d0d4895975)  
+
 .
