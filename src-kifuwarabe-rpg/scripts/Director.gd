@@ -79,13 +79,13 @@ func dump_last_displayed_message_window():
 	
 	# 部門名一覧
 	var department_names = self.get_all_department_names()
-	for department_name in 	department_names:	
+	for department_name in 	department_names:
 		print("　　部門：　" + department_name)
 
 		# スナップショット
 		var snapshot = self.get_snapshot(department_name)
 		
-		for window_name in snapshot.node_names_obj_of_currently_displayed_message_window:
+		for window_name in snapshot.node_names_of_currently_displayed_message_window:
 			print("　　　　👁 " + window_name)
 
 

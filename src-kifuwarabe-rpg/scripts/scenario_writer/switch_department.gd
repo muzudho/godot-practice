@@ -15,7 +15,7 @@ var key_pressed_stage_directions = {
 			# `%hide_current_it_then_push_it_to_stack%` - 現在のウィンドウを隠し、そして、それをスタックへプッシュする
 			"""\
 			!
-			m_wnd:			%hide_current_it_then_push_it_to_stack%
+			#m_wnd:			%hide_current_it_then_push_it_to_stack%
 			department:		📗システムメニュー部門
 			goto:			§システムメニュー画面
 			""",
@@ -28,10 +28,10 @@ var key_pressed_stage_directions = {
 			!
 			
 			# ■中央 ウィンドウとは限らないのでは？
-			m_wnd:			■中央, hide
+			#m_wnd:			■中央, hide
 			
 			department:		📗ビジュアルノベル部門
-			m_wnd:			%pop_it_from_stack_then_show_current_it%
+			#m_wnd:			%pop_it_from_stack_then_show_current_it%
 			""",
 	},
 }

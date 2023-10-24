@@ -33,9 +33,9 @@ var document = {
 		# 部門変更
 		"""\
 		!
-		m_wnd:		■中央, hide
-		goto:		§システムメニュー画面
-		m_wnd:		■下
+		#m_wnd:		■中央, hide
+		#goto:		§システムメニュー画面
+		#m_wnd:		■下
 		department:	📗ビジュアルノベル部門
 		""",
 	],

@@ -37,16 +37,16 @@ func do_it(line):
 
 	if sub_command == "hide":
 		# 伝言窓を隠す
-		self.hide_me(StringName(node_name))
+		self.hide_message_window(StringName(node_name))
 		return
 
 	# 伝言窓を表示する
-	self.show_me(StringName(node_name))
+	self.show_message_window(StringName(node_name))
 
 
 # 伝言窓を見せる
 #	ただし、表示する文章がない場合は窓は消えています（状態機械の都合、文章が無ければウィンドウを消す）
-func show_me(
+func show_message_window(
 		node_name,						# StringName
 		is_department_entered = false):	# bool
 	var snapshot = self.get_director().get_current_snapshot()
@@ -62,8 +62,9 @@ func show_me(
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 	self.get_director().dump_last_displayed_message_window()
 
+
 # 伝言窓を隠す
-func hide_me(
+func hide_message_window(
 		node_name,						# StringName
 		is_department_leaved = false):	# bool
 	var snapshot = self.get_director().get_current_snapshot()
@@ -89,10 +90,11 @@ func hide_current_it_then_push_it_to_stack():
 	print("［命令　伝言窓　”" + current_node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　現在の伝言窓を隠し、そして、それをスタックへプッシュする")
 
 	# 現在の伝言窓を隠す
-	self.hide_me(str(current_node_name))
+	self.hide_message_window(str(current_node_name))
 
 	# スタックにプッシュする
 	snapshot.message_window_name_obj_stack.push_back(current_node_name)
+
 
 # スタックからウィンドウをポップし、そして、それを見せる
 func pop_it_from_stack_then_show_current_it():
@@ -104,5 +106,5 @@ func pop_it_from_stack_then_show_current_it():
 	print("［命令　伝言窓　”" + peek_node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　スタックから伝言窓をポップし、そして、それを見せる")
 
 	# スタックからポップした伝言窓を見せる
-	self.show_me(str(peek_node_name))
+	self.show_message_window(str(peek_node_name))
 

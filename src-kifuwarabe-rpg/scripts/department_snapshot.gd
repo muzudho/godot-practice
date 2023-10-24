@@ -24,9 +24,9 @@ var count_of_typewriter = 0
 var message_window_name_obj_stack = []
 
 # TODO こちらは将来的に使いたい
-# 現在表示中の伝言窓のノード名
+# 現在表示中の伝言窓のノード名（StringName型）
 #	`m_wnd *` コマンドで追加、 `m_wnd, hide` コマンドで除外
-var node_names_obj_of_currently_displayed_message_window = []
+var node_names_of_currently_displayed_message_window = []
 
 # 「§」セクション名
 var section_name = null
@@ -73,12 +73,13 @@ func remember(
 
 # 現在開いているメッセージ・ウィンドウ名を追加
 func append_currently_displayed_message_window(
-		node_name_obj):		# StringName
-	self.node_names_obj_of_currently_displayed_message_window.append(node_name_obj)
+		node_name):		# StringName
+	self.node_names_of_currently_displayed_message_window.append(node_name)
+
 
 # 現在開いているメッセージ・ウィンドウ名を除去
 func remove_currently_displayed_message_window(
-		node_name_obj):		# StringName
-	var index = self.node_names_obj_of_currently_displayed_message_window.find(node_name_obj)
+		node_name):		# StringName
+	var index = self.node_names_of_currently_displayed_message_window.find(node_name)
 	if 0<=index:
-		self.node_names_obj_of_currently_displayed_message_window.remove_at(index)
+		self.node_names_of_currently_displayed_message_window.remove_at(index)
