@@ -7,7 +7,7 @@ var DepartmentSnapshot = load("res://scripts/department_snapshot.gd")
 
 
 # 現在の部門
-var current_department = null
+var current_department_name = null
 # 現在鳴っている背景音楽のノード名
 var current_bgm_name = null
 # 現在鳴っている効果音のノード名
@@ -36,7 +36,7 @@ func get_snapshot(department_name):
 
 
 func get_current_snapshot():
-	return self.get_snapshot(self.current_department)
+	return self.get_snapshot(str(self.current_department_name))
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -158,8 +158,8 @@ func _ready():
 
 	#
 
-	# 最初に実行する部門
-	self.current_department = self.get_switch_department().start_department
+	# 最初に実行する部門名
+	self.current_department_name = self.get_switch_department().start_department_name
 
 	var snapshot = self.get_current_snapshot()
 
@@ -183,10 +183,10 @@ func _unhandled_key_input(event):
 	if event.is_pressed():
 
 		# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-		if self.current_department in self.get_switch_department().key_pressed_stage_directions:
+		if str(self.current_department_name) in self.get_switch_department().key_pressed_stage_directions:
 			
 			# その要素を取得
-			var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[self.current_department]
+			var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[str(self.current_department_name)]
 			
 			# 押したキーに紐づく、ト書きは辞書に記載されているか？
 			if event.keycode in key_pressed_stage_directions_1:
