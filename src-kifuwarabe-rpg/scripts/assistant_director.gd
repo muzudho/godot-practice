@@ -125,17 +125,7 @@ func expand_variables(target_before_change):
 		
 		# 無限に変数展開することを防ぐため、変換前文字列と、変換後文字列は別途用意する
 		var terget_after_change = ""
-		
-		# テスト
-		#var regex = RegEx.new()
-		#regex.compile("\\{\\{(\\w)\\}\\}")
-		#var results = []
-		#for result in regex.search_all(target_before_change):
-		#	var temp_text2 = result.get_string()
-		#	print("［助監　変数展開］　テキスト：［" + temp_text2 + "］")
-		#	results.push_back(temp_text2)
-		# テスト
-		
+				
 		var from = 0
 		
 		while from < target_before_change.length():
@@ -151,10 +141,17 @@ func expand_variables(target_before_change):
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
 				print("［助監　変数展開］　変数キー：［" + key + "］")
 				
-				var value = self.get_director().stage_directions_variables[key]
-				print("［助監　変数展開］　変数値：［" + value + "］")
+				if key in self.get_director().stage_directions_variables:
+					var value = self.get_director().stage_directions_variables[key]
+					print("［助監　変数展開］　変数値：［" + value + "］")
 				
-				terget_after_change += value
+					terget_after_change += value
+				
+				else:
+					print("［助監　変数展開］　変数値が見つかりません")
+					
+					# 仕方ないので、カッコ悪いが、キー（ハンドルバー）を画面に表示する
+					terget_after_change += "{{" + key + "}}"
 
 				from = close_index + 2
 		

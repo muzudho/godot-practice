@@ -331,21 +331,30 @@ var document = {
 		m_wnd:			■下
 		""",
 	],
+	#
+	#
+	#
 	"§２回目戦闘シーン":[
 		# 戦闘開始
 		"""\
 		!
-		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		{{arg_monster_body}}
 		monster_face:	{{arg_monster_face}}
-		bgm:			🎵バトル２
 		""",
+		"""\
+		!
+		var:		goto_next_from_encount_transition	,§２回目戦闘シーン＜開始＞
+		goto:		§エンカウント・トランジション
+		""",
+	],
+	"§２回目戦闘シーン＜開始＞":[
 		# 画面設定
 		"""\
 		!
+		bgm:		🎵バトル２
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　　２０"
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　　１０"
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　　３０"
@@ -362,7 +371,6 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				{{arg_bg}}			,hide
 		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ, hide
 		monster:		{{arg_monster_body}}	,hide
@@ -374,21 +382,30 @@ var document = {
 		m_wnd:			■下
 		""",
 	],
+	#
+	#
+	#
 	"§３回目戦闘シーン":[
 		# 戦闘開始
 		"""\
 		!
-		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		{{arg_monster_body}}
 		monster_face:	{{arg_monster_face}}
-		bgm:			🎵バトル３
 		""",
+		"""\
+		!
+		var:		goto_next_from_encount_transition	,§３回目戦闘シーン＜開始＞
+		goto:		§エンカウント・トランジション
+		""",
+	],
+	"§３回目戦闘シーン＜開始＞":[
 		# 画面設定
 		"""\
 		!
+		bgm:		🎵バトル３
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"　１００"
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"　１２０"
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"　１００"
@@ -405,7 +422,6 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				{{arg_bg}}				,hide
 		bg:				🗻戦闘シーン			,hide
 		monster_face:	😁きふわらべ			,hide
 		monster:		{{arg_monster_body}}	,hide
@@ -417,22 +433,30 @@ var document = {
 		m_wnd:			■下
 		""",
 	],
+	#
 	# 昼ビール
+	#
 	"§ＶＳ昼ビール":[
 		# 戦闘開始
 		"""\
 		!
-		bg:				{{arg_bg}}
 		bg:				🗻戦闘シーン
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster:		{{arg_monster_body}}
 		monster_face:	{{arg_monster_face}}
-		bgm:			🎵バトル３
 		""",
+		"""\
+		!
+		var:		goto_next_from_encount_transition	,§ＶＳ昼ビール＜開始＞
+		goto:		§エンカウント・トランジション
+		""",
+	],
+	"§ＶＳ昼ビール＜開始＞":[
 		# 画面設定
 		"""\
 		!
+		bgm:		🎵バトル３
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４３００"
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/逃げ道の広さ_上	,"４１００"
 		label:		Director/TelopCoordinator/Ｔ戦闘シーン/駒の働き_上		,"４２００"
@@ -536,12 +560,11 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				{{arg_bg}}				,hide
 		bg:				🗻戦闘シーン			,hide
 		monster_face:	😁きふわらべ			,hide
 		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
-		telop:			Ｔ戦闘シーン			,hide
+		telop:			Ｔ戦闘シーン				,hide
 		m_wnd:			■下						,hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}

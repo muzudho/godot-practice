@@ -184,10 +184,11 @@ var document = {
 		department:	📗バトル部門
 		goto:		§２回目戦闘シーン
 		var:		%clear%
-		var:		arg_bg				,🗻ツツジロード
-		var:		arg_monster_body	,🐕ケダック
-		var:		arg_monster_face	,😁ケダック
-		var:		arg_return			,§３回目戦闘シーン
+		var:		arg_bg_out				,🗻ツツジロード
+		var:		arg_bg_in				,🗻ツツジロード
+		var:		arg_monster_body		,🐕ケダック
+		var:		arg_monster_face		,😁ケダック
+		var:		arg_return				,§３回目戦闘シーン
 		m_wnd:		■下
 		""",
 	],
@@ -199,10 +200,11 @@ var document = {
 		department:	📗バトル部門
 		goto:		§３回目戦闘シーン
 		var:		%clear%
-		var:		arg_bg				,🗻川堀町線ロード
-		var:		arg_monster_body	,🐕レサぽん改
-		var:		arg_monster_face	,😁レサぽん改
-		var:		arg_return			,§ＶＳ昼ビール
+		var:		arg_bg_out				,🗻ツツジロード
+		var:		arg_bg_in				,🗻川堀町線ロード
+		var:		arg_monster_body		,🐕レサぽん改
+		var:		arg_monster_face		,😁レサぽん改
+		var:		arg_return				,§ＶＳ昼ビール
 		m_wnd:		■下
 		""",
 	],
@@ -214,10 +216,11 @@ var document = {
 		department:	📗バトル部門
 		goto:		§ＶＳ昼ビール
 		var:		%clear%
-		var:		arg_bg				,🗻川堀町線ロード
-		var:		arg_monster_body	,🐕昼ビール
-		var:		arg_monster_face	,😁昼ビール
-		var:		arg_return			,§崎川市最強振興会館
+		var:		arg_bg_out				,🗻川堀町線ロード
+		var:		arg_bg_in				,🗻川堀町線ロード
+		var:		arg_monster_body		,🐕昼ビール
+		var:		arg_monster_face		,😁昼ビール
+		var:		arg_return				,§崎川市最強振興会館
 		m_wnd:		■下
 		""",
 	],
