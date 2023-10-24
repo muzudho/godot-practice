@@ -6,13 +6,13 @@ extends Node2D
 var DepartmentSnapshot = load("res://scripts/department_snapshot.gd")
 
 
-# 現在の部門
+# 現在の部門（StringName型）
 var current_department_name = null
 # 現在鳴っている背景音楽のノード名
 var current_bgm_name = null
 # 現在鳴っている効果音のノード名
 var current_se_name = null
-# スナップショット辞書
+# スナップショット辞書（キー：StringName型）
 var snapshots = {}
 # ト書き（シナリオの命令パラグラフ）で使える変数の辞書
 var stage_directions_variables = {}
@@ -31,12 +31,13 @@ func get_switch_department():
 
 
 # スナップショット
-func get_snapshot(department_name):
+func get_snapshot(
+	department_name):	# StringName
 	return self.snapshots[department_name]
 
 
 func get_current_snapshot():
-	return self.get_snapshot(str(self.current_department_name))
+	return self.get_snapshot(self.current_department_name)
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -92,28 +93,27 @@ func dump_last_displayed_message_window():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	# 子要素にメンバーを渡す
 	# スナップショット辞書作成
-	for department in $"ScenarioWriter".get_children():
-		# SwitchDepartment と System は除く
-		if department.name != "SwitchDepartment" and department.name != "System":
-			self.snapshots[department.name] = DepartmentSnapshot.new()
+	for department_name in self.get_all_department_names():
+		var department_node = $"ScenarioWriter".get_node(str(department_name))
+		if department_node.name != "SwitchDepartment" and department_node.name != "System":
+			self.snapshots[department_node.name] = DepartmentSnapshot.new()
 
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す
-			self.snapshots[department.name].name = department.name		# StringName 型
+			self.snapshots[department_node.name].name = department_node.name		# StringName 型
 			
 			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-			if department.name =="📗ビジュアルノベル部門":
-				self.snapshots[department.name].message_window_name_obj_stack.push_back(&"■下")	# StringName 型 シンタックス・シュガー
-			elif department.name =="📗システムメニュー部門":
-				self.snapshots[department.name].message_window_name_obj_stack.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
-				#self.snapshots[department.name].message_window_name_obj_stack.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
-			elif department.name =="📗バトル部門":
-				self.snapshots[department.name].message_window_name_obj_stack.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+			if department_node.name =="📗ビジュアルノベル部門":
+				self.snapshots[department_node.name].message_window_name_obj_stack.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+			elif department_node.name =="📗システムメニュー部門":
+				self.snapshots[department_node.name].message_window_name_obj_stack.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
+				#self.snapshots[department_node.name].message_window_name_obj_stack.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
+			elif department_node.name =="📗バトル部門":
+				self.snapshots[department_node.name].message_window_name_obj_stack.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 
 
 			# 文書辞書の先頭要素のキー取得
-			self.snapshots[department.name].section_name = $"ScenarioWriter".get_node(str(department.name)).document.keys()[0]
+			self.snapshots[department_node.name].section_name = $"ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	#

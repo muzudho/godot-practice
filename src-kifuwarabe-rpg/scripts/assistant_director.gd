@@ -13,7 +13,8 @@ func get_scenario_writer():
 
 
 # ビジュアル・ノベル部のこの瞬間の状態
-func get_snapshot(department_node_name):
+func get_snapshot(
+	department_node_name):	# StringName
 	return $"../System/Snapshots".get_node(department_node_name)
 
 
