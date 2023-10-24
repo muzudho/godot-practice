@@ -21,7 +21,7 @@ func get_musician():
 func do_it(line):
 
 	var csv = line.substr(4).strip_edges()
-	print("［命令　ＢＧＭ］　CSV：[" + csv + "]")
+	print("［命令　ＢＧＭ］　CSV：[" + csv + "]　Line:［" + line + "］")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 

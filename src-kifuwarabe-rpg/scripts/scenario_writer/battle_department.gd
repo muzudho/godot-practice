@@ -112,6 +112,7 @@ var document = {
 		sleep:			0.15
 		""",
 		# ここで画面全体が真っ黒になっている
+		# モンスターの全身像もここで表示する
 		"""\
 		!
 		monster:		{{arg_monster_body}}
@@ -177,6 +178,16 @@ var document = {
 			
 			# 匿名関数の終わりのコンマ
 			,
+		# 戦闘開始
+		"""\
+		!
+		se:
+		telop:			Ｔ戦闘シーン
+		monster_face:	😁きふわらべ
+		monster_face:	{{arg_monster_face}}
+		m_wnd:			■下
+		m_wnd:			■左下
+		""",
 		"""\
 		!
 		goto:			{{goto_next_section_from_encount_transition}}
@@ -185,6 +196,14 @@ var document = {
 	"§撤収":[
 		"""\
 		!
+		bg:				{{arg_bg_in}}			,hide
+		bg:				🗻戦闘シーン			,hide
+		monster_face:	😁きふわらべ			,hide
+		monster:		{{arg_monster_body}}	,hide
+		monster_face:	{{arg_monster_face}}	,hide
+		telop:			Ｔ戦闘シーン				,hide
+		#bg:				{{arg_bg_out}}
+
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}
 		""",
@@ -204,13 +223,7 @@ var document = {
 		# 戦闘開始
 		"""\
 		!
-		se:
-		telop:			Ｔ戦闘シーン
 		bgm:			🎵バトル１, 8.6
-		monster_face:	😁きふわらべ
-		monster_face:	{{arg_monster_face}}
-		m_wnd:			■下
-		m_wnd:			■左下
 		""",
 		"""\
 		!
@@ -327,9 +340,10 @@ var document = {
 		{{arg_gote_monster_name}}
 		「参りました
 		""",
+		# 戦闘終了
 		"""\
 		!
-		goto:	§戦闘終了１
+		goto:	§撤収
 		""",
 	],
 	"§後手番投了": [
@@ -337,38 +351,17 @@ var document = {
 		{{arg_gote_monster_name}}
 		「参りました
 		""",
-		"""\
-		!
-		goto:	§戦闘終了１
-		""",
-	],
-	"§戦闘終了１": [
 		# 戦闘終了
 		"""\
 		!
-		bg:				{{arg_bg_in}}			,hide
-		bg:				{{arg_bg_out}}
-		bg:				🗻戦闘シーン			,hide
-		monster_face:	😁きふわらべ			,hide
-		monster:		{{arg_monster_body}}	,hide
-		monster_face:	{{arg_monster_face}}	,hide
-		telop:			Ｔ戦闘シーン			,hide
-		goto:			§撤収
+		goto:	§撤収
 		""",
 	],
 	#
 	#
 	#
 	"§２回目戦闘シーン":[
-		# 戦闘開始
-		"""\
-		!
-		bg:				🗻戦闘シーン
-		telop:			Ｔ戦闘シーン
-		monster_face:	😁きふわらべ
-		monster:		{{arg_monster_body}}
-		monster_face:	{{arg_monster_face}}
-		""",
+		# あれば初期設定
 		"""\
 		!
 		var:		goto_next_section_from_encount_transition	,§２回目戦闘シーン＜開始＞
@@ -391,11 +384,6 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				🗻戦闘シーン		,hide
-		monster_face:	😁きふわらべ, hide
-		monster:		{{arg_monster_body}}	,hide
-		monster_face:	{{arg_monster_face}}	,hide
-		telop:			Ｔ戦闘シーン, hide
 		goto:			§撤収
 		""",
 	],
@@ -403,15 +391,7 @@ var document = {
 	#
 	#
 	"§３回目戦闘シーン":[
-		# 戦闘開始
-		"""\
-		!
-		bg:				🗻戦闘シーン
-		telop:			Ｔ戦闘シーン
-		monster_face:	😁きふわらべ
-		monster:		{{arg_monster_body}}
-		monster_face:	{{arg_monster_face}}
-		""",
+		# あれば初期設定
 		"""\
 		!
 		var:		goto_next_section_from_encount_transition	,§３回目戦闘シーン＜開始＞
@@ -434,11 +414,6 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				🗻戦闘シーン			,hide
-		monster_face:	😁きふわらべ			,hide
-		monster:		{{arg_monster_body}}	,hide
-		monster_face:	{{arg_monster_face}}	,hide
-		telop:			Ｔ戦闘シーン, hide
 		goto:			§撤収
 		""",
 	],
@@ -446,15 +421,7 @@ var document = {
 	# 昼ビール
 	#
 	"§ＶＳ昼ビール":[
-		# 戦闘開始
-		"""\
-		!
-		bg:				🗻戦闘シーン
-		telop:			Ｔ戦闘シーン
-		monster_face:	😁きふわらべ
-		monster:		{{arg_monster_body}}
-		monster_face:	{{arg_monster_face}}
-		""",
+		# あれば初期設定
 		"""\
 		!
 		var:		goto_next_section_from_encount_transition	,§ＶＳ昼ビール＜開始＞
@@ -564,11 +531,6 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				🗻戦闘シーン			,hide
-		monster_face:	😁きふわらべ			,hide
-		monster:		{{arg_monster_body}}	,hide
-		monster_face:	{{arg_monster_face}}	,hide
-		telop:			Ｔ戦闘シーン				,hide
 		goto:			§撤収
 		""",
 	],

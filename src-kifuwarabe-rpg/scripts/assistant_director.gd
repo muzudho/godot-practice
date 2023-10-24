@@ -156,14 +156,14 @@ func expand_variables(target_before_change):
 				from = close_index + 2
 		
 			else:
-				print("［助監　変数展開］　対象なし　段落：［" + target_before_change + "］")
+				#print("［助監　変数展開］　対象なし　段落：［" + target_before_change + "］")
 				terget_after_change += target_before_change.substr(from)
 				break
 
 		return terget_after_change
 	
 	else:
-		print("［助監　変数展開］　対象なし　非テキスト")
+		#print("［助監　変数展開］　対象なし　非テキスト")
 		return target_before_change
 	
 
