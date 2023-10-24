@@ -35,29 +35,24 @@ var choices_mappings = {
 # この書き方だと、実はインデントのタブが台詞データとして入っている。
 # インデントのタブは、プログラム側で省く処理を入れておくとする
 var document = {
-	"§戦闘デパートメント開始":[
-		# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
-		func():
-			var sente_monster_name = self.get_director().stage_directions_variables["arg_sente_monster_name"]
-			var gote_monster_name = self.get_director().stage_directions_variables["arg_gote_monster_name"]
-						
-			var sente_monster_id = self.get_scorer().lookup_monster_id_by_name(sente_monster_name)
-			var gote_monster_id = self.get_scorer().lookup_monster_id_by_name(gote_monster_name)
-			
-			# ロード
-			self.get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
-			
-			# 匿名関数の終わりのコンマ
-			,
-		"""\
-		!
-		goto:		§エンカウント・トランジション
-		""",
-	],	
+	#
+	# 最初に、共通処理を並べる
+	#
 	"§エンカウント・トランジション":[
+		#
+		# Arguments
+		# =========
+		# {{arg_bg_out}}
+		#	元背景
+		# {{arg_bg_in}}
+		#	先背景
+		# {{arg_monster_body}}
+		#	怪物の体
+		# {{goto_next_from_encount_transition}}
+		#
 		"""\
 		!
-		bgm:			
+		bgm:
 		se:				🔔エンカウント音
 		sleep:			0.15
 		""",
@@ -89,7 +84,7 @@ var document = {
 		# ここで画面全体が真っ黒になっている
 		"""\
 		!
-		monster:		{{arg_monster}}
+		monster:		{{arg_monster_body}}
 		bg:				🗻トランジション１コマ８
 		bg:				🗻トランジション１コマ４, hide
 		sleep:			0.10
@@ -121,8 +116,32 @@ var document = {
 		""",		
 		"""\
 		!
-		goto:			§ステータス初期セット
+		goto:			{{goto_next_from_encount_transition}}
 		""",		
+	],
+
+	#
+	# 以下、固有処理
+	#
+	"§戦闘デパートメント開始":[
+		# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
+		func():
+			var sente_monster_name = self.get_director().stage_directions_variables["arg_sente_monster_name"]
+			var gote_monster_name = self.get_director().stage_directions_variables["arg_gote_monster_name"]
+						
+			var sente_monster_id = self.get_scorer().lookup_monster_id_by_name(sente_monster_name)
+			var gote_monster_id = self.get_scorer().lookup_monster_id_by_name(gote_monster_name)
+			
+			# ロード
+			self.get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
+			
+			# 匿名関数の終わりのコンマ
+			,
+		"""\
+		!
+		var:		goto_next_from_encount_transition	,§ステータス初期セット
+		goto:		§エンカウント・トランジション
+		""",
 	],
 	"§ステータス初期セット":[
 		# 戦闘開始
@@ -302,7 +321,7 @@ var document = {
 		bg:				{{arg_bg_out}}
 		bg:				🗻戦闘シーン			,hide
 		monster_face:	😁きふわらべ			,hide
-		monster:		{{arg_monster}}			,hide
+		monster:		{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン			,hide
 		m_wnd:			■下						,hide
@@ -320,7 +339,7 @@ var document = {
 		bg:				🗻戦闘シーン
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
-		monster:		{{arg_monster}}
+		monster:		{{arg_monster_body}}
 		monster_face:	{{arg_monster_face}}
 		bgm:			🎵バトル２
 		""",
@@ -346,8 +365,8 @@ var document = {
 		bg:				{{arg_bg}}			,hide
 		bg:				🗻戦闘シーン		,hide
 		monster_face:	😁きふわらべ, hide
-		monster:		{{arg_monster}}, hide
-		monster_face:	{{arg_monster_face}}, hide
+		monster:		{{arg_monster_body}}	,hide
+		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン, hide
 		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
@@ -363,7 +382,7 @@ var document = {
 		bg:				🗻戦闘シーン
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
-		monster:		{{arg_monster}}
+		monster:		{{arg_monster_body}}
 		monster_face:	{{arg_monster_face}}
 		bgm:			🎵バトル３
 		""",
@@ -386,11 +405,11 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				{{arg_bg}}			,hide
-		bg:				🗻戦闘シーン		,hide
-		monster_face:	😁きふわらべ, hide
-		monster:		{{arg_monster}}, hide
-		monster_face:	{{arg_monster_face}}, hide
+		bg:				{{arg_bg}}				,hide
+		bg:				🗻戦闘シーン			,hide
+		monster_face:	😁きふわらべ			,hide
+		monster:		{{arg_monster_body}}	,hide
+		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン, hide
 		m_wnd:			■下, hide
 		department:		📗ビジュアルノベル部門
@@ -407,7 +426,7 @@ var document = {
 		bg:				🗻戦闘シーン
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
-		monster:		{{arg_monster}}
+		monster:		{{arg_monster_body}}
 		monster_face:	{{arg_monster_face}}
 		bgm:			🎵バトル３
 		""",
@@ -517,13 +536,13 @@ var document = {
 		# 戦闘終了
 		"""\
 		!
-		bg:				{{arg_bg}}			,hide
-		bg:				🗻戦闘シーン		,hide
-		monster_face:	😁きふわらべ, hide
-		monster:		{{arg_monster}}, hide
-		monster_face:	{{arg_monster_face}}, hide
-		telop:			Ｔ戦闘シーン, hide
-		m_wnd:			■下, hide
+		bg:				{{arg_bg}}				,hide
+		bg:				🗻戦闘シーン			,hide
+		monster_face:	😁きふわらべ			,hide
+		monster:		{{arg_monster_body}}	,hide
+		monster_face:	{{arg_monster_face}}	,hide
+		telop:			Ｔ戦闘シーン			,hide
+		m_wnd:			■下						,hide
 		department:		📗ビジュアルノベル部門
 		goto:			{{arg_return}}
 		m_wnd:			■下
