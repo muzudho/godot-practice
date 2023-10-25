@@ -1240,4 +1240,18 @@ Zzz
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　わかった、わかった」  
 
+# 📅 2023-10-25 wed 寝てた
+
+Zzz...
+
+# 📅 2023-10-26 thu 気力ゼロ
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　やる気ナッシング」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　分かった　分かった　戦闘画面を作れだぜ」
+
+📖　[Godot でＲＰＧの自作戦闘を作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-652d0d4895975)  
+
 .
