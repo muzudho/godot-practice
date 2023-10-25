@@ -51,7 +51,11 @@ func show_message_window(
 		# 現在開いている伝言窓をスナップショットに記憶
 		snapshot.append_currently_displayed_message_window(node_name)
 
-	# TODO 最後に表示した伝言窓を、カレントとする（表示した順を覚えておく必要がある）
+		# 表示した順を覚えておく。スタックに既存なら最後尾に回す
+		if node_name in snapshot.stack_of_last_displayed_message_window:
+			var index = snapshot.stack_of_last_displayed_message_window.find(node_name)
+			snapshot.stack_of_last_displayed_message_window.remove_at(index)
+		snapshot.stack_of_last_displayed_message_window.push_back(node_name)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 	self.get_director().dump_last_displayed_message_window()
@@ -71,7 +75,10 @@ func hide_message_window(
 		# 現在開いている伝言窓をスナップショットから除外
 		snapshot.remove_currently_displayed_message_window(node_name)
 
-	# TODO 最後に表示した伝言窓を、カレントとする（表示した順を覚えておく必要がある）
+		# 表示した順序を覚えているスタックから除外する
+		var index = snapshot.stack_of_last_displayed_message_window.find(node_name)
+		if 0 <= index:
+			snapshot.stack_of_last_displayed_message_window.remove_at(index)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 	self.get_director().dump_last_displayed_message_window()
