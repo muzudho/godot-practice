@@ -191,6 +191,7 @@ material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_lfp38")
 
 [node name="Grid" type="Sprite2D" parent="."]
+visible = false
 z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_m3vrv")
@@ -759,6 +760,7 @@ label_settings = ExtResource("31_jo5cu")
 [node name="WindowsOfMessage" type="Node2D" parent="GuiArtist"]
 
 [node name="■下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
+visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
@@ -766,6 +768,7 @@ texture = ExtResource("45_xd4ld")
 script = ExtResource("30_bblis")
 
 [node name="■下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
+visible = false
 
 [node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer"]
 offset_left = 319.0
@@ -860,7 +863,6 @@ label_settings = SubResource("LabelSettings_2oa1m")
 script = ExtResource("33_1xmx8")
 
 [node name="■左下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
-visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
@@ -868,34 +870,34 @@ texture = ExtResource("50_spu2o")
 script = ExtResource("30_bblis")
 
 [node name="■左下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
-visible = false
 
 [node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer"]
-offset_left = 319.0
-offset_top = 507.0
-offset_right = 1013.0
-offset_bottom = 663.0
-text = "表示テストだあいうえかきくけさしすせたち
-つてなにぬねはひふへまみむめやゆよ～わを
-がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+offset_left = 32.0
+offset_top = 508.0
+offset_right = 726.0
+offset_bottom = 664.0
+text = "表示テストだ
+あいうえおか
+きくけこさし
+すせたちつて"
 label_settings = ExtResource("25_s5t71")
 
 [node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
-offset_left = 643.0
-offset_top = 90.0
-offset_right = 675.0
-offset_bottom = 135.0
+offset_left = 163.0
+offset_top = 140.0
+offset_right = 195.0
+offset_bottom = 185.0
 text = "▼"
 label_settings = ExtResource("25_s5t71")
 script = ExtResource("33_1xmx8")
 
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
-offset_left = 641.0
-offset_top = 98.0
-offset_right = 673.0
-offset_bottom = 143.0
+offset_left = 160.0
+offset_top = 147.0
+offset_right = 192.0
+offset_bottom = 192.0
 text = "＿"
 label_settings = ExtResource("25_s5t71")
 script = ExtResource("33_1xmx8")

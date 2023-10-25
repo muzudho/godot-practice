@@ -742,4 +742,17 @@ await get_tree().create_timer(2).timeout
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　少し戦うかあ」  
 
+（カタ　カタ　カタ　カタ）
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　メッセージ・ウィンドウの表示順は　覚えておくようにしたぜ」  
+
+## コマンド欄
+
+![202310__godot__26-0822--BattleCommand.png](https://crieit.now.sh/upload_images/70a65d2636c71c2bce65587d98808a356539a35f7a058.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　コマンド欄が　メッセージ・ウィンドウになってしまっている。  
+選択肢に直したいぜ」  
+
 .

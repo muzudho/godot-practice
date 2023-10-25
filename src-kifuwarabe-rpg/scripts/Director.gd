@@ -49,9 +49,12 @@ func get_message_window(node_name_obj):
 # 伝言窓（現在、出力の対象になっているもの）
 func get_current_message_window():
 	var snapshot = self.get_current_snapshot()
-	var name_str = str(snapshot.message_window_name_obj_stack[-1])
-	print("［監督］　伝言窓名：［" + name_str + "］")
-	return self.get_message_window(name_str)
+	if snapshot.stack_of_last_displayed_message_window.size() < 1:
+		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
+
+	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
+	print("［監督］　伝言窓名：［" + node_name + "］")
+	return self.get_message_window(str(node_name))
 
 
 # 現在の「§」セクション設定
@@ -101,15 +104,16 @@ func _ready():
 
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す
 			self.snapshots[department_node.name].name = department_node.name		# StringName 型
-			
+
+			# TODO この初期化は必要か？
 			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
 			if department_node.name =="📗ビジュアルノベル部門":
-				self.snapshots[department_node.name].message_window_name_obj_stack.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 			elif department_node.name =="📗システムメニュー部門":
-				self.snapshots[department_node.name].message_window_name_obj_stack.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
-				#self.snapshots[department_node.name].message_window_name_obj_stack.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
+				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
+				#self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
 			elif department_node.name =="📗バトル部門":
-				self.snapshots[department_node.name].message_window_name_obj_stack.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 
 
 			# 文書辞書の先頭要素のキー取得

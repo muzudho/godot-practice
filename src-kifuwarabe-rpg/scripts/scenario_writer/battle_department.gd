@@ -185,8 +185,18 @@ var document = {
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster_face:	{{arg_monster_face}}
-		m_wnd:			■下
+		# 最後に表示したウィンドウが、メッセージ出力対象になるので並べる順に注意
 		m_wnd:			■左下
+		""",
+		"""\
+		攻める
+		守る
+		投了
+		勝ち宣言
+		""",
+		"""\
+		!
+		m_wnd:			■下
 		""",
 		"""\
 		!
