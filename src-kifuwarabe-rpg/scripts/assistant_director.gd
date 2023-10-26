@@ -258,6 +258,10 @@ func parse_paragraph(paragraph_text):
 			elif second_head.begins_with("monster_face:"):
 				$"MonsterFace".do_it(second_head)
 
+			# メッセージ・スピード変更
+			elif second_head.begins_with("msg_speed:"):
+				$"MsgSpeed".do_it(second_head)
+
 			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("m_wnd:"):
 				$"MWnd".do_it(second_head)

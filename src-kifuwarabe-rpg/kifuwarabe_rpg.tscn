@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=98 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_m3vrv"]
@@ -81,6 +81,7 @@
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="51_pfarw"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="52_lp131"]
 [ext_resource type="Script" path="res://scripts/assistant_director/sleep.gd" id="64_7tdxg"]
+[ext_resource type="Script" path="res://scripts/assistant_director/msg_speed.gd" id="74_b50cb"]
 [ext_resource type="Script" path="res://scripts/assistant_director/var.gd" id="80_2172p"]
 [ext_resource type="Script" path="res://scripts/scorer.gd" id="81_h1tnt"]
 [ext_resource type="Script" path="res://scripts/scorer/battle_sheet.gd" id="81_om202"]
@@ -1026,6 +1027,9 @@ script = ExtResource("41_0etqc")
 
 [node name="MonsterFace" type="Node" parent="AssistantDirector"]
 script = ExtResource("49_n38p5")
+
+[node name="MsgSpeed" type="Node" parent="AssistantDirector"]
+script = ExtResource("74_b50cb")
 
 [node name="MWnd" type="Node" parent="AssistantDirector"]
 script = ExtResource("23_a7vfu")

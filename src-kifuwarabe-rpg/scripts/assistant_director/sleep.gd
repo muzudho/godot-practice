@@ -1,4 +1,4 @@
-# スリープ（Sleep, 眠る）
+# スリープ（Sleep；眠る）
 #	指定秒待つ
 extends Node
 

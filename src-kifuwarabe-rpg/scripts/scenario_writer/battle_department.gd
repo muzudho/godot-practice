@@ -30,16 +30,33 @@ func get_system_of_battle():
 
 #	選択肢と移動先
 var choices_mappings = {
+	#	このキーは［セクション名］と呼ぶことにする。頭に「§」を付けているのは見やすさのためで、付けなくても構わない
+	"§バトルメニュー" : {
+		# 選択肢の行番号と、移動先の［セクション名］
+		1 : "§バトルコマンド決定",
+		2 : "§バトルコマンド決定",
+		3 : "§バトルコマンド決定",
+		4 : "§バトルコマンド決定",
+	},
 }
 
 # この書き方だと、実はインデントのタブが台詞データとして入っている。
 # インデントのタブは、プログラム側で省く処理を入れておくとする
 var document = {
-	#
+
+	# ーーーーーーーーーー
 	# 最初に、共通処理を並べる
-	#
+	# ーーーーーーーーーー
+
+	# とりあえず、他の画面からこのセクションへ飛んでくる
+	"§戦闘の始めに":[
+		"""\
+		!
+		goto:		§ロード・データ
+		""",
+	],
+	# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
 	"§ロード・データ":[
-		# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
 		#
 		# Arguments
 		# =========
@@ -77,7 +94,7 @@ var document = {
 		#	先背景
 		# {{arg_monster_body}}
 		#	怪物の体
-		# {{goto_next_section_from_encount_transition}}
+		# {{arg_battle_paragraph}}
 		#	次のセクション
 		#
 		"""\
@@ -185,22 +202,53 @@ var document = {
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster_face:	{{arg_monster_face}}
+		goto:			§バトルメニュー
+		""",
+	],
+	"§バトルメニュー":[
+		"""\
+		!
 		# 最後に表示したウィンドウが、メッセージ出力対象になるので並べる順に注意
 		m_wnd:			■左下
+		msg_speed:		1000
+		choice:			1,2,3,4
 		""",
 		"""\
-		攻める
-		守る
-		投了
-		勝ち宣言
+		　攻める
+		　守る
+		　投了
+		　勝ち宣言
 		""",
+	],
+	"§バトルコマンド決定":[
 		"""\
 		!
 		m_wnd:			■下
+		msg_speed:		20
 		""",
 		"""\
 		!
-		goto:			{{goto_next_section_from_encount_transition}}
+		goto:			§定刻
+		""",
+	],
+	"§定刻": [
+		# 戦闘開始
+		"""\
+		!
+		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
+		""",
+		# ２３４５６７８９０１２３４５６７８９０
+		"""\
+		審判
+		「ログインしてくださーい！
+		""",
+		"""\
+		両対局者
+		「「よろしくお願いします
+		""",
+		"""\
+		!
+		goto:			{{arg_battle_paragraph}}
 		""",
 	],
 	"§撤収":[
@@ -219,38 +267,10 @@ var document = {
 		""",
 	],
 
-	#
+	# ーーーーーーーーーー
 	# 以下、固有処理
-	#
-	"§戦闘デパートメント開始":[
-		"""\
-		!
-		var:		goto_next_section_from_encount_transition	,§ステータス初期セット
-		goto:		§ロード・データ
-		""",
-	],
-	"§ステータス初期セット":[
-		# 戦闘開始
-		"""\
-		!
-		bgm:			🎵バトル１, 8.6
-		""",
-		"""\
-		!
-		goto:	§対局開始ルーチン
-		""",
-	],
-	"§対局開始ルーチン": [
-		# 戦闘開始
-		# ２３４５６７８９０１２３４５６７８９０
-		"""\
-		審判
-		「ログインしてくださーい！
-		""",
-		"""\
-		両対局者
-		「「よろしくお願いします
-		""",
+	# ーーーーーーーーーー
+	"§ＶＳヘム将棋":[
 		"""\
 		{{arg_sente_monster_name}}の先手だ！
 		""",
@@ -258,7 +278,7 @@ var document = {
 			# ダメージ計算
 			var damage = 1
 			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
-			
+
 			# 後手の［玉の遠さ］を減らす
 			self.get_game_sheet_for_battle().distance_of_king[1] -= damage
 			,
@@ -371,18 +391,10 @@ var document = {
 	#
 	#
 	"§２回目戦闘シーン":[
-		# あれば初期設定
-		"""\
-		!
-		var:		goto_next_section_from_encount_transition	,§２回目戦闘シーン＜開始＞
-		goto:		§ロード・データ
-		""",
-	],
-	"§２回目戦闘シーン＜開始＞":[
 		# 画面設定
 		"""\
 		!
-		bgm:			🎵バトル２
+		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
 		m_wnd:			■下
 		""",
 		# 戦闘開始
@@ -401,18 +413,10 @@ var document = {
 	#
 	#
 	"§３回目戦闘シーン":[
-		# あれば初期設定
-		"""\
-		!
-		var:		goto_next_section_from_encount_transition	,§３回目戦闘シーン＜開始＞
-		goto:		§ロード・データ
-		""",
-	],
-	"§３回目戦闘シーン＜開始＞":[
 		# 画面設定
 		"""\
 		!
-		bgm:			🎵バトル３
+		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
 		m_wnd:			■下
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -431,18 +435,10 @@ var document = {
 	# 昼ビール
 	#
 	"§ＶＳ昼ビール":[
-		# あれば初期設定
-		"""\
-		!
-		var:		goto_next_section_from_encount_transition	,§ＶＳ昼ビール＜開始＞
-		goto:		§ロード・データ
-		""",
-	],
-	"§ＶＳ昼ビール＜開始＞":[
 		# 画面設定
 		"""\
 		!
-		bgm:			🎵バトル３
+		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
 		m_wnd:			■下
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
