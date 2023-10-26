@@ -202,6 +202,27 @@ var document = {
 		telop:			Ｔ戦闘シーン
 		monster_face:	😁きふわらべ
 		monster_face:	{{arg_monster_face}}
+		goto:			§定刻
+		""",
+	],
+	"§定刻": [
+		"""\
+		!
+		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
+		m_wnd:			■下
+		msg_speed:		20
+		""",
+		# ２３４５６７８９０１２３４５６７８９０
+		"""\
+		審判
+		「ログインしてくださーい！
+		""",
+		"""\
+		両対局者
+		「「よろしくお願いします
+		""",
+		"""\
+		!
 		goto:			§バトルメニュー
 		""",
 	],
@@ -225,26 +246,6 @@ var document = {
 		!
 		m_wnd:			■下
 		msg_speed:		20
-		""",
-		"""\
-		!
-		goto:			§定刻
-		""",
-	],
-	"§定刻": [
-		# 戦闘開始
-		"""\
-		!
-		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
-		""",
-		# ２３４５６７８９０１２３４５６７８９０
-		"""\
-		審判
-		「ログインしてくださーい！
-		""",
-		"""\
-		両対局者
-		「「よろしくお願いします
 		""",
 		"""\
 		!
