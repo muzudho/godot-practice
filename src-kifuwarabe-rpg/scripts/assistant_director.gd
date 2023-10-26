@@ -28,10 +28,10 @@ func get_current_section_size_of_scenario():
 		print("［助監］　▲エラー　”" + node_name + "”ノードが無い")
 	
 	var section_name =  snapshot.section_name
-	var section = node.document[section_name]
-	if section == null:
+	if not(section_name in node.document):
 		print("［助監］　▲エラー　”" + section_name + "”セクションが無い")
 		
+	var section = node.document[section_name]
 	return section.size()
 
 
