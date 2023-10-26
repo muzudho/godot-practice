@@ -228,7 +228,7 @@ var document = {
 		var:		%clear%
 		var:		arg_bg_out				,🗻川堀町線ロード
 		var:		arg_bg_in				,🗻川堀町線ロード
-		var:		arg_battle_bgm			,🎵バトル３
+		var:		arg_battle_bgm			,🎵バトル４
 		var:		arg_battle_bgm_from		,0.0
 		var:		arg_sente_monster_name	,きふわらべ
 		var:		arg_gote_monster_name	,昼ビール

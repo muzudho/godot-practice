@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=100 format=3 uid="uid://2wbh8nu3lhjc"]
 
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_m3vrv"]
@@ -22,6 +22,8 @@
 [ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://audio/bgm/maou.audio/maou_bgm_cyber06.ogg" id="11_n11v3"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
+[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://audio/bgm/maou.audio/maou_bgm_orchestra12.ogg" id="14_pjchc"]
+[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://audio/bgm/maou.audio/maou_game_event17.ogg" id="14_wfuuf"]
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="14_xhnqt"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://audio/se/maou.audio/maou_se_magic_fire11.ogg" id="16_kroju"]
@@ -242,6 +244,14 @@ volume_db = -15.0
 
 [node name="🎵バトル３" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("11_hr0b7")
+volume_db = -15.0
+
+[node name="🎵バトル４" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("14_pjchc")
+volume_db = -15.0
+
+[node name="🎵負け" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("14_wfuuf")
 volume_db = -15.0
 
 [node name="SE" type="Node" parent="Musician"]
