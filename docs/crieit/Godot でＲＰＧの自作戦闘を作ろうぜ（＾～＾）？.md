@@ -755,4 +755,17 @@ await get_tree().create_timer(2).timeout
 「　👆　コマンド欄が　メッセージ・ウィンドウになってしまっている。  
 選択肢に直したいぜ」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　キータイピング表示と違って、すぐに全部表示する現象に　名前は有るかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　メッセージ・スピード　５　とかじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　キャラクターズ・パー・セコンド（Characters Per Second；１秒当たりの文字数）とか  
+付けてみるかな？　略称は　`cps` ？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`cps` とか　分かりづらくないか？　`msg_speed:20`　とかでいいのでは？」  
+
 .
