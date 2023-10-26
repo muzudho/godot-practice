@@ -315,22 +315,22 @@ func _process(delta):
 
 	# 伝言窓が存在しないなら、働かない
 	if self.statemachine_of_message_window.is_none():
-		pass
+		return
 
 	# タイプライター風表示中
-	elif self.statemachine_of_message_window.is_typewriter():
+	if self.statemachine_of_message_window.is_typewriter():
 
 		var snapshot = self.get_director().get_current_snapshot()
 
 		snapshot.count_of_typewriter += delta
 
 		# １文字 50ms でも、結構ゆっくり
-		var wait_time = 0.05
+		var wait_time = 1 / snapshot.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
 		if Input.is_key_pressed(KEY_R):
 			# print("［テキストブロック］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　メッセージの早送り")
-			wait_time = 0.01
+			wait_time = 1 / (snapshot.msg_speed * snapshot.msg_speed) # 旧 0.01
 	
 		if wait_time <= snapshot.count_of_typewriter:
 

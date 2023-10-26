@@ -4,6 +4,12 @@ extends Object
 class_name DepartmentSnapshot
 
 
+# 「§」セクション名
+var section_name = null
+
+# 部門名。StringName 型
+var name = null
+
 # パースをするな
 var parse_lock_flag = true
 
@@ -26,11 +32,8 @@ var stack_of_last_displayed_message_window = [] # TODO 新仕様
 #	`m_wnd *` コマンドで追加、 `m_wnd, hide` コマンドで除外
 var node_names_of_currently_displayed_message_window = []
 
-# 「§」セクション名
-var section_name = null
-
-# 部門名。StringName 型
-var name = null
+# メッセージ・スピード（１秒当たりの文字数）
+var msg_speed = 20.0
 
 
 # パースをするな
