@@ -186,30 +186,74 @@ func _unhandled_key_input(event):
 	# 何かキーを押したとき
 	if event.is_pressed():
 
-		# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-		if str(self.current_department_name) in self.get_switch_department().key_pressed_stage_directions:
-			
-			# その要素を取得
-			var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[str(self.current_department_name)]
-			
-			# 押したキーに紐づく、ト書きは辞書に記載されているか？
-			if event.keycode in key_pressed_stage_directions_1:
-				
-				# そのト書き
-				var stage_directions = key_pressed_stage_directions_1[event.keycode]
+		# このゲーム独自の仮想キーに変換
+		var virtual_key = ""
+		
+		# エンターキー押下
+		if event.keycode == KEY_ENTER:
+			virtual_key = &"VK_Ok"
 
-				print("［監督］　アンハンドルド・キー押下　部門変更")
+		# エスケープキー押下
+		elif event.keycode == KEY_ESCAPE:
+			virtual_key = &"VK_SystemMenu"
 
-				# TODO ここで stage_directions をト書きとして実行したいが、できるか？
-				self.get_assistant_director().parse_paragraph(stage_directions)
+		# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
+		elif event.keycode == KEY_R:
+			virtual_key = &"VK_FastForward"
 
-				# 子要素には渡しません
-				return
-
-		print("［監督］　アンハンドルド・キー押下　その他のキー")
-
-		#	子要素へ渡す
-		self.get_current_message_window().on_unhandled_key_input(event)
-
+		# 仮想キーを押下したという建付け
+		self.on_virtual_key_pressed(virtual_key)
+		
 	else:
 		print("［監督］　アンハンドルド・キー　押下以外")
+
+func _unhandled_input(event):
+
+	# このゲーム独自の仮想キーに変換
+	var virtual_key = &""
+	
+	# 文字列だけだと、押したのか放したのか分からない
+	var event_as_text = event.as_text()
+	
+	if event.is_pressed():
+		
+		# オーケー相当のボタン押下
+		if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
+			virtual_key = &"VK_Ok"
+
+		# スタートボタン押下
+		elif event_as_text == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
+			virtual_key = &"VK_SystemMenu"
+		
+		# PC-Engine のゲームパッドでは、ページ早送りの機能を持たせるボタンが足りない。キーボードを併用してもらうこと
+
+		# 仮想キーを押下したという建付け
+		self.on_virtual_key_pressed(virtual_key)
+
+
+# 仮想キーを押下したという建付け
+func on_virtual_key_pressed(virtual_key):
+	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
+	if str(self.current_department_name) in self.get_switch_department().key_pressed_stage_directions:
+		
+		# その要素を取得
+		var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[str(self.current_department_name)]
+		
+		# 押したキーに紐づく、ト書きは辞書に記載されているか？
+		if virtual_key in key_pressed_stage_directions_1:
+			
+			# そのト書き
+			var stage_directions = key_pressed_stage_directions_1[virtual_key]
+
+			print("［監督］　アンハンドルド・キー押下　部門変更")
+
+			# TODO ここで stage_directions をト書きとして実行したいが、できるか？
+			self.get_assistant_director().parse_paragraph(stage_directions)
+
+			# 子要素には渡しません
+			return
+
+	print("［監督］　アンハンドルド・キー押下　その他のキー")
+
+	#	子要素へ渡す
+	self.get_current_message_window().on_unhandled_virtual_key_input(virtual_key, &"VKO_Pressed")

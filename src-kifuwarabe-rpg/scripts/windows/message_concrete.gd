@@ -129,7 +129,7 @@ func set_appear_subtree(
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う
-func on_unhandled_key_input(event):
+func on_unhandled_virtual_key_input(virtual_key, vk_operation):
 
 	var snapshot = self.get_director().get_current_snapshot()
 
@@ -140,10 +140,10 @@ func on_unhandled_key_input(event):
 		if snapshot.is_choices():
 			
 			# 押下時
-			if event.is_pressed():
+			if vk_operation == &"VKO_Pressed":
 				
 				# 確定ボタン以外は無効
-				if event.keycode != KEY_ENTER:
+				if virtual_key != &"VK_Ok":
 					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢　押下時　エンターキーではないのでメッセージ送りしません")
 					return
 					
@@ -157,16 +157,17 @@ func on_unhandled_key_input(event):
 			else:
 				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢　押下時ではない")
 		
-		# それ以外なら
+		# 通常テキストモードなら
 		else:
 			# 何かキーを押したとき
-			if event.is_pressed():
+			if vk_operation == &"VKO_Pressed":
 				
-				if event.keycode == KEY_R:
-					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時　Ｒキーは、メッセージの早送りに使うので、メッセージ送りしません")
+				# ページ早送りボタンは無効
+				if virtual_key == &"VK_FastForward":
+					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキーでは、メッセージ送りしません")
 					return
 
-				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時　Ｒキー以外　ページ送りする")
+				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキー以外だ（" + virtual_key + "）　ページ送りする")
 				# ページ送り
 				self.statemachine_of_message_window.page_forward()
 

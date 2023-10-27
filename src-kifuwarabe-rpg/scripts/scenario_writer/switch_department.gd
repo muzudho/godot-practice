@@ -9,9 +9,12 @@ var start_department_name = &"📗ビジュアルノベル部門"
 
 
 # どの部門で、そのキーを押されたら、ト書きを１つ実行できる
+#
+# 	キーボード、ゲーム・コントローラーのいずれでも対応できるように、バーチャル・キー（Vertual Key, VK；仮想鍵）にしたい
 var key_pressed_stage_directions = {
 	"📗ビジュアルノベル部門" : {
-		KEY_ESCAPE :
+		# KEY_ESCAPE
+		&"VK_SystemMenu" :
 			"""\
 			!
 			department:		📗システムメニュー部門
@@ -19,7 +22,8 @@ var key_pressed_stage_directions = {
 			""",
 	},
 	"📗システムメニュー部門" : {
-		KEY_ESCAPE :
+		# KEY_ESCAPE
+		&"VK_SYSTEM_MENU" :
 			"""\
 			!
 			department:		📗ビジュアルノベル部門
