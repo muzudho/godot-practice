@@ -17,24 +17,136 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	pass
 	
-	# `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
-	# This handles deadzone in a correct way for most use cases.
-	# The resulting deadzone will have a circular shape as it generally should.
-	var velocity = Input.get_vector(
-			&"ui_left",		# 左の方
-			&"ui_right",	# 右の方
-			&"ui_up",		# 上の方
-			&"ui_down")		# 下の方
+#	# `velocity` will be a Vector2 between `Vector2(-1.0, -1.0)` and `Vector2(1.0, 1.0)`.
+#	# This handles deadzone in a correct way for most use cases.
+#	# The resulting deadzone will have a circular shape as it generally should.
+#	var velocity = Input.get_vector(
+#			&"ui_left",		# 左の方
+#			&"ui_right",	# 右の方
+#			&"ui_up",		# 上の方
+#			&"ui_down")		# 下の方
+#
+#	$"GuiArtist/CanvasLayer/→値".text = str(velocity.x)
+#	$"GuiArtist/CanvasLayer/↓値".text = str(velocity.y)
 
-	$"GuiArtist/CanvasLayer/→値".text = str(velocity.x)
-	$"GuiArtist/CanvasLayer/↓値".text = str(velocity.y)
-
-func _input(event):
+func _unhandled_input(event):
+	
+	# ダンプ
 	print(event.as_text())
+
+	var is_lever = false
 
 	for action in InputMap.get_actions():
 		if InputMap.event_is_action(event, action):
 			print("action: " + action)
+			
+			# 十字キーを想定
+			if action == &"ui_left" or action == &"ui_right" or action == &"ui_up" or action == &"ui_down":
+				is_lever = true
+
+			if action == &"JOY_AXIS_INVALID":
+				print("JOY_AXIS_INVALID")
+			elif action == &"JOY_AXIS_LEFT_X":
+				print("JOY_AXIS_LEFT_X")
+			elif action == &"JOY_AXIS_LEFT_Y":
+				print("JOY_AXIS_LEFT_Y")
+			elif action == &"JOY_AXIS_MAX":
+				print("JOY_AXIS_MAX")
+			elif action == &"JOY_AXIS_RIGHT_X":
+				print("JOY_AXIS_RIGHT_X")
+			elif action == &"JOY_AXIS_RIGHT_Y":
+				print("JOY_AXIS_RIGHT_Y")
+			elif action == &"JOY_AXIS_SDL_MAX":
+				print("JOY_AXIS_SDL_MAX")
+			elif action == &"JOY_AXIS_TRIGGER_LEFT":
+				print("JOY_AXIS_TRIGGER_LEFT")
+			elif action == &"JOY_AXIS_TRIGGER_RIGHT":
+				print("JOY_AXIS_TRIGGER_RIGHT")
+			elif action == &"JOY_BUTTON_A":
+				print("JOY_BUTTON_A")
+			elif action == &"JOY_BUTTON_B":
+				print("JOY_BUTTON_B")
+			elif action == &"JOY_BUTTON_BACK":
+				print("JOY_BUTTON_BACK")
+			elif action == &"JOY_BUTTON_DPAD_DOWN":
+				print("JOY_BUTTON_DPAD_DOWN")
+			elif action == &"JOY_BUTTON_DPAD_LEFT":
+				print("JOY_BUTTON_DPAD_LEFT")
+			elif action == &"JOY_BUTTON_DPAD_RIGHT":
+				print("JOY_BUTTON_DPAD_RIGHT")
+			elif action == &"JOY_BUTTON_DPAD_UP":
+				print("JOY_BUTTON_DPAD_UP")
+			elif action == &"JOY_BUTTON_GUIDE":
+				print("JOY_BUTTON_GUIDE")
+			elif action == &"JOY_BUTTON_INVALID":
+				print("JOY_BUTTON_INVALID")
+			elif action == &"JOY_BUTTON_LEFT_SHOULDER":
+				print("JOY_BUTTON_LEFT_SHOULDER")
+			elif action == &"JOY_BUTTON_LEFT_STICK":
+				print("JOY_BUTTON_LEFT_STICK")
+			elif action == &"JOY_BUTTON_MAX":
+				print("JOY_BUTTON_MAX")
+			elif action == &"JOY_BUTTON_MISC1":
+				print("JOY_BUTTON_MISC1")
+			elif action == &"JOY_BUTTON_PADDLE1":
+				print("JOY_BUTTON_PADDLE1")
+			elif action == &"JOY_BUTTON_PADDLE2":
+				print("JOY_BUTTON_PADDLE2")
+			elif action == &"JOY_BUTTON_PADDLE3":
+				print("JOY_BUTTON_PADDLE3")
+			elif action == &"JOY_BUTTON_PADDLE4":
+				print("JOY_BUTTON_PADDLE4")
+			elif action == &"JOY_BUTTON_RIGHT_SHOULDER":
+				print("JOY_BUTTON_RIGHT_SHOULDER")
+			elif action == &"JOY_BUTTON_RIGHT_STICK":
+				print("JOY_BUTTON_RIGHT_STICK")
+			elif action == &"JOY_BUTTON_SDL_MAX":
+				print("JOY_BUTTON_SDL_MAX")
+			elif action == &"JOY_BUTTON_START":
+				print("JOY_BUTTON_START")
+			elif action == &"JOY_BUTTON_TOUCHPAD":
+				print("JOY_BUTTON_TOUCHPAD")
+			elif action == &"JOY_BUTTON_X":
+				print("JOY_BUTTON_X")
+			elif action == &"JOY_BUTTON_Y":
+				print("JOY_BUTTON_Y")
+				
+			# 以上
+				
+
+			if action == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
+				$"GuiArtist/CanvasLayer/Select値".text = "●"
+			else:
+				$"GuiArtist/CanvasLayer/Select値".text = "."
+				
+			# "Joypad Button 6 (Start, Xbox Menu, Nintendo +)"
+			if action == &"JOY_BUTTON_START":
+				$"GuiArtist/CanvasLayer/Run値".text = "●"
+			else:
+				$"GuiArtist/CanvasLayer/Run値".text = "."
+			
+			# "Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"
+			if action == &"JOY_BUTTON_DPAD_RIGHT":
+				$"GuiArtist/CanvasLayer/II値".text = "●"
+			else:
+				$"GuiArtist/CanvasLayer/II値".text = "."
+				
+			# "Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)"
+			if action == &"JOY_BUTTON_A":
+				$"GuiArtist/CanvasLayer/I値".text = "●"
+			else:
+				$"GuiArtist/CanvasLayer/I値".text = "."
+
+	if is_lever:
+		var velocity = Input.get_vector(
+				&"ui_left",		# 左の方
+				&"ui_right",	# 右の方
+				&"ui_up",		# 上の方
+				&"ui_down")		# 下の方
+		
+		$"GuiArtist/CanvasLayer/→値".text = str(velocity.x)
+		$"GuiArtist/CanvasLayer/↓値".text = str(velocity.y)
 		
 		
