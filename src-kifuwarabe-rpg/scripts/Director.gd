@@ -19,6 +19,8 @@ var stage_directions_variables = {}
 # 疑似的なスリープに使うカウント
 var sleep_seconds = 0.0
 
+# メッセージの早送り
+var is_fast_forward = false
 
 # 助監取得
 func get_assistant_director():
@@ -183,58 +185,97 @@ func _ready():
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
 
+	var vk_operation = null
+
 	# 何かキーを押したとき
 	if event.is_pressed():
-
-		# このゲーム独自の仮想キーに変換
-		var virtual_key = ""
-		
-		# エンターキー押下
-		if event.keycode == KEY_ENTER:
-			virtual_key = &"VK_Ok"
-
-		# エスケープキー押下
-		elif event.keycode == KEY_ESCAPE:
-			virtual_key = &"VK_SystemMenu"
-
-		# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
-		elif event.keycode == KEY_R:
-			virtual_key = &"VK_FastForward"
-
-		# 仮想キーを押下したという建付け
-		self.on_virtual_key_pressed(virtual_key)
-		
+		print("［監督］　キー入力　押下")
+		vk_operation = &"VKO_Pressed"
+	
+	# 何かキーを離したとき
+	elif event.is_released():
+		print("［監督］　キー入力　リリース")
+		vk_operation = &"VKO_Released"
+	
+	# それ以外には対応してない
 	else:
-		print("［監督］　アンハンドルド・キー　押下以外")
+		print("［監督］　キー入力　▲！想定外")
+		return
+
+	# 以下、仮想キー
+
+	# このゲーム独自の仮想キーに変換
+	var virtual_key = null
+	
+	# エンターキー押下
+	if event.keycode == KEY_ENTER:
+		virtual_key = &"VK_Ok"
+
+	# エスケープキー押下
+	elif event.keycode == KEY_ESCAPE:
+		virtual_key = &"VK_SystemMenu"
+
+	# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
+	elif event.keycode == KEY_R:
+		virtual_key = &"VK_FastForward"
+	
+	# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
+	else:
+		return
+
+	# 仮想キーを押下したという建付け
+	self.on_virtual_key_input(virtual_key, vk_operation)
+
 
 func _unhandled_input(event):
 
+	var vk_operation = null
+
+	# 何かキーを押したとき
+	if event.is_pressed():
+		print("［監督］　入力　押下")
+		vk_operation = &"VKO_Pressed"
+	
+	# 何かキーを離したとき
+	elif event.is_released():
+		print("［監督］　入力　リリース")
+		vk_operation = &"VKO_Released"
+	
+	# それ以外には対応してない
+	else:
+		print("［監督］　入力　▲！想定外")
+		return
+
+	# 以下、仮想キー
+
 	# このゲーム独自の仮想キーに変換
-	var virtual_key = &""
+	var virtual_key = null
 	
 	# 文字列だけだと、押したのか放したのか分からない
 	var event_as_text = event.as_text()
 	
-	if event.is_pressed():
-		
-		# オーケー相当のボタン押下
-		if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
-			virtual_key = &"VK_Ok"
+	# オーケー相当のボタン押下
+	if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
+		virtual_key = &"VK_Ok"
 
-		# スタートボタン押下
-		elif event_as_text == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
-			virtual_key = &"VK_SystemMenu"
-		
-		# PC-Engine のゲームパッドでは、ページ早送りの機能を持たせるボタンが足りない。キーボードを併用してもらうこと
+	# スタートボタン押下
+	elif event_as_text == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
+		virtual_key = &"VK_SystemMenu"
+	
+	# PC-Engine のゲームパッドでは、ページ早送りの機能を持たせるボタンが足りない。キーボードを併用してもらうこと
+	
+	# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
+	else:
+		return
 
-		# 仮想キーを押下したという建付け
-		self.on_virtual_key_pressed(virtual_key)
+	# 仮想キーを押下したという建付け
+	self.on_virtual_key_input(virtual_key, vk_operation)
 
 
 # 仮想キーを押下したという建付け
-func on_virtual_key_pressed(virtual_key):
+func on_virtual_key_input(virtual_key, vk_operation):
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if str(self.current_department_name) in self.get_switch_department().key_pressed_stage_directions:
+	if vk_operation == &"VKO_Pressed" and str(self.current_department_name) in self.get_switch_department().key_pressed_stage_directions:
 		
 		# その要素を取得
 		var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[str(self.current_department_name)]
@@ -253,7 +294,7 @@ func on_virtual_key_pressed(virtual_key):
 			# 子要素には渡しません
 			return
 
-	print("［監督］　アンハンドルド・キー押下　その他のキー")
+	print("［監督］　アンハンドルド・キー押下　その他のキー（" + virtual_key + "）")
 
 	#	子要素へ渡す
-	self.get_current_message_window().on_unhandled_virtual_key_input(virtual_key, &"VKO_Pressed")
+	self.get_current_message_window().on_unhandled_virtual_key_input(virtual_key, vk_operation)

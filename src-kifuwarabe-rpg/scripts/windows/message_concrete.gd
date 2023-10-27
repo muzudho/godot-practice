@@ -131,6 +131,14 @@ func set_appear_subtree(
 # テキストボックスなどにフォーカスが無いときの入力を拾う
 func on_unhandled_virtual_key_input(virtual_key, vk_operation):
 
+	if virtual_key == &"VK_FastForward":
+		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
+		if vk_operation == &"VKO_Pressed":
+			self.get_director().is_fast_forward = true
+
+		elif vk_operation == &"VKO_Released":
+			self.get_director().is_fast_forward = false
+
 	var snapshot = self.get_director().get_current_snapshot()
 
 	# 完全表示中
@@ -329,7 +337,7 @@ func _process(delta):
 		var wait_time = 1 / snapshot.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
-		if Input.is_key_pressed(KEY_R):
+		if self.get_director().is_fast_forward:
 			# print("［テキストブロック］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　メッセージの早送り")
 			wait_time = 1 / (snapshot.msg_speed * snapshot.msg_speed) # 旧 0.01
 	
