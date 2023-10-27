@@ -169,4 +169,34 @@ Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　時代よ　時代！　シューティング全盛期！」  
 
+## セレクトボタンと　ランボタン
+
+```
+Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)
+Joypad Button 6 (Start, Xbox Menu, Nintendo +)
+Unknown
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　セレクト・ボタンが　ボタン４、  
+ラン・ボタンが　ボタン６　だぜ。
+模倣品のゲームパッドの真ん中上の方にある　本来付いてない何か分からんボタンを押すと `Unknown` で、パソコン画面上に　各種設定が出てきたぜ」  
+
+## PC-Engine のゲームパッドのボタン配置
+
+```
+　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　&"Unknown"
+　　　　　　&"ui_up"　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　&"Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"連射　　&"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)"連射
+&"ui_left"　　　　　　　&"ui_right"　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　
+　　　　　　&"ui_down"　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　&"Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"　　　　&"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)"
+
+　　　　　　　　　　　　　　　　　　&"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)"     　&"Joypad Button 6 (Start, Xbox Menu, Nintendo +)"
+```
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　つまり　こうだ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　美しくないが　その文字列に従って　コーディングしてみるか、美しくないが」  
+
 .
