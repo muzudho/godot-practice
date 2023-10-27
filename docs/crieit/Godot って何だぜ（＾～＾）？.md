@@ -1264,6 +1264,8 @@ Zzz...
 「　昨日、Amazon から箱が届いていたぜ？」  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　ゲームパッドが来たんだ。箱を空けるか……」  
+「　👇　ゲームパッドが来たんだ。箱を空けるか……」  
+
+📖　[Godot でゲームのコントローラーを使おうぜ（＾～＾）？](https://crieit.net/posts/Godot-653bbd8e3e230)  
 
 .
