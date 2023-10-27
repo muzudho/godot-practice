@@ -29,3 +29,12 @@ func _process(_delta):
 
 	$"GuiArtist/CanvasLayer/→値".text = str(velocity.x)
 	$"GuiArtist/CanvasLayer/↓値".text = str(velocity.y)
+
+func _input(event):
+	print(event.as_text())
+
+	for action in InputMap.get_actions():
+		if InputMap.event_is_action(event, action):
+			print("action: " + action)
+		
+		

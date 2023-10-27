@@ -90,4 +90,83 @@ func _process(_delta):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　よし、取れたぜ。 `-1`、`0`、`1` のいずれかになる感じだぜ」  
 
+## Godot の説明書じゃ分かんね
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　たいてい、公式の記事を読め、と言うところなんだが、 `Godot` は金も人手も足りてないのか　ホームページもドキュメントも　ぐちゃぐちゃなんで……」  
+
+📖　[Input examples](https://docs.godotengine.org/en/stable/tutorials/inputs/input_examples.html)  
+
+```gd
+func _input(event):
+	print(event.as_text())
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　自力で解析するか」  
+
+Output:  
+
+```
+Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
+Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　この入力はどうやって　利用できるのか」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　その文字列を利用すればいいんじゃない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　この文字列が仕様なのか　Godot をアップデートしたら　あっさり変わるのか分からん」  
+
+📖　[Input](https://godotforums.org/d/25136-getting-the-name-of-input-action-associated-to-input/10)  
+
+```
+func _input(event):
+	for action in InputMap.get_actions():
+		if InputMap.event_is_action(event, action):
+			print("action: " + action)
+```
+
+Output:  
+
+```
+Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　確かにこの文字列が出力されるが……」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ　この長ったらしい文字列が　ボタンのＩｄになってるわけかだぜ、変なの」  
+
+```
+Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
+Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　１ボタンと　連射１ボタンが　同じ文字列　返ってくるぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　連射ボタンだからじゃないか？　押しっぱなしにしてみろだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　確かに　１ボタンは　押しっぱなしにしても反応しないが、  
+連射１ボタンは　押しっぱなしにしてると　何度も反応するぜ、いわゆるキー・リピート」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　連射ボタンだからな」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　嬉しくね～」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　せっかく　４つ　ボタンが付いてるのに　そのうちの半分は　キーリピートするだけ……」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　時代よ　時代！　シューティング全盛期！」  
+
 .
