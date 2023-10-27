@@ -31,10 +31,64 @@ func _process(_delta):
 #	$"GuiArtist/CanvasLayer/→値".text = str(velocity.x)
 #	$"GuiArtist/CanvasLayer/↓値".text = str(velocity.y)
 
+# 入力１つ１つに分解されて呼び出されるようだ
 func _unhandled_input(event):
 	
-	# ダンプ
-	print(event.as_text())
+	# 文字列だけだと、押したのか放したのか分からない
+	var event_as_text = event.as_text()
+	print("入力：　" + event_as_text)
+
+	var description = "判定：　"
+	# 初期状態は、ボタンを離しているということにする
+	var presentation = "."
+
+	# ボタンの状態（何もしていないときはこの関数自体が呼び出されない）
+
+	if event.is_pressed():
+		description += "pressed "
+		presentation = "■"
+	
+	if event.is_released():
+		description += "released "
+		presentation = "."
+
+	# 操作したボタン
+	var button_number = -1
+
+	if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
+		description += "Joypad Button 0"
+		button_number = 0
+		
+	elif event_as_text == &"Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)":
+		description += "Joypad Button 1"
+		button_number = 1
+
+	elif event_as_text == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
+		description += "Joypad Button 4"
+		button_number = 4
+
+	elif event_as_text == &"Joypad Button 6 (Start, Xbox Menu, Nintendo +)":
+		description += "Joypad Button 6"
+		button_number = 6
+	
+	print(description)
+
+	# "Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)"
+	if button_number == 0:
+		$"GuiArtist/CanvasLayer/I値".text = presentation
+			
+	# "Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"
+	elif button_number == 1:
+		$"GuiArtist/CanvasLayer/II値".text = presentation
+
+	# "Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)"
+	elif button_number == 4:
+		$"GuiArtist/CanvasLayer/Select値".text = presentation
+				
+	# "Joypad Button 6 (Start, Xbox Menu, Nintendo +)"
+	elif button_number == 6:
+		$"GuiArtist/CanvasLayer/Run値".text = presentation
+
 
 	var is_lever = false
 
@@ -46,99 +100,75 @@ func _unhandled_input(event):
 			if action == &"ui_left" or action == &"ui_right" or action == &"ui_up" or action == &"ui_down":
 				is_lever = true
 
-			if action == &"JOY_AXIS_INVALID":
-				print("JOY_AXIS_INVALID")
-			elif action == &"JOY_AXIS_LEFT_X":
-				print("JOY_AXIS_LEFT_X")
-			elif action == &"JOY_AXIS_LEFT_Y":
-				print("JOY_AXIS_LEFT_Y")
-			elif action == &"JOY_AXIS_MAX":
-				print("JOY_AXIS_MAX")
-			elif action == &"JOY_AXIS_RIGHT_X":
-				print("JOY_AXIS_RIGHT_X")
-			elif action == &"JOY_AXIS_RIGHT_Y":
-				print("JOY_AXIS_RIGHT_Y")
-			elif action == &"JOY_AXIS_SDL_MAX":
-				print("JOY_AXIS_SDL_MAX")
-			elif action == &"JOY_AXIS_TRIGGER_LEFT":
-				print("JOY_AXIS_TRIGGER_LEFT")
-			elif action == &"JOY_AXIS_TRIGGER_RIGHT":
-				print("JOY_AXIS_TRIGGER_RIGHT")
-			elif action == &"JOY_BUTTON_A":
-				print("JOY_BUTTON_A")
-			elif action == &"JOY_BUTTON_B":
-				print("JOY_BUTTON_B")
-			elif action == &"JOY_BUTTON_BACK":
-				print("JOY_BUTTON_BACK")
-			elif action == &"JOY_BUTTON_DPAD_DOWN":
-				print("JOY_BUTTON_DPAD_DOWN")
-			elif action == &"JOY_BUTTON_DPAD_LEFT":
-				print("JOY_BUTTON_DPAD_LEFT")
-			elif action == &"JOY_BUTTON_DPAD_RIGHT":
-				print("JOY_BUTTON_DPAD_RIGHT")
-			elif action == &"JOY_BUTTON_DPAD_UP":
-				print("JOY_BUTTON_DPAD_UP")
-			elif action == &"JOY_BUTTON_GUIDE":
-				print("JOY_BUTTON_GUIDE")
-			elif action == &"JOY_BUTTON_INVALID":
-				print("JOY_BUTTON_INVALID")
-			elif action == &"JOY_BUTTON_LEFT_SHOULDER":
-				print("JOY_BUTTON_LEFT_SHOULDER")
-			elif action == &"JOY_BUTTON_LEFT_STICK":
-				print("JOY_BUTTON_LEFT_STICK")
-			elif action == &"JOY_BUTTON_MAX":
-				print("JOY_BUTTON_MAX")
-			elif action == &"JOY_BUTTON_MISC1":
-				print("JOY_BUTTON_MISC1")
-			elif action == &"JOY_BUTTON_PADDLE1":
-				print("JOY_BUTTON_PADDLE1")
-			elif action == &"JOY_BUTTON_PADDLE2":
-				print("JOY_BUTTON_PADDLE2")
-			elif action == &"JOY_BUTTON_PADDLE3":
-				print("JOY_BUTTON_PADDLE3")
-			elif action == &"JOY_BUTTON_PADDLE4":
-				print("JOY_BUTTON_PADDLE4")
-			elif action == &"JOY_BUTTON_RIGHT_SHOULDER":
-				print("JOY_BUTTON_RIGHT_SHOULDER")
-			elif action == &"JOY_BUTTON_RIGHT_STICK":
-				print("JOY_BUTTON_RIGHT_STICK")
-			elif action == &"JOY_BUTTON_SDL_MAX":
-				print("JOY_BUTTON_SDL_MAX")
-			elif action == &"JOY_BUTTON_START":
-				print("JOY_BUTTON_START")
-			elif action == &"JOY_BUTTON_TOUCHPAD":
-				print("JOY_BUTTON_TOUCHPAD")
-			elif action == &"JOY_BUTTON_X":
-				print("JOY_BUTTON_X")
-			elif action == &"JOY_BUTTON_Y":
-				print("JOY_BUTTON_Y")
+#			if action == &"JOY_AXIS_INVALID":
+#				print("JOY_AXIS_INVALID")
+#			elif action == &"JOY_AXIS_LEFT_X":
+#				print("JOY_AXIS_LEFT_X")
+#			elif action == &"JOY_AXIS_LEFT_Y":
+#				print("JOY_AXIS_LEFT_Y")
+#			elif action == &"JOY_AXIS_MAX":
+#				print("JOY_AXIS_MAX")
+#			elif action == &"JOY_AXIS_RIGHT_X":
+#				print("JOY_AXIS_RIGHT_X")
+#			elif action == &"JOY_AXIS_RIGHT_Y":
+#				print("JOY_AXIS_RIGHT_Y")
+#			elif action == &"JOY_AXIS_SDL_MAX":
+#				print("JOY_AXIS_SDL_MAX")
+#			elif action == &"JOY_AXIS_TRIGGER_LEFT":
+#				print("JOY_AXIS_TRIGGER_LEFT")
+#			elif action == &"JOY_AXIS_TRIGGER_RIGHT":
+#				print("JOY_AXIS_TRIGGER_RIGHT")
+#			elif action == &"JOY_BUTTON_A":
+#				print("JOY_BUTTON_A")
+#			elif action == &"JOY_BUTTON_B":
+#				print("JOY_BUTTON_B")
+#			elif action == &"JOY_BUTTON_BACK":
+#				print("JOY_BUTTON_BACK")
+#			elif action == &"JOY_BUTTON_DPAD_DOWN":
+#				print("JOY_BUTTON_DPAD_DOWN")
+#			elif action == &"JOY_BUTTON_DPAD_LEFT":
+#				print("JOY_BUTTON_DPAD_LEFT")
+#			elif action == &"JOY_BUTTON_DPAD_RIGHT":
+#				print("JOY_BUTTON_DPAD_RIGHT")
+#			elif action == &"JOY_BUTTON_DPAD_UP":
+#				print("JOY_BUTTON_DPAD_UP")
+#			elif action == &"JOY_BUTTON_GUIDE":
+#				print("JOY_BUTTON_GUIDE")
+#			elif action == &"JOY_BUTTON_INVALID":
+#				print("JOY_BUTTON_INVALID")
+#			elif action == &"JOY_BUTTON_LEFT_SHOULDER":
+#				print("JOY_BUTTON_LEFT_SHOULDER")
+#			elif action == &"JOY_BUTTON_LEFT_STICK":
+#				print("JOY_BUTTON_LEFT_STICK")
+#			elif action == &"JOY_BUTTON_MAX":
+#				print("JOY_BUTTON_MAX")
+#			elif action == &"JOY_BUTTON_MISC1":
+#				print("JOY_BUTTON_MISC1")
+#			elif action == &"JOY_BUTTON_PADDLE1":
+#				print("JOY_BUTTON_PADDLE1")
+#			elif action == &"JOY_BUTTON_PADDLE2":
+#				print("JOY_BUTTON_PADDLE2")
+#			elif action == &"JOY_BUTTON_PADDLE3":
+#				print("JOY_BUTTON_PADDLE3")
+#			elif action == &"JOY_BUTTON_PADDLE4":
+#				print("JOY_BUTTON_PADDLE4")
+#			elif action == &"JOY_BUTTON_RIGHT_SHOULDER":
+#				print("JOY_BUTTON_RIGHT_SHOULDER")
+#			elif action == &"JOY_BUTTON_RIGHT_STICK":
+#				print("JOY_BUTTON_RIGHT_STICK")
+#			elif action == &"JOY_BUTTON_SDL_MAX":
+#				print("JOY_BUTTON_SDL_MAX")
+#			elif action == &"JOY_BUTTON_START":
+#				print("JOY_BUTTON_START")
+#			elif action == &"JOY_BUTTON_TOUCHPAD":
+#				print("JOY_BUTTON_TOUCHPAD")
+#			elif action == &"JOY_BUTTON_X":
+#				print("JOY_BUTTON_X")
+#			elif action == &"JOY_BUTTON_Y":
+#				print("JOY_BUTTON_Y")
 				
 			# 以上
 				
-
-			if action == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
-				$"GuiArtist/CanvasLayer/Select値".text = "●"
-			else:
-				$"GuiArtist/CanvasLayer/Select値".text = "."
-				
-			# "Joypad Button 6 (Start, Xbox Menu, Nintendo +)"
-			if action == &"JOY_BUTTON_START":
-				$"GuiArtist/CanvasLayer/Run値".text = "●"
-			else:
-				$"GuiArtist/CanvasLayer/Run値".text = "."
-			
-			# "Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"
-			if action == &"JOY_BUTTON_DPAD_RIGHT":
-				$"GuiArtist/CanvasLayer/II値".text = "●"
-			else:
-				$"GuiArtist/CanvasLayer/II値".text = "."
-				
-			# "Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)"
-			if action == &"JOY_BUTTON_A":
-				$"GuiArtist/CanvasLayer/I値".text = "●"
-			else:
-				$"GuiArtist/CanvasLayer/I値".text = "."
-
 	if is_lever:
 		var velocity = Input.get_vector(
 				&"ui_left",		# 左の方
