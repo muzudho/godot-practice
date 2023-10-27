@@ -1254,4 +1254,16 @@ Zzz...
 
 📖　[Godot でＲＰＧの自作戦闘を作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-652d0d4895975)  
 
+# 📅 2023-10-27 fri ⏰ 21:23 もう疲れた
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　毎日　毎日　日付を跨いでまでプログラミング、疲れた。  
+ゲームに関わりたくない」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　昨日、Amazon から箱が届いていたぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ゲームパッドが来たんだ。箱を空けるか……」  
+
 .
