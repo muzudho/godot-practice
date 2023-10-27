@@ -2,6 +2,10 @@
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
 
+# Git Hub
+
+📖　[src-game-controller](https://github.com/muzudho/godot-practice/tree/main/src-game-controller)  
+
 # はじめに
 
 ![202310__photo__27-2220--Gamepad.jpg](https://crieit.now.sh/upload_images/d713d338edceee98e75f4eccda2800e9653bb92629320.jpg)  
@@ -76,11 +80,14 @@ func _process(_delta):
 	var velocity = Input.get_vector(
 			&"ui_left",		# 左の方
 			&"ui_right",	# 右の方
-			&"ui_forward",	# 上の方
-			&"ui_back")		# 下の方
+			&"ui_up",		# 上の方
+			&"ui_down")		# 下の方
 
-	$"GuiArtist/CanvasLayer/←→値".text = str(velocity.x)
+	$"GuiArtist/CanvasLayer/→値".text = str(velocity.x)
+	$"GuiArtist/CanvasLayer/↓値".text = str(velocity.y)
 ```
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　👆　よし、取れたぜ」  
+「　👆　よし、取れたぜ。 `-1`、`0`、`1` のいずれかになる感じだぜ」  
+
+.

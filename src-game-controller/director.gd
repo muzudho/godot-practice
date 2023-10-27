@@ -24,7 +24,8 @@ func _process(_delta):
 	var velocity = Input.get_vector(
 			&"ui_left",		# 左の方
 			&"ui_right",	# 右の方
-			&"ui_forward",	# 上の方
-			&"ui_back")		# 下の方
+			&"ui_up",		# 上の方
+			&"ui_down")		# 下の方
 
-	$"GuiArtist/CanvasLayer/←→値".text = str(velocity.x)
+	$"GuiArtist/CanvasLayer/→値".text = str(velocity.x)
+	$"GuiArtist/CanvasLayer/↓値".text = str(velocity.y)
