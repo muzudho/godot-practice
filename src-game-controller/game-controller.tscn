@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds85tqhkwh84l"]
+[gd_scene load_steps=6 format=3 uid="uid://ds85tqhkwh84l"]
 
 [ext_resource type="Script" path="res://director.gd" id="1_gaklu"]
+[ext_resource type="Texture2D" uid="uid://ddx3jhcm76qp" path="res://images/1280x720/202310__godot__29-0030--PCEngineGamepad.png" id="2_70ugp"]
 [ext_resource type="Script" path="res://pc_engine_input.gd" id="2_hat2p"]
 [ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="2_qv7p0"]
 
@@ -17,101 +18,105 @@ script = ExtResource("1_gaklu")
 
 [node name="GuiArtist" type="Node" parent="."]
 
+[node name="PCEngine" type="Sprite2D" parent="GuiArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("2_70ugp")
+
 [node name="PCEngine_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
 
 [node name="→" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 173.0
-offset_top = 114.0
-offset_right = 221.0
-offset_bottom = 157.0
+offset_left = 287.0
+offset_top = 344.0
+offset_right = 335.0
+offset_bottom = 387.0
 text = "→ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="→値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 226.0
-offset_top = 113.0
-offset_right = 343.0
-offset_bottom = 156.0
+offset_left = 342.0
+offset_top = 343.0
+offset_right = 459.0
+offset_bottom = 386.0
 text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="↓" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 126.0
-offset_top = 171.0
-offset_right = 174.0
-offset_bottom = 214.0
+offset_left = 252.0
+offset_top = 383.0
+offset_right = 300.0
+offset_bottom = 426.0
 text = "↓ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="↓値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 117.0
-offset_top = 222.0
-offset_right = 234.0
-offset_bottom = 265.0
+offset_left = 242.0
+offset_top = 435.0
+offset_right = 359.0
+offset_bottom = 478.0
 text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="Select" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 369.0
-offset_top = 159.0
-offset_right = 417.0
-offset_bottom = 202.0
+offset_left = 486.0
+offset_top = 357.0
+offset_right = 582.0
+offset_bottom = 400.0
 text = "Select"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="Select値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 397.0
-offset_top = 207.0
-offset_right = 448.0
-offset_bottom = 250.0
+offset_left = 531.0
+offset_top = 415.0
+offset_right = 582.0
+offset_bottom = 458.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="Run" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 512.0
-offset_top = 162.0
-offset_right = 608.0
-offset_bottom = 205.0
+offset_left = 690.0
+offset_top = 359.0
+offset_right = 786.0
+offset_bottom = 402.0
 text = "Run"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="Run値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 526.0
-offset_top = 206.0
-offset_right = 577.0
-offset_bottom = 249.0
+offset_left = 708.0
+offset_top = 413.0
+offset_right = 759.0
+offset_bottom = 456.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="II" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 653.0
-offset_top = 162.0
-offset_right = 702.0
-offset_bottom = 205.0
+offset_left = 890.0
+offset_top = 398.0
+offset_right = 939.0
+offset_bottom = 441.0
 text = "II"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="II値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 661.0
-offset_top = 211.0
-offset_right = 712.0
-offset_bottom = 254.0
+offset_left = 902.0
+offset_top = 443.0
+offset_right = 953.0
+offset_bottom = 486.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="I" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 740.0
-offset_top = 163.0
-offset_right = 794.0
-offset_bottom = 206.0
+offset_left = 1071.0
+offset_top = 394.0
+offset_right = 1125.0
+offset_bottom = 437.0
 text = "I"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="I値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
-offset_left = 742.0
-offset_top = 210.0
-offset_right = 793.0
-offset_bottom = 253.0
+offset_left = 1070.0
+offset_top = 423.0
+offset_right = 1121.0
+offset_bottom = 466.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
