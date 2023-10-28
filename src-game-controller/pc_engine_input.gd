@@ -19,8 +19,9 @@ func on_unhandled_input(event):
 	# 初期状態は、ボタンを離しているということにする
 	var presentation = "."
 
+	# ーーーーーーーー
 	# ボタンの状態（何もしていないときはこの関数自体が呼び出されない）
-
+	# ーーーーーーーー
 	if event.is_pressed():
 		description += "pressed "
 		presentation = "■"
@@ -29,44 +30,54 @@ func on_unhandled_input(event):
 		description += "released "
 		presentation = "."
 
+	# ーーーーーーーー
 	# 操作したボタン
+	# ーーーーーーーー
 	var button_number = -1
 
-	if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
-		description += "Joypad Button 0"
+	# I
+	# Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
+	if event_as_text.begins_with(&"Joypad Button 0 "):
+		description += &"Joypad Button 0 "
 		button_number = 0
-		
-	elif event_as_text == &"Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)":
-		description += "Joypad Button 1"
+	
+	# II
+	# Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)
+	elif event_as_text.begins_with(&"Joypad Button 1 "):
+		description += &"Joypad Button 1 "
 		button_number = 1
 
-	elif event_as_text == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
-		description += "Joypad Button 4"
+	# Select
+	# Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)
+	elif event_as_text.begins_with(&"Joypad Button 4 "):
+		description += &"Joypad Button 4 "
 		button_number = 4
 
-	elif event_as_text == &"Joypad Button 6 (Start, Xbox Menu, Nintendo +)":
-		description += "Joypad Button 6"
+	# Run
+	# Joypad Button 6 (Start, Xbox Menu, Nintendo +)
+	elif event_as_text.begins_with(&"Joypad Button 6 "):
+		description += &"Joypad Button 6 "
 		button_number = 6
 	
 	print(description)
 
-	# "Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)"
+
 	if button_number == 0:
 		self.get_canvas_layer().get_node("I値").text = presentation
 			
-	# "Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"
 	elif button_number == 1:
 		self.get_canvas_layer().get_node("II値").text = presentation
 
-	# "Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)"
 	elif button_number == 4:
 		self.get_canvas_layer().get_node("Select値").text = presentation
 				
-	# "Joypad Button 6 (Start, Xbox Menu, Nintendo +)"
 	elif button_number == 6:
 		self.get_canvas_layer().get_node("Run値").text = presentation
 
 
+	# ーーーーーーーー
+	# レバー
+	# ーーーーーーーー
 	var is_lever = false
 
 	for action in InputMap.get_actions():
