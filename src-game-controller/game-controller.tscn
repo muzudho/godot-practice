@@ -17,9 +17,6 @@ script = ExtResource("1_gaklu")
 
 [node name="GuiArtist" type="Node" parent="."]
 
-[node name="PCEngine_Input" type="Node" parent="GuiArtist"]
-script = ExtResource("2_hat2p")
-
 [node name="PCEngine_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
 
 [node name="→" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
@@ -117,3 +114,8 @@ offset_right = 793.0
 offset_bottom = 253.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="ControllerArtist" type="Node" parent="."]
+
+[node name="PCEngine_Input" type="Node" parent="ControllerArtist"]
+script = ExtResource("2_hat2p")

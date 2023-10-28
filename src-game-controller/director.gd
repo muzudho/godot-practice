@@ -1,9 +1,9 @@
 extends Node2D
 
 
-# PC-Engine
-func get_pc_engine():
-	return $"GuiArtist/PCEngine_CanvasLayer"
+# コントローラー・アーティスト取得
+func get_controller_artist():
+	return $"ControllerArtist"
 
 
 # The line below is similar to `get_vector()`, except that it handles
@@ -38,4 +38,4 @@ func _process(_delta):
 
 # 入力１つ１つに分解されて呼び出されるようだ
 func _unhandled_input(event):
-	$"GuiArtist/PCEngine_Input".on_unhandled_input(event)
+	self.get_controller_artist().get_node("PCEngine_Input").on_unhandled_input(event)
