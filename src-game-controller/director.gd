@@ -1,6 +1,11 @@
 extends Node2D
 
 
+# PC-Engine
+func get_pc_engine():
+	return $"GuiArtist/PCEngine_CanvasLayer"
+
+
 # The line below is similar to `get_vector()`, except that it handles
 # the deadzone in a less optimal way. The resulting deadzone will have
 # a square-ish shape when it should ideally have a circular shape.
@@ -75,19 +80,19 @@ func _unhandled_input(event):
 
 	# "Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)"
 	if button_number == 0:
-		$"GuiArtist/CanvasLayer/I値".text = presentation
+		self.get_pc_engine().get_node("I値").text = presentation
 			
 	# "Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)"
 	elif button_number == 1:
-		$"GuiArtist/CanvasLayer/II値".text = presentation
+		self.get_pc_engine().get_node("II値").text = presentation
 
 	# "Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)"
 	elif button_number == 4:
-		$"GuiArtist/CanvasLayer/Select値".text = presentation
+		self.get_pc_engine().get_node("Select値").text = presentation
 				
 	# "Joypad Button 6 (Start, Xbox Menu, Nintendo +)"
 	elif button_number == 6:
-		$"GuiArtist/CanvasLayer/Run値".text = presentation
+		self.get_pc_engine().get_node("Run値").text = presentation
 
 
 	var is_lever = false
@@ -176,7 +181,7 @@ func _unhandled_input(event):
 				&"ui_up",		# 上の方
 				&"ui_down")		# 下の方
 		
-		$"GuiArtist/CanvasLayer/→値".text = str(velocity.x)
-		$"GuiArtist/CanvasLayer/↓値".text = str(velocity.y)
+		self.get_pc_engine().get_node("→値").text = str(velocity.x)
+		self.get_pc_engine().get_node("↓値").text = str(velocity.y)
 		
 		

@@ -16,9 +16,9 @@ script = ExtResource("1_gaklu")
 
 [node name="GuiArtist" type="Node" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
+[node name="PCEngine_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
 
-[node name="→" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="→" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 173.0
 offset_top = 114.0
 offset_right = 221.0
@@ -26,7 +26,7 @@ offset_bottom = 157.0
 text = "→ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="→値" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="→値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 226.0
 offset_top = 113.0
 offset_right = 343.0
@@ -34,7 +34,7 @@ offset_bottom = 156.0
 text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="↓" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="↓" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 126.0
 offset_top = 171.0
 offset_right = 174.0
@@ -42,7 +42,7 @@ offset_bottom = 214.0
 text = "↓ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="↓値" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="↓値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 117.0
 offset_top = 222.0
 offset_right = 234.0
@@ -50,7 +50,7 @@ offset_bottom = 265.0
 text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="Select" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="Select" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 369.0
 offset_top = 159.0
 offset_right = 417.0
@@ -58,7 +58,7 @@ offset_bottom = 202.0
 text = "Select"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="Select値" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="Select値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 397.0
 offset_top = 207.0
 offset_right = 448.0
@@ -66,7 +66,7 @@ offset_bottom = 250.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="Run" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="Run" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 512.0
 offset_top = 162.0
 offset_right = 608.0
@@ -74,7 +74,7 @@ offset_bottom = 205.0
 text = "Run"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="Run値" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="Run値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 526.0
 offset_top = 206.0
 offset_right = 577.0
@@ -82,7 +82,7 @@ offset_bottom = 249.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="II" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="II" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 653.0
 offset_top = 162.0
 offset_right = 702.0
@@ -90,7 +90,7 @@ offset_bottom = 205.0
 text = "II"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="II値" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="II値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 661.0
 offset_top = 211.0
 offset_right = 712.0
@@ -98,7 +98,7 @@ offset_bottom = 254.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="I" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="I" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 740.0
 offset_top = 163.0
 offset_right = 794.0
@@ -106,7 +106,7 @@ offset_bottom = 206.0
 text = "I"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="I値" type="Label" parent="GuiArtist/CanvasLayer"]
+[node name="I値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 742.0
 offset_top = 210.0
 offset_right = 793.0

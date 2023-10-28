@@ -352,4 +352,28 @@ func _unhandled_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　よく分からん。またあとで書き直そうぜ？」  
 
+## 仮想キーを作らな
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ゲームパッドと　キーボード、両方の操作を　プログラムするの　めんどくさいぜ。  
+仮想キーを作らな」  
+
+```gd
+&"VK_Ok"
+&"VK_SystemMenu"
+&"VK_FastForward"
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな感じで」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　キーボードが　Push Any Key じゃなくなったが……」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　１つ１つ　仮想の Ok ボタン当てはめていくの　めんどくさいんで　エンターキー使えだぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　劣化よ、劣化！」  
+
 .
