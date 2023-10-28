@@ -403,4 +403,60 @@ func _unhandled_input(event):
 「　２時間　充電してみましょう。  
 それで動かなかったら　床に叩きつけて　割りましょう」  
 
+## 8BitDo のゲームパッドは、実用的な話を言えば、必ずドライバーの更新の手順を踏む必要がある
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　捨てるか　ドライバーを再インストールするか　考え中」  
+
+📖　[https://support.8bitdo.com/](https://support.8bitdo.com/)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　サポートサイトはここにあるが、悪意のあるサイトか、そうでないか分からない。  
+わたしが人柱になるんで、あとは頼む」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　PC-Engine風のゲームパッド用のドライバーをダウンロードすると説明書が入っているのでそれを読む」  
+
+![202310__godot__28-2330--8BitDo-HomeButton.png](https://crieit.now.sh/upload_images/60575110b41fbd9a621a1ec7598e8ae1653d1b7b97f37.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　8BitDo のゲームパッドには　上図のような柄のボタンが付いていて、 **ホームボタン**（Home Button） と呼ぶそうだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ゲームパッドのＵＳＢ接続を抜き、ホームボタンを３秒押すと、赤いランプも青いランプも消えた状態になる。  
+これが　電源オフの状態だぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　セレクトボタンを押したまま、ホームボタンを押す」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　すると　青いランプと　黄色いランプが点滅する」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　無線ではなく、USBケーブルを使って　ゲームパッドとPCを接続する」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　すると　ゲームパッド側は　**USB フラッシュ・ドライブ** になっているらしく、  
+そのファイル・エクスプローラーが開く」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`8BitDo_PCE_Gamepad_Fw_V4.02.dat` ファイルを、 USB フラッシュ・ドライブへ  
+コピー貼り付けする」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　コピーが終わったら　USBケーブルを抜く」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　まだ　青いランプと　黄色いランプが点滅しているから、  
+そのランプが消えるよう、ホームボタンを　３秒間　押し続ける」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ランプが消えたら更新完了」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　あとは　工場から出荷されて自宅に届いたつもりになって　普通にゲームパッドを使えば　使える」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　だったら　使用前に　ドライバーの更新をすることを　必須にしてほしい」  
+
 .
