@@ -3,7 +3,7 @@ extends Node
 
 # PC-Engine
 func get_canvas_layer():
-	return $"../../GuiArtist/PCEngine_CanvasLayer"
+	return $"../../GuiArtist/MegaDrive_CanvasLayer"
 
 
 func on_unhandled_input(event):
