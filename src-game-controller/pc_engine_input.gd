@@ -4,6 +4,7 @@ extends Node
 var re_axis_0 = RegEx.new()
 var re_axis_1 = RegEx.new()
 
+
 func _ready():
 	# この文字列がどう変化するのか、さっぱり分からん。Godot はクソだ
 	# Joypad Motion on Axis 0 (Left Stick X-Axis, Joystick 0 X-Axis) with Value 0.99
@@ -60,7 +61,7 @@ func on_unhandled_input(event):
 
 	# 十字キーの上下
 	# Joypad Motion on Axis 1 (Left Stick Y-Axis, Joystick 0 Y-Axis) with Value 1.00
-	if event_as_text.begins_with(&"Joypad Motion on Axis 1 "):
+	elif event_as_text.begins_with(&"Joypad Motion on Axis 1 "):
 		description += &"Joypad Motion on Axis 1 "
 		axis_number = 1
 		for result in re_axis_1.search_all(event_as_text):
@@ -69,7 +70,7 @@ func on_unhandled_input(event):
 
 	# I
 	# Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
-	if event_as_text.begins_with(&"Joypad Button 0 "):
+	elif event_as_text.begins_with(&"Joypad Button 0 "):
 		description += &"Joypad Button 0 "
 		button_number = 0
 	
@@ -93,7 +94,9 @@ func on_unhandled_input(event):
 	
 	print(description)
 
+	# ーーーーーーーー
 	# 表示
+	# ーーーーーーーー
 
 	if axis_number == 0:
 		self.get_canvas_layer().get_node("→値").text = str(axis_value)
