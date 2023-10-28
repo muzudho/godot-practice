@@ -1,6 +1,18 @@
 extends Node
 
 
+var re_axis_0 = RegEx.new()
+var re_axis_1 = RegEx.new()
+
+func _ready():
+	# この文字列がどう変化するのか、さっぱり分からん。Godot はクソだ
+	# Joypad Motion on Axis 0 (Left Stick X-Axis, Joystick 0 X-Axis) with Value 0.99
+	re_axis_0.compile("Joypad Motion on Axis 0 \\(Left Stick X-Axis, Joystick 0 X-Axis\\) with Value (-?\\d+(?:\\.\\d+)?)")
+	
+	# Joypad Motion on Axis 1 (Left Stick Y-Axis, Joystick 0 Y-Axis) with Value 1.00
+	re_axis_1.compile("Joypad Motion on Axis 1 \\(Left Stick Y-Axis, Joystick 0 Y-Axis\\) with Value (-?\\d+(?:\\.\\d+)?)")
+
+
 # PC-Engine
 func get_canvas_layer():
 	return $"../../GuiArtist/PCEngine_CanvasLayer"
@@ -33,7 +45,27 @@ func on_unhandled_input(event):
 	# ーーーーーーーー
 	# 操作したボタン
 	# ーーーーーーーー
+	var axis_number = -1
+	var axis_value = 0
 	var button_number = -1
+
+	# 十字キーの左右
+	# Joypad Motion on Axis 0 (Left Stick X-Axis, Joystick 0 X-Axis) with Value 0.99
+	if event_as_text.begins_with(&"Joypad Motion on Axis 0 "):
+		description += &"Joypad Motion on Axis 0 "
+		axis_number = 0
+		for result in re_axis_0.search_all(event_as_text):
+			axis_value = float(result.get_string(1))
+			break
+
+	# 十字キーの上下
+	# Joypad Motion on Axis 1 (Left Stick Y-Axis, Joystick 0 Y-Axis) with Value 1.00
+	if event_as_text.begins_with(&"Joypad Motion on Axis 1 "):
+		description += &"Joypad Motion on Axis 1 "
+		axis_number = 1
+		for result in re_axis_1.search_all(event_as_text):
+			axis_value = float(result.get_string(1))
+			break
 
 	# I
 	# Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
@@ -61,8 +93,15 @@ func on_unhandled_input(event):
 	
 	print(description)
 
+	# 表示
 
-	if button_number == 0:
+	if axis_number == 0:
+		self.get_canvas_layer().get_node("→値").text = str(axis_value)
+
+	elif axis_number == 1:
+		self.get_canvas_layer().get_node("↓値").text = str(axis_value)
+
+	elif button_number == 0:
 		self.get_canvas_layer().get_node("I値").text = presentation
 			
 	elif button_number == 1:
@@ -73,29 +112,3 @@ func on_unhandled_input(event):
 				
 	elif button_number == 6:
 		self.get_canvas_layer().get_node("Run値").text = presentation
-
-
-	# ーーーーーーーー
-	# レバー
-	# ーーーーーーーー
-	var is_lever = false
-
-	for action in InputMap.get_actions():
-		if InputMap.event_is_action(event, action):
-			print("action: " + action)
-			
-			# 十字キーを想定
-			if action == &"ui_left" or action == &"ui_right" or action == &"ui_up" or action == &"ui_down":
-				is_lever = true
-				
-	if is_lever:
-		var velocity = Input.get_vector(
-				&"ui_left",		# 左の方
-				&"ui_right",	# 右の方
-				&"ui_up",		# 上の方
-				&"ui_down")		# 下の方
-		
-		self.get_canvas_layer().get_node("→値").text = str(velocity.x)
-		self.get_canvas_layer().get_node("↓値").text = str(velocity.y)
-		
-		
