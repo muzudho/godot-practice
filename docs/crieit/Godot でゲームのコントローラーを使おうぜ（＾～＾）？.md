@@ -376,4 +376,16 @@ func _unhandled_input(event):
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　劣化よ、劣化！」  
 
+## メガドライブ風ゲームパッド
+
+![202310__photo__28-1256--GamePadBox-o2o0.jpg](https://crieit.now.sh/upload_images/8d05907725ada9894de7a7d8c4114fee653cd2188eaef.jpg)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👆　まだ箱があるぜ」  
+
+![202310__photo__28-1256--GamePadOpen-o2o0.jpg](https://crieit.now.sh/upload_images/b7ac6cda3d71b51c8fc059e8e7ec640d653cd260df583.jpg)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　これもＵＳＢが入ってるな。　同じ　8 Bit Do というメーカーのようだぜ、知らんけど」  
+
 .
