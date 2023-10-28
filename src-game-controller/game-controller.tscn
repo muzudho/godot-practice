@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ds85tqhkwh84l"]
+[gd_scene load_steps=9 format=3 uid="uid://ds85tqhkwh84l"]
 
 [ext_resource type="Script" path="res://director.gd" id="1_gaklu"]
 [ext_resource type="Texture2D" uid="uid://gp4gjww7yp31" path="res://images/1280x720/202310__godot__29-0043--MegaDriveGamepad.png" id="2_8cexx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://pc_engine_input.gd" id="2_hat2p"]
 [ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="2_qv7p0"]
 [ext_resource type="Script" path="res://mega_drive_input.gd" id="5_idse1"]
+[ext_resource type="Script" path="res://test_input.gd" id="5_l4rac"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dsh7r"]
 font = ExtResource("2_qv7p0")
@@ -275,6 +276,9 @@ text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="ControllerArtist" type="Node" parent="."]
+
+[node name="Test_Input" type="Node" parent="ControllerArtist"]
+script = ExtResource("5_l4rac")
 
 [node name="PCEngine_Input" type="Node" parent="ControllerArtist"]
 script = ExtResource("2_hat2p")

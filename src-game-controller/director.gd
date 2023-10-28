@@ -39,5 +39,6 @@ func _process(_delta):
 # 入力１つ１つに分解されて呼び出されるようだ
 func _unhandled_input(event):
 	
+	self.get_controller_artist().get_node("Test_Input").on_unhandled_input(event)
 	self.get_controller_artist().get_node("PCEngine_Input").on_unhandled_input(event)
 	self.get_controller_artist().get_node("MegaDrive_Input").on_unhandled_input(event)
