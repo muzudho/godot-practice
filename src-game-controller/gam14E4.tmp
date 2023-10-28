@@ -1,0 +1,287 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds85tqhkwh84l"]
+
+[ext_resource type="Script" path="res://director.gd" id="1_gaklu"]
+[ext_resource type="Texture2D" uid="uid://gp4gjww7yp31" path="res://images/1280x720/202310__godot__29-0043--MegaDriveGamepad.png" id="2_8cexx"]
+[ext_resource type="Texture2D" uid="uid://ddx3jhcm76qp" path="res://images/1280x720/202310__godot__29-0030--PCEngineGamepad.png" id="2_70ugp"]
+[ext_resource type="Script" path="res://pc_engine_input.gd" id="2_hat2p"]
+[ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="2_qv7p0"]
+[ext_resource type="Script" path="res://mega_drive_input.gd" id="5_idse1"]
+[ext_resource type="Script" path="res://test_input.gd" id="5_l4rac"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dsh7r"]
+font = ExtResource("2_qv7p0")
+font_size = 32
+outline_size = 5
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 10
+shadow_color = Color(0.12549, 0.12549, 0.12549, 0.752941)
+
+[node name="Director" type="Node2D"]
+script = ExtResource("1_gaklu")
+
+[node name="GuiArtist" type="Node" parent="."]
+
+[node name="MegaDrive" type="Sprite2D" parent="GuiArtist"]
+position = Vector2(640, 360)
+texture = ExtResource("2_8cexx")
+
+[node name="MegaDrive_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
+
+[node name="→" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 287.0
+offset_top = 344.0
+offset_right = 335.0
+offset_bottom = 387.0
+text = "→ "
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="→値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 342.0
+offset_top = 343.0
+offset_right = 459.0
+offset_bottom = 386.0
+text = "0.0"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="↓" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 252.0
+offset_top = 383.0
+offset_right = 300.0
+offset_bottom = 426.0
+text = "↓ "
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="↓値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 242.0
+offset_top = 435.0
+offset_right = 359.0
+offset_bottom = 478.0
+text = "0.0"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Start" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 589.0
+offset_top = 307.0
+offset_right = 685.0
+offset_bottom = 350.0
+text = "Start"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Start値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 630.0
+offset_top = 345.0
+offset_right = 681.0
+offset_bottom = 388.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="A" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 833.0
+offset_top = 438.0
+offset_right = 887.0
+offset_bottom = 481.0
+text = "A"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="A値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 835.0
+offset_top = 471.0
+offset_right = 886.0
+offset_bottom = 514.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="B" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 968.0
+offset_top = 371.0
+offset_right = 1017.0
+offset_bottom = 414.0
+text = "B"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="B値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 974.0
+offset_top = 407.0
+offset_right = 1025.0
+offset_bottom = 450.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="C" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 1122.0
+offset_top = 338.0
+offset_right = 1171.0
+offset_bottom = 381.0
+text = "C"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="C値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 1125.0
+offset_top = 377.0
+offset_right = 1176.0
+offset_bottom = 420.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="X" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 782.0
+offset_top = 268.0
+offset_right = 836.0
+offset_bottom = 311.0
+text = "X"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="X値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 786.0
+offset_top = 324.0
+offset_right = 837.0
+offset_bottom = 367.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Y" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 921.0
+offset_top = 210.0
+offset_right = 975.0
+offset_bottom = 253.0
+text = "Y"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Y値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 928.0
+offset_top = 266.0
+offset_right = 979.0
+offset_bottom = 309.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Z" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 1056.0
+offset_top = 174.0
+offset_right = 1110.0
+offset_bottom = 217.0
+text = "Z"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Z値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 1060.0
+offset_top = 226.0
+offset_right = 1111.0
+offset_bottom = 269.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="PCEngine" type="Sprite2D" parent="GuiArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_70ugp")
+
+[node name="PCEngine_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
+visible = false
+
+[node name="→" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 287.0
+offset_top = 344.0
+offset_right = 335.0
+offset_bottom = 387.0
+text = "→ "
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="→値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 342.0
+offset_top = 343.0
+offset_right = 459.0
+offset_bottom = 386.0
+text = "0.0"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="↓" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 252.0
+offset_top = 383.0
+offset_right = 300.0
+offset_bottom = 426.0
+text = "↓ "
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="↓値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 242.0
+offset_top = 435.0
+offset_right = 359.0
+offset_bottom = 478.0
+text = "0.0"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Select" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 486.0
+offset_top = 357.0
+offset_right = 582.0
+offset_bottom = 400.0
+text = "Select"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Select値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 531.0
+offset_top = 415.0
+offset_right = 582.0
+offset_bottom = 458.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Run" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 690.0
+offset_top = 359.0
+offset_right = 786.0
+offset_bottom = 402.0
+text = "Run"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Run値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 708.0
+offset_top = 413.0
+offset_right = 759.0
+offset_bottom = 456.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="II" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 890.0
+offset_top = 398.0
+offset_right = 939.0
+offset_bottom = 441.0
+text = "II"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="II値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 902.0
+offset_top = 443.0
+offset_right = 953.0
+offset_bottom = 486.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="I" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 1071.0
+offset_top = 394.0
+offset_right = 1125.0
+offset_bottom = 437.0
+text = "I"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="I値" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
+offset_left = 1070.0
+offset_top = 423.0
+offset_right = 1121.0
+offset_bottom = 466.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="ControllerArtist" type="Node" parent="."]
+
+[node name="Test_Input" type="Node" parent="ControllerArtist"]
+script = ExtResource("5_l4rac")
+
+[node name="PCEngine_Input" type="Node" parent="ControllerArtist"]
+script = ExtResource("2_hat2p")
+
+[node name="MegaDrive_Input" type="Node" parent="ControllerArtist"]
+script = ExtResource("5_idse1")

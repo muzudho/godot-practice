@@ -37,13 +37,15 @@ func on_unhandled_input(event):
 	var button_number = -1
 
 	# A
-	if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
-		description += "Joypad Button 0 "
+	# Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
+	if event_as_text.begins_with(&"Joypad Button 0 "):
+		description += &"Joypad Button 0 "
 		button_number = 0
 
 	# B
-	elif event_as_text == &"Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)":
-		description += "Joypad Button 1 "
+	# Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)
+	elif event_as_text.begins_with(&"Joypad Button 1 "):
+		description += &"Joypad Button 1 "
 		button_number = 1
 
 	# C
@@ -53,31 +55,31 @@ func on_unhandled_input(event):
 	# Joypad Motion on Axis 5 (Joystick 2 Y-Axis, Right Trigger, Sony R2, Xbox RT) with Value 1.00
 	# Joypad Motion on Axis 5 (Joystick 2 Y-Axis, Right Trigger, Sony R2, Xbox RT) with Value 0.00
 	elif event_as_text.begins_with(&"Joypad Motion on Axis 5 "):
-		description += "Joypad Motion on Axis 5 "
+		description += &"Joypad Motion on Axis 5 "
 		button_number = 5
 
 	# X
 	# Joypad Button 2 (Left Action, Sony Square, Xbox X, Nintendo Y)
-	elif event_as_text == &"Joypad Button 2 (Left Action, Sony Square, Xbox X, Nintendo Y)":
-		description += "Joypad Button 2 "
+	elif event_as_text.begins_with(&"Joypad Button 2 "):
+		description += &"Joypad Button 2 "
 		button_number = 2
 
 	# Y
 	# Joypad Button 3 (Top Action, Sony Triangle, Xbox Y, Nintendo X)
-	elif event_as_text == &"Joypad Button 3 (Top Action, Sony Triangle, Xbox Y, Nintendo X)":
-		description += "Joypad Button 3 "
+	elif event_as_text.begins_with(&"Joypad Button 3 "):
+		description += &"Joypad Button 3 "
 		button_number = 3
 
 	# Z
 	# Joypad Button 10 (Right Shoulder, Sony R1, Xbox RB)
-	elif event_as_text == &"Joypad Button 10 (Right Shoulder, Sony R1, Xbox RB)":
-		description += "Joypad Button 10 "
+	elif event_as_text.begins_with(&"Joypad Button 10 "):
+		description += &"Joypad Button 10 "
 		button_number = 10
 	
 	# Start
 	# Joypad Button 6 (Start, Xbox Menu, Nintendo +)
-	elif event_as_text == &"Joypad Button 6 (Start, Xbox Menu, Nintendo +)":
-		description += "Joypad Button 6 "
+	elif event_as_text.begins_with(&"Joypad Button 6 "):
+		description += &"Joypad Button 6 "
 		button_number = 6
 	
 	print(description)
