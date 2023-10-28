@@ -403,7 +403,7 @@ func _unhandled_input(event):
 「　２時間　充電してみましょう。  
 それで動かなかったら　床に叩きつけて　割りましょう」  
 
-## 8BitDo のゲームパッドは、実用的な話を言えば、必ずドライバーの更新の手順を踏む必要がある
+## 8BitDo のPC-Engine風のゲームパッドは、実用的な話を言えば、必ずドライバーの更新の手順を踏む必要がある
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　捨てるか　ドライバーを再インストールするか　考え中」  
@@ -452,6 +452,61 @@ func _unhandled_input(event):
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　ランプが消えたら更新完了」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　あとは　工場から出荷されて自宅に届いたつもりになって　普通にゲームパッドを使えば　使える」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　だったら　使用前に　ドライバーの更新をすることを　必須にしてほしい」  
+
+## 8BitDO のメガドライブ風のゲームパッドも、実用的な話を言えば、ドライバーを再インストールする必要がある
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　8BitDO のメガドライブ風のゲームパッドも、実用的な話を言えば、ドライバーを再インストールする必要がある」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　何の案内も無いのに　探した者だけが見つけることができるところに　手順だけあるの、海外製品のサポートよね～」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　とりあえず　自分の持ってる製品に合ったドライバーを入手しろだぜ。ゲームパッドのどこかに型番が刻印されているだろう」  
+
+📂 `M30_24G_Mini_GamepadV208`  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　パターンがいくつかあるようなので、わたしのケースで説明する」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ゲームパッドとPCが接続されていない状態にする。USBケーブルを抜くとか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ゲームパッドのど真ん中にあるスタートボタンを、体感で１０秒ぐらい長押しする。  
+すべてのランプが消灯する」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Ｌ、Ｒボタンの両方を押しっぱなしにして、スタートボタンを押す。  
+これで　黄色いランプと、青いランプが点灯し続ける。これは　**アップグレード・モード**　と呼ぶそうだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　USBケーブルを使って、ゲームパッドとＰＣを接続する」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　すると　ゲームパッド側は　**USB フラッシュ・ドライブ** になっているらしく、  
+そのファイル・エクスプローラーが開く」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`CopyFwToUDisk.exe` ファイルをダブルクリックする」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`Open` ボタンをクリックして、`*.dat` ファイルが添付されてるから、それを選ぶ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`Update` ボタンをクリックする。黒い画面が出る。それが勝手に閉じられるまで待つ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　また、ゲームパッドとPCを接続しているUSBケーブルを抜く」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　スタートボタンを　３秒間　押し続ける。これでコントローラーの電源がオフになる」  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　あとは　工場から出荷されて自宅に届いたつもりになって　普通にゲームパッドを使えば　使える」  
