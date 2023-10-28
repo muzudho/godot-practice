@@ -388,4 +388,19 @@ func _unhandled_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　これもＵＳＢが入ってるな。　同じ　8 Bit Do というメーカーのようだぜ、知らんけど」  
 
+## コントローラーが反応しなくなった
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　終わった……」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　電池か？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　最後に挿したＵＳＢ端子のせいで　おかしくなったとか　画面右下で言いわけがポップアップされたぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　２時間　充電してみましょう。  
+それで動かなかったら　床に叩きつけて　割りましょう」  
+
 .
