@@ -297,7 +297,7 @@ offset_left = 240.0
 offset_top = 73.0
 offset_right = 291.0
 offset_bottom = 116.0
-text = "0.0"
+text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="LB" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
@@ -361,7 +361,7 @@ offset_left = 545.0
 offset_top = 528.0
 offset_right = 662.0
 offset_bottom = 571.0
-text = "."
+text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="左十↓" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
@@ -377,7 +377,7 @@ offset_left = 408.0
 offset_top = 614.0
 offset_right = 525.0
 offset_bottom = 657.0
-text = "."
+text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="Back" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
@@ -457,7 +457,7 @@ offset_left = 1033.0
 offset_top = 74.0
 offset_right = 1084.0
 offset_bottom = 117.0
-text = "0.0"
+text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="RB" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
