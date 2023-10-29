@@ -536,6 +536,19 @@ func _unhandled_input(event):
 「　8BitDo のメガドライブ風のゲームパッドが反応しなくなった。  
 もう　ドライバーの再インストールなんてしないぜ　クソだろ　このゲームパッド」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　Amazon のレビューに　☆１　付けたった」  
 
+## PS風コントローラー
+
+![202310__photo__29-1646--PSControllerPacked-o2o0.jpg](https://crieit.now.sh/upload_images/90bdabbc86eb77690145a6d07539536f653e0f02e5e67.jpg)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　新品が　ぷちぷちに　くるまれて送られてくるんだな。こんなんでいいんだな」  
+
+![202310__photo__29-1647--PSController-o2o0.jpg](https://crieit.now.sh/upload_images/4886338600a6871d8b9457275519573b653e0f33c2f05.jpg)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　USB端子を挿してみるか」  
 
 .
