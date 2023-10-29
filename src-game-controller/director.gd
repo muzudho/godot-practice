@@ -43,3 +43,4 @@ func _unhandled_input(event):
 	self.get_controller_artist().get_node("MegaDrive_Input").on_unhandled_input(event)
 	self.get_controller_artist().get_node("PCEngine_Input").on_unhandled_input(event)
 	self.get_controller_artist().get_node("XBox_Input").on_unhandled_input(event)
+	self.get_controller_artist().get_node("PlayStation_Input").on_unhandled_input(event)
