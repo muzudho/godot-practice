@@ -106,17 +106,29 @@ func on_unhandled_input(event):
 			presentation = str(lever_value)
 			break
 
-	# 左十→
-	# Joypad Button 14 (D-pad Right)
-	elif event_as_text.begins_with(&"Joypad Button 14 "):
-		acception += &"Joypad Button 14 "
-		button_number = 14
+	# 左十←
+	# Joypad Button 13 (D-pad Left)
+	elif event_as_text.begins_with(&"Joypad Button 13 "):
+		acception += &"Joypad Button 13 "
+		button_number = 13
+
+	# 左十↑
+	# Joypad Button 11 (D-pad Up)
+	elif event_as_text.begins_with(&"Joypad Button 11 "):
+		acception += &"Joypad Button 11 "
+		button_number = 11
 
 	# 左十↓
 	# Joypad Button 12 (D-pad Down)
 	elif event_as_text.begins_with(&"Joypad Button 12 "):
 		acception += &"Joypad Button 12 "
 		button_number = 12
+
+	# 左十→
+	# Joypad Button 14 (D-pad Right)
+	elif event_as_text.begins_with(&"Joypad Button 14 "):
+		acception += &"Joypad Button 14 "
+		button_number = 14
 
 	# Back
 	# Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)
@@ -212,11 +224,17 @@ func on_unhandled_input(event):
 	elif button_number == 1001:
 		self.get_canvas_layer().get_node("左レ↓値").text = presentation
 			
-	elif button_number == 14:
-		self.get_canvas_layer().get_node("左十→値").text = presentation
+	elif button_number == 13:
+		self.get_canvas_layer().get_node("左十←値").text = presentation
+
+	elif button_number == 11:
+		self.get_canvas_layer().get_node("左十↑値").text = presentation
 			
 	elif button_number == 12:
 		self.get_canvas_layer().get_node("左十↓値").text = presentation
+			
+	elif button_number == 14:
+		self.get_canvas_layer().get_node("左十→値").text = presentation
 
 	elif button_number == 4:
 		self.get_canvas_layer().get_node("Back値").text = presentation
