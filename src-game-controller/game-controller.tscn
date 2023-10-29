@@ -26,12 +26,10 @@ script = ExtResource("1_gaklu")
 [node name="GuiArtist" type="Node" parent="."]
 
 [node name="MegaDrive" type="Sprite2D" parent="GuiArtist"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("2_by728")
 
 [node name="MegaDrive_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
-visible = false
 
 [node name="L" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
 offset_left = 212.0
@@ -314,10 +312,12 @@ text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="PlayStation" type="Sprite2D" parent="GuiArtist"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("5_uuy4m")
 
 [node name="PlayStation_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
+visible = false
 
 [node name="L2" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
 offset_left = 221.0
