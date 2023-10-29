@@ -514,4 +514,20 @@ func _unhandled_input(event):
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　だったら　使用前に　ドライバーの更新をすることを　必須にしてほしい」  
 
+# 📅 2023-10-29 sun ⏰ 13:16
+
+## XBox風コントローラー
+
+![202310__photo__29-1312--XBoxController-o2o0.jpg](https://crieit.now.sh/upload_images/82a1c45cab300b75d20fd21f39368257653ddc9bbc37a.jpg)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　次は XBox風のコントローラーだぜ。ぷちぷちにくるまれてただけで、説明書もないぜ。  
+メーカー名も刻印されてないぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　じゃあ　USB端子を挿そうぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　USB端子を挿しただけで認識したぜ。もう　すぐに使える状態のようだぜ」  
+
 .
