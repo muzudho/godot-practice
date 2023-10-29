@@ -539,7 +539,7 @@ func _unhandled_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　Amazon のレビューに　☆１　付けたった」  
 
-## PS風コントローラー
+## PS風コントローラーは粗悪品だった
 
 ![202310__photo__29-1646--PSControllerPacked-o2o0.jpg](https://crieit.now.sh/upload_images/90bdabbc86eb77690145a6d07539536f653e0f02e5e67.jpg)  
 
@@ -550,5 +550,14 @@ func _unhandled_input(event):
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　USB端子を挿してみるか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　左側の十字キーの上ボタンと、右ボタンが反応しないぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　もっと調べてみろだぜ。他のボタンも反応しないかもしれないぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　嬉しくないな……」  
 
 .
