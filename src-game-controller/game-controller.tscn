@@ -1,13 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://ds85tqhkwh84l"]
+[gd_scene load_steps=13 format=3 uid="uid://ds85tqhkwh84l"]
 
 [ext_resource type="Script" path="res://director.gd" id="1_gaklu"]
-[ext_resource type="Texture2D" uid="uid://gp4gjww7yp31" path="res://images/1280x720/202310__godot__29-0043--MegaDriveGamepad.png" id="2_8cexx"]
+[ext_resource type="Texture2D" uid="uid://b8t4cjwjju8ay" path="res://images/1280x720/202310__godot__29-0043--MegaDriveGamepad-o2o0.png" id="2_by728"]
 [ext_resource type="Script" path="res://pc_engine_input.gd" id="2_hat2p"]
 [ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="2_qv7p0"]
 [ext_resource type="Texture2D" uid="uid://dx186s3h5k8yj" path="res://images/1280x720/202310__godot__29-0030--PCEngineGamepad-o2o0.png" id="4_ig6on"]
 [ext_resource type="Texture2D" uid="uid://dxnbjjkewcx6u" path="res://images/1280x720/202310__godot__29-1324--XBoxGamepad.png" id="5_4yit4"]
 [ext_resource type="Script" path="res://mega_drive_input.gd" id="5_idse1"]
 [ext_resource type="Script" path="res://test_input.gd" id="5_l4rac"]
+[ext_resource type="Texture2D" uid="uid://bk0itr75fpk6y" path="res://images/1280x720/202310__godot__29-1656--PSGamepad-o2o0.png" id="5_uuy4m"]
+[ext_resource type="Script" path="res://play_station_input.gd" id="10_86bsk"]
+[ext_resource type="Script" path="res://x_box_input.gd" id="11_4uqde"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_dsh7r"]
 font = ExtResource("2_qv7p0")
@@ -23,12 +26,26 @@ script = ExtResource("1_gaklu")
 [node name="GuiArtist" type="Node" parent="."]
 
 [node name="MegaDrive" type="Sprite2D" parent="GuiArtist"]
-visible = false
 position = Vector2(640, 360)
-texture = ExtResource("2_8cexx")
+texture = ExtResource("2_by728")
 
 [node name="MegaDrive_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
-visible = false
+
+[node name="L" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 212.0
+offset_top = 37.0
+offset_right = 266.0
+offset_bottom = 80.0
+text = "L"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="L値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 212.0
+offset_top = 74.0
+offset_right = 263.0
+offset_bottom = 117.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="→" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
 offset_left = 287.0
@@ -75,6 +92,22 @@ offset_left = 630.0
 offset_top = 345.0
 offset_right = 681.0
 offset_bottom = 388.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="R" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 994.0
+offset_top = 48.0
+offset_right = 1048.0
+offset_bottom = 91.0
+text = "R"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="R値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
+offset_left = 994.0
+offset_top = 81.0
+offset_right = 1045.0
+offset_bottom = 124.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
@@ -127,18 +160,18 @@ text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="X" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
-offset_left = 782.0
-offset_top = 268.0
-offset_right = 836.0
-offset_bottom = 311.0
+offset_left = 784.0
+offset_top = 275.0
+offset_right = 838.0
+offset_bottom = 318.0
 text = "X"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="X値" type="Label" parent="GuiArtist/MegaDrive_CanvasLayer"]
-offset_left = 786.0
-offset_top = 324.0
-offset_right = 837.0
-offset_bottom = 367.0
+offset_left = 785.0
+offset_top = 327.0
+offset_right = 836.0
+offset_bottom = 370.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
@@ -175,10 +208,12 @@ text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="PCEngine" type="Sprite2D" parent="GuiArtist"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("4_ig6on")
 
 [node name="PCEngine_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
+visible = false
 
 [node name="→" type="Label" parent="GuiArtist/PCEngine_CanvasLayer"]
 offset_left = 287.0
@@ -279,276 +314,244 @@ label_settings = SubResource("LabelSettings_dsh7r")
 [node name="PlayStation" type="Sprite2D" parent="GuiArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("5_4yit4")
+texture = ExtResource("5_uuy4m")
 
 [node name="PlayStation_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
 visible = false
 
-[node name="LT" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 230.0
-offset_top = 28.0
-offset_right = 279.0
-offset_bottom = 71.0
-text = "LT"
+[node name="L2" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 221.0
+offset_top = 5.0
+offset_right = 270.0
+offset_bottom = 48.0
+text = "L2"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="LT値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 240.0
-offset_top = 73.0
-offset_right = 291.0
-offset_bottom = 116.0
+[node name="L2値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 235.0
+offset_top = 51.0
+offset_right = 286.0
+offset_bottom = 94.0
 text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="LB" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 176.0
-offset_top = 115.0
-offset_right = 230.0
-offset_bottom = 158.0
-text = "LB"
+[node name="L1" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 226.0
+offset_top = 110.0
+offset_right = 280.0
+offset_bottom = 153.0
+text = "L1"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="LB値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 187.0
-offset_top = 154.0
-offset_right = 238.0
-offset_bottom = 197.0
+[node name="L1値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 236.0
+offset_top = 141.0
+offset_right = 287.0
+offset_bottom = 184.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="左レ→" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 235.0
-offset_top = 292.0
-offset_right = 347.0
-offset_bottom = 335.0
-text = "左レ→ "
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="左レ→値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 346.0
-offset_top = 291.0
-offset_right = 463.0
-offset_bottom = 334.0
-text = "0.0"
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="左レ↓" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 177.0
-offset_top = 333.0
-offset_right = 289.0
-offset_bottom = 376.0
-text = "左レ↓ "
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="左レ↓値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 232.0
-offset_top = 386.0
-offset_right = 349.0
-offset_bottom = 429.0
-text = "0.0"
-label_settings = SubResource("LabelSettings_dsh7r")
-
 [node name="左十←" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 236.0
-offset_top = 527.0
-offset_right = 348.0
-offset_bottom = 570.0
+offset_left = 49.0
+offset_top = 350.0
+offset_right = 161.0
+offset_bottom = 393.0
 text = "左十←"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="左十←値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 351.0
-offset_top = 521.0
-offset_right = 409.0
-offset_bottom = 564.0
+offset_left = 189.0
+offset_top = 344.0
+offset_right = 247.0
+offset_bottom = 387.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="左十↑" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 354.0
-offset_top = 483.0
-offset_right = 466.0
-offset_bottom = 526.0
+offset_left = 192.0
+offset_top = 306.0
+offset_right = 304.0
+offset_bottom = 349.0
 text = "左十↑"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="左十↑値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 426.0
-offset_top = 427.0
-offset_right = 484.0
-offset_bottom = 470.0
+offset_left = 262.0
+offset_top = 263.0
+offset_right = 320.0
+offset_bottom = 306.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="左十↓" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 352.0
-offset_top = 576.0
-offset_right = 464.0
-offset_bottom = 619.0
+offset_left = 190.0
+offset_top = 399.0
+offset_right = 302.0
+offset_bottom = 442.0
 text = "左十↓ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="左十↓値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 425.0
-offset_top = 606.0
-offset_right = 474.0
-offset_bottom = 649.0
+offset_left = 263.0
+offset_top = 429.0
+offset_right = 312.0
+offset_bottom = 472.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="左十→" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 437.0
-offset_top = 527.0
-offset_right = 549.0
-offset_bottom = 570.0
+offset_left = 234.0
+offset_top = 353.0
+offset_right = 346.0
+offset_bottom = 396.0
 text = "左十→ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="左十→値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 545.0
-offset_top = 528.0
-offset_right = 590.0
-offset_bottom = 571.0
+offset_left = 347.0
+offset_top = 349.0
+offset_right = 392.0
+offset_bottom = 392.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="Back" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 487.0
-offset_top = 244.0
-offset_right = 583.0
-offset_bottom = 287.0
-text = "Back"
+[node name="左レ→" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 376.0
+offset_top = 530.0
+offset_right = 488.0
+offset_bottom = 573.0
+text = "左レ→ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="Back値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 514.0
-offset_top = 284.0
-offset_right = 565.0
-offset_bottom = 327.0
+[node name="左レ→値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 487.0
+offset_top = 528.0
+offset_right = 604.0
+offset_bottom = 571.0
+text = "0.0"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="左レ↓" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 342.0
+offset_top = 576.0
+offset_right = 454.0
+offset_bottom = 619.0
+text = "左レ↓ "
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="左レ↓値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 416.0
+offset_top = 623.0
+offset_right = 533.0
+offset_bottom = 666.0
+text = "0.0"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Select" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 453.0
+offset_top = 283.0
+offset_right = 549.0
+offset_bottom = 326.0
+text = "Select"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="Select値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 495.0
+offset_top = 319.0
+offset_right = 546.0
+offset_bottom = 362.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="Start" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 669.0
-offset_top = 246.0
-offset_right = 765.0
-offset_bottom = 289.0
+offset_left = 717.0
+offset_top = 282.0
+offset_right = 813.0
+offset_bottom = 325.0
 text = "Start"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="Start値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 709.0
-offset_top = 285.0
-offset_right = 760.0
-offset_bottom = 328.0
+offset_left = 753.0
+offset_top = 323.0
+offset_right = 804.0
+offset_bottom = 366.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="右レ→" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 738.0
-offset_top = 533.0
-offset_right = 850.0
-offset_bottom = 576.0
+offset_left = 786.0
+offset_top = 534.0
+offset_right = 898.0
+offset_bottom = 577.0
 text = "右レ→ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="右レ→値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 845.0
-offset_top = 534.0
-offset_right = 962.0
-offset_bottom = 577.0
+offset_left = 906.0
+offset_top = 535.0
+offset_right = 1023.0
+offset_bottom = 578.0
 text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="右レ↓" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 679.0
-offset_top = 578.0
-offset_right = 791.0
-offset_bottom = 621.0
+offset_left = 752.0
+offset_top = 572.0
+offset_right = 864.0
+offset_bottom = 615.0
 text = "右レ↓ "
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="右レ↓値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 735.0
-offset_top = 624.0
-offset_right = 852.0
-offset_bottom = 667.0
+offset_left = 826.0
+offset_top = 623.0
+offset_right = 943.0
+offset_bottom = 666.0
 text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="RT" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1023.0
-offset_top = 30.0
-offset_right = 1072.0
-offset_bottom = 73.0
-text = "RT"
+[node name="R2" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1006.0
+offset_top = 5.0
+offset_right = 1055.0
+offset_bottom = 48.0
+text = "R2"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="RT値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1033.0
-offset_top = 74.0
-offset_right = 1084.0
-offset_bottom = 117.0
-text = "0.0"
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="RB" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1083.0
-offset_top = 117.0
-offset_right = 1137.0
-offset_bottom = 160.0
-text = "RB"
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="RB値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1093.0
-offset_top = 162.0
-offset_right = 1144.0
-offset_bottom = 205.0
-text = "."
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="A" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1015.0
-offset_top = 449.0
+[node name="R2値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1018.0
+offset_top = 52.0
 offset_right = 1069.0
-offset_bottom = 492.0
-text = "A"
+offset_bottom = 95.0
+text = "0.0"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="A値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1017.0
-offset_top = 481.0
-offset_right = 1068.0
-offset_bottom = 524.0
+[node name="R1" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1010.0
+offset_top = 109.0
+offset_right = 1064.0
+offset_bottom = 152.0
+text = "R1"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="R1値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1022.0
+offset_top = 139.0
+offset_right = 1073.0
+offset_bottom = 182.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="B" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1114.0
-offset_top = 349.0
-offset_right = 1163.0
-offset_bottom = 392.0
-text = "B"
+[node name="□" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 912.0
+offset_top = 347.0
+offset_right = 966.0
+offset_bottom = 390.0
+text = "□"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="B値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1114.0
-offset_top = 372.0
-offset_right = 1165.0
-offset_bottom = 415.0
-text = "."
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="X" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 921.0
-offset_top = 349.0
-offset_right = 975.0
-offset_bottom = 392.0
-text = "X"
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="X値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+[node name="□値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
 offset_left = 922.0
 offset_top = 374.0
 offset_right = 973.0
@@ -556,19 +559,51 @@ offset_bottom = 417.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="Y" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
-offset_left = 1013.0
+[node name="△" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1006.0
 offset_top = 249.0
-offset_right = 1067.0
+offset_right = 1060.0
 offset_bottom = 292.0
-text = "Y"
+text = "△"
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="Y値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+[node name="△値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
 offset_left = 1016.0
 offset_top = 275.0
 offset_right = 1067.0
 offset_bottom = 318.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="×" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1015.0
+offset_top = 449.0
+offset_right = 1069.0
+offset_bottom = 492.0
+text = "×"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="×値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1017.0
+offset_top = 481.0
+offset_right = 1068.0
+offset_bottom = 524.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="○" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1104.0
+offset_top = 347.0
+offset_right = 1153.0
+offset_bottom = 390.0
+text = "○"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="○値" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
+offset_left = 1114.0
+offset_top = 372.0
+offset_right = 1165.0
+offset_bottom = 415.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
@@ -804,38 +839,6 @@ offset_bottom = 205.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
-[node name="A" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
-offset_left = 1015.0
-offset_top = 449.0
-offset_right = 1069.0
-offset_bottom = 492.0
-text = "A"
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="A値" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
-offset_left = 1017.0
-offset_top = 481.0
-offset_right = 1068.0
-offset_bottom = 524.0
-text = "."
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="B" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
-offset_left = 1114.0
-offset_top = 349.0
-offset_right = 1163.0
-offset_bottom = 392.0
-text = "B"
-label_settings = SubResource("LabelSettings_dsh7r")
-
-[node name="B値" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
-offset_left = 1114.0
-offset_top = 372.0
-offset_right = 1165.0
-offset_bottom = 415.0
-text = "."
-label_settings = SubResource("LabelSettings_dsh7r")
-
 [node name="X" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
 offset_left = 921.0
 offset_top = 349.0
@@ -868,6 +871,38 @@ offset_bottom = 318.0
 text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
+[node name="A" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
+offset_left = 1015.0
+offset_top = 449.0
+offset_right = 1069.0
+offset_bottom = 492.0
+text = "A"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="A値" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
+offset_left = 1017.0
+offset_top = 481.0
+offset_right = 1068.0
+offset_bottom = 524.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="B" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
+offset_left = 1114.0
+offset_top = 349.0
+offset_right = 1163.0
+offset_bottom = 392.0
+text = "B"
+label_settings = SubResource("LabelSettings_dsh7r")
+
+[node name="B値" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
+offset_left = 1114.0
+offset_top = 372.0
+offset_right = 1165.0
+offset_bottom = 415.0
+text = "."
+label_settings = SubResource("LabelSettings_dsh7r")
+
 [node name="ControllerArtist" type="Node" parent="."]
 
 [node name="Test_Input" type="Node" parent="ControllerArtist"]
@@ -880,7 +915,7 @@ script = ExtResource("5_idse1")
 script = ExtResource("2_hat2p")
 
 [node name="PlayStation_Input" type="Node" parent="ControllerArtist"]
-script = ExtResource("5_idse1")
+script = ExtResource("10_86bsk")
 
 [node name="XBox_Input" type="Node" parent="ControllerArtist"]
-script = ExtResource("5_idse1")
+script = ExtResource("11_4uqde")
