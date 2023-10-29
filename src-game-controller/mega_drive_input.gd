@@ -52,19 +52,19 @@ func on_unhandled_input(event):
 
 
 	# ーーーーーーーー
-	# ボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
+	# 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
 	# ーーーーーーーー
 	var button_number = -1
 	var lever_value = 0
 
+	# 各々、機種名もボタン名も書かないと、（Godot のUI では）間違えやすいので書いておく
+	#
 	# ［メガドライブ］　L
 	# Joypad Button 9 (Left Shoulder, Sony L1, Xbox LB)
 	if event_as_text.begins_with(&"Joypad Button 9 "):
 		acception += &"Joypad Button 9 "
 		button_number = 9
 
-	# 各々、機種名もボタン名も書かないと、（Godot のUI では）間違えやすいので書いておく
-	#
 	# ［メガドライブ］　十字キーの左右
 	# Joypad Motion on Axis 0 (Left Stick X-Axis, Joystick 0 X-Axis) with Value 0.99
 	elif event_as_text.begins_with(&"Joypad Motion on Axis 0 "):
