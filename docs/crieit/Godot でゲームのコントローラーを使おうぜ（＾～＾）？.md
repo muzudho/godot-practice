@@ -388,7 +388,7 @@ func _unhandled_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　これもＵＳＢが入ってるな。　同じ　8 Bit Do というメーカーのようだぜ、知らんけど」  
 
-## コントローラーが反応しなくなった
+## 8BitDo のコントローラーは粗悪品かも知らん。コントローラーが反応しなくなった
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　終わった……」  
@@ -529,5 +529,13 @@ func _unhandled_input(event):
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　USB端子を挿しただけで認識したぜ。もう　すぐに使える状態のようだぜ」  
+
+## 8BitDo のコントローラーは粗悪品かも知らん
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　8BitDo のメガドライブ風のゲームパッドが反応しなくなった。  
+もう　ドライバーの再インストールなんてしないぜ　クソだろ　このゲームパッド」  
+
+
 
 .
