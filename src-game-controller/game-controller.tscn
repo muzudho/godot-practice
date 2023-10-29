@@ -314,12 +314,10 @@ text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="PlayStation" type="Sprite2D" parent="GuiArtist"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("5_uuy4m")
 
 [node name="PlayStation_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
-visible = false
 
 [node name="L2" type="Label" parent="GuiArtist/PlayStation_CanvasLayer"]
 offset_left = 221.0
@@ -610,10 +608,12 @@ text = "."
 label_settings = SubResource("LabelSettings_dsh7r")
 
 [node name="XBox" type="Sprite2D" parent="GuiArtist"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("5_4yit4")
 
 [node name="XBox_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
+visible = false
 
 [node name="LT" type="Label" parent="GuiArtist/XBox_CanvasLayer"]
 offset_left = 230.0
