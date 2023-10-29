@@ -1,4 +1,4 @@
-# エックスボックス
+# エックスボックス（XBox）
 extends Node
 
 
@@ -10,6 +10,7 @@ var re_axis_4 = RegEx.new()
 var re_axis_5 = RegEx.new()
 
 
+# ［エックスボックス］
 func _ready():
 	# この文字列がどう変化するのか、さっぱり分からん。Godot はクソだ
 	# Joypad Motion on Axis 0 (Left Stick X-Axis, Joystick 0 X-Axis) with Value 0.99
@@ -31,11 +32,12 @@ func _ready():
 	re_axis_5.compile("Joypad Motion on Axis 5 \\(Joystick 2 Y-Axis, Right Trigger, Sony R2, Xbox RT\\) with Value (-?\\d+(?:\\.\\d+)?)")
 
 
-# PC-Engine
+# ［Ｘボックス］　キャンバス・レイヤー取得
 func get_canvas_layer():
 	return $"../../GuiArtist/XBox_CanvasLayer"
 
 
+# ［エックスボックス］
 func on_unhandled_input(event):
 	
 	if not self.get_canvas_layer().visible:
@@ -67,7 +69,9 @@ func on_unhandled_input(event):
 	var button_number = -1
 	var lever_value = 0
 
-	# LT
+	# 各々、機種名もボタン名も書かないと、（Godot のUI では）間違えやすいので書いておく
+	#
+	# ［Ｘボックス］　LT
 	# Joypad Motion on Axis 4 (Joystick 2 X-Axis, Left Trigger, Sony L2, Xbox LT) with Value 0.00
 	# Joypad Motion on Axis 4 (Joystick 2 X-Axis, Left Trigger, Sony L2, Xbox LT) with Value 0.00
 	if event_as_text.begins_with(&"Joypad Motion on Axis 4 "):
@@ -79,13 +83,13 @@ func on_unhandled_input(event):
 			presentation = str(lever_value)
 			break
 
-	# LB
+	# ［Ｘボックス］　LB
 	# Joypad Button 9 (Left Shoulder, Sony L1, Xbox LB)
 	elif event_as_text.begins_with(&"Joypad Button 9 "):
 		acception += &"Joypad Button 9 "
 		button_number = 9
 
-	# 左レ→
+	# ［Ｘボックス］　左レ→
 	# Joypad Motion on Axis 0 (Left Stick X-Axis, Joystick 0 X-Axis) with Value 0.00
 	elif event_as_text.begins_with(&"Joypad Motion on Axis 0 "):
 		acception += &"Joypad Motion on Axis 0 "
@@ -96,7 +100,7 @@ func on_unhandled_input(event):
 			presentation = str(lever_value)
 			break
 
-	# 左レ↓
+	# ［Ｘボックス］　左レ↓
 	# Joypad Motion on Axis 1 (Left Stick Y-Axis, Joystick 0 Y-Axis) with Value 0.00
 	elif event_as_text.begins_with(&"Joypad Motion on Axis 1 "):
 		acception += &"Joypad Motion on Axis 1 "
@@ -107,31 +111,43 @@ func on_unhandled_input(event):
 			presentation = str(lever_value)
 			break
 
-	# 左十→
-	# Joypad Button 14 (D-pad Right)
-	elif event_as_text.begins_with(&"Joypad Button 14 "):
-		acception += &"Joypad Button 14 "
-		button_number = 14
+	# ［Ｘボックス］　左十←
+	# Joypad Button 13 (D-pad Left)
+	elif event_as_text.begins_with(&"Joypad Button 13 "):
+		acception += &"Joypad Button 13 "
+		button_number = 13
 
-	# 左十↓
+	# ［Ｘボックス］　左十↑
+	# Joypad Button 11 (D-pad Up)
+	elif event_as_text.begins_with(&"Joypad Button 11 "):
+		acception += &"Joypad Button 11 "
+		button_number = 11
+
+	# ［Ｘボックス］　左十↓
 	# Joypad Button 12 (D-pad Down)
 	elif event_as_text.begins_with(&"Joypad Button 12 "):
 		acception += &"Joypad Button 12 "
 		button_number = 12
 
-	# Back
+	# ［Ｘボックス］　左十→
+	# Joypad Button 14 (D-pad Right)
+	elif event_as_text.begins_with(&"Joypad Button 14 "):
+		acception += &"Joypad Button 14 "
+		button_number = 14
+
+	# ［Ｘボックス］　Back
 	# Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)
 	elif event_as_text.begins_with(&"Joypad Button 4 "):
 		acception += &"Joypad Button 4 "
 		button_number = 4
 
-	# Start
+	# ［Ｘボックス］　Start
 	# Joypad Button 6 (Start, Xbox Menu, Nintendo +)
 	elif event_as_text.begins_with(&"Joypad Button 6 "):
 		acception += &"Joypad Button 6 "
 		button_number = 6
 
-	# 右レ→
+	# ［Ｘボックス］　右レ→
 	# Joypad Motion on Axis 2 (Right Stick X-Axis, Joystick 1 X-Axis) with Value 0.00
 	elif event_as_text.begins_with(&"Joypad Motion on Axis 2 "):
 		acception += &"Joypad Motion on Axis 2 "
@@ -142,7 +158,7 @@ func on_unhandled_input(event):
 			presentation = str(lever_value)
 			break
 
-	# 右レ↓
+	# ［Ｘボックス］　右レ↓
 	# Joypad Motion on Axis 3 (Right Stick Y-Axis, Joystick 1 Y-Axis) with Value 1.00
 	elif event_as_text.begins_with(&"Joypad Motion on Axis 3 "):
 		acception += &"Joypad Motion on Axis 3 "
@@ -153,7 +169,7 @@ func on_unhandled_input(event):
 			presentation = str(lever_value)
 			break
 
-	# RT
+	# ［Ｘボックス］　RT
 	# Joypad Motion on Axis 5 (Joystick 2 Y-Axis, Right Trigger, Sony R2, Xbox RT) with Value 0.00
 	elif event_as_text.begins_with(&"Joypad Motion on Axis 5 "):
 		acception += &"Joypad Motion on Axis 5 "
@@ -164,31 +180,31 @@ func on_unhandled_input(event):
 			presentation = str(lever_value)
 			break
 	
-	# RB
+	# ［Ｘボックス］　RB
 	# Joypad Button 10 (Right Shoulder, Sony R1, Xbox RB)
 	elif event_as_text.begins_with(&"Joypad Button 10 "):
 		acception += &"Joypad Button 10 "
 		button_number = 10
 
-	# X
+	# ［Ｘボックス］　X
 	# Joypad Button 2 (Left Action, Sony Square, Xbox X, Nintendo Y)
 	elif event_as_text.begins_with(&"Joypad Button 2 "):
 		acception += &"Joypad Button 2 "
 		button_number = 2
 	
-	# Y
+	# ［Ｘボックス］　Y
 	# Joypad Button 3 (Top Action, Sony Triangle, Xbox Y, Nintendo X)
 	elif event_as_text.begins_with(&"Joypad Button 3 "):
 		acception += &"Joypad Button 3 "
 		button_number = 3
 	
-	# A
+	# ［Ｘボックス］　A
 	# Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)
 	elif event_as_text.begins_with(&"Joypad Button 0 "):
 		acception += &"Joypad Button 0 "
 		button_number = 0
 	
-	# B
+	# ［Ｘボックス］　B
 	# Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)
 	elif event_as_text.begins_with(&"Joypad Button 1 "):
 		acception += &"Joypad Button 1 "
@@ -201,50 +217,76 @@ func on_unhandled_input(event):
 	# 表示
 	# ーーーーーーーー
 
+	# 各々、機種名もボタン名も書かないと、（Godot のUI では）間違えやすいので書いておく
+	#
+	# ［Ｘボックス］　LT
 	if button_number == 1004:
 		self.get_canvas_layer().get_node("LT値").text = presentation
 
+	# ［Ｘボックス］　LB
 	elif button_number == 9:
 		self.get_canvas_layer().get_node("LB値").text = presentation
 
+	# ［Ｘボックス］　左レ→
 	elif button_number == 1000:
 		self.get_canvas_layer().get_node("左レ→値").text = presentation
-			
+	
+	# ［Ｘボックス］　左レ↓
 	elif button_number == 1001:
 		self.get_canvas_layer().get_node("左レ↓値").text = presentation
-			
-	elif button_number == 14:
-		self.get_canvas_layer().get_node("左十→値").text = presentation
-			
+
+	# ［Ｘボックス］　左十←
+	elif button_number == 13:
+		self.get_canvas_layer().get_node("左十←値").text = presentation
+	
+	# ［Ｘボックス］　左十↑
+	elif button_number == 11:
+		self.get_canvas_layer().get_node("左十↑値").text = presentation
+	
+	# ［Ｘボックス］　左十↓
 	elif button_number == 12:
 		self.get_canvas_layer().get_node("左十↓値").text = presentation
+	
+	# ［Ｘボックス］　左十→
+	elif button_number == 14:
+		self.get_canvas_layer().get_node("左十→値").text = presentation
 
+	# ［Ｘボックス］　Back
 	elif button_number == 4:
 		self.get_canvas_layer().get_node("Back値").text = presentation
-				
+	
+	# ［Ｘボックス］　Start
 	elif button_number == 6:
 		self.get_canvas_layer().get_node("Start値").text = presentation
-				
+	
+	# ［Ｘボックス］　右レ→
 	elif button_number == 1002:
 		self.get_canvas_layer().get_node("右レ→値").text = presentation
-		
+	
+	# ［Ｘボックス］　右レ↓
 	elif button_number == 1003:
 		self.get_canvas_layer().get_node("右レ↓値").text = presentation
-				
+	
+	# ［Ｘボックス］　RT
 	elif button_number == 1005:
 		self.get_canvas_layer().get_node("RT値").text = presentation
-				
+	
+	# ［Ｘボックス］　RB
 	elif button_number == 10:
 		self.get_canvas_layer().get_node("RB値").text = presentation
-				
+	
+	# ［Ｘボックス］　X
 	elif button_number == 2:
 		self.get_canvas_layer().get_node("X値").text = presentation
-				
+	
+	# ［Ｘボックス］　Y
 	elif button_number == 3:
 		self.get_canvas_layer().get_node("Y値").text = presentation
-				
+	
+	# ［Ｘボックス］　A
 	elif button_number == 0:
 		self.get_canvas_layer().get_node("A値").text = presentation
-				
+	
+	# ［Ｘボックス］　B
 	elif button_number == 1:
 		self.get_canvas_layer().get_node("B値").text = presentation

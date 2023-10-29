@@ -1,4 +1,4 @@
-# PC-Engine入力
+# ＰＣエンジン入力
 extends Node
 
 
