@@ -1277,8 +1277,8 @@ Zzz...
 「　キーコンフィグができなければ、好きなゲームパッドで　ゲームができないんじゃないか？」  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　少し着手するかあ」  
+「　👇　少し着手するかあ」  
 
-
+📖　[Godot でキーコンフィグを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-653fc9e0a9b18)  
 
 .
