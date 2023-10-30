@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://wmyy1ialdusf"]
+
+[ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="1_p4qk1"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://main_font.tres" id="1_qx6x7"]
+[ext_resource type="Script" path="res://scripts/director.gd" id="1_yoyui"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wwhtg"]
+font = ExtResource("1_p4qk1")
+font_size = 64
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 10
+shadow_color = Color(0.12549, 0.12549, 0.12549, 0.752941)
+
+[node name="Director" type="Node2D"]
+script = ExtResource("1_yoyui")
+
+[node name="GuiArtist" type="Node" parent="."]
+
+[node name="KeyConfig_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
+
+[node name="キーコンフィグ" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 353.0
+offset_top = 26.0
+offset_right = 865.0
+offset_bottom = 109.0
+text = "キーコンフィグ"
+label_settings = SubResource("LabelSettings_wwhtg")
+
+[node name="決定ボタン、メッセージ送りボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 166.0
+offset_top = 152.0
+offset_right = 774.0
+offset_bottom = 195.0
+text = "（１）決定ボタン、メッセージ送りボタン　を押してください"
+label_settings = ExtResource("1_qx6x7")
+
+[node name="キャンセルボタン、メニューボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 164.0
+offset_top = 218.0
+offset_right = 676.0
+offset_bottom = 261.0
+text = "（２）"
+label_settings = ExtResource("1_qx6x7")
+
+[node name="メッセージ早送りボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 165.0
+offset_top = 284.0
+offset_right = 677.0
+offset_bottom = 327.0
+text = "（３）"
+label_settings = ExtResource("1_qx6x7")
+
+[node name="TelopCoordinator" type="Node" parent="."]
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator"]
+offset_left = 75.0
+offset_top = 441.0
+offset_right = 1117.0
+offset_bottom = 621.0
+text = "ここに説明文"
+label_settings = ExtResource("1_qx6x7")

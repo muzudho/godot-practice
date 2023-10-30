@@ -1268,4 +1268,17 @@ Zzz...
 
 📖　[Godot でゲームのコントローラーを使おうぜ（＾～＾）？](https://crieit.net/posts/Godot-653bbd8e3e230)  
 
+# 📅 2023-10-30 mon ⏰ 22:12 もう疲れた
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　もう疲れた」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　キーコンフィグができなければ、好きなゲームパッドで　ゲームができないんじゃないか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　少し着手するかあ」  
+
+
+
 .
