@@ -2,7 +2,8 @@
 extends Node2D
 
 
-var re_axis_5 = RegEx.new()
+var re_button = RegEx.new()
+var re_lever = RegEx.new()
 
 # 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
 var counter_of_wait = 0.0
@@ -17,9 +18,9 @@ var button_presentation_name = &""
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	# この文字列がどう変化するのか、さっぱり分からん。Godot はクソだ
-	# Joypad Motion on Axis 5 (Joystick 2 Y-Axis, Right Trigger, Sony R2, Xbox RT) with Value 0.00
-	re_axis_5.compile("Joypad Motion on Axis 5 (Joystick 2 Y-Axis, Right Trigger, Sony R2, Xbox RT) with Value (-?\\d+(?:\\.\\d+)?)")
+	# この文字列がどう変化するのか、さっぱり分からん
+	re_button.compile("Joypad Button (\\d)")
+	re_lever.compile("Joypad Motion on Axis (\\d)")
 
 
 	$"TelopCoordinator/TextBlock".text = """\
@@ -51,7 +52,7 @@ func _process(delta):
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta
 				return
-			turn_state = &"Prompt"
+			turn_state = &"Input"
 			is_ok = true
 		
 	elif self.current_step == 2:
@@ -70,7 +71,7 @@ func _process(delta):
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta
 				return
-			turn_state = &"Prompt"
+			turn_state = &"Input"
 			is_ok = true
 		
 	elif self.current_step == 3:
@@ -89,7 +90,7 @@ func _process(delta):
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta
 				return
-			turn_state = &"Prompt"
+			turn_state = &"Input"
 			is_ok = true
 
 	elif self.current_step == 4:
@@ -107,7 +108,7 @@ func _process(delta):
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta
 				return
-			turn_state = &"Prompt"
+			turn_state = &"Input"
 			is_ok = true
 	
 	if is_ok:
@@ -123,25 +124,28 @@ func _unhandled_input(event):
 	var event_as_text = event.as_text()
 	print("入力：　" + event_as_text)
 	
-	if turn_state != &"Prompt":
+	if turn_state != &"Input":
 		return
 
 	var is_ok = false
 	var acception = "受付：　"
 
-	# Joypad Motion on Axis 5 (Joystick 2 Y-Axis, Right Trigger, Sony R2, Xbox RT) with Value 0.00
-	if event_as_text.begins_with(&"Joypad Motion on Axis 5 "):
-		acception += &"Joypad Motion on Axis 5 "
-		button_presentation_name = "レバー５"
-		self.button_number = 1005
-		is_ok = true
-	
-	# Joypad Button 1 (Right Action, Sony Circle, Xbox B, Nintendo A)
-	if event_as_text.begins_with(&"Joypad Button 1 "):
-		acception += &"Joypad Button 1 "
-		self.button_presentation_name = "ボタン１"
-		self.button_number = 1
-		is_ok = true
+	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
+	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
+	if not is_ok:
+		var matched = re_button.search(event_as_text)
+		if matched:
+			self.button_number = int(matched.get_string(1))
+			button_presentation_name = "ボタン" + str(self.button_number)
+			is_ok = true
+
+	if not is_ok:
+		var matched = re_lever.search(event_as_text)
+		if matched:
+			var number = int(matched.get_string(1))
+			button_presentation_name = "レバー" + str(number)
+			self.button_number = number + 1000
+			is_ok = true
 
 	if is_ok:
 		print(acception)
