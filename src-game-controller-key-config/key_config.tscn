@@ -24,7 +24,7 @@ offset_left = 353.0
 offset_top = 26.0
 offset_right = 865.0
 offset_bottom = 109.0
-text = "キーコンフィグ"
+text = "テスト"
 label_settings = SubResource("LabelSettings_wwhtg")
 
 [node name="決定ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
@@ -32,7 +32,7 @@ offset_left = 166.0
 offset_top = 152.0
 offset_right = 774.0
 offset_bottom = 195.0
-text = "（１）決定ボタン、メッセージ送りボタン　を押してください"
+text = "テスト"
 label_settings = ExtResource("1_qx6x7")
 
 [node name="キャンセルボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
@@ -40,7 +40,7 @@ offset_left = 164.0
 offset_top = 218.0
 offset_right = 676.0
 offset_bottom = 261.0
-text = "（２）"
+text = "テスト"
 label_settings = ExtResource("1_qx6x7")
 
 [node name="メッセージ早送りボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
@@ -48,7 +48,7 @@ offset_left = 165.0
 offset_top = 284.0
 offset_right = 677.0
 offset_bottom = 327.0
-text = "（３）"
+text = "テスト"
 label_settings = ExtResource("1_qx6x7")
 
 [node name="TelopCoordinator" type="Node" parent="."]
