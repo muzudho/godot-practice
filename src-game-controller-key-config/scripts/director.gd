@@ -9,7 +9,7 @@ var re_lever = RegEx.new()
 var counter_of_wait = 0.0
 # WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
 var turn_state = &"WaitForPrompt"
-var current_step = 1
+var current_step = 0
 # 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
 var button_number = -1
 var button_presentation_name = &""
@@ -55,14 +55,19 @@ func set_key_denied():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	
 	if not (turn_state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
 		return
 	
 	var is_ok = false
 	
+	# 初回
+	if self.current_step == 0:
+		$"Musician/BGM/🎵キーコンフィグ".play()
+		self.current_step += 1
+		is_ok = true
+		
 	# （１）決定ボタン、メッセージ送りボタン
-	if self.current_step == 1:
+	elif self.current_step == 1:
 		if turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta

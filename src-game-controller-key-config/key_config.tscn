@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://wmyy1ialdusf"]
+[gd_scene load_steps=8 format=3 uid="uid://wmyy1ialdusf"]
 
 [ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="1_p4qk1"]
 [ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://main_font.tres" id="1_qx6x7"]
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_yoyui"]
 [ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://audio/se/maou.audio/maou_se_sound_door02.ogg" id="2_0ywyc"]
+[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://audio/se/maou.audio/maou_bgm_cyber36.ogg" id="2_6r17m"]
 [ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://audio/se/maou.audio/maou_se_onepoint32.ogg" id="3_5k62c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wwhtg"]
@@ -19,11 +20,18 @@ script = ExtResource("1_yoyui")
 
 [node name="Musician" type="Node" parent="."]
 
+[node name="BGM" type="Node" parent="Musician"]
+
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("2_6r17m")
+volume_db = -15.0
+pitch_scale = 1.4
+
 [node name="SE" type="Node" parent="Musician"]
 
 [node name="🔔キーコンフィグ決定音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("2_0ywyc")
-volume_db = -15.0
+volume_db = -10.0
 
 [node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("3_5k62c")
