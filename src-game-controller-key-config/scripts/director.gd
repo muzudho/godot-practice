@@ -86,6 +86,7 @@ func _process(delta):
 			is_ok = true
 
 		elif turn_state == &"InputOk":
+			#													"１２３４５６７８９０１２３４５６７８９："
 			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン：　" + self.button_presentation_name
 			self.key_config[&"VK_Ok"] = self.button_number
 			self.current_step += 1
@@ -120,6 +121,7 @@ func _process(delta):
 
 			else:
 				self.set_key_ok()
+				#														  "１２３４５６７８９０１２３４５６７８９："
 				$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + self.button_presentation_name
 				self.key_config[&"VK_Cancel"] = self.button_number
 				self.current_step += 1
@@ -153,8 +155,9 @@ func _process(delta):
 				is_ok = true
 			
 			else:
-				self.set_key_ok()			
-				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン：　" + self.button_presentation_name
+				self.set_key_ok()
+				#																"１２３４５６７８９０１２３４５６７８９："
+				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン　　　　　：　" + self.button_presentation_name
 				self.key_config[&"VK_FastForward"] = self.button_number
 				self.current_step += 1
 				turn_state = &"WaitForPrompt"
