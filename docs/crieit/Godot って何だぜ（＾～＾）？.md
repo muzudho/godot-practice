@@ -1281,4 +1281,8 @@ Zzz...
 
 📖　[Godot でキーコンフィグを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-653fc9e0a9b18)  
 
+# 📅 2023-10-31 tue 
+
+📖　[Godot でキーコンフィグを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-653fc9e0a9b18)  
+
 .

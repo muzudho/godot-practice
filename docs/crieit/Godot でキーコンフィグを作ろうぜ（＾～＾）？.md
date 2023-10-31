@@ -198,4 +198,11 @@ func _unhandled_input(event):
 
 📺　[動画](https://x.com/muzudho1/status/1719008935167017345?s=20)  
 
+# 📅 2023-11-01 tue ⏰ 25:46
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　仮組は　こんなもん」  
+
+📺　[動画](https://x.com/muzudho1/status/1719394092797579309?s=20)  
+
 .
