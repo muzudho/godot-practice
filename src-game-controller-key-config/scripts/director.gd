@@ -163,4 +163,5 @@ func _unhandled_input(event):
 		print(acception)
 		self.current_step += 1
 		turn_state = &"InputOk"
+		$"Musician/SE/🔔キーコンフィグ決定音".play()
 		print("入力完了")
