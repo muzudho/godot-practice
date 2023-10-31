@@ -14,6 +14,15 @@ var current_step = 1
 var button_number = -1
 var button_presentation_name = &""
 
+# 値はボタン番号。レバーは +1000
+var key_config = {
+	# 仮想キー（１）決定ボタン、メッセージ送りボタン
+	&"VK_Ok" : -1,
+	# 仮想キー（２）キャンセルボタン、メニューボタン
+	&"VK_Cancel" : -1,
+	# 仮想キー（３）メッセージ早送りボタン
+	&"VK_FastForward" : -1,
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -37,6 +46,7 @@ func _process(delta):
 	
 	var is_ok = false
 	
+	# （１）決定ボタン、メッセージ送りボタン
 	if self.current_step == 1:
 		if turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 1.0:
@@ -54,13 +64,16 @@ func _process(delta):
 				return
 			turn_state = &"Input"
 			is_ok = true
-		
-	elif self.current_step == 2:
-		if turn_state == &"InputOk":
+
+		elif turn_state == &"InputOk":
 			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン：　" + self.button_presentation_name
+			self.key_config[&"VK_Ok"] = self.button_number
+			self.current_step += 1
 			turn_state = &"WaitForPrompt"
-		
-		elif turn_state == &"WaitForPrompt":
+	
+	# （２）キャンセルボタン、メニューボタン
+	elif self.current_step == 2:
+		if turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta
 				return
@@ -76,13 +89,16 @@ func _process(delta):
 				return
 			turn_state = &"Input"
 			is_ok = true
-		
-	elif self.current_step == 3:
-		if turn_state == &"InputOk":
+	
+		elif turn_state == &"InputOk":
 			$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + self.button_presentation_name
+			self.key_config[&"VK_Cancel"] = self.button_number
+			self.current_step += 1
 			turn_state = &"WaitForPrompt"
 		
-		elif turn_state == &"WaitForPrompt":
+	# （３）メッセージ早送りボタン
+	elif self.current_step == 3:
+		if turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta
 				return
@@ -99,12 +115,14 @@ func _process(delta):
 			turn_state = &"Input"
 			is_ok = true
 
-	elif self.current_step == 4:
-		if turn_state == &"InputOk":
+		elif turn_state == &"InputOk":
 			$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン：　" + self.button_presentation_name
+			self.key_config[&"VK_FastForward"] = self.button_number
+			self.current_step += 1
 			turn_state = &"WaitForPrompt"
 		
-		elif turn_state == &"WaitForPrompt":
+	elif self.current_step == 4:
+		if turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta
 				return
@@ -161,7 +179,6 @@ func _unhandled_input(event):
 
 	if is_ok:
 		print(acception)
-		self.current_step += 1
 		turn_state = &"InputOk"
 		$"Musician/SE/🔔キーコンフィグ決定音".play()
 		print("入力完了")
