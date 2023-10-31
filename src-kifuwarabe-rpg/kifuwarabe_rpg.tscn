@@ -280,7 +280,6 @@ position = Vector2(640, 360)
 texture = ExtResource("11_lxy0m")
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_nlarn")
 
@@ -300,6 +299,7 @@ position = Vector2(640, 360)
 texture = ExtResource("20_31kuh")
 
 [node name="🗻ツツジロード" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_dmqf5")
 
