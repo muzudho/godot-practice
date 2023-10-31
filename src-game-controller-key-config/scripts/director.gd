@@ -37,6 +37,21 @@ func _ready():
 	"""
 
 
+# ボタンが重複するか？
+func is_key_duplicated(button_number):
+	return button_number in self.key_config.values()
+
+
+func set_key_ok():
+	$"TelopCoordinator/TextBlock".text = "＊　＊　＊"
+
+
+# キーコンフィグ　ボタン設定が拒否
+func set_key_denied():
+	$"Musician/SE/🔔キーコンフィグ不可音".play()
+	$"TelopCoordinator/TextBlock".text = "他のキーを選んでください"
+
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
@@ -91,10 +106,19 @@ func _process(delta):
 			is_ok = true
 	
 		elif turn_state == &"InputOk":
-			$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + self.button_presentation_name
-			self.key_config[&"VK_Cancel"] = self.button_number
-			self.current_step += 1
-			turn_state = &"WaitForPrompt"
+
+			# 既存のキーと被る場合、やり直しさせる
+			if self.is_key_duplicated(self.button_number):
+				self.set_key_denied()
+				turn_state = &"WaitForInput"
+				is_ok = true
+
+			else:
+				self.set_key_ok()
+				$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + self.button_presentation_name
+				self.key_config[&"VK_Cancel"] = self.button_number
+				self.current_step += 1
+				turn_state = &"WaitForPrompt"
 		
 	# （３）メッセージ早送りボタン
 	elif self.current_step == 3:
@@ -116,10 +140,19 @@ func _process(delta):
 			is_ok = true
 
 		elif turn_state == &"InputOk":
-			$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン：　" + self.button_presentation_name
-			self.key_config[&"VK_FastForward"] = self.button_number
-			self.current_step += 1
-			turn_state = &"WaitForPrompt"
+
+			# 既存のキーと被る場合、やり直しさせる
+			if self.is_key_duplicated(self.button_number):
+				self.set_key_denied()
+				turn_state = &"WaitForInput"
+				is_ok = true
+			
+			else:
+				self.set_key_ok()			
+				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン：　" + self.button_presentation_name
+				self.key_config[&"VK_FastForward"] = self.button_number
+				self.current_step += 1
+				turn_state = &"WaitForPrompt"
 		
 	elif self.current_step == 4:
 		if turn_state == &"WaitForPrompt":

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://wmyy1ialdusf"]
+[gd_scene load_steps=7 format=3 uid="uid://wmyy1ialdusf"]
 
 [ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="1_p4qk1"]
 [ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://main_font.tres" id="1_qx6x7"]
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_yoyui"]
 [ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://audio/se/maou.audio/maou_se_sound_door02.ogg" id="2_0ywyc"]
+[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://audio/se/maou.audio/maou_se_onepoint32.ogg" id="3_5k62c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wwhtg"]
 font = ExtResource("1_p4qk1")
@@ -22,6 +23,10 @@ script = ExtResource("1_yoyui")
 
 [node name="🔔キーコンフィグ決定音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("2_0ywyc")
+volume_db = -15.0
+
+[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("3_5k62c")
 volume_db = -15.0
 
 [node name="GuiArtist" type="Node" parent="."]
