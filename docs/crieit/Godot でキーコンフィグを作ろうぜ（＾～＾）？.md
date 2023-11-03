@@ -266,4 +266,60 @@ func _unhandled_input(event):
 「　そんなもん　全部丸ごと　やってほしいのに……、  
 フォルダーを整理するか……」  
 
+## スタジオというメタファーで分けた
+
+![202311__godot__03-1633--StudioFolder-o2o0.png](https://crieit.now.sh/upload_images/59a9c7104b23996d6dc3fc17f2aa58f56544a2b7b4b6f.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　スタジオというメタファーで分けたぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　団体と、製品名で分けた方がよくない？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ `studio_grayscale_keyconfig.tscn` とか、 `studio_grayscale_kifuwaraberpg` とかかな。  
+そこまで　厳密にやるべきかどうか、少し考えてみるか……」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　アンダースコア２つを区切りに利用して  
+`studio__grayscale__key_config.tscn` と、 `studio__grayscale__kifuwarabe_rpg.tscn` とか　どうだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　見にくさは改善しないんじゃないの？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`studio_grayscale_presents_key_config.tscn` と、 `studio_grayscale_presents_kifuwarabe_rpg.tscn`  
+にしたら　どうだぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ファイルパスが長くなるの　ゴミ箱に入らなかったりして　データが破損するんだよな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`🐔grayscale_🐤key_config.tscn` と、 `🐔grayscale_🐤kifuwarabe_rpg.tscn` でどう？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　サークルと作品の関係性は、　にわとりとひよこの関係性とは　異なると思うぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`🏠grayscale_🎬key_config.tscn` と、 `🏠grayscale_🎬kifuwarabe_rpg.tscn` でどう？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　サークルと作品の関係性は、ハウスとカチンコの関係性とは　異なると思うぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　シーンの意味はあってるのに。じゃあ　ディレクター・チェアの絵文字は無いのかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　絵文字の品揃えが偏ってて　あんまりないのよ。  
+`🪑grayscale_🎬key_config.tscn` と、 `🪑grayscale_🎬kifuwarabe_rpg.tscn` でどう？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ひとまず　それで試してみるかだぜ」  
+
+![202311__godot__03-1720--RenameLikeKids.png](https://crieit.now.sh/upload_images/e2407d5261d319769482d2d58599d2216544ad6aa7d0d.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　キッズ感出てくるが　椅子がポリティカル・コネクトネスに引っかかるとは思えないし、  
+これで進めよう」  
+
 .
