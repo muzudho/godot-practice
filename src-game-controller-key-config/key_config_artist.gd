@@ -66,6 +66,9 @@ func _ready():
 func entry():
 	# 背景
 	self.get_background_artist().get_node("🗻崎川駅前").visible = true
+	# GUI - メッセージ・ウィンドウ
+	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = true
+	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = true
 	# GUI
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
 	# テロップ
@@ -80,6 +83,9 @@ func on_exit():
 	self.is_enabled = false
 	# 背景
 	self.get_background_artist().get_node("🗻崎川駅前").visible = false
+	# GUI - メッセージ・ウィンドウ
+	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = false
+	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = false
 	# GUI
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
 	# テロップ
@@ -225,7 +231,8 @@ func on_process(delta):
 			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
-			if self.counter_of_wait < 0.5:
+			# 完了メッセージを見せるために、少し長めに
+			if self.counter_of_wait < 1.5:
 				self.counter_of_wait += delta
 				return
 			self.turn_state = &"Input"
