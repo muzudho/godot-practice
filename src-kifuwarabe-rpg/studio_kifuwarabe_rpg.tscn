@@ -1,98 +1,98 @@
-[gd_scene load_steps=100 format=3 uid="uid://2wbh8nu3lhjc"]
+[gd_scene load_steps=100 format=3 uid="uid://c8dh72a0f062o"]
 
-[ext_resource type="Script" path="res://scripts/director.gd" id="1_lfp38"]
-[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_m3vrv"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/system_of_battle.gd" id="3_4ilps"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="3_75puo"]
-[ext_resource type="Script" path="res://scripts/assistant_director.gd" id="3_nnvgw"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/system_menu_department.gd" id="4_7teq2"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/switch_department.gd" id="4_gacv6"]
-[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="5_24vd4"]
-[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="5_q2nol"]
-[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="6_bei22"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/battle_department.gd" id="6_kr1go"]
-[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://audio/bgm/maou.audio/maou_game_town05.ogg" id="6_wirdc"]
-[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="7_j1q8q"]
-[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou.audio/maou_se_sound17.ogg" id="8_s3xj3"]
-[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou.audio/maou_se_sound19.ogg" id="9_y0joy"]
-[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://audio/bgm/maou.audio/maou_game_rock28.ogg" id="10_582bv"]
-[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou.audio/maou_se_sound_switch02.ogg" id="10_d7hpp"]
-[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="11_hr0b7"]
-[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="11_lxy0m"]
-[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://audio/bgm/maou.audio/maou_bgm_cyber06.ogg" id="11_n11v3"]
-[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="12_nlarn"]
-[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="13_sy6jl"]
-[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://audio/bgm/maou.audio/maou_bgm_orchestra12.ogg" id="14_pjchc"]
-[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://audio/bgm/maou.audio/maou_game_event17.ogg" id="14_wfuuf"]
-[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="14_xhnqt"]
-[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="15_164yy"]
-[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://audio/se/maou.audio/maou_se_magic_fire11.ogg" id="16_kroju"]
-[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://images/1280x720/kawahori_road.png" id="20_31kuh"]
-[ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="22_cj5lk"]
-[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://images/1280x720/tsutsuji_road.png" id="22_dmqf5"]
-[ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://images/1280x720/battle_scene_3.png" id="22_rnsk7"]
-[ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="23_5s8w2"]
-[ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://images/1280x720/transition_1_frame_1.png" id="23_8qjrs"]
-[ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="23_a7vfu"]
-[ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="24_envpd"]
-[ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://images/1280x720/transition_1_frame_2.png" id="24_tvkey"]
-[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://font_settings/main_font.tres" id="25_s5t71"]
-[ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://images/1280x720/transition_1_frame_3.png" id="25_tmvsa"]
-[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://font_settings/battle_slategray_font.tres" id="25_wwe3l"]
-[ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="25_xmliw"]
-[ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://images/1280x720/transition_1_frame_4.png" id="26_eldev"]
-[ext_resource type="Script" path="res://scripts/assistant_director/normal_text.gd" id="27_1um3d"]
-[ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://font_settings/large_font.tres" id="27_7pwk6"]
-[ext_resource type="Script" path="res://scripts/assistant_director/se.gd" id="27_b3qcr"]
-[ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://images/1280x720/transition_1_frame_5.png" id="27_g8xqb"]
-[ext_resource type="Script" path="res://scripts/assistant_director/normal_text_choice.gd" id="27_punsk"]
-[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://font_settings/battle_light_red.tres" id="28_mkxyl"]
-[ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://images/1280x720/transition_1_frame_6.png" id="28_nycgn"]
-[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://font_settings/battle_light_yellow.tres" id="29_1ruq0"]
-[ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://images/1280x720/transition_1_frame_7.png" id="29_u7nns"]
-[ext_resource type="Script" path="res://scripts/windows/message_concrete.gd" id="30_bblis"]
-[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://font_settings/battle_light_green.tres" id="30_troqk"]
-[ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://images/1280x720/transition_1_frame_8.png" id="30_wq0ab"]
-[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://font_settings/battle_light_blue.tres" id="31_jo5cu"]
-[ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://images/1280x720/transition_1_frame_9.png" id="31_lsg3v"]
-[ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://images/1280x720/transition_1_frame_10.png" id="32_iwby6"]
-[ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="32_uu41d"]
-[ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="33_1xmx8"]
-[ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://images/1280x720/transition_1_frame_11.png" id="33_da4mn"]
-[ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="33_ogwo6"]
-[ext_resource type="Script" path="res://scripts/assistant_director/department.gd" id="35_m4xkq"]
-[ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://images/monster_faces/202310__godot__17-2213-hamu.png" id="35_pjekd"]
-[ext_resource type="Script" path="res://scripts/windows/viewing.gd" id="35_s10tl"]
-[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="36_0psl7"]
-[ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://images/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="36_n17j0"]
-[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="37_lwbng"]
-[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="38_hc66s"]
-[ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="39_iojay"]
-[ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="41_0etqc"]
-[ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="42_71nia"]
-[ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://images/monster_faces/202310__godot__19-2218--KodackFace.png" id="43_0e61y"]
-[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://images/monsters/202310__godot__18-0039--shiroBeer.png" id="43_dyuq4"]
-[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/window_at_bottom.png" id="45_xd4ld"]
-[ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="46_tukjy"]
-[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/window_small_at_center.png" id="49_h0j6x"]
-[ext_resource type="Script" path="res://scripts/assistant_director/monster_face.gd" id="49_n38p5"]
-[ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="49_qua1y"]
-[ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://images/1280x720/window_at_bottom_left.png" id="50_spu2o"]
-[ext_resource type="Script" path="res://scripts/assistant_director/label.gd" id="50_yt802"]
-[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/window_middle_at_center.png" id="51_7v3cl"]
-[ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="51_pfarw"]
-[ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="52_lp131"]
-[ext_resource type="Script" path="res://scripts/assistant_director/sleep.gd" id="64_7tdxg"]
-[ext_resource type="Script" path="res://scripts/assistant_director/msg_speed.gd" id="74_b50cb"]
-[ext_resource type="Script" path="res://scripts/assistant_director/var.gd" id="80_2172p"]
-[ext_resource type="Script" path="res://scripts/scorer.gd" id="81_h1tnt"]
-[ext_resource type="Script" path="res://scripts/scorer/battle_sheet.gd" id="81_om202"]
-[ext_resource type="Script" path="res://scripts/scorer/monster_data.gd" id="82_5ypbs"]
+[ext_resource type="Script" path="res://scripts/director.gd" id="1_h2r0a"]
+[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_77ba4"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/system_of_battle.gd" id="3_kopon"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/switch_department.gd" id="4_kroht"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="5_70isb"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/system_menu_department.gd" id="6_q8trk"]
+[ext_resource type="Script" path="res://scripts/scenario_writer/battle_department.gd" id="7_3m4ov"]
+[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="8_pnla5"]
+[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://audio/bgm/maou.audio/maou_game_town05.ogg" id="9_y3knd"]
+[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="10_kj0ha"]
+[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://audio/bgm/maou.audio/maou_game_rock28.ogg" id="11_ghifp"]
+[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://audio/bgm/maou.audio/maou_bgm_cyber06.ogg" id="12_ielrv"]
+[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="13_n6auh"]
+[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://audio/bgm/maou.audio/maou_bgm_orchestra12.ogg" id="14_n27xr"]
+[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://audio/bgm/maou.audio/maou_game_event17.ogg" id="15_vwwo8"]
+[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou.audio/maou_se_sound17.ogg" id="16_efye5"]
+[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou.audio/maou_se_sound19.ogg" id="17_3loww"]
+[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou.audio/maou_se_sound_switch02.ogg" id="18_6q5cu"]
+[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://audio/se/maou.audio/maou_se_magic_fire11.ogg" id="19_dqepe"]
+[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="20_feybk"]
+[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="21_gexwf"]
+[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="22_b0qb0"]
+[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="23_1l030"]
+[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://images/1280x720/kawahori_road.png" id="24_mp1gr"]
+[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://images/1280x720/tsutsuji_road.png" id="25_fgnct"]
+[ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://images/1280x720/battle_scene_3.png" id="26_oat5w"]
+[ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://images/1280x720/transition_1_frame_1.png" id="27_qs260"]
+[ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://images/1280x720/transition_1_frame_2.png" id="28_ydkqm"]
+[ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://images/1280x720/transition_1_frame_3.png" id="29_c5hqb"]
+[ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://images/1280x720/transition_1_frame_4.png" id="30_vevs7"]
+[ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://images/1280x720/transition_1_frame_5.png" id="31_ikbbl"]
+[ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://images/1280x720/transition_1_frame_6.png" id="32_tkwl0"]
+[ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://images/1280x720/transition_1_frame_7.png" id="33_2wyja"]
+[ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://images/1280x720/transition_1_frame_8.png" id="34_0veus"]
+[ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://images/1280x720/transition_1_frame_9.png" id="35_nywm1"]
+[ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://images/1280x720/transition_1_frame_10.png" id="36_5s21k"]
+[ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://images/1280x720/transition_1_frame_11.png" id="37_toym6"]
+[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="38_uk4gs"]
+[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="39_flehg"]
+[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://font_settings/battle_slategray_font.tres" id="40_qvgxr"]
+[ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://font_settings/large_font.tres" id="41_4tlwn"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://font_settings/main_font.tres" id="42_y88ul"]
+[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://font_settings/battle_light_red.tres" id="43_aksrx"]
+[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://font_settings/battle_light_yellow.tres" id="44_cyfxo"]
+[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://font_settings/battle_light_green.tres" id="45_rewdi"]
+[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://font_settings/battle_light_blue.tres" id="46_ctd6w"]
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/window_at_bottom.png" id="47_pp68t"]
+[ext_resource type="Script" path="res://scripts/windows/message_concrete.gd" id="48_eaa38"]
+[ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="49_325g3"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="50_0mabf"]
+[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/window_small_at_center.png" id="51_1ak46"]
+[ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://images/1280x720/window_at_bottom_left.png" id="52_1gg7r"]
+[ext_resource type="Script" path="res://scripts/windows/viewing.gd" id="53_wfxh4"]
+[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/window_middle_at_center.png" id="54_l1gl8"]
+[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="55_np6gw"]
+[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="56_6jgym"]
+[ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://images/monster_faces/202310__godot__17-2213-hamu.png" id="57_82u0m"]
+[ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="58_iab7b"]
+[ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://images/monster_faces/202310__godot__19-2218--KodackFace.png" id="59_31grb"]
+[ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://images/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="60_hms8i"]
+[ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="61_u21io"]
+[ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="62_xapq5"]
+[ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="63_cw1ch"]
+[ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="64_5vruu"]
+[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="65_pq5aw"]
+[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://images/monsters/202310__godot__18-0039--shiroBeer.png" id="66_a6uhi"]
+[ext_resource type="Script" path="res://scripts/assistant_director.gd" id="67_mbb3t"]
+[ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="68_a6hgf"]
+[ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="69_ccpbj"]
+[ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="70_jloio"]
+[ext_resource type="Script" path="res://scripts/assistant_director/department.gd" id="71_ouat8"]
+[ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="72_a0fyn"]
+[ext_resource type="Script" path="res://scripts/assistant_director/label.gd" id="73_vxojx"]
+[ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="74_ya7fg"]
+[ext_resource type="Script" path="res://scripts/assistant_director/monster_face.gd" id="75_flt85"]
+[ext_resource type="Script" path="res://scripts/assistant_director/msg_speed.gd" id="76_xivql"]
+[ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="77_kacnq"]
+[ext_resource type="Script" path="res://scripts/assistant_director/normal_text.gd" id="78_kp5gn"]
+[ext_resource type="Script" path="res://scripts/assistant_director/normal_text_choice.gd" id="79_6nac4"]
+[ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="80_odox4"]
+[ext_resource type="Script" path="res://scripts/assistant_director/se.gd" id="81_7gioe"]
+[ext_resource type="Script" path="res://scripts/assistant_director/sleep.gd" id="82_go4qq"]
+[ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="83_sda0j"]
+[ext_resource type="Script" path="res://scripts/assistant_director/var.gd" id="84_1cchr"]
+[ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="85_gm62h"]
+[ext_resource type="Script" path="res://scripts/scorer.gd" id="86_u2fri"]
+[ext_resource type="Script" path="res://scripts/scorer/battle_sheet.gd" id="87_x7rh5"]
+[ext_resource type="Script" path="res://scripts/scorer/monster_data.gd" id="88_udljc"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_t63ks"]
-font = ExtResource("5_24vd4")
+font = ExtResource("38_uk4gs")
 font_size = 128
 outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -101,7 +101,7 @@ shadow_offset = Vector2(10, 10)
 
 [sub_resource type="LabelSettings" id="LabelSettings_v0hgs"]
 line_spacing = 1.0
-font = ExtResource("6_bei22")
+font = ExtResource("39_flehg")
 font_size = 32
 outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -111,7 +111,7 @@ shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_oqy5n"]
 line_spacing = 1.0
-font = ExtResource("6_bei22")
+font = ExtResource("39_flehg")
 font_size = 32
 outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -121,7 +121,7 @@ shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_s3a30"]
 line_spacing = 1.0
-font = ExtResource("6_bei22")
+font = ExtResource("39_flehg")
 font_size = 32
 outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -131,7 +131,7 @@ shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_nc3n7"]
 line_spacing = 1.0
-font = ExtResource("6_bei22")
+font = ExtResource("39_flehg")
 font_size = 24
 outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -141,7 +141,7 @@ shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_6krhj"]
 line_spacing = 1.0
-font = ExtResource("6_bei22")
+font = ExtResource("39_flehg")
 font_size = 24
 outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -151,7 +151,7 @@ shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8g2fx"]
 line_spacing = 1.0
-font = ExtResource("6_bei22")
+font = ExtResource("39_flehg")
 font_size = 24
 outline_size = 10
 outline_color = Color(0.12549, 0.12549, 0.12549, 1)
@@ -161,13 +161,13 @@ shadow_offset = Vector2(3, 3)
 
 [sub_resource type="LabelSettings" id="LabelSettings_7xxk4"]
 line_spacing = 1.0
-font = ExtResource("5_24vd4")
+font = ExtResource("38_uk4gs")
 font_size = 20
 font_color = Color(0.85098, 0, 0.219608, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_2oa1m"]
 line_spacing = 8.0
-font = ExtResource("15_164yy")
+font = ExtResource("50_0mabf")
 font_size = 32
 font_color = Color(0.972549, 0.972549, 0.972549, 1)
 outline_size = 1
@@ -191,84 +191,84 @@ var is_visible_initialized = false
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
-script = ExtResource("1_lfp38")
+script = ExtResource("1_h2r0a")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
 z_index = 5
 position = Vector2(640, 360)
-texture = ExtResource("2_m3vrv")
+texture = ExtResource("2_77ba4")
 
 [node name="ScenarioWriter" type="Node" parent="."]
 
 [node name="System" type="Node" parent="ScenarioWriter"]
 
 [node name="Battle" type="Node" parent="ScenarioWriter/System"]
-script = ExtResource("3_4ilps")
+script = ExtResource("3_kopon")
 
 [node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
-script = ExtResource("4_gacv6")
+script = ExtResource("4_kroht")
 
 [node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("3_75puo")
+script = ExtResource("5_70isb")
 
 [node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("4_7teq2")
+script = ExtResource("6_q8trk")
 
 [node name="📗バトル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("6_kr1go")
+script = ExtResource("7_3m4ov")
 
 [node name="Musician" type="Node" parent="."]
 
 [node name="BGM" type="Node" parent="Musician"]
 
 [node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("5_q2nol")
+stream = ExtResource("8_pnla5")
 volume_db = -20.0
 
 [node name="🎵タイトル" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("6_wirdc")
+stream = ExtResource("9_y3knd")
 volume_db = -20.0
 
 [node name="🎵エンディング" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("7_j1q8q")
+stream = ExtResource("10_kj0ha")
 volume_db = -15.0
 
 [node name="🎵バトル１" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("10_582bv")
+stream = ExtResource("11_ghifp")
 volume_db = -15.0
 
 [node name="🎵バトル２" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("11_n11v3")
+stream = ExtResource("12_ielrv")
 volume_db = -15.0
 
 [node name="🎵バトル３" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("11_hr0b7")
+stream = ExtResource("13_n6auh")
 volume_db = -15.0
 
 [node name="🎵バトル４" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("14_pjchc")
+stream = ExtResource("14_n27xr")
 volume_db = -15.0
 
 [node name="🎵負け" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("14_wfuuf")
+stream = ExtResource("15_vwwo8")
 volume_db = -15.0
 
 [node name="SE" type="Node" parent="Musician"]
 
 [node name="🔔ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("8_s3xj3")
+stream = ExtResource("16_efye5")
 
 [node name="🔔選択肢カーソル移動音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("9_y0joy")
+stream = ExtResource("17_3loww")
 volume_db = -15.0
 
 [node name="🔔選択肢確定音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("10_d7hpp")
+stream = ExtResource("18_6q5cu")
 volume_db = -10.0
 
 [node name="🔔エンカウント音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("16_kroju")
+stream = ExtResource("19_dqepe")
 volume_db = -15.0
 pitch_scale = 1.5
 
@@ -277,101 +277,101 @@ pitch_scale = 1.5
 [node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("11_lxy0m")
+texture = ExtResource("20_feybk")
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
 position = Vector2(640, 360)
-texture = ExtResource("12_nlarn")
+texture = ExtResource("21_gexwf")
 
 [node name="🗻エンディング" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("13_sy6jl")
+texture = ExtResource("22_b0qb0")
 
 [node name="🗻崎川駅周辺地図" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("14_xhnqt")
+texture = ExtResource("23_1l030")
 
 [node name="🗻川堀町線ロード" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("20_31kuh")
+texture = ExtResource("24_mp1gr")
 
 [node name="🗻ツツジロード" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("22_dmqf5")
+texture = ExtResource("25_fgnct")
 
 [node name="🗻戦闘シーン" type="Sprite2D" parent="BackgroundArtist"]
 position = Vector2(640, 360)
-texture = ExtResource("22_rnsk7")
+texture = ExtResource("26_oat5w")
 
 [node name="🗻トランジション１コマ１" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("23_8qjrs")
+texture = ExtResource("27_qs260")
 
 [node name="🗻トランジション１コマ２" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("24_tvkey")
+texture = ExtResource("28_ydkqm")
 
 [node name="🗻トランジション１コマ３" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("25_tmvsa")
+texture = ExtResource("29_c5hqb")
 
 [node name="🗻トランジション１コマ４" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("26_eldev")
+texture = ExtResource("30_vevs7")
 
 [node name="🗻トランジション１コマ５" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("27_g8xqb")
+texture = ExtResource("31_ikbbl")
 
 [node name="🗻トランジション１コマ６" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("28_nycgn")
+texture = ExtResource("32_tkwl0")
 
 [node name="🗻トランジション１コマ７" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("29_u7nns")
+texture = ExtResource("33_2wyja")
 
 [node name="🗻トランジション１コマ８" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("30_wq0ab")
+texture = ExtResource("34_0veus")
 
 [node name="🗻トランジション１コマ９" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("31_lsg3v")
+texture = ExtResource("35_nywm1")
 
 [node name="🗻トランジション１コマ１０" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("32_iwby6")
+texture = ExtResource("36_5s21k")
 
 [node name="🗻トランジション１コマ１１" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("33_da4mn")
+texture = ExtResource("37_toym6")
 
 [node name="TelopCoordinator" type="Node" parent="."]
 
@@ -636,7 +636,7 @@ offset_top = -3.0
 offset_right = 1217.0
 offset_bottom = 38.0
 text = "玉の遠さ"
-label_settings = ExtResource("25_wwe3l")
+label_settings = ExtResource("40_qvgxr")
 
 [node name="玉の遠さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 130.0
@@ -644,7 +644,7 @@ offset_top = 28.0
 offset_right = 1218.0
 offset_bottom = 109.0
 text = "１２３４５６７８９０１２３４５６７"
-label_settings = ExtResource("27_7pwk6")
+label_settings = ExtResource("41_4tlwn")
 
 [node name="玉の遠さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 129.0
@@ -652,7 +652,7 @@ offset_top = 91.0
 offset_right = 1215.0
 offset_bottom = 172.0
 text = "　　　　　　　　　　　　　　　２０"
-label_settings = ExtResource("27_7pwk6")
+label_settings = ExtResource("41_4tlwn")
 
 [node name="後" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 32.0
@@ -660,7 +660,7 @@ offset_top = 60.0
 offset_right = 64.0
 offset_bottom = 108.0
 text = "後"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("42_y88ul")
 
 [node name="先" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 31.0
@@ -668,7 +668,7 @@ offset_top = 124.0
 offset_right = 63.0
 offset_bottom = 172.0
 text = "先"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("42_y88ul")
 
 [node name="城の堅さ" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 287.0
@@ -676,7 +676,7 @@ offset_top = -3.0
 offset_right = 415.0
 offset_bottom = 38.0
 text = "城の堅さ"
-label_settings = ExtResource("25_wwe3l")
+label_settings = ExtResource("40_qvgxr")
 
 [node name="城の堅さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 291.0
@@ -684,7 +684,7 @@ offset_top = 61.0
 offset_right = 419.0
 offset_bottom = 109.0
 text = "０００４"
-label_settings = ExtResource("28_mkxyl")
+label_settings = ExtResource("43_aksrx")
 
 [node name="城の堅さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 290.0
@@ -692,7 +692,7 @@ offset_top = 125.0
 offset_right = 418.0
 offset_bottom = 173.0
 text = "　　　３"
-label_settings = ExtResource("28_mkxyl")
+label_settings = ExtResource("43_aksrx")
 
 [node name="逃げ道の広さ" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 448.0
@@ -700,7 +700,7 @@ offset_top = -3.0
 offset_right = 640.0
 offset_bottom = 38.0
 text = "逃げ道の広さ"
-label_settings = ExtResource("25_wwe3l")
+label_settings = ExtResource("40_qvgxr")
 
 [node name="逃げ道の広さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 480.0
@@ -708,7 +708,7 @@ offset_top = 61.0
 offset_right = 608.0
 offset_bottom = 109.0
 text = "００００"
-label_settings = ExtResource("29_1ruq0")
+label_settings = ExtResource("44_cyfxo")
 
 [node name="逃げ道の広さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 481.0
@@ -716,7 +716,7 @@ offset_top = 123.0
 offset_right = 609.0
 offset_bottom = 171.0
 text = "　　　１"
-label_settings = ExtResource("29_1ruq0")
+label_settings = ExtResource("44_cyfxo")
 
 [node name="駒の働き" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 672.0
@@ -724,7 +724,7 @@ offset_top = -4.0
 offset_right = 800.0
 offset_bottom = 37.0
 text = "駒の働き"
-label_settings = ExtResource("25_wwe3l")
+label_settings = ExtResource("40_qvgxr")
 
 [node name="駒の働き_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 673.0
@@ -732,7 +732,7 @@ offset_top = 59.0
 offset_right = 801.0
 offset_bottom = 107.0
 text = "０００１"
-label_settings = ExtResource("30_troqk")
+label_settings = ExtResource("45_rewdi")
 
 [node name="駒の働き_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 672.0
@@ -740,7 +740,7 @@ offset_top = 123.0
 offset_right = 800.0
 offset_bottom = 171.0
 text = "　　　０"
-label_settings = ExtResource("30_troqk")
+label_settings = ExtResource("45_rewdi")
 
 [node name="攻めの速度" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 832.0
@@ -748,7 +748,7 @@ offset_top = -4.0
 offset_right = 992.0
 offset_bottom = 37.0
 text = "攻めの速度"
-label_settings = ExtResource("25_wwe3l")
+label_settings = ExtResource("40_qvgxr")
 
 [node name="攻めの速度_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 864.0
@@ -756,7 +756,7 @@ offset_top = 61.0
 offset_right = 992.0
 offset_bottom = 109.0
 text = "０００２"
-label_settings = ExtResource("31_jo5cu")
+label_settings = ExtResource("46_ctd6w")
 
 [node name="攻めの速度_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 865.0
@@ -764,7 +764,7 @@ offset_top = 123.0
 offset_right = 993.0
 offset_bottom = 171.0
 text = "　　　１"
-label_settings = ExtResource("31_jo5cu")
+label_settings = ExtResource("46_ctd6w")
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
@@ -775,8 +775,8 @@ visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
-texture = ExtResource("45_xd4ld")
-script = ExtResource("30_bblis")
+texture = ExtResource("47_pp68t")
+script = ExtResource("48_eaa38")
 
 [node name="■下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
 visible = false
@@ -789,7 +789,7 @@ offset_bottom = 663.0
 text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("42_y88ul")
 
 [node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -798,8 +798,8 @@ offset_top = 90.0
 offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
-label_settings = ExtResource("25_s5t71")
-script = ExtResource("33_1xmx8")
+label_settings = ExtResource("42_y88ul")
+script = ExtResource("49_325g3")
 
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -808,8 +808,8 @@ offset_top = 98.0
 offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
-label_settings = ExtResource("25_s5t71")
-script = ExtResource("33_1xmx8")
+label_settings = ExtResource("42_y88ul")
+script = ExtResource("49_325g3")
 
 [node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -819,14 +819,14 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("33_1xmx8")
+script = ExtResource("49_325g3")
 
 [node name="■中央" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
-texture = ExtResource("49_h0j6x")
-script = ExtResource("30_bblis")
+texture = ExtResource("51_1ak46")
+script = ExtResource("48_eaa38")
 
 [node name="■中央_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
 visible = false
@@ -840,7 +840,7 @@ text = "表示テストいうえ
 かきくけさしすせ
 たちつてなにぬね
 はひふへまみむ　　"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("42_y88ul")
 script = SubResource("GDScript_tmxbw")
 
 [node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
@@ -850,8 +850,8 @@ offset_top = 154.0
 offset_right = 262.0
 offset_bottom = 199.0
 text = "▼"
-label_settings = ExtResource("25_s5t71")
-script = ExtResource("33_1xmx8")
+label_settings = ExtResource("42_y88ul")
+script = ExtResource("49_325g3")
 
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -860,8 +860,8 @@ offset_top = 157.0
 offset_right = 260.0
 offset_bottom = 202.0
 text = "＿"
-label_settings = ExtResource("25_s5t71")
-script = ExtResource("33_1xmx8")
+label_settings = ExtResource("42_y88ul")
+script = ExtResource("49_325g3")
 
 [node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -871,14 +871,14 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("33_1xmx8")
+script = ExtResource("49_325g3")
 
 [node name="■左下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
-texture = ExtResource("50_spu2o")
-script = ExtResource("30_bblis")
+texture = ExtResource("52_1gg7r")
+script = ExtResource("48_eaa38")
 
 [node name="■左下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
 
@@ -891,7 +891,7 @@ text = "表示テストだ
 あいうえおか
 きくけこさし
 すせたちつて"
-label_settings = ExtResource("25_s5t71")
+label_settings = ExtResource("42_y88ul")
 
 [node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -900,8 +900,8 @@ offset_top = 140.0
 offset_right = 195.0
 offset_bottom = 185.0
 text = "▼"
-label_settings = ExtResource("25_s5t71")
-script = ExtResource("33_1xmx8")
+label_settings = ExtResource("42_y88ul")
+script = ExtResource("49_325g3")
 
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -910,8 +910,8 @@ offset_top = 147.0
 offset_right = 192.0
 offset_bottom = 192.0
 text = "＿"
-label_settings = ExtResource("25_s5t71")
-script = ExtResource("33_1xmx8")
+label_settings = ExtResource("42_y88ul")
+script = ExtResource("49_325g3")
 
 [node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -921,11 +921,11 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("33_1xmx8")
+script = ExtResource("49_325g3")
 
 [node name="WindowsOfViewing" type="Node2D" parent="GuiArtist"]
 visible = false
-script = ExtResource("35_s10tl")
+script = ExtResource("53_wfxh4")
 
 [node name="System" type="Node2D" parent="GuiArtist/WindowsOfViewing"]
 visible = false
@@ -933,19 +933,19 @@ visible = false
 [node name="Frame" type="Sprite2D" parent="GuiArtist/WindowsOfViewing/System"]
 z_index = 1000
 position = Vector2(640, 360)
-texture = ExtResource("51_7v3cl")
+texture = ExtResource("54_l1gl8")
 
 [node name="将棋盤" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
 visible = false
 z_index = 100
 position = Vector2(640, 272)
-texture = ExtResource("36_0psl7")
+texture = ExtResource("55_np6gw")
 
 [node name="ファイルとランク" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
 visible = false
 z_index = 100
 position = Vector2(640, 272)
-texture = ExtResource("37_lwbng")
+texture = ExtResource("56_6jgym")
 
 [node name="MonsterTrainer" type="Node2D" parent="."]
 
@@ -955,126 +955,126 @@ texture = ExtResource("37_lwbng")
 visible = false
 position = Vector2(97, 70)
 scale = Vector2(0.266871, 0.266871)
-texture = ExtResource("35_pjekd")
+texture = ExtResource("57_82u0m")
 
 [node name="😁レサぽん改" type="Sprite2D" parent="MonsterTrainer/Faces"]
 visible = false
 position = Vector2(94.5, 64.9293)
 scale = Vector2(0.191919, 0.191919)
-texture = ExtResource("42_71nia")
+texture = ExtResource("58_iab7b")
 
 [node name="😁ケダック" type="Sprite2D" parent="MonsterTrainer/Faces"]
 position = Vector2(96.4521, 67.25)
 scale = Vector2(0.80137, 0.80137)
-texture = ExtResource("43_0e61y")
+texture = ExtResource("59_31grb")
 
 [node name="😁きふわらべ" type="Sprite2D" parent="MonsterTrainer/Faces"]
 position = Vector2(97, 129)
 scale = Vector2(0.1875, 0.1875)
-texture = ExtResource("36_n17j0")
+texture = ExtResource("60_hms8i")
 
 [node name="😁昼ビール" type="Sprite2D" parent="MonsterTrainer/Faces"]
 visible = false
 position = Vector2(97.5, 66.525)
 scale = Vector2(0.221014, 0.197109)
-texture = ExtResource("39_iojay")
+texture = ExtResource("61_u21io")
 
 [node name="WholeBody" type="Node2D" parent="MonsterTrainer"]
 
 [node name="🐕ヘム将棋" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 z_index = 10
 position = Vector2(463, 325)
-texture = ExtResource("51_pfarw")
+texture = ExtResource("62_xapq5")
 
 [node name="🐕レサぽん改" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 visible = false
 z_index = 10
 position = Vector2(737, 271)
 scale = Vector2(0.639706, 0.639706)
-texture = ExtResource("49_qua1y")
+texture = ExtResource("63_cw1ch")
 
 [node name="🐕ケダック" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 visible = false
 z_index = 10
 position = Vector2(627, 319)
-texture = ExtResource("52_lp131")
+texture = ExtResource("64_5vruu")
 
 [node name="🐕きふわらべ" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 visible = false
 z_index = 10
 position = Vector2(1014, 273)
 scale = Vector2(0.625506, 0.625506)
-texture = ExtResource("38_hc66s")
+texture = ExtResource("65_pq5aw")
 
 [node name="🐕昼ビール" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 position = Vector2(735, 320)
 scale = Vector2(0.596059, 0.596059)
-texture = ExtResource("43_dyuq4")
+texture = ExtResource("66_a6uhi")
 
 [node name="AssistantDirector" type="Node" parent="."]
-script = ExtResource("3_nnvgw")
+script = ExtResource("67_mbb3t")
 
 [node name="Bg" type="Node" parent="AssistantDirector"]
-script = ExtResource("32_uu41d")
+script = ExtResource("68_a6hgf")
 
 [node name="Bgm" type="Node" parent="AssistantDirector"]
-script = ExtResource("33_ogwo6")
+script = ExtResource("69_ccpbj")
 
 [node name="Choice" type="Node" parent="AssistantDirector"]
-script = ExtResource("22_cj5lk")
+script = ExtResource("70_jloio")
 
 [node name="Department" type="Node" parent="AssistantDirector"]
-script = ExtResource("35_m4xkq")
+script = ExtResource("71_ouat8")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]
-script = ExtResource("24_envpd")
+script = ExtResource("72_a0fyn")
 
 [node name="Label" type="Node" parent="AssistantDirector"]
-script = ExtResource("50_yt802")
+script = ExtResource("73_vxojx")
 
 [node name="Monster" type="Node" parent="AssistantDirector"]
-script = ExtResource("41_0etqc")
+script = ExtResource("74_ya7fg")
 
 [node name="MonsterFace" type="Node" parent="AssistantDirector"]
-script = ExtResource("49_n38p5")
+script = ExtResource("75_flt85")
 
 [node name="MsgSpeed" type="Node" parent="AssistantDirector"]
-script = ExtResource("74_b50cb")
+script = ExtResource("76_xivql")
 
 [node name="MWnd" type="Node" parent="AssistantDirector"]
-script = ExtResource("23_a7vfu")
+script = ExtResource("77_kacnq")
 
 [node name="NormalText" type="Node" parent="AssistantDirector"]
-script = ExtResource("27_1um3d")
+script = ExtResource("78_kp5gn")
 
 [node name="NormalTextChoice" type="Node" parent="AssistantDirector"]
-script = ExtResource("27_punsk")
+script = ExtResource("79_6nac4")
 
 [node name="Quit" type="Node" parent="AssistantDirector"]
-script = ExtResource("25_xmliw")
+script = ExtResource("80_odox4")
 
 [node name="Se" type="Node" parent="AssistantDirector"]
-script = ExtResource("27_b3qcr")
+script = ExtResource("81_7gioe")
 
 [node name="Sleep" type="Node" parent="AssistantDirector"]
-script = ExtResource("64_7tdxg")
+script = ExtResource("82_go4qq")
 
 [node name="Telop" type="Node" parent="AssistantDirector"]
-script = ExtResource("46_tukjy")
+script = ExtResource("83_sda0j")
 
 [node name="Var" type="Node" parent="AssistantDirector"]
-script = ExtResource("80_2172p")
+script = ExtResource("84_1cchr")
 
 [node name="VWnd" type="Node" parent="AssistantDirector"]
-script = ExtResource("23_5s8w2")
+script = ExtResource("85_gm62h")
 
 [node name="System" type="Node" parent="."]
 
 [node name="Scorer" type="Node" parent="."]
-script = ExtResource("81_h1tnt")
+script = ExtResource("86_u2fri")
 
 [node name="GameSheetForBattle" type="Node" parent="Scorer"]
-script = ExtResource("81_om202")
+script = ExtResource("87_x7rh5")
 
 [node name="MonsterData" type="Node" parent="Scorer"]
-script = ExtResource("82_5ypbs")
+script = ExtResource("88_udljc")
