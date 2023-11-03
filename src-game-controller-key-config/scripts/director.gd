@@ -2,9 +2,6 @@
 extends Node2D
 
 
-var re_button = RegEx.new()
-var re_lever = RegEx.new()
-
 # 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
 var counter_of_wait = 0.0
 # WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
@@ -16,10 +13,6 @@ var button_presentation_name = &""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-	# この文字列がどう変化するのか、さっぱり分からん
-	re_button.compile("Joypad Button (\\d)")
-	re_lever.compile("Joypad Motion on Axis (\\d)")
 
 
 	$"TelopCoordinator/TextBlock".text = """\
@@ -189,14 +182,14 @@ func _unhandled_input(event):
 	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
 	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
 	if not is_ok:
-		var matched = re_button.search(event_as_text)
+		var matched = $"KeyConfigArtist".re_button.search(event_as_text)
 		if matched:
 			self.button_number = int(matched.get_string(1))
 			button_presentation_name = "ボタン" + str(self.button_number)
 			is_ok = true
 
 	if not is_ok:
-		var matched = re_lever.search(event_as_text)
+		var matched = $"KeyConfigArtist".re_lever.search(event_as_text)
 		if matched:
 			var number = int(matched.get_string(1))
 			button_presentation_name = "レバー" + str(number)

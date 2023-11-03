@@ -2,6 +2,9 @@
 extends Node
 
 
+var re_button = RegEx.new()
+var re_lever = RegEx.new()
+
 # 値はボタン番号。レバーは +1000
 var key_config = {
 	# 仮想キー（１）決定ボタン、メッセージ送りボタン
@@ -20,13 +23,16 @@ func is_key_duplicated(button_number):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+
+	# この文字列がどう変化するのか、さっぱり分からん
+	re_button.compile("Joypad Button (\\d)")
+	re_lever.compile("Joypad Motion on Axis (\\d)")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 
-func on_process(delta):
+func on_process(_delta):
 	pass
