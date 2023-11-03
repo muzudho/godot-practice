@@ -228,10 +228,11 @@ func on_process(delta):
 		elif self.turn_state == &"Prompt":
 			#														  "１２３４５６７８９０１２３４５６７８９："
 			self.get_telop_coordinator().get_node("TextBlock").text = "完了"
+			self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
 			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
-			# 完了メッセージを見せるために、少し長めに
+			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
 			if self.counter_of_wait < 1.5:
 				self.counter_of_wait += delta
 				return
