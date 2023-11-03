@@ -3,12 +3,12 @@
 importer="font_data_dynamic"
 type="FontFile"
 uid="uid://dmy7kdhxwpfg6"
-path="res://.godot/imported/Mplus2-Regular.otf-3de73b231b48ec0626753d0676a1f27f.fontdata"
+path="res://.godot/imported/Mplus2-Regular.otf-ae52caca8138303e7365425562754c18.fontdata"
 
 [deps]
 
-source_file="res://fonts/Mplus2-Regular.otf"
-dest_files=["res://.godot/imported/Mplus2-Regular.otf-3de73b231b48ec0626753d0676a1f27f.fontdata"]
+source_file="res://studio_key_config/fonts/Mplus2-Regular.otf"
+dest_files=["res://.godot/imported/Mplus2-Regular.otf-ae52caca8138303e7365425562754c18.fontdata"]
 
 [params]
 
