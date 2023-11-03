@@ -265,15 +265,6 @@ func _unhandled_key_input(event):
 		self.on_virtual_key_input(virtual_key, vk_operation)
 
 
-# ボタン番号を、仮想キー名に変換。該当がなければ空文字列
-func get_virtual_key_name_by_button_number(button_number):
-	for key in $"DirectorForKeyConfig".key_config.keys():
-		var value = $"DirectorForKeyConfig".key_config[key]
-		if button_number == value:
-			return key
-	return &""
-
-
 func _unhandled_input(event):
 
 	if self.current_state == &"WaitForKeyConfig":
@@ -311,21 +302,7 @@ func _unhandled_input(event):
 		var button_number = $"DirectorForKeyConfig".get_button_number_by_text(event_as_text)
 		
 		# ボタン番号を、仮想キー名に変換
-		var virtual_key_name = self.get_virtual_key_name_by_button_number(button_number)
-		
-		# オーケー相当のボタン押下
-		#if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
-		#	virtual_key = &"VK_Ok"
-
-		# スタートボタン押下
-		#elif event_as_text == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
-		#	virtual_key = &"VK_Cancel"
-		
-		# PC-Engine のゲームパッドでは、ページ早送りの機能を持たせるボタンが足りない。キーボードを併用してもらうこと
-		
-		# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
-		#else:
-		#	return
+		var virtual_key_name = $"DirectorForKeyConfig".get_virtual_key_name_by_button_number(button_number)
 
 		# 仮想キーを押下したという建付け
 		self.on_virtual_key_input(virtual_key_name, vk_operation)

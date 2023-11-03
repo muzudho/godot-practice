@@ -22,6 +22,8 @@ var is_enabled = false
 # ディレクター取得
 func get_director():
 	return $"../../DirectorForKeyConfig"
+	# ❝Director” ルート・ノードを名称変更して使いたいなら、以下を編集するか、コメントアウトしてください
+	#return $"../../Director"
 
 
 # 背景担当取得
@@ -397,6 +399,15 @@ func get_button_name_by_number(button_number):
 		return "ボタン" + str(button_number)
 
 	return "レバー" + str(button_number - 1000)
+
+
+# ボタン番号を、仮想キー名に変換。該当がなければ空文字列
+func get_virtual_key_name_by_button_number(button_number):
+	for key in self.get_director().key_config.keys():
+		var value = self.get_director().key_config[key]
+		if button_number == value:
+			return key
+	return &""
 
 
 func on_unhandled_input(event):

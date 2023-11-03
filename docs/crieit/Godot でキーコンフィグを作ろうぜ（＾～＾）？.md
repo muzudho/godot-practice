@@ -356,4 +356,34 @@ func get_director():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　ぶら下げたサブツリーから、外側のサブツリーへパスを合わせる方法も分からん」  
 
+![202311__godot__03-2230--Subtree-o2o0.png](https://crieit.now.sh/upload_images/92e8da4acfac9ac3aba19d479851f5866544f63097b9d.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`Director` が名前被りするんで、嫌なんで `DirectorForKeyConfig` にリネームしたら……」  
+
+![202311__godot__03-2233--ChangePath-o2o0.png](https://crieit.now.sh/upload_images/7c0f018880a8118949f1b21e4f8d86236544f6cc9d051.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ハードコーディングしてるパスも　書き直せよ、ということらしい」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　つら」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　情報技術を扱う　わたしたちが　なんでそんな手間　受け入れなくちゃいけないのかしらね？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　フレームワークを使うからだぜ」  
+
+## とりあえず　シーンをぶらさげる（リンクする）ことができた
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　とりあえず　最低限のキーコンフィグを付けたぜ」  
+
+📺　[動画](https://x.com/muzudho1/status/1720432581928505410?s=20)  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .

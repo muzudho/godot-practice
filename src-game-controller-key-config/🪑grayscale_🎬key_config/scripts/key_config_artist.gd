@@ -21,6 +21,8 @@ var is_enabled = false
 
 # ディレクター取得
 func get_director():
+	#return $"../../DirectorForKeyConfig"
+	# ❝Director” ルート・ノードを名称変更して使いたいなら、以下を編集するか、コメントアウトしてください
 	return $"../../Director"
 
 
