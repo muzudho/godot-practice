@@ -16,10 +16,31 @@ var key_config = {
 }
 
 
+# キー・コンフィグ画面を始めるタイミングで以下を呼出す
+func entry():
+	$"KeyConfigArtist".entry()
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# キー・コンフィグ画面を始めるタイミングで以下を呼出す
-	$"KeyConfigArtist".entry()
+	
+	# ーーーーーーーー
+	# 初期化
+	# ーーーーーーーー
+	
+	# 背景非表示
+	$"BackgroundArtist".visible = false
+	
+	# ウィンドウ非表示
+	$"GuiArtist/WindowOfMessage".visible = false
+	
+	# GUI非表示
+	$"GuiArtist/KeyConfig_CanvasLayer".visible = false
+	
+	# テロップ非表示
+	$"TelopCoordinator/TextBlock".visible = false
+	
+	#self.entry()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
