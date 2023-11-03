@@ -7,9 +7,6 @@ var counter_of_wait = 0.0
 # WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
 var turn_state = &"WaitForPrompt"
 var current_step = 0
-# 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
-var button_number = -1
-var button_presentation_name = &""
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -65,8 +62,8 @@ func _process(delta):
 
 		elif turn_state == &"InputOk":
 			#													"１２３４５６７８９０１２３４５６７８９："
-			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン：　" + self.button_presentation_name
-			$"KeyConfigArtist".key_config[&"VK_Ok"] = self.button_number
+			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン：　" + $"KeyConfigArtist".button_presentation_name
+			$"KeyConfigArtist".key_config[&"VK_Ok"] = $"KeyConfigArtist".button_number
 			self.current_step += 1
 			turn_state = &"WaitForPrompt"
 	
@@ -92,7 +89,7 @@ func _process(delta):
 		elif turn_state == &"InputOk":
 
 			# 既存のキーと被る場合、やり直しさせる
-			if $"KeyConfigArtist".is_key_duplicated(self.button_number):
+			if $"KeyConfigArtist".is_key_duplicated($"KeyConfigArtist".button_number):
 				self.set_key_denied()
 				turn_state = &"WaitForInput"
 				is_ok = true
@@ -100,8 +97,8 @@ func _process(delta):
 			else:
 				self.set_key_ok()
 				#														  "１２３４５６７８９０１２３４５６７８９："
-				$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + self.button_presentation_name
-				$"KeyConfigArtist".key_config[&"VK_Cancel"] = self.button_number
+				$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + $"KeyConfigArtist".button_presentation_name
+				$"KeyConfigArtist".key_config[&"VK_Cancel"] = $"KeyConfigArtist".button_number
 				self.current_step += 1
 				turn_state = &"WaitForPrompt"
 		
@@ -127,7 +124,7 @@ func _process(delta):
 		elif turn_state == &"InputOk":
 
 			# 既存のキーと被る場合、やり直しさせる
-			if $"KeyConfigArtist".is_key_duplicated(self.button_number):
+			if $"KeyConfigArtist".is_key_duplicated($"KeyConfigArtist".button_number):
 				self.set_key_denied()
 				turn_state = &"WaitForInput"
 				is_ok = true
@@ -135,8 +132,8 @@ func _process(delta):
 			else:
 				self.set_key_ok()
 				#																"１２３４５６７８９０１２３４５６７８９："
-				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン　　　　　：　" + self.button_presentation_name
-				$"KeyConfigArtist".key_config[&"VK_FastForward"] = self.button_number
+				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン　　　　　：　" + $"KeyConfigArtist".button_presentation_name
+				$"KeyConfigArtist".key_config[&"VK_FastForward"] = $"KeyConfigArtist".button_number
 				self.current_step += 1
 				turn_state = &"WaitForPrompt"
 		
@@ -163,8 +160,8 @@ func _process(delta):
 	
 	if is_ok:
 		self.counter_of_wait = 0.0
-		self.button_number = -1
-		self.button_presentation_name = &""
+		$"KeyConfigArtist".button_number = -1
+		$"KeyConfigArtist".button_presentation_name = &""
 
 
 func _unhandled_input(event):
@@ -184,16 +181,16 @@ func _unhandled_input(event):
 	if not is_ok:
 		var matched = $"KeyConfigArtist".re_button.search(event_as_text)
 		if matched:
-			self.button_number = int(matched.get_string(1))
-			button_presentation_name = "ボタン" + str(self.button_number)
+			$"KeyConfigArtist".button_number = int(matched.get_string(1))
+			$"KeyConfigArtist".button_presentation_name = "ボタン" + str($"KeyConfigArtist".button_number)
 			is_ok = true
 
 	if not is_ok:
 		var matched = $"KeyConfigArtist".re_lever.search(event_as_text)
 		if matched:
 			var number = int(matched.get_string(1))
-			button_presentation_name = "レバー" + str(number)
-			self.button_number = number + 1000
+			$"KeyConfigArtist".button_presentation_name = "レバー" + str(number)
+			$"KeyConfigArtist".button_number = number + 1000
 			is_ok = true
 
 	if is_ok:

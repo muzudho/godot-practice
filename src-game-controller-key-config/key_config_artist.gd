@@ -2,9 +2,6 @@
 extends Node
 
 
-var re_button = RegEx.new()
-var re_lever = RegEx.new()
-
 # 値はボタン番号。レバーは +1000
 var key_config = {
 	# 仮想キー（１）決定ボタン、メッセージ送りボタン
@@ -14,6 +11,13 @@ var key_config = {
 	# 仮想キー（３）メッセージ早送りボタン
 	&"VK_FastForward" : -1,
 }
+
+var re_button = RegEx.new()
+var re_lever = RegEx.new()
+
+# 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
+var button_number = -1
+var button_presentation_name = &""
 
 
 # ボタンが重複するか？
