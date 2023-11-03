@@ -322,4 +322,21 @@ func _unhandled_input(event):
 「　👆　キッズ感出てくるが　椅子がポリティカル・コネクトネスに引っかかるとは思えないし、  
 これで進めよう」  
 
+## 鎖みたいなボタンでインポート
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　インポートでは無くて　リンクという概念らしいが」  
+
+![202311__godot__03-1737--Linked-o2o0.png](https://crieit.now.sh/upload_images/4725ad512e93f150d04bf7465bdbdf536544b1ed5db52.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ルート・ノードだけ　見えるのかな？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　そういう趣旨だろ。  
+サブツリーが見えると　散らばって　管理できなくなるしな」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ　もっとよく考えて　ルート・ノード　作り直そ」  
+
 .
