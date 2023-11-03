@@ -26,6 +26,16 @@ var current_step = 0
 var turn_state = &"WaitForPrompt"
 
 
+# テロップ・コーディネーター取得
+func get_telop_coordinator():
+	return $"../TelopCoordinator"
+
+
+# 音楽家取得
+func get_musician():
+	return $"../Musician"
+
+
 # ボタンが重複するか？
 func is_key_duplicated(button_number):
 	return button_number in self.key_config.values()
@@ -42,6 +52,23 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
+
+
+# キーコンフィグ画面に入る
+func entry():
+	self.get_telop_coordinator().get_node("TextBlock").text = """\
+	＊　＊　＊
+	"""
+
+
+func set_key_ok():
+	self.get_telop_coordinator().get_node("TextBlock").text = "＊　＊　＊"
+
+
+# キーコンフィグ　ボタン設定が拒否
+func set_key_denied():
+	self.get_musician().get_node("SE/🔔キーコンフィグ不可音").play()
+	self.get_telop_coordinator().get_node("TextBlock").text = "他のキーを選んでください"
 
 
 func on_process(_delta):

@@ -4,21 +4,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-
-	$"TelopCoordinator/TextBlock".text = """\
-	＊　＊　＊
-	"""
-
-
-func set_key_ok():
-	$"TelopCoordinator/TextBlock".text = "＊　＊　＊"
-
-
-# キーコンフィグ　ボタン設定が拒否
-func set_key_denied():
-	$"Musician/SE/🔔キーコンフィグ不可音".play()
-	$"TelopCoordinator/TextBlock".text = "他のキーを選んでください"
+	$"KeyConfigArtist".entry()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -85,12 +71,12 @@ func _process(delta):
 
 			# 既存のキーと被る場合、やり直しさせる
 			if $"KeyConfigArtist".is_key_duplicated($"KeyConfigArtist".button_number):
-				self.set_key_denied()
+				$"KeyConfigArtist".set_key_denied()
 				$"KeyConfigArtist".turn_state = &"WaitForInput"
 				is_ok = true
 
 			else:
-				self.set_key_ok()
+				$"KeyConfigArtist".set_key_ok()
 				#														  "１２３４５６７８９０１２３４５６７８９："
 				$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + $"KeyConfigArtist".button_presentation_name
 				$"KeyConfigArtist".key_config[&"VK_Cancel"] = $"KeyConfigArtist".button_number
@@ -120,12 +106,12 @@ func _process(delta):
 
 			# 既存のキーと被る場合、やり直しさせる
 			if $"KeyConfigArtist".is_key_duplicated($"KeyConfigArtist".button_number):
-				self.set_key_denied()
+				$"KeyConfigArtist".set_key_denied()
 				$"KeyConfigArtist".turn_state = &"WaitForInput"
 				is_ok = true
 			
 			else:
-				self.set_key_ok()
+				$"KeyConfigArtist".set_key_ok()
 				#																"１２３４５６７８９０１２３４５６７８９："
 				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン　　　　　：　" + $"KeyConfigArtist".button_presentation_name
 				$"KeyConfigArtist".key_config[&"VK_FastForward"] = $"KeyConfigArtist".button_number
