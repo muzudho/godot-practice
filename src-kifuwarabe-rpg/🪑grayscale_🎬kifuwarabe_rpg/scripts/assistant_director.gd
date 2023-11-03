@@ -307,8 +307,8 @@ func parse_paragraph(paragraph_text):
 	$"NormalText".do_it(paragraph_text)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+# ディレクターの `_process(delta)` が呼出す
+func on_process(delta):
 
 	if 0.0 < self.get_director().sleep_seconds:
 		self.get_director().sleep_seconds -= delta

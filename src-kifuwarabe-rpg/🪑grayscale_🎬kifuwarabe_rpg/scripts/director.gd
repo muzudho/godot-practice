@@ -1,9 +1,14 @@
-# ディレクター（Director；監督）
+# 🪑grayscale_🎬kifuwarabe_rpg
+#	ディレクター（Director；監督）
 #	とりあえず、ゲーム全体をコントロールする
 extends Node2D
 
 
 var DepartmentSnapshot = load("res://🪑grayscale_🎬kifuwarabe_rpg/scripts/department_snapshot.gd")
+
+
+# 状態。 Entry, KeyConfig, Ready, Main の４つ
+var current_state = &"Entry"
 
 
 # 現在の部門（StringName型）
@@ -98,85 +103,116 @@ func dump_last_displayed_message_window():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	# スナップショット辞書作成
-	for department_name in self.get_all_department_names():
-		var department_node = $"ScenarioWriter".get_node(str(department_name))
-		if department_node.name != "SwitchDepartment" and department_node.name != "System":
-			self.snapshots[department_node.name] = DepartmentSnapshot.new()
+	if self.current_state == &"Entry":
 
-			# （めんどくさいけど） SwitchDepartment からプロパティを移す
-			self.snapshots[department_node.name].name = department_node.name		# StringName 型
+		# ーーーーーーーー
+		# 初期化を行う
+		# ーーーーーーーー
 
-			# TODO この初期化は必要か？
-			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-			if department_node.name =="📗ビジュアルノベル部門":
-				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
-			elif department_node.name =="📗システムメニュー部門":
-				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
-				#self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
-			elif department_node.name =="📗バトル部門":
-				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+		# スナップショット辞書作成
+		for department_name in self.get_all_department_names():
+			var department_node = $"ScenarioWriter".get_node(str(department_name))
+			if department_node.name != "SwitchDepartment" and department_node.name != "System":
+				self.snapshots[department_node.name] = DepartmentSnapshot.new()
+
+				# （めんどくさいけど） SwitchDepartment からプロパティを移す
+				self.snapshots[department_node.name].name = department_node.name		# StringName 型
+
+				# TODO この初期化は必要か？
+				# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
+				if department_node.name =="📗ビジュアルノベル部門":
+					self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+				elif department_node.name =="📗システムメニュー部門":
+					self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
+					#self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
+				elif department_node.name =="📗バトル部門":
+					self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 
 
-			# 文書辞書の先頭要素のキー取得
-			self.snapshots[department_node.name].section_name = $"ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
+				# 文書辞書の先頭要素のキー取得
+				self.snapshots[department_node.name].section_name = $"ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
 
-	# 開発中にいじったものが残ってるかもしれないから、掃除
-	#
-	# 監督は表示する必要がある
-	self.show()
-	# ＧＵＩアーティスト自身は表示する必要がある
-	$"GuiArtist".show()
-	# モンスター・トレーナー
-	$"MonsterTrainer".show()
-	$"MonsterTrainer/Faces".show()
-	$"MonsterTrainer/WholeBody".show()
-	
-	# グリッドは隠す
-	$"Grid".hide()
+		# 開発中にいじったものが残ってるかもしれないから、掃除
+		#
+		# 監督は表示する必要がある
+		self.show()
+		# ＧＵＩアーティスト自身は表示する必要がある
+		$"GuiArtist".show()
+		# モンスター・トレーナー
+		$"MonsterTrainer".show()
+		$"MonsterTrainer/Faces".show()
+		$"MonsterTrainer/WholeBody".show()
+		
+		# グリッドは隠す
+		$"Grid".hide()
 
-	# 背景画像は全部隠す
-	for sprite2d_node in $"BackgroundArtist".get_children():
-		sprite2d_node.hide()
+		# 背景画像は全部隠す
+		for sprite2d_node in $"BackgroundArtist".get_children():
+			sprite2d_node.hide()
 
-	# ウィンドウはとにかく隠す
-	#
-	#	親ノードは例外
-	$"GuiArtist/WindowsOfMessage".show()
-	#	伝言窓はとにかく隠す
-	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
-		message_window.hide()
-	#
-	#	ビューイング・ウィンドウはとにかく隠す
-	for sprite2d_node in $"GuiArtist/WindowsOfViewing".get_children():
-		sprite2d_node.hide()
-	$"GuiArtist/WindowsOfViewing/System/Frame".hide()
-	#
-	#	テロップはとにかく非表示にする
-	for canvas_layer in $"TelopCoordinator".get_children():
-		canvas_layer.hide()
-	#
-	#	モンスターは、フォルダ―以外は　とにかく非表示にする
-	for monster in $"MonsterTrainer/Faces".get_children():
-		monster.hide()
-	for monster in $"MonsterTrainer/WholeBody".get_children():
-		monster.hide()
+		# ウィンドウはとにかく隠す
+		#
+		#	親ノードは例外
+		$"GuiArtist/WindowsOfMessage".show()
+		#	伝言窓はとにかく隠す
+		for message_window in $"GuiArtist/WindowsOfMessage".get_children():
+			message_window.hide()
+		#
+		#	ビューイング・ウィンドウはとにかく隠す
+		for sprite2d_node in $"GuiArtist/WindowsOfViewing".get_children():
+			sprite2d_node.hide()
+		$"GuiArtist/WindowsOfViewing/System/Frame".hide()
+		#
+		#	テロップはとにかく非表示にする
+		for canvas_layer in $"TelopCoordinator".get_children():
+			canvas_layer.hide()
+		#
+		#	モンスターは、フォルダ―以外は　とにかく非表示にする
+		for monster in $"MonsterTrainer/Faces".get_children():
+			monster.hide()
+		for monster in $"MonsterTrainer/WholeBody".get_children():
+			monster.hide()
 
-	#
+	elif self.current_state == &"KeyConfig":
+		pass
 
-	# 最初に実行する部門名
-	self.current_department_name = self.get_switch_department().start_department_name
+	elif self.current_state == &"Ready":
+		pass
 
-	var snapshot = self.get_current_snapshot()
+	elif self.current_state == &"Main":
+		pass
 
-	# パースするな
-	snapshot.set_parse_lock(true)
 
-	# 台本の「§」セクションの再生
-	$"./AssistantDirector".play_section()
+func _process(delta):
 
-	# 伝言窓を、一時的に居なくなっていたのを解除する
-	self.get_current_message_window().set_appear_subtree(true)
+	if self.current_state == &"Entry":
+		self.current_state = &"KeyConfig"
+
+	elif self.current_state == &"KeyConfig":
+		self.current_state = &"Ready"
+
+	elif self.current_state == &"Ready":
+		self.current_state = &"Main"
+		# ーーーーーーーー
+		# 準備
+		# ーーーーーーーー
+
+		# 最初に実行する部門名
+		self.current_department_name = self.get_switch_department().start_department_name
+
+		var snapshot = self.get_current_snapshot()
+
+		# パースするな
+		snapshot.set_parse_lock(true)
+
+		# 台本の「§」セクションの再生
+		$"./AssistantDirector".play_section()
+
+		# 伝言窓を、一時的に居なくなっていたのを解除する
+		self.get_current_message_window().set_appear_subtree(true)
+
+	elif self.current_state == &"Main":
+		self.get_assistant_director().on_process(delta)
 
 
 # テキストボックスなどにフォーカスが無いときの入力を拾う
@@ -185,91 +221,107 @@ func _ready():
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
 
-	var vk_operation = null
+	if self.current_state == &"Entry":
+		pass
 
-	# 何かキーを押したとき
-	if event.is_pressed():
-		print("［監督］　キー入力　押下")
-		vk_operation = &"VKO_Pressed"
-	
-	# 何かキーを離したとき
-	elif event.is_released():
-		print("［監督］　キー入力　リリース")
-		vk_operation = &"VKO_Released"
-	
-	# それ以外には対応してない
-	else:
-		print("［監督］　キー入力　▲！想定外")
-		return
+	elif self.current_state == &"KeyConfig":
+		pass
 
-	# 以下、仮想キー
+	elif self.current_state == &"Main":
 
-	# このゲーム独自の仮想キーに変換
-	var virtual_key = null
-	
-	# エンターキー押下
-	if event.keycode == KEY_ENTER:
-		virtual_key = &"VK_Ok"
+		var vk_operation = null
 
-	# エスケープキー押下
-	elif event.keycode == KEY_ESCAPE:
-		virtual_key = &"VK_SystemMenu"
+		# 何かキーを押したとき
+		if event.is_pressed():
+			print("［監督］　キー入力　押下")
+			vk_operation = &"VKO_Pressed"
+		
+		# 何かキーを離したとき
+		elif event.is_released():
+			print("［監督］　キー入力　リリース")
+			vk_operation = &"VKO_Released"
+		
+		# それ以外には対応してない
+		else:
+			print("［監督］　キー入力　▲！想定外")
+			return
 
-	# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
-	elif event.keycode == KEY_R:
-		virtual_key = &"VK_FastForward"
-	
-	# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
-	else:
-		return
+		# 以下、仮想キー
 
-	# 仮想キーを押下したという建付け
-	self.on_virtual_key_input(virtual_key, vk_operation)
+		# このゲーム独自の仮想キーに変換
+		var virtual_key = null
+		
+		# エンターキー押下
+		if event.keycode == KEY_ENTER:
+			virtual_key = &"VK_Ok"
+
+		# エスケープキー押下
+		elif event.keycode == KEY_ESCAPE:
+			virtual_key = &"VK_SystemMenu"
+
+		# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
+		elif event.keycode == KEY_R:
+			virtual_key = &"VK_FastForward"
+		
+		# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
+		else:
+			return
+
+		# 仮想キーを押下したという建付け
+		self.on_virtual_key_input(virtual_key, vk_operation)
 
 
 func _unhandled_input(event):
 
-	var vk_operation = null
+	if self.current_state == &"Entry":
+		pass
 
-	# 何かキーを押したとき
-	if event.is_pressed():
-		print("［監督］　入力　押下")
-		vk_operation = &"VKO_Pressed"
-	
-	# 何かキーを離したとき
-	elif event.is_released():
-		print("［監督］　入力　リリース")
-		vk_operation = &"VKO_Released"
-	
-	# それ以外には対応してない
-	else:
-		print("［監督］　入力　▲！想定外")
-		return
+	elif self.current_state == &"KeyConfig":
+		pass
 
-	# 以下、仮想キー
+	elif self.current_state == &"Main":
 
-	# このゲーム独自の仮想キーに変換
-	var virtual_key = null
-	
-	# 文字列だけだと、押したのか放したのか分からない
-	var event_as_text = event.as_text()
-	
-	# オーケー相当のボタン押下
-	if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
-		virtual_key = &"VK_Ok"
+		var vk_operation = null
 
-	# スタートボタン押下
-	elif event_as_text == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
-		virtual_key = &"VK_SystemMenu"
-	
-	# PC-Engine のゲームパッドでは、ページ早送りの機能を持たせるボタンが足りない。キーボードを併用してもらうこと
-	
-	# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
-	else:
-		return
+		# 何かキーを押したとき
+		if event.is_pressed():
+			print("［監督］　入力　押下")
+			vk_operation = &"VKO_Pressed"
+		
+		# 何かキーを離したとき
+		elif event.is_released():
+			print("［監督］　入力　リリース")
+			vk_operation = &"VKO_Released"
+		
+		# それ以外には対応してない
+		else:
+			print("［監督］　入力　▲！想定外")
+			return
 
-	# 仮想キーを押下したという建付け
-	self.on_virtual_key_input(virtual_key, vk_operation)
+		# 以下、仮想キー
+
+		# このゲーム独自の仮想キーに変換
+		var virtual_key = null
+		
+		# 文字列だけだと、押したのか放したのか分からない
+		var event_as_text = event.as_text()
+		
+		# オーケー相当のボタン押下
+		if event_as_text == &"Joypad Button 0 (Bottom Action, Sony Cross, Xbox A, Nintendo B)":
+			virtual_key = &"VK_Ok"
+
+		# スタートボタン押下
+		elif event_as_text == &"Joypad Button 4 (Back, Sony Select, Xbox Back, Nintendo -)":
+			virtual_key = &"VK_SystemMenu"
+		
+		# PC-Engine のゲームパッドでは、ページ早送りの機能を持たせるボタンが足りない。キーボードを併用してもらうこと
+		
+		# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
+		else:
+			return
+
+		# 仮想キーを押下したという建付け
+		self.on_virtual_key_input(virtual_key, vk_operation)
 
 
 # 仮想キーを押下したという建付け

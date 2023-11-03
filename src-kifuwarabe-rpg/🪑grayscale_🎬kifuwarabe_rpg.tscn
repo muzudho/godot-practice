@@ -1,4 +1,4 @@
-[gd_scene load_steps=100 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=101 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/director.gd" id="1_tn4ue"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/grid.png" id="2_gcvaf"]
@@ -91,6 +91,7 @@
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer.gd" id="89_m6ejc"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer/battle_sheet.gd" id="90_536e5"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer/monster_data.gd" id="91_ae3u7"]
+[ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config.tscn" id="92_3oj3f"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -1053,3 +1054,5 @@ script = ExtResource("90_536e5")
 
 [node name="MonsterData" type="Node" parent="Scorer"]
 script = ExtResource("91_ae3u7")
+
+[node name="DirectorForKeyConfig" parent="." instance=ExtResource("92_3oj3f")]

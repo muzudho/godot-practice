@@ -2,16 +2,6 @@
 extends Node
 
 
-# 値はボタン番号。レバーは +1000
-var key_config = {
-	# 仮想キー（１）決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : -1,
-	# 仮想キー（２）キャンセルボタン、メニューボタン
-	&"VK_Cancel" : -1,
-	# 仮想キー（３）メッセージ早送りボタン
-	&"VK_FastForward" : -1,
-}
-
 var re_button = RegEx.new()
 var re_lever = RegEx.new()
 
@@ -27,6 +17,11 @@ var turn_state = &"WaitForPrompt"
 
 # `.entry()` を呼び出すと真にする。キー・コンフィグが完了するとまた偽にセットする
 var is_enabled = false
+
+
+# ディレクター取得
+func get_director():
+	return $"../../Director"
 
 
 # 背景担当取得
@@ -51,24 +46,60 @@ func get_gui_artist():
 
 # ボタンが重複するか？
 func is_key_duplicated(button_number):
-	return button_number in self.key_config.values()
+	return button_number in self.get_director().key_config.values()
 
 
 # キャンセルボタン押下か？
 func is_cancel_button_pressed(button_number):
-	return button_number == self.key_config[&"VK_Cancel"]
+	return button_number == self.get_director().key_config[&"VK_Cancel"]
 	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	# この文字列がどう変化するのか、さっぱり分からん
+	# ーーーーーーーー
+	# 初期化
+	# ーーーーーーーー
+	
+	# 背景非表示
+	self.get_background_artist().visible = false
+	
+	# ウィンドウ非表示
+	self.get_gui_artist().get_node("WindowOfMessage").visible = false
+	
+	# GUI非表示
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
+	
+	# テロップ非表示
+	self.get_telop_coordinator().get_node("TextBlock").visible = false
+
+	# 入力イベントが返す文字列。仕様さっぱり分からん
 	re_button.compile("Joypad Button (\\d)")
 	re_lever.compile("Joypad Motion on Axis (\\d)")
 
 
 # キーコンフィグ画面に入る
 func entry():
+	# ーーーーーーーー
+	# 表示
+	# ーーーーーーーー
+	
+	# 背景表示
+	self.get_background_artist().visible = true
+	
+	# ウィンドウ表示
+	self.get_gui_artist().get_node("WindowOfMessage").visible = true
+	
+	# GUI表示
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
+	
+	# テロップ表示
+	self.get_telop_coordinator().get_node("TextBlock").visible = true
+
+	# ーーーーーーーー
+	# 設定
+	# ーーーーーーーー
+
 	# 背景
 	self.get_background_artist().get_node("🗻崎川駅前").visible = true
 	# GUI - メッセージ・ウィンドウ
@@ -98,6 +129,9 @@ func on_exit():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
 	# テロップ
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
+	
+	# ディレクターのイベントハンドラ呼出し
+	self.get_director().on_exit()
 
 
 func set_key_ok():
@@ -207,7 +241,7 @@ func on_process(delta):
 		elif self.turn_state == &"InputOk":
 			self.set_key_accepted()
 			self.set_message_the_1st_button_done()
-			self.key_config[&"VK_Cancel"] = self.button_number
+			self.get_director().key_config[&"VK_Cancel"] = self.button_number
 			self.current_step += 1
 			self.turn_state = &"WaitForPrompt"
 	
@@ -237,7 +271,7 @@ func on_process(delta):
 			# キャンセルボタン押下時は、１つ戻す
 			if self.is_cancel_button_pressed(self.button_number):
 				self.set_key_canceled()
-				self.key_config.erase(&"VK_Cancel")
+				self.get_director().key_config.erase(&"VK_Cancel")
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
 				self.set_message_the_empty_2nd_button()
@@ -254,7 +288,7 @@ func on_process(delta):
 				self.set_key_accepted()
 				self.set_key_ok()
 				self.set_message_the_2nd_button_done()
-				self.key_config[&"VK_Ok"] = self.button_number
+				self.get_director().key_config[&"VK_Ok"] = self.button_number
 				self.current_step += 1
 				self.turn_state = &"WaitForPrompt"
 		
@@ -284,7 +318,7 @@ func on_process(delta):
 			# キャンセルボタン押下時は、１つ戻す
 			if self.is_cancel_button_pressed(self.button_number):
 				self.set_key_canceled()
-				self.key_config.erase(&"VK_Ok")
+				self.get_director().key_config.erase(&"VK_Ok")
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
 				self.set_message_the_empty_3rd_button()
@@ -301,7 +335,7 @@ func on_process(delta):
 				self.set_key_accepted()
 				self.set_key_ok()
 				self.set_message_the_3rd_button_done()
-				self.key_config[&"VK_FastForward"] = self.button_number
+				self.get_director().key_config[&"VK_FastForward"] = self.button_number
 				self.current_step += 1
 				self.turn_state = &"WaitForPrompt"
 		
