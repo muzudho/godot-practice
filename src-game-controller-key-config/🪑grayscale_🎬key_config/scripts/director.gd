@@ -23,24 +23,8 @@ func entry():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
-	# ーーーーーーーー
-	# 初期化
-	# ーーーーーーーー
-	
-	# 背景非表示
-	$"BackgroundArtist".visible = false
-	
-	# ウィンドウ非表示
-	$"GuiArtist/WindowOfMessage".visible = false
-	
-	# GUI非表示
-	$"GuiArtist/KeyConfig_CanvasLayer".visible = false
-	
-	# テロップ非表示
-	$"TelopCoordinator/TextBlock".visible = false
-	
-	#self.entry()
+	# これをコメントアウトしたとき、画面上に何も影響を与えないように作っています
+	self.entry()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

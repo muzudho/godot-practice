@@ -57,13 +57,49 @@ func is_cancel_button_pressed(button_number):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	# この文字列がどう変化するのか、さっぱり分からん
+	# ーーーーーーーー
+	# 初期化
+	# ーーーーーーーー
+	
+	# 背景非表示
+	self.get_background_artist().visible = false
+	
+	# ウィンドウ非表示
+	self.get_gui_artist().get_node("WindowOfMessage").visible = false
+	
+	# GUI非表示
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
+	
+	# テロップ非表示
+	self.get_telop_coordinator().get_node("TextBlock").visible = false
+
+	# 入力イベントが返す文字列。仕様さっぱり分からん
 	re_button.compile("Joypad Button (\\d)")
 	re_lever.compile("Joypad Motion on Axis (\\d)")
 
 
 # キーコンフィグ画面に入る
 func entry():
+	# ーーーーーーーー
+	# 表示
+	# ーーーーーーーー
+	
+	# 背景表示
+	self.get_background_artist().visible = true
+	
+	# ウィンドウ表示
+	self.get_gui_artist().get_node("WindowOfMessage").visible = true
+	
+	# GUI表示
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
+	
+	# テロップ表示
+	self.get_telop_coordinator().get_node("TextBlock").visible = true
+
+	# ーーーーーーーー
+	# 設定
+	# ーーーーーーーー
+
 	# 背景
 	self.get_background_artist().get_node("🗻崎川駅前").visible = true
 	# GUI - メッセージ・ウィンドウ
