@@ -54,6 +54,11 @@ func is_key_duplicated(button_number):
 	return button_number in self.key_config.values()
 
 
+# キャンセルボタン押下か？
+func is_cancel_button_pressed(button_number):
+	return button_number == self.key_config[&"VK_Cancel"]
+	
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -168,8 +173,17 @@ func on_process(delta):
 	
 		elif self.turn_state == &"InputOk":
 
+			# キャンセルボタン押下時は、１つ戻す
+			if self.is_cancel_button_pressed(self.button_number):
+				self.set_key_denied()
+				self.turn_state = &"WaitForInput"
+				self.current_step -= 1
+				#																		   "１２３４５６７８９０１２３４５６７８９："
+				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
+				is_ok = true
+
 			# 既存のキーと被る場合、やり直しさせる
-			if self.is_key_duplicated(self.button_number):
+			elif self.is_key_duplicated(self.button_number):
 				self.set_key_denied()
 				self.turn_state = &"WaitForInput"
 				is_ok = true
@@ -204,8 +218,17 @@ func on_process(delta):
 
 		elif self.turn_state == &"InputOk":
 
+			# キャンセルボタン押下時は、１つ戻す
+			if self.is_cancel_button_pressed(self.button_number):
+				self.set_key_denied()
+				self.turn_state = &"WaitForInput"
+				self.current_step -= 1
+				#																		   "１２３４５６７８９０１２３４５６７８９："
+				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
+				is_ok = true
+
 			# 既存のキーと被る場合、やり直しさせる
-			if self.is_key_duplicated(self.button_number):
+			elif self.is_key_duplicated(self.button_number):
 				self.set_key_denied()
 				self.turn_state = &"WaitForInput"
 				is_ok = true
