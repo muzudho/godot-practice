@@ -55,3 +55,13 @@ func _unhandled_input(event):
 	pass
 	# このシーンを呼出して利用するなら、以下をコメントアウトすること
 	#self.on_unhandled_input(event)
+
+
+# ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
+func get_button_number_by_text(event_as_text):
+	return $"KeyConfigArtist".get_button_number_by_text(event_as_text)
+
+
+# ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
+func get_button_name_by_number(button_number):
+	return $"KeyConfigArtist".get_button_name_by_number(button_number)

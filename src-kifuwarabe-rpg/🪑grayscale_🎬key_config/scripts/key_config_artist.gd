@@ -373,6 +373,32 @@ func on_process(delta):
 		self.button_presentation_name = &""
 
 
+# ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
+func get_button_number_by_text(event_as_text):
+	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
+	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
+	var matched = self.re_button.search(event_as_text)
+	if matched:
+		return int(matched.get_string(1))
+
+	matched = self.re_lever.search(event_as_text)
+	if matched:
+		return int(matched.get_string(1)) + 1000
+	
+	return -1
+
+
+# ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
+func get_button_name_by_number(button_number):
+	if button_number < 0:
+		return &""
+		
+	if button_number < 1000:
+		return "ボタン" + str(button_number)
+
+	return "レバー" + str(button_number - 1000)
+
+
 func on_unhandled_input(event):
 
 	if not self.is_enabled:
@@ -385,27 +411,11 @@ func on_unhandled_input(event):
 	if self.turn_state != &"Input":
 		return
 
-	var is_ok = false
-	var acception = "受付：　"
-
 	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
 	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
-	if not is_ok:
-		var matched = self.re_button.search(event_as_text)
-		if matched:
-			self.button_number = int(matched.get_string(1))
-			self.button_presentation_name = "ボタン" + str(self.button_number)
-			is_ok = true
+	self.button_number = self.get_button_number_by_text(event_as_text)
+	self.button_presentation_name = self.get_button_name_by_number(self.button_number)
 
-	if not is_ok:
-		var matched = self.re_lever.search(event_as_text)
-		if matched:
-			var number = int(matched.get_string(1))
-			self.button_presentation_name = "レバー" + str(number)
-			self.button_number = number + 1000
-			is_ok = true
-
-	if is_ok:
-		print(acception)
+	if 0 <= self.button_number:
+		print("受付：　" + self.button_presentation_name)
 		self.turn_state = &"InputOk"
-		print("入力Ok")

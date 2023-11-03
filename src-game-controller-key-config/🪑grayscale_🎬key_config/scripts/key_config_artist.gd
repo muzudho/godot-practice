@@ -388,7 +388,7 @@ func get_button_number_by_text(event_as_text):
 	return -1
 
 
-# レバーは +1000 して引数に渡してください
+# ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
 func get_button_name_by_number(button_number):
 	if button_number < 0:
 		return &""

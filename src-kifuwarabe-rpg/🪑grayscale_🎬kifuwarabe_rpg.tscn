@@ -91,7 +91,7 @@
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer.gd" id="89_m6ejc"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer/battle_sheet.gd" id="90_536e5"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer/monster_data.gd" id="91_ae3u7"]
-[ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config.tscn" id="92_3oj3f"]
+[ext_resource type="PackedScene" uid="uid://c4h8owxp44b1q" path="res://🪑grayscale_🎬key_config.tscn" id="92_3oj3f"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 

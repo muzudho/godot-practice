@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=14 format=3 uid="uid://c4h8owxp44b1q"]
 
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/director.gd" id="1_mtmqs"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🪑grayscale_🎬key_config/images/1280x720/grid.png" id="2_k8epg"]
