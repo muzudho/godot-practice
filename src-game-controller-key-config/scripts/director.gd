@@ -2,10 +2,6 @@
 extends Node2D
 
 
-# WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
-var turn_state = &"WaitForPrompt"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -28,7 +24,7 @@ func set_key_denied():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	
-	if not (turn_state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
+	if not ($"KeyConfigArtist".turn_state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
 		return
 	
 	var is_ok = false
@@ -41,56 +37,56 @@ func _process(delta):
 		
 	# （１）決定ボタン、メッセージ送りボタン
 	elif $"KeyConfigArtist".current_step == 1:
-		if turn_state == &"WaitForPrompt":
+		if $"KeyConfigArtist".turn_state == &"WaitForPrompt":
 			# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視する
 			if $"KeyConfigArtist".counter_of_wait < 1.0:
 				$"KeyConfigArtist".counter_of_wait += delta
 				return
-			turn_state = &"Prompt"
+			$"KeyConfigArtist".turn_state = &"Prompt"
 		
-		elif turn_state == &"Prompt":
+		elif $"KeyConfigArtist".turn_state == &"Prompt":
 			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン　を押してください"
-			turn_state = &"WaitForInput"
+			$"KeyConfigArtist".turn_state = &"WaitForInput"
 
-		elif turn_state == &"WaitForInput":
+		elif $"KeyConfigArtist".turn_state == &"WaitForInput":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
 				return
-			turn_state = &"Input"
+			$"KeyConfigArtist".turn_state = &"Input"
 			is_ok = true
 
-		elif turn_state == &"InputOk":
+		elif $"KeyConfigArtist".turn_state == &"InputOk":
 			#													"１２３４５６７８９０１２３４５６７８９："
 			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン：　" + $"KeyConfigArtist".button_presentation_name
 			$"KeyConfigArtist".key_config[&"VK_Ok"] = $"KeyConfigArtist".button_number
 			$"KeyConfigArtist".current_step += 1
-			turn_state = &"WaitForPrompt"
+			$"KeyConfigArtist".turn_state = &"WaitForPrompt"
 	
 	# （２）キャンセルボタン、メニューボタン
 	elif $"KeyConfigArtist".current_step == 2:
-		if turn_state == &"WaitForPrompt":
+		if $"KeyConfigArtist".turn_state == &"WaitForPrompt":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
 				return
-			turn_state = &"Prompt"
+			$"KeyConfigArtist".turn_state = &"Prompt"
 		
-		elif turn_state == &"Prompt":
+		elif $"KeyConfigArtist".turn_state == &"Prompt":
 			$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン　を押してください"
-			turn_state = &"WaitForInput"
+			$"KeyConfigArtist".turn_state = &"WaitForInput"
 
-		elif turn_state == &"WaitForInput":
+		elif $"KeyConfigArtist".turn_state == &"WaitForInput":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
 				return
-			turn_state = &"Input"
+			$"KeyConfigArtist".turn_state = &"Input"
 			is_ok = true
 	
-		elif turn_state == &"InputOk":
+		elif $"KeyConfigArtist".turn_state == &"InputOk":
 
 			# 既存のキーと被る場合、やり直しさせる
 			if $"KeyConfigArtist".is_key_duplicated($"KeyConfigArtist".button_number):
 				self.set_key_denied()
-				turn_state = &"WaitForInput"
+				$"KeyConfigArtist".turn_state = &"WaitForInput"
 				is_ok = true
 
 			else:
@@ -99,33 +95,33 @@ func _process(delta):
 				$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + $"KeyConfigArtist".button_presentation_name
 				$"KeyConfigArtist".key_config[&"VK_Cancel"] = $"KeyConfigArtist".button_number
 				$"KeyConfigArtist".current_step += 1
-				turn_state = &"WaitForPrompt"
+				$"KeyConfigArtist".turn_state = &"WaitForPrompt"
 		
 	# （３）メッセージ早送りボタン
 	elif $"KeyConfigArtist".current_step == 3:
-		if turn_state == &"WaitForPrompt":
+		if $"KeyConfigArtist".turn_state == &"WaitForPrompt":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
 				return
-			turn_state = &"Prompt"
+			$"KeyConfigArtist".turn_state = &"Prompt"
 		
-		elif turn_state == &"Prompt":
+		elif $"KeyConfigArtist".turn_state == &"Prompt":
 			$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン　を押してください"
-			turn_state = &"WaitForInput"
+			$"KeyConfigArtist".turn_state = &"WaitForInput"
 
-		elif turn_state == &"WaitForInput":
+		elif $"KeyConfigArtist".turn_state == &"WaitForInput":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
 				return
-			turn_state = &"Input"
+			$"KeyConfigArtist".turn_state = &"Input"
 			is_ok = true
 
-		elif turn_state == &"InputOk":
+		elif $"KeyConfigArtist".turn_state == &"InputOk":
 
 			# 既存のキーと被る場合、やり直しさせる
 			if $"KeyConfigArtist".is_key_duplicated($"KeyConfigArtist".button_number):
 				self.set_key_denied()
-				turn_state = &"WaitForInput"
+				$"KeyConfigArtist".turn_state = &"WaitForInput"
 				is_ok = true
 			
 			else:
@@ -134,24 +130,24 @@ func _process(delta):
 				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン　　　　　：　" + $"KeyConfigArtist".button_presentation_name
 				$"KeyConfigArtist".key_config[&"VK_FastForward"] = $"KeyConfigArtist".button_number
 				$"KeyConfigArtist".current_step += 1
-				turn_state = &"WaitForPrompt"
+				$"KeyConfigArtist".turn_state = &"WaitForPrompt"
 		
 	elif $"KeyConfigArtist".current_step == 4:
-		if turn_state == &"WaitForPrompt":
+		if $"KeyConfigArtist".turn_state == &"WaitForPrompt":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
 				return
-			turn_state = &"Prompt"
+			$"KeyConfigArtist".turn_state = &"Prompt"
 		
-		elif turn_state == &"Prompt":
+		elif $"KeyConfigArtist".turn_state == &"Prompt":
 			$"TelopCoordinator/TextBlock".text = "完了"
-			turn_state = &"WaitForInput"
+			$"KeyConfigArtist".turn_state = &"WaitForInput"
 
-		elif turn_state == &"WaitForInput":
+		elif $"KeyConfigArtist".turn_state == &"WaitForInput":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
 				return
-			turn_state = &"Input"
+			$"KeyConfigArtist".turn_state = &"Input"
 			is_ok = true
 	
 	else:
@@ -169,7 +165,7 @@ func _unhandled_input(event):
 	var event_as_text = event.as_text()
 	print("入力：　" + event_as_text)
 	
-	if turn_state != &"Input":
+	if $"KeyConfigArtist".turn_state != &"Input":
 		return
 
 	var is_ok = false
@@ -194,6 +190,6 @@ func _unhandled_input(event):
 
 	if is_ok:
 		print(acception)
-		turn_state = &"InputOk"
+		$"KeyConfigArtist".turn_state = &"InputOk"
 		$"Musician/SE/🔔キーコンフィグ決定音".play()
 		print("入力完了")

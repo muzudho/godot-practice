@@ -22,6 +22,8 @@ var button_presentation_name = &""
 # 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
 var counter_of_wait = 0.0
 var current_step = 0
+# WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
+var turn_state = &"WaitForPrompt"
 
 
 # ボタンが重複するか？
