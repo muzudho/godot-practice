@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Src-game-controller-key-config"
-run/main_scene="res://key_config.tscn"
+run/main_scene="res://studio_key_config.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 

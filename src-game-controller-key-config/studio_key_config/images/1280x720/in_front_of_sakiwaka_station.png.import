@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://chcqqnqsda1rd"
-path="res://.godot/imported/in_front_of_sakiwaka_station.png-fa0eb8c13fc699327d0b8320cfd92c4f.ctex"
+path="res://.godot/imported/in_front_of_sakiwaka_station.png-d8b8ce0fc06e981f68cf86c38e02bc2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://images/1280x720/in_front_of_sakiwaka_station.png"
-dest_files=["res://.godot/imported/in_front_of_sakiwaka_station.png-fa0eb8c13fc699327d0b8320cfd92c4f.ctex"]
+source_file="res://studio_key_config/images/1280x720/in_front_of_sakiwaka_station.png"
+dest_files=["res://.godot/imported/in_front_of_sakiwaka_station.png-d8b8ce0fc06e981f68cf86c38e02bc2c.ctex"]
 
 [params]
 
