@@ -29,6 +29,11 @@ var turn_state = &"WaitForPrompt"
 var is_enabled = false
 
 
+# 背景担当取得
+func get_background_artist():
+	return $"../BackgroundArtist"
+
+
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
 	return $"../TelopCoordinator"
@@ -59,10 +64,18 @@ func _ready():
 
 # キーコンフィグ画面に入る
 func entry():
+	self.get_background_artist().get_node("🗻崎川駅前").visible = true
 	self.get_telop_coordinator().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
 	self.is_enabled = true
+
+
+# キーコンフィグ終了時
+func on_exit():
+	self.is_enabled = false
+	self.get_background_artist().get_node("🗻崎川駅前").visible = false
+	pass
 
 
 func set_key_ok():
@@ -208,11 +221,8 @@ func on_process(delta):
 				self.counter_of_wait += delta
 				return
 			self.turn_state = &"Input"
-			self.is_enabled = false
+			self.on_exit()
 			is_ok = true
-	
-	else:
-		pass
 	
 	if is_ok:
 		self.counter_of_wait = 0.0

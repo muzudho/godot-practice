@@ -51,6 +51,7 @@ volume_db = -15.0
 [node name="BackgroundArtist" type="Node2D" parent="."]
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("6_l5n1n")
 
