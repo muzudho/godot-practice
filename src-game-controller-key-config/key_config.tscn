@@ -72,7 +72,7 @@ offset_bottom = 107.0
 text = "キーコンフィグ"
 label_settings = SubResource("LabelSettings_wwhtg")
 
-[node name="決定ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+[node name="（１）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
 offset_top = 157.0
 offset_right = 768.0
@@ -80,7 +80,7 @@ offset_bottom = 200.0
 text = "（１）"
 label_settings = ExtResource("1_qx6x7")
 
-[node name="キャンセルボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+[node name="（２）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
 offset_top = 206.0
 offset_right = 672.0
@@ -88,7 +88,7 @@ offset_bottom = 249.0
 text = "（２）"
 label_settings = ExtResource("1_qx6x7")
 
-[node name="メッセージ早送りボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+[node name="（３）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
 offset_top = 254.0
 offset_right = 672.0

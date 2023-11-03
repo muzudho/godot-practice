@@ -118,7 +118,7 @@ func on_process(delta):
 		self.current_step += 1
 		is_ok = true
 		
-	# （１）決定ボタン、メッセージ送りボタン
+	# （１）キャンセルボタン、メニューボタン
 	elif self.current_step == 1:
 		if self.turn_state == &"WaitForPrompt":
 			# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視する
@@ -128,8 +128,8 @@ func on_process(delta):
 			self.turn_state = &"Prompt"
 		
 		elif self.turn_state == &"Prompt":
-			#																		 "１２３４５６７８９０１２３４５６７８９："
-			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/決定ボタン").text = "（１）決定ボタン、メッセージ送りボタン　を押してください"
+			#																		   "１２３４５６７８９０１２３４５６７８９："
+			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
 			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
@@ -140,13 +140,13 @@ func on_process(delta):
 			is_ok = true
 
 		elif self.turn_state == &"InputOk":
-			#																		 "１２３４５６７８９０１２３４５６７８９："
-			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/決定ボタン").text = "（１）決定ボタン、メッセージ送りボタン：　" + self.button_presentation_name
-			self.key_config[&"VK_Ok"] = self.button_number
+			#																		   "１２３４５６７８９０１２３４５６７８９："
+			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
+			self.key_config[&"VK_Cancel"] = self.button_number
 			self.current_step += 1
 			self.turn_state = &"WaitForPrompt"
 	
-	# （２）キャンセルボタン、メニューボタン
+	# （２）決定ボタン、メッセージ送りボタン
 	elif self.current_step == 2:
 		if self.turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 0.5:
@@ -155,8 +155,8 @@ func on_process(delta):
 			self.turn_state = &"Prompt"
 		
 		elif self.turn_state == &"Prompt":
-			#																			   "１２３４５６７８９０１２３４５６７８９："
-			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/キャンセルボタン").text = "（２）キャンセルボタン、メニューボタン　を押してください"
+			#																		   "１２３４５６７８９０１２３４５６７８９："
+			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
 			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
@@ -176,9 +176,9 @@ func on_process(delta):
 
 			else:
 				self.set_key_ok()
-				#																			   "１２３４５６７８９０１２３４５６７８９："
-				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/キャンセルボタン").text = "（２）キャンセルボタン、メニューボタン：　" + self.button_presentation_name
-				self.key_config[&"VK_Cancel"] = self.button_number
+				#																		   "１２３４５６７８９０１２３４５６７８９："
+				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン：　" + self.button_presentation_name
+				self.key_config[&"VK_Ok"] = self.button_number
 				self.current_step += 1
 				self.turn_state = &"WaitForPrompt"
 		
@@ -191,8 +191,8 @@ func on_process(delta):
 			self.turn_state = &"Prompt"
 		
 		elif self.turn_state == &"Prompt":
-			#																					 "１２３４５６７８９０１２３４５６７８９："
-			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/メッセージ早送りボタン").text = "（３）メッセージ早送りボタン　を押してください"
+			#																		   "１２３４５６７８９０１２３４５６７８９："
+			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
@@ -212,8 +212,8 @@ func on_process(delta):
 			
 			else:
 				self.set_key_ok()
-				#																					 "１２３４５６７８９０１２３４５６７８９："
-				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/メッセージ早送りボタン").text = "（３）メッセージ早送りボタン　　　　　：　" + self.button_presentation_name
+				#																		   "１２３４５６７８９０１２３４５６７８９："
+				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　：　" + self.button_presentation_name
 				self.key_config[&"VK_FastForward"] = self.button_number
 				self.current_step += 1
 				self.turn_state = &"WaitForPrompt"
