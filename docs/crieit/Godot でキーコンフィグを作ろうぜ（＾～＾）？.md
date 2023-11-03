@@ -210,4 +210,60 @@ func _unhandled_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　ちょっとでも　パソコンの前に座るか……」  
 
+![202311__godot__03-1452--2Projects.png](https://crieit.now.sh/upload_images/91f8b476ddbd82d67b6491f27beb986c65448adee2dc3.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　あっ！　キーコンフィグの内容を　きふわらべＲＰＧへ　コピーできね！」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　Godot のツリーは　仮想的なもので、実体は無いしな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　わたしたちは　Godot の **Scene** の仕組みを　もっと勉強した方がいいんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　Godot 独自の機能を勉強したって　何になるか知らんけど……」  
+
+📖　[Scenes and Nodes](https://docs.godotengine.org/en/3.1/getting_started/step_by_step/scenes_and_nodes.html)  
+
+## .tscn は、つまりサブツリーか？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ツリーは `*.tscn` ファイル１つに保存できるんじゃないか？  
+それで憶測だが `*.tscn` は　サブ・ツリーとしてインポートできるんじゃないか？」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　サブツリーとして　インポートするってのは　ディレクトリーのマウントかだぜ？」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`key_config.tscn` が既に　サブツリー　のファイルになってんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ　`key_config.tscn` は　きふわらべＲＰＧから　インポートできるのかだぜ？  
+やってみるか……」  
+
+```
+  Cannot open file 'res://main_font.tres'.
+  Failed loading resource: res://main_font.tres. Make sure resources have been imported by opening the project in the editor at least once.
+  Attempt to open script 'res://scripts/key_config_artist.gd' resulted in error 'File not found'.
+  Failed loading resource: res://scripts/key_config_artist.gd. Make sure resources have been imported by opening the project in the editor at least once.
+  scene/resources/resource_format_text.cpp:283 - res://sub_trees/key_config.tscn:86 - Parse Error: 
+  Failed loading resource: res://sub_trees/key_config.tscn. Make sure resources have been imported by opening the project in the editor at least once.
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　エラーが出た」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　リソース・ファイルのインポートも全部やってくれるのかと思ったら、  
+ファイルが足らんとエラーだぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`*.tscn` ファイルは　インデックスの機能しかないのでは？  
+これがドキュメントの言う、　素材と　レシピに分かれていて、　レシピ　しかないという意味では？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　そんなもん　全部丸ごと　やってほしいのに……、  
+フォルダーを整理するか……」  
+
 .

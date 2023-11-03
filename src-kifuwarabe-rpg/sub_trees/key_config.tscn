@@ -1,0 +1,125 @@
+[gd_scene load_steps=15 format=3 uid="uid://wmyy1ialdusf"]
+
+[ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="1_p4qk1"]
+[ext_resource type="Script" path="res://scripts/director.gd" id="1_yoyui"]
+[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://images/1280x720/grid.png" id="2_0koqs"]
+[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://audio/se/maou.audio/maou_se_sound_door02.ogg" id="2_0ywyc"]
+[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://audio/se/maou.audio/maou_bgm_cyber36.ogg" id="2_6r17m"]
+[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://audio/se/maou.audio/maou_se_onepoint32.ogg" id="3_5k62c"]
+[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://audio/se/maou.audio/maou_se_system12.ogg" id="5_cgdi1"]
+[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="6_l5n1n"]
+[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://audio/se/maou.audio/maou_se_magic_fire09.ogg" id="6_ujj6l"]
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://images/1280x720/window_at_bottom.png" id="9_ecub4"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://images/1280x720/window_at_top_lerge.png" id="10_0ixb4"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://main_font.tres" id="10_huypk"]
+[ext_resource type="Script" path="res://scripts/key_config_artist.gd" id="13_b1ga7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wwhtg"]
+font = ExtResource("1_p4qk1")
+font_size = 64
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 10
+shadow_color = Color(0.12549, 0.12549, 0.12549, 0.752941)
+
+[node name="Director" type="Node2D"]
+script = ExtResource("1_yoyui")
+
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("2_0koqs")
+
+[node name="Musician" type="Node" parent="."]
+
+[node name="BGM" type="Node" parent="Musician"]
+
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="Musician/BGM"]
+stream = ExtResource("2_6r17m")
+volume_db = -15.0
+pitch_scale = 1.4
+
+[node name="SE" type="Node" parent="Musician"]
+
+[node name="🔔キーコンフィグ決定音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("2_0ywyc")
+volume_db = -5.0
+
+[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("5_cgdi1")
+volume_db = -10.0
+
+[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("3_5k62c")
+volume_db = -15.0
+
+[node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("6_ujj6l")
+volume_db = -15.0
+
+[node name="BackgroundArtist" type="Node2D" parent="."]
+
+[node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("6_l5n1n")
+
+[node name="GuiArtist" type="Node" parent="."]
+
+[node name="KeyConfig_CanvasLayer" type="CanvasLayer" parent="GuiArtist"]
+
+[node name="キーコンフィグ" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 417.0
+offset_top = 24.0
+offset_right = 929.0
+offset_bottom = 107.0
+text = "キーコンフィグ"
+label_settings = SubResource("LabelSettings_wwhtg")
+
+[node name="（１）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 160.0
+offset_top = 157.0
+offset_right = 768.0
+offset_bottom = 200.0
+text = "（１）"
+label_settings = ExtResource("10_huypk")
+
+[node name="（２）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 160.0
+offset_top = 206.0
+offset_right = 672.0
+offset_bottom = 249.0
+text = "（２）"
+label_settings = ExtResource("10_huypk")
+
+[node name="（３）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 160.0
+offset_top = 254.0
+offset_right = 672.0
+offset_bottom = 297.0
+text = "（３）"
+label_settings = ExtResource("10_huypk")
+
+[node name="WindowOfMessage" type="Node2D" parent="GuiArtist"]
+
+[node name="■下" type="Sprite2D" parent="GuiArtist/WindowOfMessage"]
+position = Vector2(640, 360)
+texture = ExtResource("9_ecub4")
+
+[node name="■上_大" type="Sprite2D" parent="GuiArtist/WindowOfMessage"]
+position = Vector2(640, 360)
+texture = ExtResource("10_0ixb4")
+
+[node name="TelopCoordinator" type="Node" parent="."]
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator"]
+offset_left = 321.0
+offset_top = 507.0
+offset_right = 1029.0
+offset_bottom = 670.0
+text = "ここに説明文"
+label_settings = ExtResource("10_huypk")
+
+[node name="KeyConfigArtist" type="Node" parent="."]
+script = ExtResource("13_b1ga7")
