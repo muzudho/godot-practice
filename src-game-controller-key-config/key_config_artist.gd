@@ -77,6 +77,9 @@ func entry():
 	# GUI
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
 	# テロップ
+	self.set_message_the_empty_1st_button()
+	self.set_message_the_empty_2nd_button()
+	self.set_message_the_empty_3rd_button()
 	self.get_telop_coordinator().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
@@ -107,6 +110,51 @@ func set_key_denied():
 	self.get_telop_coordinator().get_node("TextBlock").text = "他のキーを選んでください"
 
 
+func set_message_the_empty_1st_button():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
+
+
+func set_message_the_empty_2nd_button():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
+
+
+func set_message_the_empty_3rd_button():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
+
+
+func set_message_the_push_1st_button():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
+
+
+func set_message_the_push_2nd_button():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
+
+
+func set_message_the_push_3rd_button():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+
+
+func set_message_the_1st_button_done():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
+
+
+func set_message_the_2nd_button_done():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン：　" + self.button_presentation_name
+
+
+func set_message_the_3rd_button_done():
+	#																		   "１２３４５６７８９０１２３４５６７８９："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　：　" + self.button_presentation_name
+
+
 func on_process(delta):
 
 	if not self.is_enabled:
@@ -133,8 +181,7 @@ func on_process(delta):
 			self.turn_state = &"Prompt"
 		
 		elif self.turn_state == &"Prompt":
-			#																		   "１２３４５６７８９０１２３４５６７８９："
-			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
+			self.set_message_the_push_1st_button()
 			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
@@ -145,8 +192,7 @@ func on_process(delta):
 			is_ok = true
 
 		elif self.turn_state == &"InputOk":
-			#																		   "１２３４５６７８９０１２３４５６７８９："
-			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
+			self.set_message_the_1st_button_done()
 			self.key_config[&"VK_Cancel"] = self.button_number
 			self.current_step += 1
 			self.turn_state = &"WaitForPrompt"
@@ -160,8 +206,7 @@ func on_process(delta):
 			self.turn_state = &"Prompt"
 		
 		elif self.turn_state == &"Prompt":
-			#																		   "１２３４５６７８９０１２３４５６７８９："
-			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
+			self.set_message_the_push_2nd_button()
 			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
@@ -178,8 +223,8 @@ func on_process(delta):
 				self.set_key_denied()
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
-				#																		   "１２３４５６７８９０１２３４５６７８９："
-				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
+				self.set_message_the_empty_2nd_button()
+				self.set_message_the_push_1st_button()
 				is_ok = true
 
 			# 既存のキーと被る場合、やり直しさせる
@@ -190,8 +235,7 @@ func on_process(delta):
 
 			else:
 				self.set_key_ok()
-				#																		   "１２３４５６７８９０１２３４５６７８９："
-				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン：　" + self.button_presentation_name
+				self.set_message_the_2nd_button_done()
 				self.key_config[&"VK_Ok"] = self.button_number
 				self.current_step += 1
 				self.turn_state = &"WaitForPrompt"
@@ -205,8 +249,7 @@ func on_process(delta):
 			self.turn_state = &"Prompt"
 		
 		elif self.turn_state == &"Prompt":
-			#																		   "１２３４５６７８９０１２３４５６７８９："
-			self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+			self.set_message_the_push_3rd_button()
 			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
@@ -223,8 +266,8 @@ func on_process(delta):
 				self.set_key_denied()
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
-				#																		   "１２３４５６７８９０１２３４５６７８９："
-				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
+				self.set_message_the_empty_3rd_button()
+				self.set_message_the_push_2nd_button()
 				is_ok = true
 
 			# 既存のキーと被る場合、やり直しさせる
@@ -235,8 +278,7 @@ func on_process(delta):
 			
 			else:
 				self.set_key_ok()
-				#																		   "１２３４５６７８９０１２３４５６７８９："
-				self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　：　" + self.button_presentation_name
+				self.set_message_the_3rd_button_done()
 				self.key_config[&"VK_FastForward"] = self.button_number
 				self.current_step += 1
 				self.turn_state = &"WaitForPrompt"
