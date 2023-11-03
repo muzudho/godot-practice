@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://wmyy1ialdusf"]
+[gd_scene load_steps=15 format=3 uid="uid://wmyy1ialdusf"]
 
 [ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="1_p4qk1"]
 [ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://main_font.tres" id="1_qx6x7"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://audio/se/maou.audio/maou_se_sound_door02.ogg" id="2_0ywyc"]
 [ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://audio/se/maou.audio/maou_bgm_cyber36.ogg" id="2_6r17m"]
 [ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://audio/se/maou.audio/maou_se_onepoint32.ogg" id="3_5k62c"]
+[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://audio/se/maou.audio/maou_se_system12.ogg" id="5_cgdi1"]
 [ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="6_l5n1n"]
 [ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://audio/se/maou.audio/maou_se_magic_fire09.ogg" id="6_ujj6l"]
 [ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://images/1280x720/window_at_bottom.png" id="9_ecub4"]
@@ -44,6 +45,10 @@ pitch_scale = 1.4
 [node name="🔔キーコンフィグ決定音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("2_0ywyc")
 volume_db = -5.0
+
+[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="Musician/SE"]
+stream = ExtResource("5_cgdi1")
+volume_db = -10.0
 
 [node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("3_5k62c")

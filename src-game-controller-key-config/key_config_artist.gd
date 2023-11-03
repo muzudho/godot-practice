@@ -110,6 +110,12 @@ func set_key_denied():
 	self.get_telop_coordinator().get_node("TextBlock").text = "他のキーを選んでください"
 
 
+# キーコンフィグ　ボタン設定が拒否
+func set_key_canceled():
+	self.get_musician().get_node("SE/🔔キーコンフィグ取消音").play()
+	self.get_telop_coordinator().get_node("TextBlock").text = ""
+
+
 func set_message_the_empty_1st_button():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
@@ -220,7 +226,7 @@ func on_process(delta):
 
 			# キャンセルボタン押下時は、１つ戻す
 			if self.is_cancel_button_pressed(self.button_number):
-				self.set_key_denied()
+				self.set_key_canceled()
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
 				self.set_message_the_empty_2nd_button()
@@ -263,7 +269,7 @@ func on_process(delta):
 
 			# キャンセルボタン押下時は、１つ戻す
 			if self.is_cancel_button_pressed(self.button_number):
-				self.set_key_denied()
+				self.set_key_canceled()
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
 				self.set_message_the_empty_3rd_button()
