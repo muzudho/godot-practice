@@ -1,7 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://wmyy1ialdusf"]
 
 [ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="1_p4qk1"]
-[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://main_font.tres" id="1_qx6x7"]
 [ext_resource type="Script" path="res://scripts/director.gd" id="1_yoyui"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://images/1280x720/grid.png" id="2_0koqs"]
 [ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://audio/se/maou.audio/maou_se_sound_door02.ogg" id="2_0ywyc"]
@@ -12,7 +11,8 @@
 [ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://audio/se/maou.audio/maou_se_magic_fire09.ogg" id="6_ujj6l"]
 [ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://images/1280x720/window_at_bottom.png" id="9_ecub4"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://images/1280x720/window_at_top_lerge.png" id="10_0ixb4"]
-[ext_resource type="Script" path="res://key_config_artist.gd" id="11_hrelb"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://main_font.tres" id="10_huypk"]
+[ext_resource type="Script" path="res://scripts/key_config_artist.gd" id="13_b1ga7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wwhtg"]
 font = ExtResource("1_p4qk1")
@@ -83,7 +83,7 @@ offset_top = 157.0
 offset_right = 768.0
 offset_bottom = 200.0
 text = "（１）"
-label_settings = ExtResource("1_qx6x7")
+label_settings = ExtResource("10_huypk")
 
 [node name="（２）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
@@ -91,7 +91,7 @@ offset_top = 206.0
 offset_right = 672.0
 offset_bottom = 249.0
 text = "（２）"
-label_settings = ExtResource("1_qx6x7")
+label_settings = ExtResource("10_huypk")
 
 [node name="（３）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
@@ -99,7 +99,7 @@ offset_top = 254.0
 offset_right = 672.0
 offset_bottom = 297.0
 text = "（３）"
-label_settings = ExtResource("1_qx6x7")
+label_settings = ExtResource("10_huypk")
 
 [node name="WindowOfMessage" type="Node2D" parent="GuiArtist"]
 
@@ -119,7 +119,7 @@ offset_top = 507.0
 offset_right = 1029.0
 offset_bottom = 670.0
 text = "ここに説明文"
-label_settings = ExtResource("1_qx6x7")
+label_settings = ExtResource("10_huypk")
 
 [node name="KeyConfigArtist" type="Node" parent="."]
-script = ExtResource("11_hrelb")
+script = ExtResource("13_b1ga7")

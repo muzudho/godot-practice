@@ -147,18 +147,18 @@ func set_message_the_push_3rd_button():
 
 
 func set_message_the_1st_button_done():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
+	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
 
 
 func set_message_the_2nd_button_done():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン：　" + self.button_presentation_name
+	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　　　　　　：　" + self.button_presentation_name
 
 
 func set_message_the_3rd_button_done():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　：　" + self.button_presentation_name
+	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 
 func on_process(delta):
