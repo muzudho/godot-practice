@@ -64,7 +64,11 @@ func _ready():
 
 # キーコンフィグ画面に入る
 func entry():
+	# 背景
 	self.get_background_artist().get_node("🗻崎川駅前").visible = true
+	# GUI
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
+	# テロップ
 	self.get_telop_coordinator().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
@@ -74,8 +78,12 @@ func entry():
 # キーコンフィグ終了時
 func on_exit():
 	self.is_enabled = false
+	# 背景
 	self.get_background_artist().get_node("🗻崎川駅前").visible = false
-	pass
+	# GUI
+	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
+	# テロップ
+	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 
 func set_key_ok():
