@@ -339,4 +339,21 @@ func _unhandled_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　じゃあ　もっとよく考えて　ルート・ノード　作り直そ」  
 
+## パスが合わなくなる
+
+```gd
+# ディレクター取得
+func get_director():
+	return $"../../Director"
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　リンクしたシーンのパス、合わなくなるぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　お父ん、リネームもするしな」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ぶら下げたサブツリーから、外側のサブツリーへパスを合わせる方法も分からん」  
+
 .

@@ -21,7 +21,7 @@ var is_enabled = false
 
 # ディレクター取得
 func get_director():
-	return $"../../Director"
+	return $"../../DirectorForKeyConfig"
 
 
 # 背景担当取得
@@ -129,7 +129,10 @@ func on_exit():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
 	# テロップ
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
-	
+
+	# BGM 停止	
+	self.get_musician().get_node("BGM/🎵キーコンフィグ").stop()
+
 	# ディレクターのイベントハンドラ呼出し
 	self.get_director().on_exit()
 

@@ -7,8 +7,8 @@ extends Node2D
 var DepartmentSnapshot = load("res://🪑grayscale_🎬kifuwarabe_rpg/scripts/department_snapshot.gd")
 
 
-# 状態。 Entry, KeyConfig, Ready, Main の４つ
-var current_state = &"Entry"
+# 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
+var current_state = &"WaitForKeyConfig"
 
 
 # 現在の部門（StringName型）
@@ -103,93 +103,87 @@ func dump_last_displayed_message_window():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	if self.current_state == &"Entry":
+	# ーーーーーーーー
+	# 初期化を行う
+	# ーーーーーーーー
 
-		# ーーーーーーーー
-		# 初期化を行う
-		# ーーーーーーーー
+	# スナップショット辞書作成
+	for department_name in self.get_all_department_names():
+		var department_node = $"ScenarioWriter".get_node(str(department_name))
+		if department_node.name != "SwitchDepartment" and department_node.name != "System":
+			self.snapshots[department_node.name] = DepartmentSnapshot.new()
 
-		# スナップショット辞書作成
-		for department_name in self.get_all_department_names():
-			var department_node = $"ScenarioWriter".get_node(str(department_name))
-			if department_node.name != "SwitchDepartment" and department_node.name != "System":
-				self.snapshots[department_node.name] = DepartmentSnapshot.new()
+			# （めんどくさいけど） SwitchDepartment からプロパティを移す
+			self.snapshots[department_node.name].name = department_node.name		# StringName 型
 
-				# （めんどくさいけど） SwitchDepartment からプロパティを移す
-				self.snapshots[department_node.name].name = department_node.name		# StringName 型
-
-				# TODO この初期化は必要か？
-				# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-				if department_node.name =="📗ビジュアルノベル部門":
-					self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
-				elif department_node.name =="📗システムメニュー部門":
-					self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
-					#self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
-				elif department_node.name =="📗バトル部門":
-					self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+			# TODO この初期化は必要か？
+			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
+			if department_node.name =="📗ビジュアルノベル部門":
+				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+			elif department_node.name =="📗システムメニュー部門":
+				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
+				#self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
+			elif department_node.name =="📗バトル部門":
+				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 
 
-				# 文書辞書の先頭要素のキー取得
-				self.snapshots[department_node.name].section_name = $"ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
+			# 文書辞書の先頭要素のキー取得
+			self.snapshots[department_node.name].section_name = $"ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
 
-		# 開発中にいじったものが残ってるかもしれないから、掃除
-		#
-		# 監督は表示する必要がある
-		self.show()
-		# ＧＵＩアーティスト自身は表示する必要がある
-		$"GuiArtist".show()
-		# モンスター・トレーナー
-		$"MonsterTrainer".show()
-		$"MonsterTrainer/Faces".show()
-		$"MonsterTrainer/WholeBody".show()
-		
-		# グリッドは隠す
-		$"Grid".hide()
+	# 開発中にいじったものが残ってるかもしれないから、掃除
+	#
+	# 監督は表示する必要がある
+	self.show()
+	# ＧＵＩアーティスト自身は表示する必要がある
+	$"GuiArtist".show()
+	# モンスター・トレーナー
+	$"MonsterTrainer".show()
+	$"MonsterTrainer/Faces".show()
+	$"MonsterTrainer/WholeBody".show()
+	
+	# グリッドは隠す
+	$"Grid".hide()
 
-		# 背景画像は全部隠す
-		for sprite2d_node in $"BackgroundArtist".get_children():
-			sprite2d_node.hide()
+	# 背景画像は全部隠す
+	for sprite2d_node in $"BackgroundArtist".get_children():
+		sprite2d_node.hide()
 
-		# ウィンドウはとにかく隠す
-		#
-		#	親ノードは例外
-		$"GuiArtist/WindowsOfMessage".show()
-		#	伝言窓はとにかく隠す
-		for message_window in $"GuiArtist/WindowsOfMessage".get_children():
-			message_window.hide()
-		#
-		#	ビューイング・ウィンドウはとにかく隠す
-		for sprite2d_node in $"GuiArtist/WindowsOfViewing".get_children():
-			sprite2d_node.hide()
-		$"GuiArtist/WindowsOfViewing/System/Frame".hide()
-		#
-		#	テロップはとにかく非表示にする
-		for canvas_layer in $"TelopCoordinator".get_children():
-			canvas_layer.hide()
-		#
-		#	モンスターは、フォルダ―以外は　とにかく非表示にする
-		for monster in $"MonsterTrainer/Faces".get_children():
-			monster.hide()
-		for monster in $"MonsterTrainer/WholeBody".get_children():
-			monster.hide()
+	# ウィンドウはとにかく隠す
+	#
+	#	親ノードは例外
+	$"GuiArtist/WindowsOfMessage".show()
+	#	伝言窓はとにかく隠す
+	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
+		message_window.hide()
+	#
+	#	ビューイング・ウィンドウはとにかく隠す
+	for sprite2d_node in $"GuiArtist/WindowsOfViewing".get_children():
+		sprite2d_node.hide()
+	$"GuiArtist/WindowsOfViewing/System/Frame".hide()
+	#
+	#	テロップはとにかく非表示にする
+	for canvas_layer in $"TelopCoordinator".get_children():
+		canvas_layer.hide()
+	#
+	#	モンスターは、フォルダ―以外は　とにかく非表示にする
+	for monster in $"MonsterTrainer/Faces".get_children():
+		monster.hide()
+	for monster in $"MonsterTrainer/WholeBody".get_children():
+		monster.hide()
 
-	elif self.current_state == &"KeyConfig":
-		pass
 
-	elif self.current_state == &"Ready":
-		pass
-
-	elif self.current_state == &"Main":
-		pass
+func on_key_config_exited():
+	self.current_state = &"Ready"
 
 
 func _process(delta):
 
-	if self.current_state == &"Entry":
+	if self.current_state == &"WaitForKeyConfig":
+		$"DirectorForKeyConfig".entry()
 		self.current_state = &"KeyConfig"
 
 	elif self.current_state == &"KeyConfig":
-		self.current_state = &"Ready"
+		$"DirectorForKeyConfig".on_process(delta)
 
 	elif self.current_state == &"Ready":
 		self.current_state = &"Main"
@@ -221,7 +215,7 @@ func _process(delta):
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
 
-	if self.current_state == &"Entry":
+	if self.current_state == &"WaitForKeyConfig":
 		pass
 
 	elif self.current_state == &"KeyConfig":
@@ -273,11 +267,11 @@ func _unhandled_key_input(event):
 
 func _unhandled_input(event):
 
-	if self.current_state == &"Entry":
+	if self.current_state == &"WaitForKeyConfig":
 		pass
 
 	elif self.current_state == &"KeyConfig":
-		pass
+		$"DirectorForKeyConfig".on_unhandled_input(event)
 
 	elif self.current_state == &"Main":
 
