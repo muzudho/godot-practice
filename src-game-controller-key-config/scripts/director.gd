@@ -4,7 +4,7 @@ extends Node2D
 
 # WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
 var turn_state = &"WaitForPrompt"
-var current_step = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,13 +34,13 @@ func _process(delta):
 	var is_ok = false
 	
 	# 初回
-	if self.current_step == 0:
+	if $"KeyConfigArtist".current_step == 0:
 		$"Musician/BGM/🎵キーコンフィグ".play()
-		self.current_step += 1
+		$"KeyConfigArtist".current_step += 1
 		is_ok = true
 		
 	# （１）決定ボタン、メッセージ送りボタン
-	elif self.current_step == 1:
+	elif $"KeyConfigArtist".current_step == 1:
 		if turn_state == &"WaitForPrompt":
 			# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視する
 			if $"KeyConfigArtist".counter_of_wait < 1.0:
@@ -63,11 +63,11 @@ func _process(delta):
 			#													"１２３４５６７８９０１２３４５６７８９："
 			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン：　" + $"KeyConfigArtist".button_presentation_name
 			$"KeyConfigArtist".key_config[&"VK_Ok"] = $"KeyConfigArtist".button_number
-			self.current_step += 1
+			$"KeyConfigArtist".current_step += 1
 			turn_state = &"WaitForPrompt"
 	
 	# （２）キャンセルボタン、メニューボタン
-	elif self.current_step == 2:
+	elif $"KeyConfigArtist".current_step == 2:
 		if turn_state == &"WaitForPrompt":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
@@ -98,11 +98,11 @@ func _process(delta):
 				#														  "１２３４５６７８９０１２３４５６７８９："
 				$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + $"KeyConfigArtist".button_presentation_name
 				$"KeyConfigArtist".key_config[&"VK_Cancel"] = $"KeyConfigArtist".button_number
-				self.current_step += 1
+				$"KeyConfigArtist".current_step += 1
 				turn_state = &"WaitForPrompt"
 		
 	# （３）メッセージ早送りボタン
-	elif self.current_step == 3:
+	elif $"KeyConfigArtist".current_step == 3:
 		if turn_state == &"WaitForPrompt":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
@@ -133,10 +133,10 @@ func _process(delta):
 				#																"１２３４５６７８９０１２３４５６７８９："
 				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン　　　　　：　" + $"KeyConfigArtist".button_presentation_name
 				$"KeyConfigArtist".key_config[&"VK_FastForward"] = $"KeyConfigArtist".button_number
-				self.current_step += 1
+				$"KeyConfigArtist".current_step += 1
 				turn_state = &"WaitForPrompt"
 		
-	elif self.current_step == 4:
+	elif $"KeyConfigArtist".current_step == 4:
 		if turn_state == &"WaitForPrompt":
 			if $"KeyConfigArtist".counter_of_wait < 0.5:
 				$"KeyConfigArtist".counter_of_wait += delta
