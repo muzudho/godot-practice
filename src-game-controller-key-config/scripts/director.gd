@@ -2,8 +2,6 @@
 extends Node2D
 
 
-# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
-var counter_of_wait = 0.0
 # WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
 var turn_state = &"WaitForPrompt"
 var current_step = 0
@@ -44,8 +42,9 @@ func _process(delta):
 	# （１）決定ボタン、メッセージ送りボタン
 	elif self.current_step == 1:
 		if turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
+			# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視する
+			if $"KeyConfigArtist".counter_of_wait < 1.0:
+				$"KeyConfigArtist".counter_of_wait += delta
 				return
 			turn_state = &"Prompt"
 		
@@ -54,8 +53,8 @@ func _process(delta):
 			turn_state = &"WaitForInput"
 
 		elif turn_state == &"WaitForInput":
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
+			if $"KeyConfigArtist".counter_of_wait < 0.5:
+				$"KeyConfigArtist".counter_of_wait += delta
 				return
 			turn_state = &"Input"
 			is_ok = true
@@ -70,8 +69,8 @@ func _process(delta):
 	# （２）キャンセルボタン、メニューボタン
 	elif self.current_step == 2:
 		if turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
+			if $"KeyConfigArtist".counter_of_wait < 0.5:
+				$"KeyConfigArtist".counter_of_wait += delta
 				return
 			turn_state = &"Prompt"
 		
@@ -80,8 +79,8 @@ func _process(delta):
 			turn_state = &"WaitForInput"
 
 		elif turn_state == &"WaitForInput":
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
+			if $"KeyConfigArtist".counter_of_wait < 0.5:
+				$"KeyConfigArtist".counter_of_wait += delta
 				return
 			turn_state = &"Input"
 			is_ok = true
@@ -105,8 +104,8 @@ func _process(delta):
 	# （３）メッセージ早送りボタン
 	elif self.current_step == 3:
 		if turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
+			if $"KeyConfigArtist".counter_of_wait < 0.5:
+				$"KeyConfigArtist".counter_of_wait += delta
 				return
 			turn_state = &"Prompt"
 		
@@ -115,8 +114,8 @@ func _process(delta):
 			turn_state = &"WaitForInput"
 
 		elif turn_state == &"WaitForInput":
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
+			if $"KeyConfigArtist".counter_of_wait < 0.5:
+				$"KeyConfigArtist".counter_of_wait += delta
 				return
 			turn_state = &"Input"
 			is_ok = true
@@ -139,8 +138,8 @@ func _process(delta):
 		
 	elif self.current_step == 4:
 		if turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
+			if $"KeyConfigArtist".counter_of_wait < 0.5:
+				$"KeyConfigArtist".counter_of_wait += delta
 				return
 			turn_state = &"Prompt"
 		
@@ -149,8 +148,8 @@ func _process(delta):
 			turn_state = &"WaitForInput"
 
 		elif turn_state == &"WaitForInput":
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
+			if $"KeyConfigArtist".counter_of_wait < 0.5:
+				$"KeyConfigArtist".counter_of_wait += delta
 				return
 			turn_state = &"Input"
 			is_ok = true
@@ -159,7 +158,7 @@ func _process(delta):
 		pass
 	
 	if is_ok:
-		self.counter_of_wait = 0.0
+		$"KeyConfigArtist".counter_of_wait = 0.0
 		$"KeyConfigArtist".button_number = -1
 		$"KeyConfigArtist".button_presentation_name = &""
 

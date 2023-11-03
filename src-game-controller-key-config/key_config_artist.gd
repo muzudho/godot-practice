@@ -19,6 +19,9 @@ var re_lever = RegEx.new()
 var button_number = -1
 var button_presentation_name = &""
 
+# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
+var counter_of_wait = 0.0
+
 
 # ボタンが重複するか？
 func is_key_duplicated(button_number):
