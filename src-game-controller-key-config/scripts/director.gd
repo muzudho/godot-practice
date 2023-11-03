@@ -14,16 +14,6 @@ var current_step = 0
 var button_number = -1
 var button_presentation_name = &""
 
-# 値はボタン番号。レバーは +1000
-var key_config = {
-	# 仮想キー（１）決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : -1,
-	# 仮想キー（２）キャンセルボタン、メニューボタン
-	&"VK_Cancel" : -1,
-	# 仮想キー（３）メッセージ早送りボタン
-	&"VK_FastForward" : -1,
-}
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
@@ -35,11 +25,6 @@ func _ready():
 	$"TelopCoordinator/TextBlock".text = """\
 	＊　＊　＊
 	"""
-
-
-# ボタンが重複するか？
-func is_key_duplicated(button_number):
-	return button_number in self.key_config.values()
 
 
 func set_key_ok():
@@ -88,7 +73,7 @@ func _process(delta):
 		elif turn_state == &"InputOk":
 			#													"１２３４５６７８９０１２３４５６７８９："
 			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン：　" + self.button_presentation_name
-			self.key_config[&"VK_Ok"] = self.button_number
+			$"KeyConfigArtist".key_config[&"VK_Ok"] = self.button_number
 			self.current_step += 1
 			turn_state = &"WaitForPrompt"
 	
@@ -114,7 +99,7 @@ func _process(delta):
 		elif turn_state == &"InputOk":
 
 			# 既存のキーと被る場合、やり直しさせる
-			if self.is_key_duplicated(self.button_number):
+			if $"KeyConfigArtist".is_key_duplicated(self.button_number):
 				self.set_key_denied()
 				turn_state = &"WaitForInput"
 				is_ok = true
@@ -123,7 +108,7 @@ func _process(delta):
 				self.set_key_ok()
 				#														  "１２３４５６７８９０１２３４５６７８９："
 				$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + self.button_presentation_name
-				self.key_config[&"VK_Cancel"] = self.button_number
+				$"KeyConfigArtist".key_config[&"VK_Cancel"] = self.button_number
 				self.current_step += 1
 				turn_state = &"WaitForPrompt"
 		
@@ -149,7 +134,7 @@ func _process(delta):
 		elif turn_state == &"InputOk":
 
 			# 既存のキーと被る場合、やり直しさせる
-			if self.is_key_duplicated(self.button_number):
+			if $"KeyConfigArtist".is_key_duplicated(self.button_number):
 				self.set_key_denied()
 				turn_state = &"WaitForInput"
 				is_ok = true
@@ -158,7 +143,7 @@ func _process(delta):
 				self.set_key_ok()
 				#																"１２３４５６７８９０１２３４５６７８９："
 				$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン　　　　　：　" + self.button_presentation_name
-				self.key_config[&"VK_FastForward"] = self.button_number
+				$"KeyConfigArtist".key_config[&"VK_FastForward"] = self.button_number
 				self.current_step += 1
 				turn_state = &"WaitForPrompt"
 		

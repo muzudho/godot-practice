@@ -205,4 +205,9 @@ func _unhandled_input(event):
 
 📺　[動画](https://x.com/muzudho1/status/1719394092797579309?s=20)  
 
+# 📅 2023-11-03 fri ⏰ 09:57
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ちょっとでも　パソコンの前に座るか……」  
+
 .
