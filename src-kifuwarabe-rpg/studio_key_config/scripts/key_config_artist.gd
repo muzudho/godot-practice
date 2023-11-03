@@ -176,8 +176,10 @@ func on_process(delta):
 		self.get_musician().get_node("BGM/🎵キーコンフィグ").play()
 		self.current_step += 1
 		is_ok = true
-		
+	
+	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン
+	# ーーーーーーーー
 	elif self.current_step == 1:
 		if self.turn_state == &"WaitForPrompt":
 			# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視する
@@ -203,7 +205,9 @@ func on_process(delta):
 			self.current_step += 1
 			self.turn_state = &"WaitForPrompt"
 	
+	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
+	# ーーーーーーーー
 	elif self.current_step == 2:
 		if self.turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 0.5:
@@ -227,6 +231,7 @@ func on_process(delta):
 			# キャンセルボタン押下時は、１つ戻す
 			if self.is_cancel_button_pressed(self.button_number):
 				self.set_key_canceled()
+				self.key_config.erase(&"VK_Cancel")
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
 				self.set_message_the_empty_2nd_button()
@@ -246,7 +251,9 @@ func on_process(delta):
 				self.current_step += 1
 				self.turn_state = &"WaitForPrompt"
 		
+	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
+	# ーーーーーーーー
 	elif self.current_step == 3:
 		if self.turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 0.5:
@@ -270,6 +277,7 @@ func on_process(delta):
 			# キャンセルボタン押下時は、１つ戻す
 			if self.is_cancel_button_pressed(self.button_number):
 				self.set_key_canceled()
+				self.key_config.erase(&"VK_Ok")
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
 				self.set_message_the_empty_3rd_button()
@@ -289,6 +297,9 @@ func on_process(delta):
 				self.current_step += 1
 				self.turn_state = &"WaitForPrompt"
 		
+	# ーーーーーーーー
+	# 完了
+	# ーーーーーーーー
 	elif self.current_step == 4:
 		if self.turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 0.5:

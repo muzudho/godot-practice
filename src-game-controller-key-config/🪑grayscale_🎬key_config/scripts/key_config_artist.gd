@@ -104,6 +104,11 @@ func set_key_ok():
 	self.get_telop_coordinator().get_node("TextBlock").text = "＊　＊　＊"
 
 
+# キーコンフィグ　ボタン設定を受入
+func set_key_accepted():
+	self.get_musician().get_node("SE/🔔キーコンフィグ受入音").play()
+
+
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied():
 	self.get_musician().get_node("SE/🔔キーコンフィグ不可音").play()
@@ -200,6 +205,7 @@ func on_process(delta):
 			is_ok = true
 
 		elif self.turn_state == &"InputOk":
+			self.set_key_accepted()
 			self.set_message_the_1st_button_done()
 			self.key_config[&"VK_Cancel"] = self.button_number
 			self.current_step += 1
@@ -245,6 +251,7 @@ func on_process(delta):
 				is_ok = true
 
 			else:
+				self.set_key_accepted()
 				self.set_key_ok()
 				self.set_message_the_2nd_button_done()
 				self.key_config[&"VK_Ok"] = self.button_number
@@ -291,6 +298,7 @@ func on_process(delta):
 				is_ok = true
 			
 			else:
+				self.set_key_accepted()
 				self.set_key_ok()
 				self.set_message_the_3rd_button_done()
 				self.key_config[&"VK_FastForward"] = self.button_number
@@ -363,5 +371,4 @@ func on_unhandled_input(event):
 	if is_ok:
 		print(acception)
 		self.turn_state = &"InputOk"
-		self.get_musician().get_node("SE/🔔キーコンフィグ決定音").play()
-		print("入力完了")
+		print("入力Ok")

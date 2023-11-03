@@ -1,29 +1,21 @@
-[gd_scene load_steps=15 format=3 uid="uid://jokvfpjre6kb"]
+[gd_scene load_steps=14 format=3 uid="uid://jokvfpjre6kb"]
 
-[ext_resource type="Script" path="res://scripts/studio_key_config/director.gd" id="1_2jdbv"]
-[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://images/1280x720/grid.png" id="2_72ilj"]
-[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://audio/se/maou.audio/maou_bgm_cyber36.ogg" id="3_78xxq"]
-[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://audio/se/maou.audio/maou_se_sound_door02.ogg" id="4_cxm4q"]
-[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://audio/se/maou.audio/maou_se_system12.ogg" id="5_mx6rm"]
-[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://audio/se/maou.audio/maou_se_onepoint32.ogg" id="6_q5bmk"]
-[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://audio/se/maou.audio/maou_se_magic_fire09.ogg" id="7_8xes3"]
-[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="8_njjba"]
-[ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="9_6t3ho"]
-[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://main_font.tres" id="10_4hact"]
-[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://images/1280x720/window_at_bottom.png" id="11_s0v48"]
-[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://images/1280x720/window_at_top_lerge.png" id="12_8brxj"]
-[ext_resource type="Script" path="res://scripts/studio_key_config/key_config_artist.gd" id="13_w5n5h"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_wwhtg"]
-font = ExtResource("9_6t3ho")
-font_size = 64
-outline_size = 10
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 10
-shadow_color = Color(0.12549, 0.12549, 0.12549, 0.752941)
+[ext_resource type="Script" path="res://studio_key_config/scripts/director.gd" id="1_fxkfi"]
+[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://studio_key_config/images/1280x720/grid.png" id="2_72ilj"]
+[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://studio_key_config/audio/se/maou.audio/maou_bgm_cyber36.ogg" id="3_78xxq"]
+[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://studio_key_config/audio/se/maou.audio/maou_se_sound_door02.ogg" id="4_cxm4q"]
+[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://studio_key_config/audio/se/maou.audio/maou_se_system12.ogg" id="5_mx6rm"]
+[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://studio_key_config/audio/se/maou.audio/maou_se_onepoint32.ogg" id="6_q5bmk"]
+[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://studio_key_config/audio/se/maou.audio/maou_se_magic_fire09.ogg" id="7_8xes3"]
+[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://studio_key_config/images/1280x720/in_front_of_sakiwaka_station.png" id="8_njjba"]
+[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://studio_key_config/settings/label_setting_large.tres" id="9_d6b01"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://studio_key_config/settings/label_setting_medium.tres" id="10_6s7uy"]
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://studio_key_config/images/1280x720/window_at_bottom.png" id="11_s0v48"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://studio_key_config/images/1280x720/window_at_top_lerge.png" id="12_8brxj"]
+[ext_resource type="Script" path="res://studio_key_config/scripts/key_config_artist.gd" id="13_jguo3"]
 
 [node name="Director" type="Node2D"]
-script = ExtResource("1_2jdbv")
+script = ExtResource("1_fxkfi")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
@@ -75,7 +67,7 @@ offset_top = 24.0
 offset_right = 929.0
 offset_bottom = 107.0
 text = "キーコンフィグ"
-label_settings = SubResource("LabelSettings_wwhtg")
+label_settings = ExtResource("9_d6b01")
 
 [node name="（１）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
@@ -83,7 +75,7 @@ offset_top = 157.0
 offset_right = 768.0
 offset_bottom = 200.0
 text = "（１）"
-label_settings = ExtResource("10_4hact")
+label_settings = ExtResource("10_6s7uy")
 
 [node name="（２）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
@@ -91,7 +83,7 @@ offset_top = 206.0
 offset_right = 672.0
 offset_bottom = 249.0
 text = "（２）"
-label_settings = ExtResource("10_4hact")
+label_settings = ExtResource("10_6s7uy")
 
 [node name="（３）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
@@ -99,7 +91,7 @@ offset_top = 254.0
 offset_right = 672.0
 offset_bottom = 297.0
 text = "（３）"
-label_settings = ExtResource("10_4hact")
+label_settings = ExtResource("10_6s7uy")
 
 [node name="WindowOfMessage" type="Node2D" parent="GuiArtist"]
 
@@ -119,7 +111,7 @@ offset_top = 507.0
 offset_right = 1029.0
 offset_bottom = 670.0
 text = "ここに説明文"
-label_settings = ExtResource("10_4hact")
+label_settings = ExtResource("10_6s7uy")
 
 [node name="KeyConfigArtist" type="Node" parent="."]
-script = ExtResource("13_w5n5h")
+script = ExtResource("13_jguo3")
