@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b2nsvqfk7mk4y"]
+
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://studio_kifuwarabe_rpg/fonts/Mplus1Code-Bold.otf" id="1_f2ac0"]
+
+[resource]
+line_spacing = 1.0
+font = ExtResource("1_f2ac0")
+font_size = 64

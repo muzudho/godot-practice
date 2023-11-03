@@ -1,93 +1,93 @@
 [gd_scene load_steps=100 format=3 uid="uid://c8dh72a0f062o"]
 
-[ext_resource type="Script" path="res://scripts/director.gd" id="1_h2r0a"]
-[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://images/1280x720/grid.png" id="2_77ba4"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/system_of_battle.gd" id="3_kopon"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/switch_department.gd" id="4_kroht"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/visual_novel_department.gd" id="5_70isb"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/system_menu_department.gd" id="6_q8trk"]
-[ext_resource type="Script" path="res://scripts/scenario_writer/battle_department.gd" id="7_3m4ov"]
-[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="8_pnla5"]
-[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://audio/bgm/maou.audio/maou_game_town05.ogg" id="9_y3knd"]
-[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="10_kj0ha"]
-[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://audio/bgm/maou.audio/maou_game_rock28.ogg" id="11_ghifp"]
-[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://audio/bgm/maou.audio/maou_bgm_cyber06.ogg" id="12_ielrv"]
-[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="13_n6auh"]
-[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://audio/bgm/maou.audio/maou_bgm_orchestra12.ogg" id="14_n27xr"]
-[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://audio/bgm/maou.audio/maou_game_event17.ogg" id="15_vwwo8"]
-[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://audio/se/maou.audio/maou_se_sound17.ogg" id="16_efye5"]
-[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://audio/se/maou.audio/maou_se_sound19.ogg" id="17_3loww"]
-[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://audio/se/maou.audio/maou_se_sound_switch02.ogg" id="18_6q5cu"]
-[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://audio/se/maou.audio/maou_se_magic_fire11.ogg" id="19_dqepe"]
-[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://images/1280x720/event_room.png" id="20_feybk"]
-[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://images/1280x720/in_front_of_sakiwaka_station.png" id="21_gexwf"]
-[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://images/1280x720/ending.png" id="22_b0qb0"]
-[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://images/1280x720/map_arround_sakikawa_station.png" id="23_1l030"]
-[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://images/1280x720/kawahori_road.png" id="24_mp1gr"]
-[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://images/1280x720/tsutsuji_road.png" id="25_fgnct"]
-[ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://images/1280x720/battle_scene_3.png" id="26_oat5w"]
-[ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://images/1280x720/transition_1_frame_1.png" id="27_qs260"]
-[ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://images/1280x720/transition_1_frame_2.png" id="28_ydkqm"]
-[ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://images/1280x720/transition_1_frame_3.png" id="29_c5hqb"]
-[ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://images/1280x720/transition_1_frame_4.png" id="30_vevs7"]
-[ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://images/1280x720/transition_1_frame_5.png" id="31_ikbbl"]
-[ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://images/1280x720/transition_1_frame_6.png" id="32_tkwl0"]
-[ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://images/1280x720/transition_1_frame_7.png" id="33_2wyja"]
-[ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://images/1280x720/transition_1_frame_8.png" id="34_0veus"]
-[ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://images/1280x720/transition_1_frame_9.png" id="35_nywm1"]
-[ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://images/1280x720/transition_1_frame_10.png" id="36_5s21k"]
-[ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://images/1280x720/transition_1_frame_11.png" id="37_toym6"]
-[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://fonts/Mplus2-Bold.otf" id="38_uk4gs"]
-[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://fonts/Mplus2-Regular.otf" id="39_flehg"]
-[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://font_settings/battle_slategray_font.tres" id="40_qvgxr"]
-[ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://font_settings/large_font.tres" id="41_4tlwn"]
-[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://font_settings/main_font.tres" id="42_y88ul"]
-[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://font_settings/battle_light_red.tres" id="43_aksrx"]
-[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://font_settings/battle_light_yellow.tres" id="44_cyfxo"]
-[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://font_settings/battle_light_green.tres" id="45_rewdi"]
-[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://font_settings/battle_light_blue.tres" id="46_ctd6w"]
-[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://images/1280x720/window_at_bottom.png" id="47_pp68t"]
-[ext_resource type="Script" path="res://scripts/windows/message_concrete.gd" id="48_eaa38"]
-[ext_resource type="Script" path="res://scripts/windows/end_of_message_blinker.gd" id="49_325g3"]
-[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://fonts/Mplus1Code-Bold.otf" id="50_0mabf"]
-[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://images/1280x720/window_small_at_center.png" id="51_1ak46"]
-[ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://images/1280x720/window_at_bottom_left.png" id="52_1gg7r"]
-[ext_resource type="Script" path="res://scripts/windows/viewing.gd" id="53_wfxh4"]
-[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://images/1280x720/window_middle_at_center.png" id="54_l1gl8"]
-[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://images/0512x288/ShogiBan.png" id="55_np6gw"]
-[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://images/0512x288/file_and_rank.png" id="56_6jgym"]
-[ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://images/monster_faces/202310__godot__17-2213-hamu.png" id="57_82u0m"]
-[ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="58_iab7b"]
-[ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://images/monster_faces/202310__godot__19-2218--KodackFace.png" id="59_31grb"]
-[ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://images/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="60_hms8i"]
-[ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="61_u21io"]
-[ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://images/monsters/202310__godot__15-2317--Hamu.png" id="62_xapq5"]
-[ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://images/monsters/202310__godot__15-2226--resakai.png" id="63_cw1ch"]
-[ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://images/monsters/202310__godot__15-2320--Kodack.png" id="64_5vruu"]
-[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="65_pq5aw"]
-[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://images/monsters/202310__godot__18-0039--shiroBeer.png" id="66_a6uhi"]
-[ext_resource type="Script" path="res://scripts/assistant_director.gd" id="67_mbb3t"]
-[ext_resource type="Script" path="res://scripts/assistant_director/bg.gd" id="68_a6hgf"]
-[ext_resource type="Script" path="res://scripts/assistant_director/bgm.gd" id="69_ccpbj"]
-[ext_resource type="Script" path="res://scripts/assistant_director/choice.gd" id="70_jloio"]
-[ext_resource type="Script" path="res://scripts/assistant_director/department.gd" id="71_ouat8"]
-[ext_resource type="Script" path="res://scripts/assistant_director/goto.gd" id="72_a0fyn"]
-[ext_resource type="Script" path="res://scripts/assistant_director/label.gd" id="73_vxojx"]
-[ext_resource type="Script" path="res://scripts/assistant_director/monster.gd" id="74_ya7fg"]
-[ext_resource type="Script" path="res://scripts/assistant_director/monster_face.gd" id="75_flt85"]
-[ext_resource type="Script" path="res://scripts/assistant_director/msg_speed.gd" id="76_xivql"]
-[ext_resource type="Script" path="res://scripts/assistant_director/m_wnd.gd" id="77_kacnq"]
-[ext_resource type="Script" path="res://scripts/assistant_director/normal_text.gd" id="78_kp5gn"]
-[ext_resource type="Script" path="res://scripts/assistant_director/normal_text_choice.gd" id="79_6nac4"]
-[ext_resource type="Script" path="res://scripts/assistant_director/quit.gd" id="80_odox4"]
-[ext_resource type="Script" path="res://scripts/assistant_director/se.gd" id="81_7gioe"]
-[ext_resource type="Script" path="res://scripts/assistant_director/sleep.gd" id="82_go4qq"]
-[ext_resource type="Script" path="res://scripts/assistant_director/telop.gd" id="83_sda0j"]
-[ext_resource type="Script" path="res://scripts/assistant_director/var.gd" id="84_1cchr"]
-[ext_resource type="Script" path="res://scripts/assistant_director/v_wnd.gd" id="85_gm62h"]
-[ext_resource type="Script" path="res://scripts/scorer.gd" id="86_u2fri"]
-[ext_resource type="Script" path="res://scripts/scorer/battle_sheet.gd" id="87_x7rh5"]
-[ext_resource type="Script" path="res://scripts/scorer/monster_data.gd" id="88_udljc"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/director.gd" id="1_dno12"]
+[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://studio_kifuwarabe_rpg/images/1280x720/grid.png" id="2_77ba4"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/scenario_writer/system_of_battle.gd" id="3_bvbmm"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/scenario_writer/switch_department.gd" id="4_05g1r"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/scenario_writer/visual_novel_department.gd" id="5_m15mp"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/scenario_writer/system_menu_department.gd" id="6_hy6ox"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/scenario_writer/battle_department.gd" id="7_0ndii"]
+[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://studio_kifuwarabe_rpg/audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="8_pnla5"]
+[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://studio_kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_town05.ogg" id="9_y3knd"]
+[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://studio_kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="10_kj0ha"]
+[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://studio_kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_rock28.ogg" id="11_ghifp"]
+[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://studio_kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_cyber06.ogg" id="12_ielrv"]
+[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://studio_kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="13_n6auh"]
+[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://studio_kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_orchestra12.ogg" id="14_n27xr"]
+[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://studio_kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_event17.ogg" id="15_vwwo8"]
+[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://studio_kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound17.ogg" id="16_efye5"]
+[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://studio_kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound19.ogg" id="17_3loww"]
+[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://studio_kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound_switch02.ogg" id="18_6q5cu"]
+[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://studio_kifuwarabe_rpg/audio/se/maou.audio/maou_se_magic_fire11.ogg" id="19_dqepe"]
+[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://studio_kifuwarabe_rpg/images/1280x720/event_room.png" id="20_feybk"]
+[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://studio_kifuwarabe_rpg/images/1280x720/in_front_of_sakiwaka_station.png" id="21_gexwf"]
+[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://studio_kifuwarabe_rpg/images/1280x720/ending.png" id="22_b0qb0"]
+[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://studio_kifuwarabe_rpg/images/1280x720/map_arround_sakikawa_station.png" id="23_1l030"]
+[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://studio_kifuwarabe_rpg/images/1280x720/kawahori_road.png" id="24_mp1gr"]
+[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://studio_kifuwarabe_rpg/images/1280x720/tsutsuji_road.png" id="25_fgnct"]
+[ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://studio_kifuwarabe_rpg/images/1280x720/battle_scene_3.png" id="26_oat5w"]
+[ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_1.png" id="27_qs260"]
+[ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_2.png" id="28_ydkqm"]
+[ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_3.png" id="29_c5hqb"]
+[ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_4.png" id="30_vevs7"]
+[ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_5.png" id="31_ikbbl"]
+[ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_6.png" id="32_tkwl0"]
+[ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_7.png" id="33_2wyja"]
+[ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_8.png" id="34_0veus"]
+[ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_9.png" id="35_nywm1"]
+[ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_10.png" id="36_5s21k"]
+[ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://studio_kifuwarabe_rpg/images/1280x720/transition_1_frame_11.png" id="37_toym6"]
+[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://studio_kifuwarabe_rpg/fonts/Mplus2-Bold.otf" id="38_uk4gs"]
+[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://studio_kifuwarabe_rpg/fonts/Mplus2-Regular.otf" id="39_flehg"]
+[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://studio_kifuwarabe_rpg/font_settings/battle_slategray_font.tres" id="40_qvgxr"]
+[ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://studio_kifuwarabe_rpg/font_settings/large_font.tres" id="41_4tlwn"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://studio_kifuwarabe_rpg/font_settings/main_font.tres" id="42_y88ul"]
+[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://studio_kifuwarabe_rpg/font_settings/battle_light_red.tres" id="43_aksrx"]
+[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://studio_kifuwarabe_rpg/font_settings/battle_light_yellow.tres" id="44_cyfxo"]
+[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://studio_kifuwarabe_rpg/font_settings/battle_light_green.tres" id="45_rewdi"]
+[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://studio_kifuwarabe_rpg/font_settings/battle_light_blue.tres" id="46_ctd6w"]
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://studio_kifuwarabe_rpg/images/1280x720/window_at_bottom.png" id="47_pp68t"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/windows/message_concrete.gd" id="48_7pfb5"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/windows/end_of_message_blinker.gd" id="49_3hi7c"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://studio_kifuwarabe_rpg/fonts/Mplus1Code-Bold.otf" id="50_0mabf"]
+[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://studio_kifuwarabe_rpg/images/1280x720/window_small_at_center.png" id="51_1ak46"]
+[ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://studio_kifuwarabe_rpg/images/1280x720/window_at_bottom_left.png" id="52_1gg7r"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/windows/viewing.gd" id="53_w1knc"]
+[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://studio_kifuwarabe_rpg/images/1280x720/window_middle_at_center.png" id="54_l1gl8"]
+[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://studio_kifuwarabe_rpg/images/0512x288/ShogiBan.png" id="55_np6gw"]
+[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://studio_kifuwarabe_rpg/images/0512x288/file_and_rank.png" id="56_6jgym"]
+[ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://studio_kifuwarabe_rpg/images/monster_faces/202310__godot__17-2213-hamu.png" id="57_82u0m"]
+[ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://studio_kifuwarabe_rpg/images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="58_iab7b"]
+[ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://studio_kifuwarabe_rpg/images/monster_faces/202310__godot__19-2218--KodackFace.png" id="59_31grb"]
+[ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://studio_kifuwarabe_rpg/images/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="60_hms8i"]
+[ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://studio_kifuwarabe_rpg/images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="61_u21io"]
+[ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://studio_kifuwarabe_rpg/images/monsters/202310__godot__15-2317--Hamu.png" id="62_xapq5"]
+[ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://studio_kifuwarabe_rpg/images/monsters/202310__godot__15-2226--resakai.png" id="63_cw1ch"]
+[ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://studio_kifuwarabe_rpg/images/monsters/202310__godot__15-2320--Kodack.png" id="64_5vruu"]
+[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://studio_kifuwarabe_rpg/images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="65_pq5aw"]
+[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://studio_kifuwarabe_rpg/images/monsters/202310__godot__18-0039--shiroBeer.png" id="66_a6uhi"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director.gd" id="67_8l5rq"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/bg.gd" id="68_5akkg"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/bgm.gd" id="69_m0nrr"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/choice.gd" id="70_mfg33"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/department.gd" id="71_v1doh"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/goto.gd" id="72_aib3c"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/label.gd" id="73_a5h0r"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/monster.gd" id="74_3at68"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/monster_face.gd" id="75_oxha7"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/msg_speed.gd" id="76_hvrh8"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/m_wnd.gd" id="77_6oafc"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/normal_text.gd" id="78_u5sny"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/normal_text_choice.gd" id="79_otej5"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/quit.gd" id="80_tnb64"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/se.gd" id="81_ixw8f"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/sleep.gd" id="82_3mkjw"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/telop.gd" id="83_yfh7d"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/var.gd" id="84_1dn20"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/assistant_director/v_wnd.gd" id="85_qnn15"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/scorer.gd" id="86_y4re7"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/scorer/battle_sheet.gd" id="87_bcvor"]
+[ext_resource type="Script" path="res://studio_kifuwarabe_rpg/scripts/scorer/monster_data.gd" id="88_vskne"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -191,7 +191,7 @@ var is_visible_initialized = false
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
-script = ExtResource("1_h2r0a")
+script = ExtResource("1_dno12")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
@@ -204,19 +204,19 @@ texture = ExtResource("2_77ba4")
 [node name="System" type="Node" parent="ScenarioWriter"]
 
 [node name="Battle" type="Node" parent="ScenarioWriter/System"]
-script = ExtResource("3_kopon")
+script = ExtResource("3_bvbmm")
 
 [node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
-script = ExtResource("4_kroht")
+script = ExtResource("4_05g1r")
 
 [node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("5_70isb")
+script = ExtResource("5_m15mp")
 
 [node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("6_q8trk")
+script = ExtResource("6_hy6ox")
 
 [node name="📗バトル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("7_3m4ov")
+script = ExtResource("7_0ndii")
 
 [node name="Musician" type="Node" parent="."]
 
@@ -776,7 +776,7 @@ modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("47_pp68t")
-script = ExtResource("48_eaa38")
+script = ExtResource("48_7pfb5")
 
 [node name="■下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
 visible = false
@@ -799,7 +799,7 @@ offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
 label_settings = ExtResource("42_y88ul")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -809,7 +809,7 @@ offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
 label_settings = ExtResource("42_y88ul")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -819,14 +819,14 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="■中央" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("51_1ak46")
-script = ExtResource("48_eaa38")
+script = ExtResource("48_7pfb5")
 
 [node name="■中央_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
 visible = false
@@ -851,7 +851,7 @@ offset_right = 262.0
 offset_bottom = 199.0
 text = "▼"
 label_settings = ExtResource("42_y88ul")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -861,7 +861,7 @@ offset_right = 260.0
 offset_bottom = 202.0
 text = "＿"
 label_settings = ExtResource("42_y88ul")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -871,14 +871,14 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="■左下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("52_1gg7r")
-script = ExtResource("48_eaa38")
+script = ExtResource("48_7pfb5")
 
 [node name="■左下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
 
@@ -901,7 +901,7 @@ offset_right = 195.0
 offset_bottom = 185.0
 text = "▼"
 label_settings = ExtResource("42_y88ul")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -911,7 +911,7 @@ offset_right = 192.0
 offset_bottom = 192.0
 text = "＿"
 label_settings = ExtResource("42_y88ul")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -921,11 +921,11 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("49_325g3")
+script = ExtResource("49_3hi7c")
 
 [node name="WindowsOfViewing" type="Node2D" parent="GuiArtist"]
 visible = false
-script = ExtResource("53_wfxh4")
+script = ExtResource("53_w1knc")
 
 [node name="System" type="Node2D" parent="GuiArtist/WindowsOfViewing"]
 visible = false
@@ -1012,69 +1012,69 @@ scale = Vector2(0.596059, 0.596059)
 texture = ExtResource("66_a6uhi")
 
 [node name="AssistantDirector" type="Node" parent="."]
-script = ExtResource("67_mbb3t")
+script = ExtResource("67_8l5rq")
 
 [node name="Bg" type="Node" parent="AssistantDirector"]
-script = ExtResource("68_a6hgf")
+script = ExtResource("68_5akkg")
 
 [node name="Bgm" type="Node" parent="AssistantDirector"]
-script = ExtResource("69_ccpbj")
+script = ExtResource("69_m0nrr")
 
 [node name="Choice" type="Node" parent="AssistantDirector"]
-script = ExtResource("70_jloio")
+script = ExtResource("70_mfg33")
 
 [node name="Department" type="Node" parent="AssistantDirector"]
-script = ExtResource("71_ouat8")
+script = ExtResource("71_v1doh")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]
-script = ExtResource("72_a0fyn")
+script = ExtResource("72_aib3c")
 
 [node name="Label" type="Node" parent="AssistantDirector"]
-script = ExtResource("73_vxojx")
+script = ExtResource("73_a5h0r")
 
 [node name="Monster" type="Node" parent="AssistantDirector"]
-script = ExtResource("74_ya7fg")
+script = ExtResource("74_3at68")
 
 [node name="MonsterFace" type="Node" parent="AssistantDirector"]
-script = ExtResource("75_flt85")
+script = ExtResource("75_oxha7")
 
 [node name="MsgSpeed" type="Node" parent="AssistantDirector"]
-script = ExtResource("76_xivql")
+script = ExtResource("76_hvrh8")
 
 [node name="MWnd" type="Node" parent="AssistantDirector"]
-script = ExtResource("77_kacnq")
+script = ExtResource("77_6oafc")
 
 [node name="NormalText" type="Node" parent="AssistantDirector"]
-script = ExtResource("78_kp5gn")
+script = ExtResource("78_u5sny")
 
 [node name="NormalTextChoice" type="Node" parent="AssistantDirector"]
-script = ExtResource("79_6nac4")
+script = ExtResource("79_otej5")
 
 [node name="Quit" type="Node" parent="AssistantDirector"]
-script = ExtResource("80_odox4")
+script = ExtResource("80_tnb64")
 
 [node name="Se" type="Node" parent="AssistantDirector"]
-script = ExtResource("81_7gioe")
+script = ExtResource("81_ixw8f")
 
 [node name="Sleep" type="Node" parent="AssistantDirector"]
-script = ExtResource("82_go4qq")
+script = ExtResource("82_3mkjw")
 
 [node name="Telop" type="Node" parent="AssistantDirector"]
-script = ExtResource("83_sda0j")
+script = ExtResource("83_yfh7d")
 
 [node name="Var" type="Node" parent="AssistantDirector"]
-script = ExtResource("84_1cchr")
+script = ExtResource("84_1dn20")
 
 [node name="VWnd" type="Node" parent="AssistantDirector"]
-script = ExtResource("85_gm62h")
+script = ExtResource("85_qnn15")
 
 [node name="System" type="Node" parent="."]
 
 [node name="Scorer" type="Node" parent="."]
-script = ExtResource("86_u2fri")
+script = ExtResource("86_y4re7")
 
 [node name="GameSheetForBattle" type="Node" parent="Scorer"]
-script = ExtResource("87_x7rh5")
+script = ExtResource("87_bcvor")
 
 [node name="MonsterData" type="Node" parent="Scorer"]
-script = ExtResource("88_udljc")
+script = ExtResource("88_vskne")
