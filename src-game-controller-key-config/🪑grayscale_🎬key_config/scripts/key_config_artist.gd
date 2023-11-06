@@ -207,20 +207,21 @@ func set_press_message_to_button(step):
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 	elif step == 4:
+		# ボタンと、レバーでは、対応が異なる
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）レバーを下　に倒してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）下キー　を入れてください"
 
 	elif step == 5:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）レバーを上　に倒してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）上キー　を入れてください"
 
 	elif step == 6:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）レバーを右　に倒してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）右キー　を入れてください"
 
 	elif step == 7:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）レバーを左　に倒してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）左キー　を入れてください"
 
 	# 完了時
 	elif step == 8:
@@ -243,20 +244,21 @@ func set_done_message_the_button(step):
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 4:
+		# ボタンと、レバーでは、対応が異なる
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）レバーの下　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 5:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）レバーの上　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 6:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）レバーの右　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 7:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）レバーの左　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 
 func clear_count():
@@ -317,10 +319,14 @@ func on_step_regular(
 			# さらに連続して戻したいケースもある
 			# レバーの上
 			if self.current_step == 5 and self.get_director().key_config[&"VK_Down"] == self.get_director().key_config[&"VK_Up"]:
+				self.set_empty_the_button_message(self.current_step)
 				self.current_step -= 1
+				self.get_director().key_config.erase(&"VK_Down")
 			# レバーの左
 			elif self.current_step == 7 and self.get_director().key_config[&"VK_Right"] == self.get_director().key_config[&"VK_Left"]:
+				self.set_empty_the_button_message(self.current_step)
 				self.current_step -= 1
+				self.get_director().key_config.erase(&"VK_Right")
 			
 			self.set_press_message_to_button(self.current_step)
 			
