@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c4h8owxp44b1q"]
+[gd_scene load_steps=14 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/director.gd" id="1_mtmqs"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🪑grayscale_🎬key_config/images/1280x720/grid.png" id="2_k8epg"]
@@ -71,26 +71,58 @@ label_settings = ExtResource("9_ri6wn")
 
 [node name="（１）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
-offset_top = 157.0
+offset_top = 125.0
 offset_right = 768.0
-offset_bottom = 200.0
+offset_bottom = 168.0
 text = "（１）"
 label_settings = ExtResource("10_566va")
 
 [node name="（２）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
-offset_left = 160.0
-offset_top = 206.0
-offset_right = 672.0
-offset_bottom = 249.0
+offset_left = 159.0
+offset_top = 172.0
+offset_right = 671.0
+offset_bottom = 215.0
 text = "（２）"
 label_settings = ExtResource("10_566va")
 
 [node name="（３）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
 offset_left = 160.0
-offset_top = 254.0
+offset_top = 220.0
 offset_right = 672.0
-offset_bottom = 297.0
+offset_bottom = 263.0
 text = "（３）"
+label_settings = ExtResource("10_566va")
+
+[node name="（４）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 161.0
+offset_top = 267.0
+offset_right = 673.0
+offset_bottom = 310.0
+text = "（４）"
+label_settings = ExtResource("10_566va")
+
+[node name="（５）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 162.0
+offset_top = 316.0
+offset_right = 674.0
+offset_bottom = 359.0
+text = "（５）"
+label_settings = ExtResource("10_566va")
+
+[node name="（６）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 161.0
+offset_top = 366.0
+offset_right = 673.0
+offset_bottom = 409.0
+text = "（６）"
+label_settings = ExtResource("10_566va")
+
+[node name="（７）ボタン" type="Label" parent="GuiArtist/KeyConfig_CanvasLayer"]
+offset_left = 161.0
+offset_top = 411.0
+offset_right = 673.0
+offset_bottom = 454.0
+text = "（７）"
 label_settings = ExtResource("10_566va")
 
 [node name="WindowOfMessage" type="Node2D" parent="GuiArtist"]
@@ -100,6 +132,7 @@ position = Vector2(640, 360)
 texture = ExtResource("11_sfwhh")
 
 [node name="■上_大" type="Sprite2D" parent="GuiArtist/WindowOfMessage"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_b0xjv")
 

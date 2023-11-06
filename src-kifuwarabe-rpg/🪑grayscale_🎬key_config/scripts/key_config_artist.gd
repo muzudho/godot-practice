@@ -52,6 +52,9 @@ func is_key_duplicated(button_number):
 
 # キャンセルボタン押下か？
 func is_cancel_button_pressed(button_number):
+	if not (&"VK_Cancel" in self.get_director().key_config):
+		return false
+	
 	return button_number == self.get_director().key_config[&"VK_Cancel"]
 	
 
@@ -110,9 +113,9 @@ func entry():
 	# GUI
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
 	# テロップ
-	self.set_empty_the_1st_button_message()
-	self.set_empty_the_2nd_button_message()
-	self.set_empty_the_3rd_button_message()
+	self.set_empty_the_button_message(1)
+	self.set_empty_the_button_message(2)
+	self.set_empty_the_button_message(3)
 	self.get_telop_coordinator().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
@@ -160,49 +163,176 @@ func set_key_canceled():
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 
-func set_empty_the_1st_button_message():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
+func set_empty_the_button_message(step):
+	if step == 1:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
+
+	elif step == 2:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
+
+	elif step == 3:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
+
+	elif step == 4:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）"
+
+	elif step == 5:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）"
+
+	elif step == 6:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）"
+
+	elif step == 7:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）"
 
 
-func set_empty_the_2nd_button_message():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
+func set_press_message_to_button(step):
+	if step == 1:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
+
+	elif step == 2:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
+
+	elif step == 3:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+
+	elif step == 4:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）レバーを上　に倒してください"
+
+	elif step == 5:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）レバーを右　に倒してください"
+
+	elif step == 6:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）レバーを下　に倒してください"
+
+	elif step == 7:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）レバーを左　に倒してください"
+
+	# 完了時
+	elif step == 8:
+		#														  "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("TextBlock").text = "完了"
+		self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
 
 
-func set_empty_the_3rd_button_message():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
+func set_done_message_the_button(step):
+	if step == 1:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
+
+	elif step == 2:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　　　　　　：　" + self.button_presentation_name
+
+	elif step == 3:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
+
+	elif step == 4:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（３）レバーの上　　　　　　　　　　　　　　：　" + self.button_presentation_name
+
+	elif step == 5:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（３）レバーの右　　　　　　　　　　　　　　：　" + self.button_presentation_name
+
+	elif step == 6:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（３）レバーの下　　　　　　　　　　　　　　：　" + self.button_presentation_name
+
+	elif step == 7:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（３）レバーの左　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 
-func set_message_the_push_1st_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
+func clear_count():
+	self.counter_of_wait = 0.0
+	self.button_number = -1
+	self.button_presentation_name = &""
+	
 
+func on_step_regular(
+		delta,
+		previous_virtual_key_name,
+		virtual_key_name):
+	
+	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
+	if self.turn_state == &"WaitForPrompt":
+		if self.counter_of_wait < 0.5:
+			self.counter_of_wait += delta
+			return
+			
+		self.turn_state = &"Prompt"
+		return
 
-func set_message_the_push_2nd_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
+	elif self.turn_state == &"Prompt":
+		self.set_press_message_to_button(self.current_step)
+		self.turn_state = &"WaitForInput"
+		return
+		
+	elif self.turn_state == &"WaitForInput":
+		if self.counter_of_wait < 0.5:
+			self.counter_of_wait += delta
+			return
 
+		# 最終ステップ＋１の時、完了
+		if self.current_step == 8:
+			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
+			if self.counter_of_wait < 1.5:
+				self.counter_of_wait += delta
+				return
+			
+			self.turn_state = &"Input"
+			self.clear_count()
+			self.on_exit()
+			return
 
-func set_message_the_push_3rd_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+		self.turn_state = &"Input"
+		self.clear_count()
+		return
 
+	elif self.turn_state == &"InputOk":
+		# キャンセルボタン押下時は、１つ戻す
+		if self.is_cancel_button_pressed(self.button_number):
+			self.set_key_canceled()
 
-func set_message_the_1st_button_done():
-	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
+			if previous_virtual_key_name != null:
+				self.get_director().key_config.erase(previous_virtual_key_name)
+			
+			self.turn_state = &"WaitForInput"
+			self.set_empty_the_button_message(self.current_step)
+			self.current_step -= 1
+			self.set_press_message_to_button(self.current_step)
+			self.clear_count()
+			return
 
-
-func set_message_the_2nd_button_done():
-	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　　　　　　：　" + self.button_presentation_name
-
-
-func set_message_the_3rd_button_done():
-	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
+		# 既存のキーと被る場合、やり直しさせる
+		if self.is_key_duplicated(self.button_number):
+			self.set_key_denied()
+			self.turn_state = &"WaitForInput"
+			self.clear_count()
+			return
+			
+		# 決定
+		self.set_key_accepted()
+		self.set_done_message_the_button(self.current_step)
+		self.get_director().key_config[virtual_key_name] = self.button_number
+		self.current_step += 1
+		self.turn_state = &"WaitForPrompt"
 
 
 func on_process(delta):
@@ -213,166 +343,83 @@ func on_process(delta):
 	if not (self.turn_state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
 		return
 	
-	var is_ok = false
-	
 	# 初回
 	if self.current_step == 0:
 		self.get_musician().get_node("BGM/🎵キーコンフィグ").play()
 		self.current_step += 1
-		is_ok = true
+		self.clear_count()
 	
 	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
 	elif self.current_step == 1:
-		if self.turn_state == &"WaitForPrompt":
-			# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視する
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Prompt"
-		
-		elif self.turn_state == &"Prompt":
-			self.set_message_the_push_1st_button()
-			self.turn_state = &"WaitForInput"
-
-		elif self.turn_state == &"WaitForInput":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Input"
-			is_ok = true
-
-		elif self.turn_state == &"InputOk":
-			self.set_key_accepted()
-			self.set_message_the_1st_button_done()
-			self.get_director().key_config[&"VK_Cancel"] = self.button_number
-			self.current_step += 1
-			self.turn_state = &"WaitForPrompt"
+		self.on_step_regular(
+				delta,
+				null,
+				&"VK_Cancel")
 	
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
 	elif self.current_step == 2:
-		if self.turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Prompt"
-		
-		elif self.turn_state == &"Prompt":
-			self.set_message_the_push_2nd_button()
-			self.turn_state = &"WaitForInput"
-
-		elif self.turn_state == &"WaitForInput":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Input"
-			is_ok = true
-	
-		elif self.turn_state == &"InputOk":
-
-			# キャンセルボタン押下時は、１つ戻す
-			if self.is_cancel_button_pressed(self.button_number):
-				self.set_key_canceled()
-				self.get_director().key_config.erase(&"VK_Cancel")
-				self.turn_state = &"WaitForInput"
-				self.current_step -= 1
-				self.set_empty_the_2nd_button_message()
-				self.set_message_the_push_1st_button()
-				is_ok = true
-
-			# 既存のキーと被る場合、やり直しさせる
-			elif self.is_key_duplicated(self.button_number):
-				self.set_key_denied()
-				self.turn_state = &"WaitForInput"
-				is_ok = true
-
-			else:
-				self.set_key_accepted()
-				self.set_key_ok()
-				self.set_message_the_2nd_button_done()
-				self.get_director().key_config[&"VK_Ok"] = self.button_number
-				self.current_step += 1
-				self.turn_state = &"WaitForPrompt"
+		self.on_step_regular(
+				delta,
+				&"VK_Cancel",
+				&"VK_Ok")
 		
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
 	elif self.current_step == 3:
-		if self.turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Prompt"
+		var is_controlled = self.on_step_regular(
+				delta,
+				&"VK_Ok",
+				&"VK_FastForward")
 		
-		elif self.turn_state == &"Prompt":
-			self.set_message_the_push_3rd_button()
-			self.turn_state = &"WaitForInput"
-
-		elif self.turn_state == &"WaitForInput":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Input"
-			is_ok = true
-
-		elif self.turn_state == &"InputOk":
-
-			# キャンセルボタン押下時は、１つ戻す
-			if self.is_cancel_button_pressed(self.button_number):
-				self.set_key_canceled()
-				self.get_director().key_config.erase(&"VK_Ok")
-				self.turn_state = &"WaitForInput"
-				self.current_step -= 1
-				self.set_empty_the_3rd_button_message()
-				self.set_message_the_push_2nd_button()
-				is_ok = true
-
-			# 既存のキーと被る場合、やり直しさせる
-			elif self.is_key_duplicated(self.button_number):
-				self.set_key_denied()
-				self.turn_state = &"WaitForInput"
-				is_ok = true
-			
-			else:
-				self.set_key_accepted()
-				self.set_key_ok()
-				self.set_message_the_3rd_button_done()
-				self.get_director().key_config[&"VK_FastForward"] = self.button_number
-				self.current_step += 1
-				self.turn_state = &"WaitForPrompt"
+	# ーーーーーーーー
+	# （４）レバーの上
+	# ーーーーーーーー
+	elif self.current_step == 4:
+		var is_controlled = self.on_step_regular(
+				delta,
+				&"VK_FastForward",
+				&"VK_Up")
 		
+	# ーーーーーーーー
+	# （５）レバーの右
+	# ーーーーーーーー
+	elif self.current_step == 5:
+		var is_controlled = self.on_step_regular(
+				delta,
+				&"VK_Up",
+				&"VK_Right")
+		
+	# ーーーーーーーー
+	# （６）レバーの下
+	# ーーーーーーーー
+	elif self.current_step == 6:
+		var is_controlled = self.on_step_regular(
+				delta,
+				&"VK_Right",
+				&"VK_Down")
+		
+	# ーーーーーーーー
+	# （７）レバーの左
+	# ーーーーーーーー
+	elif self.current_step == 7:
+		var is_controlled = self.on_step_regular(
+				delta,
+				&"VK_Down",
+				&"VK_Left")
+	
 	# ーーーーーーーー
 	# 完了
 	# ーーーーーーーー
-	elif self.current_step == 4:
-		if self.turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Prompt"
-		
-		elif self.turn_state == &"Prompt":
-			#														  "１２３４５６７８９０１２３４５６７８９："
-			self.get_telop_coordinator().get_node("TextBlock").text = "完了"
-			self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
-			self.turn_state = &"WaitForInput"
-
-		elif self.turn_state == &"WaitForInput":
-			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
-			if self.counter_of_wait < 1.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Input"
-			self.on_exit()
-			is_ok = true
-	
-	if is_ok:
-		self.counter_of_wait = 0.0
-		self.button_number = -1
-		self.button_presentation_name = &""
+	elif self.current_step == 8:
+		self.on_step_regular(
+				delta,
+				&"VK_Left",
+				null)
 
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す

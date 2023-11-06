@@ -208,15 +208,15 @@ func set_press_message_to_button(step):
 
 	elif step == 4:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）レバーを上　に倒してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）レバーを下　に倒してください"
 
 	elif step == 5:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）レバーを右　に倒してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）レバーを上　に倒してください"
 
 	elif step == 6:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）レバーを下　に倒してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）レバーを右　に倒してください"
 
 	elif step == 7:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
@@ -244,19 +244,19 @@ func set_done_message_the_button(step):
 
 	elif step == 4:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（３）レバーの上　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）レバーの下　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 5:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（３）レバーの右　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）レバーの上　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 6:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（３）レバーの下　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）レバーの右　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 7:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（３）レバーの左　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）レバーの左　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 
 func clear_count():
@@ -306,17 +306,27 @@ func on_step_regular(
 		return
 
 	elif self.turn_state == &"InputOk":
-		# キャンセルボタン押下時は、１つ戻す
+		# キャンセルボタン押下時は、１つか、２つ戻す
 		if self.is_cancel_button_pressed(self.button_number):
 			self.set_key_canceled()
-
-			if previous_virtual_key_name != null:
-				self.get_director().key_config.erase(previous_virtual_key_name)
 			
 			self.turn_state = &"WaitForInput"
 			self.set_empty_the_button_message(self.current_step)
+			
 			self.current_step -= 1
+			# さらに連続して戻したいケースもある
+			# レバーの上
+			if self.current_step == 5 and self.get_director().key_config[&"VK_Down"] == self.get_director().key_config[&"VK_Up"]:
+				self.current_step -= 1
+			# レバーの左
+			elif self.current_step == 7 and self.get_director().key_config[&"VK_Right"] == self.get_director().key_config[&"VK_Left"]:
+				self.current_step -= 1
+			
 			self.set_press_message_to_button(self.current_step)
+			
+			if previous_virtual_key_name != null:
+				self.get_director().key_config.erase(previous_virtual_key_name)
+			
 			self.clear_count()
 			return
 
@@ -331,7 +341,29 @@ func on_step_regular(
 		self.set_key_accepted()
 		self.set_done_message_the_button(self.current_step)
 		self.get_director().key_config[virtual_key_name] = self.button_number
-		self.current_step += 1
+
+		# レバーの下
+		if self.current_step == 4:
+			if 1000 <= self.get_director().key_config[&"VK_Down"]:
+				# 軸を選択したなら、レバーの上の選択はスキップ
+				self.get_director().key_config[&"VK_Up"] = self.button_number
+				self.set_done_message_the_button(self.current_step + 1)
+				self.current_step += 2
+			else:
+				self.current_step += 1
+		# レバーの右
+		elif self.current_step == 6:
+			if 1000 <= self.get_director().key_config[&"VK_Right"]:
+				# 軸を選択したなら、レバーの左の選択はスキップ
+				self.get_director().key_config[&"VK_Left"] = self.button_number
+				self.set_done_message_the_button(self.current_step + 1)
+				self.current_step += 2
+			else:
+				self.current_step += 1
+		else:
+			self.current_step += 1
+		
+		
 		self.turn_state = &"WaitForPrompt"
 
 
@@ -377,31 +409,31 @@ func on_process(delta):
 				&"VK_FastForward")
 		
 	# ーーーーーーーー
-	# （４）レバーの上
+	# （４）レバーの下
 	# ーーーーーーーー
 	elif self.current_step == 4:
 		var is_controlled = self.on_step_regular(
 				delta,
 				&"VK_FastForward",
-				&"VK_Up")
+				&"VK_Down")
 		
 	# ーーーーーーーー
-	# （５）レバーの右
+	# （５）レバーの上
 	# ーーーーーーーー
 	elif self.current_step == 5:
 		var is_controlled = self.on_step_regular(
 				delta,
-				&"VK_Up",
-				&"VK_Right")
+				&"VK_Down",
+				&"VK_Up")
 		
 	# ーーーーーーーー
-	# （６）レバーの下
+	# （６）レバーの右
 	# ーーーーーーーー
 	elif self.current_step == 6:
 		var is_controlled = self.on_step_regular(
 				delta,
-				&"VK_Right",
-				&"VK_Down")
+				&"VK_Up",
+				&"VK_Right")
 		
 	# ーーーーーーーー
 	# （７）レバーの左
@@ -409,7 +441,7 @@ func on_process(delta):
 	elif self.current_step == 7:
 		var is_controlled = self.on_step_regular(
 				delta,
-				&"VK_Down",
+				&"VK_Right",
 				&"VK_Left")
 	
 	# ーーーーーーーー
