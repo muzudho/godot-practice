@@ -563,4 +563,23 @@ func _unhandled_input(event):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　□、×、○ボタンも利かねーっ！」  
 
+## PS風コントローラーうまくいかね
+
+![202311__photo__07--RegularPSController-o2o0.jpg](https://crieit.now.sh/upload_images/9d23b05203cc35c65ad6f9ecc9f70ba5654908ec80d00.jpg)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　PCでうまくいかね。BGM消えたり、レバーが入りっぱなしだったり分かんね。もう止めよかな」  
+
+📖　[PS4 ユーザーズガイド](https://manuals.playstation.net/document/jp/ps4/)  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　他にも　買ったコントローラー　まだ来ないのか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　即売会への時間も　そろそろ無くなってきたし　ゲームパッドの調査は打切りとする」  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .
