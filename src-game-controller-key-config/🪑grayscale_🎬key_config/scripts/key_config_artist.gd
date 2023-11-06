@@ -52,6 +52,9 @@ func is_key_duplicated(button_number):
 
 # キャンセルボタン押下か？
 func is_cancel_button_pressed(button_number):
+	if not (&"VK_Cancel" in self.get_director().key_config):
+		return false
+	
 	return button_number == self.get_director().key_config[&"VK_Cancel"]
 	
 
@@ -219,7 +222,10 @@ func clear_count():
 
 func on_step_regular(
 		delta,
-		set_press_message_to_button):
+		set_press_message_to_button,
+		set_empty_the_previous_button_message,
+		set_press_message_to_previous_button,
+		previous_virtual_key_name):
 	
 	if self.turn_state == &"WaitForPrompt":
 		if self.counter_of_wait < 0.5:
@@ -254,7 +260,22 @@ func on_step_regular(
 		self.turn_state = &"Input"
 		self.clear_count()
 		return true
-	
+
+	elif self.turn_state == &"InputOk":
+		# キャンセルボタン押下時は、１つ戻す
+		if self.is_cancel_button_pressed(self.button_number):
+			self.set_key_canceled()
+
+			if previous_virtual_key_name != null:
+				self.get_director().key_config.erase(previous_virtual_key_name)
+			
+			self.turn_state = &"WaitForInput"
+			self.current_step -= 1
+			set_empty_the_previous_button_message.call()
+			set_press_message_to_previous_button.call()
+			self.clear_count()
+			return true
+
 	return false
 
 
@@ -280,7 +301,11 @@ func on_process(delta):
 		# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_press_message_to_1st_button)
+				self.set_press_message_to_1st_button,
+				self.set_empty_the_1st_button_message,
+				func ():
+					pass,
+				null)
 		
 		if is_controlled:
 			pass
@@ -299,25 +324,18 @@ func on_process(delta):
 
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_press_message_to_2nd_button)
+				self.set_press_message_to_2nd_button,
+				self.set_empty_the_2nd_button_message,
+				self.set_press_message_to_1st_button,
+				&"VK_Cancel")
 		
 		if is_controlled:
 			pass
 		
 		elif self.turn_state == &"InputOk":
 
-			# キャンセルボタン押下時は、１つ戻す
-			if self.is_cancel_button_pressed(self.button_number):
-				self.set_key_canceled()
-				self.get_director().key_config.erase(&"VK_Cancel")
-				self.turn_state = &"WaitForInput"
-				self.current_step -= 1
-				self.set_empty_the_2nd_button_message()
-				self.set_press_message_to_1st_button()
-				self.clear_count()
-
 			# 既存のキーと被る場合、やり直しさせる
-			elif self.is_key_duplicated(self.button_number):
+			if self.is_key_duplicated(self.button_number):
 				self.set_key_denied()
 				self.turn_state = &"WaitForInput"
 				self.clear_count()
@@ -337,25 +355,18 @@ func on_process(delta):
 
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_press_message_to_3rd_button)
+				self.set_press_message_to_3rd_button,
+				self.set_empty_the_3rd_button_message,
+				self.set_press_message_to_2nd_button,
+				&"VK_Ok")
 		
 		if is_controlled:
 			pass
 		
 		elif self.turn_state == &"InputOk":
 
-			# キャンセルボタン押下時は、１つ戻す
-			if self.is_cancel_button_pressed(self.button_number):
-				self.set_key_canceled()
-				self.get_director().key_config.erase(&"VK_Ok")
-				self.turn_state = &"WaitForInput"
-				self.current_step -= 1
-				self.set_empty_the_3rd_button_message()
-				self.set_press_message_to_2nd_button()
-				self.clear_count()
-
 			# 既存のキーと被る場合、やり直しさせる
-			elif self.is_key_duplicated(self.button_number):
+			if self.is_key_duplicated(self.button_number):
 				self.set_key_denied()
 				self.turn_state = &"WaitForInput"
 				self.clear_count()
@@ -375,7 +386,12 @@ func on_process(delta):
 
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_press_message_to_4th_button)
+				self.set_press_message_to_4th_button,
+				func ():
+					pass,
+				func ():
+					pass,
+				&"VK_FastForward")
 		
 		if is_controlled:
 			pass
