@@ -110,9 +110,9 @@ func entry():
 	# GUI
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
 	# テロップ
-	self.set_message_the_empty_1st_button()
-	self.set_message_the_empty_2nd_button()
-	self.set_message_the_empty_3rd_button()
+	self.set_empty_the_1st_button_message()
+	self.set_empty_the_2nd_button_message()
+	self.set_empty_the_3rd_button_message()
 	self.get_telop_coordinator().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
@@ -160,17 +160,17 @@ func set_key_canceled():
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 
-func set_message_the_empty_1st_button():
+func set_empty_the_1st_button_message():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
 
 
-func set_message_the_empty_2nd_button():
+func set_empty_the_2nd_button_message():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
 
 
-func set_message_the_empty_3rd_button():
+func set_empty_the_3rd_button_message():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
 
@@ -190,6 +190,12 @@ func set_message_the_push_3rd_button():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 
+func set_message_the_push_4th_button():
+	#														  "１２３４５６７８９０１２３４５６７８９："
+	self.get_telop_coordinator().get_node("TextBlock").text = "完了"
+	self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
+
+
 func set_message_the_1st_button_done():
 	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
@@ -205,7 +211,10 @@ func set_message_the_3rd_button_done():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 
-func on_step_regular(delta):
+func on_step_regular(
+		delta,
+		set_message_the_push_button):
+	
 	if self.turn_state == &"WaitForPrompt":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
@@ -213,7 +222,12 @@ func on_step_regular(delta):
 			
 		self.turn_state = &"Prompt"
 		return true
-		
+
+	elif self.turn_state == &"Prompt":
+		set_message_the_push_button.call()
+		self.turn_state = &"WaitForInput"
+		return true
+
 	return false
 
 
@@ -239,7 +253,9 @@ func on_process(delta):
 	elif self.current_step == 1:
 
 		# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
-		var is_controlled = self.on_step_regular(delta)
+		var is_controlled = self.on_step_regular(
+				delta,
+				self.set_message_the_push_1st_button)
 		
 		if is_controlled:
 			pass
@@ -267,15 +283,13 @@ func on_process(delta):
 	# ーーーーーーーー
 	elif self.current_step == 2:
 
-		var is_controlled = self.on_step_regular(delta)
+		var is_controlled = self.on_step_regular(
+				delta,
+				self.set_message_the_push_2nd_button)
 		
 		if is_controlled:
 			pass
-			
-		elif self.turn_state == &"Prompt":
-			self.set_message_the_push_2nd_button()
-			self.turn_state = &"WaitForInput"
-
+		
 		elif self.turn_state == &"WaitForInput":
 			if self.counter_of_wait < 0.5:
 				self.counter_of_wait += delta
@@ -291,7 +305,7 @@ func on_process(delta):
 				self.get_director().key_config.erase(&"VK_Cancel")
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
-				self.set_message_the_empty_2nd_button()
+				self.set_empty_the_2nd_button_message()
 				self.set_message_the_push_1st_button()
 				is_ok = true
 
@@ -314,15 +328,13 @@ func on_process(delta):
 	# ーーーーーーーー
 	elif self.current_step == 3:
 
-		var is_controlled = self.on_step_regular(delta)
+		var is_controlled = self.on_step_regular(
+				delta,
+				self.set_message_the_push_3rd_button)
 		
 		if is_controlled:
 			pass
-			
-		elif self.turn_state == &"Prompt":
-			self.set_message_the_push_3rd_button()
-			self.turn_state = &"WaitForInput"
-
+		
 		elif self.turn_state == &"WaitForInput":
 			if self.counter_of_wait < 0.5:
 				self.counter_of_wait += delta
@@ -338,7 +350,7 @@ func on_process(delta):
 				self.get_director().key_config.erase(&"VK_Ok")
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
-				self.set_message_the_empty_3rd_button()
+				self.set_empty_the_3rd_button_message()
 				self.set_message_the_push_2nd_button()
 				is_ok = true
 
@@ -361,16 +373,12 @@ func on_process(delta):
 	# ーーーーーーーー
 	elif self.current_step == 4:
 
-		var is_controlled = self.on_step_regular(delta)
+		var is_controlled = self.on_step_regular(
+				delta,
+				self.set_message_the_push_4th_button())
 		
 		if is_controlled:
 			pass
-			
-		elif self.turn_state == &"Prompt":
-			#														  "１２３４５６７８９０１２３４５６７８９："
-			self.get_telop_coordinator().get_node("TextBlock").text = "完了"
-			self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
-			self.turn_state = &"WaitForInput"
 
 		elif self.turn_state == &"WaitForInput":
 			# 完了メッセージを見せるために、効果音とも併せて、少し長めに

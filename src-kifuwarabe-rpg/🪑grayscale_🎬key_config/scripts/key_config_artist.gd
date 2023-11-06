@@ -110,9 +110,9 @@ func entry():
 	# GUI
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
 	# テロップ
-	self.set_message_the_empty_1st_button()
-	self.set_message_the_empty_2nd_button()
-	self.set_message_the_empty_3rd_button()
+	self.set_empty_the_1st_button_message()
+	self.set_empty_the_2nd_button_message()
+	self.set_empty_the_3rd_button_message()
 	self.get_telop_coordinator().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
@@ -160,17 +160,17 @@ func set_key_canceled():
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 
-func set_message_the_empty_1st_button():
+func set_empty_the_1st_button_message():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
 
 
-func set_message_the_empty_2nd_button():
+func set_empty_the_2nd_button_message():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
 
 
-func set_message_the_empty_3rd_button():
+func set_empty_the_3rd_button_message():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
 
@@ -279,7 +279,7 @@ func on_process(delta):
 				self.get_director().key_config.erase(&"VK_Cancel")
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
-				self.set_message_the_empty_2nd_button()
+				self.set_empty_the_2nd_button_message()
 				self.set_message_the_push_1st_button()
 				is_ok = true
 
@@ -326,7 +326,7 @@ func on_process(delta):
 				self.get_director().key_config.erase(&"VK_Ok")
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
-				self.set_message_the_empty_3rd_button()
+				self.set_empty_the_3rd_button_message()
 				self.set_message_the_push_2nd_button()
 				is_ok = true
 
