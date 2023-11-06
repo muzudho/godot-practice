@@ -152,9 +152,17 @@ func set_key_accepted():
 
 
 # キーコンフィグ　ボタン設定が拒否
-func set_key_denied():
+func set_key_denied(reason):
 	self.get_musician().get_node("SE/🔔キーコンフィグ不可音").play()
-	self.get_telop_coordinator().get_node("TextBlock").text = "他のキーを選んでください"
+
+	if reason == 1:
+		self.get_telop_coordinator().get_node("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
+
+	if reason == 2:
+		self.get_telop_coordinator().get_node("TextBlock").text = "下キーがボタンのときは、\n上キーはレバーであってはいけません"
+
+	if reason == 3:
+		self.get_telop_coordinator().get_node("TextBlock").text = "右キーがボタンのときは、\n左キーはレバーであってはいけません"
 
 
 # キーコンフィグ　ボタン設定が拒否
@@ -340,7 +348,7 @@ func on_step_regular(
 
 		# 既存のキーと被る場合、やり直しさせる
 		if self.is_key_duplicated(self.button_number):
-			self.set_key_denied()
+			self.set_key_denied(1)
 			self.turn_state = &"WaitForInput"
 			self.clear_count()
 			return
@@ -509,11 +517,36 @@ func on_unhandled_input(event):
 	if self.turn_state != &"Input":
 		return
 
+
 	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
 	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
-	self.button_number = self.get_button_number_by_text(event_as_text)
-	self.button_presentation_name = self.get_button_name_by_number(self.button_number)
+	var temp_button_number = self.get_button_number_by_text(event_as_text)
 
-	if 0 <= self.button_number:
+	# ーーーーーーーー
+	# （５）上キー
+	# ーーーーーーーー
+	if self.current_step == 5:
+		# 下キーがボタンのときは、上キーはレバーであってはいけません
+		if 1000 < temp_button_number:
+			self.set_key_denied(2)
+			self.turn_state = &"WaitForInput"
+			return
+
+	# ーーーーーーーー
+	# （７）左キー
+	# ーーーーーーーー
+	elif self.current_step == 7:
+		# 右キーがボタンのときは、左キーはレバーであってはいけません
+		if 1000 < temp_button_number:
+			self.set_key_denied(3)
+			self.turn_state = &"WaitForInput"
+			return
+
+
+	# 有効なキーなら
+	if 0 <= temp_button_number:
+		self.button_number = temp_button_number
+		self.button_presentation_name = self.get_button_name_by_number(self.button_number)
+		
 		print("受付：　" + self.button_presentation_name)
 		self.turn_state = &"InputOk"
