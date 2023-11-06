@@ -113,9 +113,9 @@ func entry():
 	# GUI
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
 	# テロップ
-	self.set_empty_the_1st_button_message()
-	self.set_empty_the_2nd_button_message()
-	self.set_empty_the_3rd_button_message()
+	self.set_empty_the_button_message(1)
+	self.set_empty_the_button_message(2)
+	self.set_empty_the_button_message(3)
 	self.get_telop_coordinator().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
@@ -163,19 +163,18 @@ func set_key_canceled():
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 
-func set_empty_the_1st_button_message():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
+func set_empty_the_button_message(step):
+	if step == 1:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
 
+	elif step == 2:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
 
-func set_empty_the_2nd_button_message():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
-
-
-func set_empty_the_3rd_button_message():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
+	elif step == 3:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
 
 
 func set_press_message_to_button(step):
@@ -220,7 +219,6 @@ func clear_count():
 
 func on_step_regular(
 		delta,
-		set_empty_the_previous_button_message,
 		previous_virtual_key_name,
 		virtual_key_name,
 		set_done_message_the_button):
@@ -269,8 +267,8 @@ func on_step_regular(
 				self.get_director().key_config.erase(previous_virtual_key_name)
 			
 			self.turn_state = &"WaitForInput"
+			self.set_empty_the_button_message(self.current_step)
 			self.current_step -= 1
-			set_empty_the_previous_button_message.call()
 			self.set_press_message_to_button(self.current_step)
 			self.clear_count()
 			return
@@ -310,7 +308,6 @@ func on_process(delta):
 	elif self.current_step == 1:
 		self.on_step_regular(
 				delta,
-				self.set_empty_the_1st_button_message,
 				null,
 				&"VK_Cancel",
 				self.set_done_message_the_1st_button)
@@ -321,7 +318,6 @@ func on_process(delta):
 	elif self.current_step == 2:
 		self.on_step_regular(
 				delta,
-				self.set_empty_the_2nd_button_message,
 				&"VK_Cancel",
 				&"VK_Ok",
 				self.set_done_message_the_2nd_button)
@@ -332,7 +328,6 @@ func on_process(delta):
 	elif self.current_step == 3:
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_empty_the_3rd_button_message,
 				&"VK_Ok",
 				&"VK_FastForward",
 				self.set_done_message_the_3rd_button)
@@ -343,8 +338,6 @@ func on_process(delta):
 	elif self.current_step == 4:
 		self.on_step_regular(
 				delta,
-				func ():
-					pass,
 				&"VK_FastForward",
 				null,
 				func ():
