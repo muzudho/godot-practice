@@ -1299,4 +1299,14 @@ Zzz...
 
 📺　[動画](https://x.com/muzudho1/status/1720432581928505410?s=20)  
 
+
+# 📅 2023-11-07 tue レバー対応
+
+![202311__godot__07-0415--Lever.png](https://crieit.now.sh/upload_images/f78170be16e3fa43d1f0c2f4ea32f64665493b7bd77d0.png)
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　↑　レバー対応もした」  
+
+📖　[Godot でキーコンフィグを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-653fc9e0a9b18)  
+
 .
