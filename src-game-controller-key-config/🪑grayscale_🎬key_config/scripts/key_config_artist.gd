@@ -196,19 +196,18 @@ func set_press_message_to_button(step):
 		self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
 
 
-func set_done_message_the_1st_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
+func set_done_message_the_button(step):
+	if step == 1:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
 
+	elif step == 2:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　　　　　　：　" + self.button_presentation_name
 
-func set_done_message_the_2nd_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　　　　　　：　" + self.button_presentation_name
-
-
-func set_done_message_the_3rd_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
+	elif step == 3:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 
 func clear_count():
@@ -220,8 +219,7 @@ func clear_count():
 func on_step_regular(
 		delta,
 		previous_virtual_key_name,
-		virtual_key_name,
-		set_done_message_the_button):
+		virtual_key_name):
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 	if self.turn_state == &"WaitForPrompt":
@@ -282,7 +280,7 @@ func on_step_regular(
 			
 		# 決定
 		self.set_key_accepted()
-		set_done_message_the_button.call()
+		self.set_done_message_the_button(self.current_step)
 		self.get_director().key_config[virtual_key_name] = self.button_number
 		self.current_step += 1
 		self.turn_state = &"WaitForPrompt"
@@ -309,8 +307,7 @@ func on_process(delta):
 		self.on_step_regular(
 				delta,
 				null,
-				&"VK_Cancel",
-				self.set_done_message_the_1st_button)
+				&"VK_Cancel")
 	
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
@@ -319,8 +316,7 @@ func on_process(delta):
 		self.on_step_regular(
 				delta,
 				&"VK_Cancel",
-				&"VK_Ok",
-				self.set_done_message_the_2nd_button)
+				&"VK_Ok")
 		
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
@@ -329,8 +325,7 @@ func on_process(delta):
 		var is_controlled = self.on_step_regular(
 				delta,
 				&"VK_Ok",
-				&"VK_FastForward",
-				self.set_done_message_the_3rd_button)
+				&"VK_FastForward")
 		
 	# ーーーーーーーー
 	# 完了
@@ -339,9 +334,7 @@ func on_process(delta):
 		self.on_step_regular(
 				delta,
 				&"VK_FastForward",
-				null,
-				func ():
-					pass)
+				null)
 
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
