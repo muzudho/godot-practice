@@ -104,7 +104,7 @@ func is_key_down_by_text(event_as_text):
 	var virtual_key_name = self.get_virtual_key_name_by_button_number(button_number)
 	var lever_value = self.get_lever_value_by_text(event_as_text)
 	
-	if virtual_key_name == &"VK_Down" and 0 < lever_value:
+	if virtual_key_name == &"VK_Down" and 0 <= lever_value:
 		return true
 
 	return false
