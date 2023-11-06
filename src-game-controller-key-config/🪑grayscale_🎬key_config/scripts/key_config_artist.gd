@@ -175,17 +175,17 @@ func set_empty_the_3rd_button_message():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
 
 
-func set_message_the_push_1st_button():
+func set_press_message_to_1st_button():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
 
 
-func set_message_the_push_2nd_button():
+func set_press_message_to_2nd_button():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
 
 
-func set_message_the_push_3rd_button():
+func set_press_message_to_3rd_button():
 	#																		   "１２３４５６７８９０１２３４５６７８９："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
@@ -213,7 +213,7 @@ func set_message_the_3rd_button_done():
 
 func on_step_regular(
 		delta,
-		set_message_the_push_button):
+		set_press_message_to_button):
 	
 	if self.turn_state == &"WaitForPrompt":
 		if self.counter_of_wait < 0.5:
@@ -224,7 +224,7 @@ func on_step_regular(
 		return true
 
 	elif self.turn_state == &"Prompt":
-		set_message_the_push_button.call()
+		set_press_message_to_button.call()
 		self.turn_state = &"WaitForInput"
 		return true
 
@@ -255,15 +255,11 @@ func on_process(delta):
 		# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_message_the_push_1st_button)
+				self.set_press_message_to_1st_button)
 		
 		if is_controlled:
 			pass
 		
-		elif self.turn_state == &"Prompt":
-			self.set_message_the_push_1st_button()
-			self.turn_state = &"WaitForInput"
-
 		elif self.turn_state == &"WaitForInput":
 			if self.counter_of_wait < 0.5:
 				self.counter_of_wait += delta
@@ -285,7 +281,7 @@ func on_process(delta):
 
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_message_the_push_2nd_button)
+				self.set_press_message_to_2nd_button)
 		
 		if is_controlled:
 			pass
@@ -306,7 +302,7 @@ func on_process(delta):
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
 				self.set_empty_the_2nd_button_message()
-				self.set_message_the_push_1st_button()
+				self.set_press_message_to_1st_button()
 				is_ok = true
 
 			# 既存のキーと被る場合、やり直しさせる
@@ -330,7 +326,7 @@ func on_process(delta):
 
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_message_the_push_3rd_button)
+				self.set_press_message_to_3rd_button)
 		
 		if is_controlled:
 			pass
@@ -351,7 +347,7 @@ func on_process(delta):
 				self.turn_state = &"WaitForInput"
 				self.current_step -= 1
 				self.set_empty_the_3rd_button_message()
-				self.set_message_the_push_2nd_button()
+				self.set_press_message_to_2nd_button()
 				is_ok = true
 
 			# 既存のキーと被る場合、やり直しさせる
