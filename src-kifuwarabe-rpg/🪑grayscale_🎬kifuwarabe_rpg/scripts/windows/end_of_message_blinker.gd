@@ -228,6 +228,24 @@ func _process(delta):
 			if 0.0 < self.total_seconds:
 				# 自動的にカーソルは移動中
 				self.on_cursor_moving_automatically(delta)
+
+
+func _unhandled_input(event):
+	# 一時的にどこかに消えているのなら処理しない
+	if not self.is_appear:
+		return
+
+	# 存在するときだけ働く
+	if not self.statemachine_of_blinker.is_none():
+		pass
+
+		var snapshot = self.get_director().get_current_snapshot()
+		# 動くカーソル用
+		if snapshot.is_choices():
+			# カーソルが動く量が指定されているなら
+			if 0.0 < self.total_seconds:
+				# 自動的にカーソルは移動中
+				pass
 				
 			# 移動量が残ってないなら
 			else:
