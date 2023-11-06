@@ -260,10 +260,11 @@ func _unhandled_input(event):
 				var button_number = self.get_director_for_key_config().get_button_number_by_text(event.as_text())
 				var virtual_key_name = self.get_director_for_key_config().get_virtual_key_name_by_button_number(button_number)
 				print("［選択カーソル］　仮想キー名：" + virtual_key_name)
+				var lever_value = self.get_director_for_key_config().get_lever_value_by_text(event.as_text())
 				
 				# 手動でカーソルは移動開始
 				# 上へ移動する分
-				if virtual_key_name == &"VK_Up":
+				if virtual_key_name == &"VK_Up" or (virtual_key_name == &"VK_Down" and lever_value < 0):
 					#print("［選択肢カーソル］　上へ")
 					var index = selected_cursor_index();
 					
@@ -273,7 +274,7 @@ func _unhandled_input(event):
 						self.on_cursor_up(index)
 					
 				# 下へ移動する分
-				if virtual_key_name == &"VK_Down":
+				if virtual_key_name == &"VK_Down" and 0 <= lever_value:
 					#print("［選択肢カーソル］　下へ")
 					#print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
 					var index = selected_cursor_index();

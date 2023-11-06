@@ -67,6 +67,11 @@ func get_button_number_by_text(event_as_text):
 	return $"KeyConfigArtist".get_button_number_by_text(event_as_text)
 
 
+# レバーのイベント文字列から、-1.0 ～ 1.0 の値を取得
+func get_lever_value_by_text(event_as_text):
+	return $"KeyConfigArtist".get_lever_value_by_text(event_as_text)
+
+
 # ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
 func get_button_name_by_number(button_number):
 	return $"KeyConfigArtist".get_button_name_by_number(button_number)
