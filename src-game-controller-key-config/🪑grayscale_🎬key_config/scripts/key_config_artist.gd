@@ -178,38 +178,36 @@ func set_empty_the_3rd_button_message():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
 
 
-func set_press_message_to_1st_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
+func set_press_message_to_button(step):
+	if step == 1:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
+
+	elif step == 2:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
+
+	elif step == 3:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+
+	elif step == 4:
+		#														  "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("TextBlock").text = "完了"
+		self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
 
 
-func set_press_message_to_2nd_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
-
-
-func set_press_message_to_3rd_button():
-	#																		   "１２３４５６７８９０１２３４５６７８９："
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
-
-
-func set_press_message_to_4th_button():
-	#														  "１２３４５６７８９０１２３４５６７８９："
-	self.get_telop_coordinator().get_node("TextBlock").text = "完了"
-	self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
-
-
-func set_message_the_1st_button_done():
+func set_done_message_the_1st_button():
 	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
 
 
-func set_message_the_2nd_button_done():
+func set_done_message_the_2nd_button():
 	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　　　　　　：　" + self.button_presentation_name
 
 
-func set_message_the_3rd_button_done():
+func set_done_message_the_3rd_button():
 	#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
@@ -222,9 +220,7 @@ func clear_count():
 
 func on_step_regular(
 		delta,
-		set_press_message_to_button,
 		set_empty_the_previous_button_message,
-		set_press_message_to_previous_button,
 		previous_virtual_key_name,
 		virtual_key_name,
 		set_done_message_the_button):
@@ -239,7 +235,7 @@ func on_step_regular(
 		return
 
 	elif self.turn_state == &"Prompt":
-		set_press_message_to_button.call()
+		self.set_press_message_to_button(self.current_step)
 		self.turn_state = &"WaitForInput"
 		return
 		
@@ -275,7 +271,7 @@ func on_step_regular(
 			self.turn_state = &"WaitForInput"
 			self.current_step -= 1
 			set_empty_the_previous_button_message.call()
-			set_press_message_to_previous_button.call()
+			self.set_press_message_to_button(self.current_step)
 			self.clear_count()
 			return
 
@@ -314,13 +310,10 @@ func on_process(delta):
 	elif self.current_step == 1:
 		self.on_step_regular(
 				delta,
-				self.set_press_message_to_1st_button,
 				self.set_empty_the_1st_button_message,
-				func ():
-					pass,
 				null,
 				&"VK_Cancel",
-				self.set_message_the_1st_button_done)
+				self.set_done_message_the_1st_button)
 	
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
@@ -328,12 +321,10 @@ func on_process(delta):
 	elif self.current_step == 2:
 		self.on_step_regular(
 				delta,
-				self.set_press_message_to_2nd_button,
 				self.set_empty_the_2nd_button_message,
-				self.set_press_message_to_1st_button,
 				&"VK_Cancel",
 				&"VK_Ok",
-				self.set_message_the_2nd_button_done)
+				self.set_done_message_the_2nd_button)
 		
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
@@ -341,12 +332,10 @@ func on_process(delta):
 	elif self.current_step == 3:
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_press_message_to_3rd_button,
 				self.set_empty_the_3rd_button_message,
-				self.set_press_message_to_2nd_button,
 				&"VK_Ok",
 				&"VK_FastForward",
-				self.set_message_the_3rd_button_done)
+				self.set_done_message_the_3rd_button)
 		
 	# ーーーーーーーー
 	# 完了
@@ -354,9 +343,6 @@ func on_process(delta):
 	elif self.current_step == 4:
 		self.on_step_regular(
 				delta,
-				self.set_press_message_to_4th_button,
-				func ():
-					pass,
 				func ():
 					pass,
 				&"VK_FastForward",
