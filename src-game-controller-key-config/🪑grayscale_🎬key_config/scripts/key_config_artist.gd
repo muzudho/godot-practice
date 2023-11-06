@@ -276,6 +276,13 @@ func on_step_regular(
 			self.clear_count()
 			return true
 
+		# 既存のキーと被る場合、やり直しさせる
+		if self.is_key_duplicated(self.button_number):
+			self.set_key_denied()
+			self.turn_state = &"WaitForInput"
+			self.clear_count()
+			return true
+
 	return false
 
 
@@ -334,19 +341,12 @@ func on_process(delta):
 		
 		elif self.turn_state == &"InputOk":
 
-			# 既存のキーと被る場合、やり直しさせる
-			if self.is_key_duplicated(self.button_number):
-				self.set_key_denied()
-				self.turn_state = &"WaitForInput"
-				self.clear_count()
-
-			else:
-				self.set_key_accepted()
-				self.set_key_ok()
-				self.set_message_the_2nd_button_done()
-				self.get_director().key_config[&"VK_Ok"] = self.button_number
-				self.current_step += 1
-				self.turn_state = &"WaitForPrompt"
+			self.set_key_accepted()
+			self.set_key_ok()
+			self.set_message_the_2nd_button_done()
+			self.get_director().key_config[&"VK_Ok"] = self.button_number
+			self.current_step += 1
+			self.turn_state = &"WaitForPrompt"
 		
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
@@ -365,19 +365,12 @@ func on_process(delta):
 		
 		elif self.turn_state == &"InputOk":
 
-			# 既存のキーと被る場合、やり直しさせる
-			if self.is_key_duplicated(self.button_number):
-				self.set_key_denied()
-				self.turn_state = &"WaitForInput"
-				self.clear_count()
-			
-			else:
-				self.set_key_accepted()
-				self.set_key_ok()
-				self.set_message_the_3rd_button_done()
-				self.get_director().key_config[&"VK_FastForward"] = self.button_number
-				self.current_step += 1
-				self.turn_state = &"WaitForPrompt"
+			self.set_key_accepted()
+			self.set_key_ok()
+			self.set_message_the_3rd_button_done()
+			self.get_director().key_config[&"VK_FastForward"] = self.button_number
+			self.current_step += 1
+			self.turn_state = &"WaitForPrompt"
 		
 	# ーーーーーーーー
 	# 完了
