@@ -205,6 +205,18 @@ func set_message_the_3rd_button_done():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 
+func on_step_regular(delta):
+	if self.turn_state == &"WaitForPrompt":
+		if self.counter_of_wait < 0.5:
+			self.counter_of_wait += delta
+			return true
+			
+		self.turn_state = &"Prompt"
+		return true
+		
+	return false
+
+
 func on_process(delta):
 
 	if not self.is_enabled:
@@ -225,12 +237,12 @@ func on_process(delta):
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
 	elif self.current_step == 1:
-		if self.turn_state == &"WaitForPrompt":
-			# 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視する
-			if self.counter_of_wait < 1.0:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Prompt"
+
+		# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
+		var is_controlled = self.on_step_regular(delta)
+		
+		if is_controlled:
+			pass
 		
 		elif self.turn_state == &"Prompt":
 			self.set_message_the_push_1st_button()
@@ -254,12 +266,12 @@ func on_process(delta):
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
 	elif self.current_step == 2:
-		if self.turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Prompt"
+
+		var is_controlled = self.on_step_regular(delta)
 		
+		if is_controlled:
+			pass
+			
 		elif self.turn_state == &"Prompt":
 			self.set_message_the_push_2nd_button()
 			self.turn_state = &"WaitForInput"
@@ -301,12 +313,12 @@ func on_process(delta):
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
 	elif self.current_step == 3:
-		if self.turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Prompt"
+
+		var is_controlled = self.on_step_regular(delta)
 		
+		if is_controlled:
+			pass
+			
 		elif self.turn_state == &"Prompt":
 			self.set_message_the_push_3rd_button()
 			self.turn_state = &"WaitForInput"
@@ -348,12 +360,12 @@ func on_process(delta):
 	# 完了
 	# ーーーーーーーー
 	elif self.current_step == 4:
-		if self.turn_state == &"WaitForPrompt":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Prompt"
+
+		var is_controlled = self.on_step_regular(delta)
 		
+		if is_controlled:
+			pass
+			
 		elif self.turn_state == &"Prompt":
 			#														  "１２３４５６７８９０１２３４５６７８９："
 			self.get_telop_coordinator().get_node("TextBlock").text = "完了"
