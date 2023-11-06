@@ -159,10 +159,10 @@ func set_key_denied(reason):
 		self.get_telop_coordinator().get_node("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
 
 	if reason == 2:
-		self.get_telop_coordinator().get_node("TextBlock").text = "下キーがボタンのときは、\n上キーはレバーであってはいけません"
+		self.get_telop_coordinator().get_node("TextBlock").text = "下キーがボタンのときは、\n上キーもボタンを選んでください"
 
 	if reason == 3:
-		self.get_telop_coordinator().get_node("TextBlock").text = "右キーがボタンのときは、\n左キーはレバーであってはいけません"
+		self.get_telop_coordinator().get_node("TextBlock").text = "右キーがボタンのときは、\n左キーもボタンを選んでください"
 
 
 # キーコンフィグ　ボタン設定が拒否
@@ -204,11 +204,11 @@ func set_empty_the_button_message(step):
 func set_press_message_to_button(step):
 	if step == 1:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
 
 	elif step == 2:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
 
 	elif step == 3:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
