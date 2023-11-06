@@ -214,6 +214,7 @@ func set_press_message_to_button(step):
 	elif step == 5:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）上キー　を入れてください"
+		self.get_telop_coordinator().get_node("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
 
 	elif step == 6:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
@@ -222,6 +223,7 @@ func set_press_message_to_button(step):
 	elif step == 7:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）左キー　を入れてください"
+		self.get_telop_coordinator().get_node("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
 
 	# 完了時
 	elif step == 8:
