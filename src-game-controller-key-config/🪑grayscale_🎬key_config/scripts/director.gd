@@ -23,7 +23,7 @@ func entry():
 
 func on_exit():
 	print("［キーコンフィグ］　完了")
-	# 例えば、シーンの外側の１階層上の `Director` ノードへアクセスする方法
+	# （注意１／４）　例えば、シーンの外側の１階層上の `Director` ノードへアクセスする方法
 	#$"../../Director".on_key_config_exited()
 
 
@@ -40,20 +40,20 @@ func on_unhandled_input(event):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
-	# このシーンを呼出して利用するなら、以下をコメントアウトすること
+	# （注意２／４）　キーコンフィグが自動で始まるのが困るなら、以下をコメントアウトすること
 	self.entry()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-	# このシーンを呼出して利用するなら、以下をコメントアウトすること
+	# （注意３／４）　キーコンフィグが自動で始まるのが困るなら、以下をコメントアウトすること
 	self.on_process(delta)
 
 
 func _unhandled_input(event):
 	pass
-	# このシーンを呼出して利用するなら、以下をコメントアウトすること
+	# （注意４／４）　キーコンフィグが自動で始まるのが困るなら、以下をコメントアウトすること
 	self.on_unhandled_input(event)
 
 
