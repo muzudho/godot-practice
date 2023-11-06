@@ -176,21 +176,54 @@ func set_empty_the_button_message(step):
 		#																		   "１２３４５６７８９０１２３４５６７８９："
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
 
+	elif step == 4:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）"
+
+	elif step == 5:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）"
+
+	elif step == 6:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）"
+
+	elif step == 7:
+		#																		   "１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）"
+
 
 func set_press_message_to_button(step):
 	if step == 1:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン　を押してください"
 
 	elif step == 2:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メニューボタン　を押してください"
 
 	elif step == 3:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 	elif step == 4:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）レバーを上　に倒してください"
+
+	elif step == 5:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）レバーを右　に倒してください"
+
+	elif step == 6:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）レバーを下　に倒してください"
+
+	elif step == 7:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）レバーを左　に倒してください"
+
+	# 完了時
+	elif step == 8:
 		#														  "１２３４５６７８９０１２３４５６７８９："
 		self.get_telop_coordinator().get_node("TextBlock").text = "完了"
 		self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
@@ -198,7 +231,7 @@ func set_press_message_to_button(step):
 
 func set_done_message_the_button(step):
 	if step == 1:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メッセージ送りボタン：　" + self.button_presentation_name
 
 	elif step == 2:
@@ -208,6 +241,22 @@ func set_done_message_the_button(step):
 	elif step == 3:
 		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
+
+	elif step == 4:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（３）レバーの上　　　　　　　　　　　　　　：　" + self.button_presentation_name
+
+	elif step == 5:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（３）レバーの右　　　　　　　　　　　　　　：　" + self.button_presentation_name
+
+	elif step == 6:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（３）レバーの下　　　　　　　　　　　　　　：　" + self.button_presentation_name
+
+	elif step == 7:
+		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（３）レバーの左　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 
 func clear_count():
@@ -240,8 +289,8 @@ func on_step_regular(
 			self.counter_of_wait += delta
 			return
 
-		# 最終ステップ時
-		if self.current_step == 4:
+		# 最終ステップ＋１の時、完了
+		if self.current_step == 8:
 			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
 			if self.counter_of_wait < 1.5:
 				self.counter_of_wait += delta
@@ -328,12 +377,48 @@ func on_process(delta):
 				&"VK_FastForward")
 		
 	# ーーーーーーーー
-	# 完了
+	# （４）レバーの上
 	# ーーーーーーーー
 	elif self.current_step == 4:
-		self.on_step_regular(
+		var is_controlled = self.on_step_regular(
 				delta,
 				&"VK_FastForward",
+				&"VK_Up")
+		
+	# ーーーーーーーー
+	# （５）レバーの右
+	# ーーーーーーーー
+	elif self.current_step == 5:
+		var is_controlled = self.on_step_regular(
+				delta,
+				&"VK_Up",
+				&"VK_Right")
+		
+	# ーーーーーーーー
+	# （６）レバーの下
+	# ーーーーーーーー
+	elif self.current_step == 6:
+		var is_controlled = self.on_step_regular(
+				delta,
+				&"VK_Right",
+				&"VK_Down")
+		
+	# ーーーーーーーー
+	# （７）レバーの左
+	# ーーーーーーーー
+	elif self.current_step == 7:
+		var is_controlled = self.on_step_regular(
+				delta,
+				&"VK_Down",
+				&"VK_Left")
+	
+	# ーーーーーーーー
+	# 完了
+	# ーーーーーーーー
+	elif self.current_step == 8:
+		self.on_step_regular(
+				delta,
+				&"VK_Left",
 				null)
 
 
