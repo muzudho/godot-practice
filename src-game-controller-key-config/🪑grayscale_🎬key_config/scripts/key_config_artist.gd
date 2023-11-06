@@ -190,7 +190,7 @@ func set_press_message_to_3rd_button():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 
-func set_message_the_push_4th_button():
+func set_press_message_to_4th_button():
 	#														  "１２３４５６７８９０１２３４５６７８９："
 	self.get_telop_coordinator().get_node("TextBlock").text = "完了"
 	self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
@@ -211,6 +211,12 @@ func set_message_the_3rd_button_done():
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 
+func clear_count():
+	self.counter_of_wait = 0.0
+	self.button_number = -1
+	self.button_presentation_name = &""
+	
+
 func on_step_regular(
 		delta,
 		set_press_message_to_button):
@@ -227,7 +233,28 @@ func on_step_regular(
 		set_press_message_to_button.call()
 		self.turn_state = &"WaitForInput"
 		return true
+		
+	elif self.turn_state == &"WaitForInput":
+		if self.counter_of_wait < 0.5:
+			self.counter_of_wait += delta
+			return true
 
+		# 最終ステップ時
+		if self.current_step == 4:
+			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
+			if self.counter_of_wait < 1.5:
+				self.counter_of_wait += delta
+				return true
+			
+			self.turn_state = &"Input"
+			self.clear_count()
+			self.on_exit()
+			return true
+
+		self.turn_state = &"Input"
+		self.clear_count()
+		return true
+	
 	return false
 
 
@@ -239,13 +266,11 @@ func on_process(delta):
 	if not (self.turn_state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
 		return
 	
-	var is_ok = false
-	
 	# 初回
 	if self.current_step == 0:
 		self.get_musician().get_node("BGM/🎵キーコンフィグ").play()
 		self.current_step += 1
-		is_ok = true
+		self.clear_count()
 	
 	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン
@@ -259,13 +284,6 @@ func on_process(delta):
 		
 		if is_controlled:
 			pass
-		
-		elif self.turn_state == &"WaitForInput":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Input"
-			is_ok = true
 
 		elif self.turn_state == &"InputOk":
 			self.set_key_accepted()
@@ -286,13 +304,6 @@ func on_process(delta):
 		if is_controlled:
 			pass
 		
-		elif self.turn_state == &"WaitForInput":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Input"
-			is_ok = true
-	
 		elif self.turn_state == &"InputOk":
 
 			# キャンセルボタン押下時は、１つ戻す
@@ -303,13 +314,13 @@ func on_process(delta):
 				self.current_step -= 1
 				self.set_empty_the_2nd_button_message()
 				self.set_press_message_to_1st_button()
-				is_ok = true
+				self.clear_count()
 
 			# 既存のキーと被る場合、やり直しさせる
 			elif self.is_key_duplicated(self.button_number):
 				self.set_key_denied()
 				self.turn_state = &"WaitForInput"
-				is_ok = true
+				self.clear_count()
 
 			else:
 				self.set_key_accepted()
@@ -331,13 +342,6 @@ func on_process(delta):
 		if is_controlled:
 			pass
 		
-		elif self.turn_state == &"WaitForInput":
-			if self.counter_of_wait < 0.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Input"
-			is_ok = true
-
 		elif self.turn_state == &"InputOk":
 
 			# キャンセルボタン押下時は、１つ戻す
@@ -348,13 +352,13 @@ func on_process(delta):
 				self.current_step -= 1
 				self.set_empty_the_3rd_button_message()
 				self.set_press_message_to_2nd_button()
-				is_ok = true
+				self.clear_count()
 
 			# 既存のキーと被る場合、やり直しさせる
 			elif self.is_key_duplicated(self.button_number):
 				self.set_key_denied()
 				self.turn_state = &"WaitForInput"
-				is_ok = true
+				self.clear_count()
 			
 			else:
 				self.set_key_accepted()
@@ -371,24 +375,10 @@ func on_process(delta):
 
 		var is_controlled = self.on_step_regular(
 				delta,
-				self.set_message_the_push_4th_button())
+				self.set_press_message_to_4th_button)
 		
 		if is_controlled:
 			pass
-
-		elif self.turn_state == &"WaitForInput":
-			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
-			if self.counter_of_wait < 1.5:
-				self.counter_of_wait += delta
-				return
-			self.turn_state = &"Input"
-			self.on_exit()
-			is_ok = true
-	
-	if is_ok:
-		self.counter_of_wait = 0.0
-		self.button_number = -1
-		self.button_presentation_name = &""
 
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
