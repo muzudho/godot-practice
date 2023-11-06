@@ -263,7 +263,7 @@ func _unhandled_input(event):
 				
 				# 手動でカーソルは移動開始
 				# 上へ移動する分
-				if Input.is_action_pressed(&"ui_up"):
+				if virtual_key_name == &"VK_Up":
 					#print("［選択肢カーソル］　上へ")
 					var index = selected_cursor_index();
 					
@@ -273,7 +273,7 @@ func _unhandled_input(event):
 						self.on_cursor_up(index)
 					
 				# 下へ移動する分
-				if Input.is_action_pressed(&"ui_down"):
+				if virtual_key_name == &"VK_Down":
 					#print("［選択肢カーソル］　下へ")
 					#print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
 					var index = selected_cursor_index();
