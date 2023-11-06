@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🪑grayscale_🎬key_config/images/1280x720/window_at_top_lerge.png" id="12_b0xjv"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/key_config_artist.gd" id="13_4ilkl"]
 
-[node name="Director" type="Node2D"]
+[node name="Director_KeyConfig" type="Node2D"]
 script = ExtResource("1_mtmqs")
 
 [node name="Grid" type="Sprite2D" parent="."]

@@ -179,11 +179,11 @@ func on_key_config_exited():
 func _process(delta):
 
 	if self.current_state == &"WaitForKeyConfig":
-		$"DirectorForKeyConfig".entry()
+		$"Director_KeyConfig".entry()
 		self.current_state = &"KeyConfig"
 
 	elif self.current_state == &"KeyConfig":
-		$"DirectorForKeyConfig".on_process(delta)
+		$"Director_KeyConfig".on_process(delta)
 
 	elif self.current_state == &"Ready":
 		self.current_state = &"Main"
@@ -271,7 +271,7 @@ func _unhandled_input(event):
 		pass
 
 	elif self.current_state == &"KeyConfig":
-		$"DirectorForKeyConfig".on_unhandled_input(event)
+		$"Director_KeyConfig".on_unhandled_input(event)
 
 	elif self.current_state == &"Main":
 
@@ -299,10 +299,10 @@ func _unhandled_input(event):
 		var event_as_text = event.as_text()
 		
 		# 文字列をボタン番号に変換
-		var button_number = $"DirectorForKeyConfig".get_button_number_by_text(event_as_text)
+		var button_number = $"Director_KeyConfig".get_button_number_by_text(event_as_text)
 		
 		# ボタン番号を、仮想キー名に変換
-		var virtual_key_name = $"DirectorForKeyConfig".get_virtual_key_name_by_button_number(button_number)
+		var virtual_key_name = $"Director_KeyConfig".get_virtual_key_name_by_button_number(button_number)
 
 		# 仮想キーを押下したという建付け
 		self.on_virtual_key_input(virtual_key_name, vk_operation)

@@ -1055,4 +1055,4 @@ script = ExtResource("90_536e5")
 [node name="MonsterData" type="Node" parent="Scorer"]
 script = ExtResource("91_ae3u7")
 
-[node name="DirectorForKeyConfig" parent="." instance=ExtResource("92_3oj3f")]
+[node name="Director_KeyConfig" parent="." instance=ExtResource("92_3oj3f")]

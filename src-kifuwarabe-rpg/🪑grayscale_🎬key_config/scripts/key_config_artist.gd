@@ -21,9 +21,8 @@ var is_enabled = false
 
 # ディレクター取得
 func get_director():
-	return $"../../DirectorForKeyConfig"
-	# ❝Director” ルート・ノードを名称変更して使いたいなら、以下を編集するか、コメントアウトしてください
-	#return $"../../Director"
+	# Director_KeyConfig” ルート・ノードを名称変更して使いたいなら、以下を編集してください
+	return $"../../Director_KeyConfig"
 
 
 # 背景担当取得
@@ -76,8 +75,9 @@ func _ready():
 	self.get_telop_coordinator().get_node("TextBlock").visible = false
 
 	# 入力イベントが返す文字列。仕様さっぱり分からん
-	re_button.compile("Joypad Button (\\d)")
-	re_lever.compile("Joypad Motion on Axis (\\d)")
+	# 最後に半角スペースを入れること。 `Button 1` と `Button 10` を区別するために
+	re_button.compile("Joypad Button (\\d+) ")
+	re_lever.compile("Joypad Motion on Axis (\\d+) ")
 
 
 # キーコンフィグ画面に入る
