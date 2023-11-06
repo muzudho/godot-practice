@@ -80,3 +80,31 @@ func get_button_name_by_number(button_number):
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
 func get_virtual_key_name_by_button_number(button_number):
 	return $"KeyConfigArtist".get_virtual_key_name_by_button_number(button_number)
+
+
+# 上キーが入力されたか？
+func is_key_up_by_text(event_as_text):
+	var button_number = self.get_button_number_by_text(event_as_text)
+	var virtual_key_name = self.get_virtual_key_name_by_button_number(button_number)
+	
+	if virtual_key_name == &"VK_Up":
+		return true
+
+	var lever_value = self.get_lever_value_by_text(event_as_text)
+		
+	if virtual_key_name == &"VK_Down" and lever_value < 0:
+		return true
+
+	return false
+
+
+# 下キーが入力されたか？
+func is_key_down_by_text(event_as_text):
+	var button_number = self.get_button_number_by_text(event_as_text)
+	var virtual_key_name = self.get_virtual_key_name_by_button_number(button_number)
+	var lever_value = self.get_lever_value_by_text(event_as_text)
+	
+	if virtual_key_name == &"VK_Down" and 0 < lever_value:
+		return true
+
+	return false
