@@ -225,41 +225,44 @@ func on_step_regular(
 		set_press_message_to_button,
 		set_empty_the_previous_button_message,
 		set_press_message_to_previous_button,
-		previous_virtual_key_name):
+		previous_virtual_key_name,
+		virtual_key_name,
+		set_done_message_the_button):
 	
+	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 	if self.turn_state == &"WaitForPrompt":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
-			return true
+			return
 			
 		self.turn_state = &"Prompt"
-		return true
+		return
 
 	elif self.turn_state == &"Prompt":
 		set_press_message_to_button.call()
 		self.turn_state = &"WaitForInput"
-		return true
+		return
 		
 	elif self.turn_state == &"WaitForInput":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
-			return true
+			return
 
 		# 最終ステップ時
 		if self.current_step == 4:
 			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
 			if self.counter_of_wait < 1.5:
 				self.counter_of_wait += delta
-				return true
+				return
 			
 			self.turn_state = &"Input"
 			self.clear_count()
 			self.on_exit()
-			return true
+			return
 
 		self.turn_state = &"Input"
 		self.clear_count()
-		return true
+		return
 
 	elif self.turn_state == &"InputOk":
 		# キャンセルボタン押下時は、１つ戻す
@@ -274,16 +277,21 @@ func on_step_regular(
 			set_empty_the_previous_button_message.call()
 			set_press_message_to_previous_button.call()
 			self.clear_count()
-			return true
+			return
 
 		# 既存のキーと被る場合、やり直しさせる
 		if self.is_key_duplicated(self.button_number):
 			self.set_key_denied()
 			self.turn_state = &"WaitForInput"
 			self.clear_count()
-			return true
-
-	return false
+			return
+			
+		# 決定
+		self.set_key_accepted()
+		set_done_message_the_button.call()
+		self.get_director().key_config[virtual_key_name] = self.button_number
+		self.current_step += 1
+		self.turn_state = &"WaitForPrompt"
 
 
 func on_process(delta):
@@ -304,90 +312,57 @@ func on_process(delta):
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
 	elif self.current_step == 1:
-
-		# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
-		var is_controlled = self.on_step_regular(
+		self.on_step_regular(
 				delta,
 				self.set_press_message_to_1st_button,
 				self.set_empty_the_1st_button_message,
 				func ():
 					pass,
-				null)
-		
-		if is_controlled:
-			pass
-
-		elif self.turn_state == &"InputOk":
-			self.set_key_accepted()
-			self.set_message_the_1st_button_done()
-			self.get_director().key_config[&"VK_Cancel"] = self.button_number
-			self.current_step += 1
-			self.turn_state = &"WaitForPrompt"
+				null,
+				&"VK_Cancel",
+				self.set_message_the_1st_button_done)
 	
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
 	elif self.current_step == 2:
-
-		var is_controlled = self.on_step_regular(
+		self.on_step_regular(
 				delta,
 				self.set_press_message_to_2nd_button,
 				self.set_empty_the_2nd_button_message,
 				self.set_press_message_to_1st_button,
-				&"VK_Cancel")
-		
-		if is_controlled:
-			pass
-		
-		elif self.turn_state == &"InputOk":
-
-			self.set_key_accepted()
-			self.set_key_ok()
-			self.set_message_the_2nd_button_done()
-			self.get_director().key_config[&"VK_Ok"] = self.button_number
-			self.current_step += 1
-			self.turn_state = &"WaitForPrompt"
+				&"VK_Cancel",
+				&"VK_Ok",
+				self.set_message_the_2nd_button_done)
 		
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
 	elif self.current_step == 3:
-
 		var is_controlled = self.on_step_regular(
 				delta,
 				self.set_press_message_to_3rd_button,
 				self.set_empty_the_3rd_button_message,
 				self.set_press_message_to_2nd_button,
-				&"VK_Ok")
-		
-		if is_controlled:
-			pass
-		
-		elif self.turn_state == &"InputOk":
-
-			self.set_key_accepted()
-			self.set_key_ok()
-			self.set_message_the_3rd_button_done()
-			self.get_director().key_config[&"VK_FastForward"] = self.button_number
-			self.current_step += 1
-			self.turn_state = &"WaitForPrompt"
+				&"VK_Ok",
+				&"VK_FastForward",
+				self.set_message_the_3rd_button_done)
 		
 	# ーーーーーーーー
 	# 完了
 	# ーーーーーーーー
 	elif self.current_step == 4:
-
-		var is_controlled = self.on_step_regular(
+		self.on_step_regular(
 				delta,
 				self.set_press_message_to_4th_button,
 				func ():
 					pass,
 				func ():
 					pass,
-				&"VK_FastForward")
-		
-		if is_controlled:
-			pass
+				&"VK_FastForward",
+				null,
+				func ():
+					pass)
 
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
