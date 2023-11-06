@@ -48,6 +48,11 @@ func get_message_window_name_obj():
 	return $"../..".name
 
 
+# キーコンフィグ監督取得
+func get_director_for_key_config():
+	return $"../../../../../../Director/Director_KeyConfig"
+
+
 # 線形補間
 func do_lerp(src, dst, progress):
 	return src + (dst - src) * progress
@@ -249,6 +254,13 @@ func _unhandled_input(event):
 				
 			# 移動量が残ってないなら
 			else:
+				
+				# Joypad Motion on Axis 1 (Left Stick Y-Axis, Joystick 0 Y-Axis) with Value 0.00
+				print("［選択カーソル］　入力ボタン：" + event.as_text())
+				var button_number = self.get_director_for_key_config().get_button_number_by_text(event.as_text())
+				var virtual_key_name = self.get_director_for_key_config().get_virtual_key_name_by_button_number(button_number)
+				print("［選択カーソル］　仮想キー名：" + virtual_key_name)
+				
 				# 手動でカーソルは移動開始
 				# 上へ移動する分
 				if Input.is_action_pressed(&"ui_up"):
