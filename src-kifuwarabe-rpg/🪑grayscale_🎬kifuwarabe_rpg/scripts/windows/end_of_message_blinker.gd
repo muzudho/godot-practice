@@ -314,19 +314,30 @@ func selected_cursor_index():
 
 # カーソルは上へ移動できるか？
 func can_cursor_up(index):
-	return 0 < index
+	if 0 < index:
+		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できる")
+		return true
+	
+	else:
+		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できない")
+		return false
 
 
 # カーソルは下へ移動できるか？
 func can_cursor_down(index):
+	# 配列
 	var choices_row_numbers = self.get_director().get_current_snapshot().choices_row_numbers
 	if choices_row_numbers != null:
-	
 		var choice_size = choices_row_numbers.size()
-		#print("［選択肢カーソル］　選択肢数：" + str(choice_size))
 	
 		# 下へ移動できるか？
-		#print("［選択肢カーソル］　インデックス：" + str(index))
-		return 0 <= index and index + 1 < choice_size
+		var can_down = 0 <= index and index + 1 < choice_size
+
+		if can_down:
+			print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できる")
+		else:
+			print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できない")
+
+		return can_down
 
 	return false

@@ -1305,8 +1305,19 @@ Zzz...
 ![202311__godot__07-0415--Lever.png](https://crieit.now.sh/upload_images/f78170be16e3fa43d1f0c2f4ea32f64665493b7bd77d0.png)
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　↑　レバー対応もした」  
+「　👆　レバー対応もした」  
 
 📖　[Godot でキーコンフィグを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-653fc9e0a9b18)  
+
+## 仮想キー化を進めたら、選択肢カーソルの位置がおかしくなった
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ゲームパッドのボタンを　キー・コンフィグ　できるようにする改造をしたことによって、  
+選択肢カーソルの位置や、移動できる範囲が　おかしくなったぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　大変なバグを踏んでいるのかも知らん、別記事で解説してくれだぜ」  
+
+📖　[Godot で選択肢カーソルを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-654a463d6e8e2)  
 
 .

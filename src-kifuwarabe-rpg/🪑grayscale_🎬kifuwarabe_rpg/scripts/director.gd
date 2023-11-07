@@ -210,7 +210,7 @@ func _process(delta):
 		self.get_assistant_director().on_process(delta)
 
 
-# テキストボックスなどにフォーカスが無いときの入力を拾う
+# テキストボックスなどにフォーカスが無いときのキー入力を拾う
 #
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
@@ -268,6 +268,7 @@ func _unhandled_key_input(event):
 		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
 
 
+# テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 func _unhandled_input(event):
 
 	if self.current_state == &"WaitForKeyConfig":
@@ -282,12 +283,12 @@ func _unhandled_input(event):
 
 		# 何かキーを押したとき
 		if event.is_pressed():
-			print("［監督］　入力　押下")
+			#print("［監督］　入力　押下")
 			vk_operation = &"VKO_Pressed"
 		
 		# 何かキーを離したとき
 		elif event.is_released():
-			print("［監督］　入力　リリース")
+			#print("［監督］　入力　リリース")
 			vk_operation = &"VKO_Released"
 		
 		# それ以外には対応してない
@@ -338,5 +339,5 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	print("［監督］　アンハンドルド・キー押下　その他のキー（" + virtual_key + "）")
 
-	# 子要素へ渡す
+	# メッセージ・ウィンドウへ渡す
 	self.get_current_message_window().on_virtual_key_input(virtual_key, lever_value, vk_operation)
