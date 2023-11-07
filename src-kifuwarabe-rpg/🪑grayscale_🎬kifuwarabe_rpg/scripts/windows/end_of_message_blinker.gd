@@ -166,8 +166,8 @@ func on_turned_off():
 	self.modulate.a = 0.0
 
 
-# カーソルを先頭へセットします
-func reset_cursor_position():
+# カーソル位置を算出
+func calc_cursor_vector():
 	var snapshot = self.get_director().get_current_snapshot()
 	var selected_row_number = snapshot.get_row_number_of_choices()
 
@@ -180,8 +180,15 @@ func reset_cursor_position():
 	# self.get_transform().y と、 self.offset_top 、どっちを変更するのがいい？
 	var scalar_x = message_window.choices_cursor_origin_x
 	var scalar_y = difference * (self.font_height + self.line_space_height) + message_window.choices_cursor_origin_y
-	self.get_transform().x = Vector2(scalar_x, 0)
-	self.get_transform().y = Vector2(0, scalar_y)
+	return Vector2(scalar_x, scalar_y)
+
+
+# カーソルを先頭へセットします
+func reset_cursor_position():
+	var vec = self.calc_cursor_vector()
+
+	self.get_transform().x = Vector2(vec.x, 0)
+	self.get_transform().y = Vector2(0, vec.y)
 
 
 # カーソルが上に移動します
