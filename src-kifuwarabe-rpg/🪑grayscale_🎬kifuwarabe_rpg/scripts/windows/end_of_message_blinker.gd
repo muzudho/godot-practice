@@ -21,9 +21,6 @@ var blinker_interval = 0.5
 const font_height = 32
 #	行間の縦幅
 const line_space_height = 16
-#	初期位置
-var initial_x = 0.0
-var initial_y = 0.0
 #	カーソルが移動する前の位置
 var src_y = 0.0
 #	カーソルが移動する先の位置
@@ -51,6 +48,13 @@ func get_message_window_name():
 	var temp = $"../..".name
 	temp = temp.substr(0, temp.length() - "_CanvasLayer".length())
 	return StringName(temp)
+
+
+# 伝言窓を取得
+func get_ancestor_message_window():
+	var path = "../../../" + self.get_message_window_name()
+	print("［選択肢］　path:" + path)
+	return self.get_node(path)
 
 
 # キーコンフィグ監督取得
@@ -121,8 +125,8 @@ func on_decided():
 	self.statemachine_of_blinker.switch_off()
 	
 	# カーソルを初期位置に戻す
-	self.get_transform().x = self.initial_x
-	self.get_transform().y = self.initial_y
+	self.get_transform().x = self.get_ancestor_message_window().choices_cursor_initial_x
+	self.get_transform().y = self.get_ancestor_message_window().choices_cursor_initial_y
 
 	
 func on_thought():
@@ -196,10 +200,6 @@ func on_cursor_down(target_index):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# 選択肢カーソルの初期位置の記憶
-	self.initial_x = self.get_transform().x
-	self.initial_y = self.get_transform().y
-	
 	# 状態機械のセットアップ
 	self.statemachine_of_end_of_message_blinker.on_decided = self.on_decided
 	self.statemachine_of_end_of_message_blinker.on_thought = self.on_thought
