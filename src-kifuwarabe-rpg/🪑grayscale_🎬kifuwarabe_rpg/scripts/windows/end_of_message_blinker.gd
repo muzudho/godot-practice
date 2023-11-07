@@ -21,6 +21,9 @@ var blinker_interval = 0.5
 const font_height = 32
 #	行間の縦幅
 const line_space_height = 16
+#	初期位置
+var initial_x = 0.0
+var initial_y = 0.0
 #	カーソルが移動する前の位置
 var src_y = 0.0
 #	カーソルが移動する先の位置
@@ -44,8 +47,10 @@ func get_assistant_director():
 
 
 # 伝言窓名を取得
-func get_message_window_name_obj():
-	return $"../..".name
+func get_message_window_name():
+	var temp = $"../..".name
+	temp = temp.substr(0, temp.length() - "_CanvasLayer".length())
+	return StringName(temp)
 
 
 # キーコンフィグ監督取得
@@ -60,7 +65,7 @@ func do_lerp(src, dst, progress):
 
 # サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(is_process):
-	#print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　プロセス：" + str(is_process))
+	#print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　プロセス：" + str(is_process))
 
 	# 処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
 	# 処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
@@ -74,7 +79,7 @@ func set_process_subtree(is_process):
 
 # サブツリーの visible を設定
 func set_visible_subtree(visible_flag):
-	#print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　可視性：" + str(visible_flag))
+	#print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
@@ -110,14 +115,18 @@ func set_appear_subtree(appear_flag):
 # 初期化
 #	ウィンドウが消えている状態を想定しています。
 func on_decided():
-	#print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　オン・デサイデッド")
+	print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　オン・デサイデッド")
 
 	# ブリンカーのスイッチ・オフ
 	self.statemachine_of_blinker.switch_off()
+	
+	# カーソルを初期位置に戻す
+	self.get_transform().x = self.initial_x
+	self.get_transform().y = self.initial_y
 
 	
 func on_thought():
-	#print("［文末ブリンカー　”" + str(self.get_message_window_name_obj()) + "/*/" + self.name + "］　オン・ソート")
+	#print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　オン・ソート")
 	self.modulate.a = 0.0	# 空欄化による透明化
 	self.show()
 
@@ -187,6 +196,10 @@ func on_cursor_down(target_index):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# 選択肢カーソルの初期位置の記憶
+	self.initial_x = self.get_transform().x
+	self.initial_y = self.get_transform().y
+	
 	# 状態機械のセットアップ
 	self.statemachine_of_end_of_message_blinker.on_decided = self.on_decided
 	self.statemachine_of_end_of_message_blinker.on_thought = self.on_thought

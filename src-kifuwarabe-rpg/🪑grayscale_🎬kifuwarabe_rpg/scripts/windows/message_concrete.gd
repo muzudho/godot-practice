@@ -5,8 +5,11 @@ extends Sprite2D
 # 状態機械
 var statemachine_of_message_window = load("res://🪑grayscale_🎬kifuwarabe_rpg/scripts/statemachines/message_window.gd").new()
 
-
 var is_appear = true
+
+# 選択肢カーソル初期位置
+var choices_cursor_initial_x = 0.0
+var choices_cursor_initial_y = 0.0
 
 
 # 監督取得
@@ -20,15 +23,18 @@ func get_assistant_director():
 
 
 func get_canvas_layer():
-	var canvas_layer_path = "../" + str(self.name) + "_CanvasLayer"
-	var canvas_layer = self.get_node(canvas_layer_path)
-	return canvas_layer
+	var path = "../" + str(self.name) + "_CanvasLayer"
+	return self.get_node(path)
 
 
 func get_text_block():
-	var text_block_path = "../" + str(self.name) + "_CanvasLayer/TextBlock"
-	var text_block = self.get_node(text_block_path)
-	return text_block
+	var path = "../" + str(self.name) + "_CanvasLayer/TextBlock"
+	return self.get_node(path)
+
+
+func get_choice_cursor():
+	var path = "../" + str(self.name) + "_CanvasLayer/TextBlock/ChoiceCursor"
+	return self.get_node(path)
 
 
 # 先頭行と、それ以外に分けます
@@ -317,8 +323,9 @@ func _ready():
 	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
-	# 最初は非表示
-	# self.set_visible_subtree(false)
+	# 選択肢カーソルの初期位置を記憶
+	self.choices_cursor_initial_x = self.get_choice_cursor().get_transform().x
+	self.choices_cursor_initial_y = self.get_choice_cursor().get_transform().y
 
 
 func _process(delta):
