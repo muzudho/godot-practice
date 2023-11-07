@@ -251,17 +251,21 @@ func _process(delta):
 
 
 # 仮想キー入力時
-func on_virtual_key_input(virtual_key, lever_value, _vk_operation):
+func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	# 一時的にどこかに消えているのなら処理しない
 	if not self.is_appear:
 		return
 
-	# 存在するときだけ働く
-	if not self.statemachine_of_blinker.is_none():
-		pass
+	# 存在しなければ何もしない
+	if self.statemachine_of_blinker.is_none():
+		return
+
+	# 押下時
+	if vk_operation == &"VKO_Pressed":
 
 		var snapshot = self.get_director().get_current_snapshot()
+
 		# 動くカーソル用
 		if snapshot.is_choices():
 			# カーソルが動く量が指定されているなら
