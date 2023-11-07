@@ -16,6 +16,7 @@ var parse_lock_flag = true
 # 選択肢
 #	選択肢の行番号用配列。無ければヌル
 var choices_row_numbers = null
+var choices_index = 0
 
 # テキストブロック汎用
 #	セクションの何番目（０開始）を次に読込むか
@@ -49,6 +50,11 @@ func is_parse_lock():
 # 選択肢か？
 func is_choices():
 	return self.choices_row_numbers != null
+
+
+# 選択肢カーソルが指しているのは何行目か？　序数
+func get_row_number_of_choices():
+	return self.choices_row_numbers[self.choices_index]
 
 
 # テキストブロックのバッファーが残っているか？

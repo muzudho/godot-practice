@@ -240,7 +240,7 @@ func on_page_forward():
 		# カーソル音
 		self.get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
 
-		var row_number = self.get_text_block().get_node("ChoiceCursor").selected_row_number
+		var row_number = snapshot.get_row_number_of_choices()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします

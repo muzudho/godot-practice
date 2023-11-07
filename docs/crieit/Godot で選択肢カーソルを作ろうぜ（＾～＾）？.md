@@ -28,6 +28,20 @@
 つまり　どの行の頭にカーソルが止まるか、序数で表す」  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　このような数列を入れている配列を `hoices_row_numbers` と呼ぶぜ」  
+「　このような数列を入れている配列を `choices_row_numbers` と呼ぶぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　汎用性があるかは知らんが、まあ　いいんじゃないか」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　現在、カーソルが指している `choices_row_numbers` 配列の要素のインデックスを
+`choices_index` と呼ぶ。初期値は `0`」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　現在、カーソルが指している行番号を取得するには、  
+`get_row_number_of_choices()` メソッドを使う」  
+
+
+
 
 .

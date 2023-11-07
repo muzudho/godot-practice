@@ -29,8 +29,6 @@ var dst_y = 0.0
 var total_seconds = 0.0
 #	経過時間（秒）
 var elapsed_seconds = 0.0
-#	カーソルが現在指している行番号。序数
-var selected_row_number = 1
 
 
 # 監督取得
@@ -125,7 +123,7 @@ func on_none_the_end_of_message_blinker():
 	self.statemachine_of_blinker.switch_off()
 	
 	# カーソルを初期位置に戻す
-	self.selected_row_number = 1
+	self.get_director().get_current_snapshot().choices_index = 0
 	self.get_transform().x = self.get_ancestor_message_window().choices_cursor_initial_x
 	self.get_transform().y = self.get_ancestor_message_window().choices_cursor_initial_y
 
@@ -173,10 +171,12 @@ func on_cursor_up(target_index):
 	# 効果音鳴らす
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
-	var old_selected_row_number = self.selected_row_number
-	self.selected_row_number = self.get_director().get_current_snapshot().choices_row_numbers[target_index - 1]
-	var difference = old_selected_row_number - self.selected_row_number
-	
+	var snapshot = self.get_director().get_current_snapshot()
+
+	var old_selected_row_number = snapshot.get_row_number_of_choices()
+	snapshot.choices_index -= 1 
+	var difference = old_selected_row_number - snapshot.get_row_number_of_choices()
+
 	self.src_y = self.offset_top
 	self.dst_y = self.offset_top - difference * (self.font_height + self.line_space_height)
 	self.total_seconds = 0.3
@@ -188,10 +188,11 @@ func on_cursor_down(target_index):
 	# 効果音鳴らす
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
-	var old_selected_row_number = self.selected_row_number
-	self.selected_row_number = self.get_director().get_current_snapshot().choices_row_numbers[target_index + 1]
-	#print("［選択肢カーソル］　新行番号：" + str(self.selected_row_number))
-	var difference = self.selected_row_number - old_selected_row_number
+	var snapshot = self.get_director().get_current_snapshot()
+
+	var old_selected_row_number = snapshot.get_row_number_of_choices()
+	snapshot.choices_index += 1 
+	var difference = snapshot.get_row_number_of_choices() - old_selected_row_number
 
 	self.src_y = self.offset_top
 	self.dst_y = self.offset_top + difference * (self.font_height + self.line_space_height)
@@ -213,7 +214,7 @@ func _ready():
 	self.statemachine_of_blinker.on_turned_on = self.on_turned_on
 	self.statemachine_of_blinker.on_turned_off = self.on_turned_off
 
-	self.statemachine_of_end_of_message_blinker.decide()
+	#self.statemachine_of_end_of_message_blinker.decide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -275,22 +276,19 @@ func on_virtual_key_input(virtual_key, lever_value, _vk_operation):
 				# 上へ移動する分
 				if self.get_director_for_key_config().is_key_up(virtual_key, lever_value):
 					#print("［選択肢カーソル］　上へ")
-					var index = selected_cursor_index();
-					
+
 					# カーソルは上へ移動できるか？
-					if self.can_cursor_up(index):
+					if self.can_cursor_up(snapshot.choices_index):
 						# カーソルが上に移動します
-						self.on_cursor_up(index)
+						self.on_cursor_up(snapshot.choices_index)
 					
 				# 下へ移動する分
 				if self.get_director_for_key_config().is_key_down(virtual_key, lever_value):
 					#print("［選択肢カーソル］　下へ")
-					#print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
-					var index = selected_cursor_index();
 
-					if self.can_cursor_down(index):
+					if self.can_cursor_down(snapshot.choices_index):
 						# カーソルが下に移動します
-						self.on_cursor_down(index)
+						self.on_cursor_down(snapshot.choices_index)
 
 
 # 自動的にカーソルは移動中
@@ -301,15 +299,6 @@ func on_cursor_moving_automatically(delta):
 		progress = 1.0
 		self.total_seconds = 0.0
 	self.offset_top = self.do_lerp(self.src_y, self.dst_y, progress)
-
-
-func selected_cursor_index():
-	var choices_row_numbers = self.get_director().get_current_snapshot().choices_row_numbers
-	
-	if choices_row_numbers != null:
-		return choices_row_numbers.find(self.selected_row_number)
-
-	return -1
 
 
 # カーソルは上へ移動できるか？
