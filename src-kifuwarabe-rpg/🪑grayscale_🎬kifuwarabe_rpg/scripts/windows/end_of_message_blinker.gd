@@ -123,9 +123,7 @@ func on_none_the_end_of_message_blinker():
 	self.statemachine_of_blinker.switch_off()
 	
 	# カーソルを先頭に戻す
-	var snapshot = self.get_director().get_current_snapshot()
-	snapshot.choices_index = 0
-	self.reset_cursor_position()
+	#self.reset_cursor_position()
 
 	
 func on_thought():
@@ -183,12 +181,18 @@ func calc_cursor_vector():
 	return Vector2(scalar_x, scalar_y)
 
 
-# カーソルを先頭へセットします
+# 選択肢カーソルを先頭へセットします
 func reset_cursor_position():
+	print("［選択肢カーソル］　先頭へリセット")
+	var snapshot = self.get_director().get_current_snapshot()
+
+	snapshot.choices_index = 0
 	var vec = self.calc_cursor_vector()
 
-	self.get_transform().x = Vector2(vec.x, 0)
-	self.get_transform().y = Vector2(0, vec.y)
+	self.offset_left = vec.x
+	self.offset_top = vec.y
+	#self.get_transform().x = Vector2(vec.x, 0)
+	#self.get_transform().y = Vector2(0, vec.y)
 
 
 # カーソルが上に移動します

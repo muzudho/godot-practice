@@ -50,6 +50,10 @@ func split_head_line_or_tail(text):
 	return [head, tail]
 
 
+func reset_cursor_position():
+	self.get_choice_cursor().reset_cursor_position()
+
+
 # サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(
 	is_process):	# bool

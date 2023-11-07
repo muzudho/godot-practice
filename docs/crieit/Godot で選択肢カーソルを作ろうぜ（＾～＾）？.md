@@ -65,5 +65,28 @@
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　前進よ、前進」  
 
+## ウィンドウごとの、カーソルの初期位置をどう記憶する？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　カーソルの初期位置を　どう記憶するか。  
+初期位置というより、原点がいいのか」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　`choices_cursor_origin_x` と、 `choices_cursor_origin_y` 変数を用意しろだぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　先頭が１行目とは限らないんだよな」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　`get_cursor_x()` と、 `get_cursor_y()` メソッドを作りなさいよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　`font_height` を 32、 `line_space_height` を 16 として、  
+座標を計算してみるぜ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ラベルは　`get_transform().x` や、 `get_transform().y` より、  
+`offset_left` 、 `offset_top` を使った方がいいのかだぜ？  
+よく分からんなあ」  
 
 .
