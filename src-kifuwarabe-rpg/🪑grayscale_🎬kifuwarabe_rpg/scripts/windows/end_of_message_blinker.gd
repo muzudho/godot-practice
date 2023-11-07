@@ -125,6 +125,7 @@ func on_none_the_end_of_message_blinker():
 	self.statemachine_of_blinker.switch_off()
 	
 	# カーソルを初期位置に戻す
+	self.selected_row_number = 1
 	self.get_transform().x = self.get_ancestor_message_window().choices_cursor_initial_x
 	self.get_transform().y = self.get_ancestor_message_window().choices_cursor_initial_y
 

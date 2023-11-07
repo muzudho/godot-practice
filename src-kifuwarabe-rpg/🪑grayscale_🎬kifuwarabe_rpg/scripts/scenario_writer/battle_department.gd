@@ -246,7 +246,7 @@ var document = {
 		# 最後に表示したウィンドウが、メッセージ出力対象になるので並べる順に注意
 		m_wnd:			■左下
 		msg_speed:		1000
-		choice:			1,2,3
+		choice:			1,2,3,4
 		""",
 		"""\
 		　攻める
@@ -272,7 +272,7 @@ var document = {
 		!
 		m_wnd:			■下
 		msg_speed:		20
-		choice:			1,2,3,4
+		choice:			1,2,3
 		""",
 		"""\
 		　新無敵囲い
