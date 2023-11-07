@@ -235,7 +235,9 @@ func _process(delta):
 				self.on_cursor_moving_automatically(delta)
 
 
-func _unhandled_input(event):
+# 仮想キー入力時
+func on_virtual_key_input(virtual_key, lever_value, _vk_operation):
+
 	# 一時的にどこかに消えているのなら処理しない
 	if not self.is_appear:
 		return
@@ -255,12 +257,9 @@ func _unhandled_input(event):
 			# 移動量が残ってないなら
 			else:
 				
-				# 例： Joypad Motion on Axis 1 (Left Stick Y-Axis, Joystick 0 Y-Axis) with Value 0.00
-				var evant_as_text = event.as_text()
-				
 				# 手動でカーソルは移動開始
 				# 上へ移動する分
-				if self.get_director_for_key_config().is_key_up_by_text(evant_as_text):
+				if self.get_director_for_key_config().is_key_up(virtual_key, lever_value):
 					#print("［選択肢カーソル］　上へ")
 					var index = selected_cursor_index();
 					
@@ -270,7 +269,7 @@ func _unhandled_input(event):
 						self.on_cursor_up(index)
 					
 				# 下へ移動する分
-				if self.get_director_for_key_config().is_key_down_by_text(evant_as_text):
+				if self.get_director_for_key_config().is_key_down(virtual_key, lever_value):
 					#print("［選択肢カーソル］　下へ")
 					#print("［選択肢カーソル］　選択行番号：" + str(self.selected_row_number))
 					var index = selected_cursor_index();

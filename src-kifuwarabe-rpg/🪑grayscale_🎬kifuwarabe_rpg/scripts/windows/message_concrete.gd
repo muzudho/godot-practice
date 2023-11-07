@@ -128,8 +128,11 @@ func set_appear_subtree(
 				child.set_appear_subtree(appear_flag)
 
 
-# テキストボックスなどにフォーカスが無いときの入力を拾う
-func on_unhandled_virtual_key_input(virtual_key, vk_operation):
+# 仮想キー入力時
+func on_virtual_key_input(virtual_key, lever_value, vk_operation):
+
+	# 選択肢カーソル
+	self.get_canvas_layer().get_node("TextBlock/ChoiceCursor").on_virtual_key_input(virtual_key, lever_value, vk_operation)
 
 	if virtual_key == &"VK_FastForward":
 		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
@@ -150,20 +153,22 @@ func on_unhandled_virtual_key_input(virtual_key, vk_operation):
 			# 押下時
 			if vk_operation == &"VKO_Pressed":
 				
+				# TODO カーソルの上下もここにくる？
+
 				# 確定ボタン以外は無効
 				if virtual_key != &"VK_Ok":
-					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢　押下時　エンターキーではないのでメッセージ送りしません")
+					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキーではないのでメッセージ送りしません")
 					return
 					
 				else:
-					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢　押下時　エンターキー　ページ送りする")
+					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキー　ページ送りする")
 					# 選択肢を確定した
 					# ページ送り
 					self.statemachine_of_message_window.page_forward()
 					return
 
 			else:
-				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢　押下時ではない")
+				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時ではない")
 		
 		# 通常テキストモードなら
 		else:

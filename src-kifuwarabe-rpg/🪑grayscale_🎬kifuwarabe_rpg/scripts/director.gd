@@ -27,6 +27,7 @@ var sleep_seconds = 0.0
 # メッセージの早送り
 var is_fast_forward = false
 
+
 # 助監取得
 func get_assistant_director():
 	return $"AssistantDirector"
@@ -243,26 +244,28 @@ func _unhandled_key_input(event):
 		# 以下、仮想キー
 
 		# このゲーム独自の仮想キーに変換
-		var virtual_key = null
+		var virtual_key_name = null
 		
 		# エンターキー押下
 		if event.keycode == KEY_ENTER:
-			virtual_key = &"VK_Ok"
+			virtual_key_name = &"VK_Ok"
 
 		# エスケープキー押下
 		elif event.keycode == KEY_ESCAPE:
-			virtual_key = &"VK_Cancel"
+			virtual_key_name = &"VK_Cancel"
 
 		# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
 		elif event.keycode == KEY_R:
-			virtual_key = &"VK_FastForward"
+			virtual_key_name = &"VK_FastForward"
 		
 		# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
 		else:
 			return
 
+		var lever_value = 0.0
+
 		# 仮想キーを押下したという建付け
-		self.on_virtual_key_input(virtual_key, vk_operation)
+		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
 
 
 func _unhandled_input(event):
@@ -304,12 +307,15 @@ func _unhandled_input(event):
 		# ボタン番号を、仮想キー名に変換
 		var virtual_key_name = $"Director_KeyConfig".get_virtual_key_name_by_button_number(button_number)
 
+		# レバー値
+		var lever_value = $"Director_KeyConfig".get_lever_value_by_text(event_as_text)
+
 		# 仮想キーを押下したという建付け
-		self.on_virtual_key_input(virtual_key_name, vk_operation)
+		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
 
 
 # 仮想キーを押下したという建付け
-func on_virtual_key_input(virtual_key, vk_operation):
+func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
 	if vk_operation == &"VKO_Pressed" and str(self.current_department_name) in self.get_switch_department().key_pressed_stage_directions:
 		
@@ -332,5 +338,5 @@ func on_virtual_key_input(virtual_key, vk_operation):
 
 	print("［監督］　アンハンドルド・キー押下　その他のキー（" + virtual_key + "）")
 
-	#	子要素へ渡す
-	self.get_current_message_window().on_unhandled_virtual_key_input(virtual_key, vk_operation)
+	# 子要素へ渡す
+	self.get_current_message_window().on_virtual_key_input(virtual_key, lever_value, vk_operation)

@@ -12,12 +12,6 @@ func get_scenario_writer():
 	return $"../ScenarioWriter"
 
 
-# ビジュアル・ノベル部のこの瞬間の状態
-func get_snapshot(
-	department_node_name):	# StringName
-	return $"../System/Snapshots".get_node(department_node_name)
-
-
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()

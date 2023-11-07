@@ -45,13 +45,13 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 	# （注意３／４）　キーコンフィグが自動で始まるのが困るなら、以下をコメントアウトすること
 	#self.on_process(delta)
 
 
-func _unhandled_input(event):
+func _unhandled_input(_event):
 	pass
 	# （注意４／４）　キーコンフィグが自動で始まるのが困るなら、以下をコメントアウトすること
 	#self.on_unhandled_input(event)
@@ -86,12 +86,17 @@ func get_virtual_key_name_by_button_number(button_number):
 func is_key_up_by_text(event_as_text):
 	var button_number = self.get_button_number_by_text(event_as_text)
 	var virtual_key_name = self.get_virtual_key_name_by_button_number(button_number)
+	var lever_value = self.get_lever_value_by_text(event_as_text)
 	
+	return self.is_key_up(virtual_key_name, lever_value)
+
+
+# 上キーが入力されたか？
+func is_key_up(virtual_key_name, lever_value):
+
 	if virtual_key_name == &"VK_Up":
 		return true
 
-	var lever_value = self.get_lever_value_by_text(event_as_text)
-		
 	if virtual_key_name == &"VK_Down" and lever_value < 0:
 		return true
 
@@ -104,7 +109,9 @@ func is_key_down_by_text(event_as_text):
 	var virtual_key_name = self.get_virtual_key_name_by_button_number(button_number)
 	var lever_value = self.get_lever_value_by_text(event_as_text)
 	
-	if virtual_key_name == &"VK_Down" and 0 <= lever_value:
-		return true
+	return self.is_key_down(virtual_key_name, lever_value)
 
-	return false
+
+# 下キーが入力されたか？
+func is_key_down(virtual_key_name, lever_value):
+	return virtual_key_name == &"VK_Down" and 0 <= lever_value
