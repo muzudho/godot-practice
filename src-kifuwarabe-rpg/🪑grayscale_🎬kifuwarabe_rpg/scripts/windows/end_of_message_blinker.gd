@@ -198,12 +198,12 @@ func on_cursor_up(target_index):
 
 	var snapshot = self.get_director().get_current_snapshot()
 
-	var old_selected_row_number = snapshot.get_row_number_of_choices()
-	snapshot.choices_index -= 1 
-	var difference = old_selected_row_number - snapshot.get_row_number_of_choices()
+	var old_vec = self.calc_cursor_vector()
+	snapshot.choices_index -= 1
+	var new_vec = self.calc_cursor_vector()
 
-	self.src_y = self.offset_top
-	self.dst_y = self.offset_top - difference * (self.font_height + self.line_space_height)
+	self.src_y = old_vec.y
+	self.dst_y = new_vec.y
 	self.total_seconds = 0.3
 	self.elapsed_seconds = 0.0
 
@@ -215,12 +215,12 @@ func on_cursor_down(target_index):
 
 	var snapshot = self.get_director().get_current_snapshot()
 
-	var old_selected_row_number = snapshot.get_row_number_of_choices()
+	var old_vec = self.calc_cursor_vector()
 	snapshot.choices_index += 1 
-	var difference = snapshot.get_row_number_of_choices() - old_selected_row_number
+	var new_vec = self.calc_cursor_vector()
 
-	self.src_y = self.offset_top
-	self.dst_y = self.offset_top + difference * (self.font_height + self.line_space_height)
+	self.src_y = old_vec.y
+	self.dst_y = new_vec.y
 	self.total_seconds = 0.3
 	self.elapsed_seconds = 0.0
 
