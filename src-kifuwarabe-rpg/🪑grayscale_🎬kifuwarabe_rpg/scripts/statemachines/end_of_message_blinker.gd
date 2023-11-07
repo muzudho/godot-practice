@@ -51,7 +51,7 @@ enum States {None, Staying, Floating}
 var state = States.None
 
 # 関数の変数
-var on_decided = null
+var on_none = null
 var on_thought = null
 var on_sought = null
 var on_arrived = null
@@ -70,8 +70,8 @@ func is_floating():
 
 
 func decide():
-	if on_decided != null:
-		on_decided.call()
+	if on_none != null:
+		on_none.call()
 	
 	#print("［文末ブリンカー］　決めた")
 	self.state = States.None

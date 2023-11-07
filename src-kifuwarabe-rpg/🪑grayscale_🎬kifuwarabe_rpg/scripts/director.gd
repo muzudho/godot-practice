@@ -50,7 +50,7 @@ func get_current_snapshot():
 
 # 伝言窓（現在、出力の対象になっているもの）
 func get_message_window(node_name_obj):
-	print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
+	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
 	return $"GuiArtist/WindowsOfMessage".get_node(str(node_name_obj))
 
 
@@ -61,7 +61,7 @@ func get_current_message_window():
 		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
 
 	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
-	print("［監督］　伝言窓名：［" + node_name + "］")
+	#print("［監督］　伝言窓名：［" + node_name + "］")
 	return self.get_message_window(str(node_name))
 
 

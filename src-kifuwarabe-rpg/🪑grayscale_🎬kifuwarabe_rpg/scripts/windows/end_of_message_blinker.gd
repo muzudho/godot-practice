@@ -53,7 +53,7 @@ func get_message_window_name():
 # 伝言窓を取得
 func get_ancestor_message_window():
 	var path = "../../../" + self.get_message_window_name()
-	print("［選択肢］　path:" + path)
+	#print("［選択肢］　path:" + path)
 	return self.get_node(path)
 
 
@@ -118,7 +118,7 @@ func set_appear_subtree(appear_flag):
 
 # 初期化
 #	ウィンドウが消えている状態を想定しています。
-func on_decided():
+func on_none_the_end_of_message_blinker():
 	print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　オン・デサイデッド")
 
 	# ブリンカーのスイッチ・オフ
@@ -201,7 +201,7 @@ func on_cursor_down(target_index):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# 状態機械のセットアップ
-	self.statemachine_of_end_of_message_blinker.on_decided = self.on_decided
+	self.statemachine_of_end_of_message_blinker.on_none = self.on_none_the_end_of_message_blinker
 	self.statemachine_of_end_of_message_blinker.on_thought = self.on_thought
 	self.statemachine_of_end_of_message_blinker.on_sought = self.on_sought
 	self.statemachine_of_end_of_message_blinker.on_arrived = self.on_arrived
