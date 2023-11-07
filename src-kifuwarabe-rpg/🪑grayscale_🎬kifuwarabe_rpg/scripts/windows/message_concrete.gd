@@ -7,9 +7,9 @@ var statemachine_of_message_window = load("res://🪑grayscale_🎬kifuwarabe_rp
 
 var is_appear = true
 
-# 選択肢カーソル初期位置
-var choices_cursor_initial_x = 0.0
-var choices_cursor_initial_y = 0.0
+# 選択肢カーソルの原点
+var choices_cursor_origin_x = 0.0
+var choices_cursor_origin_y = 0.0
 
 
 # 監督取得
@@ -324,8 +324,8 @@ func _ready():
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
 	# 選択肢カーソルの初期位置を記憶
-	self.choices_cursor_initial_x = self.get_choice_cursor().get_transform().x
-	self.choices_cursor_initial_y = self.get_choice_cursor().get_transform().y
+	self.choices_cursor_origin_x = self.get_choice_cursor().get_transform().x.x # Vector To Scalar
+	self.choices_cursor_origin_y = self.get_choice_cursor().get_transform().y.y
 
 
 func _process(delta):

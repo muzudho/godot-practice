@@ -52,8 +52,11 @@ func is_choices():
 	return self.choices_row_numbers != null
 
 
-# 選択肢カーソルが指しているのは何行目か？　序数
+# 選択肢カーソルが指しているのは何行目か？　序数。該当がなければ 1 を返す
 func get_row_number_of_choices():
+	if self.choices_row_numbers == null:
+		return 1
+	
 	return self.choices_row_numbers[self.choices_index]
 
 

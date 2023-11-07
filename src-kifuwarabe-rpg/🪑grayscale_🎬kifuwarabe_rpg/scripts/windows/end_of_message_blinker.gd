@@ -122,10 +122,10 @@ func on_none_the_end_of_message_blinker():
 	# ブリンカーのスイッチ・オフ
 	self.statemachine_of_blinker.switch_off()
 	
-	# カーソルを初期位置に戻す
-	self.get_director().get_current_snapshot().choices_index = 0
-	self.get_transform().x = self.get_ancestor_message_window().choices_cursor_initial_x
-	self.get_transform().y = self.get_ancestor_message_window().choices_cursor_initial_y
+	# カーソルを先頭に戻す
+	var snapshot = self.get_director().get_current_snapshot()
+	snapshot.choices_index = 0
+	self.reset_cursor_position()
 
 	
 func on_thought():
@@ -164,6 +164,24 @@ func on_turned_on():
 # 時間経過による消灯
 func on_turned_off():
 	self.modulate.a = 0.0
+
+
+# カーソルを先頭へセットします
+func reset_cursor_position():
+	var snapshot = self.get_director().get_current_snapshot()
+	var selected_row_number = snapshot.get_row_number_of_choices()
+
+	# 先頭を１行目とし、基数に変換する
+	var difference = selected_row_number - 1
+
+	var message_window = self.get_ancestor_message_window()
+
+	# self.get_transform().x と、 self.offset_right 、どっちを変更するのがいい？
+	# self.get_transform().y と、 self.offset_top 、どっちを変更するのがいい？
+	var scalar_x = message_window.choices_cursor_origin_x
+	var scalar_y = difference * (self.font_height + self.line_space_height) + message_window.choices_cursor_origin_y
+	self.get_transform().x = Vector2(scalar_x, 0)
+	self.get_transform().y = Vector2(0, scalar_y)
 
 
 # カーソルが上に移動します
