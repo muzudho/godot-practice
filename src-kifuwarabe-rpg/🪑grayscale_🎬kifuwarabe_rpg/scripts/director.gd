@@ -337,7 +337,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 			# 子要素には渡しません
 			return
 
-	print("［監督］　アンハンドルド・キー押下　その他のキー（" + virtual_key + "）")
+	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
 	self.get_current_message_window().on_virtual_key_input(virtual_key, lever_value, vk_operation)

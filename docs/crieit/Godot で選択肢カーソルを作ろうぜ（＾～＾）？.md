@@ -41,7 +41,22 @@
 「　現在、カーソルが指している行番号を取得するには、  
 `get_row_number_of_choices()` メソッドを使う」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　選択肢カーソルを下へ移動できるかは、 `can_cursor_down()` メソッドを使う。  
+真偽値を返す」  
 
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　選択肢カーソルを上へ移動できるかは、 `can_cursor_up()` メソッドを使う。  
+真偽値を返す」  
+
+## あっ！
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　レバーを押したか、離したかを見てないな。  
+レバーを押したときと、離したときで　２回　入力が入っている」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　直せ！」  
 
 
 .

@@ -29,7 +29,7 @@ texture = ExtResource("2_k8epg")
 
 [node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("3_10q8f")
-volume_db = -15.0
+volume_db = -20.0
 pitch_scale = 1.4
 
 [node name="SE" type="Node" parent="Musician"]

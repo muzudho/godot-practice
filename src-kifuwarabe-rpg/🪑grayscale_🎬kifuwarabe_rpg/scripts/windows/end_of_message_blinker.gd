@@ -278,15 +278,15 @@ func on_virtual_key_input(virtual_key, lever_value, _vk_operation):
 					#print("［選択肢カーソル］　上へ")
 
 					# カーソルは上へ移動できるか？
-					if self.can_cursor_up(snapshot.choices_index):
+					if self.can_cursor_up():
 						# カーソルが上に移動します
 						self.on_cursor_up(snapshot.choices_index)
 					
 				# 下へ移動する分
-				if self.get_director_for_key_config().is_key_down(virtual_key, lever_value):
+				elif self.get_director_for_key_config().is_key_down(virtual_key, lever_value):
 					#print("［選択肢カーソル］　下へ")
 
-					if self.can_cursor_down(snapshot.choices_index):
+					if self.can_cursor_down():
 						# カーソルが下に移動します
 						self.on_cursor_down(snapshot.choices_index)
 
@@ -302,7 +302,11 @@ func on_cursor_moving_automatically(delta):
 
 
 # カーソルは上へ移動できるか？
-func can_cursor_up(index):
+func can_cursor_up():
+
+	var snapshot = self.get_director().get_current_snapshot()
+	var index = snapshot.choices_index
+
 	if 0 < index:
 		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できる")
 		return true
@@ -313,9 +317,13 @@ func can_cursor_up(index):
 
 
 # カーソルは下へ移動できるか？
-func can_cursor_down(index):
+func can_cursor_down():
+
+	var snapshot = self.get_director().get_current_snapshot()
+	var index = snapshot.choices_index
+
 	# 配列
-	var choices_row_numbers = self.get_director().get_current_snapshot().choices_row_numbers
+	var choices_row_numbers = snapshot.choices_row_numbers
 	if choices_row_numbers != null:
 		var choice_size = choices_row_numbers.size()
 	
