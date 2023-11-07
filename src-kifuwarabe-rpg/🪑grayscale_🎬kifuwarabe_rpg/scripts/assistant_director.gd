@@ -23,15 +23,15 @@ func get_current_section_size_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()
 	
 	var node_name = snapshot.name
-	var node = self.get_scenario_writer().get_node(str(node_name))
-	if node == null:
+	var scenario_node = self.get_scenario_writer().get_node(str(node_name))
+	if scenario_node == null:
 		print("［助監］　▲エラー　”" + node_name + "”ノードが無い")
 	
 	var section_name =  snapshot.section_name
-	if not(section_name in node.document):
+	if not(section_name in scenario_node.document):
 		print("［助監］　▲エラー　”" + section_name + "”セクションが無い")
 		
-	var section = node.document[section_name]
+	var section = scenario_node.document[section_name]
 	return section.size()
 
 
@@ -324,7 +324,7 @@ func on_process(delta):
 		# まだあるよ
 		if snapshot.section_item_index < self.get_current_section_size_of_scenario():
 		
-			# 次に表示するべきメッセージを取得
+			# 現在のシナリオの次のパラグラフを取得
 			var paragraph = self.get_current_paragraph_of_scenario()
 
 			# カウントアップ
