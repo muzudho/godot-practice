@@ -42,7 +42,7 @@ func get_musician():
 
 # ＧＵＩ担当取得
 func get_gui_artist():
-	return $"../GuiArtist"
+	return $"../../GuiArtist"
 
 
 # ボタンが重複するか？
