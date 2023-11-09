@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=3 uid="uid://kqejd4uyxvtm"]
+[gd_scene load_steps=12 format=3 uid="uid://kqejd4uyxvtm"]
 
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/director_key_config.gd" id="1_8lu21"]
-[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🪑grayscale_🎬key_config/images/1280x720/grid.png" id="2_k8epg"]
 [ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🪑grayscale_🎬key_config/audio/se/maou.audio/maou_bgm_cyber36.ogg" id="3_10q8f"]
 [ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://🪑grayscale_🎬key_config/audio/se/maou.audio/maou_se_sound_door02.ogg" id="4_hxxki"]
 [ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://🪑grayscale_🎬key_config/audio/se/maou.audio/maou_se_system12.ogg" id="5_rp27r"]
@@ -15,12 +14,6 @@
 
 [node name="Director_KeyConfig" type="Node2D"]
 script = ExtResource("1_8lu21")
-
-[node name="Grid" type="Sprite2D" parent="."]
-visible = false
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("2_k8epg")
 
 [node name="Musician" type="Node" parent="."]
 
@@ -127,16 +120,6 @@ texture = ExtResource("11_sfwhh")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_b0xjv")
-
-[node name="TelopCoordinator" type="Node" parent="."]
-
-[node name="TextBlock" type="Label" parent="TelopCoordinator"]
-offset_left = 321.0
-offset_top = 507.0
-offset_right = 1029.0
-offset_bottom = 670.0
-text = "ここに説明文"
-label_settings = ExtResource("10_566va")
 
 [node name="KeyConfigArtist" type="Node" parent="."]
 script = ExtResource("13_4ilkl")

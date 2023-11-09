@@ -1,11 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=6 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🪑grayscale_🎬key_config.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config_driver/director.gd" id="1_6o4xa"]
+[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🪑grayscale_🎬key_config/images/1280x720/grid.png" id="2_k8epg"]
 [ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://🪑grayscale_🎬key_config/images/1280x720/in_front_of_sakiwaka_station.png" id="8_04t68"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🪑grayscale_🎬key_config/settings/label_setting_medium.tres" id="10_566va"]
 
 [node name="Director" type="Node2D"]
 script = ExtResource("1_6o4xa")
+
+[node name="Director_KeyConfig" parent="." instance=ExtResource("1_1j70m")]
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 
@@ -14,4 +18,18 @@ visible = false
 position = Vector2(640, 360)
 texture = ExtResource("8_04t68")
 
-[node name="Director_KeyConfig" parent="." instance=ExtResource("1_1j70m")]
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("2_k8epg")
+
+[node name="TelopCoordinator" type="Node" parent="."]
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator"]
+offset_left = 321.0
+offset_top = 507.0
+offset_right = 1029.0
+offset_bottom = 670.0
+text = "ここに説明文"
+label_settings = ExtResource("10_566va")
