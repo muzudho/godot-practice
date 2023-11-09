@@ -4,9 +4,20 @@
 extends Node2D
 
 
+# 背景職人取得
+func get_background_artist():
+	return $"BackgroundArtist"
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# キーコンフィグを始めます
+	# ーーーーーーーー
+	# キーコンフィグ
+	# ーーーーーーーー
+	#
+	# 背景
+	self.get_background_artist().get_node("🗻崎川駅前").visible = true
+	#
 	$"Director_KeyConfig".entry()
 
 

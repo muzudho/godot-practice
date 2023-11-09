@@ -106,8 +106,6 @@ func entry():
 	# 設定
 	# ーーーーーーーー
 
-	# 背景
-	self.get_background_artist().get_node("🗻崎川駅前").visible = true
 	# GUI - メッセージ・ウィンドウ
 	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = true
 	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = true
