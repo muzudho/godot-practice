@@ -133,10 +133,15 @@ func _ready():
 
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	#
-	# 監督は表示する必要がある
+	# 表示するもの
+	# 	監督自身
 	self.show()
-	# ＧＵＩアーティスト自身は表示する必要がある
+	# 	背景アーティスト自身
+	$"BackgroundArtist".show()
+	# 	ＧＵＩアーティスト自身
 	$"GuiArtist".show()
+	#	メッセージ・ウィンドウ自身
+	$"GuiArtist/WindowsOfMessage".show()
 	# モンスター・トレーナー
 	$"MonsterTrainer".show()
 	$"MonsterTrainer/Faces".show()
@@ -151,8 +156,6 @@ func _ready():
 
 	# ウィンドウはとにかく隠す
 	#
-	#	親ノードは例外
-	$"GuiArtist/WindowsOfMessage".show()
 	#	伝言窓はとにかく隠す
 	for message_window in $"GuiArtist/WindowsOfMessage".get_children():
 		message_window.hide()

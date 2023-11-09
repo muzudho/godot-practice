@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://b1bsn7qc47x4d"]
 
-[ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/director.gd" id="1_mtmqs"]
+[ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/director_key_config.gd" id="1_8lu21"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🪑grayscale_🎬key_config/images/1280x720/grid.png" id="2_k8epg"]
 [ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🪑grayscale_🎬key_config/audio/se/maou.audio/maou_bgm_cyber36.ogg" id="3_10q8f"]
 [ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://🪑grayscale_🎬key_config/audio/se/maou.audio/maou_se_sound_door02.ogg" id="4_hxxki"]
@@ -15,7 +15,7 @@
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/key_config_artist.gd" id="13_4ilkl"]
 
 [node name="Director_KeyConfig" type="Node2D"]
-script = ExtResource("1_mtmqs")
+script = ExtResource("1_8lu21")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
@@ -53,7 +53,6 @@ volume_db = -15.0
 [node name="BackgroundArtist" type="Node2D" parent="."]
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("8_04t68")
 
@@ -132,7 +131,6 @@ position = Vector2(640, 360)
 texture = ExtResource("11_sfwhh")
 
 [node name="■上_大" type="Sprite2D" parent="GuiArtist/WindowOfMessage"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_b0xjv")
 
