@@ -37,7 +37,7 @@ func get_telop_coordinator():
 
 # 音楽家取得
 func get_musician():
-	return $"../Musician"
+	return $"../../Musician"
 
 
 # ＧＵＩ担当取得
