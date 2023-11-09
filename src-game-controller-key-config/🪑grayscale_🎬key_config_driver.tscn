@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1bsn7qc47x4d"]
+
+[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🪑grayscale_🎬key_config.tscn" id="1_1j70m"]
+[ext_resource type="Script" path="res://🪑grayscale_🎬key_config_driver/director.gd" id="1_6o4xa"]
+
+[node name="Director" type="Node2D"]
+script = ExtResource("1_6o4xa")
+
+[node name="Director_KeyConfig" parent="." instance=ExtResource("1_1j70m")]
