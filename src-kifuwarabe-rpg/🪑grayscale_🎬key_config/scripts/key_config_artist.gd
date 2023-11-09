@@ -21,13 +21,7 @@ var is_enabled = false
 
 # ディレクター取得
 func get_director():
-	# Director_KeyConfig” ルート・ノードを名称変更して使いたいなら、以下を編集してください
 	return $"../../Director_KeyConfig"
-
-
-# 背景担当取得
-func get_background_artist():
-	return $"../BackgroundArtist"
 
 
 # テロップ・コーディネーター取得
@@ -65,9 +59,6 @@ func _ready():
 	# 初期化
 	# ーーーーーーーー
 	
-	# 背景非表示
-	self.get_background_artist().visible = false
-	
 	# ウィンドウ非表示
 	self.get_gui_artist().get_node("WindowOfMessage").visible = false
 	
@@ -90,9 +81,6 @@ func entry():
 	# 表示
 	# ーーーーーーーー
 	
-	# 背景表示
-	self.get_background_artist().visible = true
-	
 	# ウィンドウ表示
 	self.get_gui_artist().get_node("WindowOfMessage").visible = true
 	
@@ -105,14 +93,14 @@ func entry():
 	# ーーーーーーーー
 	# 設定
 	# ーーーーーーーー
-
-	# 背景
-	self.get_background_artist().get_node("🗻崎川駅前").visible = true
+	#
 	# GUI - メッセージ・ウィンドウ
 	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = true
 	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = true
+	#
 	# GUI
 	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
+	#
 	# テロップ
 	self.set_empty_the_button_message(1)
 	self.set_empty_the_button_message(2)
@@ -120,14 +108,13 @@ func entry():
 	self.get_telop_coordinator().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
+	
 	self.is_enabled = true
 
 
 # キーコンフィグ終了時
 func on_exit():
 	self.is_enabled = false
-	# 背景
-	self.get_background_artist().get_node("🗻崎川駅前").visible = false
 	# GUI - メッセージ・ウィンドウ
 	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = false
 	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = false

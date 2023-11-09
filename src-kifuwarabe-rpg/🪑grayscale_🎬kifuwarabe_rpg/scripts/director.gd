@@ -33,6 +33,9 @@ func get_assistant_director():
 	return $"AssistantDirector"
 
 
+func get_background_artist():
+	return $"BackgroundArtist"
+
 # 部門切替取得
 func get_switch_department():
 	return $"ScenarioWriter/SwitchDepartment"
@@ -137,7 +140,7 @@ func _ready():
 	# 	監督自身
 	self.show()
 	# 	背景アーティスト自身
-	$"BackgroundArtist".show()
+	self.get_background_artist().show()
 	# 	ＧＵＩアーティスト自身
 	$"GuiArtist".show()
 	#	メッセージ・ウィンドウ自身
@@ -151,7 +154,7 @@ func _ready():
 	$"Grid".hide()
 
 	# 背景画像は全部隠す
-	for sprite2d_node in $"BackgroundArtist".get_children():
+	for sprite2d_node in self.get_background_artist().get_children():
 		sprite2d_node.hide()
 
 	# ウィンドウはとにかく隠す
@@ -174,6 +177,11 @@ func _ready():
 		monster.hide()
 	for monster in $"MonsterTrainer/WholeBody".get_children():
 		monster.hide()
+
+
+func on_key_config_entered():
+	# 背景
+	self.get_background_artist().get_node("🗻崎川駅前").visible = true
 
 
 func on_key_config_exited():

@@ -250,6 +250,7 @@ volume_db = -15.0
 pitch_scale = 1.5
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
+visible = false
 
 [node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
@@ -1052,3 +1053,4 @@ script = ExtResource("90_536e5")
 script = ExtResource("91_ae3u7")
 
 [node name="Director_KeyConfig" parent="." instance=ExtResource("92_3oj3f")]
+visible = false

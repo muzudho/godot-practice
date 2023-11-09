@@ -18,6 +18,9 @@ var key_config = {
 
 # キー・コンフィグ画面を始めるタイミングで以下を呼出す
 func entry():
+	# シーンの外側の１階層上の `Director` ノードへアクセス
+	$"../../Director".on_key_config_entered()
+	
 	$"KeyConfigArtist".entry()
 
 

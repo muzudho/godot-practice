@@ -19,12 +19,6 @@ func _ready():
 	# ーーーーーーーー
 	# キーコンフィグ
 	# ーーーーーーーー
-	#
-	# 背景
-	self.get_background_artist().visible = true
-	self.get_background_artist().get_node("🗻崎川駅前").visible = true
-	#
-	# 開始
 	$"Director_KeyConfig".entry()
 
 
@@ -39,7 +33,14 @@ func _unhandled_input(event):
 	$"Director_KeyConfig".on_unhandled_input(event)
 
 
-# キーコンフィグ完了時に呼出されます
+# キーコンフィグ開始時
+func on_key_config_entered():
+	# 背景
+	self.get_background_artist().visible = true
+	self.get_background_artist().get_node("🗻崎川駅前").visible = true
+
+
+# キーコンフィグ完了時
 func on_key_config_exited():
 	print("［キーコンフィグ］　完了")
 
