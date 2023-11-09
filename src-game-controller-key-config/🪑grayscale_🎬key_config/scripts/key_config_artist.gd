@@ -27,7 +27,7 @@ func get_director():
 
 # 背景担当取得
 func get_background_artist():
-	return $"../BackgroundArtist"
+	return $"../../BackgroundArtist"
 
 
 # テロップ・コーディネーター取得
