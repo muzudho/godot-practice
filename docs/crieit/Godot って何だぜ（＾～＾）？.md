@@ -1320,4 +1320,17 @@ Zzz...
 
 📖　[Godot で選択肢カーソルを作ろうぜ（＾～＾）？](https://crieit.net/posts/Godot-654a463d6e8e2)  
 
+# 📅 2023-11-13 mon 外部リソースのジョインもマージもできん
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👇　ぐぬぬ。 Godot で、外部リソースのジョインもマージもできないぜ」  
+
+📖 [リソース](https://docs.godotengine.org/ja/4.x/tutorials/scripting/resources.html)  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　Godot の開発者はなんも考えてないのよ」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　じゃあ　リソース管理のやり方を　練り直しだぜ」  
+
 .

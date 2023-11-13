@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🪑grayscale_🎬key_config.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config_driver/director.gd" id="1_6o4xa"]
 [ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://🪑grayscale_🎬key_config_driver/images/1280x720/in_front_of_sakiwaka_station.png" id="3_sdjla"]
-[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🪑grayscale_🎬key_config_driver/audio/bgm/maou.audio/maou_bgm_cyber36.ogg" id="4_t63lk"]
-[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://🪑grayscale_🎬key_config_driver/audio/se/maou.audio/maou_se_sound_door02.ogg" id="5_qu58u"]
-[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://🪑grayscale_🎬key_config_driver/audio/se/maou.audio/maou_se_system12.ogg" id="6_piqbu"]
-[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://🪑grayscale_🎬key_config_driver/audio/se/maou.audio/maou_se_onepoint32.ogg" id="7_n81ld"]
-[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://🪑grayscale_🎬key_config_driver/audio/se/maou.audio/maou_se_magic_fire09.ogg" id="8_w6jl8"]
+[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🪑maou_audio_🎵bgm/maou_bgm_cyber36.ogg" id="4_4541j"]
+[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://🪑maou_audio_🎵se/maou_se_sound_door02.ogg" id="5_e1mgt"]
+[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://🪑maou_audio_🎵se/maou_se_system12.ogg" id="6_ke8su"]
+[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://🪑maou_audio_🎵se/maou_se_onepoint32.ogg" id="7_suv7j"]
+[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://🪑maou_audio_🎵se/maou_se_magic_fire09.ogg" id="8_nkl1d"]
 [ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🪑grayscale_🎬key_config_driver/settings/label_setting_large.tres" id="9_6y10j"]
 [ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🪑grayscale_🎬key_config_driver/settings/label_setting_medium.tres" id="10_bs1b0"]
 [ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://🪑grayscale_🎬key_config_driver/images/1280x720/window_at_bottom.png" id="11_ip36x"]
@@ -33,7 +33,7 @@ texture = ExtResource("3_sdjla")
 [node name="🪑grayscale_🎬key_config" type="Node" parent="Musician/BGM"]
 
 [node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="Musician/BGM/🪑grayscale_🎬key_config"]
-stream = ExtResource("4_t63lk")
+stream = ExtResource("4_4541j")
 volume_db = -20.0
 pitch_scale = 1.4
 
@@ -42,19 +42,19 @@ pitch_scale = 1.4
 [node name="🪑grayscale_🎬key_config" type="Node" parent="Musician/SE"]
 
 [node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="Musician/SE/🪑grayscale_🎬key_config"]
-stream = ExtResource("5_qu58u")
+stream = ExtResource("5_e1mgt")
 volume_db = -5.0
 
 [node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="Musician/SE/🪑grayscale_🎬key_config"]
-stream = ExtResource("6_piqbu")
+stream = ExtResource("6_ke8su")
 volume_db = -10.0
 
 [node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="Musician/SE/🪑grayscale_🎬key_config"]
-stream = ExtResource("7_n81ld")
+stream = ExtResource("7_suv7j")
 volume_db = -15.0
 
 [node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="Musician/SE/🪑grayscale_🎬key_config"]
-stream = ExtResource("8_w6jl8")
+stream = ExtResource("8_nkl1d")
 volume_db = -15.0
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
