@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cku4ftrtyhnat"
-path="res://.godot/imported/window_at_top_lerge.png-db0f9a49a12d65eae0b6659eed9c673f.ctex"
+uid="uid://d3vhtxmj2cyey"
+path="res://.godot/imported/grid.png-31480c1d62ee0f6d5426d467d9bc5e49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://🪑grayscale_🎬key_config/images/1280x720/window_at_top_lerge.png"
-dest_files=["res://.godot/imported/window_at_top_lerge.png-db0f9a49a12d65eae0b6659eed9c673f.ctex"]
+source_file="res://res_🪑grayscale_🍉images/1280x720/grid.png"
+dest_files=["res://.godot/imported/grid.png-31480c1d62ee0f6d5426d467d9bc5e49.ctex"]
 
 [params]
 

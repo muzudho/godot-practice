@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cps73qs1cctt8"]
+
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://res_🪑grayscale_🍉images/1280x720/window_at_bottom.png" id="1_5i6ft"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🪑grayscale_🍉images/1280x720/window_at_top_lerge.png" id="2_s6hrt"]
+
+[node name="🎬key_config_🍉gui" type="Node2D"]
+
+[node name="WindowOfMessage" type="Node2D" parent="."]
+
+[node name="■下" type="Sprite2D" parent="WindowOfMessage"]
+position = Vector2(640, 360)
+texture = ExtResource("1_5i6ft")
+
+[node name="■上_大" type="Sprite2D" parent="WindowOfMessage"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_s6hrt")

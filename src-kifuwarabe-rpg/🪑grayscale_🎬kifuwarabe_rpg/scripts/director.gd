@@ -143,6 +143,8 @@ func _ready():
 	self.get_background_artist().show()
 	# 	ＧＵＩアーティスト自身
 	$"GuiArtist".show()
+	#	テロップ表示
+	$"TelopCoordinator".show()
 	#	メッセージ・ウィンドウ自身
 	$"GuiArtist/WindowsOfMessage".show()
 	# モンスター・トレーナー
@@ -177,6 +179,13 @@ func _ready():
 		monster.hide()
 	for monster in $"MonsterTrainer/WholeBody".get_children():
 		monster.hide()
+
+	# ーーーーーーーー
+	# 表示
+	# ーーーーーーーー
+
+	# テロップ
+	$"TelopCoordinator/🎬key_config_🍉telop".show()
 
 
 func on_key_config_entered():

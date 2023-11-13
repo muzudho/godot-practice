@@ -1,4 +1,4 @@
-# キー・コンフィグ・アーティスト（Key Config Artist）
+# モデレーター（Moderator；司会進行）
 extends Node
 
 
@@ -26,30 +26,35 @@ func get_director():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return $"../TelopCoordinator"
+	return $"../../TelopCoordinator/🎬key_config_🍉telop"
 
 
-# 音楽家取得
-func get_musician():
-	return $"../Musician"
+# BGM取得
+func get_bgm():
+	return $"../../Musician/BGM/🎬key_config_🍉bgm"
 
 
-# ＧＵＩ担当取得
-func get_gui_artist():
-	return $"../GuiArtist"
+# 効果音取得
+func get_se():
+	return $"../../Musician/SE/🎬key_config_🍉se"
+
+
+# メッセージ・ウィンドウ
+func get_window_of_message():
+	return $"../../GuiArtist/🎬key_config_🍉gui/WindowOfMessage"
 
 
 # ボタンが重複するか？
-func is_key_duplicated(button_number):
-	return button_number in self.get_director().key_config.values()
+func is_key_duplicated(button_number_1):
+	return button_number_1 in self.get_director().key_config.values()
 
 
 # キャンセルボタン押下か？
-func is_cancel_button_pressed(button_number):
+func is_cancel_button_pressed(button_number_1):
 	if not (&"VK_Cancel" in self.get_director().key_config):
 		return false
 	
-	return button_number == self.get_director().key_config[&"VK_Cancel"]
+	return button_number_1 == self.get_director().key_config[&"VK_Cancel"]
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -59,12 +64,9 @@ func _ready():
 	# 初期化
 	# ーーーーーーーー
 	
-	# ウィンドウ非表示
-	self.get_gui_artist().get_node("WindowOfMessage").visible = false
-	
-	# GUI非表示
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
-	
+	# メッセージ・ウィンドウ非表示
+	self.get_window_of_message().hide()
+		
 	# テロップ非表示
 	self.get_telop_coordinator().get_node("TextBlock").visible = false
 
@@ -82,10 +84,7 @@ func entry():
 	# ーーーーーーーー
 	
 	# ウィンドウ表示
-	self.get_gui_artist().get_node("WindowOfMessage").visible = true
-	
-	# GUI表示
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
+	self.get_window_of_message().show()
 	
 	# テロップ表示
 	self.get_telop_coordinator().get_node("TextBlock").visible = true
@@ -95,11 +94,8 @@ func entry():
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = true
-	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = true
-	#
-	# GUI
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
+	self.get_window_of_message().get_node("■上_大").show()
+	self.get_window_of_message().get_node("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
@@ -116,15 +112,14 @@ func entry():
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = false
-	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = false
-	# GUI
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
-	# テロップ
+	self.get_window_of_message().get_node("■上_大").hide()
+	self.get_window_of_message().get_node("■下").hide()
+	# テロップ非表示
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
+	self.get_telop_coordinator().hide()
 
 	# BGM 停止	
-	self.get_musician().get_node("BGM/🎵キーコンフィグ").stop()
+	self.get_bgm().get_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
 	self.get_director().on_exit()
@@ -136,12 +131,12 @@ func set_key_ok():
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.get_musician().get_node("SE/🔔キーコンフィグ受入音").play()
+	self.get_se().get_node("🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied(reason):
-	self.get_musician().get_node("SE/🔔キーコンフィグ不可音").play()
+	self.get_se().get_node("🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
 		self.get_telop_coordinator().get_node("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
@@ -155,7 +150,7 @@ func set_key_denied(reason):
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
-	self.get_musician().get_node("SE/🔔キーコンフィグ取消音").play()
+	self.get_se().get_node("🔔キーコンフィグ取消音").play()
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 
@@ -225,7 +220,7 @@ func set_press_message_to_button(step):
 	elif step == 8:
 		#														  "１２３４５６７８９０１２３４５６７８９："
 		self.get_telop_coordinator().get_node("TextBlock").text = "完了"
-		self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
+		self.get_se().get_node("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
@@ -381,7 +376,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.current_step == 0:
-		self.get_musician().get_node("BGM/🎵キーコンフィグ").play()
+		self.get_bgm().get_node("🎵キーコンフィグ").play()
 		self.current_step += 1
 		self.clear_count()
 	
@@ -407,7 +402,7 @@ func on_process(delta):
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
 	elif self.current_step == 3:
-		var is_controlled = self.on_step_regular(
+		self.on_step_regular(
 				delta,
 				&"VK_Ok",
 				&"VK_FastForward")
@@ -416,7 +411,7 @@ func on_process(delta):
 	# （４）レバーの下
 	# ーーーーーーーー
 	elif self.current_step == 4:
-		var is_controlled = self.on_step_regular(
+		self.on_step_regular(
 				delta,
 				&"VK_FastForward",
 				&"VK_Down")
@@ -425,7 +420,7 @@ func on_process(delta):
 	# （５）レバーの上
 	# ーーーーーーーー
 	elif self.current_step == 5:
-		var is_controlled = self.on_step_regular(
+		self.on_step_regular(
 				delta,
 				&"VK_Down",
 				&"VK_Up")
@@ -434,7 +429,7 @@ func on_process(delta):
 	# （６）レバーの右
 	# ーーーーーーーー
 	elif self.current_step == 6:
-		var is_controlled = self.on_step_regular(
+		self.on_step_regular(
 				delta,
 				&"VK_Up",
 				&"VK_Right")
@@ -443,7 +438,7 @@ func on_process(delta):
 	# （７）レバーの左
 	# ーーーーーーーー
 	elif self.current_step == 7:
-		var is_controlled = self.on_step_regular(
+		self.on_step_regular(
 				delta,
 				&"VK_Right",
 				&"VK_Left")
@@ -483,21 +478,21 @@ func get_lever_value_by_text(event_as_text):
 
 
 # ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
-func get_button_name_by_number(button_number):
-	if button_number < 0:
+func get_button_name_by_number(button_number_1):
+	if button_number_1 < 0:
 		return &""
 		
-	if button_number < 1000:
-		return "ボタン" + str(button_number)
+	if button_number_1 < 1000:
+		return "ボタン" + str(button_number_1)
 
-	return "レバー" + str(button_number - 1000)
+	return "レバー" + str(button_number_1 - 1000)
 
 
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
-func get_virtual_key_name_by_button_number(button_number):
+func get_virtual_key_name_by_button_number(button_number_1):
 	for key in self.get_director().key_config.keys():
 		var value = self.get_director().key_config[key]
-		if button_number == value:
+		if button_number_1 == value:
 			return key
 	return &""
 

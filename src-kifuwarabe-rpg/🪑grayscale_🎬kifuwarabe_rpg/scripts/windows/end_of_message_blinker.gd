@@ -196,7 +196,7 @@ func reset_cursor_position():
 
 
 # カーソルが上に移動します
-func on_cursor_up(target_index):
+func on_cursor_up(_target_index):
 	# 効果音鳴らす
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
@@ -213,7 +213,7 @@ func on_cursor_up(target_index):
 
 
 # カーソルが下に移動します
-func on_cursor_down(target_index):
+func on_cursor_down(_target_index):
 	# 効果音鳴らす
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 

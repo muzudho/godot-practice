@@ -1,4 +1,4 @@
-[gd_scene load_steps=102 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=106 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/director.gd" id="1_tn4ue"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/grid.png" id="2_gcvaf"]
@@ -15,11 +15,13 @@
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="13_xj2sy"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_orchestra12.ogg" id="14_n02fc"]
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_event17.ogg" id="15_wvsyr"]
+[ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config_🍉bgm.tscn" id="16_2eneh"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound17.ogg" id="16_u1hp1"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound19.ogg" id="17_fhn2x"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound_switch02.ogg" id="18_40lnb"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_magic_fire11.ogg" id="19_js626"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/event_room.png" id="20_r4pmf"]
+[ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config_🍉se.tscn" id="21_ee33k"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/in_front_of_sakiwaka_station.png" id="21_vf2wx"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/ending.png" id="22_6lxcx"]
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/map_arround_sakikawa_station.png" id="23_nvnmc"]
@@ -53,6 +55,7 @@
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_at_bottom.png" id="50_p0n6q"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/windows/message_concrete.gd" id="51_8nv3v"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/windows/end_of_message_blinker.gd" id="52_vq7xk"]
+[ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config_🍉telop.tscn" id="53_1lxdg"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🪑grayscale_🎬kifuwarabe_rpg/fonts/Mplus1Code-Bold.otf" id="53_u4x26"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_small_at_center.png" id="54_xiw47"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_at_bottom_left.png" id="55_23a0e"]
@@ -64,6 +67,7 @@
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="61_sn1jj"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__19-2218--KodackFace.png" id="62_bm8vp"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="63_vajiq"]
+[ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config_🍉gui.tscn" id="63_whnt4"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="64_mdg0k"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monsters/202310__godot__15-2317--Hamu.png" id="65_pudy5"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monsters/202310__godot__15-2226--resakai.png" id="66_qwjy4"]
@@ -231,6 +235,8 @@ volume_db = -15.0
 stream = ExtResource("15_wvsyr")
 volume_db = -15.0
 
+[node name="🎬key_config_🍉bgm" parent="Musician/BGM" instance=ExtResource("16_2eneh")]
+
 [node name="SE" type="Node" parent="Musician"]
 
 [node name="🔔ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
@@ -248,6 +254,8 @@ volume_db = -10.0
 stream = ExtResource("19_js626")
 volume_db = -15.0
 pitch_scale = 1.5
+
+[node name="🎬key_config_🍉se" parent="Musician/SE" instance=ExtResource("21_ee33k")]
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 visible = false
@@ -353,7 +361,7 @@ z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("37_07m52")
 
-[node name="TelopCoordinator" type="Node" parent="."]
+[node name="TelopCoordinator" type="CanvasLayer" parent="."]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="TelopCoordinator"]
 visible = false
@@ -746,6 +754,8 @@ offset_bottom = 171.0
 text = "　　　１"
 label_settings = ExtResource("49_mu5wx")
 
+[node name="🎬key_config_🍉telop" parent="TelopCoordinator" instance=ExtResource("53_1lxdg")]
+
 [node name="GuiArtist" type="Node2D" parent="."]
 
 [node name="WindowsOfMessage" type="Node2D" parent="GuiArtist"]
@@ -920,6 +930,8 @@ z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("59_hbvv5")
 
+[node name="🎬key_config_🍉gui" parent="GuiArtist" instance=ExtResource("63_whnt4")]
+
 [node name="MonsterTrainer" type="Node2D" parent="."]
 
 [node name="Faces" type="Node2D" parent="MonsterTrainer"]
@@ -1053,4 +1065,3 @@ script = ExtResource("90_536e5")
 script = ExtResource("91_ae3u7")
 
 [node name="Director_KeyConfig" parent="." instance=ExtResource("92_3oj3f")]
-visible = false
