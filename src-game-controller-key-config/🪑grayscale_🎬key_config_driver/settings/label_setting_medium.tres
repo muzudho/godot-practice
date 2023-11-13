@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bpu53byhx3t51"]
 
-[ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://🪑grayscale_🎬key_config/fonts/Mplus1Code-Bold.otf" id="1_b7j47"]
+[ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://🪑grayscale_🎬key_config_driver/fonts/Mplus1Code-Bold.otf" id="1_b7j47"]
 
 [resource]
 font = ExtResource("1_b7j47")
