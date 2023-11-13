@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://b2snhksgq02l"]
 
-[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://res_🪑grayscale_🍋label_settings/label_setting_large.tres" id="1_wdxqv"]
-[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://res_🪑grayscale_🍋label_settings/label_setting_medium.tres" id="2_2il52"]
+[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://res_🍋label_settings/🪑grayscale/label_setting_large.tres" id="1_wdxqv"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://res_🍋label_settings/🪑grayscale/label_setting_medium.tres" id="2_2il52"]
 
 [node name="🎬key_config_🍉telop" type="CanvasLayer"]
 

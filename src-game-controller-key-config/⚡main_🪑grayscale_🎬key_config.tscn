@@ -1,16 +1,16 @@
 [gd_scene load_steps=9 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://mod_🪑grayscale_🎬key_config_🍉director.tscn" id="1_1j70m"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬key_config_example_🍋scripts/director.gd" id="1_6o4xa"]
+[ext_resource type="Script" path="res://res_🍋scripts_🪑grayscale_🎬key_config_example/director.gd" id="1_8c8dd"]
 [ext_resource type="PackedScene" uid="uid://cir3646a1p0pg" path="res://mod_🪑grayscale_🎬key_config_🍉bg.tscn" id="3_u3eds"]
 [ext_resource type="PackedScene" uid="uid://b0hugi88es5cd" path="res://mod_🪑grayscale_🎬key_config_🍉bgm.tscn" id="4_s6jlt"]
 [ext_resource type="PackedScene" uid="uid://bok72q4bxmpyv" path="res://mod_🪑grayscale_🎬key_config_🍉se.tscn" id="5_px30v"]
 [ext_resource type="PackedScene" uid="uid://b2snhksgq02l" path="res://mod_🪑grayscale_🎬key_config_🍉telop.tscn" id="6_klqe5"]
 [ext_resource type="PackedScene" uid="uid://cps73qs1cctt8" path="res://mod_🪑grayscale_🎬key_config_🍉gui.tscn" id="7_74kig"]
-[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://res_🪑grayscale_🍋images/1280x720/grid.png" id="13_s0j7t"]
+[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://res_🍋images/🪑grayscale/1280x720/grid.png" id="7_rxjfu"]
 
 [node name="Director" type="Node2D"]
-script = ExtResource("1_6o4xa")
+script = ExtResource("1_8c8dd")
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 
@@ -38,6 +38,6 @@ script = ExtResource("1_6o4xa")
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
-texture = ExtResource("13_s0j7t")
+texture = ExtResource("7_rxjfu")
 
 [node name="🎬key_config_🍉director" parent="." instance=ExtResource("1_1j70m")]
