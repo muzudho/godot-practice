@@ -66,10 +66,7 @@ func _ready():
 	
 	# ウィンドウ非表示
 	self.get_gui_artist().get_node("WindowOfMessage").visible = false
-	
-	# GUI非表示
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
-	
+		
 	# テロップ非表示
 	self.get_telop_coordinator().get_node("TextBlock").visible = false
 
@@ -89,9 +86,6 @@ func entry():
 	# ウィンドウ表示
 	self.get_gui_artist().get_node("WindowOfMessage").visible = true
 	
-	# GUI表示
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
-	
 	# テロップ表示
 	self.get_telop_coordinator().get_node("TextBlock").visible = true
 
@@ -102,9 +96,6 @@ func entry():
 	# GUI - メッセージ・ウィンドウ
 	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = true
 	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = true
-	#
-	# GUI
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = true
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
@@ -123,10 +114,9 @@ func on_exit():
 	# GUI - メッセージ・ウィンドウ
 	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = false
 	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = false
-	# GUI
-	self.get_gui_artist().get_node("KeyConfig_CanvasLayer").visible = false
-	# テロップ
+	# テロップ非表示
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
+	self.get_telop_coordinator().hide()
 
 	# BGM 停止	
 	self.get_bgm().get_node("🎵キーコンフィグ").stop()
@@ -166,64 +156,64 @@ func set_key_canceled():
 
 func set_empty_the_button_message(step):
 	if step == 1:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）"
+		#														   "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（１）ボタン").text = "（１）"
 
 	elif step == 2:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）"
+		#														   "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（２）ボタン").text = "（２）"
 
 	elif step == 3:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）"
+		#														   "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（３）ボタン").text = "（３）"
 
 	elif step == 4:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）"
+		#														   "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（４）ボタン").text = "（４）"
 
 	elif step == 5:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）"
+		#														   "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（５）ボタン").text = "（５）"
 
 	elif step == 6:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）"
+		#														   "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（６）ボタン").text = "（６）"
 
 	elif step == 7:
-		#																		   "１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）"
+		#														   "１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（７）ボタン").text = "（７）"
 
 
 func set_press_message_to_button(step):
 	if step == 1:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
 
 	elif step == 2:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
 
 	elif step == 3:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）下キー　を入れてください"
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（４）ボタン").text = "（４）下キー　を入れてください"
 
 	elif step == 5:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）上キー　を入れてください"
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（５）ボタン").text = "（５）上キー　を入れてください"
 		self.get_telop_coordinator().get_node("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
 
 	elif step == 6:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）右キー　を入れてください"
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（６）ボタン").text = "（６）右キー　を入れてください"
 
 	elif step == 7:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）左キー　を入れてください"
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（７）ボタン").text = "（７）左キー　を入れてください"
 		self.get_telop_coordinator().get_node("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
 
 	# 完了時
@@ -235,33 +225,33 @@ func set_press_message_to_button(step):
 
 func set_done_message_the_button(step):
 	if step == 1:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + self.button_presentation_name
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.get_telop_coordinator().get_node("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + self.button_presentation_name
 
 	elif step == 2:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + self.button_presentation_name
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_telop_coordinator().get_node("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + self.button_presentation_name
 
 	elif step == 3:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_telop_coordinator().get_node("（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_telop_coordinator().get_node("（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 5:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_telop_coordinator().get_node("（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 6:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_telop_coordinator().get_node("（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 7:
-		#																		   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_gui_artist().get_node("KeyConfig_CanvasLayer/（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.get_telop_coordinator().get_node("（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 
 func clear_count():

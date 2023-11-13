@@ -9,6 +9,11 @@ func get_background_artist():
 	return $"BackgroundArtist"
 
 
+# テロップ・コーディネーター取得
+func get_telop_coordinator():
+	return $"TelopCoordinator"
+
+
 # 背景職人取得
 func get_gui_artist():
 	return $"GuiArtist"
@@ -16,6 +21,13 @@ func get_gui_artist():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# ーーーーーーーー
+	# 準備
+	# ーーーーーーーー
+
+	# テロップ・コーディネーター表示
+	self.get_telop_coordinator().show()
+
 	# ーーーーーーーー
 	# キーコンフィグ
 	# ーーーーーーーー
