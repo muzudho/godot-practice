@@ -31,12 +31,12 @@ func get_telop_coordinator():
 
 # BGM取得
 func get_bgm():
-	return $"../../Musician/BGM/🎬key_config"
+	return $"../../Musician/BGM/🎬key_config_🍉bgm"
 
 
 # 効果音取得
 func get_se():
-	return $"../../Musician/SE/🎬key_config"
+	return $"../../Musician/SE/🎬key_config_🍉se"
 
 
 # メッセージ・ウィンドウ
