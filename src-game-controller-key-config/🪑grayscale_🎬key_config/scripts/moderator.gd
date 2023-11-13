@@ -26,7 +26,7 @@ func get_director():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return $"../../TelopCoordinator/🪑grayscale_🎬key_config"
+	return $"../../TelopCoordinator/🎬key_config_🍉telop"
 
 
 # BGM取得
@@ -41,7 +41,7 @@ func get_se():
 
 # メッセージ・ウィンドウ
 func get_window_of_message():
-	return $"../../GuiArtist/WindowOfMessage/🪑grayscale_🎬key_config"
+	return $"../../GuiArtist/WindowOfMessage/🎬key_config_🍉window_of_message"
 
 
 # ボタンが重複するか？

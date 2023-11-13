@@ -1,12 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=10 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🪑grayscale_🎬key_config.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config_driver/director.gd" id="1_6o4xa"]
 [ext_resource type="PackedScene" uid="uid://cir3646a1p0pg" path="res://🪑grayscale_🎬key_config_🍉bg.tscn" id="3_u3eds"]
 [ext_resource type="PackedScene" uid="uid://b0hugi88es5cd" path="res://🪑grayscale_🎬key_config_🍉bgm.tscn" id="4_s6jlt"]
 [ext_resource type="PackedScene" uid="uid://bok72q4bxmpyv" path="res://🪑grayscale_🎬key_config_🍉se.tscn" id="5_px30v"]
-[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🪑grayscale_🎬key_config_driver/settings/label_setting_large.tres" id="9_6y10j"]
-[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🪑grayscale_🎬key_config_driver/settings/label_setting_medium.tres" id="10_bs1b0"]
+[ext_resource type="PackedScene" uid="uid://b2snhksgq02l" path="res://🪑grayscale_🎬key_config_🍉telop.tscn" id="6_klqe5"]
 [ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://res_🪑grayscale_🍉images/1280x720/window_at_bottom.png" id="11_iq5c5"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🪑grayscale_🍉images/1280x720/window_at_top_lerge.png" id="12_rg8b4"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://res_🪑grayscale_🍉images/1280x720/grid.png" id="13_s0j7t"]
@@ -32,91 +31,19 @@ script = ExtResource("1_6o4xa")
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
 
-[node name="🪑grayscale_🎬key_config" type="CanvasLayer" parent="TelopCoordinator"]
-
-[node name="キーコンフィグ" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 417.0
-offset_top = 24.0
-offset_right = 929.0
-offset_bottom = 107.0
-text = "キーコンフィグ"
-label_settings = ExtResource("9_6y10j")
-
-[node name="（１）ボタン" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 160.0
-offset_top = 125.0
-offset_right = 768.0
-offset_bottom = 168.0
-text = "（１）"
-label_settings = ExtResource("10_bs1b0")
-
-[node name="（２）ボタン" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 159.0
-offset_top = 172.0
-offset_right = 671.0
-offset_bottom = 215.0
-text = "（２）"
-label_settings = ExtResource("10_bs1b0")
-
-[node name="（３）ボタン" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 160.0
-offset_top = 220.0
-offset_right = 672.0
-offset_bottom = 263.0
-text = "（３）"
-label_settings = ExtResource("10_bs1b0")
-
-[node name="（４）ボタン" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 161.0
-offset_top = 267.0
-offset_right = 673.0
-offset_bottom = 310.0
-text = "（４）"
-label_settings = ExtResource("10_bs1b0")
-
-[node name="（５）ボタン" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 162.0
-offset_top = 316.0
-offset_right = 674.0
-offset_bottom = 359.0
-text = "（５）"
-label_settings = ExtResource("10_bs1b0")
-
-[node name="（６）ボタン" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 161.0
-offset_top = 366.0
-offset_right = 673.0
-offset_bottom = 409.0
-text = "（６）"
-label_settings = ExtResource("10_bs1b0")
-
-[node name="（７）ボタン" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 161.0
-offset_top = 411.0
-offset_right = 673.0
-offset_bottom = 454.0
-text = "（７）"
-label_settings = ExtResource("10_bs1b0")
-
-[node name="TextBlock" type="Label" parent="TelopCoordinator/🪑grayscale_🎬key_config"]
-offset_left = 321.0
-offset_top = 507.0
-offset_right = 1029.0
-offset_bottom = 670.0
-text = "ここに説明文"
-label_settings = ExtResource("10_bs1b0")
+[node name="🎬key_config_🍉telop" parent="TelopCoordinator" instance=ExtResource("6_klqe5")]
 
 [node name="GuiArtist" type="Node" parent="."]
 
 [node name="WindowOfMessage" type="Node2D" parent="GuiArtist"]
 
-[node name="🪑grayscale_🎬key_config" type="Node2D" parent="GuiArtist/WindowOfMessage"]
+[node name="🎬key_config_🍉window_of_message" type="Node2D" parent="GuiArtist/WindowOfMessage"]
 
-[node name="■下" type="Sprite2D" parent="GuiArtist/WindowOfMessage/🪑grayscale_🎬key_config"]
+[node name="■下" type="Sprite2D" parent="GuiArtist/WindowOfMessage/🎬key_config_🍉window_of_message"]
 position = Vector2(640, 360)
 texture = ExtResource("11_iq5c5")
 
-[node name="■上_大" type="Sprite2D" parent="GuiArtist/WindowOfMessage/🪑grayscale_🎬key_config"]
+[node name="■上_大" type="Sprite2D" parent="GuiArtist/WindowOfMessage/🎬key_config_🍉window_of_message"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_rg8b4")

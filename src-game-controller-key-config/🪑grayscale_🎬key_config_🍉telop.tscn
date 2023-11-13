@@ -1,0 +1,78 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2snhksgq02l"]
+
+[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🪑grayscale_🎬key_config_driver/settings/label_setting_large.tres" id="1_0qdu3"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🪑grayscale_🎬key_config_driver/settings/label_setting_medium.tres" id="2_mr7ke"]
+
+[node name="🎬key_config_🍉telop" type="CanvasLayer"]
+
+[node name="キーコンフィグ" type="Label" parent="."]
+offset_left = 417.0
+offset_top = 24.0
+offset_right = 929.0
+offset_bottom = 107.0
+text = "キーコンフィグ"
+label_settings = ExtResource("1_0qdu3")
+
+[node name="（１）ボタン" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 125.0
+offset_right = 768.0
+offset_bottom = 168.0
+text = "（１）"
+label_settings = ExtResource("2_mr7ke")
+
+[node name="（２）ボタン" type="Label" parent="."]
+offset_left = 159.0
+offset_top = 172.0
+offset_right = 671.0
+offset_bottom = 215.0
+text = "（２）"
+label_settings = ExtResource("2_mr7ke")
+
+[node name="（３）ボタン" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 220.0
+offset_right = 672.0
+offset_bottom = 263.0
+text = "（３）"
+label_settings = ExtResource("2_mr7ke")
+
+[node name="（４）ボタン" type="Label" parent="."]
+offset_left = 161.0
+offset_top = 267.0
+offset_right = 673.0
+offset_bottom = 310.0
+text = "（４）"
+label_settings = ExtResource("2_mr7ke")
+
+[node name="（５）ボタン" type="Label" parent="."]
+offset_left = 162.0
+offset_top = 316.0
+offset_right = 674.0
+offset_bottom = 359.0
+text = "（５）"
+label_settings = ExtResource("2_mr7ke")
+
+[node name="（６）ボタン" type="Label" parent="."]
+offset_left = 161.0
+offset_top = 366.0
+offset_right = 673.0
+offset_bottom = 409.0
+text = "（６）"
+label_settings = ExtResource("2_mr7ke")
+
+[node name="（７）ボタン" type="Label" parent="."]
+offset_left = 161.0
+offset_top = 411.0
+offset_right = 673.0
+offset_bottom = 454.0
+text = "（７）"
+label_settings = ExtResource("2_mr7ke")
+
+[node name="TextBlock" type="Label" parent="."]
+offset_left = 321.0
+offset_top = 507.0
+offset_right = 1029.0
+offset_bottom = 670.0
+text = "ここに説明文"
+label_settings = ExtResource("2_mr7ke")
