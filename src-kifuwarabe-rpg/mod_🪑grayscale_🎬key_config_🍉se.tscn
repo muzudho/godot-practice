@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bok72q4bxmpyv"]
 
-[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://res_🪑maou_audio_🍉se/maou_se_sound_door02.ogg" id="1_k1ov0"]
-[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://res_🪑maou_audio_🍉se/maou_se_system12.ogg" id="2_sty8d"]
-[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://res_🪑maou_audio_🍉se/maou_se_onepoint32.ogg" id="3_7hj0j"]
-[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://res_🪑maou_audio_🍉se/maou_se_magic_fire09.ogg" id="4_tat6v"]
+[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://res_🪑maou_audio_🍋se/maou_se_sound_door02.ogg" id="1_k1ov0"]
+[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://res_🪑maou_audio_🍋se/maou_se_system12.ogg" id="2_sty8d"]
+[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://res_🪑maou_audio_🍋se/maou_se_onepoint32.ogg" id="3_7hj0j"]
+[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://res_🪑maou_audio_🍋se/maou_se_magic_fire09.ogg" id="4_tat6v"]
 
 [node name="🎬key_config_🍉se" type="Node"]
 

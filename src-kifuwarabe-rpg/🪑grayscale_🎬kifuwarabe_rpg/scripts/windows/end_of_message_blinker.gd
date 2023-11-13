@@ -57,7 +57,7 @@ func get_ancestor_message_window():
 
 # キーコンフィグ監督取得
 func get_director_for_key_config():
-	return $"../../../../../../../Director/Director_KeyConfig"
+	return $"../../../../../../../Director/🎬key_config_🍉director"
 
 
 # 線形補間
