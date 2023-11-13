@@ -15,7 +15,7 @@ func get_assistant_director():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return $"../../TelopCoordinator"
+	return $"../../TelopCoordinator/🎬kifuwarabe_rpg_🍉telop"
 
 
 # スナップショット取得

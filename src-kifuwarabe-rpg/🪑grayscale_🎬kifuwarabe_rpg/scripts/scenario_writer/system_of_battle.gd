@@ -12,7 +12,7 @@ func get_assistant_director():
 
 
 func get_telop_coordinator():
-	return $"../../../../Director/TelopCoordinator"
+	return $"../../../../Director/TelopCoordinator/🎬kifuwarabe_rpg_🍉telop"
 
 
 func get_scorer():
