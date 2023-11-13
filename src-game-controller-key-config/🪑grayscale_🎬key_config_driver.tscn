@@ -2,17 +2,17 @@
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🪑grayscale_🎬key_config.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config_driver/director.gd" id="1_6o4xa"]
-[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://🪑grayscale_🎬key_config_driver/images/1280x720/in_front_of_sakiwaka_station.png" id="3_sdjla"]
-[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🪑maou_audio_🎵bgm/maou_bgm_cyber36.ogg" id="4_4541j"]
-[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://🪑maou_audio_🎵se/maou_se_sound_door02.ogg" id="5_e1mgt"]
-[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://🪑maou_audio_🎵se/maou_se_system12.ogg" id="6_ke8su"]
-[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://🪑maou_audio_🎵se/maou_se_onepoint32.ogg" id="7_suv7j"]
-[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://🪑maou_audio_🎵se/maou_se_magic_fire09.ogg" id="8_nkl1d"]
+[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://res_🪑grayscale_🍉images/1280x720/in_front_of_sakiwaka_station.png" id="3_keqtd"]
+[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://res_🪑maou_audio_🎵bgm/maou_bgm_cyber36.ogg" id="4_q2b0p"]
+[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://res_🪑maou_audio_🎵se/maou_se_sound_door02.ogg" id="5_e1mgt"]
+[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://res_🪑maou_audio_🎵se/maou_se_system12.ogg" id="6_ke8su"]
+[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://res_🪑maou_audio_🎵se/maou_se_onepoint32.ogg" id="7_suv7j"]
+[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://res_🪑maou_audio_🎵se/maou_se_magic_fire09.ogg" id="8_nkl1d"]
 [ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🪑grayscale_🎬key_config_driver/settings/label_setting_large.tres" id="9_6y10j"]
 [ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🪑grayscale_🎬key_config_driver/settings/label_setting_medium.tres" id="10_bs1b0"]
-[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://🪑grayscale_🎬key_config_driver/images/1280x720/window_at_bottom.png" id="11_ip36x"]
-[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🪑grayscale_🎬key_config_driver/images/1280x720/window_at_top_lerge.png" id="12_odwbg"]
-[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🪑grayscale_🎬key_config_driver/images/1280x720/grid.png" id="13_667ax"]
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://res_🪑grayscale_🍉images/1280x720/window_at_bottom.png" id="11_iq5c5"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🪑grayscale_🍉images/1280x720/window_at_top_lerge.png" id="12_rg8b4"]
+[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://res_🪑grayscale_🍉images/1280x720/grid.png" id="13_s0j7t"]
 
 [node name="Director" type="Node2D"]
 script = ExtResource("1_6o4xa")
@@ -21,19 +21,21 @@ script = ExtResource("1_6o4xa")
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 
-[node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🪑grayscale_🎬key_config" type="Node2D" parent="BackgroundArtist"]
+
+[node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist/🪑grayscale_🎬key_config"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("3_sdjla")
+texture = ExtResource("3_keqtd")
 
 [node name="Musician" type="Node" parent="."]
 
 [node name="BGM" type="Node" parent="Musician"]
 
-[node name="🪑grayscale_🎬key_config" type="Node" parent="Musician/BGM"]
+[node name="🪑maou_audio" type="Node" parent="Musician/BGM"]
 
-[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="Musician/BGM/🪑grayscale_🎬key_config"]
-stream = ExtResource("4_4541j")
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="Musician/BGM/🪑maou_audio"]
+stream = ExtResource("4_q2b0p")
 volume_db = -20.0
 pitch_scale = 1.4
 
@@ -141,15 +143,15 @@ label_settings = ExtResource("10_bs1b0")
 
 [node name="■下" type="Sprite2D" parent="GuiArtist/WindowOfMessage/🪑grayscale_🎬key_config"]
 position = Vector2(640, 360)
-texture = ExtResource("11_ip36x")
+texture = ExtResource("11_iq5c5")
 
 [node name="■上_大" type="Sprite2D" parent="GuiArtist/WindowOfMessage/🪑grayscale_🎬key_config"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("12_odwbg")
+texture = ExtResource("12_rg8b4")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
-texture = ExtResource("13_667ax")
+texture = ExtResource("13_s0j7t")

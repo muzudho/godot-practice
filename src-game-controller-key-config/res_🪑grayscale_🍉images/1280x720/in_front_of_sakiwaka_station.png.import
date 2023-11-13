@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d3vhtxmj2cyey"
-path="res://.godot/imported/grid.png-324592e57a7932eea2675599b330ae85.ctex"
+uid="uid://chcqqnqsda1rd"
+path="res://.godot/imported/in_front_of_sakiwaka_station.png-074c2cc6ef0e7f31ee0c612aa2c698ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://🪑grayscale_🎬key_config_driver/images/1280x720/grid.png"
-dest_files=["res://.godot/imported/grid.png-324592e57a7932eea2675599b330ae85.ctex"]
+source_file="res://res_🪑grayscale_🍉images/1280x720/in_front_of_sakiwaka_station.png"
+dest_files=["res://.godot/imported/in_front_of_sakiwaka_station.png-074c2cc6ef0e7f31ee0c612aa2c698ab.ctex"]
 
 [params]
 

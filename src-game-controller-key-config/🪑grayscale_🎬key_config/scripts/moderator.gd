@@ -31,7 +31,7 @@ func get_telop_coordinator():
 
 # BGM取得
 func get_bgm():
-	return $"../../Musician/BGM/🪑grayscale_🎬key_config"
+	return $"../../Musician/BGM"
 
 
 # 効果音取得
@@ -119,7 +119,7 @@ func on_exit():
 	self.get_telop_coordinator().hide()
 
 	# BGM 停止	
-	self.get_bgm().get_node("🎵キーコンフィグ").stop()
+	self.get_bgm().get_node("🪑maou_audio/🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
 	self.get_director().on_exit()
@@ -376,7 +376,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.current_step == 0:
-		self.get_bgm().get_node("🎵キーコンフィグ").play()
+		self.get_bgm().get_node("🪑maou_audio/🎵キーコンフィグ").play()
 		self.current_step += 1
 		self.clear_count()
 	
