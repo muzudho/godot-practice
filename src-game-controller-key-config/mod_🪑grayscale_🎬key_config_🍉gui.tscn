@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cps73qs1cctt8"]
 
-[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://res_🪑grayscale_🍉images/1280x720/window_at_bottom.png" id="1_5i6ft"]
-[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🪑grayscale_🍉images/1280x720/window_at_top_lerge.png" id="2_s6hrt"]
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://res_🪑grayscale_🍋images/1280x720/window_at_bottom.png" id="1_5i6ft"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🪑grayscale_🍋images/1280x720/window_at_top_lerge.png" id="2_s6hrt"]
 
 [node name="🎬key_config_🍉gui" type="Node2D"]
 

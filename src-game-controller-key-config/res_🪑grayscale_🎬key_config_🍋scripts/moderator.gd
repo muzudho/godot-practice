@@ -21,7 +21,7 @@ var is_enabled = false
 
 # ディレクター取得
 func get_director():
-	return $"../../Director_KeyConfig"
+	return $"../../🎬key_config_🍉director"
 
 
 # テロップ・コーディネーター取得
