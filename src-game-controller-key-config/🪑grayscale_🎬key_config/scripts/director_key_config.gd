@@ -21,7 +21,7 @@ func entry():
 	# シーンの外側の１階層上の `Director` ノードへアクセス
 	$"../../Director".on_key_config_entered()
 	
-	$"KeyConfigArtist".entry()
+	$"Moderator".entry()
 
 
 func on_exit():
@@ -30,11 +30,11 @@ func on_exit():
 
 
 func on_process(delta):
-	$"KeyConfigArtist".on_process(delta)
+	$"Moderator".on_process(delta)
 
 
 func on_unhandled_input(event):
-	$"KeyConfigArtist".on_unhandled_input(event)
+	$"Moderator".on_unhandled_input(event)
 
 
 # ーーーーーーーー
@@ -44,22 +44,22 @@ func on_unhandled_input(event):
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
 func get_button_number_by_text(event_as_text):
-	return $"KeyConfigArtist".get_button_number_by_text(event_as_text)
+	return $"Moderator".get_button_number_by_text(event_as_text)
 
 
 # レバーのイベント文字列から、-1.0 ～ 1.0 の値を取得
 func get_lever_value_by_text(event_as_text):
-	return $"KeyConfigArtist".get_lever_value_by_text(event_as_text)
+	return $"Moderator".get_lever_value_by_text(event_as_text)
 
 
 # ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
 func get_button_name_by_number(button_number):
-	return $"KeyConfigArtist".get_button_name_by_number(button_number)
+	return $"Moderator".get_button_name_by_number(button_number)
 
 
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
 func get_virtual_key_name_by_button_number(button_number):
-	return $"KeyConfigArtist".get_virtual_key_name_by_button_number(button_number)
+	return $"Moderator".get_virtual_key_name_by_button_number(button_number)
 
 
 # 上キーが入力されたか？

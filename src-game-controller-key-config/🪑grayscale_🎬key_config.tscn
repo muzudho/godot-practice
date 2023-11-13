@@ -1,17 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://kqejd4uyxvtm"]
+[gd_scene load_steps=3 format=3 uid="uid://kqejd4uyxvtm"]
 
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/director_key_config.gd" id="1_8lu21"]
-[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🪑grayscale_🎬key_config/images/1280x720/grid.png" id="2_k8epg"]
-[ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/key_config_artist.gd" id="13_4ilkl"]
+[ext_resource type="Script" path="res://🪑grayscale_🎬key_config/scripts/moderator.gd" id="2_lt0jv"]
 
 [node name="Director_KeyConfig" type="Node2D"]
 script = ExtResource("1_8lu21")
 
-[node name="KeyConfigArtist" type="Node" parent="."]
-script = ExtResource("13_4ilkl")
-
-[node name="Grid" type="Sprite2D" parent="."]
-visible = false
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("2_k8epg")
+[node name="Moderator" type="Node" parent="."]
+script = ExtResource("2_lt0jv")

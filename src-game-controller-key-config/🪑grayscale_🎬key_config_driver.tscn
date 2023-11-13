@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=14 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🪑grayscale_🎬key_config.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config_driver/director.gd" id="1_6o4xa"]
@@ -12,6 +12,7 @@
 [ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🪑grayscale_🎬key_config/settings/label_setting_large.tres" id="10_3rcb3"]
 [ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://🪑grayscale_🎬key_config/images/1280x720/window_at_bottom.png" id="11_j2sl3"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🪑grayscale_🎬key_config/images/1280x720/window_at_top_lerge.png" id="12_t03e6"]
+[ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🪑grayscale_🎬key_config/images/1280x720/grid.png" id="13_q2qm2"]
 
 [node name="Director" type="Node2D"]
 script = ExtResource("1_6o4xa")
@@ -146,3 +147,9 @@ texture = ExtResource("11_j2sl3")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("12_t03e6")
+
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("13_q2qm2")

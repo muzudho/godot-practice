@@ -1,4 +1,4 @@
-# キー・コンフィグ・アーティスト（Key Config Artist）
+# モデレーター（Moderator；司会進行）
 extends Node
 
 
