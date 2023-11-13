@@ -39,9 +39,9 @@ func get_se():
 	return $"../../Musician/SE/🪑grayscale_🎬key_config"
 
 
-# ＧＵＩ担当取得
-func get_gui_artist():
-	return $"../GuiArtist"
+# メッセージ・ウィンドウ
+func get_window_of_message():
+	return $"../../GuiArtist/WindowOfMessage/🪑grayscale_🎬key_config"
 
 
 # ボタンが重複するか？
@@ -64,8 +64,8 @@ func _ready():
 	# 初期化
 	# ーーーーーーーー
 	
-	# ウィンドウ非表示
-	self.get_gui_artist().get_node("WindowOfMessage").visible = false
+	# メッセージ・ウィンドウ非表示
+	self.get_window_of_message().hide()
 		
 	# テロップ非表示
 	self.get_telop_coordinator().get_node("TextBlock").visible = false
@@ -84,7 +84,7 @@ func entry():
 	# ーーーーーーーー
 	
 	# ウィンドウ表示
-	self.get_gui_artist().get_node("WindowOfMessage").visible = true
+	self.get_window_of_message().show()
 	
 	# テロップ表示
 	self.get_telop_coordinator().get_node("TextBlock").visible = true
@@ -94,8 +94,8 @@ func entry():
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = true
-	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = true
+	self.get_window_of_message().get_node("■上_大").show()
+	self.get_window_of_message().get_node("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
@@ -112,8 +112,8 @@ func entry():
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.get_gui_artist().get_node("WindowOfMessage/■上_大").visible = false
-	self.get_gui_artist().get_node("WindowOfMessage/■下").visible = false
+	self.get_window_of_message().get_node("■上_大").hide()
+	self.get_window_of_message().get_node("■下").hide()
 	# テロップ非表示
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 	self.get_telop_coordinator().hide()

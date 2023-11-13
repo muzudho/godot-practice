@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=13 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🪑grayscale_🎬key_config.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬key_config_driver/director.gd" id="1_6o4xa"]
@@ -10,6 +10,8 @@
 [ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://🪑grayscale_🎬key_config/audio/se/maou.audio/maou_se_magic_fire09.ogg" id="8_c0djp"]
 [ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🪑grayscale_🎬key_config/settings/label_setting_medium.tres" id="9_tddsy"]
 [ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🪑grayscale_🎬key_config/settings/label_setting_large.tres" id="10_3rcb3"]
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://🪑grayscale_🎬key_config/images/1280x720/window_at_bottom.png" id="11_j2sl3"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🪑grayscale_🎬key_config/images/1280x720/window_at_top_lerge.png" id="12_t03e6"]
 
 [node name="Director" type="Node2D"]
 script = ExtResource("1_6o4xa")
@@ -132,4 +134,15 @@ label_settings = ExtResource("9_tddsy")
 
 [node name="GuiArtist" type="Node" parent="."]
 
-[node name="🪑grayscale_🎬key_config" type="Node" parent="GuiArtist"]
+[node name="WindowOfMessage" type="Node2D" parent="GuiArtist"]
+
+[node name="🪑grayscale_🎬key_config" type="Node2D" parent="GuiArtist/WindowOfMessage"]
+
+[node name="■下" type="Sprite2D" parent="GuiArtist/WindowOfMessage/🪑grayscale_🎬key_config"]
+position = Vector2(640, 360)
+texture = ExtResource("11_j2sl3")
+
+[node name="■上_大" type="Sprite2D" parent="GuiArtist/WindowOfMessage/🪑grayscale_🎬key_config"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("12_t03e6")
