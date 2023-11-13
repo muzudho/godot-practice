@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://kqejd4uyxvtm"]
 
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬key_config_🍋scripts/director_key_config.gd" id="1_8k186"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬key_config_🍋scripts/moderator.gd" id="2_1vdy3"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬key_config/director_key_config.gd" id="1_8k186"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬key_config/moderator.gd" id="2_1vdy3"]
 
 [node name="🎬key_config_🍉director" type="Node2D"]
 script = ExtResource("1_8k186")
