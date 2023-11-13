@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://b4h0mq5qymie"]
 
-[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/fonts/Mplus1Code-Bold.otf" id="1_sh42c"]
+[ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://res_🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="1_sh42c"]
 
 [resource]
 line_spacing = 8.0

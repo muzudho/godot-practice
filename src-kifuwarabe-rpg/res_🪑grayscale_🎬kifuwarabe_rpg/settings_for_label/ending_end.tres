@@ -1,6 +1,6 @@
 [gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bxfp11qlgp84q"]
 
-[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/fonts/Mplus2-Bold.otf" id="1_cfc77"]
+[ext_resource type="FontFile" uid="uid://c0kx54ohvjlrj" path="res://res_🍋fonts/🪑mplus/Mplus2-Bold.otf" id="1_cfc77"]
 
 [resource]
 font = ExtResource("1_cfc77")
