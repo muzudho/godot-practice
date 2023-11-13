@@ -7,6 +7,10 @@ func get_assistant_director():
 	return $"../../AssistantDirector"
 
 
+func get_window_of_viewing():
+	return $"../../GuiArtist/🎬kifuwarabe_rpg_🍉gui/WindowsOfViewing"
+
+
 # それをする
 func do_it(line):
 
@@ -28,6 +32,6 @@ func show_viewing_window(position, node_name):
 	print("［命令　覗き窓］　配置：[" + position + "]　ノード名：[" + str(node_name) + "]")
 
 	if node_name == null:
-		$"../../GuiArtist/WindowsOfViewing".hide_window()
+		self.get_window_of_viewing().hide_window()
 	else:
-		$"../../GuiArtist/WindowsOfViewing".show_window(node_name)
+		self.get_window_of_viewing().show_window(node_name)

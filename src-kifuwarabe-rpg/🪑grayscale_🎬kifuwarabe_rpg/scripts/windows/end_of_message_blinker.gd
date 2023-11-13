@@ -33,12 +33,12 @@ var elapsed_seconds = 0.0
 
 # 監督取得
 func get_director():
-	return $"../../../../../../Director"
+	return $"../../../../../../../Director"
 
 
 # 助監取得
 func get_assistant_director():
-	return $"../../../../../AssistantDirector"
+	return $"../../../../../../AssistantDirector"
 
 
 # 伝言窓名を取得
@@ -57,7 +57,7 @@ func get_ancestor_message_window():
 
 # キーコンフィグ監督取得
 func get_director_for_key_config():
-	return $"../../../../../../Director/Director_KeyConfig"
+	return $"../../../../../../../Director/Director_KeyConfig"
 
 
 # 線形補間

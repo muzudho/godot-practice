@@ -1,0 +1,211 @@
+[gd_scene load_steps=14 format=3 uid="uid://daiiegrayb8qm"]
+
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_at_bottom.png" id="1_t6iro"]
+[ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/windows/message_concrete.gd" id="2_vfjor"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🪑grayscale_🎬kifuwarabe_rpg/settings_for_label/main_medium.tres" id="3_5qip1"]
+[ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/windows/end_of_message_blinker.gd" id="4_x6735"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🪑grayscale_🎬kifuwarabe_rpg/fonts/Mplus1Code-Bold.otf" id="5_3g21f"]
+[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_small_at_center.png" id="6_f0moh"]
+[ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_at_bottom_left.png" id="7_vhf7f"]
+[ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/windows/viewing.gd" id="8_fdkeh"]
+[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_middle_at_center.png" id="9_6h7tk"]
+[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/0512x288/ShogiBan.png" id="10_7voqo"]
+[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/0512x288/file_and_rank.png" id="11_v2y08"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2oa1m"]
+line_spacing = 8.0
+font = ExtResource("5_3g21f")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[sub_resource type="GDScript" id="GDScript_tmxbw"]
+script/source = "# テキスト・ブロック（TextBlock）
+extends Label
+
+# メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
+var statemachine_of_message_window = null
+
+var is_visible_initialized = false
+
+
+
+
+"
+
+[node name="🎬kifuwarabe_rpg_🍉gui" type="Node2D"]
+
+[node name="WindowsOfMessage" type="Node2D" parent="."]
+
+[node name="■下" type="Sprite2D" parent="WindowsOfMessage"]
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("1_t6iro")
+script = ExtResource("2_vfjor")
+
+[node name="■下_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
+
+[node name="TextBlock" type="Label" parent="WindowsOfMessage/■下_CanvasLayer"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1013.0
+offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("3_5qip1")
+
+[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/■下_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 675.0
+offset_bottom = 135.0
+text = "▼"
+label_settings = ExtResource("3_5qip1")
+script = ExtResource("4_x6735")
+
+[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/■下_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 143.0
+text = "＿"
+label_settings = ExtResource("3_5qip1")
+script = ExtResource("4_x6735")
+
+[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/■下_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("4_x6735")
+
+[node name="■中央" type="Sprite2D" parent="WindowsOfMessage"]
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("6_f0moh")
+script = ExtResource("2_vfjor")
+
+[node name="■中央_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
+
+[node name="TextBlock" type="Label" parent="WindowsOfMessage/■中央_CanvasLayer"]
+offset_left = 510.0
+offset_top = 237.0
+offset_right = 824.0
+offset_bottom = 483.0
+text = "表示テストいうえ
+かきくけさしすせ
+たちつてなにぬね
+はひふへまみむ　　"
+label_settings = ExtResource("3_5qip1")
+script = SubResource("GDScript_tmxbw")
+
+[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 154.0
+offset_right = 262.0
+offset_bottom = 199.0
+text = "▼"
+label_settings = ExtResource("3_5qip1")
+script = ExtResource("4_x6735")
+
+[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 202.0
+text = "＿"
+label_settings = ExtResource("3_5qip1")
+script = ExtResource("4_x6735")
+
+[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("4_x6735")
+
+[node name="■左下" type="Sprite2D" parent="WindowsOfMessage"]
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("7_vhf7f")
+script = ExtResource("2_vfjor")
+
+[node name="■左下_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
+
+[node name="TextBlock" type="Label" parent="WindowsOfMessage/■左下_CanvasLayer"]
+offset_left = 32.0
+offset_top = 508.0
+offset_right = 726.0
+offset_bottom = 664.0
+text = "表示テストだ
+あいうえおか
+きくけこさし
+すせたちつて"
+label_settings = ExtResource("3_5qip1")
+
+[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 140.0
+offset_right = 195.0
+offset_bottom = 185.0
+text = "▼"
+label_settings = ExtResource("3_5qip1")
+script = ExtResource("4_x6735")
+
+[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 147.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "＿"
+label_settings = ExtResource("3_5qip1")
+script = ExtResource("4_x6735")
+
+[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("4_x6735")
+
+[node name="WindowsOfViewing" type="Node2D" parent="."]
+script = ExtResource("8_fdkeh")
+
+[node name="System" type="Node2D" parent="WindowsOfViewing"]
+
+[node name="Frame" type="Sprite2D" parent="WindowsOfViewing/System"]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("9_6h7tk")
+
+[node name="将棋盤" type="Sprite2D" parent="WindowsOfViewing"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("10_7voqo")
+
+[node name="ファイルとランク" type="Sprite2D" parent="WindowsOfViewing"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("11_v2y08")

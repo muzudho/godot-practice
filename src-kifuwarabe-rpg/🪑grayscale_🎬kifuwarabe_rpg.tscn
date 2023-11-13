@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=68 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/director.gd" id="1_tn4ue"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/grid.png" id="2_gcvaf"]
@@ -23,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_3.png" id="29_nd8yd"]
 [ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_4.png" id="30_kiu5w"]
 [ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_5.png" id="31_6oi3a"]
+[ext_resource type="PackedScene" uid="uid://daiiegrayb8qm" path="res://🪑grayscale_🎬kifuwarabe_rpg_🍉gui.tscn" id="32_3pqja"]
 [ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_6.png" id="32_tlo7f"]
 [ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_7.png" id="33_6rij8"]
 [ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_8.png" id="34_kcvph"]
@@ -30,18 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_10.png" id="36_k837w"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_11.png" id="37_07m52"]
 [ext_resource type="PackedScene" uid="uid://1j4w0c8hsdan" path="res://🪑grayscale_🎬kifuwarabe_rpg_🍉telop.tscn" id="40_8h673"]
-[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🪑grayscale_🎬kifuwarabe_rpg/settings_for_label/main_medium.tres" id="40_kekk3"]
-[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_at_bottom.png" id="50_p0n6q"]
-[ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/windows/message_concrete.gd" id="51_8nv3v"]
-[ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/windows/end_of_message_blinker.gd" id="52_vq7xk"]
 [ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config_🍉telop.tscn" id="53_1lxdg"]
-[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🪑grayscale_🎬kifuwarabe_rpg/fonts/Mplus1Code-Bold.otf" id="53_u4x26"]
-[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_small_at_center.png" id="54_xiw47"]
-[ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_at_bottom_left.png" id="55_23a0e"]
-[ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/windows/viewing.gd" id="56_hq77f"]
-[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/window_middle_at_center.png" id="57_qrb3a"]
-[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/0512x288/ShogiBan.png" id="58_ogj6f"]
-[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/0512x288/file_and_rank.png" id="59_hbvv5"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__17-2213-hamu.png" id="60_cfkcx"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="61_sn1jj"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__19-2218--KodackFace.png" id="62_bm8vp"]
@@ -78,30 +68,6 @@
 [ext_resource type="PackedScene" uid="uid://b1bsn7qc47x4d" path="res://🪑grayscale_🎬key_config.tscn" id="92_3oj3f"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_2oa1m"]
-line_spacing = 8.0
-font = ExtResource("53_u4x26")
-font_size = 32
-font_color = Color(0.972549, 0.972549, 0.972549, 1)
-outline_size = 1
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 4
-shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
-
-[sub_resource type="GDScript" id="GDScript_tmxbw"]
-script/source = "# テキスト・ブロック（TextBlock）
-extends Label
-
-# メッセージ・ウィンドウの状態遷移図（親ノードがセットする）
-var statemachine_of_message_window = null
-
-var is_visible_initialized = false
-
-
-
-
-"
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
@@ -258,177 +224,7 @@ texture = ExtResource("37_07m52")
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
-[node name="WindowsOfMessage" type="Node2D" parent="GuiArtist"]
-
-[node name="■下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("50_p0n6q")
-script = ExtResource("51_8nv3v")
-
-[node name="■下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
-
-[node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer"]
-offset_left = 319.0
-offset_top = 507.0
-offset_right = 1013.0
-offset_bottom = 663.0
-text = "表示テストだあいうえかきくけさしすせたち
-つてなにぬねはひふへまみむめやゆよ～わを
-がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("40_kekk3")
-
-[node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 643.0
-offset_top = 90.0
-offset_right = 675.0
-offset_bottom = 135.0
-text = "▼"
-label_settings = ExtResource("40_kekk3")
-script = ExtResource("52_vq7xk")
-
-[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 641.0
-offset_top = 98.0
-offset_right = 673.0
-offset_bottom = 143.0
-text = "＿"
-label_settings = ExtResource("40_kekk3")
-script = ExtResource("52_vq7xk")
-
-[node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■下_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("52_vq7xk")
-
-[node name="■中央" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("54_xiw47")
-script = ExtResource("51_8nv3v")
-
-[node name="■中央_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
-
-[node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer"]
-offset_left = 510.0
-offset_top = 237.0
-offset_right = 824.0
-offset_bottom = 483.0
-text = "表示テストいうえ
-かきくけさしすせ
-たちつてなにぬね
-はひふへまみむ　　"
-label_settings = ExtResource("40_kekk3")
-script = SubResource("GDScript_tmxbw")
-
-[node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 230.0
-offset_top = 154.0
-offset_right = 262.0
-offset_bottom = 199.0
-text = "▼"
-label_settings = ExtResource("40_kekk3")
-script = ExtResource("52_vq7xk")
-
-[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 157.0
-offset_right = 260.0
-offset_bottom = 202.0
-text = "＿"
-label_settings = ExtResource("40_kekk3")
-script = ExtResource("52_vq7xk")
-
-[node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("52_vq7xk")
-
-[node name="■左下" type="Sprite2D" parent="GuiArtist/WindowsOfMessage"]
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("55_23a0e")
-script = ExtResource("51_8nv3v")
-
-[node name="■左下_CanvasLayer" type="CanvasLayer" parent="GuiArtist/WindowsOfMessage"]
-
-[node name="TextBlock" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer"]
-offset_left = 32.0
-offset_top = 508.0
-offset_right = 726.0
-offset_bottom = 664.0
-text = "表示テストだ
-あいうえおか
-きくけこさし
-すせたちつて"
-label_settings = ExtResource("40_kekk3")
-
-[node name="BlinkerTriangle" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 140.0
-offset_right = 195.0
-offset_bottom = 185.0
-text = "▼"
-label_settings = ExtResource("40_kekk3")
-script = ExtResource("52_vq7xk")
-
-[node name="BlinkerUnderscore" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 147.0
-offset_right = 192.0
-offset_bottom = 192.0
-text = "＿"
-label_settings = ExtResource("40_kekk3")
-script = ExtResource("52_vq7xk")
-
-[node name="ChoiceCursor" type="Label" parent="GuiArtist/WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("52_vq7xk")
-
-[node name="WindowsOfViewing" type="Node2D" parent="GuiArtist"]
-script = ExtResource("56_hq77f")
-
-[node name="System" type="Node2D" parent="GuiArtist/WindowsOfViewing"]
-
-[node name="Frame" type="Sprite2D" parent="GuiArtist/WindowsOfViewing/System"]
-visible = false
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("57_qrb3a")
-
-[node name="将棋盤" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("58_ogj6f")
-
-[node name="ファイルとランク" type="Sprite2D" parent="GuiArtist/WindowsOfViewing"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("59_hbvv5")
+[node name="🎬kifuwarabe_rpg_🍉gui" parent="GuiArtist" instance=ExtResource("32_3pqja")]
 
 [node name="🎬key_config_🍉gui" parent="GuiArtist" instance=ExtResource("63_whnt4")]
 
