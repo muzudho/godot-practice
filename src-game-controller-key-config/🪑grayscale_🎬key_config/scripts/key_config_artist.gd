@@ -29,9 +29,14 @@ func get_telop_coordinator():
 	return $"../TelopCoordinator"
 
 
-# 音楽家取得
-func get_musician():
-	return $"../Musician"
+# BGM取得
+func get_bgm():
+	return $"../../Musician/BGM/🪑grayscale_🎬key_config"
+
+
+# 効果音取得
+func get_se():
+	return $"../../Musician/SE/🪑grayscale_🎬key_config"
 
 
 # ＧＵＩ担当取得
@@ -124,7 +129,7 @@ func on_exit():
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 	# BGM 停止	
-	self.get_musician().get_node("BGM/🎵キーコンフィグ").stop()
+	self.get_bgm().get_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
 	self.get_director().on_exit()
@@ -136,12 +141,12 @@ func set_key_ok():
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.get_musician().get_node("SE/🔔キーコンフィグ受入音").play()
+	self.get_se().get_node("🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied(reason):
-	self.get_musician().get_node("SE/🔔キーコンフィグ不可音").play()
+	self.get_se().get_node("🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
 		self.get_telop_coordinator().get_node("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
@@ -155,7 +160,7 @@ func set_key_denied(reason):
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
-	self.get_musician().get_node("SE/🔔キーコンフィグ取消音").play()
+	self.get_se().get_node("🔔キーコンフィグ取消音").play()
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 
@@ -225,7 +230,7 @@ func set_press_message_to_button(step):
 	elif step == 8:
 		#														  "１２３４５６７８９０１２３４５６７８９："
 		self.get_telop_coordinator().get_node("TextBlock").text = "完了"
-		self.get_musician().get_node("SE/🔔キーコンフィグ完了音").play()
+		self.get_se().get_node("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
@@ -381,7 +386,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.current_step == 0:
-		self.get_musician().get_node("BGM/🎵キーコンフィグ").play()
+		self.get_bgm().get_node("🎵キーコンフィグ").play()
 		self.current_step += 1
 		self.clear_count()
 	
