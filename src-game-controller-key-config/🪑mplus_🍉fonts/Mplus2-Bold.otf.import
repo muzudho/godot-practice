@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dmy7kdhxwpfg6"
-path="res://.godot/imported/Mplus2-Regular.otf-b7dd8a1823d492c30fe95bcb08716223.fontdata"
+uid="uid://c0kx54ohvjlrj"
+path="res://.godot/imported/Mplus2-Bold.otf-6f17e3aecf91d1a1b6f9eb3af316f028.fontdata"
 
 [deps]
 
-source_file="res://🪑grayscale_🎬key_config_driver/fonts/Mplus2-Regular.otf"
-dest_files=["res://.godot/imported/Mplus2-Regular.otf-b7dd8a1823d492c30fe95bcb08716223.fontdata"]
+source_file="res://🪑mplus_🍉fonts/Mplus2-Bold.otf"
+dest_files=["res://.godot/imported/Mplus2-Bold.otf-6f17e3aecf91d1a1b6f9eb3af316f028.fontdata"]
 
 [params]
 
