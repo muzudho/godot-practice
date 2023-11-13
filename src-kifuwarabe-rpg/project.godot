@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Kifuwarabe-RPG"
-run/main_scene="res://🪑grayscale_🎬kifuwarabe_rpg.tscn"
+run/main_scene="res://⚡main_🪑grayscale_🎬kifuwarabe_rpg.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 config/main_scene="res://kifuwarabe_sprite_2d.tscn"

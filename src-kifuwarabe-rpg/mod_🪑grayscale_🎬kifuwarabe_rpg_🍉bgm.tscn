@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://s2bjr44wgij8"]
+
+[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="1_ff4wj"]
+[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_town05.ogg" id="2_5vf4o"]
+[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="3_sa74p"]
+[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_rock28.ogg" id="4_xo0kx"]
+[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_cyber06.ogg" id="5_1ekna"]
+[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="6_vfoqm"]
+[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_orchestra12.ogg" id="7_o7vpc"]
+[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_event17.ogg" id="8_yrae7"]
+
+[node name="🎬kifuwarabe_rpg_🍉bgm" type="Node"]
+
+[node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ff4wj")
+volume_db = -20.0
+
+[node name="🎵タイトル" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5vf4o")
+volume_db = -20.0
+
+[node name="🎵エンディング" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_sa74p")
+volume_db = -15.0
+
+[node name="🎵バトル１" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_xo0kx")
+volume_db = -15.0
+
+[node name="🎵バトル２" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1ekna")
+volume_db = -15.0
+
+[node name="🎵バトル３" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_vfoqm")
+volume_db = -15.0
+
+[node name="🎵バトル４" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_o7vpc")
+volume_db = -15.0
+
+[node name="🎵負け" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_yrae7")
+volume_db = -15.0
