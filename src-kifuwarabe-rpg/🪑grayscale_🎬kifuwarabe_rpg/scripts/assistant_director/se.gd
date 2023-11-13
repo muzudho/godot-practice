@@ -12,9 +12,9 @@ func get_assistant_director():
 	return $"../../AssistantDirector"
 
 
-# ミュージシャン取得
-func get_musician():
-	return $"../../Musician"
+# 効果音取得
+func get_se():
+	return $"../../Musician/SE/🎬kifuwarabe_rpg_🍉se"
 
 
 # それをする
@@ -42,7 +42,7 @@ func play_se(node_name):
 	self.get_director().current_se_name = node_name
 
 	var se_name = self.get_director().current_se_name
-	var se_node = self.get_musician().get_node("SE").get_node(se_name)
+	var se_node = self.get_se().get_node(se_name)
 	if se_node == null:
 		print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 	
@@ -55,7 +55,7 @@ func stop_se():
 		print("［命令　効果音］　停止")
 		
 		var se_name = self.get_director().current_se_name
-		var se_node = self.get_musician().get_node("SE").get_node(se_name)
+		var se_node = self.get_se().get_node(se_name)
 		if se_node == null:
 			print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 		

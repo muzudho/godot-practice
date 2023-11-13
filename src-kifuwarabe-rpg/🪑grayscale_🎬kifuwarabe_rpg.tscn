@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=80 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/director.gd" id="1_tn4ue"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/grid.png" id="2_gcvaf"]
@@ -7,19 +7,9 @@
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scenario_writer/visual_novel_department.gd" id="5_7pslc"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scenario_writer/system_menu_department.gd" id="6_67akf"]
 [ext_resource type="Script" path="res://🪑grayscale_🎬kifuwarabe_rpg/scripts/scenario_writer/battle_department.gd" id="7_vgboj"]
-[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="8_g3len"]
-[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_town05.ogg" id="9_ama2g"]
-[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="10_picfp"]
-[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_rock28.ogg" id="11_ypacw"]
-[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_cyber06.ogg" id="12_46s0x"]
-[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_neorock14.ogg" id="13_xj2sy"]
-[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_orchestra12.ogg" id="14_n02fc"]
-[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_event17.ogg" id="15_wvsyr"]
+[ext_resource type="PackedScene" uid="uid://s2bjr44wgij8" path="res://🪑grayscale_🎬kifuwarabe_rpg_🍉bgm.tscn" id="8_bpqy5"]
+[ext_resource type="PackedScene" uid="uid://txv1qdpyesk3" path="res://🪑grayscale_🎬kifuwarabe_rpg_🍉se.tscn" id="10_me1ld"]
 [ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config_🍉bgm.tscn" id="16_2eneh"]
-[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound17.ogg" id="16_u1hp1"]
-[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound19.ogg" id="17_fhn2x"]
-[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound_switch02.ogg" id="18_40lnb"]
-[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_magic_fire11.ogg" id="19_js626"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/event_room.png" id="20_r4pmf"]
 [ext_resource type="PackedScene" path="res://🪑grayscale_🎬key_config_🍉se.tscn" id="21_ee33k"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/in_front_of_sakiwaka_station.png" id="21_vf2wx"]
@@ -146,57 +136,13 @@ script = ExtResource("7_vgboj")
 
 [node name="BGM" type="Node" parent="Musician"]
 
-[node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("8_g3len")
-volume_db = -20.0
-
-[node name="🎵タイトル" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("9_ama2g")
-volume_db = -20.0
-
-[node name="🎵エンディング" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("10_picfp")
-volume_db = -15.0
-
-[node name="🎵バトル１" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("11_ypacw")
-volume_db = -15.0
-
-[node name="🎵バトル２" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("12_46s0x")
-volume_db = -15.0
-
-[node name="🎵バトル３" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("13_xj2sy")
-volume_db = -15.0
-
-[node name="🎵バトル４" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("14_n02fc")
-volume_db = -15.0
-
-[node name="🎵負け" type="AudioStreamPlayer" parent="Musician/BGM"]
-stream = ExtResource("15_wvsyr")
-volume_db = -15.0
+[node name="🎬kifuwarabe_rpg_🍉bgm" parent="Musician/BGM" instance=ExtResource("8_bpqy5")]
 
 [node name="🎬key_config_🍉bgm" parent="Musician/BGM" instance=ExtResource("16_2eneh")]
 
 [node name="SE" type="Node" parent="Musician"]
 
-[node name="🔔ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("16_u1hp1")
-
-[node name="🔔選択肢カーソル移動音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("17_fhn2x")
-volume_db = -15.0
-
-[node name="🔔選択肢確定音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("18_40lnb")
-volume_db = -10.0
-
-[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("19_js626")
-volume_db = -15.0
-pitch_scale = 1.5
+[node name="🎬kifuwarabe_rpg_🍉se" parent="Musician/SE" instance=ExtResource("10_me1ld")]
 
 [node name="🎬key_config_🍉se" parent="Musician/SE" instance=ExtResource("21_ee33k")]
 

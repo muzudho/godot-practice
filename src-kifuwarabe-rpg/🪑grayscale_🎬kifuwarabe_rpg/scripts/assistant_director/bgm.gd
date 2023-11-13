@@ -12,9 +12,9 @@ func get_assistant_director():
 	return $"../../AssistantDirector"
 
 
-# ミュージシャン取得
-func get_musician():
-	return $"../../Musician"
+# BGM取得
+func get_bgm():
+	return $"../../Musician/BGM/🎬kifuwarabe_rpg_🍉bgm"
 
 
 # それをする
@@ -49,7 +49,7 @@ func play_bgm(node_name, from = null):
 	self.get_director().current_bgm_name = node_name
 	
 	var bgm_name = self.get_director().current_bgm_name
-	var audio_node = self.get_musician().get_node("BGM").get_node(bgm_name)
+	var audio_node = self.get_bgm().get_node(bgm_name)
 	if audio_node == null:
 		print("［命令　ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
 	
@@ -66,7 +66,7 @@ func stop_bgm():
 		print("［命令　ＢＧＭ］　停止")
 		
 		var bgm_name = self.get_director().current_bgm_name
-		var audio_node = self.get_musician().get_node("BGM").get_node(bgm_name)
+		var audio_node = self.get_bgm().get_node(bgm_name)
 		if audio_node == null:
 			print("［命令　ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
 		
