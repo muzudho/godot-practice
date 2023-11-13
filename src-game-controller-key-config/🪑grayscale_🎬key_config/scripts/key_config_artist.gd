@@ -26,7 +26,7 @@ func get_director():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return $"../TelopCoordinator"
+	return $"../../TelopCoordinator/🪑grayscale_🎬key_config"
 
 
 # BGM取得
