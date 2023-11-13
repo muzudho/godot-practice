@@ -1,102 +1,102 @@
 [gd_scene load_steps=68 format=3 uid="uid://ccxa7p87p2u60"]
 
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/director.gd" id="1_tn4ue"]
-[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/grid.png" id="2_gcvaf"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/scenario_writer/system_of_battle.gd" id="3_y2eep"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/scenario_writer/switch_department.gd" id="4_w01dx"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/scenario_writer/visual_novel_department.gd" id="5_7pslc"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/scenario_writer/system_menu_department.gd" id="6_67akf"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/scenario_writer/battle_department.gd" id="7_vgboj"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/director.gd" id="1_qes7x"]
+[ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://res_🍋images/🪑grayscale/1280x720/grid.png" id="2_ttqet"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scenario_writer/system_of_battle.gd" id="3_fwyoi"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scenario_writer/switch_department.gd" id="4_wn2l5"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scenario_writer/visual_novel_department.gd" id="5_ns6kc"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scenario_writer/system_menu_department.gd" id="6_m2dj6"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scenario_writer/battle_department.gd" id="7_6u1mx"]
 [ext_resource type="PackedScene" uid="uid://s2bjr44wgij8" path="res://mod_🪑grayscale_🎬kifuwarabe_rpg_🍉bgm.tscn" id="8_bpqy5"]
 [ext_resource type="PackedScene" uid="uid://b0hugi88es5cd" path="res://mod_🪑grayscale_🎬key_config_🍉bgm.tscn" id="9_rr3uf"]
 [ext_resource type="PackedScene" uid="uid://txv1qdpyesk3" path="res://mod_🪑grayscale_🎬kifuwarabe_rpg_🍉se.tscn" id="10_me1ld"]
 [ext_resource type="PackedScene" uid="uid://bok72q4bxmpyv" path="res://mod_🪑grayscale_🎬key_config_🍉se.tscn" id="11_u362h"]
-[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/event_room.png" id="20_r4pmf"]
-[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/in_front_of_sakiwaka_station.png" id="21_vf2wx"]
-[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/ending.png" id="22_6lxcx"]
-[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/map_arround_sakikawa_station.png" id="23_nvnmc"]
-[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/kawahori_road.png" id="24_ylgwo"]
-[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/tsutsuji_road.png" id="25_5s2ci"]
-[ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/battle_scene_3.png" id="26_k16w7"]
-[ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_1.png" id="27_b0pef"]
-[ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_2.png" id="28_t5hq2"]
-[ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_3.png" id="29_nd8yd"]
-[ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_4.png" id="30_kiu5w"]
-[ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_5.png" id="31_6oi3a"]
+[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://res_🍋images/🪑grayscale/1280x720/event_room.png" id="12_4r5lj"]
+[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://res_🍋images/🪑grayscale/1280x720/in_front_of_sakiwaka_station.png" id="13_deqea"]
+[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://res_🍋images/🪑grayscale/1280x720/ending.png" id="14_kr3vt"]
+[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://res_🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="15_gqx43"]
+[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://res_🍋images/🪑grayscale/1280x720/kawahori_road.png" id="16_dedq2"]
+[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://res_🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="17_jmaco"]
+[ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://res_🍋images/🪑grayscale/1280x720/battle_scene_3.png" id="18_mp3nu"]
+[ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_1.png" id="19_81g53"]
+[ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_2.png" id="20_duh12"]
+[ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_3.png" id="21_vo4tv"]
+[ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_4.png" id="22_uqhcl"]
+[ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_5.png" id="23_7miny"]
+[ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_6.png" id="24_gtgrb"]
+[ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_7.png" id="25_5ib88"]
+[ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_8.png" id="26_bwx21"]
+[ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="27_o4hb1"]
+[ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="28_hb0th"]
+[ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="29_nf05i"]
 [ext_resource type="PackedScene" uid="uid://b2snhksgq02l" path="res://mod_🪑grayscale_🎬key_config_🍉telop.tscn" id="31_ckc8a"]
 [ext_resource type="PackedScene" uid="uid://daiiegrayb8qm" path="res://mod_🪑grayscale_🎬kifuwarabe_rpg_🍉gui.tscn" id="32_3pqja"]
-[ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_6.png" id="32_tlo7f"]
-[ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_7.png" id="33_6rij8"]
 [ext_resource type="PackedScene" uid="uid://cps73qs1cctt8" path="res://mod_🪑grayscale_🎬key_config_🍉gui.tscn" id="33_j7a15"]
-[ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_8.png" id="34_kcvph"]
-[ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_9.png" id="35_rldhd"]
-[ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_10.png" id="36_k837w"]
-[ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/1280x720/transition_1_frame_11.png" id="37_07m52"]
+[ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="34_mlek1"]
+[ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="35_igeww"]
+[ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="36_2mb11"]
+[ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="37_iu1xl"]
+[ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="38_nc5fo"]
+[ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="39_opkmm"]
+[ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="40_7kkkw"]
 [ext_resource type="PackedScene" uid="uid://1j4w0c8hsdan" path="res://mod_🪑grayscale_🎬kifuwarabe_rpg_🍉telop.tscn" id="40_8h673"]
-[ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__17-2213-hamu.png" id="60_cfkcx"]
-[ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="61_sn1jj"]
-[ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__19-2218--KodackFace.png" id="62_bm8vp"]
-[ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="63_vajiq"]
-[ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="64_mdg0k"]
-[ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monsters/202310__godot__15-2317--Hamu.png" id="65_pudy5"]
+[ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="41_xql04"]
+[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="42_2xfyr"]
+[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="43_trpl0"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director.gd" id="44_0ne2j"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/bg.gd" id="45_qk8hw"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/bgm.gd" id="46_0xl81"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/choice.gd" id="47_v7tu7"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/department.gd" id="48_f4bux"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/goto.gd" id="49_frym8"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/label.gd" id="50_pf72w"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/monster.gd" id="51_b4nhi"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/monster_face.gd" id="52_g8c0i"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/msg_speed.gd" id="53_wncp7"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/m_wnd.gd" id="54_xd23k"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/normal_text.gd" id="55_55mhj"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/normal_text_choice.gd" id="56_qecmy"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/quit.gd" id="57_3y7cx"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/se.gd" id="58_krlii"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/sleep.gd" id="59_yaige"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/telop.gd" id="60_0b3ow"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/var.gd" id="61_owmum"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/v_wnd.gd" id="62_vak3j"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scorer.gd" id="63_8eo61"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scorer/battle_sheet.gd" id="64_q6oa0"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scorer/monster_data.gd" id="65_2epyj"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://mod_🪑grayscale_🎬key_config_🍉director.tscn" id="66_haq83"]
-[ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monsters/202310__godot__15-2226--resakai.png" id="66_qwjy4"]
-[ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monsters/202310__godot__15-2320--Kodack.png" id="67_2ng7y"]
-[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monsters/202310__godot__15-2339--Kifuwarabe.png" id="68_v42io"]
-[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/images/monsters/202310__godot__18-0039--shiroBeer.png" id="69_xc6sa"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director.gd" id="70_lknah"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/bg.gd" id="71_bov4r"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/bgm.gd" id="72_5867g"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/choice.gd" id="73_bcnp0"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/department.gd" id="74_jnx8x"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/goto.gd" id="75_0oyii"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/label.gd" id="76_tiq5s"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/monster.gd" id="77_ji4q6"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/monster_face.gd" id="78_iu2rd"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/msg_speed.gd" id="79_n5kwh"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/m_wnd.gd" id="80_p4myn"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/normal_text.gd" id="81_gxsf6"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/normal_text_choice.gd" id="82_n03sn"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/quit.gd" id="83_qjedf"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/se.gd" id="84_k3yj4"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/sleep.gd" id="85_yhcos"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/telop.gd" id="86_x2vym"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/var.gd" id="87_b3x10"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/assistant_director/v_wnd.gd" id="88_kss34"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer.gd" id="89_m6ejc"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer/battle_sheet.gd" id="90_536e5"]
-[ext_resource type="Script" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/scripts/scorer/monster_data.gd" id="91_ae3u7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
-script = ExtResource("1_tn4ue")
+script = ExtResource("1_qes7x")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
 z_index = 5
 position = Vector2(640, 360)
-texture = ExtResource("2_gcvaf")
+texture = ExtResource("2_ttqet")
 
 [node name="ScenarioWriter" type="Node" parent="."]
 
 [node name="System" type="Node" parent="ScenarioWriter"]
 
 [node name="Battle" type="Node" parent="ScenarioWriter/System"]
-script = ExtResource("3_y2eep")
+script = ExtResource("3_fwyoi")
 
 [node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
-script = ExtResource("4_w01dx")
+script = ExtResource("4_wn2l5")
 
 [node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("5_7pslc")
+script = ExtResource("5_ns6kc")
 
 [node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("6_67akf")
+script = ExtResource("6_m2dj6")
 
 [node name="📗バトル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("7_vgboj")
+script = ExtResource("7_6u1mx")
 
 [node name="Musician" type="Node" parent="."]
 
@@ -118,103 +118,103 @@ visible = false
 [node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("20_r4pmf")
+texture = ExtResource("12_4r5lj")
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("21_vf2wx")
+texture = ExtResource("13_deqea")
 
 [node name="🗻エンディング" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("22_6lxcx")
+texture = ExtResource("14_kr3vt")
 
 [node name="🗻崎川駅周辺地図" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("23_nvnmc")
+texture = ExtResource("15_gqx43")
 
 [node name="🗻川堀町線ロード" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("24_ylgwo")
+texture = ExtResource("16_dedq2")
 
 [node name="🗻ツツジロード" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("25_5s2ci")
+texture = ExtResource("17_jmaco")
 
 [node name="🗻戦闘シーン" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("26_k16w7")
+texture = ExtResource("18_mp3nu")
 
 [node name="🗻トランジション１コマ１" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("27_b0pef")
+texture = ExtResource("19_81g53")
 
 [node name="🗻トランジション１コマ２" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("28_t5hq2")
+texture = ExtResource("20_duh12")
 
 [node name="🗻トランジション１コマ３" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("29_nd8yd")
+texture = ExtResource("21_vo4tv")
 
 [node name="🗻トランジション１コマ４" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("30_kiu5w")
+texture = ExtResource("22_uqhcl")
 
 [node name="🗻トランジション１コマ５" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("31_6oi3a")
+texture = ExtResource("23_7miny")
 
 [node name="🗻トランジション１コマ６" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("32_tlo7f")
+texture = ExtResource("24_gtgrb")
 
 [node name="🗻トランジション１コマ７" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("33_6rij8")
+texture = ExtResource("25_5ib88")
 
 [node name="🗻トランジション１コマ８" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("34_kcvph")
+texture = ExtResource("26_bwx21")
 
 [node name="🗻トランジション１コマ９" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("35_rldhd")
+texture = ExtResource("27_o4hb1")
 
 [node name="🗻トランジション１コマ１０" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("36_k837w")
+texture = ExtResource("28_hb0th")
 
 [node name="🗻トランジション１コマ１１" type="Sprite2D" parent="BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
-texture = ExtResource("37_07m52")
+texture = ExtResource("29_nf05i")
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
 
@@ -236,128 +236,128 @@ texture = ExtResource("37_07m52")
 visible = false
 position = Vector2(97, 70)
 scale = Vector2(0.266871, 0.266871)
-texture = ExtResource("60_cfkcx")
+texture = ExtResource("34_mlek1")
 
 [node name="😁レサぽん改" type="Sprite2D" parent="MonsterTrainer/Faces"]
 visible = false
 position = Vector2(94.5, 64.9293)
 scale = Vector2(0.191919, 0.191919)
-texture = ExtResource("61_sn1jj")
+texture = ExtResource("35_igeww")
 
 [node name="😁ケダック" type="Sprite2D" parent="MonsterTrainer/Faces"]
 position = Vector2(96.4521, 67.25)
 scale = Vector2(0.80137, 0.80137)
-texture = ExtResource("62_bm8vp")
+texture = ExtResource("36_2mb11")
 
 [node name="😁きふわらべ" type="Sprite2D" parent="MonsterTrainer/Faces"]
 position = Vector2(97, 129)
 scale = Vector2(0.1875, 0.1875)
-texture = ExtResource("63_vajiq")
+texture = ExtResource("37_iu1xl")
 
 [node name="😁昼ビール" type="Sprite2D" parent="MonsterTrainer/Faces"]
 visible = false
 position = Vector2(97.5, 66.525)
 scale = Vector2(0.221014, 0.197109)
-texture = ExtResource("64_mdg0k")
+texture = ExtResource("38_nc5fo")
 
 [node name="WholeBody" type="Node2D" parent="MonsterTrainer"]
 
 [node name="🐕ヘム将棋" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 z_index = 10
 position = Vector2(463, 325)
-texture = ExtResource("65_pudy5")
+texture = ExtResource("39_opkmm")
 
 [node name="🐕レサぽん改" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 visible = false
 z_index = 10
 position = Vector2(737, 271)
 scale = Vector2(0.639706, 0.639706)
-texture = ExtResource("66_qwjy4")
+texture = ExtResource("40_7kkkw")
 
 [node name="🐕ケダック" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 visible = false
 z_index = 10
 position = Vector2(627, 319)
-texture = ExtResource("67_2ng7y")
+texture = ExtResource("41_xql04")
 
 [node name="🐕きふわらべ" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 visible = false
 z_index = 10
 position = Vector2(1014, 273)
 scale = Vector2(0.625506, 0.625506)
-texture = ExtResource("68_v42io")
+texture = ExtResource("42_2xfyr")
 
 [node name="🐕昼ビール" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
 position = Vector2(735, 320)
 scale = Vector2(0.596059, 0.596059)
-texture = ExtResource("69_xc6sa")
+texture = ExtResource("43_trpl0")
 
 [node name="AssistantDirector" type="Node" parent="."]
-script = ExtResource("70_lknah")
+script = ExtResource("44_0ne2j")
 
 [node name="Bg" type="Node" parent="AssistantDirector"]
-script = ExtResource("71_bov4r")
+script = ExtResource("45_qk8hw")
 
 [node name="Bgm" type="Node" parent="AssistantDirector"]
-script = ExtResource("72_5867g")
+script = ExtResource("46_0xl81")
 
 [node name="Choice" type="Node" parent="AssistantDirector"]
-script = ExtResource("73_bcnp0")
+script = ExtResource("47_v7tu7")
 
 [node name="Department" type="Node" parent="AssistantDirector"]
-script = ExtResource("74_jnx8x")
+script = ExtResource("48_f4bux")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]
-script = ExtResource("75_0oyii")
+script = ExtResource("49_frym8")
 
 [node name="Label" type="Node" parent="AssistantDirector"]
-script = ExtResource("76_tiq5s")
+script = ExtResource("50_pf72w")
 
 [node name="Monster" type="Node" parent="AssistantDirector"]
-script = ExtResource("77_ji4q6")
+script = ExtResource("51_b4nhi")
 
 [node name="MonsterFace" type="Node" parent="AssistantDirector"]
-script = ExtResource("78_iu2rd")
+script = ExtResource("52_g8c0i")
 
 [node name="MsgSpeed" type="Node" parent="AssistantDirector"]
-script = ExtResource("79_n5kwh")
+script = ExtResource("53_wncp7")
 
 [node name="MWnd" type="Node" parent="AssistantDirector"]
-script = ExtResource("80_p4myn")
+script = ExtResource("54_xd23k")
 
 [node name="NormalText" type="Node" parent="AssistantDirector"]
-script = ExtResource("81_gxsf6")
+script = ExtResource("55_55mhj")
 
 [node name="NormalTextChoice" type="Node" parent="AssistantDirector"]
-script = ExtResource("82_n03sn")
+script = ExtResource("56_qecmy")
 
 [node name="Quit" type="Node" parent="AssistantDirector"]
-script = ExtResource("83_qjedf")
+script = ExtResource("57_3y7cx")
 
 [node name="Se" type="Node" parent="AssistantDirector"]
-script = ExtResource("84_k3yj4")
+script = ExtResource("58_krlii")
 
 [node name="Sleep" type="Node" parent="AssistantDirector"]
-script = ExtResource("85_yhcos")
+script = ExtResource("59_yaige")
 
 [node name="Telop" type="Node" parent="AssistantDirector"]
-script = ExtResource("86_x2vym")
+script = ExtResource("60_0b3ow")
 
 [node name="Var" type="Node" parent="AssistantDirector"]
-script = ExtResource("87_b3x10")
+script = ExtResource("61_owmum")
 
 [node name="VWnd" type="Node" parent="AssistantDirector"]
-script = ExtResource("88_kss34")
+script = ExtResource("62_vak3j")
 
 [node name="System" type="Node" parent="."]
 
 [node name="Scorer" type="Node" parent="."]
-script = ExtResource("89_m6ejc")
+script = ExtResource("63_8eo61")
 
 [node name="GameSheetForBattle" type="Node" parent="Scorer"]
-script = ExtResource("90_536e5")
+script = ExtResource("64_q6oa0")
 
 [node name="MonsterData" type="Node" parent="Scorer"]
-script = ExtResource("91_ae3u7")
+script = ExtResource("65_2epyj")
 
 [node name="🎬key_config_🍉director" parent="." instance=ExtResource("66_haq83")]

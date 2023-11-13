@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h40kir6k3rxw"
-path="res://.godot/imported/window_at_bottom.png-bf2eeee3e216701a029c1b6b02573293.ctex"
+uid="uid://b81tmjslp5ae6"
+path="res://.godot/imported/map_arround_sakikawa_station.png-15f968734adbfe46d2ca8485f7d38ea0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png"
-dest_files=["res://.godot/imported/window_at_bottom.png-bf2eeee3e216701a029c1b6b02573293.ctex"]
+source_file="res://res_🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png"
+dest_files=["res://.godot/imported/map_arround_sakikawa_station.png-15f968734adbfe46d2ca8485f7d38ea0.ctex"]
 
 [params]
 

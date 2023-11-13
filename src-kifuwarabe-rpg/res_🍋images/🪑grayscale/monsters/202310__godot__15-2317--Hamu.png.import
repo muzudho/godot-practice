@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://h40kir6k3rxw"
-path="res://.godot/imported/window_at_bottom.png-bf2eeee3e216701a029c1b6b02573293.ctex"
+uid="uid://cdt5hnyr8emu1"
+path="res://.godot/imported/202310__godot__15-2317--Hamu.png-259c329f0b0de30b1b8bcc5b06af9dd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png"
-dest_files=["res://.godot/imported/window_at_bottom.png-bf2eeee3e216701a029c1b6b02573293.ctex"]
+source_file="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png"
+dest_files=["res://.godot/imported/202310__godot__15-2317--Hamu.png-259c329f0b0de30b1b8bcc5b06af9dd1.ctex"]
 
 [params]
 
