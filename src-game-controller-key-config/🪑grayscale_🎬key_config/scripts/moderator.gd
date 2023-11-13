@@ -36,7 +36,7 @@ func get_bgm():
 
 # 効果音取得
 func get_se():
-	return $"../../Musician/SE/🪑grayscale_🎬key_config"
+	return $"../../Musician/SE"
 
 
 # メッセージ・ウィンドウ
@@ -131,12 +131,12 @@ func set_key_ok():
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.get_se().get_node("🔔キーコンフィグ受入音").play()
+	self.get_se().get_node("🪑maou_audio/🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied(reason):
-	self.get_se().get_node("🔔キーコンフィグ不可音").play()
+	self.get_se().get_node("🪑maou_audio/🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
 		self.get_telop_coordinator().get_node("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
@@ -150,7 +150,7 @@ func set_key_denied(reason):
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
-	self.get_se().get_node("🔔キーコンフィグ取消音").play()
+	self.get_se().get_node("🪑maou_audio/🔔キーコンフィグ取消音").play()
 	self.get_telop_coordinator().get_node("TextBlock").text = ""
 
 
@@ -220,7 +220,7 @@ func set_press_message_to_button(step):
 	elif step == 8:
 		#														  "１２３４５６７８９０１２３４５６７８９："
 		self.get_telop_coordinator().get_node("TextBlock").text = "完了"
-		self.get_se().get_node("🔔キーコンフィグ完了音").play()
+		self.get_se().get_node("🪑maou_audio/🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
