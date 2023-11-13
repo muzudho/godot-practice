@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://s2bjr44wgij8"]
 
-[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/sakuramaru/きふわらべファイター２.ogg" id="1_ff4wj"]
+[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://res_🍋audio_bgm/🪑sakuramaru/きふわらべファイター２.ogg" id="1_ff4wj"]
 [ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_town05.ogg" id="2_5vf4o"]
 [ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_bgm_acoustic05.ogg" id="3_sa74p"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/bgm/maou.audio/maou_game_rock28.ogg" id="4_xo0kx"]

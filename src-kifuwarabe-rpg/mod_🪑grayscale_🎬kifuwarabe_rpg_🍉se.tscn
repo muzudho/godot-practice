@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://txv1qdpyesk3"]
 
-[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound17.ogg" id="1_ds463"]
-[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound19.ogg" id="2_588kl"]
-[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_sound_switch02.ogg" id="3_634wm"]
-[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://res_🪑grayscale_🎬kifuwarabe_rpg/audio/se/maou.audio/maou_se_magic_fire11.ogg" id="4_ml5ra"]
+[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://res_🍋audio_se/🪑maou_audio/maou_se_sound17.ogg" id="1_ds463"]
+[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://res_🍋audio_se/🪑maou_audio/maou_se_sound19.ogg" id="2_588kl"]
+[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://res_🍋audio_se/🪑maou_audio/maou_se_sound_switch02.ogg" id="3_634wm"]
+[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://res_🍋audio_se/🪑maou_audio/maou_se_magic_fire11.ogg" id="4_ml5ra"]
 
 [node name="🎬kifuwarabe_rpg_🍉se" type="Node"]
 
