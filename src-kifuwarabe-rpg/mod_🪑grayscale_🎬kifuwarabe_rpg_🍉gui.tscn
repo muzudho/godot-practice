@@ -49,6 +49,8 @@ script = ExtResource("2_72yvr")
 
 [node name="■下_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
 
+[node name="MessageWindow" type="CanvasLayer" parent="WindowsOfMessage/■下_CanvasLayer"]
+
 [node name="TextBlock" type="Label" parent="WindowsOfMessage/■下_CanvasLayer"]
 offset_left = 319.0
 offset_top = 507.0
@@ -96,6 +98,8 @@ texture = ExtResource("6_f0moh")
 script = ExtResource("2_72yvr")
 
 [node name="■中央_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
+
+[node name="MessageWindow" type="CanvasLayer" parent="WindowsOfMessage/■中央_CanvasLayer"]
 
 [node name="TextBlock" type="Label" parent="WindowsOfMessage/■中央_CanvasLayer"]
 offset_left = 510.0
@@ -148,11 +152,13 @@ script = ExtResource("2_72yvr")
 
 [node name="■左下_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
 
+[node name="MessageWindow" type="CanvasLayer" parent="WindowsOfMessage/■左下_CanvasLayer"]
+
 [node name="TextBlock" type="Label" parent="WindowsOfMessage/■左下_CanvasLayer"]
 offset_left = 32.0
 offset_top = 508.0
 offset_right = 726.0
-offset_bottom = 664.0
+offset_bottom = 700.0
 text = "表示テストだ
 あいうえおか
 きくけこさし
