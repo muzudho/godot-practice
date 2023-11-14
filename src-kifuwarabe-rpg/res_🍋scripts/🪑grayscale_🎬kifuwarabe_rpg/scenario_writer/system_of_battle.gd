@@ -8,19 +8,19 @@ func get_director():
 
 
 func get_assistant_director():
-	return $"../../../../Director/AssistantDirector"
+	return self.get_director().get_node("AssistantDirector")
 
 
 func get_telop_coordinator():
-	return $"../../../../Director/TelopCoordinator/🎬kifuwarabe_rpg_🍉telop"
+	return self.get_director().get_node("TelopCoordinator")
 
 
 func get_scorer():
-	return $"../../../../Director/Scorer"
+	return self.get_director().get_node("Scorer")
 
 
 func get_game_sheet_for_battle():
-	return $"../../../../Director/Scorer/GameSheetForBattle"
+	return self.get_director().get_node("Scorer/GameSheetForBattle")
 
 
 # 先手の［城の堅さ］表示更新

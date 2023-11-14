@@ -23,8 +23,7 @@ func get_assistant_director():
 
 
 func get_canvas_layer():
-	var path = "TelopCoordinator/🎬kifuwarabe_rpg_🍉telop/MessageWindow_" + str(self.name)
-	return self.get_director().get_node(path)
+	return self.get_director().get_node("TelopCoordinator/MessageWindow_" + self.name)
 
 
 func get_text_block():

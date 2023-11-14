@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=95 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/director.gd" id="1_qes7x"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://res_🍋images/🪑grayscale/1280x720/grid.png" id="2_ttqet"]
@@ -29,26 +29,40 @@
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="27_o4hb1"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="28_hb0th"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="29_nf05i"]
+[ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://res_🍋label_settings/🪑grayscale/game_title.tres" id="31_axqid"]
 [ext_resource type="PackedScene" uid="uid://b2snhksgq02l" path="res://mod_🪑grayscale_🎬key_config_🍉telop.tscn" id="31_ckc8a"]
+[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://res_🍋label_settings/🪑grayscale/game_title_copyright.tres" id="32_ddx6u"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="33_54jxo"]
+[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://res_🍋label_settings/🪑grayscale/credits_roll.tres" id="33_eaom0"]
+[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://res_🍋label_settings/🪑grayscale/ending_end.tres" id="34_6ckqr"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://res_🍋label_settings/🪑grayscale/main_medium.tres" id="34_ebex5"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="34_mlek1"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="34_rp8ix"]
+[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://res_🍋fonts/🪑mplus/Mplus2-Regular.otf" id="35_7h3vo"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/end_of_message_blinker.gd" id="35_7lbb3"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="35_igeww"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/windows/viewing.gd" id="35_jojgo"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/message_window.gd" id="35_ohun2"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="36_2mb11"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://res_🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="36_6dsl0"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://res_🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="36_b1bk2"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://res_🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="36_y74my"]
+[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://res_🍋fonts/🪑mplus/Mplus2-Bold.otf" id="36_yrunw"]
+[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://res_🍋label_settings/🪑grayscale/battle_slategray.tres" id="37_dbbeq"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="37_hwk7l"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="37_iu1xl"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://res_🍋images/🪑grayscale/0512x288/ShogiBan.png" id="37_lj21e"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://res_🍋images/🪑grayscale/0512x288/file_and_rank.png" id="38_0cuuf"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="38_nc5fo"]
+[ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://res_🍋label_settings/🪑grayscale/large_font.tres" id="38_t6q40"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="39_opkmm"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="40_7kkkw"]
-[ext_resource type="PackedScene" uid="uid://1j4w0c8hsdan" path="res://mod_🪑grayscale_🎬kifuwarabe_rpg_🍉telop.tscn" id="40_8h673"]
+[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://res_🍋label_settings/🪑grayscale/battle_light_red.tres" id="40_xnqtu"]
+[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://res_🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="41_ugi53"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="41_xql04"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="42_2xfyr"]
+[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://res_🍋label_settings/🪑grayscale/battle_light_green.tres" id="42_5fc1v"]
+[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://res_🍋label_settings/🪑grayscale/battle_light_blue.tres" id="43_brqpm"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="43_trpl0"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director.gd" id="44_0ne2j"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/bg.gd" id="45_qk8hw"]
@@ -75,6 +89,62 @@
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://mod_🪑grayscale_🎬key_config_🍉director.tscn" id="66_haq83"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f3kmi"]
+line_spacing = 1.0
+font = ExtResource("35_7h3vo")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ts82g"]
+line_spacing = 1.0
+font = ExtResource("35_7h3vo")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ieh2b"]
+line_spacing = 1.0
+font = ExtResource("35_7h3vo")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ag644"]
+line_spacing = 1.0
+font = ExtResource("35_7h3vo")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p32rn"]
+line_spacing = 1.0
+font = ExtResource("36_yrunw")
+font_size = 20
+font_color = Color(0.85098, 0, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfubr"]
+line_spacing = 8.0
+font = ExtResource("36_6dsl0")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
@@ -225,11 +295,531 @@ texture = ExtResource("29_nf05i")
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
 
-[node name="🎬kifuwarabe_rpg_🍉telop" parent="TelopCoordinator" instance=ExtResource("40_8h673")]
-visible = false
-
 [node name="🎬key_config_🍉telop" parent="TelopCoordinator" instance=ExtResource("31_ckc8a")]
 visible = false
+
+[node name="Ｔタイトル" type="CanvasLayer" parent="TelopCoordinator"]
+visible = false
+
+[node name="きふわらべRPG" type="Label" parent="TelopCoordinator/Ｔタイトル"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -232.0
+offset_right = 512.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "きふわらべＲＰＧ"
+label_settings = ExtResource("31_axqid")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Copyright" type="Label" parent="TelopCoordinator/Ｔタイトル"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -639.0
+offset_top = 305.0
+offset_right = 637.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
+label_settings = ExtResource("32_ddx6u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ｔエンディング" type="CanvasLayer" parent="TelopCoordinator"]
+visible = false
+
+[node name="エンドロール" type="Label" parent="TelopCoordinator/Ｔエンディング"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = -356.0
+offset_right = 542.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "　　　　　　音楽　魔王魂
+　
+　『きふわらべファイター２』
+　　　　　　作曲　桜丸
+　
+　ゲームエンジン　Ｇｏｄｏｔ
+
+　　　　イラスト
+　　　　シナリオ
+　　　プログラム
+　　　　　　監督　むずでょ
+
+　同人サークル　ぐれーすけーる"
+label_settings = ExtResource("33_eaom0")
+vertical_alignment = 1
+
+[node name="完" type="Label" parent="TelopCoordinator/Ｔエンディング"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = 111.0
+offset_right = -4.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "完"
+label_settings = ExtResource("34_6ckqr")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ｔ崎川駅周辺地図" type="CanvasLayer" parent="TelopCoordinator"]
+visible = false
+
+[node name="NR崎川駅" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -635.0
+offset_top = -17.0
+offset_right = -442.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0465592
+text = "ＮＲ 崎川駅"
+label_settings = SubResource("LabelSettings_f3kmi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="西口" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -164.0
+offset_right = -299.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00380094
+text = "西 口"
+label_settings = SubResource("LabelSettings_ts82g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="東口" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = 93.0
+offset_right = -300.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.141261
+text = "東 口"
+label_settings = SubResource("LabelSettings_ts82g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="最強振興会館" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 411.0
+offset_top = -90.0
+offset_right = 604.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0134654
+text = "最強振興会館"
+label_settings = SubResource("LabelSettings_ieh2b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ゾラーナ崎川プラザ" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -355.0
+offset_right = -151.0
+offset_bottom = -306.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.121196
+text = "ゾラーナ崎川プラザ"
+label_settings = SubResource("LabelSettings_ag644")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="リキッドスクエア" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 323.0
+offset_top = -189.0
+offset_right = 516.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0246742
+text = "リキッドスクエア"
+label_settings = SubResource("LabelSettings_p32rn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="香急崎川駅" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 223.0
+offset_right = 268.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.16054
+text = "香急崎川駅"
+label_settings = SubResource("LabelSettings_ag644")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="バドバシメカラ" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 219.0
+offset_top = 127.0
+offset_right = 412.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.11144
+text = "バドバシメカラ"
+label_settings = SubResource("LabelSettings_ag644")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="アトレ崎川" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = 157.0
+offset_right = -257.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.107918
+text = "アトレ崎川"
+label_settings = SubResource("LabelSettings_ag644")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ｔ戦闘シーン" type="CanvasLayer" parent="TelopCoordinator"]
+visible = false
+
+[node name="玉の遠さ" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 1089.0
+offset_top = -3.0
+offset_right = 1217.0
+offset_bottom = 38.0
+text = "玉の遠さ"
+label_settings = ExtResource("37_dbbeq")
+
+[node name="玉の遠さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 130.0
+offset_top = 28.0
+offset_right = 1218.0
+offset_bottom = 109.0
+text = "１２３４５６７８９０１２３４５６７"
+label_settings = ExtResource("38_t6q40")
+
+[node name="玉の遠さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 129.0
+offset_top = 91.0
+offset_right = 1215.0
+offset_bottom = 172.0
+text = "　　　　　　　　　　　　　　　２０"
+label_settings = ExtResource("38_t6q40")
+
+[node name="後" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 32.0
+offset_top = 60.0
+offset_right = 64.0
+offset_bottom = 108.0
+text = "後"
+label_settings = ExtResource("34_ebex5")
+
+[node name="先" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 31.0
+offset_top = 124.0
+offset_right = 63.0
+offset_bottom = 172.0
+text = "先"
+label_settings = ExtResource("34_ebex5")
+
+[node name="城の堅さ" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 287.0
+offset_top = -3.0
+offset_right = 415.0
+offset_bottom = 38.0
+text = "城の堅さ"
+label_settings = ExtResource("37_dbbeq")
+
+[node name="城の堅さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 291.0
+offset_top = 61.0
+offset_right = 419.0
+offset_bottom = 109.0
+text = "０００４"
+label_settings = ExtResource("40_xnqtu")
+
+[node name="城の堅さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 290.0
+offset_top = 125.0
+offset_right = 418.0
+offset_bottom = 173.0
+text = "　　　３"
+label_settings = ExtResource("40_xnqtu")
+
+[node name="逃げ道の広さ" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 448.0
+offset_top = -3.0
+offset_right = 640.0
+offset_bottom = 38.0
+text = "逃げ道の広さ"
+label_settings = ExtResource("37_dbbeq")
+
+[node name="逃げ道の広さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 480.0
+offset_top = 61.0
+offset_right = 608.0
+offset_bottom = 109.0
+text = "００００"
+label_settings = ExtResource("41_ugi53")
+
+[node name="逃げ道の広さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 481.0
+offset_top = 123.0
+offset_right = 609.0
+offset_bottom = 171.0
+text = "　　　１"
+label_settings = ExtResource("41_ugi53")
+
+[node name="駒の働き" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 672.0
+offset_top = -4.0
+offset_right = 800.0
+offset_bottom = 37.0
+text = "駒の働き"
+label_settings = ExtResource("37_dbbeq")
+
+[node name="駒の働き_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 673.0
+offset_top = 59.0
+offset_right = 801.0
+offset_bottom = 107.0
+text = "０００１"
+label_settings = ExtResource("42_5fc1v")
+
+[node name="駒の働き_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 672.0
+offset_top = 123.0
+offset_right = 800.0
+offset_bottom = 171.0
+text = "　　　０"
+label_settings = ExtResource("42_5fc1v")
+
+[node name="攻めの速度" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 832.0
+offset_top = -4.0
+offset_right = 992.0
+offset_bottom = 37.0
+text = "攻めの速度"
+label_settings = ExtResource("37_dbbeq")
+
+[node name="攻めの速度_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 864.0
+offset_top = 61.0
+offset_right = 992.0
+offset_bottom = 109.0
+text = "０００２"
+label_settings = ExtResource("43_brqpm")
+
+[node name="攻めの速度_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+offset_left = 865.0
+offset_top = 123.0
+offset_right = 993.0
+offset_bottom = 171.0
+text = "　　　１"
+label_settings = ExtResource("43_brqpm")
+
+[node name="MessageWindow_■下" type="CanvasLayer" parent="TelopCoordinator"]
+visible = false
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■下"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1013.0
+offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("34_ebex5")
+
+[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 675.0
+offset_bottom = 135.0
+text = "▼"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 143.0
+text = "＿"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="ChoicesCursor" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_vfubr")
+script = ExtResource("35_7lbb3")
+
+[node name="MessageWindow_■中央" type="CanvasLayer" parent="TelopCoordinator"]
+visible = false
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■中央"]
+offset_left = 510.0
+offset_top = 237.0
+offset_right = 824.0
+offset_bottom = 483.0
+text = "表示テストいうえ
+かきくけさしすせ
+たちつてなにぬね
+はひふへまみむ　　"
+label_settings = ExtResource("34_ebex5")
+
+[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 154.0
+offset_right = 262.0
+offset_bottom = 199.0
+text = "▼"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 202.0
+text = "＿"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="ChoicesCursor" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_vfubr")
+script = ExtResource("35_7lbb3")
+
+[node name="MessageWindow_■左下" type="CanvasLayer" parent="TelopCoordinator"]
+visible = false
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■左下"]
+offset_left = 32.0
+offset_top = 508.0
+offset_right = 726.0
+offset_bottom = 700.0
+text = "表示テストだ
+あいうえおか
+きくけこさし
+すせたちつて"
+label_settings = ExtResource("34_ebex5")
+
+[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 140.0
+offset_right = 195.0
+offset_bottom = 185.0
+text = "▼"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 147.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "＿"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="ChoicesCursor" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_vfubr")
+script = ExtResource("35_7lbb3")
 
 [node name="GuiArtist" type="Node2D" parent="."]
 

@@ -10,12 +10,12 @@ func get_director():
 
 # 助監取得
 func get_assistant_director():
-	return $"../../AssistantDirector"
+	return self.get_director().get_node("AssistantDirector")
 
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return $"../../TelopCoordinator/🎬kifuwarabe_rpg_🍉telop"
+	return self.get_director().get_node("TelopCoordinator")
 
 
 # スナップショット取得
