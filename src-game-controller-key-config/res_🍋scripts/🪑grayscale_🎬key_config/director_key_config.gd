@@ -29,6 +29,10 @@ func get_external_message_windows():
 	return self.get_external_gui_artist().get_node("MessageWindows")
 
 
+func get_telop_coordinator_key_config():
+	return self.get_external_director().get_node("TelopCoordinator/Ｔキーコンフィグ")
+
+
 # 司会進行取得
 func get_moderator():
 	return $"Moderator"
@@ -40,6 +44,7 @@ func entry():
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
+	self.get_telop_coordinator_key_config().show()
 	self.get_external_gui_artist().show()
 	self.get_external_message_windows().show()
 	self.get_external_message_windows().get_node("■下").show()

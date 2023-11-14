@@ -30,7 +30,6 @@
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="28_hb0th"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="29_nf05i"]
 [ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://res_🍋label_settings/🪑grayscale/game_title.tres" id="31_axqid"]
-[ext_resource type="PackedScene" uid="uid://b2snhksgq02l" path="res://mod_🪑grayscale_🎬key_config_🍉telop.tscn" id="31_ckc8a"]
 [ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://res_🍋label_settings/🪑grayscale/game_title_copyright.tres" id="32_ddx6u"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="33_54jxo"]
 [ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://res_🍋label_settings/🪑grayscale/credits_roll.tres" id="33_eaom0"]
@@ -65,6 +64,7 @@
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://res_🍋label_settings/🪑grayscale/battle_light_blue.tres" id="43_brqpm"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="43_trpl0"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director.gd" id="44_0ne2j"]
+[ext_resource type="PackedScene" path="res://🍉telop_Ｔキーコンフィグ.tscn" id="45_ivtt5"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/bg.gd" id="45_qk8hw"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/bgm.gd" id="46_0xl81"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/choice.gd" id="47_v7tu7"]
@@ -294,9 +294,6 @@ position = Vector2(640, 360)
 texture = ExtResource("29_nf05i")
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
-
-[node name="🎬key_config_🍉telop" parent="TelopCoordinator" instance=ExtResource("31_ckc8a")]
-visible = false
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="TelopCoordinator"]
 visible = false
@@ -820,6 +817,8 @@ offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_vfubr")
 script = ExtResource("35_7lbb3")
+
+[node name="Ｔキーコンフィグ" parent="TelopCoordinator" instance=ExtResource("45_ivtt5")]
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
