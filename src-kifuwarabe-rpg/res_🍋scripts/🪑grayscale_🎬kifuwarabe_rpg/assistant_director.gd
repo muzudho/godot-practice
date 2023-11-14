@@ -9,7 +9,7 @@ func get_director():
 
 # シナリオライター取得
 func get_scenario_writer():
-	return $"../ScenarioWriter"
+	return self.get_director().get_node("ScenarioWriter")
 
 
 # シナリオの現在セクション配列のサイズを返す

@@ -219,8 +219,10 @@ texture = ExtResource("29_nf05i")
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
 
 [node name="🎬kifuwarabe_rpg_🍉telop" parent="TelopCoordinator" instance=ExtResource("40_8h673")]
+visible = false
 
 [node name="🎬key_config_🍉telop" parent="TelopCoordinator" instance=ExtResource("31_ckc8a")]
+visible = false
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
@@ -229,6 +231,7 @@ texture = ExtResource("29_nf05i")
 [node name="🎬key_config_🍉gui" parent="GuiArtist" instance=ExtResource("33_j7a15")]
 
 [node name="MonsterTrainer" type="Node2D" parent="."]
+visible = false
 
 [node name="Faces" type="Node2D" parent="MonsterTrainer"]
 

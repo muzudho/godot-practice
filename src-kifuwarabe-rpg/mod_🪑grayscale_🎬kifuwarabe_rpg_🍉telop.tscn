@@ -467,6 +467,7 @@ text = "　　　１"
 label_settings = ExtResource("13_nrwhe")
 
 [node name="MessageWindow_■下" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextBlock" type="Label" parent="MessageWindow_■下"]
 offset_left = 319.0
@@ -509,6 +510,7 @@ label_settings = SubResource("LabelSettings_u35c1")
 script = ExtResource("14_kjqqi")
 
 [node name="MessageWindow_■中央" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextBlock" type="Label" parent="MessageWindow_■中央"]
 offset_left = 510.0
@@ -552,6 +554,7 @@ label_settings = SubResource("LabelSettings_u35c1")
 script = ExtResource("14_kjqqi")
 
 [node name="MessageWindow_■左下" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="TextBlock" type="Label" parent="MessageWindow_■左下"]
 offset_left = 32.0
