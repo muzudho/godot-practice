@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://daiiegrayb8qm"]
 
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="1_t6iro"]
-[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/windows/message_concrete.gd" id="2_vfjor"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/message_window.gd" id="2_72yvr"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://res_🍋label_settings/🪑grayscale/main_medium.tres" id="3_5qip1"]
-[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/windows/end_of_message_blinker.gd" id="4_x6735"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/end_of_message_blinker.gd" id="4_m214h"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://res_🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="5_3g21f"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://res_🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="6_f0moh"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="7_vhf7f"]
@@ -45,7 +45,7 @@ modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("1_t6iro")
-script = ExtResource("2_vfjor")
+script = ExtResource("2_72yvr")
 
 [node name="■下_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
 
@@ -67,7 +67,7 @@ offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
 label_settings = ExtResource("3_5qip1")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/■下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -77,7 +77,7 @@ offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
 label_settings = ExtResource("3_5qip1")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/■下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -87,13 +87,13 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="■中央" type="Sprite2D" parent="WindowsOfMessage"]
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("6_f0moh")
-script = ExtResource("2_vfjor")
+script = ExtResource("2_72yvr")
 
 [node name="■中央_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
 
@@ -117,7 +117,7 @@ offset_right = 262.0
 offset_bottom = 199.0
 text = "▼"
 label_settings = ExtResource("3_5qip1")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -127,7 +127,7 @@ offset_right = 260.0
 offset_bottom = 202.0
 text = "＿"
 label_settings = ExtResource("3_5qip1")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/■中央_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -137,14 +137,14 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="■左下" type="Sprite2D" parent="WindowsOfMessage"]
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("7_vhf7f")
-script = ExtResource("2_vfjor")
+script = ExtResource("2_72yvr")
 
 [node name="■左下_CanvasLayer" type="CanvasLayer" parent="WindowsOfMessage"]
 
@@ -167,7 +167,7 @@ offset_right = 195.0
 offset_bottom = 185.0
 text = "▼"
 label_settings = ExtResource("3_5qip1")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -177,7 +177,7 @@ offset_right = 192.0
 offset_bottom = 192.0
 text = "＿"
 label_settings = ExtResource("3_5qip1")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/■左下_CanvasLayer/TextBlock"]
 layout_mode = 0
@@ -187,7 +187,7 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_2oa1m")
-script = ExtResource("4_x6735")
+script = ExtResource("4_m214h")
 
 [node name="WindowsOfViewing" type="Node2D" parent="."]
 script = ExtResource("8_fdkeh")
