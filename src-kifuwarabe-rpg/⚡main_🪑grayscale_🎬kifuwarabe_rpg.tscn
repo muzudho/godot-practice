@@ -235,6 +235,134 @@ texture = ExtResource("29_nf05i")
 
 [node name="🎬key_config_🍉telop" parent="TelopCoordinator" instance=ExtResource("31_ckc8a")]
 
+[node name="MessageWindow_■下" type="CanvasLayer" parent="TelopCoordinator"]
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■下"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1013.0
+offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("34_ebex5")
+
+[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 675.0
+offset_bottom = 135.0
+text = "▼"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 143.0
+text = "＿"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="ChoiceCursor" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_705wy")
+script = ExtResource("35_7lbb3")
+
+[node name="MessageWindow_■中央" type="CanvasLayer" parent="TelopCoordinator"]
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■中央"]
+offset_left = 510.0
+offset_top = 237.0
+offset_right = 824.0
+offset_bottom = 483.0
+text = "表示テストいうえ
+かきくけさしすせ
+たちつてなにぬね
+はひふへまみむ　　"
+label_settings = ExtResource("34_ebex5")
+
+[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 154.0
+offset_right = 262.0
+offset_bottom = 199.0
+text = "▼"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 202.0
+text = "＿"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="ChoiceCursor" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_705wy")
+script = ExtResource("35_7lbb3")
+
+[node name="MessageWindow_■左下" type="CanvasLayer" parent="TelopCoordinator"]
+
+[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■左下"]
+offset_left = 32.0
+offset_top = 508.0
+offset_right = 726.0
+offset_bottom = 700.0
+text = "表示テストだ
+あいうえおか
+きくけこさし
+すせたちつて"
+label_settings = ExtResource("34_ebex5")
+
+[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 140.0
+offset_right = 195.0
+offset_bottom = 185.0
+text = "▼"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 147.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "＿"
+label_settings = ExtResource("34_ebex5")
+script = ExtResource("35_7lbb3")
+
+[node name="ChoiceCursor" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_705wy")
+script = ExtResource("35_7lbb3")
+
 [node name="GuiArtist" type="Node2D" parent="."]
 
 [node name="🎬kifuwarabe_rpg_🍉gui" parent="GuiArtist" instance=ExtResource("32_3pqja")]
@@ -374,131 +502,3 @@ script = ExtResource("64_q6oa0")
 script = ExtResource("65_2epyj")
 
 [node name="🎬key_config_🍉director" parent="." instance=ExtResource("66_haq83")]
-
-[node name="MessageWindow_■下" type="CanvasLayer" parent="."]
-
-[node name="TextBlock" type="Label" parent="MessageWindow_■下"]
-offset_left = 319.0
-offset_top = 507.0
-offset_right = 1013.0
-offset_bottom = 663.0
-text = "表示テストだあいうえかきくけさしすせたち
-つてなにぬねはひふへまみむめやゆよ～わを
-がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("34_ebex5")
-
-[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 643.0
-offset_top = 90.0
-offset_right = 675.0
-offset_bottom = 135.0
-text = "▼"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 641.0
-offset_top = 98.0
-offset_right = 673.0
-offset_bottom = 143.0
-text = "＿"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="ChoiceCursor" type="Label" parent="MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_705wy")
-script = ExtResource("35_7lbb3")
-
-[node name="MessageWindow_■中央" type="CanvasLayer" parent="."]
-
-[node name="TextBlock" type="Label" parent="MessageWindow_■中央"]
-offset_left = 510.0
-offset_top = 237.0
-offset_right = 824.0
-offset_bottom = 483.0
-text = "表示テストいうえ
-かきくけさしすせ
-たちつてなにぬね
-はひふへまみむ　　"
-label_settings = ExtResource("34_ebex5")
-
-[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 230.0
-offset_top = 154.0
-offset_right = 262.0
-offset_bottom = 199.0
-text = "▼"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 157.0
-offset_right = 260.0
-offset_bottom = 202.0
-text = "＿"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="ChoiceCursor" type="Label" parent="MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_705wy")
-script = ExtResource("35_7lbb3")
-
-[node name="MessageWindow_■左下" type="CanvasLayer" parent="."]
-
-[node name="TextBlock" type="Label" parent="MessageWindow_■左下"]
-offset_left = 32.0
-offset_top = 508.0
-offset_right = 726.0
-offset_bottom = 700.0
-text = "表示テストだ
-あいうえおか
-きくけこさし
-すせたちつて"
-label_settings = ExtResource("34_ebex5")
-
-[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 140.0
-offset_right = 195.0
-offset_bottom = 185.0
-text = "▼"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 147.0
-offset_right = 192.0
-offset_bottom = 192.0
-text = "＿"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="ChoiceCursor" type="Label" parent="MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_705wy")
-script = ExtResource("35_7lbb3")
