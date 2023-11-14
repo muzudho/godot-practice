@@ -58,7 +58,7 @@ func get_message_window_name():
 
 # Sprite2D の方の伝言窓を取得
 func get_message_window_as_sprite2d():
-	var path = "GuiArtist/🎬kifuwarabe_rpg_🍉gui/WindowsOfMessage/" + self.get_message_window_name()
+	var path = "GuiArtist/🎬kifuwarabe_rpg_🍉gui/MessageWindows/" + self.get_message_window_name()
 	print("［文末ブリンカー］　伝言窓スプライト２Ｄpath:" + path)
 	return self.get_director().get_node(path)
 

@@ -59,7 +59,7 @@ func get_current_snapshot():
 # 伝言窓（現在、出力の対象になっているもの）
 func get_message_window(node_name_obj):
 	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
-	return self.get_gui_artist().get_node("WindowsOfMessage/" + node_name_obj)
+	return self.get_gui_artist().get_node("MessageWindows/" + node_name_obj)
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -151,7 +151,7 @@ func _ready():
 	#	テロップ表示
 	$"TelopCoordinator".show()
 	#	メッセージ・ウィンドウ自身
-	self.get_gui_artist().get_node("WindowsOfMessage").show()
+	self.get_gui_artist().get_node("MessageWindows").show()
 	# モンスター・トレーナー
 	$"MonsterTrainer".show()
 	$"MonsterTrainer/Faces".show()
@@ -167,13 +167,13 @@ func _ready():
 	# ウィンドウはとにかく隠す
 	#
 	#	伝言窓はとにかく隠す
-	for message_window in self.get_gui_artist().get_node("WindowsOfMessage").get_children():
+	for message_window in self.get_gui_artist().get_node("MessageWindows").get_children():
 		message_window.hide()
 	#
 	#	ビューイング・ウィンドウはとにかく隠す
-	for sprite2d_node in self.get_gui_artist().get_node("WindowsOfViewing").get_children():
+	for sprite2d_node in self.get_gui_artist().get_node("ViewingWindows").get_children():
 		sprite2d_node.hide()
-	self.get_gui_artist().get_node("WindowsOfViewing/System/Frame").hide()
+	self.get_gui_artist().get_node("ViewingWindows/System/Frame").hide()
 	#
 	#	テロップはとにかく非表示にする
 	for canvas_layer in $"TelopCoordinator".get_children():

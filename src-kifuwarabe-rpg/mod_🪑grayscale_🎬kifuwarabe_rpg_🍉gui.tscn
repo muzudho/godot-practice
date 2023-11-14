@@ -11,45 +11,45 @@
 
 [node name="🎬kifuwarabe_rpg_🍉gui" type="Node2D"]
 
-[node name="WindowsOfMessage" type="Node2D" parent="."]
+[node name="MessageWindows" type="Node2D" parent="."]
 
-[node name="■下" type="Sprite2D" parent="WindowsOfMessage"]
+[node name="■下" type="Sprite2D" parent="MessageWindows"]
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("1_t6iro")
 script = ExtResource("2_72yvr")
 
-[node name="■中央" type="Sprite2D" parent="WindowsOfMessage"]
+[node name="■中央" type="Sprite2D" parent="MessageWindows"]
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("6_f0moh")
 script = ExtResource("2_72yvr")
 
-[node name="■左下" type="Sprite2D" parent="WindowsOfMessage"]
+[node name="■左下" type="Sprite2D" parent="MessageWindows"]
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("7_vhf7f")
 script = ExtResource("2_72yvr")
 
-[node name="WindowsOfViewing" type="Node2D" parent="."]
+[node name="ViewingWindows" type="Node2D" parent="."]
 script = ExtResource("8_fdkeh")
 
-[node name="System" type="Node2D" parent="WindowsOfViewing"]
+[node name="System" type="Node2D" parent="ViewingWindows"]
 
-[node name="Frame" type="Sprite2D" parent="WindowsOfViewing/System"]
+[node name="Frame" type="Sprite2D" parent="ViewingWindows/System"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("9_6h7tk")
 
-[node name="将棋盤" type="Sprite2D" parent="WindowsOfViewing"]
+[node name="将棋盤" type="Sprite2D" parent="ViewingWindows"]
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("10_7voqo")
 
-[node name="ファイルとランク" type="Sprite2D" parent="WindowsOfViewing"]
+[node name="ファイルとランク" type="Sprite2D" parent="ViewingWindows"]
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("11_v2y08")

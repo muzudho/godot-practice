@@ -8,7 +8,7 @@ func get_assistant_director():
 
 
 func get_window_of_viewing():
-	return $"../../GuiArtist/🎬kifuwarabe_rpg_🍉gui/WindowsOfViewing"
+	return $"../../GuiArtist/🎬kifuwarabe_rpg_🍉gui/ViewingWindows"
 
 
 # それをする
