@@ -498,7 +498,7 @@ text = "＿"
 label_settings = ExtResource("9_0ufp4")
 script = ExtResource("14_kjqqi")
 
-[node name="ChoiceCursor" type="Label" parent="MessageWindow_■下/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="MessageWindow_■下/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -541,7 +541,7 @@ text = "＿"
 label_settings = ExtResource("9_0ufp4")
 script = ExtResource("14_kjqqi")
 
-[node name="ChoiceCursor" type="Label" parent="MessageWindow_■中央/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="MessageWindow_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -584,7 +584,7 @@ text = "＿"
 label_settings = ExtResource("9_0ufp4")
 script = ExtResource("14_kjqqi")
 
-[node name="ChoiceCursor" type="Label" parent="MessageWindow_■左下/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="MessageWindow_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0

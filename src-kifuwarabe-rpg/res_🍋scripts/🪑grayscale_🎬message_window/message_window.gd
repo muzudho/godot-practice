@@ -19,22 +19,28 @@ func get_director():
 
 # 助監取得
 func get_assistant_director():
-	return $"../../../../AssistantDirector"
+	return self.get_director().get_node("AssistantDirector")
 
 
 func get_canvas_layer():
-	var path = "../../../../TelopCoordinator/🎬kifuwarabe_rpg_🍉telop/MessageWindow_" + str(self.name)
-	return self.get_node(path)
+	var path = "TelopCoordinator/🎬kifuwarabe_rpg_🍉telop/MessageWindow_" + str(self.name)
+	return self.get_director().get_node(path)
 
 
 func get_text_block():
-	var path = "../../../../TelopCoordinator/🎬kifuwarabe_rpg_🍉telop/MessageWindow_" + str(self.name) + "/TextBlock"
-	return self.get_node(path)
+	return self.get_canvas_layer().get_node("TextBlock")
 
 
-func get_choice_cursor():
-	var path = "../../../../TelopCoordinator/🎬kifuwarabe_rpg_🍉telop/MessageWindow_" + str(self.name) + "/TextBlock/ChoiceCursor"
-	return self.get_node(path)
+func get_blinker_triangle():
+	return self.get_canvas_layer().get_node("TextBlock/BlinkerTriangle")
+
+
+func get_blinker_underscore():
+	return self.get_canvas_layer().get_node("TextBlock/BlinkerUnderscore")
+
+
+func get_choices_cursor():
+	return self.get_canvas_layer().get_node("TextBlock/ChoicesCursor")
 
 
 # 先頭行と、それ以外に分けます
@@ -51,7 +57,7 @@ func split_head_line_or_tail(text):
 
 
 func reset_cursor_position():
-	self.get_choice_cursor().reset_cursor_position()
+	self.get_choices_cursor().reset_cursor_position()
 
 
 # サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
@@ -142,7 +148,7 @@ func set_appear_subtree(
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	# 選択肢カーソル
-	self.get_canvas_layer().get_node("TextBlock/ChoiceCursor").on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.get_choices_cursor().on_virtual_key_input(virtual_key, lever_value, vk_operation)
 
 	if virtual_key == &"VK_FastForward":
 		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
@@ -218,20 +224,20 @@ func on_talked_2():
 	if snapshot.is_choices():
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
-		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
-		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.decide()
+		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.decide()
 		
 		# メッセージエンド・ブリンカー　状態機械［考える］
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
+		self.get_choices_cursor().statemachine_of_end_of_message_blinker.think()
 	
 	else:
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　台詞開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+		self.get_choices_cursor().statemachine_of_end_of_message_blinker.decide()
 		
 		# メッセージエンド・ブリンカー　状態機械［考える］
-		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
-		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
+		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.think()
+		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.think()
 
 
 # ページ送り
@@ -269,9 +275,9 @@ func on_page_forward():
 		# テキストが空っぽ
 		text_block_node.text = ""
 		# 全てのブリンカー　状態機械［決めた］
-		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
-		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.decide()
+		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.decide()
+		self.get_choices_cursor().statemachine_of_end_of_message_blinker.decide()
 
 
 func on_all_characters_pushed():
@@ -282,13 +288,13 @@ func on_all_characters_pushed():
 	# 選択肢
 	if snapshot.is_choices():
 		# 文末ブリンカー	状態機械［考える］
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.think()
+		self.get_choices_cursor().statemachine_of_end_of_message_blinker.think()
 
 	# それ以外
 	else:
 		# 文末ブリンカー	状態機械［考える］
-		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.think()
-		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.think()
+		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.think()
+		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.think()
 
 
 # 初期化
@@ -305,11 +311,11 @@ func on_all_pages_flushed():
 	# 選択肢
 	if snapshot.is_choices():
 		# 全てのブリンカー　状態機械［決めた］
-		text_block_node.get_node("ChoiceCursor").statemachine_of_end_of_message_blinker.decide()
+		self.get_choices_cursor().statemachine_of_end_of_message_blinker.decide()
 	else:
 		# 全てのブリンカー　状態機械［決めた］
-		text_block_node.get_node("BlinkerTriangle").statemachine_of_end_of_message_blinker.decide()
-		text_block_node.get_node("BlinkerUnderscore").statemachine_of_end_of_message_blinker.decide()
+		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.decide()
+		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.decide()
 
 	# この要素の初期状態は、非表示、透明
 	self.set_visible_subtree(false)
@@ -328,8 +334,8 @@ func _ready():
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
 	# 選択肢カーソルの初期位置を記憶
-	self.choices_cursor_origin_x = self.get_choice_cursor().get_transform().x.x # Vector To Scalar
-	self.choices_cursor_origin_y = self.get_choice_cursor().get_transform().y.y
+	self.choices_cursor_origin_x = self.get_choices_cursor().get_transform().x.x # Vector To Scalar
+	self.choices_cursor_origin_y = self.get_choices_cursor().get_transform().y.y
 
 
 func _process(delta):
