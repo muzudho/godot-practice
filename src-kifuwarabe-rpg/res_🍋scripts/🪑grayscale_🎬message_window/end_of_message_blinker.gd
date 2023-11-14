@@ -33,12 +33,17 @@ var elapsed_seconds = 0.0
 
 # 監督取得
 func get_director():
-	return $"../../../../../Director"
+	return $"../../../../Director"
 
 
 # 助監取得
 func get_assistant_director():
-	return $"../../../../AssistantDirector"
+	return $"../../../AssistantDirector"
+
+
+# キーコンフィグ監督取得
+func get_director_for_key_config():
+	return $"../../../../Director/🎬key_config_🍉director"
 
 
 # 伝言窓名を取得
@@ -53,14 +58,9 @@ func get_message_window_name():
 
 # Sprite2D の方の伝言窓を取得
 func get_message_window_as_sprite2d():
-	var path = "../../../🎬kifuwarabe_rpg_🍉gui/WindowsOfMessage/" + self.get_message_window_name()
+	var path = "../../../GuiArtist/🎬kifuwarabe_rpg_🍉gui/WindowsOfMessage/" + self.get_message_window_name()
 	print("［文末ブリンカー］　伝言窓スプライト２Ｄpath:" + path)
 	return self.get_node(path)
-
-
-# キーコンフィグ監督取得
-func get_director_for_key_config():
-	return $"../../../../../Director/🎬key_config_🍉director"
 
 
 # 線形補間
