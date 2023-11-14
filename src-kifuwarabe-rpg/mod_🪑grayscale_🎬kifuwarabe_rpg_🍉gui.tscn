@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://daiiegrayb8qm"]
+[gd_scene load_steps=14 format=3 uid="uid://daiiegrayb8qm"]
 
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="1_t6iro"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/message_window.gd" id="2_72yvr"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://res_🍋label_settings/🪑grayscale/main_medium.tres" id="3_5qip1"]
-[ext_resource type="PackedScene" uid="uid://2lmdr5sldf40" path="res://mod_🪑grayscale_🎬message_window_🍉gui_■下.tscn" id="3_81bod"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/end_of_message_blinker.gd" id="4_m214h"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://res_🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="5_3g21f"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://res_🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="6_f0moh"]
@@ -12,6 +11,16 @@
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://res_🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="9_6h7tk"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://res_🍋images/🪑grayscale/0512x288/ShogiBan.png" id="10_7voqo"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://res_🍋images/🪑grayscale/0512x288/file_and_rank.png" id="11_v2y08"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_2oa1m"]
+line_spacing = 8.0
+font = ExtResource("5_3g21f")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [sub_resource type="GDScript" id="GDScript_tmxbw"]
 script/source = "# テキスト・ブロック（TextBlock）
@@ -27,16 +36,6 @@ var is_visible_initialized = false
 
 "
 
-[sub_resource type="LabelSettings" id="LabelSettings_2oa1m"]
-line_spacing = 8.0
-font = ExtResource("5_3g21f")
-font_size = 32
-font_color = Color(0.972549, 0.972549, 0.972549, 1)
-outline_size = 1
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 4
-shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
-
 [node name="🎬kifuwarabe_rpg_🍉gui" type="Node2D"]
 
 [node name="WindowsOfMessage" type="Node2D" parent="."]
@@ -48,7 +47,47 @@ position = Vector2(640, 360)
 texture = ExtResource("1_t6iro")
 script = ExtResource("2_72yvr")
 
-[node name="🎬message_window_🍉gui_■下" parent="WindowsOfMessage" instance=ExtResource("3_81bod")]
+[node name="🎬message_window_🍉gui_■下" type="CanvasLayer" parent="WindowsOfMessage"]
+
+[node name="TextBlock" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■下"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1013.0
+offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("3_5qip1")
+
+[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■下/TextBlock"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 675.0
+offset_bottom = 135.0
+text = "▼"
+label_settings = ExtResource("3_5qip1")
+script = ExtResource("4_m214h")
+
+[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■下/TextBlock"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 143.0
+text = "＿"
+label_settings = ExtResource("3_5qip1")
+script = ExtResource("4_m214h")
+
+[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_2oa1m")
+script = ExtResource("4_m214h")
 
 [node name="■中央" type="Sprite2D" parent="WindowsOfMessage"]
 z_index = 1000
