@@ -36,12 +36,12 @@ func get_telop_coordinator_key_config():
 
 # BGM取得
 func get_bgm():
-	return self.get_external_director().get_node("Musician/BGM/🎬key_config_🍉bgm")
+	return self.get_external_director().get_node("Musician/BGM")
 
 
 # 効果音取得
 func get_se():
-	return self.get_external_director().get_node("Musician/SE/🎬key_config_🍉se")
+	return self.get_external_director().get_node("Musician/SE")
 
 
 # メッセージ・ウィンドウ
