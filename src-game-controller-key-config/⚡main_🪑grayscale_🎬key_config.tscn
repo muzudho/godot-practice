@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://mod_🪑grayscale_🎬key_config_🍉director.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://res_🍋scripts_🪑grayscale_🎬key_config_example/director.gd" id="1_8c8dd"]
-[ext_resource type="PackedScene" uid="uid://cir3646a1p0pg" path="res://mod_🪑grayscale_🎬key_config_🍉bg.tscn" id="3_u3eds"]
+[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://res_🍋images/🪑grayscale/1280x720/in_front_of_sakiwaka_station.png" id="2_sera7"]
 [ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://res_🍋audio_bgm/🪑maou_audio/maou_bgm_cyber36.ogg" id="3_yum1f"]
 [ext_resource type="PackedScene" uid="uid://dq26bmmlqgvjw" path="res://📂se_キーコンフィグ.tscn" id="4_xu1ys"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://📂telop_📄Ｔキーコンフィグ.tscn" id="5_pl8ct"]
@@ -15,7 +15,10 @@ script = ExtResource("1_8c8dd")
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 
-[node name="🎬key_config_🍉bg" parent="BackgroundArtist" instance=ExtResource("3_u3eds")]
+[node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_sera7")
 
 [node name="Musician" type="Node" parent="."]
 

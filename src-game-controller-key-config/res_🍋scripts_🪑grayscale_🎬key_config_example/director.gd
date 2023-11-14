@@ -6,7 +6,7 @@ extends Node2D
 
 # 背景職人取得
 func get_background_artist():
-	return $"BackgroundArtist/🎬key_config_🍉bg"
+	return $"BackgroundArtist"
 
 
 # テロップ・コーディネーター取得
