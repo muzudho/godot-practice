@@ -90,7 +90,7 @@
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/normal_text.gd" id="55_55mhj"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/normal_text_choice.gd" id="56_qecmy"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/quit.gd" id="57_3y7cx"]
-[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🪑grayscale_🍉key_config/📂telop_📄Ｔキーコンフィグ.tscn" id="58_aut8g"]
+[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🪑grayscale_🍉key_config/📂telop_🍉key_config.tscn" id="58_aut8g"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/se.gd" id="58_krlii"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/sleep.gd" id="59_yaige"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/telop.gd" id="60_0b3ow"]
