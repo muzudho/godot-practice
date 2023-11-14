@@ -63,6 +63,30 @@ func get_message_window_as_sprite2d():
 	return self.get_director().get_node(path)
 
 
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	# ーーーーーーーー
+	# 状態機械のセットアップ
+	# ーーーーーーーー
+	
+	# 文末ブリンカー
+	self.statemachine_of_end_of_message_blinker.on_none = self.on_none_the_end_of_message_blinker
+	self.statemachine_of_end_of_message_blinker.on_thought = self.on_thought
+	self.statemachine_of_end_of_message_blinker.on_sought = self.on_sought
+	self.statemachine_of_end_of_message_blinker.on_arrived = self.on_arrived
+
+	# ブリンカー
+	self.statemachine_of_blinker.on_switched_on = self.on_switched_on
+	self.statemachine_of_blinker.on_switched_off = self.on_switched_off
+	self.statemachine_of_blinker.on_turned_on = self.on_turned_on
+	self.statemachine_of_blinker.on_turned_off = self.on_turned_off
+
+	# ーーーーーーーー
+	# 非表示
+	# ーーーーーーーー
+	self.hide()
+
+
 # 線形補間
 func do_lerp(src, dst, progress):
 	return src + (dst - src) * progress
@@ -230,23 +254,6 @@ func on_cursor_down(_target_index):
 	self.dst_y = new_vec.y
 	self.total_seconds = 0.3
 	self.elapsed_seconds = 0.0
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	# 状態機械のセットアップ
-	self.statemachine_of_end_of_message_blinker.on_none = self.on_none_the_end_of_message_blinker
-	self.statemachine_of_end_of_message_blinker.on_thought = self.on_thought
-	self.statemachine_of_end_of_message_blinker.on_sought = self.on_sought
-	self.statemachine_of_end_of_message_blinker.on_arrived = self.on_arrived
-
-	# 状態機械のセットアップ
-	self.statemachine_of_blinker.on_switched_on = self.on_switched_on
-	self.statemachine_of_blinker.on_switched_off = self.on_switched_off
-	self.statemachine_of_blinker.on_turned_on = self.on_turned_on
-	self.statemachine_of_blinker.on_turned_off = self.on_turned_off
-
-	#self.statemachine_of_end_of_message_blinker.decide()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

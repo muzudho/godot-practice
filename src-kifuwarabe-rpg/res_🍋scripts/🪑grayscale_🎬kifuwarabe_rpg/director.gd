@@ -139,9 +139,12 @@ func _ready():
 			# 文書辞書の先頭要素のキー取得
 			self.snapshots[department_node.name].section_name = $"ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
 
-	# 開発中にいじったものが残ってるかもしれないから、掃除
+	# ーーーーーーーー
+	# 表示
+	# ーーーーーーーー
 	#
-	# 表示するもの
+	# 開発中にいじったものが残ってるかもしれないから、掃除
+	
 	# 	監督自身
 	self.show()
 	# 	背景アーティスト自身
@@ -156,6 +159,10 @@ func _ready():
 	$"MonsterTrainer".show()
 	$"MonsterTrainer/Faces".show()
 	$"MonsterTrainer/WholeBody".show()
+	
+	# ーーーーーーーー
+	# 非表示
+	# ーーーーーーーー
 	
 	# グリッドは隠す
 	$"Grid".hide()
