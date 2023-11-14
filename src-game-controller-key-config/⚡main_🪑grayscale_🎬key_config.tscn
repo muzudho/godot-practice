@@ -1,16 +1,13 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=10 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://mod_🪑grayscale_🎬key_config_🍉director.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://res_🍋scripts_🪑grayscale_🎬key_config_example/director.gd" id="1_8c8dd"]
 [ext_resource type="PackedScene" uid="uid://cir3646a1p0pg" path="res://mod_🪑grayscale_🎬key_config_🍉bg.tscn" id="3_u3eds"]
 [ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://res_🍋audio_bgm/🪑maou_audio/maou_bgm_cyber36.ogg" id="3_yum1f"]
-[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://res_🍋audio_se/🪑maou_audio/maou_se_sound_door02.ogg" id="4_ccfqk"]
-[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🍉telop_Ｔキーコンフィグ.tscn" id="5_pl8ct"]
-[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://res_🍋audio_se/🪑maou_audio/maou_se_system12.ogg" id="5_xnuox"]
-[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://res_🍋audio_se/🪑maou_audio/maou_se_onepoint32.ogg" id="6_d6vqd"]
+[ext_resource type="PackedScene" uid="uid://dq26bmmlqgvjw" path="res://📂se_キーコンフィグ.tscn" id="4_xu1ys"]
+[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://📂telop_📄Ｔキーコンフィグ.tscn" id="5_pl8ct"]
 [ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="6_nmkr1"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="7_6lehe"]
-[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://res_🍋audio_se/🪑maou_audio/maou_se_magic_fire09.ogg" id="7_a2crh"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://res_🍋images/🪑grayscale/1280x720/grid.png" id="7_rxjfu"]
 
 [node name="Director" type="Node2D"]
@@ -29,23 +26,7 @@ stream = ExtResource("3_yum1f")
 volume_db = -20.0
 pitch_scale = 1.4
 
-[node name="SE" type="Node" parent="Musician"]
-
-[node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("4_ccfqk")
-volume_db = -5.0
-
-[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("5_xnuox")
-volume_db = -10.0
-
-[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("6_d6vqd")
-volume_db = -15.0
-
-[node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="Musician/SE"]
-stream = ExtResource("7_a2crh")
-volume_db = -15.0
+[node name="SE" parent="Musician" instance=ExtResource("4_xu1ys")]
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
 
