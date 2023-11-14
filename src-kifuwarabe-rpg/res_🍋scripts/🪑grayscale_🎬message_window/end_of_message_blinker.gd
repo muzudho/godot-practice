@@ -33,31 +33,34 @@ var elapsed_seconds = 0.0
 
 # 監督取得
 func get_director():
-	return $"../../../../../../../Director"
+	return $"../../../../../../Director"
 
 
 # 助監取得
 func get_assistant_director():
-	return $"../../../../../../AssistantDirector"
+	return $"../../../../../AssistantDirector"
 
 
 # 伝言窓名を取得
+#
+# `MessageWindow_■下` の中の `■下` の部分
 func get_message_window_name():
 	var temp = $"../..".name
 	temp = temp.substr("MessageWindow_".length())
+	print("［文末ブリンカー］　伝言窓名：［" + temp + "］")
 	return StringName(temp)
 
 
-# 伝言窓を取得
-func get_ancestor_message_window():
-	var path = "../../../" + self.get_message_window_name()
-	#print("［選択肢］　path:" + path)
+# Sprite2D の方の伝言窓を取得
+func get_message_window_as_sprite2d():
+	var path = "../../../WindowsOfMessage/" + self.get_message_window_name()
+	print("［文末ブリンカー］　伝言窓スプライト２Ｄpath:" + path)
 	return self.get_node(path)
 
 
 # キーコンフィグ監督取得
 func get_director_for_key_config():
-	return $"../../../../../../../Director/🎬key_config_🍉director"
+	return $"../../../../../../Director/🎬key_config_🍉director"
 
 
 # 線形補間
@@ -172,7 +175,7 @@ func calc_cursor_vector():
 	# 先頭を１行目とし、基数に変換する
 	var difference = selected_row_number - 1
 
-	var message_window = self.get_ancestor_message_window()
+	var message_window = self.get_message_window_as_sprite2d()
 
 	# self.get_transform().x と、 self.offset_right 、どっちを変更するのがいい？
 	# self.get_transform().y と、 self.offset_top 、どっちを変更するのがいい？
