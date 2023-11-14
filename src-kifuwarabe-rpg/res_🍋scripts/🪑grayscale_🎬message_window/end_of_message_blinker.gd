@@ -3,8 +3,8 @@ extends Label
 
 
 # 状態機械
-var statemachine_of_end_of_message_blinker = load("res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/statemachines/end_of_message_blinker.gd").new()
-var statemachine_of_blinker = load("res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/statemachines/blinker.gd").new()
+var statemachine_of_end_of_message_blinker = load("res://res_🍋scripts/🪑grayscale_🎬message_window/statemachines/end_of_message_blinker.gd").new()
+var statemachine_of_blinker = load("res://res_🍋scripts/🪑grayscale_🎬message_window/statemachines/blinker.gd").new()
 
 
 var is_appear = true
