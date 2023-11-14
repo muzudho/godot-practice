@@ -44,7 +44,7 @@ func get_assistant_director():
 # 伝言窓名を取得
 func get_message_window_name():
 	var temp = $"../..".name
-	temp = temp.substr(0, temp.length() - "_CanvasLayer".length())
+	temp = temp.substr("MessageWindow_".length())
 	return StringName(temp)
 
 
@@ -67,7 +67,7 @@ func do_lerp(src, dst, progress):
 
 # サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
 func set_process_subtree(is_process):
-	#print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　プロセス：" + str(is_process))
+	#print("［文末ブリンカー　”MessageWindow_" + str(self.get_message_window_name()) + "/*/" + self.name + "］　プロセス：" + str(is_process))
 
 	# 処理しろ　（true） という指示のとき、処理していれば　　（true） 、何もしない（pass）。
 	# 処理するな（false）という指示のとき、処理していれば　　（true） 、停止する　（false）。
@@ -81,7 +81,7 @@ func set_process_subtree(is_process):
 
 # サブツリーの visible を設定
 func set_visible_subtree(visible_flag):
-	#print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　可視性：" + str(visible_flag))
+	#print("［文末ブリンカー　”MessageWindow_" + str(self.get_message_window_name()) + "/*/" + self.name + "］　可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
@@ -117,7 +117,7 @@ func set_appear_subtree(appear_flag):
 # 初期化
 #	ウィンドウが消えている状態を想定しています。
 func on_none_the_end_of_message_blinker():
-	print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　オン・デサイデッド")
+	print("［文末ブリンカー　”MessageWindow_" + str(self.get_message_window_name()) + "/*/" + self.name + "］　オン・デサイデッド")
 
 	# ブリンカーのスイッチ・オフ
 	self.statemachine_of_blinker.switch_off()
@@ -127,7 +127,7 @@ func on_none_the_end_of_message_blinker():
 
 	
 func on_thought():
-	#print("［文末ブリンカー　”" + str(self.get_message_window_name()) + "_CanvasLayer/*/" + self.name + "］　オン・ソート")
+	#print("［文末ブリンカー　”MessageWindow_" + str(self.get_message_window_name()) + "/*/" + self.name + "］　オン・ソート")
 	self.modulate.a = 0.0	# 空欄化による透明化
 	self.show()
 
