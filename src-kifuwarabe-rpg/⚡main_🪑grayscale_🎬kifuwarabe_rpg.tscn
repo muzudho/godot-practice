@@ -77,7 +77,6 @@
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://res_🍋label_settings/🪑grayscale/battle_light_blue.tres" id="43_brqpm"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="43_trpl0"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director.gd" id="44_0ne2j"]
-[ext_resource type="PackedScene" uid="uid://dcqg072lu0ws0" path="res://🍉telop_Ｔキーコンフィグ.tscn" id="45_ivtt5"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/bg.gd" id="45_qk8hw"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/bgm.gd" id="46_0xl81"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/choice.gd" id="47_v7tu7"]
@@ -91,6 +90,7 @@
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/normal_text.gd" id="55_55mhj"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/normal_text_choice.gd" id="56_qecmy"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/quit.gd" id="57_3y7cx"]
+[ext_resource type="PackedScene" path="res://📂telop_📄Ｔキーコンフィグ.tscn" id="58_aut8g"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/se.gd" id="58_krlii"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/sleep.gd" id="59_yaige"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/assistant_director/telop.gd" id="60_0b3ow"]
@@ -99,7 +99,7 @@
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scorer.gd" id="63_8eo61"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scorer/battle_sheet.gd" id="64_q6oa0"]
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/scorer/monster_data.gd" id="65_2epyj"]
-[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://mod_🪑grayscale_🎬key_config_🍉director.tscn" id="66_haq83"]
+[ext_resource type="PackedScene" path="res://📂director_🍉key_config.tscn" id="100_m0vra"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -376,6 +376,8 @@ position = Vector2(640, 360)
 texture = ExtResource("29_nf05i")
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
+
+[node name="ーーーーきふわらべRPGーーーー" type="Node" parent="TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="TelopCoordinator"]
 visible = false
@@ -900,7 +902,9 @@ text = "▶"
 label_settings = SubResource("LabelSettings_vfubr")
 script = ExtResource("35_7lbb3")
 
-[node name="Ｔキーコンフィグ" parent="TelopCoordinator" instance=ExtResource("45_ivtt5")]
+[node name="ーーーーキーコンフィグーーーー" type="Node" parent="TelopCoordinator"]
+
+[node name="Ｔキーコンフィグ" parent="TelopCoordinator" instance=ExtResource("58_aut8g")]
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
@@ -1086,4 +1090,4 @@ script = ExtResource("64_q6oa0")
 [node name="MonsterData" type="Node" parent="Scorer"]
 script = ExtResource("65_2epyj")
 
-[node name="🎬key_config_🍉director" parent="." instance=ExtResource("66_haq83")]
+[node name="Director_🍉KeyConfig" parent="." instance=ExtResource("100_m0vra")]

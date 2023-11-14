@@ -26,7 +26,7 @@ func get_external_director():
 
 # 監督取得
 func get_director_watermelon():
-	return self.get_external_director().get_node("🎬key_config_🍉director")
+	return self.get_external_director().get_node("Director_🍉KeyConfig")
 
 
 # テロップ・コーディネーター取得

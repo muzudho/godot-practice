@@ -184,7 +184,8 @@ func _ready():
 	#
 	#	テロップはとにかく非表示にする
 	for canvas_layer in $"TelopCoordinator".get_children():
-		canvas_layer.hide()
+		if canvas_layer is CanvasLayer:
+			canvas_layer.hide()
 	#
 	#	モンスターは、フォルダ―以外は　とにかく非表示にする
 	for monster in $"MonsterTrainer/Faces".get_children():
@@ -212,11 +213,11 @@ func on_key_config_exited():
 func _process(delta):
 
 	if self.current_state == &"WaitForKeyConfig":
-		$"🎬key_config_🍉director".entry()
+		$"Director_🍉KeyConfig".entry()
 		self.current_state = &"KeyConfig"
 
 	elif self.current_state == &"KeyConfig":
-		$"🎬key_config_🍉director".on_process(delta)
+		$"Director_🍉KeyConfig".on_process(delta)
 
 	elif self.current_state == &"Ready":
 		self.current_state = &"Main"
@@ -307,7 +308,7 @@ func _unhandled_input(event):
 		pass
 
 	elif self.current_state == &"KeyConfig":
-		$"🎬key_config_🍉director".on_unhandled_input(event)
+		$"Director_🍉KeyConfig".on_unhandled_input(event)
 
 	elif self.current_state == &"Main":
 
@@ -335,13 +336,13 @@ func _unhandled_input(event):
 		var event_as_text = event.as_text()
 		
 		# 文字列をボタン番号に変換
-		var button_number = $"🎬key_config_🍉director".get_button_number_by_text(event_as_text)
+		var button_number = $"Director_🍉KeyConfig".get_button_number_by_text(event_as_text)
 		
 		# ボタン番号を、仮想キー名に変換
-		var virtual_key_name = $"🎬key_config_🍉director".get_virtual_key_name_by_button_number(button_number)
+		var virtual_key_name = $"Director_🍉KeyConfig".get_virtual_key_name_by_button_number(button_number)
 
 		# レバー値
-		var lever_value = $"🎬key_config_🍉director".get_lever_value_by_text(event_as_text)
+		var lever_value = $"Director_🍉KeyConfig".get_lever_value_by_text(event_as_text)
 
 		# 仮想キーを押下したという建付け
 		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
