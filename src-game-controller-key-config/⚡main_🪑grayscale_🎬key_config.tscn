@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=10 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://mod_🪑grayscale_🎬key_config_🍉director.tscn" id="1_1j70m"]
 [ext_resource type="Script" path="res://res_🍋scripts_🪑grayscale_🎬key_config_example/director.gd" id="1_8c8dd"]
@@ -6,7 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b0hugi88es5cd" path="res://mod_🪑grayscale_🎬key_config_🍉bgm.tscn" id="4_s6jlt"]
 [ext_resource type="PackedScene" uid="uid://bok72q4bxmpyv" path="res://mod_🪑grayscale_🎬key_config_🍉se.tscn" id="5_px30v"]
 [ext_resource type="PackedScene" uid="uid://b2snhksgq02l" path="res://mod_🪑grayscale_🎬key_config_🍉telop.tscn" id="6_klqe5"]
-[ext_resource type="PackedScene" uid="uid://cps73qs1cctt8" path="res://mod_🪑grayscale_🎬key_config_🍉gui.tscn" id="7_74kig"]
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="6_nmkr1"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="7_6lehe"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://res_🍋images/🪑grayscale/1280x720/grid.png" id="7_rxjfu"]
 
 [node name="Director" type="Node2D"]
@@ -32,7 +33,18 @@ script = ExtResource("1_8c8dd")
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
-[node name="🎬key_config_🍉gui" parent="GuiArtist" instance=ExtResource("7_74kig")]
+[node name="MessageWindows" type="Node2D" parent="GuiArtist"]
+visible = false
+
+[node name="■下" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("6_nmkr1")
+
+[node name="■上_大" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("7_6lehe")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false

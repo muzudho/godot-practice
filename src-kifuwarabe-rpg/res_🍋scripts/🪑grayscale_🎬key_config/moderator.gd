@@ -46,7 +46,7 @@ func get_se():
 
 # メッセージ・ウィンドウ
 func get_message_windows():
-	return self.get_external_director().get_node("GuiArtist/🎬key_config_🍉gui/MessageWindows")
+	return self.get_external_director().get_node("GuiArtist/MessageWindows")
 
 
 # ボタンが重複するか？

@@ -21,12 +21,12 @@ func get_external_director():
 	return $"../../Director"
 
 
-func get_external_gui_watermelon():
-	return self.get_external_director().get_node("GuiArtist/🎬key_config_🍉gui")
+func get_external_gui_artist():
+	return self.get_external_director().get_node("GuiArtist")
 
 
 func get_external_message_windows():
-	return self.get_external_gui_watermelon().get_node("MessageWindows")
+	return self.get_external_gui_artist().get_node("MessageWindows")
 
 
 # 司会進行取得
@@ -40,7 +40,7 @@ func entry():
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
-	self.get_external_gui_watermelon().show()
+	self.get_external_gui_artist().show()
 	self.get_external_message_windows().show()
 	self.get_external_message_windows().get_node("■下").show()
 	self.get_external_message_windows().get_node("■上_大").show()

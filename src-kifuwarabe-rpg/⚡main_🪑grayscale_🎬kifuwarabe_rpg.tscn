@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=69 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/director.gd" id="1_qes7x"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://res_🍋images/🪑grayscale/1280x720/grid.png" id="2_ttqet"]
@@ -31,8 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://res_🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="29_nf05i"]
 [ext_resource type="PackedScene" uid="uid://b2snhksgq02l" path="res://mod_🪑grayscale_🎬key_config_🍉telop.tscn" id="31_ckc8a"]
 [ext_resource type="PackedScene" uid="uid://daiiegrayb8qm" path="res://mod_🪑grayscale_🎬kifuwarabe_rpg_🍉gui.tscn" id="32_3pqja"]
-[ext_resource type="PackedScene" uid="uid://cps73qs1cctt8" path="res://mod_🪑grayscale_🎬key_config_🍉gui.tscn" id="33_j7a15"]
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="33_54jxo"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="34_mlek1"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="34_rp8ix"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="35_igeww"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="36_2mb11"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="37_iu1xl"]
@@ -228,7 +229,18 @@ visible = false
 
 [node name="🎬kifuwarabe_rpg_🍉gui" parent="GuiArtist" instance=ExtResource("32_3pqja")]
 
-[node name="🎬key_config_🍉gui" parent="GuiArtist" instance=ExtResource("33_j7a15")]
+[node name="MessageWindows" type="Node2D" parent="GuiArtist"]
+visible = false
+
+[node name="■下" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("33_54jxo")
+
+[node name="■上_大" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("34_rp8ix")
 
 [node name="MonsterTrainer" type="Node2D" parent="."]
 visible = false
