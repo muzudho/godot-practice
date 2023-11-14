@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://1j4w0c8hsdan"]
+[gd_scene load_steps=22 format=3 uid="uid://1j4w0c8hsdan"]
 
 [ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://res_🍋label_settings/🪑grayscale/game_title.tres" id="1_stfu2"]
 [ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://res_🍋label_settings/🪑grayscale/game_title_copyright.tres" id="2_orxmv"]
@@ -13,6 +13,8 @@
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://res_🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="11_af4dk"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://res_🍋label_settings/🪑grayscale/battle_light_green.tres" id="12_g40vy"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://res_🍋label_settings/🪑grayscale/battle_light_blue.tres" id="13_nrwhe"]
+[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/end_of_message_blinker.gd" id="14_kjqqi"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://res_🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="15_iswwy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s3a30"]
 line_spacing = 1.0
@@ -59,6 +61,16 @@ line_spacing = 1.0
 font = ExtResource("6_la6pj")
 font_size = 20
 font_color = Color(0.85098, 0, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u35c1"]
+line_spacing = 8.0
+font = ExtResource("15_iswwy")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="🎬kifuwarabe_rpg_🍉telop" type="CanvasLayer"]
 
@@ -453,3 +465,131 @@ offset_right = 993.0
 offset_bottom = 171.0
 text = "　　　１"
 label_settings = ExtResource("13_nrwhe")
+
+[node name="MessageWindow_■下" type="CanvasLayer" parent="."]
+
+[node name="TextBlock" type="Label" parent="MessageWindow_■下"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1013.0
+offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("9_0ufp4")
+
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 675.0
+offset_bottom = 135.0
+text = "▼"
+label_settings = ExtResource("9_0ufp4")
+script = ExtResource("14_kjqqi")
+
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 143.0
+text = "＿"
+label_settings = ExtResource("9_0ufp4")
+script = ExtResource("14_kjqqi")
+
+[node name="ChoiceCursor" type="Label" parent="MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_u35c1")
+script = ExtResource("14_kjqqi")
+
+[node name="MessageWindow_■中央" type="CanvasLayer" parent="."]
+
+[node name="TextBlock" type="Label" parent="MessageWindow_■中央"]
+offset_left = 510.0
+offset_top = 237.0
+offset_right = 824.0
+offset_bottom = 483.0
+text = "表示テストいうえ
+かきくけさしすせ
+たちつてなにぬね
+はひふへまみむ　　"
+label_settings = ExtResource("9_0ufp4")
+
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 154.0
+offset_right = 262.0
+offset_bottom = 199.0
+text = "▼"
+label_settings = ExtResource("9_0ufp4")
+script = ExtResource("14_kjqqi")
+
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 202.0
+text = "＿"
+label_settings = ExtResource("9_0ufp4")
+script = ExtResource("14_kjqqi")
+
+[node name="ChoiceCursor" type="Label" parent="MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_u35c1")
+script = ExtResource("14_kjqqi")
+
+[node name="MessageWindow_■左下" type="CanvasLayer" parent="."]
+
+[node name="TextBlock" type="Label" parent="MessageWindow_■左下"]
+offset_left = 32.0
+offset_top = 508.0
+offset_right = 726.0
+offset_bottom = 700.0
+text = "表示テストだ
+あいうえおか
+きくけこさし
+すせたちつて"
+label_settings = ExtResource("9_0ufp4")
+
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 140.0
+offset_right = 195.0
+offset_bottom = 185.0
+text = "▼"
+label_settings = ExtResource("9_0ufp4")
+script = ExtResource("14_kjqqi")
+
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 147.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "＿"
+label_settings = ExtResource("9_0ufp4")
+script = ExtResource("14_kjqqi")
+
+[node name="ChoiceCursor" type="Label" parent="MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_u35c1")
+script = ExtResource("14_kjqqi")

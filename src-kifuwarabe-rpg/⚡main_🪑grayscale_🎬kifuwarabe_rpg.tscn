@@ -1,4 +1,4 @@
-[gd_scene load_steps=72 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=68 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/director.gd" id="1_qes7x"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://res_🍋images/🪑grayscale/1280x720/grid.png" id="2_ttqet"]
@@ -32,12 +32,9 @@
 [ext_resource type="PackedScene" uid="uid://b2snhksgq02l" path="res://mod_🪑grayscale_🎬key_config_🍉telop.tscn" id="31_ckc8a"]
 [ext_resource type="PackedScene" uid="uid://daiiegrayb8qm" path="res://mod_🪑grayscale_🎬kifuwarabe_rpg_🍉gui.tscn" id="32_3pqja"]
 [ext_resource type="PackedScene" uid="uid://cps73qs1cctt8" path="res://mod_🪑grayscale_🎬key_config_🍉gui.tscn" id="33_j7a15"]
-[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://res_🍋label_settings/🪑grayscale/main_medium.tres" id="34_ebex5"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="34_mlek1"]
-[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/end_of_message_blinker.gd" id="35_7lbb3"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="35_igeww"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="36_2mb11"]
-[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://res_🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="36_6dsl0"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="37_iu1xl"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://res_🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="38_nc5fo"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://res_🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="39_opkmm"]
@@ -71,16 +68,6 @@
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://mod_🪑grayscale_🎬key_config_🍉director.tscn" id="66_haq83"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_705wy"]
-line_spacing = 8.0
-font = ExtResource("36_6dsl0")
-font_size = 32
-font_color = Color(0.972549, 0.972549, 0.972549, 1)
-outline_size = 1
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 4
-shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
@@ -234,134 +221,6 @@ texture = ExtResource("29_nf05i")
 [node name="🎬kifuwarabe_rpg_🍉telop" parent="TelopCoordinator" instance=ExtResource("40_8h673")]
 
 [node name="🎬key_config_🍉telop" parent="TelopCoordinator" instance=ExtResource("31_ckc8a")]
-
-[node name="MessageWindow_■下" type="CanvasLayer" parent="TelopCoordinator"]
-
-[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■下"]
-offset_left = 319.0
-offset_top = 507.0
-offset_right = 1013.0
-offset_bottom = 663.0
-text = "表示テストだあいうえかきくけさしすせたち
-つてなにぬねはひふへまみむめやゆよ～わを
-がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("34_ebex5")
-
-[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 643.0
-offset_top = 90.0
-offset_right = 675.0
-offset_bottom = 135.0
-text = "▼"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 641.0
-offset_top = 98.0
-offset_right = 673.0
-offset_bottom = 143.0
-text = "＿"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="ChoiceCursor" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_705wy")
-script = ExtResource("35_7lbb3")
-
-[node name="MessageWindow_■中央" type="CanvasLayer" parent="TelopCoordinator"]
-
-[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■中央"]
-offset_left = 510.0
-offset_top = 237.0
-offset_right = 824.0
-offset_bottom = 483.0
-text = "表示テストいうえ
-かきくけさしすせ
-たちつてなにぬね
-はひふへまみむ　　"
-label_settings = ExtResource("34_ebex5")
-
-[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 230.0
-offset_top = 154.0
-offset_right = 262.0
-offset_bottom = 199.0
-text = "▼"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 157.0
-offset_right = 260.0
-offset_bottom = 202.0
-text = "＿"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="ChoiceCursor" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_705wy")
-script = ExtResource("35_7lbb3")
-
-[node name="MessageWindow_■左下" type="CanvasLayer" parent="TelopCoordinator"]
-
-[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■左下"]
-offset_left = 32.0
-offset_top = 508.0
-offset_right = 726.0
-offset_bottom = 700.0
-text = "表示テストだ
-あいうえおか
-きくけこさし
-すせたちつて"
-label_settings = ExtResource("34_ebex5")
-
-[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 140.0
-offset_right = 195.0
-offset_bottom = 185.0
-text = "▼"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 147.0
-offset_right = 192.0
-offset_bottom = 192.0
-text = "＿"
-label_settings = ExtResource("34_ebex5")
-script = ExtResource("35_7lbb3")
-
-[node name="ChoiceCursor" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = SubResource("LabelSettings_705wy")
-script = ExtResource("35_7lbb3")
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
