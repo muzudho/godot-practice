@@ -14,7 +14,7 @@ func get_assistant_director():
 
 # 効果音取得
 func get_se():
-	return $"../../Musician/SE/🎬kifuwarabe_rpg_🍉se"
+	return $"../../Musician/SE"
 
 
 # それをする

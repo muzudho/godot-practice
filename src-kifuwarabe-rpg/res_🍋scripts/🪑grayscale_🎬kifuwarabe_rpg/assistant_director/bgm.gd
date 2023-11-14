@@ -9,12 +9,12 @@ func get_director():
 
 # 助監取得
 func get_assistant_director():
-	return $"../../AssistantDirector"
+	return self.get_director().get_node("AssistantDirector")
 
 
 # BGM取得
 func get_bgm():
-	return $"../../Musician/BGM/🎬kifuwarabe_rpg_🍉bgm"
+	return self.get_director().get_node("Musician/BGM")
 
 
 # それをする
