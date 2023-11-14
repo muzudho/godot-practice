@@ -14,7 +14,7 @@ var choices_cursor_origin_y = 0.0
 
 # 監督取得
 func get_director():
-	return $"../../../../../Director"
+	return $"../../../../Director"
 
 
 # 助監取得

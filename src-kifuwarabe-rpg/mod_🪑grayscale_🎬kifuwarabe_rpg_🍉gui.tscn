@@ -1,55 +1,5 @@
-[gd_scene load_steps=9 format=3 uid="uid://daiiegrayb8qm"]
-
-[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="1_t6iro"]
-[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬message_window/message_window.gd" id="2_72yvr"]
-[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://res_🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="6_f0moh"]
-[ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://res_🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="7_vhf7f"]
-[ext_resource type="Script" path="res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/windows/viewing.gd" id="8_fdkeh"]
-[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://res_🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="9_6h7tk"]
-[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://res_🍋images/🪑grayscale/0512x288/ShogiBan.png" id="10_7voqo"]
-[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://res_🍋images/🪑grayscale/0512x288/file_and_rank.png" id="11_v2y08"]
+[gd_scene format=3 uid="uid://dx7kwljjri888"]
 
 [node name="🎬kifuwarabe_rpg_🍉gui" type="Node2D"]
 
 [node name="MessageWindows" type="Node2D" parent="."]
-
-[node name="■下" type="Sprite2D" parent="MessageWindows"]
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("1_t6iro")
-script = ExtResource("2_72yvr")
-
-[node name="■中央" type="Sprite2D" parent="MessageWindows"]
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("6_f0moh")
-script = ExtResource("2_72yvr")
-
-[node name="■左下" type="Sprite2D" parent="MessageWindows"]
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("7_vhf7f")
-script = ExtResource("2_72yvr")
-
-[node name="ViewingWindows" type="Node2D" parent="."]
-script = ExtResource("8_fdkeh")
-
-[node name="System" type="Node2D" parent="ViewingWindows"]
-
-[node name="Frame" type="Sprite2D" parent="ViewingWindows/System"]
-visible = false
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("9_6h7tk")
-
-[node name="将棋盤" type="Sprite2D" parent="ViewingWindows"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("10_7voqo")
-
-[node name="ファイルとランク" type="Sprite2D" parent="ViewingWindows"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("11_v2y08")
