@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dvlp1tdgeisf5"]
 
-[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://res_🍋label_settings/🪑grayscale/label_setting_large.tres" id="1_u8t8e"]
-[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://res_🍋label_settings/🪑grayscale/label_setting_medium.tres" id="2_g4pru"]
+[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🍋label_settings/label_setting_large.tres" id="1_u8t8e"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🍋label_settings/label_setting_medium.tres" id="2_g4pru"]
 
 [node name="Ｔキーコンフィグ" type="CanvasLayer"]
 

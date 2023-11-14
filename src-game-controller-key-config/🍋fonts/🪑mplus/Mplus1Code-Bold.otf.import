@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dmy7kdhxwpfg6"
-path="res://.godot/imported/Mplus2-Regular.otf-4603474277607df2c2aa274c8a01bb16.fontdata"
+uid="uid://u2t28507xb6k"
+path="res://.godot/imported/Mplus1Code-Bold.otf-67d010dc00c06f627b47d12eda09e93c.fontdata"
 
 [deps]
 
-source_file="res://res_🍋fonts/🪑mplus/Mplus2-Regular.otf"
-dest_files=["res://.godot/imported/Mplus2-Regular.otf-4603474277607df2c2aa274c8a01bb16.fontdata"]
+source_file="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf"
+dest_files=["res://.godot/imported/Mplus1Code-Bold.otf-67d010dc00c06f627b47d12eda09e93c.fontdata"]
 
 [params]
 
