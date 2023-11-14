@@ -1333,4 +1333,28 @@ Zzz...
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　じゃあ　リソース管理のやり方を　練り直しだぜ」  
 
+# 📅 2023-11-14 tue ファイル構成のベストプラクティスを探せだぜ！
+
+![202311__godot__14-2306--FileSystem.png](https://crieit.now.sh/upload_images/2c5564069d344eb538459747dac3c0c265537f46dba5f.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　プロジェクトに入れるものは　３大要素　に分かれるぜ」  
+
+* ⚡　ツリーのルート。とにかく最初はこれをダブルクリック
+* 🍋　素材。大雑把な種類で分ける
+* 📂　別のプロジェクトへツリーをコピー・ペーストしたいときのために分けた、部分木。 Transfer Data
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　この３つを　さっと　見分けられないと　やってられない」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　🪑　と　🍉　は何だぜ？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　🪑　は、素材の著作権者を　見分けやすくする印だぜ。  
+🍉は、モジュール名だぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　特訓しないと　なんだか　分からないわねえ」  
+
 .
