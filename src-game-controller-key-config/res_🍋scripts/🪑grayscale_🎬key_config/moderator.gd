@@ -41,7 +41,7 @@ func get_se():
 
 # メッセージ・ウィンドウ
 func get_window_of_message():
-	return $"../../GuiArtist/🎬key_config_🍉gui/WindowOfMessage"
+	return $"../../GuiArtist/🎬key_config_🍉gui/MessageWindows"
 
 
 # ボタンが重複するか？

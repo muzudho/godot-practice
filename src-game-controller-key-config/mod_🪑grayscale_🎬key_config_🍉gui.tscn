@@ -4,14 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://res_🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="2_s6hrt"]
 
 [node name="🎬key_config_🍉gui" type="Node2D"]
+visible = false
 
-[node name="WindowOfMessage" type="Node2D" parent="."]
+[node name="MessageWindows" type="Node2D" parent="."]
+visible = false
 
-[node name="■下" type="Sprite2D" parent="WindowOfMessage"]
+[node name="■下" type="Sprite2D" parent="MessageWindows"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("1_5i6ft")
 
-[node name="■上_大" type="Sprite2D" parent="WindowOfMessage"]
+[node name="■上_大" type="Sprite2D" parent="MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("2_s6hrt")

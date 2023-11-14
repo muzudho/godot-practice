@@ -22,14 +22,14 @@ func get_gui_artist():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# ーーーーーーーー
-	# 準備
+	# 表示
 	# ーーーーーーーー
 
 	# テロップ・コーディネーター表示
 	self.get_telop_coordinator().show()
 
 	# ーーーーーーーー
-	# キーコンフィグ
+	# 初期化
 	# ーーーーーーーー
 	$"🎬key_config_🍉director".entry()
 

@@ -30,7 +30,7 @@ script = ExtResource("1_8c8dd")
 
 [node name="🎬key_config_🍉telop" parent="TelopCoordinator" instance=ExtResource("6_klqe5")]
 
-[node name="GuiArtist" type="Node" parent="."]
+[node name="GuiArtist" type="Node2D" parent="."]
 
 [node name="🎬key_config_🍉gui" parent="GuiArtist" instance=ExtResource("7_74kig")]
 
