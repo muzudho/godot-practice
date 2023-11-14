@@ -197,7 +197,7 @@ func _ready():
 	# ーーーーーーーー
 
 	# テロップ
-	$"TelopCoordinator/🎬key_config_🍉telop".show()
+	$"TelopCoordinator".show()
 
 
 func on_key_config_entered():

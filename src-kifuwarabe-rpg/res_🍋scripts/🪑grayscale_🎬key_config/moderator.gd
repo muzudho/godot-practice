@@ -31,7 +31,7 @@ func get_director_watermelon():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return self.get_external_director().get_node("TelopCoordinator/🎬key_config_🍉telop")
+	return self.get_external_director().get_node("TelopCoordinator")
 
 
 # BGM取得

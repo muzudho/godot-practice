@@ -30,8 +30,8 @@ func get_director_watermelon():
 
 
 # テロップ・コーディネーター取得
-func get_telop_coordinator():
-	return self.get_external_director().get_node("TelopCoordinator/🎬key_config_🍉telop")
+func get_telop_coordinator_key_config():
+	return self.get_external_director().get_node("TelopCoordinator/Ｔキーコンフィグ")
 
 
 # BGM取得
@@ -73,7 +73,7 @@ func _ready():
 	self.get_message_windows().hide()
 		
 	# テロップ非表示
-	self.get_telop_coordinator().get_node("TextBlock").visible = false
+	self.get_telop_coordinator_key_config().get_node("TextBlock").visible = false
 
 	# 入力イベントが返す文字列。仕様さっぱり分からん
 	# 最後に半角スペースを入れること。 `Button 1` と `Button 10` を区別するために
@@ -92,7 +92,7 @@ func entry():
 	self.get_message_windows().show()
 	
 	# テロップ表示
-	self.get_telop_coordinator().get_node("TextBlock").visible = true
+	self.get_telop_coordinator_key_config().get_node("TextBlock").visible = true
 
 	# ーーーーーーーー
 	# 設定
@@ -106,7 +106,7 @@ func entry():
 	self.set_empty_the_button_message(1)
 	self.set_empty_the_button_message(2)
 	self.set_empty_the_button_message(3)
-	self.get_telop_coordinator().get_node("TextBlock").text = """\
+	self.get_telop_coordinator_key_config().get_node("TextBlock").text = """\
 	＊　＊　＊
 	"""
 	
@@ -120,8 +120,8 @@ func on_exit():
 	self.get_message_windows().get_node("■上_大").hide()
 	self.get_message_windows().get_node("■下").hide()
 	# テロップ非表示
-	self.get_telop_coordinator().get_node("TextBlock").text = ""
-	self.get_telop_coordinator().hide()
+	self.get_telop_coordinator_key_config().get_node("TextBlock").text = ""
+	self.get_telop_coordinator_key_config().hide()
 
 	# BGM 停止	
 	self.get_bgm().get_node("🎵キーコンフィグ").stop()
@@ -131,7 +131,7 @@ func on_exit():
 
 
 func set_key_ok():
-	self.get_telop_coordinator().get_node("TextBlock").text = "＊　＊　＊"
+	self.get_telop_coordinator_key_config().get_node("TextBlock").text = "＊　＊　＊"
 
 
 # キーコンフィグ　ボタン設定を受入
@@ -144,119 +144,119 @@ func set_key_denied(reason):
 	self.get_se().get_node("🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
-		self.get_telop_coordinator().get_node("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
+		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
 
 	if reason == 2:
-		self.get_telop_coordinator().get_node("TextBlock").text = "下キーがボタンのときは、\n上キーもボタンを選んでください"
+		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "下キーがボタンのときは、\n上キーもボタンを選んでください"
 
 	if reason == 3:
-		self.get_telop_coordinator().get_node("TextBlock").text = "右キーがボタンのときは、\n左キーもボタンを選んでください"
+		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "右キーがボタンのときは、\n左キーもボタンを選んでください"
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
 	self.get_se().get_node("🔔キーコンフィグ取消音").play()
-	self.get_telop_coordinator().get_node("TextBlock").text = ""
+	self.get_telop_coordinator_key_config().get_node("TextBlock").text = ""
 
 
 func set_empty_the_button_message(step):
 	if step == 1:
 		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（１）ボタン").text = "（１）"
+		self.get_telop_coordinator_key_config().get_node("（１）ボタン").text = "（１）"
 
 	elif step == 2:
 		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（２）ボタン").text = "（２）"
+		self.get_telop_coordinator_key_config().get_node("（２）ボタン").text = "（２）"
 
 	elif step == 3:
 		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（３）ボタン").text = "（３）"
+		self.get_telop_coordinator_key_config().get_node("（３）ボタン").text = "（３）"
 
 	elif step == 4:
 		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（４）ボタン").text = "（４）"
+		self.get_telop_coordinator_key_config().get_node("（４）ボタン").text = "（４）"
 
 	elif step == 5:
 		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（５）ボタン").text = "（５）"
+		self.get_telop_coordinator_key_config().get_node("（５）ボタン").text = "（５）"
 
 	elif step == 6:
 		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（６）ボタン").text = "（６）"
+		self.get_telop_coordinator_key_config().get_node("（６）ボタン").text = "（６）"
 
 	elif step == 7:
 		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（７）ボタン").text = "（７）"
+		self.get_telop_coordinator_key_config().get_node("（７）ボタン").text = "（７）"
 
 
 func set_press_message_to_button(step):
 	if step == 1:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
+		self.get_telop_coordinator_key_config().get_node("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
 
 	elif step == 2:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
+		self.get_telop_coordinator_key_config().get_node("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
 
 	elif step == 3:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+		self.get_telop_coordinator_key_config().get_node("（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（４）ボタン").text = "（４）下キー　を入れてください"
+		self.get_telop_coordinator_key_config().get_node("（４）ボタン").text = "（４）下キー　を入れてください"
 
 	elif step == 5:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（５）ボタン").text = "（５）上キー　を入れてください"
-		self.get_telop_coordinator().get_node("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
+		self.get_telop_coordinator_key_config().get_node("（５）ボタン").text = "（５）上キー　を入れてください"
+		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
 
 	elif step == 6:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（６）ボタン").text = "（６）右キー　を入れてください"
+		self.get_telop_coordinator_key_config().get_node("（６）ボタン").text = "（６）右キー　を入れてください"
 
 	elif step == 7:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（７）ボタン").text = "（７）左キー　を入れてください"
-		self.get_telop_coordinator().get_node("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
+		self.get_telop_coordinator_key_config().get_node("（７）ボタン").text = "（７）左キー　を入れてください"
+		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
 
 	# 完了時
 	elif step == 8:
 		#														  "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("TextBlock").text = "完了"
+		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "完了"
 		self.get_se().get_node("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
 	if step == 1:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator().get_node("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + self.button_presentation_name
+		self.get_telop_coordinator_key_config().get_node("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + self.button_presentation_name
 
 	elif step == 2:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator().get_node("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + self.button_presentation_name
+		self.get_telop_coordinator_key_config().get_node("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + self.button_presentation_name
 
 	elif step == 3:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator().get_node("（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
+		self.get_telop_coordinator_key_config().get_node("（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator().get_node("（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_telop_coordinator_key_config().get_node("（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 5:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator().get_node("（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_telop_coordinator_key_config().get_node("（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 6:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator().get_node("（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_telop_coordinator_key_config().get_node("（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 7:
 		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator().get_node("（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.get_telop_coordinator_key_config().get_node("（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 
 func clear_count():
