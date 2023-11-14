@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://dx7kwljjri888"]
-
-[node name="🎬kifuwarabe_rpg_🍉gui" type="Node2D"]
-
-[node name="MessageWindows" type="Node2D" parent="."]

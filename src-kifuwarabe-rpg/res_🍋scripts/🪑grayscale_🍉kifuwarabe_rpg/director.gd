@@ -4,7 +4,7 @@
 extends Node2D
 
 
-var DepartmentSnapshot = load("res://res_🍋scripts/🪑grayscale_🎬kifuwarabe_rpg/department_snapshot.gd")
+var DepartmentSnapshot = load("res://res_🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/department_snapshot.gd")
 
 
 # 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ

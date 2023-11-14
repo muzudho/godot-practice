@@ -3,7 +3,7 @@ extends Sprite2D
 
 
 # 状態機械
-var statemachine_of_message_window = load("res://res_🍋scripts/🪑grayscale_🎬message_window/statemachines/message_window.gd").new()
+var statemachine_of_message_window = load("res://res_🍋scripts/🪑grayscale_🍉message_window/statemachines/message_window.gd").new()
 
 var is_appear = true
 
