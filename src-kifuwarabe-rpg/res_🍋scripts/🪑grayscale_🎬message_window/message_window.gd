@@ -23,17 +23,17 @@ func get_assistant_director():
 
 
 func get_canvas_layer():
-	var path = "../MessageWindow_" + str(self.name)
+	var path = "../🎬message_window_🍉gui_" + str(self.name)
 	return self.get_node(path)
 
 
 func get_text_block():
-	var path = "../MessageWindow_" + str(self.name) + "/TextBlock"
+	var path = "../🎬message_window_🍉gui_" + str(self.name) + "/TextBlock"
 	return self.get_node(path)
 
 
 func get_choice_cursor():
-	var path = "../MessageWindow_" + str(self.name) + "/TextBlock/ChoiceCursor"
+	var path = "../🎬message_window_🍉gui_" + str(self.name) + "/TextBlock/ChoiceCursor"
 	return self.get_node(path)
 
 

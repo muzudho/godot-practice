@@ -47,9 +47,9 @@ position = Vector2(640, 360)
 texture = ExtResource("1_t6iro")
 script = ExtResource("2_72yvr")
 
-[node name="MessageWindow_■下" type="CanvasLayer" parent="WindowsOfMessage"]
+[node name="🎬message_window_🍉gui_■下" type="CanvasLayer" parent="WindowsOfMessage"]
 
-[node name="TextBlock" type="Label" parent="WindowsOfMessage/MessageWindow_■下"]
+[node name="TextBlock" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■下"]
 offset_left = 319.0
 offset_top = 507.0
 offset_right = 1013.0
@@ -59,7 +59,7 @@ text = "表示テストだあいうえかきくけさしすせたち
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
 label_settings = ExtResource("3_5qip1")
 
-[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/MessageWindow_■下/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■下/TextBlock"]
 layout_mode = 0
 offset_left = 643.0
 offset_top = 90.0
@@ -69,7 +69,7 @@ text = "▼"
 label_settings = ExtResource("3_5qip1")
 script = ExtResource("4_m214h")
 
-[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/MessageWindow_■下/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■下/TextBlock"]
 layout_mode = 0
 offset_left = 641.0
 offset_top = 98.0
@@ -79,7 +79,7 @@ text = "＿"
 label_settings = ExtResource("3_5qip1")
 script = ExtResource("4_m214h")
 
-[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/MessageWindow_■下/TextBlock"]
+[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■下/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -95,9 +95,9 @@ position = Vector2(640, 360)
 texture = ExtResource("6_f0moh")
 script = ExtResource("2_72yvr")
 
-[node name="MessageWindow_■中央" type="CanvasLayer" parent="WindowsOfMessage"]
+[node name="🎬message_window_🍉gui_■中央" type="CanvasLayer" parent="WindowsOfMessage"]
 
-[node name="TextBlock" type="Label" parent="WindowsOfMessage/MessageWindow_■中央"]
+[node name="TextBlock" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■中央"]
 offset_left = 510.0
 offset_top = 237.0
 offset_right = 824.0
@@ -109,7 +109,7 @@ text = "表示テストいうえ
 label_settings = ExtResource("3_5qip1")
 script = SubResource("GDScript_tmxbw")
 
-[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/MessageWindow_■中央/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 154.0
@@ -119,7 +119,7 @@ text = "▼"
 label_settings = ExtResource("3_5qip1")
 script = ExtResource("4_m214h")
 
-[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/MessageWindow_■中央/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 228.0
 offset_top = 157.0
@@ -129,7 +129,7 @@ text = "＿"
 label_settings = ExtResource("3_5qip1")
 script = ExtResource("4_m214h")
 
-[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/MessageWindow_■中央/TextBlock"]
+[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -146,9 +146,9 @@ position = Vector2(640, 360)
 texture = ExtResource("7_vhf7f")
 script = ExtResource("2_72yvr")
 
-[node name="MessageWindow_■左下" type="CanvasLayer" parent="WindowsOfMessage"]
+[node name="🎬message_window_🍉gui_■左下" type="CanvasLayer" parent="WindowsOfMessage"]
 
-[node name="TextBlock" type="Label" parent="WindowsOfMessage/MessageWindow_■左下"]
+[node name="TextBlock" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■左下"]
 offset_left = 32.0
 offset_top = 508.0
 offset_right = 726.0
@@ -159,7 +159,7 @@ text = "表示テストだ
 すせたちつて"
 label_settings = ExtResource("3_5qip1")
 
-[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/MessageWindow_■左下/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 163.0
 offset_top = 140.0
@@ -169,7 +169,7 @@ text = "▼"
 label_settings = ExtResource("3_5qip1")
 script = ExtResource("4_m214h")
 
-[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/MessageWindow_■左下/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 147.0
@@ -179,7 +179,7 @@ text = "＿"
 label_settings = ExtResource("3_5qip1")
 script = ExtResource("4_m214h")
 
-[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/MessageWindow_■左下/TextBlock"]
+[node name="ChoiceCursor" type="Label" parent="WindowsOfMessage/🎬message_window_🍉gui_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
