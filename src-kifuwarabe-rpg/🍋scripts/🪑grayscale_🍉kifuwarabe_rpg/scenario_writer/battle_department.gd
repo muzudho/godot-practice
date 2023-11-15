@@ -9,23 +9,23 @@ func get_director():
 
 
 func get_assistant_director():
-	return $"../../../Director/AssistantDirector"
+	return self.get_director().get_node("AssistantDirector")
 
 
 func get_telop_coordinator():
-	return $"../../../Director/TelopCoordinator"
+	return self.get_director().get_node("TelopCoordinator")
 
 
 func get_scorer():
-	return $"../../../Director/Scorer"
+	return self.get_director().get_node("Scorer")
 
 
 func get_game_sheet_for_battle():
-	return $"../../../Director/Scorer/GameSheetForBattle"
+	return self.get_director().get_node("Scorer/GameSheetForBattle")
 
 
-func get_system_of_battle():
-	return $"../System/Battle"
+func get_accessor():
+	return $"Accessor"
 
 
 #	選択肢と移動先
@@ -185,27 +185,27 @@ var document = {
 		func():
 			# 先手
 			# 先手の［城の堅さ］表示更新
-			self.get_system_of_battle().refresh_sente_solidity_of_castle()
+			self.get_accessor().refresh_sente_solidity_of_castle()
 			# 先手の［逃げ道の広さ］表示更新
-			self.get_system_of_battle().refresh_sente_breadth_of_escape_route()
+			self.get_accessor().refresh_sente_breadth_of_escape_route()
 			# 先手の［駒の働き］表示更新
-			self.get_system_of_battle().refresh_sente_work_of_pieces()
+			self.get_accessor().refresh_sente_work_of_pieces()
 			# 先手の［攻めの速度］表示更新
-			self.get_system_of_battle().refresh_sente_offensive_speed()
+			self.get_accessor().refresh_sente_offensive_speed()
 			# 先手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_sente_distance_of_king()
+			self.get_accessor().refresh_sente_distance_of_king()
 			
 			# 後手
 			# 後手の［城の堅さ］表示更新
-			self.get_system_of_battle().refresh_gote_solidity_of_castle()
+			self.get_accessor().refresh_gote_solidity_of_castle()
 			# 後手の［逃げ道の広さ］表示更新
-			self.get_system_of_battle().refresh_gote_breadth_of_escape_route()
+			self.get_accessor().refresh_gote_breadth_of_escape_route()
 			# 後手の［駒の働き］表示更新
-			self.get_system_of_battle().refresh_gote_work_of_pieces()
+			self.get_accessor().refresh_gote_work_of_pieces()
 			# 後手の［攻めの速度］表示更新
-			self.get_system_of_battle().refresh_gote_offensive_speed()
+			self.get_accessor().refresh_gote_offensive_speed()
 			# 後手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_gote_distance_of_king()
+			self.get_accessor().refresh_gote_distance_of_king()
 			
 			# 匿名関数の終わりのコンマ
 			,
@@ -453,7 +453,7 @@ var document = {
 		""",
 		func():
 			# 後手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_gote_distance_of_king()
+			self.get_accessor().refresh_gote_distance_of_king()
 			,
 		func():
 			# ダメージ計算
@@ -470,7 +470,7 @@ var document = {
 		""",
 		func():
 			# 先手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_sente_distance_of_king()
+			self.get_accessor().refresh_sente_distance_of_king()
 
 			,
 		"""\
@@ -488,7 +488,7 @@ var document = {
 			self.get_game_sheet_for_battle().distance_of_king[1] -= damage
 
 			# 後手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_gote_distance_of_king()
+			self.get_accessor().refresh_gote_distance_of_king()
 			,
 		"""\
 		{{arg_sente_monster_name}}
@@ -514,7 +514,7 @@ var document = {
 			self.get_game_sheet_for_battle().distance_of_king[0] -= damage
 			
 			# 先手の［玉の遠さ］表示更新
-			self.get_system_of_battle().refresh_sente_distance_of_king()
+			self.get_accessor().refresh_sente_distance_of_king()
 			,
 		"""\
 		{{arg_gote_monster_name}}

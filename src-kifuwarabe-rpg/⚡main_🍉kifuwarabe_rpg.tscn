@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_of_battle.gd" id="3_nvfj4"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="4_7kdpb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/visual_novel_department.gd" id="5_xa8m5"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_department.gd" id="6_2wd8e"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_department.gd" id="7_5cg5g"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://🍋audio_bgm/🪑sakuramaru/きふわらべファイター２.ogg" id="8_8nkdr"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_accessor.gd" id="8_yr4ye"]
 [ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://🍋audio_bgm/🪑maou_audio/maou_game_town05.ogg" id="9_o2byt"]
 [ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_acoustic05.ogg" id="10_kiayq"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🍋audio_bgm/🪑maou_audio/maou_game_rock28.ogg" id="11_bfa2l"]
@@ -173,9 +173,6 @@ texture = ExtResource("2_ivwoj")
 
 [node name="System" type="Node" parent="ScenarioWriter"]
 
-[node name="Battle" type="Node" parent="ScenarioWriter/System"]
-script = ExtResource("3_nvfj4")
-
 [node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
 script = ExtResource("4_7kdpb")
 
@@ -187,6 +184,9 @@ script = ExtResource("6_2wd8e")
 
 [node name="📗バトル部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("7_5cg5g")
+
+[node name="Accessor" type="Node" parent="ScenarioWriter/📗バトル部門"]
+script = ExtResource("8_yr4ye")
 
 [node name="Musician" type="Node" parent="."]
 
