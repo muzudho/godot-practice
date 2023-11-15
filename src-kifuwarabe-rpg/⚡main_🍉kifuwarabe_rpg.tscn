@@ -1,7 +1,8 @@
-[gd_scene load_steps=108 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=109 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/reader.gd" id="3_mwykx"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="4_7kdpb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/visual_novel_department.gd" id="5_xa8m5"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_department.gd" id="6_2wd8e"]
@@ -172,6 +173,9 @@ texture = ExtResource("2_ivwoj")
 [node name="ScenarioWriter" type="Node" parent="."]
 
 [node name="System" type="Node" parent="ScenarioWriter"]
+
+[node name="Reader" type="Node" parent="ScenarioWriter/System"]
+script = ExtResource("3_mwykx")
 
 [node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
 script = ExtResource("4_7kdpb")

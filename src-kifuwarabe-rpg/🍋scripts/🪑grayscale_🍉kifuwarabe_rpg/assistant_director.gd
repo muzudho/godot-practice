@@ -12,21 +12,19 @@ func get_scenario_writer():
 	return self.get_director().get_node("ScenarioWriter")
 
 
+# シナリオ・リーダー取得
+func get_scenario_reader():
+	return self.get_scenario_writer().get_node("System/Reader")
+
+
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
-	var snapshot = self.get_director().get_current_snapshot()
-	
-	var node_name = snapshot.name
-	var scenario_node = self.get_scenario_writer().get_node(str(node_name))
-	if scenario_node == null:
-		print("［助監］　▲エラー　”" + node_name + "”ノードが無い")
-	
+	var snapshot = self.get_director().get_current_snapshot()	
+	var scenario_node_name = snapshot.name
 	var section_name =  snapshot.section_name
-	if not(section_name in scenario_node.document):
-		print("［助監］　▲エラー　”" + section_name + "”セクションが無い")
-		
-	var section = scenario_node.document[section_name]
-	return section.size()
+	
+	var section_array = self.get_scenario_reader().get_section_array(scenario_node_name, section_name)
+	return section_array.size()
 
 
 # シナリオの現在パラグラフ（セクションのアイテム）を返す
