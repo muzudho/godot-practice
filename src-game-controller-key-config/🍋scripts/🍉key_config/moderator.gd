@@ -25,7 +25,7 @@ func get_external_director():
 
 
 # 監督取得
-func get_director_watermelon():
+func get_director():
 	return self.get_external_director().get_node("Director_🍉KeyConfig")
 
 
@@ -51,15 +51,15 @@ func get_message_windows():
 
 # ボタンが重複するか？
 func is_key_duplicated(button_number_1):
-	return button_number_1 in self.get_director_watermelon().key_config.values()
+	return button_number_1 in self.get_director().key_config.values()
 
 
 # キャンセルボタン押下か？
 func is_cancel_button_pressed(button_number_1):
-	if not (&"VK_Cancel" in self.get_director_watermelon().key_config):
+	if not (&"VK_Cancel" in self.get_director().key_config):
 		return false
 	
-	return button_number_1 == self.get_director_watermelon().key_config[&"VK_Cancel"]
+	return button_number_1 == self.get_director().key_config[&"VK_Cancel"]
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -127,7 +127,7 @@ func on_exit():
 	self.get_bgm().get_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
-	self.get_director_watermelon().on_exit()
+	self.get_director().on_exit()
 
 
 func set_key_ok():
@@ -316,20 +316,20 @@ func on_step_regular(
 			self.current_step -= 1
 			# さらに連続して戻したいケースもある
 			# レバーの上
-			if self.current_step == 5 and self.get_director_watermelon().key_config[&"VK_Down"] == self.get_director_watermelon().key_config[&"VK_Up"]:
+			if self.current_step == 5 and self.get_director().key_config[&"VK_Down"] == self.get_director().key_config[&"VK_Up"]:
 				self.set_empty_the_button_message(self.current_step)
 				self.current_step -= 1
-				self.get_director_watermelon().key_config.erase(&"VK_Down")
+				self.get_director().key_config.erase(&"VK_Down")
 			# レバーの左
-			elif self.current_step == 7 and self.get_director_watermelon().key_config[&"VK_Right"] == self.get_director_watermelon().key_config[&"VK_Left"]:
+			elif self.current_step == 7 and self.get_director().key_config[&"VK_Right"] == self.get_director().key_config[&"VK_Left"]:
 				self.set_empty_the_button_message(self.current_step)
 				self.current_step -= 1
-				self.get_director_watermelon().key_config.erase(&"VK_Right")
+				self.get_director().key_config.erase(&"VK_Right")
 			
 			self.set_press_message_to_button(self.current_step)
 			
 			if previous_virtual_key_name != null:
-				self.get_director_watermelon().key_config.erase(previous_virtual_key_name)
+				self.get_director().key_config.erase(previous_virtual_key_name)
 			
 			self.clear_count()
 			return
@@ -344,22 +344,22 @@ func on_step_regular(
 		# 決定
 		self.set_key_accepted()
 		self.set_done_message_the_button(self.current_step)
-		self.get_director_watermelon().key_config[virtual_key_name] = self.button_number
+		self.get_director().key_config[virtual_key_name] = self.button_number
 
 		# レバーの下
 		if self.current_step == 4:
-			if 1000 <= self.get_director_watermelon().key_config[&"VK_Down"]:
+			if 1000 <= self.get_director().key_config[&"VK_Down"]:
 				# 軸を選択したなら、レバーの上の選択はスキップ
-				self.get_director_watermelon().key_config[&"VK_Up"] = self.button_number
+				self.get_director().key_config[&"VK_Up"] = self.button_number
 				self.set_done_message_the_button(self.current_step + 1)
 				self.current_step += 2
 			else:
 				self.current_step += 1
 		# レバーの右
 		elif self.current_step == 6:
-			if 1000 <= self.get_director_watermelon().key_config[&"VK_Right"]:
+			if 1000 <= self.get_director().key_config[&"VK_Right"]:
 				# 軸を選択したなら、レバーの左の選択はスキップ
-				self.get_director_watermelon().key_config[&"VK_Left"] = self.button_number
+				self.get_director().key_config[&"VK_Left"] = self.button_number
 				self.set_done_message_the_button(self.current_step + 1)
 				self.current_step += 2
 			else:
@@ -495,8 +495,8 @@ func get_button_name_by_number(button_number_1):
 
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
 func get_virtual_key_name_by_button_number(button_number_1):
-	for key in self.get_director_watermelon().key_config.keys():
-		var value = self.get_director_watermelon().key_config[key]
+	for key in self.get_director().key_config.keys():
+		var value = self.get_director().key_config[key]
 		if button_number_1 == value:
 			return key
 	return &""
