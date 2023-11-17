@@ -28,7 +28,6 @@ var parse_lock_flag = true
 # 選択肢
 #	選択肢の行番号用配列。無ければヌル
 var choices_row_numbers = null
-var choices_index = 0
 
 # 伝言窓のノード名。最後に表示した伝言窓をカレントにするために、スタック構造をしている。文字列ではなく StringName 型
 var stack_of_last_displayed_message_window = [] # TODO 新仕様
@@ -58,7 +57,7 @@ func get_row_number_of_choices():
 	if self.choices_row_numbers == null:
 		return 1
 	
-	return self.choices_row_numbers[self.choices_index]
+	return self.choices_row_numbers[self.message_window.choices_index]
 
 
 # メッセージを記録するだけ
