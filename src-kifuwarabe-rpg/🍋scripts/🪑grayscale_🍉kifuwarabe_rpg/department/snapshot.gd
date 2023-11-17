@@ -43,14 +43,6 @@ func is_parse_lock():
 	return self.parse_lock_flag
 
 
-# 選択肢カーソルが指しているのは何行目か？　序数。該当がなければ 1 を返す
-func get_row_number_of_choices():
-	if self.message_window.choices_row_numbers == null:
-		return 1
-	
-	return self.message_window.choices_row_numbers[self.message_window.choices_index]
-
-
 # メッセージを記録するだけ
 func remember(
 	new_text):		# str

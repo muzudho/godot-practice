@@ -194,17 +194,18 @@ func on_turned_off():
 # カーソル位置を算出
 func calc_cursor_vector():
 	var snapshot = self.get_director().get_current_snapshot()
-	var selected_row_number = snapshot.get_row_number_of_choices()
+	var message_window_a = snapshot.message_window
+	var selected_row_number = message_window_a.get_row_number_of_choices()
 
 	# 先頭を１行目とし、基数に変換する
 	var difference = selected_row_number - 1
 
-	var message_window = self.get_message_window_as_sprite2d()
+	var message_window_2d = self.get_message_window_as_sprite2d()
 
 	# self.get_transform().x と、 self.offset_right 、どっちを変更するのがいい？
 	# self.get_transform().y と、 self.offset_top 、どっちを変更するのがいい？
-	var scalar_x = message_window.choices_cursor_origin_x
-	var scalar_y = difference * (self.font_height + self.line_space_height) + message_window.choices_cursor_origin_y
+	var scalar_x = message_window_2d.choices_cursor_origin_x
+	var scalar_y = difference * (self.font_height + self.line_space_height) + message_window_2d.choices_cursor_origin_y
 	return Vector2(scalar_x, scalar_y)
 
 
