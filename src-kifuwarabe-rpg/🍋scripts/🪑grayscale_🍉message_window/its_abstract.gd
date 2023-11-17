@@ -22,6 +22,16 @@ var msg_speed = 20.0
 # テキストブロック汎用
 #	セクションの何番目（０開始）を次に読込むか
 var section_item_index = 0
+#	表示したい文章
+var text_block_buffer = ""
+#	タイプライターのカウント
+var count_of_typewriter = 0
+
+# 選択肢
+#	選択肢の行番号用配列。無ければヌル
+var choices_row_numbers = null
+#	選択肢配列のインデックス
+var choices_index = 0
 
 
 func _ready():
@@ -46,9 +56,9 @@ func _process(delta):
 	# タイプライター風表示中
 	if self.statemachine_of_message_window.is_typewriter():
 
-		var message_window_a = self.get_hub().get_director().get_current_message_window_variables()
+		var message_window_gui = self.get_hub().get_director().get_current_message_window_gui()
 
-		message_window_a.count_of_typewriter += delta
+		message_window_gui.count_of_typewriter += delta
 
 		# １文字 50ms でも、結構ゆっくり
 		var wait_time = 1 / self.msg_speed	# 旧 0.05
@@ -58,21 +68,21 @@ func _process(delta):
 			# print("［テキストブロック］　メッセージの早送り")
 			wait_time = 1 / (self.msg_speed * self.msg_speed) # 旧 0.01
 	
-		if wait_time <= message_window_a.count_of_typewriter:
+		if wait_time <= message_window_gui.count_of_typewriter:
 
 			# TODO キャッシュ化したい
 			# テキストブロック
 			var text_block_node = self.get_hub().get_text_block(self.name)
 
-			if 0 < message_window_a.text_block_buffer.length():
+			if 0 < message_window_gui.text_block_buffer.length():
 				# バッファーの先頭の１文字を切り取って、テキストブロックへ移動
-				text_block_node.text += message_window_a.pop_head_of_text_block()
+				text_block_node.text += message_window_gui.pop_head_of_text_block()
 			else:
 				# 完全表示中
 				print("［伝言窓　”" + self.name + "”］　プロセス　完全表示中だ")
 				self.statemachine_of_message_window.all_characters_pushed()
 			
-			message_window_a.count_of_typewriter -= wait_time
+			message_window_gui.count_of_typewriter -= wait_time
 
 
 # メッセージ・ウィンドウの軸取得
@@ -166,6 +176,47 @@ func set_appear_subtree(
 				child.set_appear_subtree(appear_flag)
 
 
+# テキストブロックのバッファーが残っているか？
+func has_text_block_buffer():
+	return 0 < self.text_block_buffer.length()
+
+
+# テキスト・ブロックの先頭１文字を切り取って返す
+func pop_head_of_text_block():
+	var head = self.text_block_buffer.substr(0, 1)
+	self.text_block_buffer = self.text_block_buffer.substr(1)
+	return head
+
+
+# 選択肢か？
+func is_choices():
+	return self.choices_row_numbers != null
+
+
+# 選択肢カーソルが指しているのは何行目か？　序数。該当がなければ 1 を返す
+func get_row_number_of_choices():
+	if self.choices_row_numbers == null:
+		return 1
+
+	return self.choices_row_numbers[self.choices_index]
+
+
+# メッセージを記録するだけ
+func remember(
+		new_text):		# str
+
+	# 設定
+	self.text_block_buffer = new_text
+
+	# 選択肢なら
+	if self.is_choices():
+		print("［部門スナップ写］　リメンバー　選択肢：[" + new_text + "]")
+
+	# それ以外なら
+	else:
+		print("［部門スナップ写］　リメンバー　台詞：[" + new_text + "]")
+
+
 # 仮想キー入力時
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
@@ -180,13 +231,13 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		elif vk_operation == &"VKO_Released":
 			self.get_hub().is_fast_forward = false
 
-	var message_window_a = self.get_hub().get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_hub().get_director().get_current_message_window_gui()
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
 
 		# 選択肢モードなら
-		if message_window_a.is_choices():
+		if message_window_gui.is_choices():
 			
 			# 押下時
 			if vk_operation == &"VKO_Pressed":
@@ -237,10 +288,10 @@ func on_talked_2():
 	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
-	var message_window_a = self.get_hub().get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_hub().get_director().get_current_message_window_gui()
 
 	# 選択肢なら
-	if message_window_a.is_choices():
+	if message_window_gui.is_choices():
 		print("［伝言窓　”" + self.name + "”］　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		self.get_hub().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
@@ -262,22 +313,22 @@ func on_talked_2():
 # ページ送り
 # 状態遷移機械から呼出される
 func on_page_forward():
-	var message_window_a = self.get_hub().get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_hub().get_director().get_current_message_window_gui()
 
 	# 選択肢モードなら
-	if message_window_a.is_choices():
+	if message_window_gui.is_choices():
 
 		# カーソル音
 		self.get_hub().get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
 
-		var row_number = message_window_a.get_row_number_of_choices()
+		var row_number = message_window_gui.get_row_number_of_choices()
 		print("［伝言窓　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
 		self.get_hub().get_assistant_director().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
-		message_window_a.choices_row_numbers = null
+		message_window_gui.choices_row_numbers = null
 		
 	else:
 		print("［伝言窓　”" + self.name + "”］　ページ送り")
@@ -301,10 +352,10 @@ func on_page_forward():
 
 
 func on_all_characters_pushed():
-	var message_window_a = self.get_hub().get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_hub().get_director().get_current_message_window_gui()
 
 	# 選択肢
-	if message_window_a.is_choices():
+	if message_window_gui.is_choices():
 		# 文末ブリンカー	状態機械［考える］
 		self.get_hub().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
 
@@ -318,7 +369,7 @@ func on_all_characters_pushed():
 # 初期化
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
-	var message_window_a = self.get_hub().get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_hub().get_director().get_current_message_window_gui()
 
 	print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
 
@@ -328,7 +379,7 @@ func on_all_pages_flushed():
 	text_block_node.text = ""
 
 	# 選択肢
-	if message_window_a.is_choices():
+	if message_window_gui.is_choices():
 		# 全てのブリンカー　状態機械［決めた］
 		self.get_hub().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 	else:

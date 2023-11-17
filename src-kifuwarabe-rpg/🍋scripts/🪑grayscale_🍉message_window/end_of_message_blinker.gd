@@ -202,9 +202,9 @@ func on_turned_off():
 
 # カーソル位置を算出
 func calc_cursor_vector():
-	var message_window_a = self.get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_director().get_current_message_window_gui()
 
-	var selected_row_number = message_window_a.get_row_number_of_choices()
+	var selected_row_number = message_window_gui.get_row_number_of_choices()
 
 	# 先頭を１行目とし、基数に変換する
 	var difference = selected_row_number - 1
@@ -219,9 +219,9 @@ func calc_cursor_vector():
 # 選択肢カーソルを先頭へセットします
 func reset_cursor_position():
 	print("［選択肢カーソル］　先頭へリセット")
-	var message_window_a = self.get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_director().get_current_message_window_gui()
 
-	message_window_a.choices_index = 0
+	message_window_gui.choices_index = 0
 	var vec = self.calc_cursor_vector()
 
 	self.offset_left = vec.x
@@ -235,10 +235,10 @@ func on_cursor_up(_target_index):
 	# 効果音鳴らす
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
-	var message_window_a = self.get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	var old_vec = self.calc_cursor_vector()
-	message_window_a.choices_index -= 1
+	message_window_gui.choices_index -= 1
 	var new_vec = self.calc_cursor_vector()
 
 	self.src_y = old_vec.y
@@ -252,10 +252,10 @@ func on_cursor_down(_target_index):
 	# 効果音鳴らす
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
-	var message_window_a = self.get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	var old_vec = self.calc_cursor_vector()
-	message_window_a.choices_index += 1
+	message_window_gui.choices_index += 1
 	var new_vec = self.calc_cursor_vector()
 
 	self.src_y = old_vec.y
@@ -287,10 +287,10 @@ func _process(delta):
 				
 			self.blinker_seconds -= self.blinker_interval
 
-		var message_window_a = self.get_director().get_current_message_window_variables()
+		var message_window_gui = self.get_director().get_current_message_window_gui()
 
 		# 動くカーソル用
-		if message_window_a.is_choices():
+		if message_window_gui.is_choices():
 
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:
@@ -312,10 +312,10 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 押下時
 	if vk_operation == &"VKO_Pressed":
 
-		var message_window_a = self.get_director().get_current_message_window_variables()
+		var message_window_gui = self.get_director().get_current_message_window_gui()
 
 		# 動くカーソル用
-		if message_window_a.is_choices():
+		if message_window_gui.is_choices():
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:
 				# 自動的にカーソルは移動中
@@ -332,7 +332,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 					# カーソルは上へ移動できるか？
 					if self.can_cursor_up():
 						# カーソルが上に移動します
-						self.on_cursor_up(message_window_a.choices_index)
+						self.on_cursor_up(message_window_gui.choices_index)
 					
 				# 下へ移動する分
 				elif self.get_director_for_key_config().is_key_down(virtual_key, lever_value):
@@ -340,7 +340,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 					if self.can_cursor_down():
 						# カーソルが下に移動します
-						self.on_cursor_down(message_window_a.choices_index)
+						self.on_cursor_down(message_window_gui.choices_index)
 
 
 # 自動的にカーソルは移動中
@@ -356,8 +356,8 @@ func on_cursor_moving_automatically(delta):
 # カーソルは上へ移動できるか？
 func can_cursor_up():
 
-	var message_window_a = self.get_director().get_current_message_window_variables()
-	var index = message_window_a.choices_index
+	var message_window_gui = self.get_director().get_current_message_window_gui()
+	var index = message_window_gui.choices_index
 
 	if 0 < index:
 		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できる")
@@ -371,11 +371,11 @@ func can_cursor_up():
 # カーソルは下へ移動できるか？
 func can_cursor_down():
 
-	var message_window_a = self.get_director().get_current_message_window_variables()
-	var index = message_window_a.choices_index
+	var message_window_gui = self.get_director().get_current_message_window_gui()
+	var index = message_window_gui.choices_index
 
 	# 配列
-	var choices_row_numbers_a = message_window_a.choices_row_numbers
+	var choices_row_numbers_a = message_window_gui.choices_row_numbers
 	if choices_row_numbers_a != null:
 		var choice_size = choices_row_numbers_a.size()
 	

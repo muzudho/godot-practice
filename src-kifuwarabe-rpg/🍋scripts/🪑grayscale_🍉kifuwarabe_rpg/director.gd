@@ -63,17 +63,6 @@ func get_current_snapshot():
 	return self.get_snapshot(self.current_department_name)
 
 
-func get_message_window_variables(message_window_name):
-	return self.get_message_windows_node().get_message_window_variables(message_window_name)
-
-
-func get_current_message_window_variables():
-	var snapshot = self.get_current_snapshot()
-	var message_window_name_a = snapshot.get_last_message_window_name()
-
-	return self.get_message_windows_node().get_message_window_variables(message_window_name_a)
-
-
 # 伝言窓（現在、出力の対象になっているもの）
 func get_message_window_gui(node_name_obj):
 	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")

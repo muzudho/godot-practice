@@ -30,7 +30,6 @@ func get_current_section_size_of_scenario():
 # シナリオの現在パラグラフ（セクションのアイテム）を返す
 func get_current_paragraph_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = self.get_director().get_current_message_window_variables()
 	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][message_window_gui.section_item_index]
@@ -39,7 +38,6 @@ func get_current_paragraph_of_scenario():
 # 「§」セクションの再生
 func play_section():
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = self.get_director().get_current_message_window_variables()
 	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	# 全部消化済みの場合
@@ -54,7 +52,7 @@ func play_section():
 
 	# パースを開始してよくないケースもあるが？
 	# バッファーが残ってるときとか
-	if not message_window_a.has_text_block_buffer():
+	if not message_window_gui.has_text_block_buffer():
 		# Completed 時もパース始めたらよくない
 		if not message_window_gui.statemachine_of_message_window.is_completed():
 			# TODO 選択肢のときもややこしいが
@@ -277,7 +275,7 @@ func parse_paragraph(paragraph_text):
 			# テロップの表示／非表示
 			elif second_head.begins_with("telop:"):
 				$"Telop".do_it(second_head)
-							
+			
 			# 変数セット
 			elif second_head.begins_with("var:"):
 				$"Var".do_it(second_head)
@@ -292,10 +290,10 @@ func parse_paragraph(paragraph_text):
 		#	［ト書き］終わり
 		return
 
-	var message_window_a = self.get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	# 選択肢だ
-	if message_window_a.choices_row_numbers != null:
+	if message_window_gui.choices_row_numbers != null:
 		$"NormalTextChoice".do_it(paragraph_text)
 		return
 
@@ -313,7 +311,6 @@ func on_process(delta):
 		return
 
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = self.get_director().get_current_message_window_variables()
 	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）

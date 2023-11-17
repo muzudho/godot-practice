@@ -46,26 +46,6 @@ func get_choices_cursor(message_window_name):
 	return self.get_canvas_layer(message_window_name).get_node("TextBlock/ChoicesCursor")
 
 
-# サブツリーが全てインスタンス化されたときに呼び出される
-# Called when the node enters the scene tree for the first time.
-func _ready():
-
-	# ーーーーーーーー
-	# 初期化を行う
-	# ーーーーーーーー
-
-	# メッセージ・ウィンドウの初期設定
-	for message_window_node in self.get_children():
-		if message_window_node is Sprite2D:
-			self.message_window_variables[message_window_node.name] = DepartmentMessageWindow.new()
-
-
-# 伝言窓変数
-func get_message_window_variables(
-		message_window_node_name):	# StringName
-	return self.message_window_variables[message_window_node_name]
-
-
 ## 先頭行と、それ以外に分けます
 #func split_head_line_or_tail(text):
 #	# 最初の改行を見つける
