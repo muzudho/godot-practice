@@ -28,9 +28,6 @@ var stage_directions_variables = {}
 # 疑似的なスリープに使うカウント
 var sleep_seconds = 0.0
 
-# メッセージの早送り
-var is_fast_forward = false
-
 
 # 助監取得
 func get_assistant_director():

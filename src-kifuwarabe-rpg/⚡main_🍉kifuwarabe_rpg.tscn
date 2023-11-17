@@ -62,7 +62,7 @@
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="58_02ahj"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/its_pibot.gd" id="60_vpkxy"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/its_hub.gd" id="61_cfuy1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/its_concrete.gd" id="61_tvkup"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
@@ -919,7 +919,7 @@ script = ExtResource("56_sxmbq")
 
 [node name="MessageWindows" type="Node2D" parent="GuiArtist"]
 visible = false
-script = ExtResource("60_vpkxy")
+script = ExtResource("61_cfuy1")
 
 [node name="■上_大" type="Sprite2D" parent="GuiArtist/MessageWindows"]
 visible = false

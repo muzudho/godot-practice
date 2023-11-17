@@ -1,6 +1,10 @@
 # メッセージ・ウィンドウ（Message Window；伝言窓）
-# イッツ・ピボット（Its pibot；その軸）
+# イッツ・ハブ（Its hub；その中心地）
 extends Node
+
+
+# メッセージの早送り
+var is_fast_forward = false
 
 
 # 監督取得
