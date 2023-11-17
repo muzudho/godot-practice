@@ -355,12 +355,12 @@ func _process(delta):
 		snapshot.count_of_typewriter += delta
 
 		# １文字 50ms でも、結構ゆっくり
-		var wait_time = 1 / snapshot.msg_speed	# 旧 0.05
+		var wait_time = 1 / snapshot.message_window.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
 		if self.get_director().is_fast_forward:
 			# print("［テキストブロック］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　メッセージの早送り")
-			wait_time = 1 / (snapshot.msg_speed * snapshot.msg_speed) # 旧 0.01
+			wait_time = 1 / (snapshot.message_window.msg_speed * snapshot.message_window.msg_speed) # 旧 0.01
 	
 		if wait_time <= snapshot.count_of_typewriter:
 

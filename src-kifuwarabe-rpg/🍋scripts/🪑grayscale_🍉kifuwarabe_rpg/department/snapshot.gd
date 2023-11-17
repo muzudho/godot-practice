@@ -1,7 +1,19 @@
 # デパートメント・スナップショット（Department Snapshot；部門の瞬間の状態）
+#
+# Director._ready() で初期化される
+#
+# シナリオの読取状態を管理する
+# メッセージ・ウィンドウの状態を管理する
+#
+# TODO メッセージ・ウィンドウの状態は、分けた方がいいのでは？
+#
 extends Object
 
 class_name DepartmentSnapshot
+
+
+# メッセージ・ウィンドウの状態記憶
+var message_window = DepartmentMessageWindow.new()
 
 
 # 「§」セクション名
@@ -32,9 +44,6 @@ var stack_of_last_displayed_message_window = [] # TODO 新仕様
 # 現在表示中の伝言窓のノード名（StringName型）
 #	`m_wnd *` コマンドで追加、 `m_wnd, hide` コマンドで除外
 var node_names_of_currently_displayed_message_window = []
-
-# メッセージ・スピード（１秒当たりの文字数）
-var msg_speed = 20.0
 
 
 # パースをするな
