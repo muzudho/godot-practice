@@ -242,6 +242,7 @@ func on_talked_2():
 # ページ送り
 func on_page_forward():
 	var snapshot = self.get_director().get_current_snapshot()
+	var message_window_a = snapshot.message_window
 
 	# 選択肢モードなら
 	if snapshot.is_choices():
@@ -256,7 +257,7 @@ func on_page_forward():
 		self.get_assistant_director().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
-		snapshot.choices_row_numbers = null
+		message_window_a.choices_row_numbers = null
 		
 	else:
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　ページ送り")

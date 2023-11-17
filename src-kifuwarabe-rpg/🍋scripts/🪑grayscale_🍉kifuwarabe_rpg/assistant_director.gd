@@ -291,9 +291,10 @@ func parse_paragraph(paragraph_text):
 		return
 
 	var snapshot = self.get_director().get_current_snapshot()
+	var message_window_1 = snapshot.message_window
 
 	# 選択肢だ
-	if snapshot.choices_row_numbers != null:
+	if message_window_1.choices_row_numbers != null:
 		$"NormalTextChoice".do_it(paragraph_text)
 		return
 

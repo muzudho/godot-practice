@@ -16,6 +16,9 @@ var text_block_buffer = ""
 #	タイプライターのカウント
 var count_of_typewriter = 0
 
+# 選択肢
+#	選択肢の行番号用配列。無ければヌル
+var choices_row_numbers = null
 #	選択肢配列のインデックス
 var choices_index = 0
 

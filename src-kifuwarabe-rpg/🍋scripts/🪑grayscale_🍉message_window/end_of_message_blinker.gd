@@ -368,13 +368,13 @@ func can_cursor_up():
 func can_cursor_down():
 
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_1 = snapshot.message_window
-	var index = message_window_1.choices_index
+	var message_window_a = snapshot.message_window
+	var index = message_window_a.choices_index
 
 	# 配列
-	var choices_row_numbers = snapshot.choices_row_numbers
-	if choices_row_numbers != null:
-		var choice_size = choices_row_numbers.size()
+	var choices_row_numbers_a = message_window_a.choices_row_numbers
+	if choices_row_numbers_a != null:
+		var choice_size = choices_row_numbers_a.size()
 	
 		# 下へ移動できるか？
 		var can_down = 0 <= index and index + 1 < choice_size

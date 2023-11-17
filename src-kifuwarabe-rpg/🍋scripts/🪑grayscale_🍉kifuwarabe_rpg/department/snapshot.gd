@@ -25,10 +25,6 @@ var name = null
 # パースをするな
 var parse_lock_flag = true
 
-# 選択肢
-#	選択肢の行番号用配列。無ければヌル
-var choices_row_numbers = null
-
 # 伝言窓のノード名。最後に表示した伝言窓をカレントにするために、スタック構造をしている。文字列ではなく StringName 型
 var stack_of_last_displayed_message_window = [] # TODO 新仕様
 
@@ -49,15 +45,15 @@ func is_parse_lock():
 
 # 選択肢か？
 func is_choices():
-	return self.choices_row_numbers != null
+	return self.message_window.choices_row_numbers != null
 
 
 # 選択肢カーソルが指しているのは何行目か？　序数。該当がなければ 1 を返す
 func get_row_number_of_choices():
-	if self.choices_row_numbers == null:
+	if self.message_window.choices_row_numbers == null:
 		return 1
 	
-	return self.choices_row_numbers[self.message_window.choices_index]
+	return self.message_window.choices_row_numbers[self.message_window.choices_index]
 
 
 # メッセージを記録するだけ
