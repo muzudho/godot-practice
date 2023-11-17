@@ -30,10 +30,6 @@ var parse_lock_flag = true
 var choices_row_numbers = null
 var choices_index = 0
 
-# テキストブロック汎用
-#	セクションの何番目（０開始）を次に読込むか
-var section_item_index = 0
-
 # 伝言窓のノード名。最後に表示した伝言窓をカレントにするために、スタック構造をしている。文字列ではなく StringName 型
 var stack_of_last_displayed_message_window = [] # TODO 新仕様
 
