@@ -13,9 +13,11 @@ Godot の練習
 
 * むずでょ　が書いた　プログラムは　ＭＩＴライセンス　です
 
-## 進捗
+## ソースの覚え方
 
-* RPG （src-kifuwarabe-rpg） の開発が長引いているので、 ビジュアルノベルの部分だけ切り出して （src-kifuwarabe-visual-novel）  にすることにした
+* ステップ１　『キーコンフィグ』（src-game-controller-key-config）のソースを見て、 Godot のソースの書き方に慣れる
+* ステップ２　『きふわらべビジュアルノベル』（src-kifuwarabe-visual-novel）のソースを見て、メッセージ・ウィンドウの使い方を覚える
+* ステップ３　『きふわらべＲＰＧ』（src-kifuwarabe-rpg）のソースを見て、難しいことに慣れる
 
 ## 開発ブログ
 
