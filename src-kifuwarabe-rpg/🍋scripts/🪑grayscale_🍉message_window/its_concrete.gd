@@ -23,10 +23,6 @@ func get_director():
 	return self.get_abstract_message_window().get_director()
 
 
-func get_text_block():
-	return self.get_abstract_message_window().get_canvas_layer(self.name).get_node("TextBlock")
-
-
 func get_blinker_triangle():
 	return self.get_abstract_message_window().get_canvas_layer(self.name).get_node("TextBlock/BlinkerTriangle")
 
@@ -72,7 +68,7 @@ func set_process_subtree(
 		self.set_process(is_process)
 
 		# 子ノード
-		for child in self.get_text_block().get_children():
+		for child in self.get_abstract_message_window().get_text_block(self.name).get_children():
 			if child.has_method("set_process_subtree"):
 				child.set_process_subtree(is_process)
 
@@ -96,7 +92,7 @@ func set_visible_subtree(
 		self.get_abstract_message_window().get_canvas_layer(self.name).visible = visible_flag
 
 		# 子ノード
-		for child in self.get_text_block().get_children():
+		for child in self.get_abstract_message_window().get_text_block(self.name).get_children():
 			if child.has_method("set_visible_subtree"):
 				child.set_visible_subtree(visible_flag)
 
@@ -119,7 +115,7 @@ func set_appear_subtree(
 		if self.is_appear:
 			# 画面内に戻す
 			self.position += Vector2(0, -720)
-			self.get_text_block().position += Vector2(0, -720)
+			self.get_abstract_message_window().get_text_block(self.name).position += Vector2(0, -720)
 
 			## 会話が停止してしまっているなら、再開する（すぐ停止するかもしれない）
 			#if self.statemachine_of_message_window.is_none():
@@ -132,10 +128,10 @@ func set_appear_subtree(
 		else:
 			# 画面下の外に押し出す
 			self.position += Vector2(0, 720)
-			self.get_text_block().position -= Vector2(0, -720)
+			self.get_abstract_message_window().get_text_block(self.name).position -= Vector2(0, -720)
 
 		# 子ノード
-		for child in self.get_text_block().get_children():
+		for child in self.get_abstract_message_window().get_text_block(self.name).get_children():
 			if child.has_method("set_appear_subtree"):
 				child.set_appear_subtree(appear_flag)
 
@@ -215,9 +211,6 @@ func on_talked_2():
 	var snapshot = self.get_director().get_current_snapshot()
 	var message_window_a = snapshot.message_window
 
-	# テキストブロック
-	#var text_block_node = self.get_text_block()
-
 	# 選択肢なら
 	if message_window_a.is_choices():
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選択肢開始")
@@ -269,7 +262,7 @@ func on_page_forward():
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック
-	var text_block_node = self.get_text_block()
+	var text_block_node = self.get_abstract_message_window().get_text_block(self.name)
 	if true:
 		# テキストが空っぽ
 		text_block_node.text = ""
@@ -283,8 +276,6 @@ func on_all_characters_pushed():
 	var snapshot = self.get_director().get_current_snapshot()
 	var message_window_a = snapshot.message_window
 
-	# テキストブロック
-	#var text_block_node = self.get_text_block()
 	# 選択肢
 	if message_window_a.is_choices():
 		# 文末ブリンカー	状態機械［考える］
@@ -306,7 +297,7 @@ func on_all_pages_flushed():
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	# テキストブロック
-	var text_block_node = self.get_text_block()
+	var text_block_node = self.get_abstract_message_window().get_text_block(self.name)
 	# テキストが空っぽ
 	text_block_node.text = ""
 
@@ -327,7 +318,7 @@ func on_all_pages_flushed():
 func _ready():
 	
 	# 最初は、テスト用文字列が入ってたりするので消す
-	self.get_text_block().text = ""
+	self.get_abstract_message_window().get_text_block(self.name).text = ""
 	
 	# 状態機械のセットアップ
 	self.statemachine_of_message_window.on_talked_2 = self.on_talked_2
@@ -370,7 +361,7 @@ func _process(delta):
 
 			# TODO キャッシュ化したい
 			# テキストブロック
-			var text_block_node = self.get_text_block()
+			var text_block_node = self.get_abstract_message_window().get_text_block(self.name)
 
 			if 0 < message_window_a.text_block_buffer.length():
 				# バッファーの先頭の１文字を切り取って、テキストブロックへ移動
