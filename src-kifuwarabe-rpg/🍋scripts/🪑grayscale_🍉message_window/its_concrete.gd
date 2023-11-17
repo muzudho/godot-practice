@@ -23,29 +23,20 @@ func get_director():
 	return self.get_abstract_message_window().get_director()
 
 
-# 助監取得
-func get_assistant_director():
-	return self.get_director().get_node("AssistantDirector")
-
-
-func get_canvas_layer():
-	return self.get_director().get_node("TelopCoordinator/MessageWindow_" + self.name)
-
-
 func get_text_block():
-	return self.get_canvas_layer().get_node("TextBlock")
+	return self.get_abstract_message_window().get_canvas_layer(self.name).get_node("TextBlock")
 
 
 func get_blinker_triangle():
-	return self.get_canvas_layer().get_node("TextBlock/BlinkerTriangle")
+	return self.get_abstract_message_window().get_canvas_layer(self.name).get_node("TextBlock/BlinkerTriangle")
 
 
 func get_blinker_underscore():
-	return self.get_canvas_layer().get_node("TextBlock/BlinkerUnderscore")
+	return self.get_abstract_message_window().get_canvas_layer(self.name).get_node("TextBlock/BlinkerUnderscore")
 
 
 func get_choices_cursor():
-	return self.get_canvas_layer().get_node("TextBlock/ChoicesCursor")
+	return self.get_abstract_message_window().get_canvas_layer(self.name).get_node("TextBlock/ChoicesCursor")
 
 
 # 先頭行と、それ以外に分けます
@@ -102,7 +93,7 @@ func set_visible_subtree(
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　可視性：" + str(visible_flag))
 
 		self.visible = visible_flag
-		self.get_canvas_layer().visible = visible_flag
+		self.get_abstract_message_window().get_canvas_layer(self.name).visible = visible_flag
 
 		# 子ノード
 		for child in self.get_text_block().get_children():
@@ -256,13 +247,13 @@ func on_page_forward():
 	if message_window_a.is_choices():
 
 		# カーソル音
-		self.get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
+		self.get_abstract_message_window().get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
 
 		var row_number = message_window_a.get_row_number_of_choices()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
-		self.get_assistant_director().on_choice_selected(row_number)
+		self.get_abstract_message_window().get_assistant_director().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
 		message_window_a.choices_row_numbers = null
@@ -271,7 +262,7 @@ func on_page_forward():
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　ページ送り")
 
 		# 効果音
-		self.get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
+		self.get_abstract_message_window().get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
 		
 		# パースを開始してよい
 		self.get_director().get_current_snapshot().set_parse_lock(false)
