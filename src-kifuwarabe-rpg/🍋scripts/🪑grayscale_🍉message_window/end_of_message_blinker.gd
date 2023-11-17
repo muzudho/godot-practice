@@ -212,9 +212,9 @@ func calc_cursor_vector():
 func reset_cursor_position():
 	print("［選択肢カーソル］　先頭へリセット")
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_1 = snapshot.message_window
+	var message_window_a = snapshot.message_window
 
-	message_window_1.choices_index = 0
+	message_window_a.choices_index = 0
 	var vec = self.calc_cursor_vector()
 
 	self.offset_left = vec.x
@@ -229,10 +229,10 @@ func on_cursor_up(_target_index):
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_1 = snapshot.message_window
+	var message_window_a = snapshot.message_window
 
 	var old_vec = self.calc_cursor_vector()
-	message_window_1.choices_index -= 1
+	message_window_a.choices_index -= 1
 	var new_vec = self.calc_cursor_vector()
 
 	self.src_y = old_vec.y
@@ -247,10 +247,10 @@ func on_cursor_down(_target_index):
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_1 = snapshot.message_window
+	var message_window_a = snapshot.message_window
 
 	var old_vec = self.calc_cursor_vector()
-	message_window_1.choices_index += 1
+	message_window_a.choices_index += 1
 	var new_vec = self.calc_cursor_vector()
 
 	self.src_y = old_vec.y
@@ -283,8 +283,10 @@ func _process(delta):
 			self.blinker_seconds -= self.blinker_interval
 
 		var snapshot = self.get_director().get_current_snapshot()
+		var message_window_a = snapshot.message_window
+
 		# 動くカーソル用
-		if snapshot.is_choices():
+		if message_window_a.is_choices():
 
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:
@@ -307,10 +309,10 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	if vk_operation == &"VKO_Pressed":
 
 		var snapshot = self.get_director().get_current_snapshot()
-		var message_window_1 = snapshot.message_window
+		var message_window_a = snapshot.message_window
 
 		# 動くカーソル用
-		if snapshot.is_choices():
+		if message_window_a.is_choices():
 			# カーソルが動く量が指定されているなら
 			if 0.0 < self.total_seconds:
 				# 自動的にカーソルは移動中
@@ -327,7 +329,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 					# カーソルは上へ移動できるか？
 					if self.can_cursor_up():
 						# カーソルが上に移動します
-						self.on_cursor_up(message_window_1.choices_index)
+						self.on_cursor_up(message_window_a.choices_index)
 					
 				# 下へ移動する分
 				elif self.get_director_for_key_config().is_key_down(virtual_key, lever_value):
@@ -335,7 +337,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 					if self.can_cursor_down():
 						# カーソルが下に移動します
-						self.on_cursor_down(message_window_1.choices_index)
+						self.on_cursor_down(message_window_a.choices_index)
 
 
 # 自動的にカーソルは移動中
@@ -352,8 +354,8 @@ func on_cursor_moving_automatically(delta):
 func can_cursor_up():
 
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_1 = snapshot.message_window
-	var index = message_window_1.choices_index
+	var message_window_a = snapshot.message_window
+	var index = message_window_a.choices_index
 
 	if 0 < index:
 		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できる")

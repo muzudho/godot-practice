@@ -158,12 +158,13 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 			self.get_director().is_fast_forward = false
 
 	var snapshot = self.get_director().get_current_snapshot()
+	var message_window_a = snapshot.message_window
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
 
 		# 選択肢モードなら
-		if snapshot.is_choices():
+		if message_window_a.is_choices():
 			
 			# 押下時
 			if vk_operation == &"VKO_Pressed":
@@ -215,12 +216,13 @@ func on_talked_2():
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
 	var snapshot = self.get_director().get_current_snapshot()
+	var message_window_a = snapshot.message_window
 
 	# テキストブロック
 	#var text_block_node = self.get_text_block()
 
 	# 選択肢なら
-	if snapshot.is_choices():
+	if message_window_a.is_choices():
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.decide()
@@ -245,7 +247,7 @@ func on_page_forward():
 	var message_window_a = snapshot.message_window
 
 	# 選択肢モードなら
-	if snapshot.is_choices():
+	if message_window_a.is_choices():
 
 		# カーソル音
 		self.get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
@@ -282,11 +284,12 @@ func on_page_forward():
 
 func on_all_characters_pushed():
 	var snapshot = self.get_director().get_current_snapshot()
+	var message_window_a = snapshot.message_window
 
 	# テキストブロック
 	#var text_block_node = self.get_text_block()
 	# 選択肢
-	if snapshot.is_choices():
+	if message_window_a.is_choices():
 		# 文末ブリンカー	状態機械［考える］
 		self.get_choices_cursor().statemachine_of_end_of_message_blinker.think()
 
@@ -301,6 +304,8 @@ func on_all_characters_pushed():
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
 	var snapshot = self.get_director().get_current_snapshot()
+	var message_window_a = snapshot.message_window
+
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	# テキストブロック
@@ -309,7 +314,7 @@ func on_all_pages_flushed():
 	text_block_node.text = ""
 
 	# 選択肢
-	if snapshot.is_choices():
+	if message_window_a.is_choices():
 		# 全てのブリンカー　状態機械［決めた］
 		self.get_choices_cursor().statemachine_of_end_of_message_blinker.decide()
 	else:
@@ -352,30 +357,30 @@ func _process(delta):
 	if self.statemachine_of_message_window.is_typewriter():
 
 		var snapshot = self.get_director().get_current_snapshot()
-		var message_window_1 = snapshot.message_window
+		var message_window_a = snapshot.message_window
 
-		message_window_1.count_of_typewriter += delta
+		message_window_a.count_of_typewriter += delta
 
 		# １文字 50ms でも、結構ゆっくり
-		var wait_time = 1 / message_window_1.msg_speed	# 旧 0.05
+		var wait_time = 1 / message_window_a.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
 		if self.get_director().is_fast_forward:
 			# print("［テキストブロック］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　メッセージの早送り")
-			wait_time = 1 / (message_window_1.msg_speed * message_window_1.msg_speed) # 旧 0.01
+			wait_time = 1 / (message_window_a.msg_speed * message_window_a.msg_speed) # 旧 0.01
 	
-		if wait_time <= message_window_1.count_of_typewriter:
+		if wait_time <= message_window_a.count_of_typewriter:
 
 			# TODO キャッシュ化したい
 			# テキストブロック
 			var text_block_node = self.get_text_block()
 
-			if 0 < message_window_1.text_block_buffer.length():
+			if 0 < message_window_a.text_block_buffer.length():
 				# バッファーの先頭の１文字を切り取って、テキストブロックへ移動
-				text_block_node.text += message_window_1.pop_head_of_text_block()
+				text_block_node.text += message_window_a.pop_head_of_text_block()
 			else:
 				# 完全表示中
 				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　プロセス　完全表示中だ")
 				self.statemachine_of_message_window.all_characters_pushed()
 			
-			message_window_1.count_of_typewriter -= wait_time
+			message_window_a.count_of_typewriter -= wait_time

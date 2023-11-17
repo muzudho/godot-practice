@@ -33,3 +33,8 @@ func pop_head_of_text_block():
 	var head = self.text_block_buffer.substr(0, 1)
 	self.text_block_buffer = self.text_block_buffer.substr(1)
 	return head
+
+
+# 選択肢か？
+func is_choices():
+	return self.choices_row_numbers != null

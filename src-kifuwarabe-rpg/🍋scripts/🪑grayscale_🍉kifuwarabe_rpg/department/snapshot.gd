@@ -43,11 +43,6 @@ func is_parse_lock():
 	return self.parse_lock_flag
 
 
-# 選択肢か？
-func is_choices():
-	return self.message_window.choices_row_numbers != null
-
-
 # 選択肢カーソルが指しているのは何行目か？　序数。該当がなければ 1 を返す
 func get_row_number_of_choices():
 	if self.message_window.choices_row_numbers == null:
@@ -64,7 +59,7 @@ func remember(
 	self.message_window.text_block_buffer = new_text
 
 	# 選択肢なら
-	if self.is_choices():
+	if self.message_window.is_choices():
 		print("［部門スナップ写　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
 
 	# それ以外なら
