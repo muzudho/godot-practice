@@ -9,8 +9,6 @@ class_name DepartmentMessageWindow
 var on_message_window_page_forward = func():
 	pass
 
-# メッセージ・スピード（１秒当たりの文字数）
-var msg_speed = 20.0
 
 # テキストブロック汎用
 #	セクションの何番目（０開始）を次に読込むか

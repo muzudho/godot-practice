@@ -12,6 +12,9 @@ var statemachine_of_message_window = load("res://🍋scripts/🪑grayscale_🍉m
 # 可視性
 var is_appear = true
 
+# メッセージ・スピード（１秒当たりの文字数）
+var msg_speed = 20.0
+
 
 func _ready():
 	
@@ -40,12 +43,12 @@ func _process(delta):
 		message_window_a.count_of_typewriter += delta
 
 		# １文字 50ms でも、結構ゆっくり
-		var wait_time = 1 / message_window_a.msg_speed	# 旧 0.05
+		var wait_time = 1 / self.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
 		if self.get_hub().is_fast_forward:
 			# print("［テキストブロック］　メッセージの早送り")
-			wait_time = 1 / (message_window_a.msg_speed * message_window_a.msg_speed) # 旧 0.01
+			wait_time = 1 / (self.msg_speed * self.msg_speed) # 旧 0.01
 	
 		if wait_time <= message_window_a.count_of_typewriter:
 
