@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq26bmmlqgvjw"]
+
+[ext_resource type="AudioStream" uid="uid://djuwfr5rcu7b1" path="res://res_🍋audio_se/🪑maou_audio/maou_se_sound_door02.ogg" id="1_tujb2"]
+[ext_resource type="AudioStream" uid="uid://3taty332i8lj" path="res://res_🍋audio_se/🪑maou_audio/maou_se_system12.ogg" id="2_uwy8x"]
+[ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://res_🍋audio_se/🪑maou_audio/maou_se_onepoint32.ogg" id="3_3hvy4"]
+[ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://res_🍋audio_se/🪑maou_audio/maou_se_magic_fire09.ogg" id="4_q4vxr"]
+
+[node name="SE" type="Node"]
+
+[node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_tujb2")
+volume_db = -5.0
+
+[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uwy8x")
+volume_db = -10.0
+
+[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_3hvy4")
+volume_db = -15.0
+
+[node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q4vxr")
+volume_db = -15.0

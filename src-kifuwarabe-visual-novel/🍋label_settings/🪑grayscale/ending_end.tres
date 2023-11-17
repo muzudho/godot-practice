@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bxfp11qlgp84q"]
+
+[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="1_cfc77"]
+
+[resource]
+font = ExtResource("1_cfc77")
+font_size = 128
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(10, 10)

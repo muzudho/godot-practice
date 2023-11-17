@@ -13,6 +13,10 @@ Godot の練習
 
 * むずでょ　が書いた　プログラムは　ＭＩＴライセンス　です
 
+## 進捗
+
+* RPG （src-kifuwarabe-rpg） の開発が長引いているので、 ビジュアルノベルの部分だけ切り出して （src-kifuwarabe-visual-novel）  にすることにした
+
 ## 開発ブログ
 
 📖 [Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
