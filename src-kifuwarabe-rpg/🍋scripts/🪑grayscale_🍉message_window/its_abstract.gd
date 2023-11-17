@@ -26,3 +26,8 @@ func get_text_block(message_window_name):
 # 三角形の文末ブリンカー
 func get_blinker_triangle(message_window_name):
 	return self.get_canvas_layer(message_window_name).get_node("TextBlock/BlinkerTriangle")
+
+
+# 下線の文末ブリンカー
+func get_blinker_underscore(message_window_name):
+	return self.get_canvas_layer(message_window_name).get_node("TextBlock/BlinkerUnderscore")
