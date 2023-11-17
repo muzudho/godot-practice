@@ -35,8 +35,6 @@ var choices_index = 0
 var section_item_index = 0
 #	表示したい文章
 var text_block_buffer = ""
-#	タイプライターのカウント
-var count_of_typewriter = 0
 
 # 伝言窓のノード名。最後に表示した伝言窓をカレントにするために、スタック構造をしている。文字列ではなく StringName 型
 var stack_of_last_displayed_message_window = [] # TODO 新仕様

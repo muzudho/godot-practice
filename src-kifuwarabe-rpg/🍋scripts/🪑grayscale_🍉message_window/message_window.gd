@@ -351,18 +351,19 @@ func _process(delta):
 	if self.statemachine_of_message_window.is_typewriter():
 
 		var snapshot = self.get_director().get_current_snapshot()
+		var message_window_1 = snapshot.message_window
 
-		snapshot.count_of_typewriter += delta
+		message_window_1.count_of_typewriter += delta
 
 		# １文字 50ms でも、結構ゆっくり
-		var wait_time = 1 / snapshot.message_window.msg_speed	# 旧 0.05
+		var wait_time = 1 / message_window_1.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
 		if self.get_director().is_fast_forward:
 			# print("［テキストブロック］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　メッセージの早送り")
-			wait_time = 1 / (snapshot.message_window.msg_speed * snapshot.message_window.msg_speed) # 旧 0.01
+			wait_time = 1 / (message_window_1.msg_speed * message_window_1.msg_speed) # 旧 0.01
 	
-		if wait_time <= snapshot.count_of_typewriter:
+		if wait_time <= message_window_1.count_of_typewriter:
 
 			# TODO キャッシュ化したい
 			# テキストブロック
@@ -377,4 +378,4 @@ func _process(delta):
 				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　プロセス　完全表示中だ")
 				self.statemachine_of_message_window.all_characters_pushed()
 			
-			snapshot.count_of_typewriter -= wait_time
+			message_window_1.count_of_typewriter -= wait_time
