@@ -30,14 +30,15 @@ func get_current_section_size_of_scenario():
 # シナリオの現在パラグラフ（セクションのアイテム）を返す
 func get_current_paragraph_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
+
 	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][message_window_a.section_item_index]
 
 
 # 「§」セクションの再生
 func play_section():
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
 	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	# 全部消化済みの場合
@@ -52,7 +53,7 @@ func play_section():
 
 	# パースを開始してよくないケースもあるが？
 	# バッファーが残ってるときとか
-	if not snapshot.message_window.has_text_block_buffer():
+	if not message_window_a.has_text_block_buffer():
 		# Completed 時もパース始めたらよくない
 		if not message_window_gui.statemachine_of_message_window.is_completed():
 			# TODO 選択肢のときもややこしいが
@@ -290,8 +291,7 @@ func parse_paragraph(paragraph_text):
 		#	［ト書き］終わり
 		return
 
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
 
 	# 選択肢だ
 	if message_window_a.choices_row_numbers != null:
@@ -312,7 +312,7 @@ func on_process(delta):
 		return
 
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not snapshot.is_parse_lock():

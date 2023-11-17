@@ -12,10 +12,6 @@ extends Object
 class_name DepartmentSnapshot
 
 
-# メッセージ・ウィンドウの状態記憶
-var message_window = DepartmentMessageWindow.new()
-
-
 # 「§」セクション名
 var section_name = null
 

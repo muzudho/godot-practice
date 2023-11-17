@@ -193,8 +193,8 @@ func on_turned_off():
 
 # カーソル位置を算出
 func calc_cursor_vector():
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
+
 	var selected_row_number = message_window_a.get_row_number_of_choices()
 
 	# 先頭を１行目とし、基数に変換する
@@ -212,8 +212,7 @@ func calc_cursor_vector():
 # 選択肢カーソルを先頭へセットします
 func reset_cursor_position():
 	print("［選択肢カーソル］　先頭へリセット")
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
 
 	message_window_a.choices_index = 0
 	var vec = self.calc_cursor_vector()
@@ -229,8 +228,7 @@ func on_cursor_up(_target_index):
 	# 効果音鳴らす
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
 
 	var old_vec = self.calc_cursor_vector()
 	message_window_a.choices_index -= 1
@@ -247,8 +245,7 @@ func on_cursor_down(_target_index):
 	# 効果音鳴らす
 	self.get_assistant_director().get_node("Se").play_se("🔔選択肢カーソル移動音")
 
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
 
 	var old_vec = self.calc_cursor_vector()
 	message_window_a.choices_index += 1
@@ -283,8 +280,7 @@ func _process(delta):
 				
 			self.blinker_seconds -= self.blinker_interval
 
-		var snapshot = self.get_director().get_current_snapshot()
-		var message_window_a = snapshot.message_window
+		var message_window_a = self.get_director().get_current_message_window_variables()
 
 		# 動くカーソル用
 		if message_window_a.is_choices():
@@ -309,8 +305,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 押下時
 	if vk_operation == &"VKO_Pressed":
 
-		var snapshot = self.get_director().get_current_snapshot()
-		var message_window_a = snapshot.message_window
+		var message_window_a = self.get_director().get_current_message_window_variables()
 
 		# 動くカーソル用
 		if message_window_a.is_choices():
@@ -354,8 +349,7 @@ func on_cursor_moving_automatically(delta):
 # カーソルは上へ移動できるか？
 func can_cursor_up():
 
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
 	var index = message_window_a.choices_index
 
 	if 0 < index:
@@ -370,8 +364,7 @@ func can_cursor_up():
 # カーソルは下へ移動できるか？
 func can_cursor_down():
 
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_director().get_current_message_window_variables()
 	var index = message_window_a.choices_index
 
 	# 配列

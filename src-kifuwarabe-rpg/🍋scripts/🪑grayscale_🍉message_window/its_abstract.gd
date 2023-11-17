@@ -47,7 +47,7 @@ func _process(delta):
 	if self.statemachine_of_message_window.is_typewriter():
 
 		var snapshot = self.get_pibot().get_director().get_current_snapshot()
-		var message_window_a = snapshot.message_window
+		var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 		message_window_a.count_of_typewriter += delta
 
@@ -185,7 +185,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 			self.get_pibot().get_director().is_fast_forward = false
 
 	var snapshot = self.get_pibot().get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
@@ -243,7 +243,7 @@ func on_talked_2():
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
 	var snapshot = self.get_pibot().get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 	# 選択肢なら
 	if message_window_a.is_choices():
@@ -268,7 +268,7 @@ func on_talked_2():
 # ページ送り
 func on_page_forward():
 	var snapshot = self.get_pibot().get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 	# 選択肢モードなら
 	if message_window_a.is_choices():
@@ -307,8 +307,7 @@ func on_page_forward():
 
 
 func on_all_characters_pushed():
-	var snapshot = self.get_pibot().get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 	# 選択肢
 	if message_window_a.is_choices():
@@ -326,7 +325,7 @@ func on_all_characters_pushed():
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
 	var snapshot = self.get_pibot().get_director().get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
 

@@ -17,8 +17,11 @@ var current_department_name = null
 var current_bgm_name = null
 # 現在鳴っている効果音のノード名
 var current_se_name = null
+
 # スナップショット辞書（キー：StringName型）
 var snapshots = {}
+var message_window_variables = {}
+
 # ト書き（シナリオの命令パラグラフ）で使える変数の辞書
 var stage_directions_variables = {}
 # 疑似的なスリープに使うカウント
@@ -52,12 +55,22 @@ func get_switch_department():
 
 # スナップショット
 func get_snapshot(
-	department_name):	# StringName
+		department_name):	# StringName
 	return self.snapshots[department_name]
+
+
+# 伝言窓変数
+func get_message_window_variables(
+		department_name):	# StringName
+	return self.message_window_variables[department_name]
 
 
 func get_current_snapshot():
 	return self.get_snapshot(self.current_department_name)
+
+
+func get_current_message_window_variables():
+	return self.get_message_window_variables(self.current_department_name)
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -80,7 +93,7 @@ func get_current_message_window_gui():
 # 現在の「§」セクション設定
 func set_current_section(section_name):
 	var snapshot = self.get_current_snapshot()
-	var message_window_a = snapshot.message_window
+	var message_window_a = self.get_current_message_window_variables()
 
 	snapshot.section_name = section_name
 	message_window_a.section_item_index = 0
@@ -127,6 +140,7 @@ func _ready():
 		var department_node = $"ScenarioWriter".get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "System":
 			self.snapshots[department_node.name] = DepartmentSnapshot.new()
+			self.message_window_variables[department_node.name] = DepartmentMessageWindow.new()
 
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す
 			self.snapshots[department_node.name].name = department_node.name		# StringName 型
