@@ -36,23 +36,23 @@ func get_current_paragraph_of_scenario():
 # 「§」セクションの再生
 func play_section():
 	var snapshot = self.get_director().get_current_snapshot()
-	var message_window = self.get_director().get_current_message_window()
+	var message_window_gui = self.get_director().get_current_message_window()
 
 	# 全部消化済みの場合
 	if self.get_current_section_size_of_scenario() <= snapshot.section_item_index:
 		print("［助監］（" + snapshot.name + "　" + snapshot.section_name + "）　セクションを読み終わっている")
 
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
-		if message_window.statemachine_of_message_window.is_completed():
+		if message_window_gui.statemachine_of_message_window.is_completed():
 			print("［助監］（" + snapshot.name + "　"+ snapshot.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
 			# 自動で何かしない
 			return
 
 	# パースを開始してよくないケースもあるが？
 	# バッファーが残ってるときとか
-	if not snapshot.has_text_block_buffer():
+	if not snapshot.message_window.has_text_block_buffer():
 		# Completed 時もパース始めたらよくない
-		if not message_window.statemachine_of_message_window.is_completed():
+		if not message_window_gui.statemachine_of_message_window.is_completed():
 			# TODO 選択肢のときもややこしいが
 			print("［助監］（" + snapshot.name + "　"+ snapshot.section_name + "）　パースを開始してよい（本当か？）")
 			# パースを開始してよい

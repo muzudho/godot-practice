@@ -33,8 +33,6 @@ var choices_index = 0
 # テキストブロック汎用
 #	セクションの何番目（０開始）を次に読込むか
 var section_item_index = 0
-#	表示したい文章
-var text_block_buffer = ""
 
 # 伝言窓のノード名。最後に表示した伝言窓をカレントにするために、スタック構造をしている。文字列ではなく StringName 型
 var stack_of_last_displayed_message_window = [] # TODO 新仕様
@@ -67,17 +65,12 @@ func get_row_number_of_choices():
 	return self.choices_row_numbers[self.choices_index]
 
 
-# テキストブロックのバッファーが残っているか？
-func has_text_block_buffer():
-	return 0 < self.text_block_buffer.length()
-
-
 # メッセージを記録するだけ
 func remember(
 	new_text):		# str
 
 	# 設定
-	self.text_block_buffer = new_text
+	self.message_window.text_block_buffer = new_text
 
 	# 選択肢なら
 	if self.is_choices():

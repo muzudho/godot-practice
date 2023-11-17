@@ -217,7 +217,7 @@ func on_talked_2():
 	var snapshot = self.get_director().get_current_snapshot()
 
 	# テキストブロック
-	var text_block_node = self.get_text_block()
+	#var text_block_node = self.get_text_block()
 
 	# 選択肢なら
 	if snapshot.is_choices():
@@ -283,7 +283,7 @@ func on_all_characters_pushed():
 	var snapshot = self.get_director().get_current_snapshot()
 
 	# テキストブロック
-	var text_block_node = self.get_text_block()
+	#var text_block_node = self.get_text_block()
 	# 選択肢
 	if snapshot.is_choices():
 		# 文末ブリンカー	状態機械［考える］
@@ -369,10 +369,9 @@ func _process(delta):
 			# テキストブロック
 			var text_block_node = self.get_text_block()
 
-			if 0 < snapshot.text_block_buffer.length():
+			if 0 < message_window_1.text_block_buffer.length():
 				# バッファーの先頭の１文字を切り取って、テキストブロックへ移動
-				text_block_node.text += snapshot.text_block_buffer.substr(0, 1)
-				snapshot.text_block_buffer = snapshot.text_block_buffer.substr(1)
+				text_block_node.text += message_window_1.pop_head_of_text_block()
 			else:
 				# 完全表示中
 				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　プロセス　完全表示中だ")
