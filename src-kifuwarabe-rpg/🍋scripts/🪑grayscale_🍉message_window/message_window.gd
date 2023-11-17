@@ -5,11 +5,6 @@ extends Node
 class_name DepartmentMessageWindow
 
 
-# ページ送り時の対応関数
-var on_message_window_page_forward = func():
-	pass
-
-
 # テキストブロック汎用
 #	セクションの何番目（０開始）を次に読込むか
 var section_item_index = 0

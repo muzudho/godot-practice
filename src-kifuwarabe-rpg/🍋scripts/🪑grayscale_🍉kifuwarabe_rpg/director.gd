@@ -140,7 +140,7 @@ func _ready():
 	for message_window_node in $"GuiArtist/MessageWindows".get_children():
 		if message_window_node is Sprite2D:
 			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
-			self.get_message_window_variables(message_window_node.name).on_message_window_page_forward = func():
+			message_window_node.on_message_window_page_forward = func():
 				self.get_current_snapshot().set_parse_lock(false)
 
 	# スナップショット辞書作成

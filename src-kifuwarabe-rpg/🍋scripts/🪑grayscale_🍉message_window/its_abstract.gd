@@ -9,6 +9,10 @@ class_name AbstractMessageWindow
 # 状態機械
 var statemachine_of_message_window = load("res://🍋scripts/🪑grayscale_🍉message_window/statemachines/message_window.gd").new()
 
+# ページ送り時の対応関数
+var on_message_window_page_forward = func():
+	pass
+
 # 可視性
 var is_appear = true
 
@@ -278,7 +282,7 @@ func on_page_forward():
 		self.get_hub().get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
 		
 		# ページ送りをしたことを、呼出し元へ伝える
-		message_window_a.on_message_window_page_forward.call()
+		self.on_message_window_page_forward.call()
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック
