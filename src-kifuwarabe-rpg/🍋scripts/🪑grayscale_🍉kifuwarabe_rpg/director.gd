@@ -77,23 +77,6 @@ func get_current_message_window_gui():
 	return self.get_message_window_gui(str(node_name))
 
 
-# 伝言窓（現在、出力の対象になっているもの）
-func get_message_window_telop(node_name_obj):
-	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
-	return self.get_telop_coordinator().get_node("MessageWindows_" + node_name_obj)
-
-
-# 伝言窓（現在、出力の対象になっているもの）
-func get_current_message_window_telop():
-	var snapshot = self.get_current_snapshot()
-	if snapshot.stack_of_last_displayed_message_window.size() < 1:
-		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
-
-	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
-	#print("［監督］　伝言窓名：［" + node_name + "］")
-	return self.get_message_window_telop(str(node_name))
-
-
 # 現在の「§」セクション設定
 func set_current_section(section_name):
 	var snapshot = self.get_current_snapshot()

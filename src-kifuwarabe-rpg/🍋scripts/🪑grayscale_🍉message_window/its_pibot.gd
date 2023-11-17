@@ -1,5 +1,5 @@
 # メッセージ・ウィンドウ（Message Window；伝言窓）
-# イッツ・アブストラクト（Its abstract；その抽象的な）
+# イッツ・ピボット（Its pibot；その軸）
 extends Node
 
 
