@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=106 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/director.gd" id="1_20gix"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -97,9 +97,6 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/telop.gd" id="97_gya12"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/var.gd" id="98_gixyw"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/v_wnd.gd" id="99_saje8"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scorer.gd" id="100_rx0rr"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scorer/battle_sheet.gd" id="101_k1flv"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scorer/monster_data.gd" id="102_1op47"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="103_n24cr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
@@ -1083,14 +1080,5 @@ script = ExtResource("98_gixyw")
 script = ExtResource("99_saje8")
 
 [node name="System" type="Node" parent="."]
-
-[node name="Scorer" type="Node" parent="."]
-script = ExtResource("100_rx0rr")
-
-[node name="GameSheetForBattle" type="Node" parent="Scorer"]
-script = ExtResource("101_k1flv")
-
-[node name="MonsterData" type="Node" parent="Scorer"]
-script = ExtResource("102_1op47")
 
 [node name="Director_🍉KeyConfig" parent="." instance=ExtResource("103_n24cr")]
