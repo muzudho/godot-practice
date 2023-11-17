@@ -43,22 +43,6 @@ func is_parse_lock():
 	return self.parse_lock_flag
 
 
-# メッセージを記録するだけ
-func remember(
-	new_text):		# str
-
-	# 設定
-	self.message_window.text_block_buffer = new_text
-
-	# 選択肢なら
-	if self.message_window.is_choices():
-		print("［部門スナップ写　”" + self.name + "”］　リメンバー　選択肢：[" + new_text + "]")
-
-	# それ以外なら
-	else:
-		print("［部門スナップ写　”" + self.name + "”］　リメンバー　台詞：[" + new_text + "]")
-
-
 # 現在開いているメッセージ・ウィンドウ名を追加
 func append_currently_displayed_message_window(
 		node_name):		# StringName

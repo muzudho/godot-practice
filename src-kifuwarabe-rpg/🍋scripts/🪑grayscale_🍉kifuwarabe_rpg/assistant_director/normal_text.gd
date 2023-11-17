@@ -26,7 +26,8 @@ func put_textblock(
 
 	# メッセージの追加
 	var snapshot = self.get_director().get_current_snapshot()
-	snapshot.remember(temp_text)
+	var message_window_a = snapshot.message_window
+	message_window_a.remember(temp_text)
 
 	# 会話の開始
 	self.get_director().get_current_message_window().statemachine_of_message_window.talk()

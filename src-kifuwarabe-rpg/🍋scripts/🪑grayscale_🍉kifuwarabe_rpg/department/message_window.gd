@@ -46,3 +46,19 @@ func get_row_number_of_choices():
 		return 1
 
 	return self.choices_row_numbers[self.choices_index]
+
+
+# メッセージを記録するだけ
+func remember(
+		new_text):		# str
+
+	# 設定
+	self.text_block_buffer = new_text
+
+	# 選択肢なら
+	if self.is_choices():
+		print("［部門スナップ写］　リメンバー　選択肢：[" + new_text + "]")
+
+	# それ以外なら
+	else:
+		print("［部門スナップ写］　リメンバー　台詞：[" + new_text + "]")

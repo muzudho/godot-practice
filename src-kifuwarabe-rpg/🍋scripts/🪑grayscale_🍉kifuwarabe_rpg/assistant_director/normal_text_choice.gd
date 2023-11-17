@@ -28,9 +28,10 @@ func put_textblock(
 
 	# メッセージ追加
 	var snapshot = self.get_director().get_current_snapshot()
+	var message_window_a = snapshot.message_window
 	print("［命令　選択肢テキスト］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")
 
-	snapshot.remember(temp_text)
+	message_window_a.remember(temp_text)
 
 	# 会話開始
 	self.get_director().get_current_message_window().statemachine_of_message_window.talk()
