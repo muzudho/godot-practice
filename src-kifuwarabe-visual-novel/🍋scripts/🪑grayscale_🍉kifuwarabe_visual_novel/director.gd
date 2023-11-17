@@ -4,7 +4,7 @@
 extends Node2D
 
 
-var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/department/snapshot.gd")
+var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department/snapshot.gd")
 
 
 # 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
@@ -148,8 +148,6 @@ func _ready():
 			elif department_node.name =="📗システムメニュー部門":
 				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
 				#self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
-			elif department_node.name =="📗バトル部門":
-				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 
 
 			# 文書辞書の先頭要素のキー取得
