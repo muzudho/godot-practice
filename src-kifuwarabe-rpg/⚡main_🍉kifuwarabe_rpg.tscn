@@ -1,4 +1,4 @@
-[gd_scene load_steps=109 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=110 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -60,8 +60,9 @@
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="57_xm0dl"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="58_02ahj"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/its_abstract.gd" id="60_7c8bg"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/message_window.gd" id="61_tvkup"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/its_concrete.gd" id="61_tvkup"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/windows/viewing.gd" id="64_5b4xj"]
@@ -914,6 +915,7 @@ script = ExtResource("56_sxmbq")
 
 [node name="MessageWindows" type="Node2D" parent="GuiArtist"]
 visible = false
+script = ExtResource("60_7c8bg")
 
 [node name="■上_大" type="Sprite2D" parent="GuiArtist/MessageWindows"]
 visible = false

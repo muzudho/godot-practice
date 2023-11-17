@@ -1,4 +1,5 @@
 # メッセージ・ウィンドウ（Message Window；伝言窓）
+# イッツ・コンクリート（Its concrete；その具体的な）
 extends Sprite2D
 
 
@@ -12,9 +13,14 @@ var choices_cursor_origin_x = 0.0
 var choices_cursor_origin_y = 0.0
 
 
+# 抽象メッセージ・ウィンドウ取得
+func get_abstract_message_window():
+	return $"../../MessageWindows"
+
+
 # 監督取得
 func get_director():
-	return $"../../../../Director"
+	return self.get_abstract_message_window().get_director()
 
 
 # 助監取得
