@@ -1079,6 +1079,4 @@ script = ExtResource("98_gixyw")
 [node name="VWnd" type="Node" parent="AssistantDirector"]
 script = ExtResource("99_saje8")
 
-[node name="System" type="Node" parent="."]
-
 [node name="Director_🍉KeyConfig" parent="." instance=ExtResource("103_n24cr")]
