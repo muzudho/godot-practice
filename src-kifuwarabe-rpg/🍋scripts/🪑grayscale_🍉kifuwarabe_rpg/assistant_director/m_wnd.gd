@@ -45,7 +45,7 @@ func show_message_window(
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
-	self.get_director().get_message_window(node_name).set_appear_subtree(true)
+	self.get_director().get_message_window_gui(node_name).set_appear_subtree(true)
 
 	if not is_department_entered:
 		# 現在開いている伝言窓をスナップショットに記憶
@@ -69,7 +69,7 @@ func hide_message_window(
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
-	self.get_director().get_message_window(node_name).set_appear_subtree(false)
+	self.get_director().get_message_window_gui(node_name).set_appear_subtree(false)
 
 	if not is_department_leaved:
 		# 現在開いている伝言窓をスナップショットから除外

@@ -26,7 +26,7 @@ func do_it(line):
 	self.get_director().get_current_snapshot().message_window.choices_row_numbers = number_array
 
 	# カーソル位置の初期化
-	self.get_director().get_current_message_window().reset_cursor_position()
+	self.get_director().get_current_message_window_gui().reset_cursor_position()
 
 
 # 文字列パック配列を、数値の配列に変換

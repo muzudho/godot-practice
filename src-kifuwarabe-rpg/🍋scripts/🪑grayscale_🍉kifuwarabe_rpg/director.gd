@@ -41,6 +41,10 @@ func get_gui_artist():
 	return $"GuiArtist"
 
 
+func get_telop_coordinator():
+	return $"TelopCoordinator"
+
+
 # 部門切替取得
 func get_switch_department():
 	return $"ScenarioWriter/SwitchDepartment"
@@ -57,20 +61,37 @@ func get_current_snapshot():
 
 
 # 伝言窓（現在、出力の対象になっているもの）
-func get_message_window(node_name_obj):
+func get_message_window_gui(node_name_obj):
 	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
 	return self.get_gui_artist().get_node("MessageWindows/" + node_name_obj)
 
 
 # 伝言窓（現在、出力の対象になっているもの）
-func get_current_message_window():
+func get_current_message_window_gui():
 	var snapshot = self.get_current_snapshot()
 	if snapshot.stack_of_last_displayed_message_window.size() < 1:
 		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
 
 	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
 	#print("［監督］　伝言窓名：［" + node_name + "］")
-	return self.get_message_window(str(node_name))
+	return self.get_message_window_gui(str(node_name))
+
+
+# 伝言窓（現在、出力の対象になっているもの）
+func get_message_window_telop(node_name_obj):
+	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
+	return self.get_telop_coordinator().get_node("MessageWindows_" + node_name_obj)
+
+
+# 伝言窓（現在、出力の対象になっているもの）
+func get_current_message_window_telop():
+	var snapshot = self.get_current_snapshot()
+	if snapshot.stack_of_last_displayed_message_window.size() < 1:
+		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
+
+	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
+	#print("［監督］　伝言窓名：［" + node_name + "］")
+	return self.get_message_window_telop(str(node_name))
 
 
 # 現在の「§」セクション設定
@@ -239,7 +260,7 @@ func _process(delta):
 		$"./AssistantDirector".play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.get_current_message_window().set_appear_subtree(true)
+		self.get_current_message_window_gui().set_appear_subtree(true)
 
 	elif self.current_state == &"Main":
 		self.get_assistant_director().on_process(delta)
@@ -375,4 +396,4 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.get_current_message_window().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)

@@ -38,7 +38,7 @@ func get_current_paragraph_of_scenario():
 func play_section():
 	var snapshot = self.get_director().get_current_snapshot()
 	var message_window_a = snapshot.message_window
-	var message_window_gui = self.get_director().get_current_message_window()
+	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	# 全部消化済みの場合
 	if self.get_current_section_size_of_scenario() <= message_window_a.section_item_index:
@@ -68,7 +68,7 @@ func on_choice_selected(row_number):
 	# 伝言窓の状態遷移
 	#	ずっと Completed だと、困るから
 	print("［助監］　伝言窓を　オール・ページズ・フラッシュド　する")
-	self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()
+	self.get_director().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
 	var snapshot = self.get_director().get_current_snapshot()
@@ -340,6 +340,6 @@ func on_process(delta):
 
 		# もう無いよ
 		else:
-			if not self.get_director().get_current_message_window().statemachine_of_message_window.is_none():
+			if not self.get_director().get_current_message_window_gui().statemachine_of_message_window.is_none():
 				# 伝言窓を閉じる
-				self.get_director().get_current_message_window().statemachine_of_message_window.all_pages_flushed()
+				self.get_director().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()

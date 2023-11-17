@@ -36,3 +36,16 @@ func get_blinker_underscore(message_window_name):
 # 選択肢カーソル
 func get_choices_cursor(message_window_name):
 	return self.get_canvas_layer(message_window_name).get_node("TextBlock/ChoicesCursor")
+
+
+## 先頭行と、それ以外に分けます
+#func split_head_line_or_tail(text):
+#	# 最初の改行を見つける
+#	var index = text.find("\n")
+#	var head = text.substr(0, index)
+#	var tail = text.substr(index+1)
+#
+#	#print("［伝言窓］　head：　[" + head + "]")
+#	#print("［伝言窓］　tail：　[" + tail + "]")
+#
+#	return [head, tail]

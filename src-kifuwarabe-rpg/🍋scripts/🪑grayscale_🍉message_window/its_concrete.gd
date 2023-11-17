@@ -14,30 +14,12 @@ var choices_cursor_origin_y = 0.0
 
 
 # 抽象メッセージ・ウィンドウ取得
-func get_abstract_message_window():
+func get_abstract():
 	return $"../../MessageWindows"
 
 
-# 監督取得
-func get_director():
-	return self.get_abstract_message_window().get_director()
-
-
-# 先頭行と、それ以外に分けます
-func split_head_line_or_tail(text):
-	# 最初の改行を見つける
-	var index = text.find("\n")
-	var head = text.substr(0, index)
-	var tail = text.substr(index+1)
-
-	#print("［伝言窓］　head：　[" + head + "]")
-	#print("［伝言窓］　tail：　[" + tail + "]")
-
-	return [head, tail]
-
-
 func reset_cursor_position():
-	self.get_abstract_message_window().get_choices_cursor(self.name).reset_cursor_position()
+	self.get_abstract().get_choices_cursor(self.name).reset_cursor_position()
 
 
 # サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
@@ -50,13 +32,13 @@ func set_process_subtree(
 	# 処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
 	if is_process != self.is_processing():
 
-		var snapshot = self.get_director().get_current_snapshot()
+		var snapshot = self.get_abstract().get_director().get_current_snapshot()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　プロセッシング：" + str(is_process))
 
 		self.set_process(is_process)
 
 		# 子ノード
-		for child in self.get_abstract_message_window().get_text_block(self.name).get_children():
+		for child in self.get_abstract().get_text_block(self.name).get_children():
 			if child.has_method("set_process_subtree"):
 				child.set_process_subtree(is_process)
 
@@ -73,14 +55,14 @@ func set_visible_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if visible_flag != self.visible:
 
-		var snapshot = self.get_director().get_current_snapshot()
+		var snapshot = self.get_abstract().get_director().get_current_snapshot()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　可視性：" + str(visible_flag))
 
 		self.visible = visible_flag
-		self.get_abstract_message_window().get_canvas_layer(self.name).visible = visible_flag
+		self.get_abstract().get_canvas_layer(self.name).visible = visible_flag
 
 		# 子ノード
-		for child in self.get_abstract_message_window().get_text_block(self.name).get_children():
+		for child in self.get_abstract().get_text_block(self.name).get_children():
 			if child.has_method("set_visible_subtree"):
 				child.set_visible_subtree(visible_flag)
 
@@ -95,7 +77,7 @@ func set_appear_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if appear_flag != self.is_appear:
 
-		var snapshot = self.get_director().get_current_snapshot()
+		var snapshot = self.get_abstract().get_director().get_current_snapshot()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　appear：" + str(appear_flag))
 
 		self.is_appear = appear_flag
@@ -103,7 +85,7 @@ func set_appear_subtree(
 		if self.is_appear:
 			# 画面内に戻す
 			self.position += Vector2(0, -720)
-			self.get_abstract_message_window().get_text_block(self.name).position += Vector2(0, -720)
+			self.get_abstract().get_text_block(self.name).position += Vector2(0, -720)
 
 			## 会話が停止してしまっているなら、再開する（すぐ停止するかもしれない）
 			#if self.statemachine_of_message_window.is_none():
@@ -116,10 +98,10 @@ func set_appear_subtree(
 		else:
 			# 画面下の外に押し出す
 			self.position += Vector2(0, 720)
-			self.get_abstract_message_window().get_text_block(self.name).position -= Vector2(0, -720)
+			self.get_abstract().get_text_block(self.name).position -= Vector2(0, -720)
 
 		# 子ノード
-		for child in self.get_abstract_message_window().get_text_block(self.name).get_children():
+		for child in self.get_abstract().get_text_block(self.name).get_children():
 			if child.has_method("set_appear_subtree"):
 				child.set_appear_subtree(appear_flag)
 
@@ -128,17 +110,17 @@ func set_appear_subtree(
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	# 選択肢カーソル
-	self.get_abstract_message_window().get_choices_cursor(self.name).on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.get_abstract().get_choices_cursor(self.name).on_virtual_key_input(virtual_key, lever_value, vk_operation)
 
 	if virtual_key == &"VK_FastForward":
 		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
 		if vk_operation == &"VKO_Pressed":
-			self.get_director().is_fast_forward = true
+			self.get_abstract().get_director().is_fast_forward = true
 
 		elif vk_operation == &"VKO_Released":
-			self.get_director().is_fast_forward = false
+			self.get_abstract().get_director().is_fast_forward = false
 
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_abstract().get_director().get_current_snapshot()
 	var message_window_a = snapshot.message_window
 
 	# 完全表示中
@@ -196,45 +178,45 @@ func on_talked_2():
 	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_abstract().get_director().get_current_snapshot()
 	var message_window_a = snapshot.message_window
 
 	# 選択肢なら
 	if message_window_a.is_choices():
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
-		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
-		self.get_abstract_message_window().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
 		
 		# メッセージエンド・ブリンカー　状態機械［考える］
-		self.get_abstract_message_window().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
+		self.get_abstract().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
 	
 	else:
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　台詞開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
-		self.get_abstract_message_window().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 		
 		# メッセージエンド・ブリンカー　状態機械［考える］
-		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
-		self.get_abstract_message_window().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.think()
+		self.get_abstract().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
+		self.get_abstract().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.think()
 
 
 # ページ送り
 func on_page_forward():
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_abstract().get_director().get_current_snapshot()
 	var message_window_a = snapshot.message_window
 
 	# 選択肢モードなら
 	if message_window_a.is_choices():
 
 		# カーソル音
-		self.get_abstract_message_window().get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
+		self.get_abstract().get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
 
 		var row_number = message_window_a.get_row_number_of_choices()
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
-		self.get_abstract_message_window().get_assistant_director().on_choice_selected(row_number)
+		self.get_abstract().get_assistant_director().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
 		message_window_a.choices_row_numbers = null
@@ -243,60 +225,60 @@ func on_page_forward():
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　ページ送り")
 
 		# 効果音
-		self.get_abstract_message_window().get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
+		self.get_abstract().get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
 		
 		# パースを開始してよい
-		self.get_director().get_current_snapshot().set_parse_lock(false)
+		self.get_abstract().get_director().get_current_snapshot().set_parse_lock(false)
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック
-	var text_block_node = self.get_abstract_message_window().get_text_block(self.name)
+	var text_block_node = self.get_abstract().get_text_block(self.name)
 	if true:
 		# テキストが空っぽ
 		text_block_node.text = ""
 		# 全てのブリンカー　状態機械［決めた］
-		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
-		self.get_abstract_message_window().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
-		self.get_abstract_message_window().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 
 
 func on_all_characters_pushed():
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_abstract().get_director().get_current_snapshot()
 	var message_window_a = snapshot.message_window
 
 	# 選択肢
 	if message_window_a.is_choices():
 		# 文末ブリンカー	状態機械［考える］
-		self.get_abstract_message_window().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
+		self.get_abstract().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
 
 	# それ以外
 	else:
 		# 文末ブリンカー	状態機械［考える］
-		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
-		self.get_abstract_message_window().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.think()
+		self.get_abstract().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
+		self.get_abstract().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.think()
 
 
 # 初期化
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_abstract().get_director().get_current_snapshot()
 	var message_window_a = snapshot.message_window
 
 	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	# テキストブロック
-	var text_block_node = self.get_abstract_message_window().get_text_block(self.name)
+	var text_block_node = self.get_abstract().get_text_block(self.name)
 	# テキストが空っぽ
 	text_block_node.text = ""
 
 	# 選択肢
 	if message_window_a.is_choices():
 		# 全てのブリンカー　状態機械［決めた］
-		self.get_abstract_message_window().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 	else:
 		# 全てのブリンカー　状態機械［決めた］
-		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
-		self.get_abstract_message_window().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
 
 	# この要素の初期状態は、非表示、透明
 	self.set_visible_subtree(false)
@@ -306,7 +288,7 @@ func on_all_pages_flushed():
 func _ready():
 	
 	# 最初は、テスト用文字列が入ってたりするので消す
-	self.get_abstract_message_window().get_text_block(self.name).text = ""
+	self.get_abstract().get_text_block(self.name).text = ""
 	
 	# 状態機械のセットアップ
 	self.statemachine_of_message_window.on_talked_2 = self.on_talked_2
@@ -315,8 +297,8 @@ func _ready():
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
 
 	# 選択肢カーソルの初期位置を記憶
-	self.choices_cursor_origin_x = self.get_abstract_message_window().get_choices_cursor(self.name).get_transform().x.x # Vector To Scalar
-	self.choices_cursor_origin_y = self.get_abstract_message_window().get_choices_cursor(self.name).get_transform().y.y
+	self.choices_cursor_origin_x = self.get_abstract().get_choices_cursor(self.name).get_transform().x.x # Vector To Scalar
+	self.choices_cursor_origin_y = self.get_abstract().get_choices_cursor(self.name).get_transform().y.y
 
 
 func _process(delta):
@@ -332,7 +314,7 @@ func _process(delta):
 	# タイプライター風表示中
 	if self.statemachine_of_message_window.is_typewriter():
 
-		var snapshot = self.get_director().get_current_snapshot()
+		var snapshot = self.get_abstract().get_director().get_current_snapshot()
 		var message_window_a = snapshot.message_window
 
 		message_window_a.count_of_typewriter += delta
@@ -341,7 +323,7 @@ func _process(delta):
 		var wait_time = 1 / message_window_a.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
-		if self.get_director().is_fast_forward:
+		if self.get_abstract().get_director().is_fast_forward:
 			# print("［テキストブロック］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　メッセージの早送り")
 			wait_time = 1 / (message_window_a.msg_speed * message_window_a.msg_speed) # 旧 0.01
 	
@@ -349,7 +331,7 @@ func _process(delta):
 
 			# TODO キャッシュ化したい
 			# テキストブロック
-			var text_block_node = self.get_abstract_message_window().get_text_block(self.name)
+			var text_block_node = self.get_abstract().get_text_block(self.name)
 
 			if 0 < message_window_a.text_block_buffer.length():
 				# バッファーの先頭の１文字を切り取って、テキストブロックへ移動

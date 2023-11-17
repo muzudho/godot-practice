@@ -34,7 +34,7 @@ func put_textblock(
 	message_window_a.remember(temp_text)
 
 	# 会話開始
-	self.get_director().get_current_message_window().statemachine_of_message_window.talk()
+	self.get_director().get_current_message_window_gui().statemachine_of_message_window.talk()
 
 	# パースをするな
 	snapshot.set_parse_lock(true)
