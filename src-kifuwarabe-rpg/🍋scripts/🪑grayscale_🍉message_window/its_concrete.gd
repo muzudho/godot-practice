@@ -1,10 +1,7 @@
 # メッセージ・ウィンドウ（Message Window；伝言窓）
 # イッツ・コンクリート（Its concrete；その具体的な）
-extends Sprite2D
+extends AbstractMessageWindow
 
-
-# 状態機械
-var statemachine_of_message_window = load("res://🍋scripts/🪑grayscale_🍉message_window/statemachines/message_window.gd").new()
 
 var is_appear = true
 
