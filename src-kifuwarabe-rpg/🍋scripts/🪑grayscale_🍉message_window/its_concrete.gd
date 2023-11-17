@@ -23,10 +23,6 @@ func get_director():
 	return self.get_abstract_message_window().get_director()
 
 
-func get_blinker_triangle():
-	return self.get_abstract_message_window().get_canvas_layer(self.name).get_node("TextBlock/BlinkerTriangle")
-
-
 func get_blinker_underscore():
 	return self.get_abstract_message_window().get_canvas_layer(self.name).get_node("TextBlock/BlinkerUnderscore")
 
@@ -215,7 +211,7 @@ func on_talked_2():
 	if message_window_a.is_choices():
 		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
-		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
 		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.decide()
 		
 		# メッセージエンド・ブリンカー　状態機械［考える］
@@ -227,7 +223,7 @@ func on_talked_2():
 		self.get_choices_cursor().statemachine_of_end_of_message_blinker.decide()
 		
 		# メッセージエンド・ブリンカー　状態機械［考える］
-		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.think()
+		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
 		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.think()
 
 
@@ -267,7 +263,7 @@ func on_page_forward():
 		# テキストが空っぽ
 		text_block_node.text = ""
 		# 全てのブリンカー　状態機械［決めた］
-		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
 		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.decide()
 		self.get_choices_cursor().statemachine_of_end_of_message_blinker.decide()
 
@@ -284,7 +280,7 @@ func on_all_characters_pushed():
 	# それ以外
 	else:
 		# 文末ブリンカー	状態機械［考える］
-		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.think()
+		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
 		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.think()
 
 
@@ -307,7 +303,7 @@ func on_all_pages_flushed():
 		self.get_choices_cursor().statemachine_of_end_of_message_blinker.decide()
 	else:
 		# 全てのブリンカー　状態機械［決めた］
-		self.get_blinker_triangle().statemachine_of_end_of_message_blinker.decide()
+		self.get_abstract_message_window().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
 		self.get_blinker_underscore().statemachine_of_end_of_message_blinker.decide()
 
 	# この要素の初期状態は、非表示、透明
