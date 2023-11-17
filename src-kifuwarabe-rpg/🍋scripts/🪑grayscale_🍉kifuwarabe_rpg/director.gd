@@ -94,10 +94,10 @@ func get_current_message_window_gui():
 # 現在の「§」セクション設定
 func set_current_section(section_name):
 	var snapshot = self.get_current_snapshot()
-	var message_window_a = self.get_current_message_window_variables()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	snapshot.section_name = section_name
-	message_window_a.section_item_index = 0
+	message_window_gui.section_item_index = 0
 
 
 # 全ての部門名一覧

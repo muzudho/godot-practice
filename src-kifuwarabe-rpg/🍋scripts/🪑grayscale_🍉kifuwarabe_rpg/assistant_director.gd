@@ -31,8 +31,9 @@ func get_current_section_size_of_scenario():
 func get_current_paragraph_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()
 	var message_window_a = self.get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_director().get_current_message_window_gui()
 
-	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][message_window_a.section_item_index]
+	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][message_window_gui.section_item_index]
 
 
 # 「§」セクションの再生
@@ -42,7 +43,7 @@ func play_section():
 	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	# 全部消化済みの場合
-	if self.get_current_section_size_of_scenario() <= message_window_a.section_item_index:
+	if self.get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
 		print("［助監］（" + snapshot.name + "　" + snapshot.section_name + "）　セクションを読み終わっている")
 
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
@@ -313,18 +314,19 @@ func on_process(delta):
 
 	var snapshot = self.get_director().get_current_snapshot()
 	var message_window_a = self.get_director().get_current_message_window_variables()
+	var message_window_gui = self.get_director().get_current_message_window_gui()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not snapshot.is_parse_lock():
 		
 		# まだあるよ
-		if message_window_a.section_item_index < self.get_current_section_size_of_scenario():
+		if message_window_gui.section_item_index < self.get_current_section_size_of_scenario():
 		
 			# 現在のシナリオの次のパラグラフを取得
 			var paragraph = self.get_current_paragraph_of_scenario()
 
 			# カウントアップ
-			message_window_a.section_item_index += 1
+			message_window_gui.section_item_index += 1
 			
 			if paragraph is String:
 				

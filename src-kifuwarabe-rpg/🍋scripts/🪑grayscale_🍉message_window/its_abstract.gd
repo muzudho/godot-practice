@@ -19,6 +19,10 @@ var is_appear = true
 # メッセージ・スピード（１秒当たりの文字数）
 var msg_speed = 20.0
 
+# テキストブロック汎用
+#	セクションの何番目（０開始）を次に読込むか
+var section_item_index = 0
+
 
 func _ready():
 	
