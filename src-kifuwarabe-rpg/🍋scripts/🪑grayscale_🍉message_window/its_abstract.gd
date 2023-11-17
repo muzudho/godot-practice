@@ -12,25 +12,14 @@ var statemachine_of_message_window = load("res://🍋scripts/🪑grayscale_🍉m
 # 可視性
 var is_appear = true
 
-# 選択肢カーソルの原点
-var choices_cursor_origin_x = 0.0
-var choices_cursor_origin_y = 0.0
-
 
 func _ready():
-	
-	# 最初は、テスト用文字列が入ってたりするので消す
-	self.get_pibot().get_text_block(self.name).text = ""
 	
 	# 状態機械のセットアップ
 	self.statemachine_of_message_window.on_talked_2 = self.on_talked_2
 	self.statemachine_of_message_window.on_page_forward = self.on_page_forward
 	self.statemachine_of_message_window.on_all_characters_pushed = self.on_all_characters_pushed
 	self.statemachine_of_message_window.on_all_pages_flushed = self.on_all_pages_flushed
-
-	# 選択肢カーソルの初期位置を記憶
-	self.choices_cursor_origin_x = self.get_pibot().get_choices_cursor(self.name).get_transform().x.x # Vector To Scalar
-	self.choices_cursor_origin_y = self.get_pibot().get_choices_cursor(self.name).get_transform().y.y
 
 
 func _process(delta):

@@ -20,6 +20,7 @@ var current_se_name = null
 
 # スナップショット辞書（キー：StringName型）
 var snapshots = {}
+# 伝言窓変数の辞書（キー：メッセージ・ウィンドウ名。「■名前」みたいなやつ）
 var message_window_variables = {}
 
 # ト書き（シナリオの命令パラグラフ）で使える変数の辞書
@@ -61,8 +62,8 @@ func get_snapshot(
 
 # 伝言窓変数
 func get_message_window_variables(
-		department_name):	# StringName
-	return self.message_window_variables[department_name]
+		message_window_node_name):	# StringName
+	return self.message_window_variables[message_window_node_name]
 
 
 func get_current_snapshot():
@@ -70,7 +71,10 @@ func get_current_snapshot():
 
 
 func get_current_message_window_variables():
-	return self.get_message_window_variables(self.current_department_name)
+	var snapshot = self.get_current_snapshot()
+	var message_window_name_a = snapshot.get_last_message_window_name()
+
+	return self.get_message_window_variables(message_window_name_a)
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -135,18 +139,20 @@ func _ready():
 	# 初期化を行う
 	# ーーーーーーーー
 
+	# メッセージ・ウィンドウの初期設定
+	for message_window_node in $"GuiArtist/MessageWindows".get_children():
+		if message_window_node is Sprite2D:
+			self.message_window_variables[message_window_node.name] = DepartmentMessageWindow.new()
+
+			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
+			self.message_window_variables[message_window_node.name].on_message_window_page_forward = func():
+				self.get_current_snapshot().set_parse_lock(false)
+
 	# スナップショット辞書作成
 	for department_name in self.get_all_department_names():
 		var department_node = $"ScenarioWriter".get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "System":
 			self.snapshots[department_node.name] = DepartmentSnapshot.new()
-			self.message_window_variables[department_node.name] = DepartmentMessageWindow.new()
-
-
-			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
-			self.message_window_variables[department_node.name].on_message_window_page_forward = func():
-				self.get_current_snapshot().set_parse_lock(false)
-
 
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す
 			self.snapshots[department_node.name].name = department_node.name		# StringName 型

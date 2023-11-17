@@ -51,3 +51,8 @@ func remove_currently_displayed_message_window(
 	var index = self.node_names_of_currently_displayed_message_window.find(node_name)
 	if 0<=index:
 		self.node_names_of_currently_displayed_message_window.remove_at(index)
+
+
+# 最後に開いたメッセージ・ウィンドウ名
+func get_last_message_window_name():
+	return stack_of_last_displayed_message_window[-1]

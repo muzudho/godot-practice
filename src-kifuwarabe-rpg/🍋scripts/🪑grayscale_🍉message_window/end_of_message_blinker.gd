@@ -11,6 +11,10 @@ var is_appear = true
 
 # メッセージエンド・ブリンカーの共通項目
 #
+# 	原点
+var origin_x = 0.0
+var origin_y = 0.0
+#
 #	カーソルが点滅するための時間カウント
 var blinker_seconds = 0.0
 var blinker_interval = 0.5
@@ -65,6 +69,11 @@ func get_message_window_as_sprite2d():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
+	# 選択肢カーソルの初期位置を記憶
+	self.origin_x = self.get_transform().x.x # Vector To Scalar
+	self.origin_y = self.get_transform().y.y
+	
 	# ーーーーーーーー
 	# 状態機械のセットアップ
 	# ーーーーーーーー
@@ -200,12 +209,10 @@ func calc_cursor_vector():
 	# 先頭を１行目とし、基数に変換する
 	var difference = selected_row_number - 1
 
-	var message_window_2d = self.get_message_window_as_sprite2d()
-
 	# self.get_transform().x と、 self.offset_right 、どっちを変更するのがいい？
 	# self.get_transform().y と、 self.offset_top 、どっちを変更するのがいい？
-	var scalar_x = message_window_2d.choices_cursor_origin_x
-	var scalar_y = difference * (self.font_height + self.line_space_height) + message_window_2d.choices_cursor_origin_y
+	var scalar_x = self.origin_x
+	var scalar_y = difference * (self.font_height + self.line_space_height) + self.origin_y
 	return Vector2(scalar_x, scalar_y)
 
 

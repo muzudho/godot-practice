@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=111 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -57,6 +57,7 @@
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="54_mtkqv"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="55_q5fb2"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/end_of_message_blinker.gd" id="56_sxmbq"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/text_block.gd" id="57_fnu54"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="57_xm0dl"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="58_02ahj"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
@@ -788,6 +789,7 @@ text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
 label_settings = ExtResource("51_2w4vw")
+script = ExtResource("57_fnu54")
 
 [node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
 layout_mode = 0
@@ -832,6 +834,7 @@ text = "表示テストいうえ
 たちつてなにぬね
 はひふへまみむ　　"
 label_settings = ExtResource("51_2w4vw")
+script = ExtResource("57_fnu54")
 
 [node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
@@ -876,6 +879,7 @@ text = "表示テストだ
 きくけこさし
 すせたちつて"
 label_settings = ExtResource("51_2w4vw")
+script = ExtResource("57_fnu54")
 
 [node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
@@ -921,6 +925,7 @@ script = ExtResource("60_vpkxy")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("59_4vstx")
+script = ExtResource("61_tvkup")
 
 [node name="■下" type="Sprite2D" parent="GuiArtist/MessageWindows"]
 modulate = Color(1, 1, 1, 0.996078)
