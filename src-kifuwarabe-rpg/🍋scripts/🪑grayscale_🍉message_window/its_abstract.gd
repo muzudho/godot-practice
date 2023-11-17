@@ -95,8 +95,7 @@ func set_process_subtree(
 	# 処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
 	if is_process != self.is_processing():
 
-		var snapshot = self.get_pibot().get_director().get_current_snapshot()
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　プロセッシング：" + str(is_process))
+		print("［伝言窓　”" + self.name + "”］　プロセッシング：" + str(is_process))
 
 		self.set_process(is_process)
 
@@ -118,8 +117,7 @@ func set_visible_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if visible_flag != self.visible:
 
-		var snapshot = self.get_pibot().get_director().get_current_snapshot()
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　可視性：" + str(visible_flag))
+		print("［伝言窓　”" + self.name + "”］　可視性：" + str(visible_flag))
 
 		self.visible = visible_flag
 		self.get_pibot().get_canvas_layer(self.name).visible = visible_flag
@@ -140,8 +138,7 @@ func set_appear_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if appear_flag != self.is_appear:
 
-		var snapshot = self.get_pibot().get_director().get_current_snapshot()
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　appear：" + str(appear_flag))
+		print("［伝言窓　”" + self.name + "”］　appear：" + str(appear_flag))
 
 		self.is_appear = appear_flag
 
@@ -152,11 +149,11 @@ func set_appear_subtree(
 
 			## 会話が停止してしまっているなら、再開する（すぐ停止するかもしれない）
 			#if self.statemachine_of_message_window.is_none():
-			#	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　伝言窓が消えてしまっているので、会話を再開する")
+			#	print("［伝言窓　”" + self.name + "”］　伝言窓が消えてしまっているので、会話を再開する")
 			#	#self.statemachine_of_message_window.talk()
 			#
 			#	# パースをする
-			#	#snapshot.set_parse_lock(false)
+			#	#.set_parse_lock(false)
 
 		else:
 			# 画面下の外に押し出す
@@ -183,7 +180,6 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		elif vk_operation == &"VKO_Released":
 			self.get_pibot().get_director().is_fast_forward = false
 
-	var snapshot = self.get_pibot().get_director().get_current_snapshot()
 	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 	# 完全表示中
@@ -199,18 +195,18 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 				# 確定ボタン以外は無効
 				if virtual_key != &"VK_Ok":
-					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキーではないのでメッセージ送りしません")
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキーではないのでメッセージ送りしません")
 					return
 					
 				else:
-					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキー　ページ送りする")
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキー　ページ送りする")
 					# 選択肢を確定した
 					# ページ送り
 					self.statemachine_of_message_window.page_forward()
 					return
 
 			else:
-				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時ではない")
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時ではない")
 		
 		# 通常テキストモードなら
 		else:
@@ -219,19 +215,19 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 				
 				# ページ早送りボタンは無効
 				if virtual_key == &"VK_FastForward":
-					print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキーでは、メッセージ送りしません")
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキーでは、メッセージ送りしません")
 					return
 
-				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキー以外だ（" + virtual_key + "）　ページ送りする")
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキー以外だ（" + virtual_key + "）　ページ送りする")
 				# ページ送り
 				self.statemachine_of_message_window.page_forward()
 
 			else:
-				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
 				pass
 
 	else:
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　アンハンドルド・キー入力　完全表示中ではないから何もしない")
+		print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　完全表示中ではないから何もしない")
 
 
 # 状態遷移するだけ
@@ -241,12 +237,11 @@ func on_talked_2():
 	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
-	var snapshot = self.get_pibot().get_director().get_current_snapshot()
 	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 	# 選択肢なら
 	if message_window_a.is_choices():
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選択肢開始")
+		print("［伝言窓　”" + self.name + "”］　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		self.get_pibot().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
 		self.get_pibot().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
@@ -255,7 +250,7 @@ func on_talked_2():
 		self.get_pibot().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
 	
 	else:
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　台詞開始")
+		print("［伝言窓　”" + self.name + "”］　台詞開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		self.get_pibot().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 		
@@ -265,8 +260,8 @@ func on_talked_2():
 
 
 # ページ送り
+# 状態遷移機械から呼出される
 func on_page_forward():
-	var snapshot = self.get_pibot().get_director().get_current_snapshot()
 	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 	# 選択肢モードなら
@@ -276,7 +271,7 @@ func on_page_forward():
 		self.get_pibot().get_assistant_director().get_node("Se").play_se("🔔選択肢確定音")
 
 		var row_number = message_window_a.get_row_number_of_choices()
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　選んだ選択肢行番号：［" + str(row_number) + "］")
+		print("［伝言窓　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
 		self.get_pibot().get_assistant_director().on_choice_selected(row_number)
@@ -285,12 +280,13 @@ func on_page_forward():
 		message_window_a.choices_row_numbers = null
 		
 	else:
-		print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　ページ送り")
+		print("［伝言窓　”" + self.name + "”］　ページ送り")
 
 		# 効果音
 		self.get_pibot().get_assistant_director().get_node("Se").play_se("🔔ページめくり音")
 		
 		# パースを開始してよい
+		# TODO ここをイベントハンドラ呼出しにできないか？ スナップショットをモジュールの外に出したい
 		self.get_pibot().get_director().get_current_snapshot().set_parse_lock(false)
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
@@ -323,10 +319,9 @@ func on_all_characters_pushed():
 # 初期化
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
-	var snapshot = self.get_pibot().get_director().get_current_snapshot()
 	var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
-	print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　オン・オール・ページズ・フィニッシュド］（非表示）")
+	print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
 
 	# テキストブロック
 	var text_block_node = self.get_pibot().get_text_block(self.name)
