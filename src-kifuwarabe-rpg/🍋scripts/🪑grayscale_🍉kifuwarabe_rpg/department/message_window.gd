@@ -5,6 +5,10 @@ extends Node
 class_name DepartmentMessageWindow
 
 
+# ページ送り時の対応関数
+var on_message_window_page_forward = func():
+	pass
+
 # メッセージ・スピード（１秒当たりの文字数）
 var msg_speed = 20.0
 

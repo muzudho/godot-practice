@@ -287,7 +287,8 @@ func on_page_forward():
 		
 		# パースを開始してよい
 		# TODO ここをイベントハンドラ呼出しにできないか？ スナップショットをモジュールの外に出したい
-		self.get_pibot().get_director().get_current_snapshot().set_parse_lock(false)
+		message_window_a.on_message_window_page_forward.call()
+		#self.get_pibot().get_director().get_current_snapshot().set_parse_lock(false)
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック

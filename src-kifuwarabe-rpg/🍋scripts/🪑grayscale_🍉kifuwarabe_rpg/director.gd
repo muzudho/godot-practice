@@ -142,6 +142,12 @@ func _ready():
 			self.snapshots[department_node.name] = DepartmentSnapshot.new()
 			self.message_window_variables[department_node.name] = DepartmentMessageWindow.new()
 
+
+			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
+			self.message_window_variables[department_node.name].on_message_window_page_forward = func():
+				self.get_current_snapshot().set_parse_lock(false)
+
+
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す
 			self.snapshots[department_node.name].name = department_node.name		# StringName 型
 
