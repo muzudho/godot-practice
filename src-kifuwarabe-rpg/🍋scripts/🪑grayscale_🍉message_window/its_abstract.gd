@@ -46,7 +46,6 @@ func _process(delta):
 	# タイプライター風表示中
 	if self.statemachine_of_message_window.is_typewriter():
 
-		var snapshot = self.get_pibot().get_director().get_current_snapshot()
 		var message_window_a = self.get_pibot().get_director().get_current_message_window_variables()
 
 		message_window_a.count_of_typewriter += delta
@@ -56,7 +55,7 @@ func _process(delta):
 	
 		# メッセージの早送り
 		if self.get_pibot().get_director().is_fast_forward:
-			# print("［テキストブロック］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　メッセージの早送り")
+			# print("［テキストブロック］　メッセージの早送り")
 			wait_time = 1 / (message_window_a.msg_speed * message_window_a.msg_speed) # 旧 0.01
 	
 		if wait_time <= message_window_a.count_of_typewriter:
@@ -70,7 +69,7 @@ func _process(delta):
 				text_block_node.text += message_window_a.pop_head_of_text_block()
 			else:
 				# 完全表示中
-				print("［伝言窓　”" + self.name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　プロセス　完全表示中だ")
+				print("［伝言窓　”" + self.name + "”］　プロセス　完全表示中だ")
 				self.statemachine_of_message_window.all_characters_pushed()
 			
 			message_window_a.count_of_typewriter -= wait_time
