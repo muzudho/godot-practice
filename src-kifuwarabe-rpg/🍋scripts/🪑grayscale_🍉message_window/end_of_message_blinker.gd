@@ -60,13 +60,6 @@ func get_message_window_name():
 	return StringName(temp)
 
 
-# Sprite2D の方の伝言窓を取得
-func get_message_window_as_sprite2d():
-	var path = "GuiArtist/MessageWindows/" + self.get_message_window_name()
-	print("［文末ブリンカー］　伝言窓スプライト２Ｄpath:" + path)
-	return self.get_director().get_node(path)
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 

@@ -3,10 +3,6 @@
 extends Node
 
 
-# 伝言窓変数の辞書（キー：メッセージ・ウィンドウ名。「■名前」みたいなやつ）
-var message_window_variables = {}
-
-
 # メッセージの早送り
 var is_fast_forward = false
 
