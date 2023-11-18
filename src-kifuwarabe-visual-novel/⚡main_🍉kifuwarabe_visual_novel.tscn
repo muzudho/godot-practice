@@ -255,8 +255,6 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
-[node name="📂KeyConfigDirector" parent="." instance=ExtResource("103_n24cr")]
-
 [node name="📂Musician_BGM" type="Node" parent="."]
 
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂Musician_BGM"]
@@ -1053,3 +1051,5 @@ texture = ExtResource("80_vkv42")
 script = ExtResource("81_n08cu")
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="AssistantDirector" instance=ExtResource("81_aev68")]
+
+[node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("103_n24cr")]

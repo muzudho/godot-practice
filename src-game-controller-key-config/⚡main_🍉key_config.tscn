@@ -26,8 +26,6 @@ z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("8_1n35w")
 
-[node name="📂KeyConfigDirector" parent="." instance=ExtResource("1_1j70m")]
-
 [node name="📂Musician_BGM" type="Node" parent="."]
 
 [node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="📂Musician_BGM"]
@@ -55,3 +53,5 @@ texture = ExtResource("6_2460b")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("7_sju73")
+
+[node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("1_1j70m")]

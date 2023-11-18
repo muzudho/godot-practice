@@ -259,8 +259,6 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_ivwoj")
 
-[node name="📂KeyConfigDirector" parent="." instance=ExtResource("100_n0lmu")]
-
 [node name="📂Musician_BGM" type="Node" parent="."]
 
 [node name="ーーーーきふわらべRPGーーーー" type="Node" parent="📂Musician_BGM"]
@@ -1029,8 +1027,6 @@ script = ExtResource("78_j4j65")
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="AssistantDirector" instance=ExtResource("82_sqogg")]
 
-[node name="System" type="Node" parent="."]
-
 [node name="Scorer" type="Node" parent="."]
 script = ExtResource("97_1q7ae")
 
@@ -1039,3 +1035,5 @@ script = ExtResource("98_j22j1")
 
 [node name="MonsterData" type="Node" parent="Scorer"]
 script = ExtResource("99_qt8fk")
+
+[node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("100_n0lmu")]

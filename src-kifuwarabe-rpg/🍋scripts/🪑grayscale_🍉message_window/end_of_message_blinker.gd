@@ -47,7 +47,7 @@ func get_assistant_director():
 
 # キーコンフィグ監督取得
 func get_director_for_key_config():
-	return self.get_director().get_node("📂KeyConfigDirector")
+	return self.get_director().get_node("🛩️KeyConfigDirector")
 
 
 # 伝言窓名を取得
