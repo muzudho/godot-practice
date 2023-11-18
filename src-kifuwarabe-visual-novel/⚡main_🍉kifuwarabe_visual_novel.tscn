@@ -283,6 +283,28 @@ position = Vector2(640, 360)
 texture = ExtResource("66_vkf8y")
 script = ExtResource("63_c6um1")
 
+[node name="📂Illustrator" type="Node2D" parent="."]
+
+[node name="ーーーーウィンドウーーーー" type="Node" parent="📂Illustrator"]
+
+[node name="🎴中央ウィンドウ" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("68_4axfk")
+
+[node name="ーーーーオブジェクトーーーー" type="Node" parent="📂Illustrator"]
+
+[node name="🎴将棋盤" type="Sprite2D" parent="📂Illustrator"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("69_r34s8")
+
+[node name="🎴ファイルとランク" type="Sprite2D" parent="📂Illustrator"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("70_yopg3")
+
 [node name="📂Musician_BGM" type="Node" parent="."]
 
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂Musician_BGM"]
@@ -947,28 +969,6 @@ script = ExtResource("5_phbge")
 
 [node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("6_80h8b")
-
-[node name="Illustrator" type="Node2D" parent="."]
-
-[node name="ーーーーウィンドウーーーー" type="Node" parent="Illustrator"]
-
-[node name="🎴中央ウィンドウ" type="Sprite2D" parent="Illustrator"]
-visible = false
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("68_4axfk")
-
-[node name="ーーーーオブジェクトーーーー" type="Node" parent="Illustrator"]
-
-[node name="🎴将棋盤" type="Sprite2D" parent="Illustrator"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("69_r34s8")
-
-[node name="🎴ファイルとランク" type="Sprite2D" parent="Illustrator"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("70_yopg3")
 
 [node name="MonsterTrainer" type="Node2D" parent="."]
 visible = false

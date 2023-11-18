@@ -34,7 +34,7 @@ func get_background_artist():
 
 # イラストレーター取得
 func get_illustrator():
-	return self.get_director().get_node("Illustrator")
+	return self.get_director().get_node("📂Illustrator")
 
 
 # テロップ・コーディネーター取得

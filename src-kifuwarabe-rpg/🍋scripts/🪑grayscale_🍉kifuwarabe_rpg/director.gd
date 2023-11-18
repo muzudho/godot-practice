@@ -37,7 +37,7 @@ func get_background_artist():
 
 
 func get_illustrator():
-	return $"Illustrator"
+	return $"📂Illustrator"
 
 
 func get_message_windows_node():

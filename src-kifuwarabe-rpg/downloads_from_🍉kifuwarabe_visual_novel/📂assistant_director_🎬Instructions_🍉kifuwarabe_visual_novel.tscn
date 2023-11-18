@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://daqtppg5rtuat"]
+[gd_scene load_steps=19 format=3 uid="uid://daqtppg5rtuat"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/bg.gd" id="1_apk48"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/bgm.gd" id="2_8rxre"]
@@ -18,7 +18,6 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/sleep.gd" id="16_t4xi7"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/telop.gd" id="17_n06dc"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/var.gd" id="18_tbfdc"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/v_wnd.gd" id="19_m4rri"]
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" type="Node"]
 
@@ -75,6 +74,3 @@ script = ExtResource("17_n06dc")
 
 [node name="Var" type="Node" parent="."]
 script = ExtResource("18_tbfdc")
-
-[node name="VWnd" type="Node" parent="."]
-script = ExtResource("19_m4rri")
