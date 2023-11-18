@@ -9,7 +9,7 @@
 #
 extends Object
 
-class_name DepartmentSnapshot
+#class_name DepartmentSnapshot
 
 
 # 「§」セクション名
