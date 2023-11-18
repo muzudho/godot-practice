@@ -26,7 +26,7 @@ func get_external_director():
 
 # 監督取得
 func get_director():
-	return self.get_external_director().get_node("Director_🍉KeyConfig")
+	return self.get_external_director().get_node("📂KeyConfigDirector")
 
 
 # テロップ・コーディネーター取得

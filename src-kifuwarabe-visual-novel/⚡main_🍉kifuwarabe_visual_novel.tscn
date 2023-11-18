@@ -1052,4 +1052,4 @@ script = ExtResource("81_n08cu")
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="AssistantDirector" instance=ExtResource("81_aev68")]
 
-[node name="Director_🍉KeyConfig" parent="." instance=ExtResource("103_n24cr")]
+[node name="📂KeyConfigDirector" parent="." instance=ExtResource("103_n24cr")]

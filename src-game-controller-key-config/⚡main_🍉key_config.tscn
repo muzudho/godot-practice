@@ -54,4 +54,4 @@ z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("8_1n35w")
 
-[node name="Director_🍉KeyConfig" parent="." instance=ExtResource("1_1j70m")]
+[node name="📂KeyConfigDirector" parent="." instance=ExtResource("1_1j70m")]

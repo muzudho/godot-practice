@@ -19,12 +19,12 @@ func get_scenario_reader():
 
 # BGM取得
 func get_bgm():
-	return self.get_director().get_node("Musician/BGM")
+	return self.get_director().get_node("📂Musician_BGM")
 
 
 # 効果音取得
 func get_se():
-	return self.get_director().get_node("Musician/SE")
+	return self.get_director().get_node("📂Musician_SE")
 
 
 # 背景アーティスト
