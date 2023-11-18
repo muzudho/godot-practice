@@ -1,6 +1,6 @@
 [gd_scene load_steps=84 format=3 uid="uid://ccxa7p87p2u60"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/director.gd" id="1_20gix"]
+[ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/reader.gd" id="3_yggbh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/switch_department.gd" id="4_hvtfg"]
@@ -137,7 +137,7 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
-script = ExtResource("1_20gix")
+script = ExtResource("1_lwnsa")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
