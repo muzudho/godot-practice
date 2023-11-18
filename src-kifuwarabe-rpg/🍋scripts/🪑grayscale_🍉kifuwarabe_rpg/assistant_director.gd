@@ -29,7 +29,7 @@ func get_se():
 
 # 背景アーティスト
 func get_background_artist():
-	return self.get_director().get_node("BackgroundArtist")
+	return self.get_director().get_node("📂BackgroundArtist")
 
 
 # イラストレーター取得

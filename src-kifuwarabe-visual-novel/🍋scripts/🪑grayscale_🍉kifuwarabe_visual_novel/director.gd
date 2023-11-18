@@ -33,7 +33,7 @@ func get_assistant_director():
 
 
 func get_background_artist():
-	return $"BackgroundArtist"
+	return $"📂BackgroundArtist"
 
 
 func get_gui_artist():

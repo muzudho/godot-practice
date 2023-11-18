@@ -13,12 +13,20 @@
 [node name="Director" type="Node2D"]
 script = ExtResource("1_b0bth")
 
-[node name="BackgroundArtist" type="Node2D" parent="."]
+[node name="📂BackgroundArtist" type="Node2D" parent="."]
 
-[node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
+[node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("2_v4g51")
+
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("8_1n35w")
+
+[node name="📂KeyConfigDirector" parent="." instance=ExtResource("1_1j70m")]
 
 [node name="📂Musician_BGM" type="Node" parent="."]
 
@@ -47,11 +55,3 @@ texture = ExtResource("6_2460b")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("7_sju73")
-
-[node name="Grid" type="Sprite2D" parent="."]
-visible = false
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("8_1n35w")
-
-[node name="📂KeyConfigDirector" parent="." instance=ExtResource("1_1j70m")]

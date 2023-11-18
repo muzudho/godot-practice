@@ -10,7 +10,7 @@ func get_assistant_director():
 
 # 背景アーティスト
 func get_background_artist():
-	return $"../../BackgroundArtist"
+	return $"../../📂BackgroundArtist"
 
 
 #	それをする

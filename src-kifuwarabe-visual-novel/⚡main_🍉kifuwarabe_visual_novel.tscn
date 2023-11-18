@@ -145,27 +145,117 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_20gix")
 
+[node name="📂BackgroundArtist" type="Node2D" parent="."]
+visible = false
+
+[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("26_ljpku")
+
+[node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("27_7rlfr")
+
+[node name="🗻エンディング" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("28_i8h8k")
+
+[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("29_ghcy1")
+
+[node name="🗻川堀町線ロード" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("30_tx773")
+
+[node name="🗻ツツジロード" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("31_muky1")
+
+[node name="🗻戦闘シーン" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("32_jlid3")
+
+[node name="🗻トランジション１コマ１" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("33_slg0k")
+
+[node name="🗻トランジション１コマ２" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("34_tpta6")
+
+[node name="🗻トランジション１コマ３" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("35_2g8i2")
+
+[node name="🗻トランジション１コマ４" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("36_vslf4")
+
+[node name="🗻トランジション１コマ５" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("37_6yqmg")
+
+[node name="🗻トランジション１コマ６" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("38_ar1aa")
+
+[node name="🗻トランジション１コマ７" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("39_t4i7s")
+
+[node name="🗻トランジション１コマ８" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("40_3tk6s")
+
+[node name="🗻トランジション１コマ９" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("41_r4x54")
+
+[node name="🗻トランジション１コマ１０" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("42_gxy60")
+
+[node name="🗻トランジション１コマ１１" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("43_7jh74")
+
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
 z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
-[node name="ScenarioWriter" type="Node" parent="."]
-
-[node name="System" type="Node" parent="ScenarioWriter"]
-
-[node name="Reader" type="Node" parent="ScenarioWriter/System"]
-script = ExtResource("3_yggbh")
-
-[node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
-script = ExtResource("4_hvtfg")
-
-[node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("5_phbge")
-
-[node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("6_80h8b")
+[node name="📂KeyConfigDirector" parent="." instance=ExtResource("103_n24cr")]
 
 [node name="📂Musician_BGM" type="Node" parent="."]
 
@@ -248,6 +338,22 @@ volume_db = -15.0
 stream = ExtResource("25_oxlb4")
 volume_db = -15.0
 
+[node name="ScenarioWriter" type="Node" parent="."]
+
+[node name="System" type="Node" parent="ScenarioWriter"]
+
+[node name="Reader" type="Node" parent="ScenarioWriter/System"]
+script = ExtResource("3_yggbh")
+
+[node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
+script = ExtResource("4_hvtfg")
+
+[node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
+script = ExtResource("5_phbge")
+
+[node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
+script = ExtResource("6_80h8b")
+
 [node name="Illustrator" type="Node2D" parent="."]
 
 [node name="🎴中央ウィンドウ" type="Sprite2D" parent="Illustrator"]
@@ -255,110 +361,6 @@ visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("68_4axfk")
-
-[node name="BackgroundArtist" type="Node2D" parent="."]
-visible = false
-
-[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("26_ljpku")
-
-[node name="🗻崎川駅前" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("27_7rlfr")
-
-[node name="🗻エンディング" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("28_i8h8k")
-
-[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("29_ghcy1")
-
-[node name="🗻川堀町線ロード" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("30_tx773")
-
-[node name="🗻ツツジロード" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("31_muky1")
-
-[node name="🗻戦闘シーン" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("32_jlid3")
-
-[node name="🗻トランジション１コマ１" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("33_slg0k")
-
-[node name="🗻トランジション１コマ２" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("34_tpta6")
-
-[node name="🗻トランジション１コマ３" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("35_2g8i2")
-
-[node name="🗻トランジション１コマ４" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("36_vslf4")
-
-[node name="🗻トランジション１コマ５" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("37_6yqmg")
-
-[node name="🗻トランジション１コマ６" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("38_ar1aa")
-
-[node name="🗻トランジション１コマ７" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("39_t4i7s")
-
-[node name="🗻トランジション１コマ８" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("40_3tk6s")
-
-[node name="🗻トランジション１コマ９" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("41_r4x54")
-
-[node name="🗻トランジション１コマ１０" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("42_gxy60")
-
-[node name="🗻トランジション１コマ１１" type="Sprite2D" parent="BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("43_7jh74")
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
 
@@ -1051,5 +1053,3 @@ texture = ExtResource("80_vkv42")
 script = ExtResource("81_n08cu")
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="AssistantDirector" instance=ExtResource("81_aev68")]
-
-[node name="📂KeyConfigDirector" parent="." instance=ExtResource("103_n24cr")]
