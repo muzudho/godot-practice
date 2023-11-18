@@ -27,9 +27,19 @@ var stage_directions_variables = {}
 var sleep_seconds = 0.0
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
 # 助監取得
 func get_assistant_director():
 	return $"📂Programmer"
+
+
+# プログラムズ・ハブ取得
+func get_programs_hub():
+	return self.get_assistant_director().get_node("🛩️ProgramsHub")
 
 
 func get_background_artist():
@@ -51,6 +61,11 @@ func get_telop_coordinator():
 # 部門切替取得
 func get_switch_department():
 	return $"📂ScenarioWriter/SwitchDepartment"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # スナップショット
@@ -238,7 +253,7 @@ func _process(delta):
 		self.get_current_message_window_gui().set_appear_subtree(true)
 
 	elif self.current_state == &"Main":
-		self.get_assistant_director().on_process(delta)
+		self.get_programs_hub().on_process(delta)
 
 
 # テキストボックスなどにフォーカスが無いときのキー入力を拾う
