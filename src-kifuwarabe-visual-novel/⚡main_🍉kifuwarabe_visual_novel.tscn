@@ -449,6 +449,22 @@ volume_db = -15.0
 stream = ExtResource("25_oxlb4")
 volume_db = -15.0
 
+[node name="📂ScenarioWriter" type="Node" parent="."]
+
+[node name="System" type="Node" parent="📂ScenarioWriter"]
+
+[node name="Reader" type="Node" parent="📂ScenarioWriter/System"]
+script = ExtResource("3_yggbh")
+
+[node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
+script = ExtResource("4_hvtfg")
+
+[node name="📗ビジュアルノベル部門" type="Node" parent="📂ScenarioWriter"]
+script = ExtResource("5_phbge")
+
+[node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
+script = ExtResource("6_80h8b")
+
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 visible = false
 
@@ -1018,22 +1034,6 @@ script = ExtResource("58_bkeud")
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("60_qck1r")]
 visible = false
-
-[node name="ScenarioWriter" type="Node" parent="."]
-
-[node name="System" type="Node" parent="ScenarioWriter"]
-
-[node name="Reader" type="Node" parent="ScenarioWriter/System"]
-script = ExtResource("3_yggbh")
-
-[node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
-script = ExtResource("4_hvtfg")
-
-[node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("5_phbge")
-
-[node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("6_80h8b")
 
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("81_n08cu")

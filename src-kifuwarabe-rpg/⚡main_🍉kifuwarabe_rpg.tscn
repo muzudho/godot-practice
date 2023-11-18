@@ -148,6 +148,12 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_wmnp6")
 
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(640, 360)
+texture = ExtResource("2_ivwoj")
+
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
 visible = false
 
@@ -252,11 +258,34 @@ z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("42_qrihd")
 
-[node name="Grid" type="Sprite2D" parent="."]
+[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
+script = ExtResource("61_cfuy1")
+
+[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
-z_index = 5
 position = Vector2(640, 360)
-texture = ExtResource("2_ivwoj")
+texture = ExtResource("59_4vstx")
+script = ExtResource("61_tvkup")
+
+[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("60_ked68")
+script = ExtResource("61_tvkup")
+
+[node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("62_q6u17")
+script = ExtResource("61_tvkup")
+
+[node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("63_a2lr3")
+script = ExtResource("61_tvkup")
 
 [node name="📂Illustrator" type="Node2D" parent="."]
 
@@ -422,6 +451,28 @@ volume_db = -15.0
 [node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="📂Musician_SE"]
 stream = ExtResource("24_gm8xc")
 volume_db = -15.0
+
+[node name="📂ScenarioWriter" type="Node" parent="."]
+
+[node name="System" type="Node" parent="📂ScenarioWriter"]
+
+[node name="Reader" type="Node" parent="📂ScenarioWriter/System"]
+script = ExtResource("3_mwykx")
+
+[node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
+script = ExtResource("4_7kdpb")
+
+[node name="📗ビジュアルノベル部門" type="Node" parent="📂ScenarioWriter"]
+script = ExtResource("5_xa8m5")
+
+[node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
+script = ExtResource("6_2wd8e")
+
+[node name="📗バトル部門" type="Node" parent="📂ScenarioWriter"]
+script = ExtResource("7_5cg5g")
+
+[node name="Accessor" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
+script = ExtResource("8_yr4ye")
 
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 
@@ -956,57 +1007,6 @@ script = ExtResource("56_sxmbq")
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("58_02ahj")]
-
-[node name="ScenarioWriter" type="Node" parent="."]
-
-[node name="System" type="Node" parent="ScenarioWriter"]
-
-[node name="Reader" type="Node" parent="ScenarioWriter/System"]
-script = ExtResource("3_mwykx")
-
-[node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
-script = ExtResource("4_7kdpb")
-
-[node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("5_xa8m5")
-
-[node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("6_2wd8e")
-
-[node name="📗バトル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("7_5cg5g")
-
-[node name="Accessor" type="Node" parent="ScenarioWriter/📗バトル部門"]
-script = ExtResource("8_yr4ye")
-
-[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
-script = ExtResource("61_cfuy1")
-
-[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("59_4vstx")
-script = ExtResource("61_tvkup")
-
-[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("60_ked68")
-script = ExtResource("61_tvkup")
-
-[node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("62_q6u17")
-script = ExtResource("61_tvkup")
-
-[node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("63_a2lr3")
-script = ExtResource("61_tvkup")
 
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("78_j4j65")

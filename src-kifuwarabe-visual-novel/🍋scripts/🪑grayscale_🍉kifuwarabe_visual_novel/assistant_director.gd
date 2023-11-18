@@ -9,7 +9,7 @@ func get_director():
 
 # シナリオライター取得
 func get_scenario_writer():
-	return self.get_director().get_node("ScenarioWriter")
+	return self.get_director().get_node("📂ScenarioWriter")
 
 
 # シナリオ・リーダー取得
@@ -120,7 +120,7 @@ func on_choice_selected(row_number):
 	print("［助監］　選んだ選択肢行番号：" + str(row_number))
 
 	# シナリオ・ノード
-	var scenario_node = $"../ScenarioWriter".get_node(department_name)
+	var scenario_node = $"../📂ScenarioWriter".get_node(department_name)
 
 	# 区画名。実質的には選択肢の配列
 	var section_obj = scenario_node.choices_mappings[section_name]

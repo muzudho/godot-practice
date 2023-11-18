@@ -50,7 +50,7 @@ func get_telop_coordinator():
 
 # 部門切替取得
 func get_switch_department():
-	return $"ScenarioWriter/SwitchDepartment"
+	return $"📂ScenarioWriter/SwitchDepartment"
 
 
 # スナップショット
@@ -93,7 +93,7 @@ func set_current_section(section_name):
 func get_all_department_names():
 	var array = []	# StringName の配列
 	
-	for department in $"ScenarioWriter".get_children():
+	for department in $"📂ScenarioWriter".get_children():
 		# SwitchDepartment と System は除く
 		if department.name != "SwitchDepartment" and department.name != "System":
 			array.append(department.name)
@@ -134,7 +134,7 @@ func _ready():
 
 	# スナップショット辞書作成
 	for department_name in self.get_all_department_names():
-		var department_node = $"ScenarioWriter".get_node(str(department_name))
+		var department_node = $"📂ScenarioWriter".get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "System":
 			self.snapshots[department_node.name] = DepartmentSnapshot.new()
 
@@ -153,7 +153,7 @@ func _ready():
 
 
 			# 文書辞書の先頭要素のキー取得
-			self.snapshots[department_node.name].section_name = $"ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
+			self.snapshots[department_node.name].section_name = $"📂ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
 
 	# ーーーーーーーー
 	# 非表示

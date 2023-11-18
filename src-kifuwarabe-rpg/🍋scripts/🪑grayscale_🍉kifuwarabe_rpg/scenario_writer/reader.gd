@@ -4,7 +4,7 @@ extends Node
 
 # シナリオライター取得
 func get_scenario_writer():
-	return $"../../../ScenarioWriter"
+	return $"../../../📂ScenarioWriter"
 
 
 # セクション配列取得
