@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=66 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -37,10 +37,6 @@
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="40_25lxp"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
-[ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://🍋label_settings/🪑grayscale/game_title.tres" id="43_phx2h"]
-[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/game_title_copyright.tres" id="44_gnhe7"]
-[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="45_k6jkg"]
-[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="46_ooq6c"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="57_vx8va"]
 [ext_resource type="PackedScene" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="58_sadl4"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/reader.gd" id="59_02v4r"]
@@ -68,6 +64,17 @@
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="75_j1pgv"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="76_3ghif"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="77_hfxpa"]
+[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="55_q5fb2"]
+[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="54_mtkqv"]
+[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/battle_light_red.tres" id="52_7d5u4"]
+[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="53_rwvbq"]
+[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://🍋label_settings/🪑grayscale/battle_slategray.tres" id="49_c6t67"]
+[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="45_k6jkg"]
+[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="46_ooq6c"]
+[ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://🍋label_settings/🪑grayscale/game_title.tres" id="43_phx2h"]
+[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/game_title_copyright.tres" id="44_gnhe7"]
+[ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://🍋label_settings/🪑grayscale/large_font.tres" id="50_vvxcd"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/main_medium.tres" id="51_2w4vw"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -89,7 +96,6 @@ position = Vector2(640, 360)
 texture = ExtResource("25_aycb2")
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("26_4dvmr")
 
@@ -99,6 +105,7 @@ position = Vector2(640, 360)
 texture = ExtResource("27_gypff")
 
 [node name="🗻崎川駅周辺地図" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("28_lwuey")
 
@@ -184,7 +191,6 @@ position = Vector2(640, 360)
 texture = ExtResource("42_qrihd")
 
 [node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
-visible = false
 script = ExtResource("61_cfuy1")
 
 [node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
@@ -410,12 +416,28 @@ script = ExtResource("63_rlfae")
 [node name="Accessor" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
 script = ExtResource("64_cxfyy")
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 
 [node name="ーーーーきふわらべRPGーーーー" type="Node" parent="📂TelopCoordinator"]
 
+
+
+
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
 
 [node name="きふわらべRPG" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
@@ -450,346 +472,4 @@ text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽
 label_settings = ExtResource("44_gnhe7")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Ｔエンディング" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
-
-[node name="エンドロール" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 53.0
-offset_top = -356.0
-offset_right = 542.0
-offset_bottom = 358.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "　　　　　　音楽　魔王魂
-　
-　『きふわらべファイター２』
-　　　　　　作曲　桜丸
-　
-　ゲームエンジン　Ｇｏｄｏｔ
-
-　　　　イラスト
-　　　　シナリオ
-　　　プログラム
-　　　　　　監督　むずでょ
-
-　同人サークル　ぐれーすけーる"
-label_settings = ExtResource("45_k6jkg")
-vertical_alignment = 1
-
-[node name="完" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = 111.0
-offset_right = -4.0
-offset_bottom = 300.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "完"
-label_settings = ExtResource("46_ooq6c")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Ｔ崎川駅周辺地図" type="CanvasLayer" parent="📂TelopCoordinator"]
-
-[node name="NR崎川駅" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -635.0
-offset_top = -17.0
-offset_right = -442.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.0465592
-text = "ＮＲ 崎川駅"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-
-
-[node name="西口" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -492.0
-offset_top = -164.0
-offset_right = -299.0
-offset_bottom = -115.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.00380094
-text = "西 口"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-
-
-[node name="東口" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -493.0
-offset_top = 93.0
-offset_right = -300.0
-offset_bottom = 142.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.141261
-text = "東 口"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-
-[node name="最強振興会館" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 411.0
-offset_top = -90.0
-offset_right = 604.0
-offset_bottom = -41.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.0134654
-text = "最強振興会館"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-
-
-[node name="ゾラーナ崎川プラザ" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -344.0
-offset_top = -355.0
-offset_right = -151.0
-offset_bottom = -306.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.121196
-text = "ゾラーナ崎川プラザ"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-
-[node name="リキッドスクエア" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 323.0
-offset_top = -189.0
-offset_right = 516.0
-offset_bottom = -140.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.0246742
-text = "リキッドスクエア"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-
-
-
-[node name="香急崎川駅" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 75.0
-offset_top = 223.0
-offset_right = 268.0
-offset_bottom = 272.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.16054
-text = "香急崎川駅"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-
-
-
-[node name="バドバシメカラ" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 219.0
-offset_top = 127.0
-offset_right = 412.0
-offset_bottom = 176.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.11144
-text = "バドバシメカラ"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-
-
-
-[node name="Ｔ戦闘シーン" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
-
-[node name="玉の遠さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 1089.0
-offset_top = -3.0
-offset_right = 1217.0
-offset_bottom = 38.0
-text = "玉の遠さ"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[node name="玉の遠さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 130.0
-offset_top = 28.0
-offset_right = 1218.0
-offset_bottom = 109.0
-text = "１２３４５６７８９０１２３４５６７"
-
-[node name="玉の遠さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 129.0
-offset_top = 91.0
-offset_right = 1215.0
-offset_bottom = 172.0
-text = "　　　　　　　　　　　　　　　２０"
-
-[node name="後" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 32.0
-offset_top = 60.0
-offset_right = 64.0
-offset_bottom = 108.0
-text = "後"
-
-[node name="先" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 31.0
-offset_top = 124.0
-offset_right = 63.0
-offset_bottom = 172.0
-text = "先"
-
-[node name="城の堅さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 287.0
-offset_top = -3.0
-offset_right = 415.0
-offset_bottom = 38.0
-text = "城の堅さ"
-
-[node name="城の堅さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 291.0
-offset_top = 61.0
-offset_right = 419.0
-offset_bottom = 109.0
-text = "０００４"
-
-[node name="城の堅さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 290.0
-offset_top = 125.0
-offset_right = 418.0
-offset_bottom = 173.0
-text = "　　　３"
-
-[node name="逃げ道の広さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 448.0
-offset_top = -3.0
-offset_right = 640.0
-offset_bottom = 38.0
-text = "逃げ道の広さ"
-
-[node name="逃げ道の広さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 480.0
-offset_top = 61.0
-offset_right = 608.0
-offset_bottom = 109.0
-text = "００００"
-
-[node name="逃げ道の広さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 481.0
-offset_top = 123.0
-offset_right = 609.0
-offset_bottom = 171.0
-text = "　　　１"
-
-[node name="駒の働き" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 672.0
-offset_top = -4.0
-offset_right = 800.0
-offset_bottom = 37.0
-text = "駒の働き"
-
-[node name="駒の働き_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 673.0
-offset_top = 59.0
-offset_right = 801.0
-offset_bottom = 107.0
-text = "０００１"
-
-[node name="駒の働き_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 672.0
-offset_top = 123.0
-offset_right = 800.0
-offset_bottom = 171.0
-text = "　　　０"
-
-[node name="攻めの速度" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 832.0
-offset_top = -4.0
-offset_right = 992.0
-offset_bottom = 37.0
-text = "攻めの速度"
-
-[node name="攻めの速度_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 864.0
-offset_top = 61.0
-offset_right = 992.0
-offset_bottom = 109.0
-text = "０００２"
-
-[node name="攻めの速度_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
-offset_left = 865.0
-offset_top = 123.0
-offset_right = 993.0
-offset_bottom = 171.0
-text = "　　　１"
 
