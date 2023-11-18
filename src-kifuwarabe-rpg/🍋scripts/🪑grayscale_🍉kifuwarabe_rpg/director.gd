@@ -40,10 +40,6 @@ func get_illustrator():
 	return $"Illustrator"
 
 
-func get_gui_artist():
-	return $"GuiArtist"
-
-
 func get_message_windows_node():
 	return $"📂GuiArtist_MessageWindows"
 
@@ -169,8 +165,6 @@ func _ready():
 	self.show()
 	# 	背景アーティスト自身
 	self.get_background_artist().show()
-	# 	ＧＵＩアーティスト自身
-	self.get_gui_artist().show()
 	#	テロップ表示
 	$"📂TelopCoordinator".show()
 	#	メッセージ・ウィンドウ・ハブ自身
@@ -202,11 +196,6 @@ func _ready():
 		if sprite2d_node is Sprite2D:
 			sprite2d_node.hide()
 
-	#	ビューイング・ウィンドウはとにかく隠す
-	for sprite2d_node in self.get_gui_artist().get_node("ViewingWindows").get_children():
-		sprite2d_node.hide()
-	self.get_gui_artist().get_node("ViewingWindows/System/🎴Frame").hide()
-	#
 	#	テロップはとにかく非表示にする
 	for canvas_layer in $"📂TelopCoordinator".get_children():
 		if canvas_layer is CanvasLayer:

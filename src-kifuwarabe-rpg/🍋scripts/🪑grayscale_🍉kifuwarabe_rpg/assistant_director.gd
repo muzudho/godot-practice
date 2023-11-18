@@ -42,11 +42,6 @@ func get_telop_coordinator():
 	return self.get_director().get_node("📂TelopCoordinator")
 
 
-# ビューイング・ウィンドウ取得
-func get_viewing_windows():
-	return self.get_director().get_node("GuiArtist/ViewingWindows")
-
-
 # モンスターの全身像
 func get_monster_whole_body():
 	return self.get_director().get_node("MonsterTrainer/WholeBody")
@@ -328,10 +323,6 @@ func parse_paragraph(paragraph_text):
 			# 変数セット
 			elif second_head.begins_with("var:"):
 				self.get_instruction("Var").do_it(second_head)
-
-			# ビューイング・ウィンドウの表示／非表示
-			elif second_head.begins_with("v_wnd:"):
-				self.get_instruction("VWnd").do_it(second_head)
 
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)

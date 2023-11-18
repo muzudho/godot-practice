@@ -14,11 +14,6 @@ func get_telop_coordinator():
 	return $"📂TelopCoordinator"
 
 
-# 背景職人取得
-func get_gui_artist():
-	return $"GuiArtist"
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# ーーーーーーーー
