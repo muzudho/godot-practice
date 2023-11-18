@@ -13,6 +13,12 @@
 [node name="Director" type="Node2D"]
 script = ExtResource("1_b0bth")
 
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("8_1n35w")
+
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
@@ -20,11 +26,17 @@ visible = false
 position = Vector2(640, 360)
 texture = ExtResource("2_v4g51")
 
-[node name="Grid" type="Sprite2D" parent="."]
+[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
+
+[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
-z_index = 1000
 position = Vector2(640, 360)
-texture = ExtResource("8_1n35w")
+texture = ExtResource("6_2460b")
+
+[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("7_sju73")
 
 [node name="📂Musician_BGM" type="Node" parent="."]
 
@@ -38,17 +50,5 @@ pitch_scale = 1.4
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("5_pl8ct")]
-
-[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
-
-[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("6_2460b")
-
-[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("7_sju73")
 
 [node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("1_1j70m")]

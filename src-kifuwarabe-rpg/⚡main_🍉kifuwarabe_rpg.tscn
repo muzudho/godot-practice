@@ -898,11 +898,25 @@ script = ExtResource("8_yr4ye")
 
 [node name="Illustrator" type="Node2D" parent="."]
 
+[node name="ーーーーウィンドウーーーー" type="Node" parent="Illustrator"]
+
 [node name="🎴中央ウィンドウ" type="Sprite2D" parent="Illustrator"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("65_lhf23")
+
+[node name="ーーーーオブジェクトーーーー" type="Node" parent="Illustrator"]
+
+[node name="🎴将棋盤" type="Sprite2D" parent="Illustrator"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("66_5k2cc")
+
+[node name="🎴ファイルとランク" type="Sprite2D" parent="Illustrator"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("67_g74iy")
 
 [node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
 script = ExtResource("61_cfuy1")

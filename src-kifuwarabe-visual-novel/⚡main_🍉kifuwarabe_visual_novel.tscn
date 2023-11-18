@@ -145,6 +145,12 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_20gix")
 
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(640, 360)
+texture = ExtResource("2_6by5p")
+
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
 visible = false
 
@@ -249,11 +255,34 @@ z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("43_7jh74")
 
-[node name="Grid" type="Sprite2D" parent="."]
+[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
+script = ExtResource("61_o6s6c")
+
+[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
-z_index = 5
 position = Vector2(640, 360)
-texture = ExtResource("2_6by5p")
+texture = ExtResource("62_y1sjv")
+script = ExtResource("63_c6um1")
+
+[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("64_pfjh7")
+script = ExtResource("63_c6um1")
+
+[node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("65_6texa")
+script = ExtResource("63_c6um1")
+
+[node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("66_vkf8y")
+script = ExtResource("63_c6um1")
 
 [node name="📂Musician_BGM" type="Node" parent="."]
 
@@ -922,40 +951,25 @@ script = ExtResource("6_80h8b")
 
 [node name="Illustrator" type="Node2D" parent="."]
 
+[node name="ーーーーウィンドウーーーー" type="Node" parent="Illustrator"]
+
 [node name="🎴中央ウィンドウ" type="Sprite2D" parent="Illustrator"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("68_4axfk")
 
-[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
-script = ExtResource("61_o6s6c")
+[node name="ーーーーオブジェクトーーーー" type="Node" parent="Illustrator"]
 
-[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("62_y1sjv")
-script = ExtResource("63_c6um1")
+[node name="🎴将棋盤" type="Sprite2D" parent="Illustrator"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("69_r34s8")
 
-[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("64_pfjh7")
-script = ExtResource("63_c6um1")
-
-[node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("65_6texa")
-script = ExtResource("63_c6um1")
-
-[node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("66_vkf8y")
-script = ExtResource("63_c6um1")
+[node name="🎴ファイルとランク" type="Sprite2D" parent="Illustrator"]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("70_yopg3")
 
 [node name="GuiArtist" type="Node2D" parent="."]
 
