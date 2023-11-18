@@ -1,20 +1,29 @@
-# メッセージ・ウィンドウ（Message Window；伝言窓）
-# イッツ・ハブ（Its hub；その中心地）
-extends Node2D
+# メッセージ・ウィンドウズ・ハブ（Message Windows Hub；メッセージ・ウィンドウの中心地）
+extends Node
 
 
 # メッセージの早送り
 var is_fast_forward = false
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
 # 監督取得
 func get_director():
-	return $"../../Director"
+	return $"../../../Director"
 
 
 # 助監取得
 func get_assistant_director():
 	return self.get_director().get_node("📂Programmer")
+
+
+# プログラムズ・ハブ取得
+func get_programs_hub():
+	return self.get_director().get_node("📂Programmer/🛩️ProgramsHub")
 
 
 # キャンバス・レイヤー取得
@@ -40,6 +49,11 @@ func get_blinker_underscore(message_window_name):
 # 選択肢カーソル
 func get_choices_cursor(message_window_name):
 	return self.get_canvas_layer(message_window_name).get_node("TextBlock/ChoicesCursor")
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 ## 先頭行と、それ以外に分けます

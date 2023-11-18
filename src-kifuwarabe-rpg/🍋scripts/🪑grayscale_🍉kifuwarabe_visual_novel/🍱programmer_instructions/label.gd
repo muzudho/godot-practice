@@ -2,13 +2,23 @@
 extends Node
 
 
-# 助監
-func get_assistant_director():
-	return $"../../../📂Programmer"
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
+# ハブ取得
+func hub():
+	return $"../../🛩️ProgramsHub"
 
 
 func get_root_relative_path_str():
 	return "../../../../"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # それをする
@@ -19,13 +29,13 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.get_assistant_director().expand_variables(string_packed_array[0].strip_edges())
+	var node_name = self.hub().expand_variables(string_packed_array[0].strip_edges())
 	node_name = get_root_relative_path_str() + node_name
 	var its_text = ""	# 空文字列
 	
 	if 2 <= string_packed_array.size():
-		its_text = self.get_assistant_director().expand_variables(string_packed_array[1].strip_edges())
-		its_text = self.get_assistant_director().trim_double_quotation(its_text)
+		its_text = self.hub().expand_variables(string_packed_array[1].strip_edges())
+		its_text = self.hub().trim_double_quotation(its_text)
 
 	self.set_label(node_name, its_text)
 

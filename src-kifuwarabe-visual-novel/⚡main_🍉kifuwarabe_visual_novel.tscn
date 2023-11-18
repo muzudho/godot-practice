@@ -74,7 +74,7 @@
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="78_8nwg6"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="79_le58y"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="80_vkv42"]
-[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://📂assistant_director_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="81_aev68"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="81_aev68"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="103_n24cr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]

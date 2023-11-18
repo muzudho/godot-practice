@@ -3,8 +3,8 @@ extends Label
 
 
 # 状態機械
-var statemachine_of_end_of_message_blinker = load("res://🍋scripts/🪑grayscale_🍉message_window/statemachines/end_of_message_blinker.gd").new()
-var statemachine_of_blinker = load("res://🍋scripts/🪑grayscale_🍉message_window/statemachines/blinker.gd").new()
+var statemachine_of_end_of_message_blinker = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_🍱message_windows/statemachines/end_of_message_blinker.gd").new()
+var statemachine_of_blinker = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_🍱message_windows/statemachines/blinker.gd").new()
 
 
 var is_appear = true
@@ -40,9 +40,9 @@ func get_director():
 	return $"../../../../../Director"
 
 
-# 助監取得
-func get_assistant_director():
-	return self.get_director().get_node("📂Programmer")
+# プログラムズ・ハブ取得
+func get_programs_hub():
+	return self.get_director().get_node("📂Programmer/🛩️ProgramsHub")
 
 
 # キーコンフィグ監督取得
@@ -226,7 +226,7 @@ func reset_cursor_position():
 # カーソルが上に移動します
 func on_cursor_up(_target_index):
 	# 効果音鳴らす
-	self.get_assistant_director().get_instruction("Se").play_se("🔔選択肢カーソル移動音")
+	self.get_programs_hub().get_instruction("Se").play_se("🔔選択肢カーソル移動音")
 
 	var message_window_gui = self.get_director().get_current_message_window_gui()
 
@@ -243,7 +243,7 @@ func on_cursor_up(_target_index):
 # カーソルが下に移動します
 func on_cursor_down(_target_index):
 	# 効果音鳴らす
-	self.get_assistant_director().get_instruction("Se").play_se("🔔選択肢カーソル移動音")
+	self.get_programs_hub().get_instruction("Se").play_se("🔔選択肢カーソル移動音")
 
 	var message_window_gui = self.get_director().get_current_message_window_gui()
 

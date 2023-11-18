@@ -2,9 +2,19 @@
 extends Node
 
 
-# 助監
-func get_assistant_director():
-	return $"../../../📂Programmer"
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
+# ハブ取得
+func hub():
+	return $"../../🛩️ProgramsHub"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # それをする
@@ -18,11 +28,11 @@ func do_it(line):
 	# 文字列パック配列を、数値の配列に変換
 	var number_array = self.convert_string_packed_array_to_number_array(string_packed_array)
 
-	var message_window_gui = self.get_assistant_director().get_director().get_current_message_window_gui()
+	var message_window_gui = self.hub().get_director().get_current_message_window_gui()
 	message_window_gui.choices_row_numbers = number_array
 
 	# カーソル位置の初期化
-	self.get_assistant_director().get_director().get_current_message_window_gui().reset_cursor_position()
+	self.hub().get_director().get_current_message_window_gui().reset_cursor_position()
 
 
 # 文字列パック配列を、数値の配列に変換

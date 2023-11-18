@@ -3,9 +3,19 @@
 extends Node
 
 
-# 助監
-func get_assistant_director():
-	return $"../../../📂Programmer"
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
+# ハブ取得
+func hub():
+	return $"../../🛩️ProgramsHub"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # それをする
@@ -16,7 +26,7 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var characters_per_second = float(self.get_assistant_director().expand_variables(string_packed_array[0].strip_edges()))
+	var characters_per_second = float(self.hub().expand_variables(string_packed_array[0].strip_edges()))
 
 	self.set_message_speed(characters_per_second)
 
@@ -24,6 +34,6 @@ func do_it(line):
 # 秒間何文字表示に設定する
 func set_message_speed(characters_per_second):
 	print("［命令　伝言速度］　秒間：[" + str(characters_per_second) + "]文字")
-	var message_window_gui = self.get_assistant_director().get_director().get_current_message_window_gui()
+	var message_window_gui = self.hub().get_director().get_current_message_window_gui()
 	message_window_gui.msg_speed = characters_per_second
 	
