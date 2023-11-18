@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=90 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/director.gd" id="1_20gix"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -79,26 +79,8 @@
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="78_8nwg6"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="79_le58y"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="80_vkv42"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://📂assistant_director_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="81_aev68"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director.gd" id="81_n08cu"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/bg.gd" id="82_bu8tc"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/bgm.gd" id="83_r4e8m"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/choice.gd" id="84_ape3h"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/department.gd" id="85_ao1cg"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/img.gd" id="86_836rr"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/goto.gd" id="86_cdwno"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/label.gd" id="87_vi6ns"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/monster.gd" id="88_ql0xe"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/monster_face.gd" id="89_trh06"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/msg_speed.gd" id="90_qvb58"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/m_wnd.gd" id="91_on1qk"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/normal_text.gd" id="92_ngnie"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/normal_text_choice.gd" id="93_yh2i2"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/quit.gd" id="94_st1hx"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/se.gd" id="95_2sr1q"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/sleep.gd" id="96_af0vt"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/telop.gd" id="97_gya12"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/var.gd" id="98_gixyw"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/v_wnd.gd" id="99_saje8"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="103_n24cr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
@@ -1070,63 +1052,6 @@ texture = ExtResource("80_vkv42")
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("81_n08cu")
 
-[node name="Instructions" type="Node" parent="AssistantDirector"]
-
-[node name="Bg" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("82_bu8tc")
-
-[node name="Bgm" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("83_r4e8m")
-
-[node name="Choice" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("84_ape3h")
-
-[node name="Department" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("85_ao1cg")
-
-[node name="Goto" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("86_cdwno")
-
-[node name="Img" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("86_836rr")
-
-[node name="Label" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("87_vi6ns")
-
-[node name="Monster" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("88_ql0xe")
-
-[node name="MonsterFace" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("89_trh06")
-
-[node name="MsgSpeed" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("90_qvb58")
-
-[node name="MWnd" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("91_on1qk")
-
-[node name="NormalText" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("92_ngnie")
-
-[node name="NormalTextChoice" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("93_yh2i2")
-
-[node name="Quit" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("94_st1hx")
-
-[node name="Se" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("95_2sr1q")
-
-[node name="Sleep" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("96_af0vt")
-
-[node name="Telop" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("97_gya12")
-
-[node name="Var" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("98_gixyw")
-
-[node name="VWnd" type="Node" parent="AssistantDirector/Instructions"]
-script = ExtResource("99_saje8")
+[node name="Instructions_🍉Kifuwarabe_VisualNovel" parent="AssistantDirector" instance=ExtResource("81_aev68")]
 
 [node name="Director_🍉KeyConfig" parent="." instance=ExtResource("103_n24cr")]
