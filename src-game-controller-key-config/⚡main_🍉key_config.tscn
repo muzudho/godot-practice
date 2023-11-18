@@ -20,16 +20,14 @@ visible = false
 position = Vector2(640, 360)
 texture = ExtResource("2_v4g51")
 
-[node name="Musician" type="Node" parent="."]
+[node name="📂Musician_BGM" type="Node" parent="."]
 
-[node name="BGM" type="Node" parent="Musician"]
-
-[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="Musician/BGM"]
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="📂Musician_BGM"]
 stream = ExtResource("3_iwyqp")
 volume_db = -20.0
 pitch_scale = 1.4
 
-[node name="SE" parent="Musician" instance=ExtResource("4_xu1ys")]
+[node name="📂Musician_SE" parent="." instance=ExtResource("4_xu1ys")]
 
 [node name="TelopCoordinator" type="CanvasLayer" parent="."]
 

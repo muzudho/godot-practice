@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://fdpettye30uu" path="res://🍋audio_se/🪑maou_audio/maou_se_onepoint32.ogg" id="3_3hvy4"]
 [ext_resource type="AudioStream" uid="uid://hgwy12dram7d" path="res://🍋audio_se/🪑maou_audio/maou_se_magic_fire09.ogg" id="4_q4vxr"]
 
-[node name="SE" type="Node"]
+[node name="📂Musician_SE" type="Node"]
 
 [node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_tujb2")
