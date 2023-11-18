@@ -1,4 +1,4 @@
-[gd_scene load_steps=89 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=84 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/director.gd" id="1_20gix"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -68,11 +68,6 @@
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="68_4axfk"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="69_r34s8"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="70_yopg3"]
-[ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="71_tcmb3"]
-[ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="72_1winv"]
-[ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="73_dlero"]
-[ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="74_pt2f3"]
-[ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="75_p8utu"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="76_lqesr"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="77_qbv5q"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="78_8nwg6"]
@@ -337,36 +332,6 @@ texture = ExtResource("79_le58y")
 position = Vector2(735, 320)
 scale = Vector2(0.596059, 0.596059)
 texture = ExtResource("80_vkv42")
-
-[node name="ーーーーモンスター顔ーーーー" type="Node" parent="📂Illustrator"]
-
-[node name="😁ヘム将棋" type="Sprite2D" parent="📂Illustrator"]
-visible = false
-position = Vector2(97, 70)
-scale = Vector2(0.266871, 0.266871)
-texture = ExtResource("71_tcmb3")
-
-[node name="😁レサぽん改" type="Sprite2D" parent="📂Illustrator"]
-visible = false
-position = Vector2(94.5, 64.9293)
-scale = Vector2(0.191919, 0.191919)
-texture = ExtResource("72_1winv")
-
-[node name="😁ケダック" type="Sprite2D" parent="📂Illustrator"]
-position = Vector2(96.4521, 67.25)
-scale = Vector2(0.80137, 0.80137)
-texture = ExtResource("73_dlero")
-
-[node name="😁きふわらべ" type="Sprite2D" parent="📂Illustrator"]
-position = Vector2(97, 129)
-scale = Vector2(0.1875, 0.1875)
-texture = ExtResource("74_pt2f3")
-
-[node name="😁昼ビール" type="Sprite2D" parent="📂Illustrator"]
-visible = false
-position = Vector2(97.5, 66.525)
-scale = Vector2(0.221014, 0.197109)
-texture = ExtResource("75_p8utu")
 
 [node name="📂Musician_BGM" type="Node" parent="."]
 
