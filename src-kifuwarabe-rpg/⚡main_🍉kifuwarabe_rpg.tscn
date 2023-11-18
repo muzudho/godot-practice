@@ -155,7 +155,6 @@ position = Vector2(640, 360)
 texture = ExtResource("2_ivwoj")
 
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
-visible = false
 
 [node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="📂BackgroundArtist"]
 visible = false
@@ -163,7 +162,6 @@ position = Vector2(640, 360)
 texture = ExtResource("25_aycb2")
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("26_4dvmr")
 
@@ -275,12 +273,14 @@ texture = ExtResource("60_ked68")
 script = ExtResource("61_tvkup")
 
 [node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("62_q6u17")
 script = ExtResource("61_tvkup")
 
 [node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
@@ -288,6 +288,7 @@ texture = ExtResource("63_a2lr3")
 script = ExtResource("61_tvkup")
 
 [node name="📂Illustrator" type="Node2D" parent="."]
+visible = false
 
 [node name="ーーーーウィンドウーーーー" type="Node" parent="📂Illustrator"]
 
@@ -484,7 +485,6 @@ script = ExtResource("8_yr4ye")
 [node name="ーーーーきふわらべRPGーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
 
 [node name="きふわらべRPG" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
@@ -1012,6 +1012,7 @@ script = ExtResource("56_sxmbq")
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("58_02ahj")]
+visible = false
 
 [node name="Scorer" type="Node" parent="."]
 script = ExtResource("97_1q7ae")
@@ -1023,3 +1024,4 @@ script = ExtResource("98_j22j1")
 script = ExtResource("99_qt8fk")
 
 [node name="🛩️KeyConfigHub" parent="." instance=ExtResource("100_n0lmu")]
+visible = false

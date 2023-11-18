@@ -151,7 +151,6 @@ position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
-visible = false
 
 [node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="📂BackgroundArtist"]
 visible = false
@@ -159,7 +158,6 @@ position = Vector2(640, 360)
 texture = ExtResource("26_ljpku")
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("27_7rlfr")
 
@@ -255,7 +253,6 @@ position = Vector2(640, 360)
 texture = ExtResource("43_7jh74")
 
 [node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
-visible = false
 script = ExtResource("61_o6s6c")
 
 [node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
@@ -272,12 +269,14 @@ texture = ExtResource("64_pfjh7")
 script = ExtResource("63_c6um1")
 
 [node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("65_6texa")
 script = ExtResource("63_c6um1")
 
 [node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
@@ -477,9 +476,8 @@ visible = false
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
 
-[node name="きふわらべVN" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
+[node name="きふわらべＲＰＧ" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -491,12 +489,12 @@ offset_right = 512.0
 offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "きふわらべ誕生ＶＮ"
+text = "きふわらべＲＰＧ"
 label_settings = ExtResource("44_q2mgx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Visual Novel" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
+[node name="サブタイトル" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -508,24 +506,7 @@ offset_right = 584.0
 offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "～ Visuan Novel ～"
-label_settings = ExtResource("43_xk5pg")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="シナリオ変更中です" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -562.0
-offset_top = 30.0
-offset_right = 590.0
-offset_bottom = 219.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "シナリオ変更中です"
+text = "～ Computer shogi story of the race of the bottom ～"
 label_settings = ExtResource("43_xk5pg")
 horizontal_alignment = 1
 vertical_alignment = 1
