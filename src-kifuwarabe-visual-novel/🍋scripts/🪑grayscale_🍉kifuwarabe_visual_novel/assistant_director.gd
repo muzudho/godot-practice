@@ -17,6 +17,51 @@ func get_scenario_reader():
 	return self.get_scenario_writer().get_node("System/Reader")
 
 
+# BGM取得
+func get_bgm():
+	return self.get_director().get_node("Musician/BGM")
+
+
+# 効果音取得
+func get_se():
+	return self.get_director().get_node("Musician/SE")
+
+
+# 背景アーティスト
+func get_background_artist():
+	return self.get_director().get_node("BackgroundArtist")
+
+
+# イラストレーター取得
+func get_illustrator():
+	return self.get_director().get_node("Illustrator")
+
+
+# テロップ・コーディネーター取得
+func get_telop_coordinator():
+	return self.get_director().get_node("TelopCoordinator")
+
+
+# ビューイング・ウィンドウ取得
+func get_viewing_windows():
+	return self.get_director().get_node("GuiArtist/ViewingWindows")
+
+
+# モンスターの全身像
+func get_monster_whole_body():
+	return self.get_director().get_node("MonsterTrainer/WholeBody")
+
+
+# モンスター・フェースズ
+func get_monster_faces():
+	return self.get_director().get_node("MonsterTrainer/Faces")
+
+
+# 命令ノード取得
+func get_instruction(instruction_name):
+	return $"Instructions".get_node(instruction_name)
+
+
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()	
@@ -222,71 +267,71 @@ func parse_paragraph(paragraph_text):
 				
 			# 背景切替
 			elif second_head.begins_with("bg:"):
-				$"Bg".do_it(second_head)
+				self.get_instruction("Bg").do_it(second_head)
 
 			# ＢＧＭ再生／停止
 			elif second_head.begins_with("bgm:"):
-				$"Bgm".do_it(second_head)
+				self.get_instruction("Bgm").do_it(second_head)
 			
 			# 選択肢かどうか判定
 			elif second_head.begins_with("choice:"):
-				$"Choice".do_it(second_head)
+				self.get_instruction("Choice").do_it(second_head)
 
 			# 部門変更
 			elif second_head.begins_with("department:"):
-				$"Department".do_it(second_head)
+				self.get_instruction("Department").do_it(second_head)
 				
 			# 次のセクションへ飛ぶ
 			elif second_head.begins_with("goto:"):
-				$"Goto".do_it(second_head)
+				self.get_instruction("Goto").do_it(second_head)
 
 			# 画像を表示する
 			elif second_head.begins_with("img:"):
-				$"Img".do_it(second_head)
+				self.get_instruction("Img").do_it(second_head)
 
 			# ラベル設定
 			elif second_head.begins_with("label:"):
-				$"Label".do_it(second_head)
+				self.get_instruction("Label").do_it(second_head)
 				
 			# モンスター表示
 			elif second_head.begins_with("monster:"):
-				$"Monster".do_it(second_head)
+				self.get_instruction("Monster").do_it(second_head)
 
 			# モンスター顔表示
 			elif second_head.begins_with("monster_face:"):
-				$"MonsterFace".do_it(second_head)
+				self.get_instruction("MonsterFace").do_it(second_head)
 
 			# メッセージ・スピード変更
 			elif second_head.begins_with("msg_speed:"):
-				$"MsgSpeed".do_it(second_head)
+				self.get_instruction("MsgSpeed").do_it(second_head)
 
 			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("m_wnd:"):
-				$"MWnd".do_it(second_head)
+				self.get_instruction("MWnd").do_it(second_head)
 
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
-				$"Quit".do_it(second_head)
+				self.get_instruction("Quit").do_it(second_head)
 			
 			# 効果音
 			elif second_head.begins_with("se:"):
-				$"Se".do_it(second_head)
+				self.get_instruction("Se").do_it(second_head)
 
 			# スリープ
 			elif second_head.begins_with("sleep:"):
-				$"Sleep".do_it(second_head)
+				self.get_instruction("Sleep").do_it(second_head)
 
 			# テロップの表示／非表示
 			elif second_head.begins_with("telop:"):
-				$"Telop".do_it(second_head)
+				self.get_instruction("Telop").do_it(second_head)
 			
 			# 変数セット
 			elif second_head.begins_with("var:"):
-				$"Var".do_it(second_head)
+				self.get_instruction("Var").do_it(second_head)
 
 			# ビューイング・ウィンドウの表示／非表示
 			elif second_head.begins_with("v_wnd:"):
-				$"VWnd".do_it(second_head)
+				self.get_instruction("VWnd").do_it(second_head)
 
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)
@@ -298,11 +343,11 @@ func parse_paragraph(paragraph_text):
 
 	# 選択肢だ
 	if message_window_gui.choices_row_numbers != null:
-		$"NormalTextChoice".do_it(paragraph_text)
+		self.get_instruction("NormalTextChoice").do_it(paragraph_text)
 		return
 
 	# print("［助監］　選択肢ではない")
-	$"NormalText".do_it(paragraph_text)
+	self.get_instruction("NormalText").do_it(paragraph_text)
 
 
 # ディレクターの `_process(delta)` が呼出す

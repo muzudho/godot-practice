@@ -3,14 +3,9 @@
 extends Node
 
 
-# 監督取得
-func get_director():
-	return $"../../../Director"
-
-
-# 助監取得
+# 助監
 func get_assistant_director():
-	return $"../../AssistantDirector"
+	return $"../../../AssistantDirector"
 
 
 # それをする
@@ -41,11 +36,11 @@ func do_it(line):
 func show_message_window(
 		node_name,						# StringName
 		is_department_entered = false):	# bool
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_assistant_director().get_director().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
-	self.get_director().get_message_window_gui(node_name).set_appear_subtree(true)
+	self.get_assistant_director().get_director().get_message_window_gui(node_name).set_appear_subtree(true)
 
 	if not is_department_entered:
 		# 現在開いている伝言窓をスナップショットに記憶
@@ -58,18 +53,18 @@ func show_message_window(
 		snapshot.stack_of_last_displayed_message_window.push_back(node_name)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-	self.get_director().dump_last_displayed_message_window()
+	self.get_assistant_director().get_director().dump_last_displayed_message_window()
 
 
 # 伝言窓を隠す
 func hide_message_window(
 		node_name,						# StringName
 		is_department_leaved = false):	# bool
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_assistant_director().get_director().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
-	self.get_director().get_message_window_gui(node_name).set_appear_subtree(false)
+	self.get_assistant_director().get_director().get_message_window_gui(node_name).set_appear_subtree(false)
 
 	if not is_department_leaved:
 		# 現在開いている伝言窓をスナップショットから除外
@@ -81,4 +76,4 @@ func hide_message_window(
 			snapshot.stack_of_last_displayed_message_window.remove_at(index)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-	self.get_director().dump_last_displayed_message_window()
+	self.get_assistant_director().get_director().dump_last_displayed_message_window()

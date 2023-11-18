@@ -5,18 +5,13 @@ extends Node
 
 # 助監
 func get_assistant_director():
-	return $"../../AssistantDirector"
-
-
-# 背景アーティスト
-func get_background_artist():
-	return $"../../BackgroundArtist"
+	return $"../../../AssistantDirector"
 
 
 #	それをする
 func do_it(line):
 
-	var csv = line.substr(3).strip_edges()
+	var csv = line.substr("bg:".length()).strip_edges()
 	print("［命令解析　背景］　CSV：[" + csv + "]　Line：[" + line + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
@@ -33,7 +28,7 @@ func do_it(line):
 # 背景を制御
 func control_bg(node_name, sub_command):
 
-	var node = self.get_background_artist().get_node(node_name)
+	var node = self.get_assistant_director().get_background_artist().get_node(node_name)
 	if node == null:
 		print("［命令　背景］　▲エラー　”" + node_name + "”　が無い")
 

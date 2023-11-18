@@ -2,14 +2,9 @@
 extends Node
 
 
-# 監督取得
-func get_director():
-	return $"../../../Director"
-
-
-# 助監取得
+# 助監
 func get_assistant_director():
-	return $"../../AssistantDirector"
+	return $"../../../AssistantDirector"
 
 
 # それをする
@@ -37,10 +32,10 @@ func do_it(line):
 # 変数の記憶
 func set_var(key, value):
 	print("［命令　変数］　（" + key + "）[" + value + "]")
-	self.get_director().stage_directions_variables[key] = value
+	self.get_assistant_director().get_director().stage_directions_variables[key] = value
 
 
 # 変数のクリアー
 func clear_var():
 	print("［命令　変数］　クリアー")
-	self.get_director().stage_directions_variables = {}
+	self.get_assistant_director().get_director().stage_directions_variables = {}

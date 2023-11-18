@@ -3,14 +3,9 @@
 extends Node
 
 
-# 監督取得
-func get_director():
-	return $"../../../Director"
-
-
-# 助監取得
+# 助監
 func get_assistant_director():
-	return $"../../AssistantDirector"
+	return $"../../../AssistantDirector"
 
 
 # それをする
@@ -31,5 +26,5 @@ func do_it(line):
 #	シナリオのパラグラフを抜けてから、疑似スリープを行います
 func sleep(seconds):
 	print("［命令　スリープ］　秒：[" + str(seconds) + "]")
-	self.get_director().sleep_seconds = seconds
+	self.get_assistant_director().get_director().sleep_seconds = seconds
 	

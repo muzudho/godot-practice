@@ -2,25 +2,15 @@
 extends Node
 
 
-# 監督取得
-func get_director():
-	return $"../../../Director"
-
-
-# 助監取得
+# 助監
 func get_assistant_director():
-	return self.get_director().get_node("AssistantDirector")
-
-
-# BGM取得
-func get_bgm():
-	return self.get_director().get_node("Musician/BGM")
+	return $"../../../AssistantDirector"
 
 
 # それをする
 func do_it(line):
 
-	var csv = line.substr(4).strip_edges()
+	var csv = line.substr("bgm:".length()).strip_edges()
 	print("［命令　ＢＧＭ］　CSV：[" + csv + "]　Line:［" + line + "］")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
@@ -42,14 +32,14 @@ func do_it(line):
 
 # BGM 再生
 func play_bgm(node_name, from = null):
-	if self.get_director().current_bgm_name!=null:
+	if self.get_assistant_director().get_director().current_bgm_name!=null:
 		self.stop_bgm()
 		
 	print("［命令　ＢＧＭ］　開始：[" + node_name + "]")
-	self.get_director().current_bgm_name = node_name
+	self.get_assistant_director().get_director().current_bgm_name = node_name
 	
-	var bgm_name = self.get_director().current_bgm_name
-	var audio_node = self.get_bgm().get_node(bgm_name)
+	var bgm_name = self.get_assistant_director().get_director().current_bgm_name
+	var audio_node = self.get_assistant_director().get_bgm().get_node(bgm_name)
 	if audio_node == null:
 		print("［命令　ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
 	
@@ -62,13 +52,13 @@ func play_bgm(node_name, from = null):
 
 # BGM 停止
 func stop_bgm():
-	if self.get_director().current_bgm_name != null:
+	if self.get_assistant_director().get_director().current_bgm_name != null:
 		print("［命令　ＢＧＭ］　停止")
 		
-		var bgm_name = self.get_director().current_bgm_name
-		var audio_node = self.get_bgm().get_node(bgm_name)
+		var bgm_name = self.get_assistant_director().get_director().current_bgm_name
+		var audio_node = self.get_assistant_director().get_bgm().get_node(bgm_name)
 		if audio_node == null:
 			print("［命令　ＢＧＭ］　▲エラー　”" + bgm_name + "”　が無い")
 		
 		audio_node.stop()
-		self.get_director().current_bgm_name = null
+		self.get_assistant_director().get_director().current_bgm_name = null

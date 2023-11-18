@@ -2,14 +2,9 @@
 extends Node
 
 
-# 助監取得
+# 助監
 func get_assistant_director():
-	return $"../../AssistantDirector"
-
-
-# モンスターの全身像
-func get_monster_whole_body():
-	return $"../../MonsterTrainer/WholeBody"
+	return $"../../../AssistantDirector"
 
 
 # それをする
@@ -32,7 +27,7 @@ func do_it(line):
 # モンスターを制御
 func control_monster(node_name, sub_command):
 
-	var monster_node = self.get_monster_whole_body().get_node(node_name)
+	var monster_node = self.get_assistant_director().get_monster_whole_body().get_node(node_name)
 	if monster_node == null:
 		print("［命令　怪物］　▲エラー　”" + node_name + "”　が無い")
 

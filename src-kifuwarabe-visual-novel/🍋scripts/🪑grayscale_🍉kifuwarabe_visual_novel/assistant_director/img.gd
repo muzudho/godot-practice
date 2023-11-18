@@ -2,13 +2,9 @@
 extends Node
 
 
-# 助監取得
+# 助監
 func get_assistant_director():
-	return $"../../AssistantDirector"
-
-
-func get_illustrator():
-	return $"../../Illustrator"
+	return $"../../../AssistantDirector"
 
 
 # それをする
@@ -34,7 +30,7 @@ func do_it(line):
 
 #	ウィンドウを表示する
 func show_image(node_name):
-	var node = self.get_illustrator().get_node(node_name)
+	var node = self.get_assistant_director().get_illustrator().get_node(node_name)
 	
 	if node == null:
 		print("［画像　表示］　▲！エラー　❝" + node_name + "❞ノードが見つかりません")
@@ -46,7 +42,7 @@ func show_image(node_name):
 
 #	ウィンドウを非表示にする
 func hide_image(node_name):
-	var node = self.get_illustrator().get_node(node_name)
+	var node = self.get_assistant_director().get_illustrator().get_node(node_name)
 
 	if node == null:
 		print("［画像　非表示］　▲！エラー　❝" + node_name + "❞ノードが見つかりません")
