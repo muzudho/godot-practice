@@ -240,6 +240,10 @@ func parse_paragraph(paragraph_text):
 			elif second_head.begins_with("goto:"):
 				$"Goto".do_it(second_head)
 
+			# 画像を表示する
+			elif second_head.begins_with("img:"):
+				$"Img".do_it(second_head)
+
 			# ラベル設定
 			elif second_head.begins_with("label:"):
 				$"Label".do_it(second_head)

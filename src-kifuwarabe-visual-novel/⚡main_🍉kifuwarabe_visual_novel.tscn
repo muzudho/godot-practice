@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=108 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/director.gd" id="1_20gix"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -84,6 +84,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/bgm.gd" id="83_r4e8m"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/choice.gd" id="84_ape3h"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/department.gd" id="85_ao1cg"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/img.gd" id="86_836rr"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/goto.gd" id="86_cdwno"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/label.gd" id="87_vi6ns"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/monster.gd" id="88_ql0xe"]
@@ -266,6 +267,14 @@ volume_db = -15.0
 [node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("25_oxlb4")
 volume_db = -15.0
+
+[node name="Illustrator" type="Node2D" parent="."]
+
+[node name="🎴中央ウィンドウ" type="Sprite2D" parent="Illustrator"]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("68_4axfk")
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 visible = false
@@ -1075,6 +1084,9 @@ script = ExtResource("85_ao1cg")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]
 script = ExtResource("86_cdwno")
+
+[node name="Img" type="Node" parent="AssistantDirector"]
+script = ExtResource("86_836rr")
 
 [node name="Label" type="Node" parent="AssistantDirector"]
 script = ExtResource("87_vi6ns")

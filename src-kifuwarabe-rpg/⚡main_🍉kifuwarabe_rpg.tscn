@@ -1,4 +1,4 @@
-[gd_scene load_steps=111 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=112 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -90,6 +90,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/monster.gd" id="85_b27qm"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/monster_face.gd" id="86_ylvox"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/msg_speed.gd" id="87_fi0uc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/img.gd" id="87_kqfqt"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/m_wnd.gd" id="88_nigu1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/normal_text.gd" id="89_4cmpj"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director/normal_text_choice.gd" id="90_5unei"]
@@ -276,6 +277,14 @@ volume_db = -15.0
 [node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("24_gm8xc")
 volume_db = -15.0
+
+[node name="Illustrator" type="Node2D" parent="."]
+
+[node name="🎴中央ウィンドウ" type="Sprite2D" parent="Illustrator"]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("65_lhf23")
 
 [node name="BackgroundArtist" type="Node2D" parent="."]
 visible = false
@@ -1050,6 +1059,9 @@ script = ExtResource("82_wjf3m")
 
 [node name="Goto" type="Node" parent="AssistantDirector"]
 script = ExtResource("83_3tf5l")
+
+[node name="Img" type="Node" parent="AssistantDirector"]
+script = ExtResource("87_kqfqt")
 
 [node name="Label" type="Node" parent="AssistantDirector"]
 script = ExtResource("84_q3t7t")
