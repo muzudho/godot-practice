@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=74 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -65,6 +65,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="71_vwn1b"]
+[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="72_k7xhv"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="72_seukb"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="73_ran2h"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="74_64hjs"]
@@ -885,3 +886,5 @@ script = ExtResource("70_mcty4")
 
 [node name="MonsterData" type="Node" parent="Scorer"]
 script = ExtResource("71_vwn1b")
+
+[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("72_k7xhv")]
