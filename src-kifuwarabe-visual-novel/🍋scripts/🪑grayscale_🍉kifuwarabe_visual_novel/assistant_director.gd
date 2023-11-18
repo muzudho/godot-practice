@@ -92,34 +92,7 @@ func play_section():
 
 # 伝言窓で選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
-	print("［助監］　選択肢を確定させた")
-
-	# 伝言窓の状態遷移
-	#	ずっと Completed だと、困るから
-	print("［助監］　伝言窓を　オール・ページズ・フラッシュド　する")
-	self.get_director().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
-
-
-	var snapshot = self.get_director().get_current_snapshot()
-	var department_name = str(snapshot.name)
-	var section_name = snapshot.section_name
-	
-	print("［助監］　現在の部門名　　　：" + department_name)
-	print("［助監］　現在の区画名　　　：" + section_name)
-	print("［助監］　選んだ選択肢行番号：" + str(row_number))
-
-	# シナリオ・ノード
-	var scenario_node = $"../📂ScenarioWriter".get_node(department_name)
-
-	# 区画名。実質的には選択肢の配列
-	var section_obj = scenario_node.choices_mappings[section_name]
-
-	# 次のセクション名
-	var next_section_name = section_obj[row_number]
-	print("［助監］　次の区画名　　　　：" + next_section_name)
-	
-	self.get_director().set_current_section(next_section_name)
-	self.play_section()
+	self.get_program_hub().on_choice_selected(row_number)
 
 
 # 先頭行と、それ以外に分けます。できなければヌル
