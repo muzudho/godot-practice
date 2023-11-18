@@ -1022,4 +1022,4 @@ script = ExtResource("98_j22j1")
 [node name="MonsterData" type="Node" parent="Scorer"]
 script = ExtResource("99_qt8fk")
 
-[node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("100_n0lmu")]
+[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("100_n0lmu")]

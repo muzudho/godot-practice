@@ -51,4 +51,4 @@ pitch_scale = 1.4
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("5_pl8ct")]
 
-[node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("1_1j70m")]
+[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("1_1j70m")]

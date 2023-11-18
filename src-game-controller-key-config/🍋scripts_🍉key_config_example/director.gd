@@ -26,18 +26,18 @@ func _ready():
 	# ーーーーーーーー
 	# 初期化
 	# ーーーーーーーー
-	$"🛩️KeyConfigDirector".entry()
+	$"🛩️KeyConfigHub".entry()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# キーコンフィグで必要です
-	$"🛩️KeyConfigDirector".on_process(delta)
+	$"🛩️KeyConfigHub".on_process(delta)
 
 
 func _unhandled_input(event):
 	# キーコンフィグで必要です
-	$"🛩️KeyConfigDirector".on_unhandled_input(event)
+	$"🛩️KeyConfigHub".on_unhandled_input(event)
 
 
 # キーコンフィグ開始時

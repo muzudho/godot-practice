@@ -1,7 +1,7 @@
 # モデレーター（Moderator；司会進行）
 extends Node
 
-
+# 文字列解析用
 var re_button = RegEx.new()
 var re_lever = RegEx.new()
 
@@ -19,47 +19,32 @@ var turn_state = &"WaitForPrompt"
 var is_enabled = false
 
 
-# 外部監督取得
-func get_external_director():
-	return $"../../../Director"
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
 
 
-# 監督取得
-func get_director():
-	return self.get_external_director().get_node("🛩️KeyConfigDirector")
+# ハブ取得
+func hub():
+	return $"../../🛩️KeyConfigHub"
 
 
-# テロップ・コーディネーター取得
-func get_telop_coordinator_key_config():
-	return self.get_external_director().get_node("📂TelopCoordinator/Ｔキーコンフィグ")
-
-
-# BGM取得
-func get_bgm():
-	return self.get_external_director().get_node("📂Musician_BGM")
-
-
-# 効果音取得
-func get_se():
-	return self.get_external_director().get_node("📂Musician_SE")
-
-
-# メッセージ・ウィンドウ
-func get_message_windows():
-	return self.get_external_director().get_node("📂GuiArtist_MessageWindows")
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # ボタンが重複するか？
 func is_key_duplicated(button_number_1):
-	return button_number_1 in self.get_director().key_config.values()
+	return button_number_1 in self.hub().key_config.values()
 
 
 # キャンセルボタン押下か？
 func is_cancel_button_pressed(button_number_1):
-	if not (&"VK_Cancel" in self.get_director().key_config):
+	if not (&"VK_Cancel" in self.hub().key_config):
 		return false
 	
-	return button_number_1 == self.get_director().key_config[&"VK_Cancel"]
+	return button_number_1 == self.hub().key_config[&"VK_Cancel"]
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -70,10 +55,10 @@ func _ready():
 	# ーーーーーーーー
 	
 	# メッセージ・ウィンドウ非表示
-	self.get_message_windows().hide()
+	self.hub().get_message_windows().hide()
 		
 	# テロップ非表示
-	self.get_telop_coordinator_key_config().get_node("TextBlock").visible = false
+	self.hub().get_telop_of_key_config("TextBlock").visible = false
 
 	# 入力イベントが返す文字列。仕様さっぱり分からん
 	# 最後に半角スペースを入れること。 `Button 1` と `Button 10` を区別するために
@@ -89,24 +74,24 @@ func entry():
 	# ーーーーーーーー
 	
 	# ウィンドウ表示
-	self.get_message_windows().show()
+	self.hub().get_message_windows().show()
 	
 	# テロップ表示
-	self.get_telop_coordinator_key_config().get_node("TextBlock").visible = true
+	self.hub().get_telop_of_key_config("TextBlock").visible = true
 
 	# ーーーーーーーー
 	# 設定
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.get_message_windows().get_node("■上_大").show()
-	self.get_message_windows().get_node("■下").show()
+	self.hub().get_message_window("■上_大").show()
+	self.hub().get_message_window("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
 	self.set_empty_the_button_message(2)
 	self.set_empty_the_button_message(3)
-	self.get_telop_coordinator_key_config().get_node("TextBlock").text = """\
+	self.hub().get_telop_of_key_config("TextBlock").text = """\
 	＊　＊　＊
 	"""
 	
@@ -117,146 +102,146 @@ func entry():
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.get_message_windows().get_node("■上_大").hide()
-	self.get_message_windows().get_node("■下").hide()
+	self.hub().get_message_window("■上_大").hide()
+	self.hub().get_message_window("■下").hide()
 	# テロップ非表示
-	self.get_telop_coordinator_key_config().get_node("TextBlock").text = ""
-	self.get_telop_coordinator_key_config().hide()
+	self.hub().get_telop_of_key_config("TextBlock").text = ""
+	self.hub().get_telop_coordinator_key_config().hide()
 
 	# BGM 停止	
-	self.get_bgm().get_node("🎵キーコンフィグ").stop()
+	self.hub().get_bgm("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
-	self.get_director().on_exit()
+	self.hub().on_exit()
 
 
 func set_key_ok():
-	self.get_telop_coordinator_key_config().get_node("TextBlock").text = "＊　＊　＊"
+	self.hub().get_telop_of_key_config("TextBlock").text = "＊　＊　＊"
 
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.get_se().get_node("🔔キーコンフィグ受入音").play()
+	self.hub().get_se("🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied(reason):
-	self.get_se().get_node("🔔キーコンフィグ不可音").play()
+	self.hub().get_se("🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
-		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
+		self.hub().get_telop_of_key_config("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
 
 	if reason == 2:
-		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "下キーがボタンのときは、\n上キーもボタンを選んでください"
+		self.hub().get_telop_of_key_config("TextBlock").text = "下キーがボタンのときは、\n上キーもボタンを選んでください"
 
 	if reason == 3:
-		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "右キーがボタンのときは、\n左キーもボタンを選んでください"
+		self.hub().get_telop_of_key_config("TextBlock").text = "右キーがボタンのときは、\n左キーもボタンを選んでください"
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
-	self.get_se().get_node("🔔キーコンフィグ取消音").play()
-	self.get_telop_coordinator_key_config().get_node("TextBlock").text = ""
+	self.hub().get_se("🔔キーコンフィグ取消音").play()
+	self.hub().get_telop_of_key_config("TextBlock").text = ""
 
 
 func set_empty_the_button_message(step):
 	if step == 1:
-		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（１）ボタン").text = "（１）"
+		#								   "１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（１）ボタン").text = "（１）"
 
 	elif step == 2:
-		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（２）ボタン").text = "（２）"
+		#								   "１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（２）ボタン").text = "（２）"
 
 	elif step == 3:
-		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（３）ボタン").text = "（３）"
+		#								   "１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（３）ボタン").text = "（３）"
 
 	elif step == 4:
-		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（４）ボタン").text = "（４）"
+		#								   "１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（４）ボタン").text = "（４）"
 
 	elif step == 5:
-		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（５）ボタン").text = "（５）"
+		#								   "１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（５）ボタン").text = "（５）"
 
 	elif step == 6:
-		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（６）ボタン").text = "（６）"
+		#								   "１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（６）ボタン").text = "（６）"
 
 	elif step == 7:
-		#														   "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（７）ボタン").text = "（７）"
+		#								   "１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（７）ボタン").text = "（７）"
 
 
 func set_press_message_to_button(step):
 	if step == 1:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
 
 	elif step == 2:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
 
 	elif step == 3:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（４）ボタン").text = "（４）下キー　を入れてください"
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（４）ボタン").text = "（４）下キー　を入れてください"
 
 	elif step == 5:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（５）ボタン").text = "（５）上キー　を入れてください"
-		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（５）ボタン").text = "（５）上キー　を入れてください"
+		self.hub().get_telop_of_key_config("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
 
 	elif step == 6:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（６）ボタン").text = "（６）右キー　を入れてください"
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（６）ボタン").text = "（６）右キー　を入れてください"
 
 	elif step == 7:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（７）ボタン").text = "（７）左キー　を入れてください"
-		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（７）ボタン").text = "（７）左キー　を入れてください"
+		self.hub().get_telop_of_key_config("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
 
 	# 完了時
 	elif step == 8:
-		#														  "１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("TextBlock").text = "完了"
-		self.get_se().get_node("🔔キーコンフィグ完了音").play()
+		#													   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("TextBlock").text = "完了"
+		self.hub().get_se("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
 	if step == 1:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.get_telop_coordinator_key_config().get_node("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + self.button_presentation_name
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		self.hub().get_telop_of_key_config("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + self.button_presentation_name
 
 	elif step == 2:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator_key_config().get_node("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + self.button_presentation_name
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.hub().get_telop_of_key_config("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + self.button_presentation_name
 
 	elif step == 3:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator_key_config().get_node("（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.hub().get_telop_of_key_config("（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator_key_config().get_node("（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.hub().get_telop_of_key_config("（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 5:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator_key_config().get_node("（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.hub().get_telop_of_key_config("（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 6:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator_key_config().get_node("（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.hub().get_telop_of_key_config("（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 7:
-		#														   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.get_telop_coordinator_key_config().get_node("（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		#														 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		self.hub().get_telop_of_key_config("（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 
 func clear_count():
@@ -316,20 +301,20 @@ func on_step_regular(
 			self.current_step -= 1
 			# さらに連続して戻したいケースもある
 			# レバーの上
-			if self.current_step == 5 and self.get_director().key_config[&"VK_Down"] == self.get_director().key_config[&"VK_Up"]:
+			if self.current_step == 5 and self.hub().key_config[&"VK_Down"] == self.hub().key_config[&"VK_Up"]:
 				self.set_empty_the_button_message(self.current_step)
 				self.current_step -= 1
-				self.get_director().key_config.erase(&"VK_Down")
+				self.hub().key_config.erase(&"VK_Down")
 			# レバーの左
-			elif self.current_step == 7 and self.get_director().key_config[&"VK_Right"] == self.get_director().key_config[&"VK_Left"]:
+			elif self.current_step == 7 and self.hub().key_config[&"VK_Right"] == self.hub().key_config[&"VK_Left"]:
 				self.set_empty_the_button_message(self.current_step)
 				self.current_step -= 1
-				self.get_director().key_config.erase(&"VK_Right")
+				self.hub().key_config.erase(&"VK_Right")
 			
 			self.set_press_message_to_button(self.current_step)
 			
 			if previous_virtual_key_name != null:
-				self.get_director().key_config.erase(previous_virtual_key_name)
+				self.hub().key_config.erase(previous_virtual_key_name)
 			
 			self.clear_count()
 			return
@@ -344,22 +329,22 @@ func on_step_regular(
 		# 決定
 		self.set_key_accepted()
 		self.set_done_message_the_button(self.current_step)
-		self.get_director().key_config[virtual_key_name] = self.button_number
+		self.hub().key_config[virtual_key_name] = self.button_number
 
 		# レバーの下
 		if self.current_step == 4:
-			if 1000 <= self.get_director().key_config[&"VK_Down"]:
+			if 1000 <= self.hub().key_config[&"VK_Down"]:
 				# 軸を選択したなら、レバーの上の選択はスキップ
-				self.get_director().key_config[&"VK_Up"] = self.button_number
+				self.hub().key_config[&"VK_Up"] = self.button_number
 				self.set_done_message_the_button(self.current_step + 1)
 				self.current_step += 2
 			else:
 				self.current_step += 1
 		# レバーの右
 		elif self.current_step == 6:
-			if 1000 <= self.get_director().key_config[&"VK_Right"]:
+			if 1000 <= self.hub().key_config[&"VK_Right"]:
 				# 軸を選択したなら、レバーの左の選択はスキップ
-				self.get_director().key_config[&"VK_Left"] = self.button_number
+				self.hub().key_config[&"VK_Left"] = self.button_number
 				self.set_done_message_the_button(self.current_step + 1)
 				self.current_step += 2
 			else:
@@ -381,7 +366,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.current_step == 0:
-		self.get_bgm().get_node("🎵キーコンフィグ").play()
+		self.hub().get_bgm("🎵キーコンフィグ").play()
 		self.current_step += 1
 		self.clear_count()
 	
@@ -495,8 +480,8 @@ func get_button_name_by_number(button_number_1):
 
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
 func get_virtual_key_name_by_button_number(button_number_1):
-	for key in self.get_director().key_config.keys():
-		var value = self.get_director().key_config[key]
+	for key in self.hub().key_config.keys():
+		var value = self.hub().key_config[key]
 		if button_number_1 == value:
 			return key
 	return &""

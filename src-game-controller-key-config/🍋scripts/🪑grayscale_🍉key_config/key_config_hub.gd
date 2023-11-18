@@ -1,5 +1,4 @@
-# 🪑grayscale_🎬key_config
-#	ディレクター（Director）
+# キー・コンフィグ・ハブ（Key Config Hub；鍵構成の中心地）
 #
 #	細かな設定は何もできないので、ソースを直接カスタマイズしてください
 extends Node2D
@@ -16,22 +15,59 @@ var key_config = {
 }
 
 
-# 外側の監督取得
-func get_external_director():
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
+# 監督取得
+func get_director():
 	return $"../../Director"
 
 
-func get_external_message_windows():
-	return self.get_external_director().get_node("📂GuiArtist_MessageWindows")
+# BGM取得
+func get_bgm(node_name_str):
+	return self.get_director().get_node("📂Musician_BGM").get_node(node_name_str)
 
 
+# メッセージ・ウィンドウ取得
+func get_message_windows():
+	return self.get_director().get_node("📂GuiArtist_MessageWindows")
+
+
+# メッセージ・ウィンドウ取得
+func get_message_window(node_name_str):
+	return self.get_message_windows().get_node(node_name_str)
+
+
+# 効果音取得
+func get_se(node_name_str):
+	return self.get_director().get_node("📂Musician_SE").get_node(node_name_str)
+
+
+# テロップ取得
 func get_telop_coordinator_key_config():
-	return self.get_external_director().get_node("📂TelopCoordinator/Ｔキーコンフィグ")
+	return self.get_director().get_node("📂TelopCoordinator/Ｔキーコンフィグ")
+
+
+# テロップ取得
+func get_telop_of_key_config(node_name_str):
+	return self.get_director().get_node("📂TelopCoordinator/Ｔキーコンフィグ").get_node(node_name_str)
+
+
+# テキスト・ブロック取得
+func get_telop_coordinator_key_config_text_block():
+	return self.get_telop_coordinator_key_config().get_node("TextBlock")
 
 
 # 司会進行取得
 func get_moderator():
 	return $"Moderator"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # キー・コンフィグ画面を始めるタイミングで以下を呼出す
@@ -41,15 +77,15 @@ func entry():
 	# 表示
 	# ーーーーーーーー
 	self.get_telop_coordinator_key_config().show()
-	self.get_external_message_windows().show()
-	self.get_external_message_windows().get_node("■下").show()
-	self.get_external_message_windows().get_node("■上_大").show()
+	self.get_message_windows().show()
+	self.get_message_window("■下").show()
+	self.get_message_window("■上_大").show()
 
 	# ーーーーーーーー
 	# イベント
 	# ーーーーーーーー
 	# シーンの外側の１階層上の `Director` ノードへアクセス
-	self.get_external_director().on_key_config_entered()
+	self.get_director().on_key_config_entered()
 	
 	# ーーーーーーーー
 	# 状態遷移開始
@@ -59,7 +95,7 @@ func entry():
 
 func on_exit():
 	# シーンの外側の１階層上の `Director` ノードへアクセス
-	self.get_external_director().on_key_config_exited()
+	self.get_director().on_key_config_exited()
 
 
 func on_process(delta):

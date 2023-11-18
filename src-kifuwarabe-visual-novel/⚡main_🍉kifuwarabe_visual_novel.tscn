@@ -290,6 +290,7 @@ texture = ExtResource("66_vkf8y")
 script = ExtResource("63_c6um1")
 
 [node name="📂Illustrator" type="Node2D" parent="."]
+visible = false
 
 [node name="ーーーーウィンドウーーーー" type="Node" parent="📂Illustrator"]
 
@@ -1040,5 +1041,4 @@ script = ExtResource("58_bkeud")
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("60_qck1r")]
 visible = false
 
-[node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("103_n24cr")]
-visible = false
+[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("103_n24cr")]
