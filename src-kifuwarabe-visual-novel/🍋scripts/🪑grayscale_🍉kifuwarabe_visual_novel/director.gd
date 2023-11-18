@@ -32,35 +32,41 @@ var sleep_seconds = 0.0
 # ーーーーーーーー
 
 
-# 助監取得
-func get_assistant_director():
-	return $"📂Programmer"
-
-
-# プログラムズ・ハブ取得
-func get_programs_hub():
-	return self.get_assistant_director().get_node("🛩️ProgramsHub")
-
-
 func get_background_artist():
 	return $"📂BackgroundArtist"
+
+
+func get_grid():
+	return $"Grid"
 
 
 func get_illustrator():
 	return $"📂Illustrator"
 
 
+func get_key_config_hub():
+	return $"🛩️KeyConfigHub"
+
 func get_message_windows_node():
 	return $"📂GuiArtist_MessageWindows"
 
 
-func get_telop_coordinator():
-	return $"📂TelopCoordinator"
+# プログラムズ・ハブ取得
+func get_programs_hub():
+	return $"📂Programmer/🛩️ProgramsHub"
+
+
+func get_senario_writer():
+	return $"📂ScenarioWriter"
 
 
 # 部門切替取得
 func get_switch_department():
-	return $"📂ScenarioWriter/SwitchDepartment"
+	return self.get_senario_writer().get_node("SwitchDepartment")
+
+
+func get_telop_coordinator():
+	return $"📂TelopCoordinator"
 
 
 # ーーーーーーーー
@@ -108,7 +114,7 @@ func set_current_section(section_name):
 func get_all_department_names():
 	var array = []	# StringName の配列
 	
-	for department in $"📂ScenarioWriter".get_children():
+	for department in self.get_senario_writer().get_children():
 		# SwitchDepartment と System は除く
 		if department.name != "SwitchDepartment" and department.name != "System":
 			array.append(department.name)
@@ -149,7 +155,7 @@ func _ready():
 
 	# スナップショット辞書作成
 	for department_name in self.get_all_department_names():
-		var department_node = $"📂ScenarioWriter".get_node(str(department_name))
+		var department_node = self.get_senario_writer().get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "System":
 			self.snapshots[department_node.name] = DepartmentSnapshot.new()
 
@@ -166,7 +172,7 @@ func _ready():
 
 
 			# 文書辞書の先頭要素のキー取得
-			self.snapshots[department_node.name].section_name = $"📂ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
+			self.snapshots[department_node.name].section_name = self.get_senario_writer().get_node(str(department_node.name)).document.keys()[0]
 	
 	# ーーーーーーーー
 	# 非表示
@@ -175,7 +181,7 @@ func _ready():
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	
 	# グリッドは隠す
-	$"Grid".hide()
+	self.get_grid().hide()
 
 	# 背景画像は全部隠す
 	for sprite2d_node in self.get_background_artist().get_children():
@@ -194,7 +200,7 @@ func _ready():
 			sprite2d_node.hide()
 	
 	#	テロップはとにかく非表示にする
-	for canvas_layer in $"📂TelopCoordinator".get_children():
+	for canvas_layer in self.get_telop_coordinator().get_children():
 		if canvas_layer is CanvasLayer:
 			canvas_layer.hide()
 
@@ -226,11 +232,11 @@ func on_key_config_exited():
 func _process(delta):
 
 	if self.current_state == &"WaitForKeyConfig":
-		$"🛩️KeyConfigHub".entry()
+		self.get_key_config_hub().entry()
 		self.current_state = &"KeyConfig"
 
 	elif self.current_state == &"KeyConfig":
-		$"🛩️KeyConfigHub".on_process(delta)
+		self.get_key_config_hub().on_process(delta)
 
 	elif self.current_state == &"Ready":
 		self.current_state = &"Main"
@@ -247,7 +253,7 @@ func _process(delta):
 		snapshot.set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
-		$"./📂Programmer".play_section()
+		self.get_programs_hub().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
 		self.get_current_message_window_gui().set_appear_subtree(true)
@@ -321,7 +327,7 @@ func _unhandled_input(event):
 		pass
 
 	elif self.current_state == &"KeyConfig":
-		$"🛩️KeyConfigHub".on_unhandled_input(event)
+		self.get_key_config_hub().on_unhandled_input(event)
 
 	elif self.current_state == &"Main":
 
@@ -349,13 +355,13 @@ func _unhandled_input(event):
 		var event_as_text = event.as_text()
 		
 		# 文字列をボタン番号に変換
-		var button_number = $"🛩️KeyConfigHub".get_button_number_by_text(event_as_text)
+		var button_number = self.get_key_config_hub().get_button_number_by_text(event_as_text)
 		
 		# ボタン番号を、仮想キー名に変換
-		var virtual_key_name = $"🛩️KeyConfigHub".get_virtual_key_name_by_button_number(button_number)
+		var virtual_key_name = self.get_key_config_hub().get_virtual_key_name_by_button_number(button_number)
 
 		# レバー値
-		var lever_value = $"🛩️KeyConfigHub".get_lever_value_by_text(event_as_text)
+		var lever_value = self.get_key_config_hub().get_lever_value_by_text(event_as_text)
 
 		# 仮想キーを押下したという建付け
 		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
@@ -378,7 +384,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 			print("［監督］　アンハンドルド・キー押下　部門変更")
 
 			# TODO ここで stage_directions をト書きとして実行したいが、できるか？
-			self.get_assistant_director().parse_paragraph(stage_directions)
+			self.get_programs_hub().parse_paragraph(stage_directions)
 
 			# 子要素には渡しません
 			return

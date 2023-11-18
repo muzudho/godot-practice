@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=84 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/director.gd" id="1_20gix"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -75,7 +75,6 @@
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="79_le58y"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="80_vkv42"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://📂assistant_director_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="81_aev68"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director.gd" id="81_n08cu"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="103_n24cr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
@@ -418,7 +417,6 @@ stream = ExtResource("25_oxlb4")
 volume_db = -15.0
 
 [node name="📂Programmer" type="Node" parent="."]
-script = ExtResource("81_n08cu")
 
 [node name="🛩️ProgramsHub" type="Node" parent="📂Programmer"]
 script = ExtResource("53_nuht5")
