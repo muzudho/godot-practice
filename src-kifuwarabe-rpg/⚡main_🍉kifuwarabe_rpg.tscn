@@ -280,6 +280,38 @@ z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("67_g74iy")
 
+[node name="ーーーーモンスター全身ーーーー" type="Node" parent="📂Illustrator"]
+
+[node name="🐕ヘム将棋" type="Sprite2D" parent="📂Illustrator"]
+z_index = 10
+position = Vector2(463, 325)
+texture = ExtResource("73_ran2h")
+
+[node name="🐕レサぽん改" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+z_index = 10
+position = Vector2(737, 271)
+scale = Vector2(0.639706, 0.639706)
+texture = ExtResource("74_64hjs")
+
+[node name="🐕ケダック" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+z_index = 10
+position = Vector2(627, 319)
+texture = ExtResource("75_j1pgv")
+
+[node name="🐕きふわらべ" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+z_index = 10
+position = Vector2(1014, 273)
+scale = Vector2(0.625506, 0.625506)
+texture = ExtResource("76_3ghif")
+
+[node name="🐕昼ビール" type="Sprite2D" parent="📂Illustrator"]
+position = Vector2(735, 320)
+scale = Vector2(0.596059, 0.596059)
+texture = ExtResource("77_hfxpa")
+
 [node name="📂Musician_BGM" type="Node" parent="."]
 
 [node name="ーーーーきふわらべRPGーーーー" type="Node" parent="📂Musician_BGM"]
@@ -978,38 +1010,6 @@ visible = false
 position = Vector2(97.5, 66.525)
 scale = Vector2(0.221014, 0.197109)
 texture = ExtResource("72_seukb")
-
-[node name="WholeBody" type="Node2D" parent="MonsterTrainer"]
-
-[node name="🐕ヘム将棋" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-z_index = 10
-position = Vector2(463, 325)
-texture = ExtResource("73_ran2h")
-
-[node name="🐕レサぽん改" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-visible = false
-z_index = 10
-position = Vector2(737, 271)
-scale = Vector2(0.639706, 0.639706)
-texture = ExtResource("74_64hjs")
-
-[node name="🐕ケダック" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-visible = false
-z_index = 10
-position = Vector2(627, 319)
-texture = ExtResource("75_j1pgv")
-
-[node name="🐕きふわらべ" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-visible = false
-z_index = 10
-position = Vector2(1014, 273)
-scale = Vector2(0.625506, 0.625506)
-texture = ExtResource("76_3ghif")
-
-[node name="🐕昼ビール" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-position = Vector2(735, 320)
-scale = Vector2(0.596059, 0.596059)
-texture = ExtResource("77_hfxpa")
 
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("78_j4j65")

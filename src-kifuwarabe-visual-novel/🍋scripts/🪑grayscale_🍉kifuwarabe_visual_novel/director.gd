@@ -152,29 +152,12 @@ func _ready():
 
 			# 文書辞書の先頭要素のキー取得
 			self.snapshots[department_node.name].section_name = $"ScenarioWriter".get_node(str(department_node.name)).document.keys()[0]
-
-	# ーーーーーーーー
-	# 表示
-	# ーーーーーーーー
-	#
-	# 開発中にいじったものが残ってるかもしれないから、掃除
-	
-	# 	監督自身
-	self.show()
-	# 	背景アーティスト自身
-	self.get_background_artist().show()
-	#	テロップ表示
-	$"📂TelopCoordinator".show()
-	#	メッセージ・ウィンドウ自身
-	self.get_message_windows_node().show()
-	# モンスター・トレーナー
-	$"MonsterTrainer".show()
-	$"MonsterTrainer/Faces".show()
-	$"MonsterTrainer/WholeBody".show()
 	
 	# ーーーーーーーー
 	# 非表示
 	# ーーーーーーーー
+	#
+	# 開発中にいじったものが残ってるかもしれないから、掃除
 	
 	# グリッドは隠す
 	$"Grid".hide()
@@ -202,15 +185,24 @@ func _ready():
 	#	モンスターは、フォルダ―以外は　とにかく非表示にする
 	for monster in $"MonsterTrainer/Faces".get_children():
 		monster.hide()
-	for monster in $"MonsterTrainer/WholeBody".get_children():
-		monster.hide()
 
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
-
+	
+	# 	監督自身
+	self.show()
+	# 	背景アーティスト自身
+	self.get_background_artist().show()
+	#	メッセージ・ウィンドウ自身
+	self.get_message_windows_node().show()
+	# モンスター・トレーナー
+	$"MonsterTrainer".show()
+	$"MonsterTrainer/Faces".show()
+	# イラストレーター
+	self.get_illustrator().show()
 	# テロップ
-	$"📂TelopCoordinator".show()
+	self.get_telop_coordinator().show()
 
 
 func on_key_config_entered():

@@ -288,10 +288,6 @@ func parse_paragraph(paragraph_text):
 			elif second_head.begins_with("label:"):
 				self.get_instruction("Label").do_it(second_head)
 				
-			# モンスター表示
-			elif second_head.begins_with("monster:"):
-				self.get_instruction("Monster").do_it(second_head)
-
 			# モンスター顔表示
 			elif second_head.begins_with("monster_face:"):
 				self.get_instruction("MonsterFace").do_it(second_head)

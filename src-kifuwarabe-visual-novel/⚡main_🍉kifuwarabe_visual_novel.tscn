@@ -255,6 +255,7 @@ position = Vector2(640, 360)
 texture = ExtResource("43_7jh74")
 
 [node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
+visible = false
 script = ExtResource("61_o6s6c")
 
 [node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
@@ -304,6 +305,38 @@ texture = ExtResource("69_r34s8")
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("70_yopg3")
+
+[node name="ーーーーモンスター全身ーーーー" type="Node" parent="📂Illustrator"]
+
+[node name="🐕ヘム将棋" type="Sprite2D" parent="📂Illustrator"]
+z_index = 10
+position = Vector2(463, 325)
+texture = ExtResource("76_lqesr")
+
+[node name="🐕レサぽん改" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+z_index = 10
+position = Vector2(737, 271)
+scale = Vector2(0.639706, 0.639706)
+texture = ExtResource("77_qbv5q")
+
+[node name="🐕ケダック" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+z_index = 10
+position = Vector2(627, 319)
+texture = ExtResource("78_8nwg6")
+
+[node name="🐕きふわらべ" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+z_index = 10
+position = Vector2(1014, 273)
+scale = Vector2(0.625506, 0.625506)
+texture = ExtResource("79_le58y")
+
+[node name="🐕昼ビール" type="Sprite2D" parent="📂Illustrator"]
+position = Vector2(735, 320)
+scale = Vector2(0.596059, 0.596059)
+texture = ExtResource("80_vkv42")
 
 [node name="📂Musician_BGM" type="Node" parent="."]
 
@@ -387,10 +420,12 @@ stream = ExtResource("25_oxlb4")
 volume_db = -15.0
 
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
 
 [node name="きふわらべVN" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
@@ -971,7 +1006,6 @@ script = ExtResource("5_phbge")
 script = ExtResource("6_80h8b")
 
 [node name="MonsterTrainer" type="Node2D" parent="."]
-visible = false
 
 [node name="Faces" type="Node2D" parent="MonsterTrainer"]
 
@@ -1003,41 +1037,10 @@ position = Vector2(97.5, 66.525)
 scale = Vector2(0.221014, 0.197109)
 texture = ExtResource("75_p8utu")
 
-[node name="WholeBody" type="Node2D" parent="MonsterTrainer"]
-
-[node name="🐕ヘム将棋" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-z_index = 10
-position = Vector2(463, 325)
-texture = ExtResource("76_lqesr")
-
-[node name="🐕レサぽん改" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-visible = false
-z_index = 10
-position = Vector2(737, 271)
-scale = Vector2(0.639706, 0.639706)
-texture = ExtResource("77_qbv5q")
-
-[node name="🐕ケダック" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-visible = false
-z_index = 10
-position = Vector2(627, 319)
-texture = ExtResource("78_8nwg6")
-
-[node name="🐕きふわらべ" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-visible = false
-z_index = 10
-position = Vector2(1014, 273)
-scale = Vector2(0.625506, 0.625506)
-texture = ExtResource("79_le58y")
-
-[node name="🐕昼ビール" type="Sprite2D" parent="MonsterTrainer/WholeBody"]
-position = Vector2(735, 320)
-scale = Vector2(0.596059, 0.596059)
-texture = ExtResource("80_vkv42")
-
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("81_n08cu")
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="AssistantDirector" instance=ExtResource("81_aev68")]
 
 [node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("103_n24cr")]
+visible = false

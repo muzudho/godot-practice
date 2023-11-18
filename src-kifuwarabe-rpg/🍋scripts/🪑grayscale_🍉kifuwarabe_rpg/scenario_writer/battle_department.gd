@@ -146,7 +146,7 @@ var document = {
 		# モンスターの全身像もここで表示する
 		"""\
 		!
-		monster:		{{arg_monster_body}}
+		img:			{{arg_monster_body}}
 		bg:				🗻トランジション１コマ８
 		bg:				🗻トランジション１コマ４, hide
 		sleep:			0.10
@@ -421,7 +421,7 @@ var document = {
 		bg:				{{arg_bg_in}}			,hide
 		bg:				🗻戦闘シーン			,hide
 		monster_face:	😁きふわらべ			,hide
-		monster:		{{arg_monster_body}}	,hide
+		img:			{{arg_monster_body}}	,hide
 		monster_face:	{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン				,hide
 		#bg:				{{arg_bg_out}}

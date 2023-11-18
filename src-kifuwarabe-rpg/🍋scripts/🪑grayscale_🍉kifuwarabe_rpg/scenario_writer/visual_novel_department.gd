@@ -138,7 +138,7 @@ var document = {
 		telop:		Ｔ崎川駅周辺地図, hide
 		bg:			🗻崎川駅周辺地図,hide
 		bg:			🗻ツツジロード
-		monster:	🐕ヘム将棋
+		img:		🐕ヘム将棋
 		""",
 		"""\
 		きふわらべ
