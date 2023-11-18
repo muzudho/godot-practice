@@ -62,7 +62,7 @@ var document = {
 			self.get_director().stage_directions_variables["arg_title"] = "Ｔタイトル"
 			
 			# セクションの名前を指定して飛ぶ
-			self.get_assistant_director().get_node("Goto").goto("§はじまり２")
+			self.get_assistant_director().get_instruction("Goto").goto("§はじまり２")
 			
 			# 匿名関数の最後にカンマを書く
 			,
