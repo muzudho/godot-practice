@@ -59,7 +59,7 @@ func get_monster_faces():
 
 # 命令ノード取得
 func get_instruction(instruction_name):
-	return $"Instructions_🍉Kifuwarabe_VisualNovel".get_node(instruction_name)
+	return $"🍱Instructions_🍉KifuwarabeVisualNovel".get_node(instruction_name)
 
 
 # シナリオの現在セクション配列のサイズを返す

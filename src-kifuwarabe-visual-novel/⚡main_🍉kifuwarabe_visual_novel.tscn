@@ -1052,6 +1052,6 @@ texture = ExtResource("80_vkv42")
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("81_n08cu")
 
-[node name="Instructions_🍉Kifuwarabe_VisualNovel" parent="AssistantDirector" instance=ExtResource("81_aev68")]
+[node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="AssistantDirector" instance=ExtResource("81_aev68")]
 
 [node name="Director_🍉KeyConfig" parent="." instance=ExtResource("103_n24cr")]

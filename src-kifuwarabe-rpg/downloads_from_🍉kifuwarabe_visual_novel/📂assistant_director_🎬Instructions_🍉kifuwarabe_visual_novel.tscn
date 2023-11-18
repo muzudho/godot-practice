@@ -1,0 +1,80 @@
+[gd_scene load_steps=20 format=3 uid="uid://daqtppg5rtuat"]
+
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/bg.gd" id="1_ovabc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/bgm.gd" id="2_7quar"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/choice.gd" id="3_tnach"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/department.gd" id="4_fig6f"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/goto.gd" id="5_wo3jp"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/img.gd" id="6_esuoj"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/label.gd" id="7_dgwan"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/monster.gd" id="8_he43l"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/monster_face.gd" id="9_408cf"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/msg_speed.gd" id="10_pmlbh"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/m_wnd.gd" id="11_dsgca"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/normal_text.gd" id="12_10hl5"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/normal_text_choice.gd" id="13_sdr8r"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/quit.gd" id="14_atdde"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/se.gd" id="15_1e0mv"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/sleep.gd" id="16_mo7ab"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/telop.gd" id="17_ven1m"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/var.gd" id="18_7vnu0"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/assistant_director/v_wnd.gd" id="19_3k7to"]
+
+[node name="Instructions_🍉KifuwarabeVisualNovel" type="Node"]
+
+[node name="Bg" type="Node" parent="."]
+script = ExtResource("1_ovabc")
+
+[node name="Bgm" type="Node" parent="."]
+script = ExtResource("2_7quar")
+
+[node name="Choice" type="Node" parent="."]
+script = ExtResource("3_tnach")
+
+[node name="Department" type="Node" parent="."]
+script = ExtResource("4_fig6f")
+
+[node name="Goto" type="Node" parent="."]
+script = ExtResource("5_wo3jp")
+
+[node name="Img" type="Node" parent="."]
+script = ExtResource("6_esuoj")
+
+[node name="Label" type="Node" parent="."]
+script = ExtResource("7_dgwan")
+
+[node name="Monster" type="Node" parent="."]
+script = ExtResource("8_he43l")
+
+[node name="MonsterFace" type="Node" parent="."]
+script = ExtResource("9_408cf")
+
+[node name="MsgSpeed" type="Node" parent="."]
+script = ExtResource("10_pmlbh")
+
+[node name="MWnd" type="Node" parent="."]
+script = ExtResource("11_dsgca")
+
+[node name="NormalText" type="Node" parent="."]
+script = ExtResource("12_10hl5")
+
+[node name="NormalTextChoice" type="Node" parent="."]
+script = ExtResource("13_sdr8r")
+
+[node name="Quit" type="Node" parent="."]
+script = ExtResource("14_atdde")
+
+[node name="Se" type="Node" parent="."]
+script = ExtResource("15_1e0mv")
+
+[node name="Sleep" type="Node" parent="."]
+script = ExtResource("16_mo7ab")
+
+[node name="Telop" type="Node" parent="."]
+script = ExtResource("17_ven1m")
+
+[node name="Var" type="Node" parent="."]
+script = ExtResource("18_7vnu0")
+
+[node name="VWnd" type="Node" parent="."]
+script = ExtResource("19_3k7to")
