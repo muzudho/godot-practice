@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=85 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/director.gd" id="1_20gix"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -52,6 +52,7 @@
 [ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://🍋label_settings/🪑grayscale/large_font.tres" id="51_0owyy"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/main_medium.tres" id="52_od08l"]
 [ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/battle_light_red.tres" id="53_hoohi"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/program_hub.gd" id="53_nuht5"]
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="54_ssjv6"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="55_i44xo"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="56_u28uk"]
@@ -416,6 +417,9 @@ volume_db = -15.0
 
 [node name="📂Programmer" type="Node" parent="."]
 script = ExtResource("81_n08cu")
+
+[node name="🛩️ProgramHub" type="Node" parent="📂Programmer"]
+script = ExtResource("53_nuht5")
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="📂Programmer" instance=ExtResource("81_aev68")]
 
