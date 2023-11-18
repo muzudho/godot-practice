@@ -13,7 +13,7 @@ func get_assistant_director():
 
 
 func get_telop_coordinator():
-	return self.get_director().get_node("TelopCoordinator")
+	return self.get_director().get_node("📂TelopCoordinator")
 
 
 func get_scorer():
@@ -638,8 +638,8 @@ var document = {
 		""",
 		"""\
 		!
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２２９９９９９９９９９"
+		#label:		Director/📂TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/📂TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２２９９９９９９９９９"
 		""",
 		"""\
 		昼ビールに　１　のダメージを与えた
@@ -666,9 +666,9 @@ var document = {
 		""",
 		"""\
 		!
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４４００"
-		#label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００９９"
+		label:		Director/📂TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４４００"
+		#label:		Director/📂TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		Director/📂TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００９９"
 		""",
 		"""\
 		城の堅さが　１００　上がった

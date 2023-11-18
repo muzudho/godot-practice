@@ -11,7 +11,7 @@ func get_background_artist():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return $"TelopCoordinator"
+	return $"📂TelopCoordinator"
 
 
 # 背景職人取得

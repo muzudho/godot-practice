@@ -12,7 +12,7 @@ func get_assistant_director():
 
 
 func get_telop_coordinator():
-	return self.get_director().get_node("TelopCoordinator")
+	return self.get_director().get_node("📂TelopCoordinator")
 
 
 func get_scorer():

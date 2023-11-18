@@ -35,9 +35,9 @@ pitch_scale = 1.4
 
 [node name="📂Musician_SE" parent="." instance=ExtResource("4_xu1ys")]
 
-[node name="TelopCoordinator" type="CanvasLayer" parent="."]
+[node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 
-[node name="Ｔキーコンフィグ" parent="TelopCoordinator" instance=ExtResource("5_pl8ct")]
+[node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("5_pl8ct")]
 
 [node name="GuiArtist" type="Node2D" parent="."]
 

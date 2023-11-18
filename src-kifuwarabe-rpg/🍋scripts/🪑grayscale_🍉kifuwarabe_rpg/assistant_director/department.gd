@@ -19,7 +19,7 @@ func get_m_wnd():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return $"../../TelopCoordinator"
+	return $"../../📂TelopCoordinator"
 
 
 # スナップショット取得

@@ -336,37 +336,13 @@ volume_db = -15.0
 stream = ExtResource("25_oxlb4")
 volume_db = -15.0
 
-[node name="ScenarioWriter" type="Node" parent="."]
+[node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 
-[node name="System" type="Node" parent="ScenarioWriter"]
+[node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂TelopCoordinator"]
 
-[node name="Reader" type="Node" parent="ScenarioWriter/System"]
-script = ExtResource("3_yggbh")
+[node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
 
-[node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
-script = ExtResource("4_hvtfg")
-
-[node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("5_phbge")
-
-[node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
-script = ExtResource("6_80h8b")
-
-[node name="Illustrator" type="Node2D" parent="."]
-
-[node name="🎴中央ウィンドウ" type="Sprite2D" parent="Illustrator"]
-visible = false
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("68_4axfk")
-
-[node name="TelopCoordinator" type="CanvasLayer" parent="."]
-
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="TelopCoordinator"]
-
-[node name="Ｔタイトル" type="CanvasLayer" parent="TelopCoordinator"]
-
-[node name="きふわらべVN" type="Label" parent="TelopCoordinator/Ｔタイトル"]
+[node name="きふわらべVN" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -383,7 +359,7 @@ label_settings = ExtResource("44_q2mgx")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Visual Novel" type="Label" parent="TelopCoordinator/Ｔタイトル"]
+[node name="Visual Novel" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -400,7 +376,7 @@ label_settings = ExtResource("43_xk5pg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="シナリオ変更中です" type="Label" parent="TelopCoordinator/Ｔタイトル"]
+[node name="シナリオ変更中です" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -417,7 +393,7 @@ label_settings = ExtResource("43_xk5pg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Copyright" type="Label" parent="TelopCoordinator/Ｔタイトル"]
+[node name="Copyright" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -434,10 +410,10 @@ label_settings = ExtResource("45_5vowo")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ｔエンディング" type="CanvasLayer" parent="TelopCoordinator"]
+[node name="Ｔエンディング" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
 
-[node name="エンドロール" type="Label" parent="TelopCoordinator/Ｔエンディング"]
+[node name="エンドロール" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -465,7 +441,7 @@ text = "　　　　　　音楽　魔王魂
 label_settings = ExtResource("46_wk7d0")
 vertical_alignment = 1
 
-[node name="完" type="Label" parent="TelopCoordinator/Ｔエンディング"]
+[node name="完" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -482,10 +458,10 @@ label_settings = ExtResource("47_b6s0e")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ｔ崎川駅周辺地図" type="CanvasLayer" parent="TelopCoordinator"]
+[node name="Ｔ崎川駅周辺地図" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
 
-[node name="NR崎川駅" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="NR崎川駅" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -503,7 +479,7 @@ label_settings = SubResource("LabelSettings_f3kmi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="西口" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="西口" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -521,7 +497,7 @@ label_settings = SubResource("LabelSettings_ts82g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="東口" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="東口" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -539,7 +515,7 @@ label_settings = SubResource("LabelSettings_ts82g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="最強振興会館" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="最強振興会館" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -557,7 +533,7 @@ label_settings = SubResource("LabelSettings_ieh2b")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ゾラーナ崎川プラザ" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="ゾラーナ崎川プラザ" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -575,7 +551,7 @@ label_settings = SubResource("LabelSettings_ag644")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="リキッドスクエア" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="リキッドスクエア" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -593,7 +569,7 @@ label_settings = SubResource("LabelSettings_p32rn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="香急崎川駅" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="香急崎川駅" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -612,7 +588,7 @@ label_settings = SubResource("LabelSettings_ag644")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="バドバシメカラ" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="バドバシメカラ" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -631,7 +607,7 @@ label_settings = SubResource("LabelSettings_ag644")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="アトレ崎川" type="Label" parent="TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="アトレ崎川" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -650,10 +626,10 @@ label_settings = SubResource("LabelSettings_ag644")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ｔ戦闘シーン" type="CanvasLayer" parent="TelopCoordinator"]
+[node name="Ｔ戦闘シーン" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
 
-[node name="玉の遠さ" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="玉の遠さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 1089.0
 offset_top = -3.0
 offset_right = 1217.0
@@ -661,7 +637,7 @@ offset_bottom = 38.0
 text = "玉の遠さ"
 label_settings = ExtResource("50_7msds")
 
-[node name="玉の遠さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="玉の遠さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 130.0
 offset_top = 28.0
 offset_right = 1218.0
@@ -669,7 +645,7 @@ offset_bottom = 109.0
 text = "１２３４５６７８９０１２３４５６７"
 label_settings = ExtResource("51_0owyy")
 
-[node name="玉の遠さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="玉の遠さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 129.0
 offset_top = 91.0
 offset_right = 1215.0
@@ -677,7 +653,7 @@ offset_bottom = 172.0
 text = "　　　　　　　　　　　　　　　２０"
 label_settings = ExtResource("51_0owyy")
 
-[node name="後" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="後" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 32.0
 offset_top = 60.0
 offset_right = 64.0
@@ -685,7 +661,7 @@ offset_bottom = 108.0
 text = "後"
 label_settings = ExtResource("52_od08l")
 
-[node name="先" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="先" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 31.0
 offset_top = 124.0
 offset_right = 63.0
@@ -693,7 +669,7 @@ offset_bottom = 172.0
 text = "先"
 label_settings = ExtResource("52_od08l")
 
-[node name="城の堅さ" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="城の堅さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 287.0
 offset_top = -3.0
 offset_right = 415.0
@@ -701,7 +677,7 @@ offset_bottom = 38.0
 text = "城の堅さ"
 label_settings = ExtResource("50_7msds")
 
-[node name="城の堅さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="城の堅さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 291.0
 offset_top = 61.0
 offset_right = 419.0
@@ -709,7 +685,7 @@ offset_bottom = 109.0
 text = "０００４"
 label_settings = ExtResource("53_hoohi")
 
-[node name="城の堅さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="城の堅さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 290.0
 offset_top = 125.0
 offset_right = 418.0
@@ -717,7 +693,7 @@ offset_bottom = 173.0
 text = "　　　３"
 label_settings = ExtResource("53_hoohi")
 
-[node name="逃げ道の広さ" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="逃げ道の広さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 448.0
 offset_top = -3.0
 offset_right = 640.0
@@ -725,7 +701,7 @@ offset_bottom = 38.0
 text = "逃げ道の広さ"
 label_settings = ExtResource("50_7msds")
 
-[node name="逃げ道の広さ_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="逃げ道の広さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 480.0
 offset_top = 61.0
 offset_right = 608.0
@@ -733,7 +709,7 @@ offset_bottom = 109.0
 text = "００００"
 label_settings = ExtResource("54_ssjv6")
 
-[node name="逃げ道の広さ_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="逃げ道の広さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 481.0
 offset_top = 123.0
 offset_right = 609.0
@@ -741,7 +717,7 @@ offset_bottom = 171.0
 text = "　　　１"
 label_settings = ExtResource("54_ssjv6")
 
-[node name="駒の働き" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="駒の働き" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 672.0
 offset_top = -4.0
 offset_right = 800.0
@@ -749,7 +725,7 @@ offset_bottom = 37.0
 text = "駒の働き"
 label_settings = ExtResource("50_7msds")
 
-[node name="駒の働き_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="駒の働き_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 673.0
 offset_top = 59.0
 offset_right = 801.0
@@ -757,7 +733,7 @@ offset_bottom = 107.0
 text = "０００１"
 label_settings = ExtResource("55_i44xo")
 
-[node name="駒の働き_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="駒の働き_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 672.0
 offset_top = 123.0
 offset_right = 800.0
@@ -765,7 +741,7 @@ offset_bottom = 171.0
 text = "　　　０"
 label_settings = ExtResource("55_i44xo")
 
-[node name="攻めの速度" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="攻めの速度" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 832.0
 offset_top = -4.0
 offset_right = 992.0
@@ -773,7 +749,7 @@ offset_bottom = 37.0
 text = "攻めの速度"
 label_settings = ExtResource("50_7msds")
 
-[node name="攻めの速度_上" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="攻めの速度_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 864.0
 offset_top = 61.0
 offset_right = 992.0
@@ -781,7 +757,7 @@ offset_bottom = 109.0
 text = "０００２"
 label_settings = ExtResource("56_u28uk")
 
-[node name="攻めの速度_下" type="Label" parent="TelopCoordinator/Ｔ戦闘シーン"]
+[node name="攻めの速度_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 865.0
 offset_top = 123.0
 offset_right = 993.0
@@ -789,10 +765,10 @@ offset_bottom = 171.0
 text = "　　　１"
 label_settings = ExtResource("56_u28uk")
 
-[node name="MessageWindow_■下" type="CanvasLayer" parent="TelopCoordinator"]
+[node name="MessageWindow_■下" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
 
-[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■下"]
+[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■下"]
 offset_left = 319.0
 offset_top = 507.0
 offset_right = 1013.0
@@ -803,7 +779,7 @@ text = "表示テストだあいうえかきくけさしすせたち
 label_settings = ExtResource("52_od08l")
 script = ExtResource("57_2v0uw")
 
-[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 layout_mode = 0
 offset_left = 643.0
 offset_top = 90.0
@@ -813,7 +789,7 @@ text = "▼"
 label_settings = ExtResource("52_od08l")
 script = ExtResource("58_bkeud")
 
-[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 layout_mode = 0
 offset_left = 641.0
 offset_top = 98.0
@@ -823,7 +799,7 @@ text = "＿"
 label_settings = ExtResource("52_od08l")
 script = ExtResource("58_bkeud")
 
-[node name="ChoicesCursor" type="Label" parent="TelopCoordinator/MessageWindow_■下/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -833,10 +809,10 @@ text = "▶"
 label_settings = SubResource("LabelSettings_vfubr")
 script = ExtResource("58_bkeud")
 
-[node name="MessageWindow_■中央" type="CanvasLayer" parent="TelopCoordinator"]
+[node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
 
-[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■中央"]
+[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央"]
 offset_left = 510.0
 offset_top = 237.0
 offset_right = 824.0
@@ -848,7 +824,7 @@ text = "表示テストいうえ
 label_settings = ExtResource("52_od08l")
 script = ExtResource("57_2v0uw")
 
-[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 154.0
@@ -858,7 +834,7 @@ text = "▼"
 label_settings = ExtResource("52_od08l")
 script = ExtResource("58_bkeud")
 
-[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 228.0
 offset_top = 157.0
@@ -868,7 +844,7 @@ text = "＿"
 label_settings = ExtResource("52_od08l")
 script = ExtResource("58_bkeud")
 
-[node name="ChoicesCursor" type="Label" parent="TelopCoordinator/MessageWindow_■中央/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -878,10 +854,10 @@ text = "▶"
 label_settings = SubResource("LabelSettings_vfubr")
 script = ExtResource("58_bkeud")
 
-[node name="MessageWindow_■左下" type="CanvasLayer" parent="TelopCoordinator"]
+[node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
 
-[node name="TextBlock" type="Label" parent="TelopCoordinator/MessageWindow_■左下"]
+[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下"]
 offset_left = 32.0
 offset_top = 508.0
 offset_right = 726.0
@@ -893,7 +869,7 @@ text = "表示テストだ
 label_settings = ExtResource("52_od08l")
 script = ExtResource("57_2v0uw")
 
-[node name="BlinkerTriangle" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 163.0
 offset_top = 140.0
@@ -903,7 +879,7 @@ text = "▼"
 label_settings = ExtResource("52_od08l")
 script = ExtResource("58_bkeud")
 
-[node name="BlinkerUnderscore" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 147.0
@@ -913,7 +889,7 @@ text = "＿"
 label_settings = ExtResource("52_od08l")
 script = ExtResource("58_bkeud")
 
-[node name="ChoicesCursor" type="Label" parent="TelopCoordinator/MessageWindow_■左下/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -923,10 +899,34 @@ text = "▶"
 label_settings = SubResource("LabelSettings_vfubr")
 script = ExtResource("58_bkeud")
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="TelopCoordinator"]
+[node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 
-[node name="Ｔキーコンフィグ" parent="TelopCoordinator" instance=ExtResource("60_qck1r")]
+[node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("60_qck1r")]
 visible = false
+
+[node name="ScenarioWriter" type="Node" parent="."]
+
+[node name="System" type="Node" parent="ScenarioWriter"]
+
+[node name="Reader" type="Node" parent="ScenarioWriter/System"]
+script = ExtResource("3_yggbh")
+
+[node name="SwitchDepartment" type="Node" parent="ScenarioWriter"]
+script = ExtResource("4_hvtfg")
+
+[node name="📗ビジュアルノベル部門" type="Node" parent="ScenarioWriter"]
+script = ExtResource("5_phbge")
+
+[node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
+script = ExtResource("6_80h8b")
+
+[node name="Illustrator" type="Node2D" parent="."]
+
+[node name="🎴中央ウィンドウ" type="Sprite2D" parent="Illustrator"]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("68_4axfk")
 
 [node name="GuiArtist" type="Node2D" parent="."]
 

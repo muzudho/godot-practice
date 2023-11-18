@@ -31,7 +31,7 @@ func get_director():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator_key_config():
-	return self.get_external_director().get_node("TelopCoordinator/Ｔキーコンフィグ")
+	return self.get_external_director().get_node("📂TelopCoordinator/Ｔキーコンフィグ")
 
 
 # BGM取得

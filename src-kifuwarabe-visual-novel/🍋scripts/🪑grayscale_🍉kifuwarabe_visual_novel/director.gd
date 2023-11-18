@@ -45,7 +45,7 @@ func get_message_windows_node():
 
 
 func get_telop_coordinator():
-	return $"TelopCoordinator"
+	return $"📂TelopCoordinator"
 
 
 # 部門切替取得
@@ -166,7 +166,7 @@ func _ready():
 	# 	ＧＵＩアーティスト自身
 	self.get_gui_artist().show()
 	#	テロップ表示
-	$"TelopCoordinator".show()
+	$"📂TelopCoordinator".show()
 	#	メッセージ・ウィンドウ自身
 	self.get_gui_artist().get_node("MessageWindows").show()
 	# モンスター・トレーナー
@@ -197,7 +197,7 @@ func _ready():
 	self.get_gui_artist().get_node("ViewingWindows/System/🎴Frame").hide()
 	#
 	#	テロップはとにかく非表示にする
-	for canvas_layer in $"TelopCoordinator".get_children():
+	for canvas_layer in $"📂TelopCoordinator".get_children():
 		if canvas_layer is CanvasLayer:
 			canvas_layer.hide()
 	#
@@ -212,7 +212,7 @@ func _ready():
 	# ーーーーーーーー
 
 	# テロップ
-	$"TelopCoordinator".show()
+	$"📂TelopCoordinator".show()
 
 
 func on_key_config_entered():

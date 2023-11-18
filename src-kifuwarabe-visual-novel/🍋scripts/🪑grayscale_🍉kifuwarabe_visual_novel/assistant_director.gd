@@ -39,7 +39,7 @@ func get_illustrator():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return self.get_director().get_node("TelopCoordinator")
+	return self.get_director().get_node("📂TelopCoordinator")
 
 
 # ビューイング・ウィンドウ取得

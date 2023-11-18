@@ -30,7 +30,7 @@ func get_external_message_windows():
 
 
 func get_telop_coordinator_key_config():
-	return self.get_external_director().get_node("TelopCoordinator/Ｔキーコンフィグ")
+	return self.get_external_director().get_node("📂TelopCoordinator/Ｔキーコンフィグ")
 
 
 # 司会進行取得

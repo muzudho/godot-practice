@@ -15,7 +15,7 @@ func get_assistant_director():
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return self.get_director().get_node("TelopCoordinator")
+	return self.get_director().get_node("📂TelopCoordinator")
 
 
 # スナップショット取得
