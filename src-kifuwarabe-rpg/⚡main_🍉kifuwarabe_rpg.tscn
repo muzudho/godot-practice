@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=77 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -69,6 +69,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="71_vwn1b"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="72_k7xhv"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="72_seukb"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer.gd" id="72_v7dgx"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="73_ran2h"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="74_64hjs"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="75_j1pgv"]
@@ -897,6 +898,7 @@ script = ExtResource("70_epi57")
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("69_uwkhx")]
 
 [node name="Scorer" type="Node" parent="."]
+script = ExtResource("72_v7dgx")
 
 [node name="GameSheetForBattle" type="Node" parent="Scorer"]
 script = ExtResource("70_mcty4")

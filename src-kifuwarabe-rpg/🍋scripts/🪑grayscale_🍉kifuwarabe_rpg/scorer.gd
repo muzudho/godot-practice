@@ -2,12 +2,22 @@
 extends Node
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
 func get_game_sheet_for_battle():
 	return $"GameSheetForBattle"
 
 
 func get_monster_data():
 	return $"MonsterData"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # モンスター名を指定すると、モンスターＩｄを返す。該当がなければ 0 を返す
