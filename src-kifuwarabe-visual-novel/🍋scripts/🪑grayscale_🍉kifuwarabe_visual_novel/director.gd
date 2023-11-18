@@ -29,7 +29,7 @@ var sleep_seconds = 0.0
 
 # 助監取得
 func get_assistant_director():
-	return $"AssistantDirector"
+	return $"📂AssistantDirector"
 
 
 func get_background_artist():
@@ -231,7 +231,7 @@ func _process(delta):
 		snapshot.set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
-		$"./AssistantDirector".play_section()
+		$"./📂AssistantDirector".play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
 		self.get_current_message_window_gui().set_appear_subtree(true)

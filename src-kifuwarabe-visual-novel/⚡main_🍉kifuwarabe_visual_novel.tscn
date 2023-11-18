@@ -150,6 +150,11 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
+[node name="📂AssistantDirector" type="Node" parent="."]
+script = ExtResource("81_n08cu")
+
+[node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="📂AssistantDirector" instance=ExtResource("81_aev68")]
+
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
 visible = false
 
@@ -1034,11 +1039,6 @@ script = ExtResource("58_bkeud")
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("60_qck1r")]
 visible = false
-
-[node name="AssistantDirector" type="Node" parent="."]
-script = ExtResource("81_n08cu")
-
-[node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="AssistantDirector" instance=ExtResource("81_aev68")]
 
 [node name="🛩️KeyConfigDirector" parent="." instance=ExtResource("103_n24cr")]
 visible = false
