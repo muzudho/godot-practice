@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🍋audio_se/🪑maou_audio/maou_se_sound19.ogg" id="19_myb2y"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_switch02.ogg" id="20_nrumj"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_se/🪑maou_audio/maou_se_magic_fire11.ogg" id="21_dmsb3"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_🍱message_windows/message_windows_hub.gd" id="21_pgho6"]
 [ext_resource type="AudioStream" uid="uid://e0olmiofgu0i" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_door02.ogg" id="22_4mqug"]
 [ext_resource type="AudioStream" uid="uid://ca1bd4eif8lxj" path="res://🍋audio_se/🪑maou_audio/maou_se_system12.ogg" id="23_n7qgt"]
 [ext_resource type="AudioStream" uid="uid://spjfguf4xfp" path="res://🍋audio_se/🪑maou_audio/maou_se_onepoint32.ogg" id="24_wis4x"]
@@ -56,13 +57,12 @@
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="54_ssjv6"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="55_i44xo"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="56_u28uk"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/text_block.gd" id="57_2v0uw"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/end_of_message_blinker.gd" id="58_bkeud"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_🍱message_windows/text_block.gd" id="57_2v0uw"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_🍱message_windows/end_of_message_blinker.gd" id="58_bkeud"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="60_qck1r"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/its_hub.gd" id="61_o6s6c"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉message_window/its_concrete.gd" id="63_c6um1"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_🍱message_windows/its_concrete.gd" id="63_c6um1"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="65_6texa"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="66_vkf8y"]
@@ -249,7 +249,9 @@ position = Vector2(640, 360)
 texture = ExtResource("43_7jh74")
 
 [node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
-script = ExtResource("61_o6s6c")
+
+[node name="🛩️MessageWindowsHub" type="Node" parent="📂GuiArtist_MessageWindows"]
+script = ExtResource("21_pgho6")
 
 [node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
@@ -418,7 +420,7 @@ volume_db = -15.0
 [node name="📂Programmer" type="Node" parent="."]
 script = ExtResource("81_n08cu")
 
-[node name="🛩️ProgramHub" type="Node" parent="📂Programmer"]
+[node name="🛩️ProgramsHub" type="Node" parent="📂Programmer"]
 script = ExtResource("53_nuht5")
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="📂Programmer" instance=ExtResource("81_aev68")]

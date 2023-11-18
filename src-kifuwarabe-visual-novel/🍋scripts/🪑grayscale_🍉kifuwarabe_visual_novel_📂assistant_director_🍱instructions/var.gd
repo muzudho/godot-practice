@@ -9,7 +9,7 @@ extends Node
 
 # ハブ取得
 func hub():
-	return $"../../🛩️ProgramHub"
+	return $"../../🛩️ProgramsHub"
 
 
 # ーーーーーーーー

@@ -59,7 +59,7 @@ func get_monster_faces():
 
 # プログラム・ハブ取得
 func get_program_hub():
-	return $"🛩️ProgramHub"
+	return $"🛩️ProgramsHub"
 
 
 # 命令ノード取得

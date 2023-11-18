@@ -9,7 +9,7 @@ extends Node
 
 # ハブ取得
 func hub():
-	return $"../../🛩️ProgramHub"
+	return $"../../🛩️ProgramsHub"
 
 
 func get_root_relative_path_str():

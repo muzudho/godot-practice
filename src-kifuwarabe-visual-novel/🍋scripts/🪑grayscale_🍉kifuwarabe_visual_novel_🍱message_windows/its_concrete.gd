@@ -3,6 +3,11 @@
 extends AbstractMessageWindow
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
 # メッセージ・ウィンドウの軸取得
-func get_hub():
-	return $"../../📂GuiArtist_MessageWindows"
+func hub():
+	return $"../🛩️MessageWindowsHub"

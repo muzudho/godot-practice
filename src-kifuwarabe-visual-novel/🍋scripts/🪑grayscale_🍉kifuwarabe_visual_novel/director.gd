@@ -170,7 +170,8 @@ func _ready():
 	#
 	#	伝言窓はとにかく隠す
 	for message_window in self.get_message_windows_node().get_children():
-		message_window.hide()
+		if message_window is Sprite2D:
+			message_window.hide()
 	
 	# イラストレーターはとにかく隠す
 	for sprite2d_node in self.get_illustrator().get_children():
