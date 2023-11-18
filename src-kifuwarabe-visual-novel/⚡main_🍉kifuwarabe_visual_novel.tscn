@@ -150,11 +150,6 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
-[node name="📂AssistantDirector" type="Node" parent="."]
-script = ExtResource("81_n08cu")
-
-[node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="📂AssistantDirector" instance=ExtResource("81_aev68")]
-
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
 visible = false
 
@@ -454,6 +449,11 @@ volume_db = -15.0
 [node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="📂Musician_SE"]
 stream = ExtResource("25_oxlb4")
 volume_db = -15.0
+
+[node name="📂Programmer" type="Node" parent="."]
+script = ExtResource("81_n08cu")
+
+[node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="📂Programmer" instance=ExtResource("81_aev68")]
 
 [node name="📂ScenarioWriter" type="Node" parent="."]
 

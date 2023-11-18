@@ -14,7 +14,7 @@ func get_director():
 
 # 助監取得
 func get_assistant_director():
-	return self.get_director().get_node("📂AssistantDirector")
+	return self.get_director().get_node("📂Programmer")
 
 
 # キャンバス・レイヤー取得

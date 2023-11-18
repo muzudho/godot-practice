@@ -9,7 +9,7 @@ func get_director():
 
 
 func get_assistant_director():
-	return $"../../../Director/📂AssistantDirector"
+	return $"../../../Director/📂Programmer"
 
 
 #	選択肢と移動先

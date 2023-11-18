@@ -9,7 +9,7 @@ func get_director():
 
 
 func get_assistant_director():
-	return self.get_director().get_node("📂AssistantDirector")
+	return self.get_director().get_node("📂Programmer")
 
 
 func get_telop_coordinator():

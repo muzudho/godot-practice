@@ -13,7 +13,7 @@ extends Node
 
 # 助監
 func get_assistant_director():
-	return $"../../../📂AssistantDirector"
+	return $"../../../📂Programmer"
 
 
 # ーーーーーーーー
