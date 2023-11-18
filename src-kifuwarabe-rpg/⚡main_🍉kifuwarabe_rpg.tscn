@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=73 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -42,7 +42,7 @@
 [ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="45_k6jkg"]
 [ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="46_ooq6c"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="57_vx8va"]
-[ext_resource type="PackedScene" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="58_sadl4"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="58_sadl4"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/reader.gd" id="59_02v4r"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="60_f7oqn"]
@@ -60,8 +60,11 @@
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="67_g74iy"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="69_u1h4l"]
+[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="69_uwkhx"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="71_vwn1b"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="72_seukb"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="73_ran2h"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="74_64hjs"]
@@ -518,8 +521,6 @@ text = "ＮＲ 崎川駅"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-
-
 [node name="西口" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -536,8 +537,6 @@ rotation = -0.00380094
 text = "西 口"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-
 
 [node name="東口" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
@@ -556,7 +555,6 @@ text = "東 口"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-
 [node name="最強振興会館" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -573,8 +571,6 @@ rotation = 0.0134654
 text = "最強振興会館"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-
 
 [node name="ゾラーナ崎川プラザ" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
@@ -593,7 +589,6 @@ text = "ゾラーナ崎川プラザ"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-
 [node name="リキッドスクエア" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -610,9 +605,6 @@ rotation = 0.0246742
 text = "リキッドスクエア"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-
-
 
 [node name="香急崎川駅" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 visible = false
@@ -632,9 +624,6 @@ text = "香急崎川駅"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-
-
-
 [node name="バドバシメカラ" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
@@ -653,9 +642,6 @@ text = "バドバシメカラ"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-
-
-
 [node name="Ｔ戦闘シーン" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
 
@@ -665,21 +651,6 @@ offset_top = -3.0
 offset_right = 1217.0
 offset_bottom = 38.0
 text = "玉の遠さ"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 [node name="玉の遠さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 130.0
@@ -793,3 +764,124 @@ offset_right = 993.0
 offset_bottom = 171.0
 text = "　　　１"
 
+[node name="MessageWindow_■下" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
+
+[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■下"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1013.0
+offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+
+[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 675.0
+offset_bottom = 135.0
+text = "▼"
+
+[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 641.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 143.0
+text = "＿"
+
+[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+
+[node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
+
+[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央"]
+offset_left = 510.0
+offset_top = 237.0
+offset_right = 824.0
+offset_bottom = 483.0
+text = "表示テストいうえ
+かきくけさしすせ
+たちつてなにぬね
+はひふへまみむ　　"
+
+[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 154.0
+offset_right = 262.0
+offset_bottom = 199.0
+text = "▼"
+
+[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 202.0
+text = "＿"
+
+[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+
+[node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
+
+[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下"]
+offset_left = 32.0
+offset_top = 508.0
+offset_right = 726.0
+offset_bottom = 700.0
+text = "表示テストだ
+あいうえおか
+きくけこさし
+すせたちつて"
+
+[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 140.0
+offset_right = 195.0
+offset_bottom = 185.0
+text = "▼"
+
+[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 147.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "＿"
+
+[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+
+[node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
+
+[node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("69_uwkhx")]
+
+[node name="Scorer" type="Node" parent="."]
+
+[node name="GameSheetForBattle" type="Node" parent="Scorer"]
+script = ExtResource("70_mcty4")
+
+[node name="MonsterData" type="Node" parent="Scorer"]
+script = ExtResource("71_vwn1b")

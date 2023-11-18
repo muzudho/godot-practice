@@ -1166,6 +1166,18 @@ script = ExtResource("56_sxmbq")
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("58_02ahj")]
