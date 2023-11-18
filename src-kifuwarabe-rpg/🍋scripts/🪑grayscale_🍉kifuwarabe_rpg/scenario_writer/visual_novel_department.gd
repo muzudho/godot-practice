@@ -4,12 +4,23 @@
 extends Node
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
 func get_director():
 	return $"../../../Director"
 
 
-func get_assistant_director():
-	return $"../../../Director/📂Programmer"
+# プログラムズ・ハブ取得
+func get_programs_hub():
+	return self.get_director().get_node("📂Programmer/🛩️ProgramsHub")
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 #	選択肢と移動先
@@ -62,7 +73,7 @@ var document = {
 			self.get_director().stage_directions_variables["arg_title"] = "Ｔタイトル"
 			
 			# セクションの名前を指定して飛ぶ
-			self.get_assistant_director().get_instruction("Goto").goto("§はじまり２")
+			self.get_programs_hub().get_instruction("Goto").goto("§はじまり２")
 			
 			# 匿名関数の最後にカンマを書く
 			,

@@ -47,11 +47,11 @@
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="60_f7oqn"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/visual_novel_department.gd" id="61_bwjt1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/message_windows_hub.gd" id="61_cfuy1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/its_concrete.gd" id="61_tvkup"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/visual_novel_department.gd" id="61_vvkri"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_department.gd" id="62_rwa4y"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_department.gd" id="62_wsnaq"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_department.gd" id="63_rlfae"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_accessor.gd" id="64_cxfyy"]
@@ -408,10 +408,10 @@ script = ExtResource("59_02v4r")
 script = ExtResource("60_f7oqn")
 
 [node name="📗ビジュアルノベル部門" type="Node" parent="📂ScenarioWriter"]
-script = ExtResource("61_bwjt1")
+script = ExtResource("61_vvkri")
 
 [node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
-script = ExtResource("62_rwa4y")
+script = ExtResource("62_wsnaq")
 
 [node name="📗バトル部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("63_rlfae")
