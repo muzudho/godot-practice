@@ -183,10 +183,6 @@ func _ready():
 	for canvas_layer in $"📂TelopCoordinator".get_children():
 		if canvas_layer is CanvasLayer:
 			canvas_layer.hide()
-	#
-	#	モンスターは、フォルダ―以外は　とにかく非表示にする
-	for monster in $"MonsterTrainer/Faces".get_children():
-		monster.hide()
 
 	# ーーーーーーーー
 	# 表示
@@ -198,9 +194,6 @@ func _ready():
 	self.get_background_artist().show()
 	#	メッセージ・ウィンドウ・ハブ自身
 	self.get_message_windows_node().show()
-	# モンスター・トレーナー
-	$"MonsterTrainer".show()
-	$"MonsterTrainer/Faces".show()
 	# イラストレーター
 	self.get_illustrator().show()
 	# テロップ

@@ -287,11 +287,7 @@ func parse_paragraph(paragraph_text):
 			# ラベル設定
 			elif second_head.begins_with("label:"):
 				self.get_instruction("Label").do_it(second_head)
-				
-			# モンスター顔表示
-			elif second_head.begins_with("monster_face:"):
-				self.get_instruction("MonsterFace").do_it(second_head)
-
+			
 			# メッセージ・スピード変更
 			elif second_head.begins_with("msg_speed:"):
 				self.get_instruction("MsgSpeed").do_it(second_head)

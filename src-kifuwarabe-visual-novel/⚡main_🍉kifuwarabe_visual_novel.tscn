@@ -338,6 +338,36 @@ position = Vector2(735, 320)
 scale = Vector2(0.596059, 0.596059)
 texture = ExtResource("80_vkv42")
 
+[node name="ーーーーモンスター顔ーーーー" type="Node" parent="📂Illustrator"]
+
+[node name="😁ヘム将棋" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+position = Vector2(97, 70)
+scale = Vector2(0.266871, 0.266871)
+texture = ExtResource("71_tcmb3")
+
+[node name="😁レサぽん改" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+position = Vector2(94.5, 64.9293)
+scale = Vector2(0.191919, 0.191919)
+texture = ExtResource("72_1winv")
+
+[node name="😁ケダック" type="Sprite2D" parent="📂Illustrator"]
+position = Vector2(96.4521, 67.25)
+scale = Vector2(0.80137, 0.80137)
+texture = ExtResource("73_dlero")
+
+[node name="😁きふわらべ" type="Sprite2D" parent="📂Illustrator"]
+position = Vector2(97, 129)
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("74_pt2f3")
+
+[node name="😁昼ビール" type="Sprite2D" parent="📂Illustrator"]
+visible = false
+position = Vector2(97.5, 66.525)
+scale = Vector2(0.221014, 0.197109)
+texture = ExtResource("75_p8utu")
+
 [node name="📂Musician_BGM" type="Node" parent="."]
 
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂Musician_BGM"]
@@ -1004,38 +1034,6 @@ script = ExtResource("5_phbge")
 
 [node name="📗システムメニュー部門" type="Node" parent="ScenarioWriter"]
 script = ExtResource("6_80h8b")
-
-[node name="MonsterTrainer" type="Node2D" parent="."]
-
-[node name="Faces" type="Node2D" parent="MonsterTrainer"]
-
-[node name="😁ヘム将棋" type="Sprite2D" parent="MonsterTrainer/Faces"]
-visible = false
-position = Vector2(97, 70)
-scale = Vector2(0.266871, 0.266871)
-texture = ExtResource("71_tcmb3")
-
-[node name="😁レサぽん改" type="Sprite2D" parent="MonsterTrainer/Faces"]
-visible = false
-position = Vector2(94.5, 64.9293)
-scale = Vector2(0.191919, 0.191919)
-texture = ExtResource("72_1winv")
-
-[node name="😁ケダック" type="Sprite2D" parent="MonsterTrainer/Faces"]
-position = Vector2(96.4521, 67.25)
-scale = Vector2(0.80137, 0.80137)
-texture = ExtResource("73_dlero")
-
-[node name="😁きふわらべ" type="Sprite2D" parent="MonsterTrainer/Faces"]
-position = Vector2(97, 129)
-scale = Vector2(0.1875, 0.1875)
-texture = ExtResource("74_pt2f3")
-
-[node name="😁昼ビール" type="Sprite2D" parent="MonsterTrainer/Faces"]
-visible = false
-position = Vector2(97.5, 66.525)
-scale = Vector2(0.221014, 0.197109)
-texture = ExtResource("75_p8utu")
 
 [node name="AssistantDirector" type="Node" parent="."]
 script = ExtResource("81_n08cu")

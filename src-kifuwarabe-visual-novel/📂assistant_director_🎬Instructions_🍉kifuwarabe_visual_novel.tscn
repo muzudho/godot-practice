@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://daqtppg5rtuat"]
+[gd_scene load_steps=17 format=3 uid="uid://daqtppg5rtuat"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/bg.gd" id="1_apk48"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/bgm.gd" id="2_8rxre"]
@@ -7,7 +7,6 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/goto.gd" id="5_4yslb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/img.gd" id="6_7rgqg"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/label.gd" id="7_ha6r5"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/monster_face.gd" id="9_6e32e"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/msg_speed.gd" id="10_yhqp7"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/m_wnd.gd" id="11_qlhm3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel_📂assistant_director_🍱instructions/normal_text.gd" id="12_unlhg"]
@@ -40,9 +39,6 @@ script = ExtResource("6_7rgqg")
 
 [node name="Label" type="Node" parent="."]
 script = ExtResource("7_ha6r5")
-
-[node name="MonsterFace" type="Node" parent="."]
-script = ExtResource("9_6e32e")
 
 [node name="MsgSpeed" type="Node" parent="."]
 script = ExtResource("10_yhqp7")

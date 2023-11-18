@@ -214,8 +214,8 @@ var document = {
 		!
 		se:
 		telop:			Ｔ戦闘シーン
-		monster_face:	😁きふわらべ
-		monster_face:	{{arg_monster_face}}
+		img:			😁きふわらべ
+		img:			{{arg_monster_face}}
 		goto:			§定刻
 		""",
 	],
@@ -420,9 +420,9 @@ var document = {
 		!
 		bg:				{{arg_bg_in}}			,hide
 		bg:				🗻戦闘シーン			,hide
-		monster_face:	😁きふわらべ			,hide
+		img:			😁きふわらべ			,hide
 		img:			{{arg_monster_body}}	,hide
-		monster_face:	{{arg_monster_face}}	,hide
+		img:			{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン				,hide
 		#bg:				{{arg_bg_out}}
 
