@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=76 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -59,8 +59,10 @@
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="66_5k2cc"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="67_g74iy"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/text_block.gd" id="69_g27j5"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="69_u1h4l"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="69_uwkhx"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/end_of_message_blinker.gd" id="70_epi57"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
@@ -189,6 +191,9 @@ texture = ExtResource("42_qrihd")
 
 [node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
 visible = false
+script = ExtResource("61_cfuy1")
+
+[node name="🛩️MessageWindowsHub" type="Node" parent="📂GuiArtist_MessageWindows"]
 script = ExtResource("61_cfuy1")
 
 [node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
@@ -776,6 +781,7 @@ offset_bottom = 663.0
 text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 layout_mode = 0
@@ -784,6 +790,7 @@ offset_top = 90.0
 offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
+script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 layout_mode = 0
@@ -792,6 +799,7 @@ offset_top = 98.0
 offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
+script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 layout_mode = 0
@@ -800,6 +808,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
+script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
@@ -813,6 +822,7 @@ text = "表示テストいうえ
 かきくけさしすせ
 たちつてなにぬね
 はひふへまみむ　　"
+script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
@@ -821,6 +831,7 @@ offset_top = 154.0
 offset_right = 262.0
 offset_bottom = 199.0
 text = "▼"
+script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
@@ -829,6 +840,7 @@ offset_top = 157.0
 offset_right = 260.0
 offset_bottom = 202.0
 text = "＿"
+script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
@@ -837,6 +849,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
+script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
@@ -850,6 +863,7 @@ text = "表示テストだ
 あいうえおか
 きくけこさし
 すせたちつて"
+script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
@@ -858,6 +872,7 @@ offset_top = 140.0
 offset_right = 195.0
 offset_bottom = 185.0
 text = "▼"
+script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
@@ -866,6 +881,7 @@ offset_top = 147.0
 offset_right = 192.0
 offset_bottom = 192.0
 text = "＿"
+script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
@@ -874,6 +890,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
+script = ExtResource("70_epi57")
 
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 
