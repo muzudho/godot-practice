@@ -441,7 +441,7 @@ var document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
+			self.get_assistant_director().get_instruction("Var").set_var("arg_damage", str(damage))
 
 			# 後手の［玉の遠さ］を減らす
 			self.get_game_sheet_for_battle().distance_of_king[1] -= damage
@@ -458,7 +458,7 @@ var document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
+			self.get_assistant_director().get_instruction("Var").set_var("arg_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
 			self.get_game_sheet_for_battle().distance_of_king[0] -= 1
@@ -482,7 +482,7 @@ var document = {
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
+			self.get_assistant_director().get_instruction("Var").set_var("arg_damage", str(damage))
 			
 			# 後手の［玉の遠さ］を５減らす
 			self.get_game_sheet_for_battle().distance_of_king[1] -= damage
@@ -499,16 +499,16 @@ var document = {
 			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.get_game_sheet_for_battle().distance_of_king[1] < 5:
-				self.get_assistant_director().get_node("Goto").goto("§後手番投了")
+				self.get_assistant_director().get_instruction("Goto").goto("§後手番投了")
 			else:
-				self.get_assistant_director().get_node("Goto").goto("§後手番１")	
+				self.get_assistant_director().get_instruction("Goto").goto("§後手番１")	
 			,
 	],
 	"§後手番１": [
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.get_assistant_director().get_node("Var").set_var("arg_damage", str(damage))
+			self.get_assistant_director().get_instruction("Var").set_var("arg_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
 			self.get_game_sheet_for_battle().distance_of_king[0] -= damage
@@ -524,9 +524,9 @@ var document = {
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.get_game_sheet_for_battle().distance_of_king[0] < 5:
-				self.get_assistant_director().get_node("Goto").goto("§先手番投了")
+				self.get_assistant_director().get_instruction("Goto").goto("§先手番投了")
 			else:
-				self.get_assistant_director().get_node("Goto").goto("§先手番１")	
+				self.get_assistant_director().get_instruction("Goto").goto("§先手番１")	
 			,
 	],
 	"§先手番投了": [

@@ -26,7 +26,7 @@ func get_external_gui_artist():
 
 
 func get_external_message_windows():
-	return self.get_external_gui_artist().get_node("MessageWindows")
+	return self.get_external_director().get_node("📂GuiArtist_MessageWindows")
 
 
 func get_telop_coordinator_key_config():

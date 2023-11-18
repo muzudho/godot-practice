@@ -41,7 +41,7 @@ func get_gui_artist():
 
 
 func get_message_windows_node():
-	return self.get_gui_artist().get_node("MessageWindows")
+	return $"📂GuiArtist_MessageWindows"
 
 
 func get_telop_coordinator():
@@ -66,7 +66,7 @@ func get_current_snapshot():
 # 伝言窓（現在、出力の対象になっているもの）
 func get_message_window_gui(node_name_obj):
 	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
-	return self.get_gui_artist().get_node("MessageWindows/" + node_name_obj)
+	return self.get_message_windows_node().get_node(str(node_name_obj))
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -126,7 +126,7 @@ func _ready():
 	# ーーーーーーーー
 
 	# メッセージ・ウィンドウの初期設定
-	for message_window_node in $"GuiArtist/MessageWindows".get_children():
+	for message_window_node in self.get_message_windows_node().get_children():
 		if message_window_node is Sprite2D:
 			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 			message_window_node.on_message_window_page_forward = func():
@@ -168,7 +168,7 @@ func _ready():
 	#	テロップ表示
 	$"📂TelopCoordinator".show()
 	#	メッセージ・ウィンドウ自身
-	self.get_gui_artist().get_node("MessageWindows").show()
+	self.get_message_windows_node().show()
 	# モンスター・トレーナー
 	$"MonsterTrainer".show()
 	$"MonsterTrainer/Faces".show()
@@ -188,7 +188,7 @@ func _ready():
 	# ウィンドウはとにかく隠す
 	#
 	#	伝言窓はとにかく隠す
-	for message_window in self.get_gui_artist().get_node("MessageWindows").get_children():
+	for message_window in self.get_message_windows_node().get_children():
 		message_window.hide()
 	#
 	#	ビューイング・ウィンドウはとにかく隠す

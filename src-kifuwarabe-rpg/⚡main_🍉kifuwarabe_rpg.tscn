@@ -904,37 +904,36 @@ z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("65_lhf23")
 
-[node name="GuiArtist" type="Node2D" parent="."]
-
-[node name="MessageWindows" type="Node2D" parent="GuiArtist"]
-visible = false
+[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
 script = ExtResource("61_cfuy1")
 
-[node name="■上_大" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("59_4vstx")
 script = ExtResource("61_tvkup")
 
-[node name="■下" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("60_ked68")
 script = ExtResource("61_tvkup")
 
-[node name="■中央" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+[node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("62_q6u17")
 script = ExtResource("61_tvkup")
 
-[node name="■左下" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+[node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("63_a2lr3")
 script = ExtResource("61_tvkup")
+
+[node name="GuiArtist" type="Node2D" parent="."]
 
 [node name="ViewingWindows" type="Node2D" parent="GuiArtist"]
 script = ExtResource("64_5b4xj")

@@ -1,6 +1,6 @@
 # メッセージ・ウィンドウ（Message Window；伝言窓）
 # イッツ・ハブ（Its hub；その中心地）
-extends Node
+extends Node2D
 
 
 # メッセージの早送り
@@ -9,7 +9,7 @@ var is_fast_forward = false
 
 # 監督取得
 func get_director():
-	return $"../../../Director"
+	return $"../../Director"
 
 
 # 助監取得

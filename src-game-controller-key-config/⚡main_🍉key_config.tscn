@@ -39,17 +39,14 @@ pitch_scale = 1.4
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("5_pl8ct")]
 
-[node name="GuiArtist" type="Node2D" parent="."]
+[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
 
-[node name="MessageWindows" type="Node2D" parent="GuiArtist"]
-visible = false
-
-[node name="■下" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("6_2460b")
 
-[node name="■上_大" type="Sprite2D" parent="GuiArtist/MessageWindows"]
+[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("7_sju73")

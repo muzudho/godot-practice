@@ -5,4 +5,4 @@ extends AbstractMessageWindow
 
 # メッセージ・ウィンドウの軸取得
 func get_hub():
-	return $"../../MessageWindows"
+	return $"../../📂GuiArtist_MessageWindows"

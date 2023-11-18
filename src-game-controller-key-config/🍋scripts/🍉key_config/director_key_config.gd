@@ -21,12 +21,8 @@ func get_external_director():
 	return $"../../Director"
 
 
-func get_external_gui_artist():
-	return self.get_external_director().get_node("GuiArtist")
-
-
 func get_external_message_windows():
-	return self.get_external_gui_artist().get_node("MessageWindows")
+	return self.get_external_director().get_node("📂GuiArtist_MessageWindows")
 
 
 func get_telop_coordinator_key_config():
@@ -45,7 +41,6 @@ func entry():
 	# 表示
 	# ーーーーーーーー
 	self.get_telop_coordinator_key_config().show()
-	self.get_external_gui_artist().show()
 	self.get_external_message_windows().show()
 	self.get_external_message_windows().get_node("■下").show()
 	self.get_external_message_windows().get_node("■上_大").show()
