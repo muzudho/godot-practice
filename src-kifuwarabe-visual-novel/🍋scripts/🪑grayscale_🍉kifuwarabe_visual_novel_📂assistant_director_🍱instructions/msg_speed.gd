@@ -3,9 +3,19 @@
 extends Node
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
 # 助監
 func get_assistant_director():
 	return $"../../../📂AssistantDirector"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # それをする

@@ -3,6 +3,11 @@
 extends Node
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
 # 助監
 func get_assistant_director():
 	return $"../../../📂AssistantDirector"
@@ -11,6 +16,11 @@ func get_assistant_director():
 # スナップショット取得
 func get_snapshot(department_node_name):
 	return self.get_assistant_director().get_director().get_snapshot(department_node_name)
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 #	それをする

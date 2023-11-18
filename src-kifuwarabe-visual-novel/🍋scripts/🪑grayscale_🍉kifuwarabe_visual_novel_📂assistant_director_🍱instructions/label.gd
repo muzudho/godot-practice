@@ -2,6 +2,11 @@
 extends Node
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
 # 助監
 func get_assistant_director():
 	return $"../../../📂AssistantDirector"
@@ -9,6 +14,11 @@ func get_assistant_director():
 
 func get_root_relative_path_str():
 	return "../../../../"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # それをする
