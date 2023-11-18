@@ -952,18 +952,18 @@ script = ExtResource("64_5b4xj")
 
 [node name="System" type="Node2D" parent="GuiArtist/ViewingWindows"]
 
-[node name="Frame" type="Sprite2D" parent="GuiArtist/ViewingWindows/System"]
+[node name="🎴Frame" type="Sprite2D" parent="GuiArtist/ViewingWindows/System"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("65_lhf23")
 
-[node name="将棋盤" type="Sprite2D" parent="GuiArtist/ViewingWindows"]
+[node name="🎴将棋盤" type="Sprite2D" parent="GuiArtist/ViewingWindows"]
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("66_5k2cc")
 
-[node name="ファイルとランク" type="Sprite2D" parent="GuiArtist/ViewingWindows"]
+[node name="🎴ファイルとランク" type="Sprite2D" parent="GuiArtist/ViewingWindows"]
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("67_g74iy")

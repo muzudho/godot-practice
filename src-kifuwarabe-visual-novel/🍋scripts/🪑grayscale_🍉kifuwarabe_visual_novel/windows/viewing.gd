@@ -18,7 +18,7 @@ func show_window(node_name):
 	self.show()
 	self.get_node(self.current_name).show()
 	$"System".show()
-	$"System/Frame".show()
+	$"System/🎴Frame".show()
 
 
 #	ウィンドウを非表示にする
@@ -28,5 +28,5 @@ func hide_window():
 
 	print("［ビューイング・ウィンドウ］　非表示：[" + str(self.current_name) + "]")
 	self.get_node(self.current_name).hide()	
-	$"System/Frame".hide()
+	$"System/🎴Frame".hide()
 	self.current_name = null

@@ -194,7 +194,7 @@ func _ready():
 	#	ビューイング・ウィンドウはとにかく隠す
 	for sprite2d_node in self.get_gui_artist().get_node("ViewingWindows").get_children():
 		sprite2d_node.hide()
-	self.get_gui_artist().get_node("ViewingWindows/System/Frame").hide()
+	self.get_gui_artist().get_node("ViewingWindows/System/🎴Frame").hide()
 	#
 	#	テロップはとにかく非表示にする
 	for canvas_layer in $"TelopCoordinator".get_children():
