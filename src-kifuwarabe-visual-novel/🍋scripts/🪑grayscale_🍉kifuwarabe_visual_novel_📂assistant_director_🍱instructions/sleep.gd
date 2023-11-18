@@ -8,9 +8,9 @@ extends Node
 # ーーーーーーーー
 
 
-# 助監
-func get_assistant_director():
-	return $"../../../📂Programmer"
+# ハブ取得
+func hub():
+	return $"../../🛩️ProgramHub"
 
 
 # ーーーーーーーー
@@ -26,7 +26,7 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var seconds = float(self.get_assistant_director().expand_variables(string_packed_array[0].strip_edges()))
+	var seconds = float(self.hub().expand_variables(string_packed_array[0].strip_edges()))
 
 	self.sleep(seconds)
 
@@ -36,5 +36,5 @@ func do_it(line):
 #	シナリオのパラグラフを抜けてから、疑似スリープを行います
 func sleep(seconds):
 	print("［命令　スリープ］　秒：[" + str(seconds) + "]")
-	self.get_assistant_director().get_director().sleep_seconds = seconds
+	self.hub().get_director().sleep_seconds = seconds
 	

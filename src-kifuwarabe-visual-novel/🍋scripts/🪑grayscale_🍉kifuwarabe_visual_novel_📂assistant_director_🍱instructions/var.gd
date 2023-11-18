@@ -7,9 +7,9 @@ extends Node
 # ーーーーーーーー
 
 
-# 助監
-func get_assistant_director():
-	return $"../../../📂Programmer"
+# ハブ取得
+func hub():
+	return $"../../🛩️ProgramHub"
 
 
 # ーーーーーーーー
@@ -42,10 +42,10 @@ func do_it(line):
 # 変数の記憶
 func set_var(key, value):
 	print("［命令　変数］　（" + key + "）[" + value + "]")
-	self.get_assistant_director().get_director().stage_directions_variables[key] = value
+	self.hub().get_director().stage_directions_variables[key] = value
 
 
 # 変数のクリアー
 func clear_var():
 	print("［命令　変数］　クリアー")
-	self.get_assistant_director().get_director().stage_directions_variables = {}
+	self.hub().get_director().stage_directions_variables = {}

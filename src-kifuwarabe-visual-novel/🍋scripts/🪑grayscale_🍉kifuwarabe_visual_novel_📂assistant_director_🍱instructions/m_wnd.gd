@@ -8,9 +8,9 @@ extends Node
 # ーーーーーーーー
 
 
-# 助監
-func get_assistant_director():
-	return $"../../../📂Programmer"
+# ハブ取得
+func hub():
+	return $"../../🛩️ProgramHub"
 
 
 # ーーーーーーーー
@@ -26,11 +26,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.get_assistant_director().expand_variables(string_packed_array[0].strip_edges())
+	var node_name = self.hub().expand_variables(string_packed_array[0].strip_edges())
 	var sub_command = null
 
 	if 2 <= string_packed_array.size():
-		sub_command = self.get_assistant_director().expand_variables(string_packed_array[1].strip_edges())
+		sub_command = self.hub().expand_variables(string_packed_array[1].strip_edges())
 
 	if sub_command == "hide":
 		# 伝言窓を隠す
@@ -46,11 +46,11 @@ func do_it(line):
 func show_message_window(
 		node_name,						# StringName
 		is_department_entered = false):	# bool
-	var snapshot = self.get_assistant_director().get_director().get_current_snapshot()
+	var snapshot = self.hub().get_director().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
-	self.get_assistant_director().get_director().get_message_window_gui(node_name).set_appear_subtree(true)
+	self.hub().get_director().get_message_window_gui(node_name).set_appear_subtree(true)
 
 	if not is_department_entered:
 		# 現在開いている伝言窓をスナップショットに記憶
@@ -63,18 +63,18 @@ func show_message_window(
 		snapshot.stack_of_last_displayed_message_window.push_back(node_name)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-	self.get_assistant_director().get_director().dump_last_displayed_message_window()
+	self.hub().get_director().dump_last_displayed_message_window()
 
 
 # 伝言窓を隠す
 func hide_message_window(
 		node_name,						# StringName
 		is_department_leaved = false):	# bool
-	var snapshot = self.get_assistant_director().get_director().get_current_snapshot()
+	var snapshot = self.hub().get_director().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
-	self.get_assistant_director().get_director().get_message_window_gui(node_name).set_appear_subtree(false)
+	self.hub().get_director().get_message_window_gui(node_name).set_appear_subtree(false)
 
 	if not is_department_leaved:
 		# 現在開いている伝言窓をスナップショットから除外
@@ -86,4 +86,4 @@ func hide_message_window(
 			snapshot.stack_of_last_displayed_message_window.remove_at(index)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-	self.get_assistant_director().get_director().dump_last_displayed_message_window()
+	self.hub().get_director().dump_last_displayed_message_window()
