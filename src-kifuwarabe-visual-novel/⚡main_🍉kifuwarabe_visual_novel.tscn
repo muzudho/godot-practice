@@ -188,7 +188,7 @@ script = ExtResource("6_80h8b")
 
 [node name="BGM" type="Node" parent="Musician"]
 
-[node name="ーーーーきふわらべRPGーーーー" type="Node" parent="Musician/BGM"]
+[node name="ーーーーきふわらべVNーーーー" type="Node" parent="Musician/BGM"]
 
 [node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="Musician/BGM"]
 stream = ExtResource("9_c76by")
@@ -231,7 +231,7 @@ pitch_scale = 1.4
 
 [node name="SE" type="Node" parent="Musician"]
 
-[node name="ーーーーきふわらべRPGーーーー" type="Node" parent="Musician/SE"]
+[node name="ーーーーきふわらべVNーーーー" type="Node" parent="Musician/SE"]
 
 [node name="🔔ページめくり音" type="AudioStreamPlayer" parent="Musician/SE"]
 stream = ExtResource("18_ycwla")
