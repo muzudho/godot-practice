@@ -13,6 +13,22 @@
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　地獄ね」  
 
+![202311__shogi__19-1116--font-crushed.png](https://crieit.now.sh/upload_images/0e92962ce1d9035efefab6dd8dfc5b3c6559702ea1a94.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　設定をすべて復元しないと、フォント情報が消えていたりするぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ファイルの破損とか、Godot のユーザーサポートの、サポート外だろ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　ゲームではなく、　Godot　を作るレベルのスキルを　プログラミング・スキルと呼ぶのよ。  
+あんたのお父んは　プログラミング・スキルを持ったプログラマーで、  
+破損したファイルの復元とか、　何も仕様がないところからの解析とか　するのが通常業務よ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　なりたくない職業だな」  
+
 ## gd_scene
 
 📄 `*.tscn`:  
