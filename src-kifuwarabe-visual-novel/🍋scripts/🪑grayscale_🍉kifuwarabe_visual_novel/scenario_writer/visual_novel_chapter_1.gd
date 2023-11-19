@@ -37,8 +37,9 @@ var scenario_document = {
 		bgm:		🎵タイトル
 		telop:		Ｔタイトル
 		bg:			🗻崎川駅前
-		choice:		1,2
+		# 先にメッセージ・ウィンドウを指定してから、選択肢を設定してください
 		m_wnd:		■下
+		choice:		1,2
 		""",
 		"""\
 		　・スタート

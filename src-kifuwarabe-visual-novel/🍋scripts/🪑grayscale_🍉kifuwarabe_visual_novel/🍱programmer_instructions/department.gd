@@ -16,13 +16,13 @@ func hub():
 	return $"../../🛩️ProgramsHub"
 
 
+func get_m_wnd():
+	return self.hub().get_instruction("MWnd")
+
+
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
-
-
-func get_m_wnd():
-	return self.hub().get_instruction("MWnd")
 
 
 # それをする

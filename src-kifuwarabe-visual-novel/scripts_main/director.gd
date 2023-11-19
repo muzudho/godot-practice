@@ -158,13 +158,8 @@ func _ready():
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す
 			self.get_programs_hub().get_snapshot(department_node.name).name = department_node.name		# StringName 型
 
-			# TODO この初期化は必要か？
-			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-			if department_node.name =="📗ビジュアルノベル部門":
-				self.get_programs_hub().get_snapshot(department_node.name).stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
-			elif department_node.name =="📗システムメニュー部門":
-				self.get_programs_hub().get_snapshot(department_node.name).stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
-
+			# 初期化。メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
+			self.get_programs_hub().get_snapshot(department_node.name).stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 			# 文書辞書の先頭要素のキー取得
 			var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=87 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -18,6 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_se/🪑maou_audio/maou_se_magic_fire11.ogg" id="21_dmsb3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/message_windows_hub.gd" id="21_ild6n"]
 [ext_resource type="AudioStream" uid="uid://e0olmiofgu0i" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_door02.ogg" id="22_4mqug"]
+[ext_resource type="Texture2D" uid="uid://bsth654xqqy7c" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_ojm4j"]
 [ext_resource type="AudioStream" uid="uid://ca1bd4eif8lxj" path="res://🍋audio_se/🪑maou_audio/maou_se_system12.ogg" id="23_n7qgt"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/its_concrete.gd" id="23_u7kqc"]
 [ext_resource type="AudioStream" uid="uid://spjfguf4xfp" path="res://🍋audio_se/🪑maou_audio/maou_se_onepoint32.ogg" id="24_wis4x"]
@@ -142,12 +143,12 @@ material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_lwnsa")
 
 [node name="Grid" type="Sprite2D" parent="."]
-visible = false
 z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
+visible = false
 
 [node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="📂BackgroundArtist"]
 visible = false
@@ -254,6 +255,11 @@ texture = ExtResource("43_7jh74")
 [node name="🛩️MessageWindowsHub" type="Node" parent="📂GuiArtist_MessageWindows"]
 script = ExtResource("21_ild6n")
 
+[node name="■FullScreen" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+position = Vector2(640, 360)
+texture = ExtResource("22_ojm4j")
+script = ExtResource("23_u7kqc")
+
 [node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
@@ -261,6 +267,7 @@ texture = ExtResource("62_y1sjv")
 script = ExtResource("23_u7kqc")
 
 [node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
@@ -455,6 +462,7 @@ visible = false
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
 
 [node name="きふわらべＲＰＧ" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
@@ -861,6 +869,48 @@ offset_right = 993.0
 offset_bottom = 171.0
 text = "　　　１"
 label_settings = ExtResource("56_u28uk")
+
+[node name="MessageWindow_■FullScreen" type="CanvasLayer" parent="📂TelopCoordinator"]
+
+[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen"]
+offset_left = 3.0
+offset_right = 1278.0
+offset_bottom = 720.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("52_od08l")
+script = ExtResource("72_o7lp3")
+
+[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
+layout_mode = 0
+offset_left = 1246.0
+offset_top = 686.0
+offset_right = 1278.0
+offset_bottom = 731.0
+text = "▼"
+label_settings = ExtResource("52_od08l")
+script = ExtResource("73_d3l32")
+
+[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
+layout_mode = 0
+offset_left = 1242.0
+offset_top = 685.0
+offset_right = 1274.0
+offset_bottom = 730.0
+text = "＿"
+label_settings = ExtResource("52_od08l")
+script = ExtResource("73_d3l32")
+
+[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_vfubr")
+script = ExtResource("73_d3l32")
 
 [node name="MessageWindow_■下" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
