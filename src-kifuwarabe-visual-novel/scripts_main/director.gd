@@ -155,10 +155,8 @@ func _process(delta):
 		# 最初に実行する部門名
 		self.get_programs_hub().current_department_name = self.get_switch_department().start_department_name
 
-		var snapshot = self.get_programs_hub().get_current_snapshot()
-
 		# パースするな
-		snapshot.set_parse_lock(true)
+		self.get_programs_hub().get_current_snapshot().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
 		self.get_programs_hub().play_section()

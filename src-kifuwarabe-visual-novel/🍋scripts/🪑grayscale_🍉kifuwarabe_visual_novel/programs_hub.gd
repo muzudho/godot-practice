@@ -2,7 +2,7 @@
 extends Node
 
 
-var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department/snapshot.gd")
+var Department = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department.gd")
 
 
 # ーーーーーーーー
@@ -108,7 +108,7 @@ func _ready():
 		var department_node = self.get_scenario_writer().get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
 			# 生成
-			var snapshot = DepartmentSnapshot.new()
+			var snapshot = Department.new()
 
 			# 部門名をコピー
 			snapshot.name = department_node.name		# StringName 型

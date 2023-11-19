@@ -2,7 +2,7 @@
 extends Node
 
 
-var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department/snapshot.gd")
+var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department.gd")
 
 
 # ーーーーーーーー
