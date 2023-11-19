@@ -22,7 +22,7 @@ func do_it(
 	line):				# str
 
 	# 次の「§」セクション名
-	var next_section_name = line.substr(5).strip_edges()
+	var next_section_name = line.substr("goto:".length()).strip_edges()
 	print("［命令　ゴートゥー］　次の区画：[" + next_section_name + "]")
 	next_section_name = self.hub().expand_variables(next_section_name.strip_edges())
 

@@ -20,7 +20,7 @@ func hub():
 # それをする
 func do_it(line):
 
-	var csv = line.substr(4).strip_edges()
+	var csv = line.substr("var:".length()).strip_edges()
 	print("［命令　変数］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
