@@ -109,17 +109,6 @@ shadow_size = 5
 shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_offset = Vector2(3, 3)
 
-
-
-
-
-
-
-
-
-
-
-
 [sub_resource type="LabelSettings" id="LabelSettings_ts82g"]
 line_spacing = 1.0
 font = ExtResource("47_nlh77")
