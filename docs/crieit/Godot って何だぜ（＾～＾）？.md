@@ -1369,10 +1369,17 @@ Zzz...
 「　メッセージ・ウィンドウのソースコードが長すぎる。  
 コードを掃除していくぜ」  
 
-# 📅 2023-11-18 ビジュアルノベル部分だけ切り出そうぜ？
+# 📅 2023-11-18 sat ビジュアルノベル部分だけ切り出そうぜ？
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　ＲＰＧの開発が伸び伸びになってしまう。  
 いったん、ビジュアルノベルの部分だけ切り出すぜ」  
+
+# (📅 2023-11-19 sun) .tscnファイルが破損したので自力で復元中
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　リソースのＩｄの紐づけが切れたら　ファイルが開かなくなった。  
+どこが破損したかも　教えてくれないので　自力で復元中」  
+
 
 .

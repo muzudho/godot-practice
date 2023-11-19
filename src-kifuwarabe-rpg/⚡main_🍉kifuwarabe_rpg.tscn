@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=78 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -42,7 +42,6 @@
 [ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="45_k6jkg"]
 [ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="46_ooq6c"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="57_vx8va"]
-[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="57_xm0dl"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="58_sadl4"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/reader.gd" id="59_02v4r"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
@@ -67,6 +66,7 @@
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🍋label_settings/🪑grayscale/label_setting_medium.tres" id="71_dkmtp"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="71_vwn1b"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="72_k7xhv"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="72_seukb"]
@@ -78,16 +78,6 @@
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="77_hfxpa"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vfubr"]
-line_spacing = 8.0
-font = ExtResource("57_xm0dl")
-font_size = 32
-font_color = Color(0.972549, 0.972549, 0.972549, 1)
-outline_size = 1
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 4
-shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
@@ -793,6 +783,7 @@ offset_bottom = 663.0
 text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -802,6 +793,7 @@ offset_top = 90.0
 offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -811,6 +803,7 @@ offset_top = 98.0
 offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -820,7 +813,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = SubResource("LabelSettings_vfubr")
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -835,6 +828,7 @@ text = "表示テストいうえ
 かきくけさしすせ
 たちつてなにぬね
 はひふへまみむ　　"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -844,6 +838,7 @@ offset_top = 154.0
 offset_right = 262.0
 offset_bottom = 199.0
 text = "▼"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -853,6 +848,7 @@ offset_top = 157.0
 offset_right = 260.0
 offset_bottom = 202.0
 text = "＿"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -862,6 +858,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -876,6 +873,7 @@ text = "表示テストだ
 あいうえおか
 きくけこさし
 すせたちつて"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -885,6 +883,7 @@ offset_top = 140.0
 offset_right = 195.0
 offset_bottom = 185.0
 text = "▼"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -894,6 +893,7 @@ offset_top = 147.0
 offset_right = 192.0
 offset_bottom = 192.0
 text = "＿"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -903,6 +903,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
+label_settings = ExtResource("71_dkmtp")
 script = ExtResource("70_epi57")
 
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
