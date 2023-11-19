@@ -1,4 +1,4 @@
-# アクセッサ―（Accessor）
+# バトル・ハブ（Battle Hub；戦闘の中心地）
 #	📗バトル部門　が使うユーティリティー
 extends Node
 

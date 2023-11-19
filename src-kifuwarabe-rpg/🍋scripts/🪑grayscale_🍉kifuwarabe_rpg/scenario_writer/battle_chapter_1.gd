@@ -2,6 +2,26 @@
 extends Node
 
 
+# ーーーーーーーー
+# パス関連
+# ーーーーーーーー
+
+
+# シナリオライターズ・ハブ取得
+func hub():
+	return $"../../🛩️ScenarioWritersHub"
+
+
+# 戦闘ハブ取得
+func battle_hub():
+	return $"../🛩️BattleHub"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
+
+
 # 台本
 #
 # 	- この scenario_document` という変数名は変えないでください
@@ -34,15 +54,15 @@ var scenario_document = {
 		#
 		func():
 			# 変数取得
-			var sente_monster_name = self.get_director().stage_directions_variables["arg_sente_monster_name"]
-			var gote_monster_name = self.get_director().stage_directions_variables["arg_gote_monster_name"]
+			var sente_monster_name = self.hub().get_director().stage_directions_variables["arg_sente_monster_name"]
+			var gote_monster_name = self.hub().get_director().stage_directions_variables["arg_gote_monster_name"]
 			
 			# モンスターＩｄ取得
-			var sente_monster_id = self.get_scorer().lookup_monster_id_by_name(sente_monster_name)
-			var gote_monster_id = self.get_scorer().lookup_monster_id_by_name(gote_monster_name)
+			var sente_monster_id = self.battle_hub().get_scorer().lookup_monster_id_by_name(sente_monster_name)
+			var gote_monster_id = self.battle_hub().get_scorer().lookup_monster_id_by_name(gote_monster_name)
 			
 			# ロード
-			self.get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
+			self.battle_hub().get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
 			
 			# 匿名関数の終わりのコンマ
 			,
@@ -138,27 +158,27 @@ var scenario_document = {
 		func():
 			# 先手
 			# 先手の［城の堅さ］表示更新
-			self.get_accessor().refresh_sente_solidity_of_castle()
+			self.battle_hub().refresh_sente_solidity_of_castle()
 			# 先手の［逃げ道の広さ］表示更新
-			self.get_accessor().refresh_sente_breadth_of_escape_route()
+			self.battle_hub().refresh_sente_breadth_of_escape_route()
 			# 先手の［駒の働き］表示更新
-			self.get_accessor().refresh_sente_work_of_pieces()
+			self.battle_hub().refresh_sente_work_of_pieces()
 			# 先手の［攻めの速度］表示更新
-			self.get_accessor().refresh_sente_offensive_speed()
+			self.battle_hub().refresh_sente_offensive_speed()
 			# 先手の［玉の遠さ］表示更新
-			self.get_accessor().refresh_sente_distance_of_king()
+			self.battle_hub().refresh_sente_distance_of_king()
 			
 			# 後手
 			# 後手の［城の堅さ］表示更新
-			self.get_accessor().refresh_gote_solidity_of_castle()
+			self.battle_hub().refresh_gote_solidity_of_castle()
 			# 後手の［逃げ道の広さ］表示更新
-			self.get_accessor().refresh_gote_breadth_of_escape_route()
+			self.battle_hub().refresh_gote_breadth_of_escape_route()
 			# 後手の［駒の働き］表示更新
-			self.get_accessor().refresh_gote_work_of_pieces()
+			self.battle_hub().refresh_gote_work_of_pieces()
 			# 後手の［攻めの速度］表示更新
-			self.get_accessor().refresh_gote_offensive_speed()
+			self.battle_hub().refresh_gote_offensive_speed()
 			# 後手の［玉の遠さ］表示更新
-			self.get_accessor().refresh_gote_distance_of_king()
+			self.battle_hub().refresh_gote_distance_of_king()
 			
 			# 匿名関数の終わりのコンマ
 			,
@@ -394,10 +414,10 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.get_programs_hub().get_instruction("Var").set_var("arg_damage", str(damage))
+			self.hub().get_programs_hub().get_instruction("Var").set_var("arg_damage", str(damage))
 
 			# 後手の［玉の遠さ］を減らす
-			self.get_game_sheet_for_battle().distance_of_king[1] -= damage
+			self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] -= damage
 			,
 		"""\
 		{{arg_sente_monster_name}}
@@ -406,15 +426,15 @@ var scenario_document = {
 		""",
 		func():
 			# 後手の［玉の遠さ］表示更新
-			self.get_accessor().refresh_gote_distance_of_king()
+			self.battle_hub().refresh_gote_distance_of_king()
 			,
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.get_programs_hub().get_instruction("Var").set_var("arg_damage", str(damage))
+			self.hub().get_programs_hub().get_instruction("Var").set_var("arg_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[0] -= 1
+			self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] -= 1
 			,
 		"""\
 		{{arg_gote_monster_name}}
@@ -423,7 +443,7 @@ var scenario_document = {
 		""",
 		func():
 			# 先手の［玉の遠さ］表示更新
-			self.get_accessor().refresh_sente_distance_of_king()
+			self.battle_hub().refresh_sente_distance_of_king()
 
 			,
 		"""\
@@ -435,13 +455,13 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.get_programs_hub().get_instruction("Var").set_var("arg_damage", str(damage))
+			self.hub().get_programs_hub().get_instruction("Var").set_var("arg_damage", str(damage))
 			
 			# 後手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[1] -= damage
+			self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] -= damage
 
 			# 後手の［玉の遠さ］表示更新
-			self.get_accessor().refresh_gote_distance_of_king()
+			self.battle_hub().refresh_gote_distance_of_king()
 			,
 		"""\
 		{{arg_sente_monster_name}}
@@ -451,23 +471,23 @@ var scenario_document = {
 		func():
 			
 			# 玉の遠さは、 0 になる前に投了することがある
-			if self.get_game_sheet_for_battle().distance_of_king[1] < 5:
-				self.get_programs_hub().get_instruction("Goto").goto("§後手番投了")
+			if self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] < 5:
+				self.hub().get_programs_hub().get_instruction("Goto").goto("§後手番投了")
 			else:
-				self.get_programs_hub().get_instruction("Goto").goto("§後手番１")	
+				self.hub().get_programs_hub().get_instruction("Goto").goto("§後手番１")	
 			,
 	],
 	"§後手番１": [
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.get_programs_hub().get_instruction("Var").set_var("arg_damage", str(damage))
+			self.hub().get_programs_hub().get_instruction("Var").set_var("arg_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
-			self.get_game_sheet_for_battle().distance_of_king[0] -= damage
+			self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] -= damage
 			
 			# 先手の［玉の遠さ］表示更新
-			self.get_accessor().refresh_sente_distance_of_king()
+			self.battle_hub().refresh_sente_distance_of_king()
 			,
 		"""\
 		{{arg_gote_monster_name}}
@@ -476,10 +496,10 @@ var scenario_document = {
 		""",
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
-			if self.get_game_sheet_for_battle().distance_of_king[0] < 5:
-				self.get_programs_hub().get_instruction("Goto").goto("§先手番投了")
+			if self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] < 5:
+				self.hub().get_programs_hub().get_instruction("Goto").goto("§先手番投了")
 			else:
-				self.get_programs_hub().get_instruction("Goto").goto("§先手番１")	
+				self.hub().get_programs_hub().get_instruction("Goto").goto("§先手番１")	
 			,
 	],
 	"§先手番投了": [

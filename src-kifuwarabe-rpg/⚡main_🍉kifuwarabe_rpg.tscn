@@ -64,11 +64,11 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/visual_novel_chapter_1.gd" id="63_ntson"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_department.gd" id="63_rlfae"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_choices_mappings.gd" id="64_3h7b4"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_accessor.gd" id="64_cxfyy"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="65_lhf23"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_choices_mappings.gd" id="65_vvek8"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="66_5k2cc"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_chapter_1.gd" id="66_v5bpr"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_hub.gd" id="66_vjfnv"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="67_g74iy"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/text_block.gd" id="69_g27j5"]
@@ -485,8 +485,8 @@ script = ExtResource("66_v5bpr")
 [node name="📗バトル部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("63_rlfae")
 
-[node name="Accessor" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
-script = ExtResource("64_cxfyy")
+[node name="🛩️BattleHub" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
+script = ExtResource("66_vjfnv")
 
 [node name="📃選択肢と飛び先" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
 script = ExtResource("65_vvek8")

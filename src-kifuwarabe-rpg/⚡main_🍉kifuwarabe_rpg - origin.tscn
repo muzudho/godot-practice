@@ -9,7 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bgm/🪑maou_audio/maou_game_event17.ogg" id="15_2mye1"]
 [ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_cyber36.ogg" id="16_mkitb"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://🍋audio_bgm/🪑sakuramaru/きふわらべファイター２.ogg" id="8_8nkdr"]
-
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://🍋audio_se/🪑maou_audio/maou_se_sound17.ogg" id="17_ax3y8"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🍋audio_se/🪑maou_audio/maou_se_sound19.ogg" id="18_nqc6o"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_switch02.ogg" id="19_0i743"]
@@ -18,11 +17,9 @@
 [ext_resource type="AudioStream" uid="uid://ca1bd4eif8lxj" path="res://🍋audio_se/🪑maou_audio/maou_se_system12.ogg" id="22_6ro2e"]
 [ext_resource type="AudioStream" uid="uid://spjfguf4xfp" path="res://🍋audio_se/🪑maou_audio/maou_se_onepoint32.ogg" id="23_qpmbl"]
 [ext_resource type="AudioStream" uid="uid://cdj5d7qvlq6cs" path="res://🍋audio_se/🪑maou_audio/maou_se_magic_fire09.ogg" id="24_gm8xc"]
-
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="47_nlh77"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="48_xknfu"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="57_xm0dl"]
-
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="55_q5fb2"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="54_mtkqv"]
 [ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/battle_light_red.tres" id="52_7d5u4"]
@@ -34,17 +31,15 @@
 [ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/game_title_copyright.tres" id="44_gnhe7"]
 [ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://🍋label_settings/🪑grayscale/large_font.tres" id="50_vvxcd"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/main_medium.tres" id="51_2w4vw"]
-
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="58_02ahj"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="100_n0lmu"]
-[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂assistant_director_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="82_sqogg"]
-
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="82_sqogg"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="4_7kdpb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/visual_novel_department.gd" id="5_xa8m5"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_department.gd" id="6_2wd8e"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_department.gd" id="7_5cg5g"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_accessor.gd" id="8_yr4ye"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_hub.gd" id="8_yr4ye"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer.gd" id="97_1q7ae"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="98_j22j1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="99_qt8fk"]
@@ -52,11 +47,8 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/its_concrete.gd" id="61_tvkup"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/message_windows_hub.gd" id="61_cfuy1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/text_block.gd" id="57_fnu54"]
-
-
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="66_5k2cc"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="67_g74iy"]
-
 [ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://🍋images/🪑grayscale/1280x720/battle_scene_3.png" id="31_3w7mi"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://🍋images/🪑grayscale/1280x720/event_room.png" id="25_aycb2"]
@@ -81,13 +73,11 @@
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="65_lhf23"]
-
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="69_u1h4l"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="72_seukb"]
-
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="73_ran2h"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="74_64hjs"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="75_j1pgv"]
