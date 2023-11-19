@@ -9,13 +9,9 @@ extends Node
 # ーーーーーーーー
 
 
-func get_director():
-	return $"../../../Director"
-
-
-# プログラムズ・ハブ取得
-func get_programs_hub():
-	return self.get_director().get_node("📂Programmer/🛩️ProgramsHub")
+# シナリオライターズ・ハブ取得
+func hub():
+	return $"../../📂ScenarioWriter/🛩️ScenarioWriterHub"
 
 
 # ーーーーーーーー
@@ -70,10 +66,10 @@ var document = {
 			print("匿名関数の使い方テスト")
 			
 			# 変数を設定するテスト。あとで `{{arg_title}}` で使える
-			self.get_director().stage_directions_variables["arg_title"] = "Ｔタイトル"
+			self.hub().get_director().stage_directions_variables["arg_title"] = "Ｔタイトル"
 			
 			# セクションの名前を指定して飛ぶ
-			self.get_programs_hub().get_instruction("Goto").goto("§はじまり２")
+			self.hub().get_programs_hub().get_instruction("Goto").goto("§はじまり２")
 			
 			# 匿名関数の最後にカンマを書く
 			,

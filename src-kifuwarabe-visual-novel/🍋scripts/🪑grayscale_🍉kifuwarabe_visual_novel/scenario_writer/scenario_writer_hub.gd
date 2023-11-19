@@ -12,6 +12,11 @@ func get_director():
 	return $"../../../Director"
 
 
+# プログラムズ・ハブ取得
+func get_programs_hub():
+	return self.get_director().get_node("📂Programmer/🛩️ProgramsHub")
+
+
 # シナリオライター取得
 func get_scenario_writer():
 	return self.get_director().get_node("📂ScenarioWriter")
