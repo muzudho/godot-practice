@@ -437,3 +437,31 @@ func set_current_section(section_name):
 
 	snapshot.section_name = section_name
 	message_window_gui.section_item_index = 0
+
+
+# 全ての部門名一覧
+func get_all_department_names():
+	var array = []	# StringName の配列
+	
+	for department in self.get_scenario_writer().get_children():
+		# SwitchDepartment と System は除く
+		if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWritersHub":
+			array.append(department.name)
+
+	return array
+
+
+# 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
+func dump_last_displayed_message_window():
+	print("［監督］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
+	
+	# 部門名一覧
+	var department_names = self.get_all_department_names()
+	for department_name in 	department_names:
+		print("　　部門：　" + department_name)
+
+		# スナップショット
+		var snapshot = self.get_snapshot(department_name)
+		
+		for window_name in snapshot.node_names_of_currently_displayed_message_window:
+			print("　　　　👁 " + window_name)

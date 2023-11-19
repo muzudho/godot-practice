@@ -81,34 +81,6 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
-# 全ての部門名一覧
-func get_all_department_names():
-	var array = []	# StringName の配列
-	
-	for department in self.get_scenario_writer().get_children():
-		# SwitchDepartment と System は除く
-		if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWritersHub":
-			array.append(department.name)
-
-	return array
-
-
-# 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-func dump_last_displayed_message_window():
-	print("［監督］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
-	
-	# 部門名一覧
-	var department_names = self.get_all_department_names()
-	for department_name in 	department_names:
-		print("　　部門：　" + department_name)
-
-		# スナップショット
-		var snapshot = self.get_programs_hub().get_snapshot(department_name)
-		
-		for window_name in snapshot.node_names_of_currently_displayed_message_window:
-			print("　　　　👁 " + window_name)
-
-
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -125,7 +97,7 @@ func _ready():
 				self.get_programs_hub().get_current_snapshot().set_parse_lock(false)
 
 	# スナップショット辞書作成
-	for department_name in self.get_all_department_names():
+	for department_name in self.get_programs_hub().get_all_department_names():
 		var department_node = self.get_scenario_writer().get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
 			self.get_programs_hub().snapshots[department_node.name] = DepartmentSnapshot.new()

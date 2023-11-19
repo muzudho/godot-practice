@@ -63,7 +63,7 @@ func show_message_window(
 		snapshot.stack_of_last_displayed_message_window.push_back(node_name)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-	self.hub().get_director().dump_last_displayed_message_window()
+	self.hub().dump_last_displayed_message_window()
 
 
 # 伝言窓を隠す
@@ -86,4 +86,4 @@ func hide_message_window(
 			snapshot.stack_of_last_displayed_message_window.remove_at(index)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-	self.hub().get_director().dump_last_displayed_message_window()
+	self.hub().dump_last_displayed_message_window()
