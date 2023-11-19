@@ -16,14 +16,14 @@ func get_director():
 	return $"../../../Director"
 
 
+# シナリオライター・ハブ取得
+func get_scenario_writer_hub():
+	return self.get_director().get_node("📂ScenarioWriter/🛩️ScenarioWriterHub")
+
+
 # シナリオライター取得
 func get_scenario_writer():
 	return self.get_director().get_node("📂ScenarioWriter")
-
-
-# シナリオ・リーダー取得
-func get_scenario_reader():
-	return self.get_scenario_writer().get_node("System/Reader")
 
 
 # BGM取得
@@ -168,11 +168,11 @@ func number_to_zenkaku_text(number, figures):
 
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
-	var snapshot = self.get_director().get_current_snapshot()	
+	var snapshot = self.get_director().get_current_snapshot()
 	var scenario_node_name = snapshot.name
 	var section_name =  snapshot.section_name
 	
-	var section_array = self.get_scenario_reader().get_section_array(scenario_node_name, section_name)
+	var section_array = self.get_scenario_writer_hub().get_section_array(scenario_node_name, section_name)
 	return section_array.size()
 
 

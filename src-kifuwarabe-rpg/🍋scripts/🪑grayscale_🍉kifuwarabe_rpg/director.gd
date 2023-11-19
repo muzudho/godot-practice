@@ -116,7 +116,7 @@ func get_all_department_names():
 	
 	for department in self.get_senario_writer().get_children():
 		# SwitchDepartment と System は除く
-		if department.name != "SwitchDepartment" and department.name != "System":
+		if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWriterHub":
 			array.append(department.name)
 
 	return array
@@ -156,7 +156,7 @@ func _ready():
 	# スナップショット辞書作成
 	for department_name in self.get_all_department_names():
 		var department_node = self.get_senario_writer().get_node(str(department_name))
-		if department_node.name != "SwitchDepartment" and department_node.name != "System":
+		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWriterHub":
 			self.snapshots[department_node.name] = DepartmentSnapshot.new()
 
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す

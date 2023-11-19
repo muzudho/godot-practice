@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/reader.gd" id="3_yggbh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/switch_department.gd" id="4_hvtfg"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/visual_novel_department.gd" id="5_phbge"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_department.gd" id="6_80h8b"]
@@ -55,6 +54,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="52_4lig0"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/main_medium.tres" id="52_od08l"]
 [ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/battle_light_red.tres" id="53_hoohi"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/scenario_writer_hub.gd" id="54_5dc2p"]
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="54_ssjv6"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="55_i44xo"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="56_u28uk"]
@@ -425,10 +425,8 @@ script = ExtResource("52_4lig0")
 
 [node name="📂ScenarioWriter" type="Node" parent="."]
 
-[node name="System" type="Node" parent="📂ScenarioWriter"]
-
-[node name="Reader" type="Node" parent="📂ScenarioWriter/System"]
-script = ExtResource("3_yggbh")
+[node name="🛩️ScenarioWriterHub" type="Node" parent="📂ScenarioWriter"]
+script = ExtResource("54_5dc2p")
 
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("4_hvtfg")
