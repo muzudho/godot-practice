@@ -120,10 +120,10 @@ func on_choice_selected(row_number):
 	print("［助監］　選んだ選択肢行番号：" + str(row_number))
 
 	# シナリオ・ノード
-	var scenario_node = $"../📂ScenarioWriter".get_node(department_name)
+	var book_node = self.get_scenario_writer().get_node(department_name)
 
 	# 区画名。実質的には選択肢の配列
-	var section_obj = scenario_node.choices_mappings[section_name]
+	var section_obj = book_node.get_node("ChoicesMappings").document[section_name]
 
 	# 次のセクション名
 	var next_section_name = section_obj[row_number]

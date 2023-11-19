@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=86 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -58,7 +58,9 @@
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="54_ssjv6"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="55_i44xo"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="56_u28uk"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/visual_novel_choices_mappings.gd" id="57_fvvin"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_choices_mappings.gd" id="59_cw2i4"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="60_qck1r"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
@@ -434,8 +436,14 @@ script = ExtResource("4_hvtfg")
 [node name="📗ビジュアルノベル部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("5_phbge")
 
+[node name="ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗ビジュアルノベル部門"]
+script = ExtResource("57_fvvin")
+
 [node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("6_80h8b")
+
+[node name="ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
+script = ExtResource("59_cw2i4")
 
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 visible = false
