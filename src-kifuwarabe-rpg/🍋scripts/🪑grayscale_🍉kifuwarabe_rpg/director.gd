@@ -76,14 +76,8 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
-# スナップショット
-func get_snapshot(
-		department_name):	# StringName
-	return self.get_programs_hub().snapshots[department_name]
-
-
 func get_current_snapshot():
-	return self.get_snapshot(self.current_department_name)
+	return self.get_programs_hub().get_snapshot(self.current_department_name)
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -134,7 +128,7 @@ func dump_last_displayed_message_window():
 		print("　　部門：　" + department_name)
 
 		# スナップショット
-		var snapshot = self.get_snapshot(department_name)
+		var snapshot = self.get_programs_hub().get_snapshot(department_name)
 		
 		for window_name in snapshot.node_names_of_currently_displayed_message_window:
 			print("　　　　👁 " + window_name)
@@ -162,20 +156,20 @@ func _ready():
 			self.get_programs_hub().snapshots[department_node.name] = DepartmentSnapshot.new()
 
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す
-			self.get_programs_hub().snapshots[department_node.name].name = department_node.name		# StringName 型
+			self.get_programs_hub().get_snapshot(department_node.name).name = department_node.name		# StringName 型
 
 			# TODO この初期化は必要か？
 			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
 			if department_node.name =="📗ビジュアルノベル部門":
-				self.get_programs_hub().snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+				self.get_programs_hub().get_snapshot(department_node.name).stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 			elif department_node.name =="📗システムメニュー部門":
-				self.get_programs_hub().snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
+				self.get_programs_hub().get_snapshot(department_node.name).stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
 			elif department_node.name =="📗バトル部門":
-				self.get_programs_hub().snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+				self.get_programs_hub().get_snapshot(department_node.name).stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 
 			# 文書辞書の先頭要素のキー取得
 			var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name)
-			self.get_programs_hub().snapshots[department_node.name].section_name = merged_scenario_document.keys()[0]
+			self.get_programs_hub().get_snapshot(department_node.name).section_name = merged_scenario_document.keys()[0]
 	
 	# ーーーーーーーー
 	# 非表示

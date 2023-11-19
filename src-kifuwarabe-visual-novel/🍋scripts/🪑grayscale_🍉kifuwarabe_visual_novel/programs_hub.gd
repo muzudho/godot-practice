@@ -393,3 +393,9 @@ func on_process(delta):
 			if not self.get_director().get_current_message_window_gui().statemachine_of_message_window.is_none():
 				# 伝言窓を閉じる
 				self.get_director().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+
+
+# スナップショット
+func get_snapshot(
+		department_name):	# StringName
+	return self.snapshots[department_name]
