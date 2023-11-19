@@ -11,7 +11,7 @@ extends Node
 
 # シナリオライターズ・ハブ取得
 func hub():
-	return $"../../📂ScenarioWriter/🛩️ScenarioWriterHub"
+	return $"../../📂ScenarioWriter/🛩️ScenarioWritersHub"
 
 
 # ーーーーーーーー

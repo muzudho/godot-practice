@@ -459,7 +459,7 @@ script = ExtResource("57_vx8va")
 
 [node name="📂ScenarioWriter" type="Node" parent="."]
 
-[node name="🛩️ScenarioWriterHub" type="Node" parent="📂ScenarioWriter"]
+[node name="🛩️ScenarioWritersHub" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("59_gpblw")
 
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
@@ -468,19 +468,19 @@ script = ExtResource("60_f7oqn")
 [node name="📗ビジュアルノベル部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("61_vvkri")
 
-[node name="ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗ビジュアルノベル部門"]
+[node name="📃ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗ビジュアルノベル部門"]
 script = ExtResource("62_a3n7g")
 
 [node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("62_wsnaq")
 
-[node name="ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
+[node name="📃ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
 script = ExtResource("64_3h7b4")
 
 [node name="📗バトル部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("63_rlfae")
 
-[node name="ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
+[node name="📃ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
 script = ExtResource("65_vvek8")
 
 [node name="Accessor" type="Node" parent="📂ScenarioWriter/📗バトル部門"]

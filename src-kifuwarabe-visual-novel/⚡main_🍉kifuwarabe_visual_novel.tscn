@@ -427,7 +427,7 @@ script = ExtResource("52_4lig0")
 
 [node name="📂ScenarioWriter" type="Node" parent="."]
 
-[node name="🛩️ScenarioWriterHub" type="Node" parent="📂ScenarioWriter"]
+[node name="🛩️ScenarioWritersHub" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("54_5dc2p")
 
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
@@ -436,13 +436,15 @@ script = ExtResource("4_hvtfg")
 [node name="📗ビジュアルノベル部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("5_phbge")
 
-[node name="ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗ビジュアルノベル部門"]
+[node name="📃ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗ビジュアルノベル部門"]
 script = ExtResource("57_fvvin")
+
+[node name="📃はじまり" type="Node" parent="📂ScenarioWriter/📗ビジュアルノベル部門"]
 
 [node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("6_80h8b")
 
-[node name="ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
+[node name="📃ChoicesMappings" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
 script = ExtResource("59_cw2i4")
 
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]

@@ -45,7 +45,6 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_department.gd" id="6_2wd8e"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_department.gd" id="7_5cg5g"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_accessor.gd" id="8_yr4ye"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/assistant_director.gd" id="78_j4j65"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer.gd" id="97_1q7ae"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="98_j22j1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="99_qt8fk"]
@@ -498,7 +497,6 @@ volume_db = -15.0
 
 
 [node name="📂Programmer" type="Node" parent="."]
-script = ExtResource("78_j4j65")
 
 [node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="📂Programmer" instance=ExtResource("82_sqogg")]
 
