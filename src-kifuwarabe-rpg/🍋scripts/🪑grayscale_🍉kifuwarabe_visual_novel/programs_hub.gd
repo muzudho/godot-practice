@@ -260,7 +260,7 @@ func on_choice_selected(row_number):
 	var next_section_name = section_obj[row_number]
 	print("［助監］　次の区画名　　　　：" + next_section_name)
 	
-	self.get_director().set_current_section(next_section_name)
+	self.set_current_section(next_section_name)
 	self.play_section()
 
 
@@ -428,3 +428,12 @@ func get_current_message_window_gui():
 	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
 	#print("［監督］　伝言窓名：［" + node_name + "］")
 	return self.get_message_window_gui(str(node_name))
+
+
+# 現在の「§」セクション設定
+func set_current_section(section_name):
+	var snapshot = self.get_current_snapshot()
+	var message_window_gui = self.get_current_message_window_gui()
+
+	snapshot.section_name = section_name
+	message_window_gui.section_item_index = 0

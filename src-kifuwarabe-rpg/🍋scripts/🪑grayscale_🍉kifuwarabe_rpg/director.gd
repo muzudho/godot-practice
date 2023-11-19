@@ -81,15 +81,6 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
-# 現在の「§」セクション設定
-func set_current_section(section_name):
-	var snapshot = self.get_programs_hub().get_current_snapshot()
-	var message_window_gui = self.get_programs_hub().get_current_message_window_gui()
-
-	snapshot.section_name = section_name
-	message_window_gui.section_item_index = 0
-
-
 # 全ての部門名一覧
 func get_all_department_names():
 	var array = []	# StringName の配列
