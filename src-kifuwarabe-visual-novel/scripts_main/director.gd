@@ -56,13 +56,18 @@ func get_programs_hub():
 	return $"📂Programmer/🛩️ProgramsHub"
 
 
-func get_senario_writer():
+func get_scenario_writer():
 	return $"📂ScenarioWriter"
+
+
+# シナリオライターズ・ハブ取得
+func get_scenario_writers_hub():
+	return $"📂ScenarioWriter/🛩️ScenarioWritersHub"
 
 
 # 部門切替取得
 func get_switch_department():
-	return self.get_senario_writer().get_node("SwitchDepartment")
+	return self.get_scenario_writer().get_node("SwitchDepartment")
 
 
 func get_telop_coordinator():
@@ -114,7 +119,7 @@ func set_current_section(section_name):
 func get_all_department_names():
 	var array = []	# StringName の配列
 	
-	for department in self.get_senario_writer().get_children():
+	for department in self.get_scenario_writer().get_children():
 		# SwitchDepartment と System は除く
 		if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWritersHub":
 			array.append(department.name)
@@ -155,7 +160,7 @@ func _ready():
 
 	# スナップショット辞書作成
 	for department_name in self.get_all_department_names():
-		var department_node = self.get_senario_writer().get_node(str(department_name))
+		var department_node = self.get_scenario_writer().get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
 			self.snapshots[department_node.name] = DepartmentSnapshot.new()
 
@@ -172,7 +177,8 @@ func _ready():
 
 
 			# 文書辞書の先頭要素のキー取得
-			self.snapshots[department_node.name].section_name = self.get_senario_writer().get_node(str(department_node.name)).document.keys()[0]
+			var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name)
+			self.snapshots[department_node.name].section_name = merged_scenario_document.keys()[0]
 	
 	# ーーーーーーーー
 	# 非表示

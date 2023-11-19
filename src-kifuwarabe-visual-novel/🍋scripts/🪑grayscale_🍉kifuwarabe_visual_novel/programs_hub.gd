@@ -181,7 +181,8 @@ func get_current_paragraph_of_scenario():
 	var snapshot = self.get_director().get_current_snapshot()
 	var message_window_gui = self.get_director().get_current_message_window_gui()
 
-	return self.get_scenario_writer().get_node(str(snapshot.name)).document[snapshot.section_name][message_window_gui.section_item_index]
+	var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(snapshot.name)
+	return merged_scenario_document[snapshot.section_name][message_window_gui.section_item_index]
 
 
 # 「§」セクションの再生

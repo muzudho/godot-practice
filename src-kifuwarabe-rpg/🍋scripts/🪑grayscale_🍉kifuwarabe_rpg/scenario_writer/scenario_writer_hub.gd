@@ -7,6 +7,10 @@ extends Node
 # ーーーーーーーー
 
 
+# シナリオ・ドキュメント
+var cached_scenario_document = {}
+
+
 # 選択肢と移動先
 var cached_choices_mappings = {}
 
@@ -38,14 +42,34 @@ func get_scenario_writer():
 
 # セクション配列取得
 func get_section_array(department_name, section_name):
-	var scenario_node = self.get_scenario_writer().get_node(str(department_name))
-	if scenario_node == null:
-		print("［台本］　▲エラー　”" + department_name + "”ノードが無い")
+	var merged_scenario_document = self.get_merged_scenario_document(department_name)
 	
-	if not(section_name in scenario_node.document):
+	if not(section_name in merged_scenario_document):
 		print("［台本］　▲エラー　”" + section_name + "”セクションが無い")
 		
-	return scenario_node.document[section_name]
+	return merged_scenario_document[section_name]
+
+
+# 指定の部門下の scenario_document 辞書を全てマージして返します。
+# この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
+func get_merged_scenario_document(department_name):
+	if not (department_name in self.cached_scenario_document):
+		var book_node = self.get_scenario_writer().get_node(str(department_name))
+		self.cached_scenario_document[department_name] = {}
+
+		# 再帰。結果は外部変数に格納
+		self.search_merged_scenario_document(department_name, book_node)
+
+	return self.cached_scenario_document[department_name]
+
+
+func search_merged_scenario_document(department_name, current_node):
+	for child_node in current_node.get_children():
+		if "scenario_document" in child_node:
+			self.cached_scenario_document[department_name].merge(child_node.scenario_document)
+
+		# 再帰。結果は外部変数に格納
+		self.search_merged_scenario_document(department_name, child_node)
 
 
 # 指定の部門下の choices_mappings 辞書を全てマージして返します。
