@@ -472,9 +472,9 @@ var scenario_document = {
 			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] < 5:
-				self.hub().get_programs_hub().get_instruction("Goto").goto("§後手番投了")
+				self.hub().get_programs_hub().get_instruction("Goto").goto("§後手番投了", "")
 			else:
-				self.hub().get_programs_hub().get_instruction("Goto").goto("§後手番１")	
+				self.hub().get_programs_hub().get_instruction("Goto").goto("§後手番１", "")
 			,
 	],
 	"§後手番１": [
@@ -497,9 +497,9 @@ var scenario_document = {
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] < 5:
-				self.hub().get_programs_hub().get_instruction("Goto").goto("§先手番投了")
+				self.hub().get_programs_hub().get_instruction("Goto").goto("§先手番投了", "")
 			else:
-				self.hub().get_programs_hub().get_instruction("Goto").goto("§先手番１")	
+				self.hub().get_programs_hub().get_instruction("Goto").goto("§先手番１", "")
 			,
 	],
 	"§先手番投了": [
