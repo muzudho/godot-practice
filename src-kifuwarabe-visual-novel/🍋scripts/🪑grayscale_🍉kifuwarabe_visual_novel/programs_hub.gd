@@ -13,6 +13,9 @@ var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "
 # スナップショット辞書（キー：StringName型）
 var snapshots = {}
 
+# 現在の部門（StringName型）
+var current_department_name = null
+
 
 # ーーーーーーーー
 # パス関連
@@ -399,3 +402,8 @@ func on_process(delta):
 func get_snapshot(
 		department_name):	# StringName
 	return self.snapshots[department_name]
+
+
+# 現在の部門のスナップショット
+func get_current_snapshot():
+	return self.get_snapshot(self.current_department_name)

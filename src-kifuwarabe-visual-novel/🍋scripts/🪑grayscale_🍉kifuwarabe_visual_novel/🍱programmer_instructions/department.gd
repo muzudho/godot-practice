@@ -39,7 +39,7 @@ func do_it(line):
 func change_department(next_department_name):
 
 	# 前部門
-	var prev_department_name = self.hub().get_director().current_department_name
+	var prev_department_name = self.hub().current_department_name
 	print("［命令　部門］　前：［" + prev_department_name + "］　次：［" + next_department_name + "］")
 	
 	var prev_department_snapshot = self.hub().get_snapshot(prev_department_name)
@@ -49,7 +49,7 @@ func change_department(next_department_name):
 		self.get_m_wnd().hide_message_window(prev_window_name, true)
 
 	# 部門変更
-	self.hub().get_director().current_department_name = next_department_name
+	self.hub().current_department_name = next_department_name
 
 	# 次部門
 	var next_department_snapshot = self.hub().get_snapshot(next_department_name)

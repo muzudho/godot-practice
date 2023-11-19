@@ -11,8 +11,6 @@ var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_vi
 var current_state = &"WaitForKeyConfig"
 
 
-# 現在の部門（StringName型）
-var current_department_name = null
 # 現在鳴っている背景音楽のノード名
 var current_bgm_name = null
 # 現在鳴っている効果音のノード名
@@ -77,7 +75,7 @@ func get_telop_coordinator():
 
 
 func get_current_snapshot():
-	return self.get_programs_hub().get_snapshot(self.current_department_name)
+	return self.get_programs_hub().get_snapshot(self.get_programs_hub().current_department_name)
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -236,7 +234,7 @@ func _process(delta):
 		# ーーーーーーーー
 
 		# 最初に実行する部門名
-		self.current_department_name = self.get_switch_department().start_department_name
+		self.get_programs_hub().current_department_name = self.get_switch_department().start_department_name
 
 		var snapshot = self.get_current_snapshot()
 
@@ -361,10 +359,10 @@ func _unhandled_input(event):
 # 仮想キーを押下したという建付け
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if vk_operation == &"VKO_Pressed" and str(self.current_department_name) in self.get_switch_department().key_pressed_stage_directions:
+	if vk_operation == &"VKO_Pressed" and str(self.get_programs_hub().current_department_name) in self.get_switch_department().key_pressed_stage_directions:
 		
 		# その要素を取得
-		var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[str(self.current_department_name)]
+		var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[str(self.get_programs_hub().current_department_name)]
 		
 		# 押したキーに紐づく、ト書きは辞書に記載されているか？
 		if virtual_key in key_pressed_stage_directions_1:
