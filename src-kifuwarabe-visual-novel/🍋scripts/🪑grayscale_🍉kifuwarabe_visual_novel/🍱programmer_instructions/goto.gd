@@ -33,7 +33,7 @@ func do_it(
 func goto(section_name):
 	# 伝言窓の状態が Completed で止まってるとフリーズするから、強制解除
 	print("［命令　ゴートゥー］　伝言窓の状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
-	self.hub().get_director().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+	self.hub().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 	self.hub().get_director().set_current_section(section_name)
 	self.hub().play_section()

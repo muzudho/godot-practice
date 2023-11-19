@@ -71,7 +71,7 @@ func _process(delta):
 	# タイプライター風表示中
 	if self.statemachine_of_message_window.is_typewriter():
 
-		var message_window_gui = self.hub().get_director().get_current_message_window_gui()
+		var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
 
 		message_window_gui.count_of_typewriter += delta
 
@@ -241,7 +241,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		elif vk_operation == &"VKO_Released":
 			self.hub().is_fast_forward = false
 
-	var message_window_gui = self.hub().get_director().get_current_message_window_gui()
+	var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
@@ -298,7 +298,7 @@ func on_talked_2():
 	self.set_visible_subtree(true)
 	self.modulate.a = 1.0	# メッセージ追加による不透明化
 
-	var message_window_gui = self.hub().get_director().get_current_message_window_gui()
+	var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
 
 	# 選択肢なら
 	if message_window_gui.is_choices():
@@ -323,7 +323,7 @@ func on_talked_2():
 # ページ送り
 # 状態遷移機械から呼出される
 func on_page_forward():
-	var message_window_gui = self.hub().get_director().get_current_message_window_gui()
+	var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
 
 	# 選択肢モードなら
 	if message_window_gui.is_choices():
@@ -362,7 +362,7 @@ func on_page_forward():
 
 
 func on_all_characters_pushed():
-	var message_window_gui = self.hub().get_director().get_current_message_window_gui()
+	var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
 
 	# 選択肢
 	if message_window_gui.is_choices():
@@ -379,7 +379,7 @@ func on_all_characters_pushed():
 # 初期化
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
-	var message_window_gui = self.hub().get_director().get_current_message_window_gui()
+	var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
 
 	print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
 

@@ -34,6 +34,6 @@ func do_it(line):
 # 秒間何文字表示に設定する
 func set_message_speed(characters_per_second):
 	print("［命令　伝言速度］　秒間：[" + str(characters_per_second) + "]文字")
-	var message_window_gui = self.hub().get_director().get_current_message_window_gui()
+	var message_window_gui = self.hub().get_current_message_window_gui()
 	message_window_gui.msg_speed = characters_per_second
 	

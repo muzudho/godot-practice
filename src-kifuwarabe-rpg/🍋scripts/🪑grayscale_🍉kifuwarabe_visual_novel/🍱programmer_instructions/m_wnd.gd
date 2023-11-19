@@ -46,7 +46,7 @@ func do_it(line):
 func show_message_window(
 		node_name,						# StringName
 		is_department_entered = false):	# bool
-	var snapshot = self.hub().get_director().get_current_snapshot()
+	var snapshot = self.hub().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
@@ -70,7 +70,7 @@ func show_message_window(
 func hide_message_window(
 		node_name,						# StringName
 		is_department_leaved = false):	# bool
-	var snapshot = self.hub().get_director().get_current_snapshot()
+	var snapshot = self.hub().get_current_snapshot()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする

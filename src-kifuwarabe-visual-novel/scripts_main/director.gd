@@ -42,8 +42,15 @@ func get_illustrator():
 func get_key_config_hub():
 	return $"🛩️KeyConfigHub"
 
+
 func get_message_windows_node():
 	return $"📂GuiArtist_MessageWindows"
+
+
+# 伝言窓（現在、出力の対象になっているもの）
+func get_message_window_gui(node_name_obj):
+	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
+	return self.get_message_windows_node().get_node(str(node_name_obj))
 
 
 # プログラムズ・ハブ取得
@@ -74,31 +81,10 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
-func get_current_snapshot():
-	return self.get_programs_hub().get_snapshot(self.get_programs_hub().current_department_name)
-
-
-# 伝言窓（現在、出力の対象になっているもの）
-func get_message_window_gui(node_name_obj):
-	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
-	return self.get_message_windows_node().get_node(str(node_name_obj))
-
-
-# 伝言窓（現在、出力の対象になっているもの）
-func get_current_message_window_gui():
-	var snapshot = self.get_current_snapshot()
-	if snapshot.stack_of_last_displayed_message_window.size() < 1:
-		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
-
-	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
-	#print("［監督］　伝言窓名：［" + node_name + "］")
-	return self.get_message_window_gui(str(node_name))
-
-
 # 現在の「§」セクション設定
 func set_current_section(section_name):
-	var snapshot = self.get_current_snapshot()
-	var message_window_gui = self.get_current_message_window_gui()
+	var snapshot = self.get_programs_hub().get_current_snapshot()
+	var message_window_gui = self.get_programs_hub().get_current_message_window_gui()
 
 	snapshot.section_name = section_name
 	message_window_gui.section_item_index = 0
@@ -145,7 +131,7 @@ func _ready():
 		if message_window_node is Sprite2D:
 			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 			message_window_node.on_message_window_page_forward = func():
-				self.get_current_snapshot().set_parse_lock(false)
+				self.get_programs_hub().get_current_snapshot().set_parse_lock(false)
 
 	# スナップショット辞書作成
 	for department_name in self.get_all_department_names():
@@ -236,7 +222,7 @@ func _process(delta):
 		# 最初に実行する部門名
 		self.get_programs_hub().current_department_name = self.get_switch_department().start_department_name
 
-		var snapshot = self.get_current_snapshot()
+		var snapshot = self.get_programs_hub().get_current_snapshot()
 
 		# パースするな
 		snapshot.set_parse_lock(true)
@@ -245,7 +231,7 @@ func _process(delta):
 		self.get_programs_hub().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.get_current_message_window_gui().set_appear_subtree(true)
+		self.get_programs_hub().get_current_message_window_gui().set_appear_subtree(true)
 
 	elif self.current_state == &"Main":
 		self.get_programs_hub().on_process(delta)
@@ -381,4 +367,4 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.get_programs_hub().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)

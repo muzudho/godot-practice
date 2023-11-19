@@ -27,14 +27,9 @@ func get_director():
 	return $"../../../Director"
 
 
-# シナリオライター・ハブ取得
-func get_scenario_writers_hub():
-	return self.get_director().get_node("📂ScenarioWriter/🛩️ScenarioWritersHub")
-
-
-# シナリオライター取得
-func get_scenario_writer():
-	return self.get_director().get_node("📂ScenarioWriter")
+# 背景アーティスト
+func get_background_artist():
+	return self.get_director().get_node("📂BackgroundArtist")
 
 
 # BGM取得
@@ -42,24 +37,24 @@ func get_bgm():
 	return self.get_director().get_node("📂Musician_BGM")
 
 
-# 効果音取得
-func get_se():
-	return self.get_director().get_node("📂Musician_SE")
-
-
-# 背景アーティスト
-func get_background_artist():
-	return self.get_director().get_node("📂BackgroundArtist")
-
-
 # イラストレーター取得
 func get_illustrator():
 	return self.get_director().get_node("📂Illustrator")
 
 
-# テロップ・コーディネーター取得
-func get_telop_coordinator():
-	return self.get_director().get_node("📂TelopCoordinator")
+# 命令ノード取得
+func get_instruction(instruction_name):
+	return $"../🍱Instructions_🍉KifuwarabeVisualNovel".get_node(instruction_name)
+
+
+# メッセージ・ウィンドウズ取得
+func get_message_windows_node():
+	return self.get_director().get_node("📂GuiArtist_MessageWindows")
+
+
+# 伝言窓（現在、出力の対象になっているもの）
+func get_message_window_gui(node_name_obj):
+	return self.get_message_windows_node().get_node(str(node_name_obj))
 
 
 # モンスターの全身像
@@ -72,9 +67,24 @@ func get_monster_faces():
 	return self.get_director().get_node("MonsterTrainer/Faces")
 
 
-# 命令ノード取得
-func get_instruction(instruction_name):
-	return $"../🍱Instructions_🍉KifuwarabeVisualNovel".get_node(instruction_name)
+# 効果音取得
+func get_se():
+	return self.get_director().get_node("📂Musician_SE")
+
+
+# シナリオライター取得
+func get_scenario_writer():
+	return self.get_director().get_node("📂ScenarioWriter")
+
+
+# シナリオライター・ハブ取得
+func get_scenario_writers_hub():
+	return self.get_director().get_node("📂ScenarioWriter/🛩️ScenarioWritersHub")
+
+
+# テロップ・コーディネーター取得
+func get_telop_coordinator():
+	return self.get_director().get_node("📂TelopCoordinator")
 
 
 
@@ -179,7 +189,7 @@ func number_to_zenkaku_text(number, figures):
 
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_current_snapshot()
 	var scenario_node_name = snapshot.name
 	var section_name =  snapshot.section_name
 	
@@ -189,8 +199,8 @@ func get_current_section_size_of_scenario():
 
 # シナリオの現在パラグラフ（セクションのアイテム）を返す
 func get_current_paragraph_of_scenario():
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_gui = self.get_director().get_current_message_window_gui()
+	var snapshot = self.get_current_snapshot()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(snapshot.name)
 	return merged_scenario_document[snapshot.section_name][message_window_gui.section_item_index]
@@ -198,8 +208,8 @@ func get_current_paragraph_of_scenario():
 
 # 「§」セクションの再生
 func play_section():
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_gui = self.get_director().get_current_message_window_gui()
+	var snapshot = self.get_current_snapshot()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	# 全部消化済みの場合
 	if self.get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
@@ -229,10 +239,10 @@ func on_choice_selected(row_number):
 	# 伝言窓の状態遷移
 	#	ずっと Completed だと、困るから
 	print("［助監］　伝言窓を　オール・ページズ・フラッシュド　する")
-	self.get_director().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+	self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
-	var snapshot = self.get_director().get_current_snapshot()
+	var snapshot = self.get_current_snapshot()
 	var department_name = str(snapshot.name)
 	var section_name = snapshot.section_name
 	
@@ -344,7 +354,7 @@ func parse_paragraph(paragraph_text):
 		#	［ト書き］終わり
 		return
 
-	var message_window_gui = self.get_director().get_current_message_window_gui()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	# 選択肢だ
 	if message_window_gui.choices_row_numbers != null:
@@ -364,8 +374,8 @@ func on_process(delta):
 		# 疑似スリープ値が残っている間は、シナリオを進めません
 		return
 
-	var snapshot = self.get_director().get_current_snapshot()
-	var message_window_gui = self.get_director().get_current_message_window_gui()
+	var snapshot = self.get_current_snapshot()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not snapshot.is_parse_lock():
@@ -393,9 +403,9 @@ func on_process(delta):
 
 		# もう無いよ
 		else:
-			if not self.get_director().get_current_message_window_gui().statemachine_of_message_window.is_none():
+			if not self.get_current_message_window_gui().statemachine_of_message_window.is_none():
 				# 伝言窓を閉じる
-				self.get_director().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+				self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
 # スナップショット
@@ -407,3 +417,14 @@ func get_snapshot(
 # 現在の部門のスナップショット
 func get_current_snapshot():
 	return self.get_snapshot(self.current_department_name)
+
+
+# 伝言窓（現在、出力の対象になっているもの）
+func get_current_message_window_gui():
+	var snapshot = self.get_current_snapshot()
+	if snapshot.stack_of_last_displayed_message_window.size() < 1:
+		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
+
+	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
+	#print("［監督］　伝言窓名：［" + node_name + "］")
+	return self.get_message_window_gui(str(node_name))
