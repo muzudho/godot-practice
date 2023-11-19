@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=92 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -43,6 +43,13 @@
 [ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="46_ooq6c"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="47_nlh77"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="48_xknfu"]
+[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://🍋label_settings/🪑grayscale/battle_slategray.tres" id="49_c6t67"]
+[ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://🍋label_settings/🪑grayscale/large_font.tres" id="50_vvxcd"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/main_medium.tres" id="51_2w4vw"]
+[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/battle_light_red.tres" id="52_7d5u4"]
+[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="53_rwvbq"]
+[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="54_mtkqv"]
+[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="55_q5fb2"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="57_vx8va"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="58_sadl4"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/reader.gd" id="59_02v4r"]
@@ -734,6 +741,7 @@ offset_top = -3.0
 offset_right = 1217.0
 offset_bottom = 38.0
 text = "玉の遠さ"
+label_settings = ExtResource("49_c6t67")
 
 [node name="玉の遠さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 130.0
@@ -741,6 +749,7 @@ offset_top = 28.0
 offset_right = 1218.0
 offset_bottom = 109.0
 text = "１２３４５６７８９０１２３４５６７"
+label_settings = ExtResource("50_vvxcd")
 
 [node name="玉の遠さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 129.0
@@ -748,6 +757,7 @@ offset_top = 91.0
 offset_right = 1215.0
 offset_bottom = 172.0
 text = "　　　　　　　　　　　　　　　２０"
+label_settings = ExtResource("50_vvxcd")
 
 [node name="後" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 32.0
@@ -755,6 +765,7 @@ offset_top = 60.0
 offset_right = 64.0
 offset_bottom = 108.0
 text = "後"
+label_settings = ExtResource("51_2w4vw")
 
 [node name="先" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 31.0
@@ -762,6 +773,7 @@ offset_top = 124.0
 offset_right = 63.0
 offset_bottom = 172.0
 text = "先"
+label_settings = ExtResource("51_2w4vw")
 
 [node name="城の堅さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 287.0
@@ -769,6 +781,7 @@ offset_top = -3.0
 offset_right = 415.0
 offset_bottom = 38.0
 text = "城の堅さ"
+label_settings = ExtResource("49_c6t67")
 
 [node name="城の堅さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 291.0
@@ -776,6 +789,7 @@ offset_top = 61.0
 offset_right = 419.0
 offset_bottom = 109.0
 text = "０００４"
+label_settings = ExtResource("52_7d5u4")
 
 [node name="城の堅さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 290.0
@@ -783,6 +797,7 @@ offset_top = 125.0
 offset_right = 418.0
 offset_bottom = 173.0
 text = "　　　３"
+label_settings = ExtResource("52_7d5u4")
 
 [node name="逃げ道の広さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 448.0
@@ -790,6 +805,7 @@ offset_top = -3.0
 offset_right = 640.0
 offset_bottom = 38.0
 text = "逃げ道の広さ"
+label_settings = ExtResource("49_c6t67")
 
 [node name="逃げ道の広さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 480.0
@@ -797,6 +813,7 @@ offset_top = 61.0
 offset_right = 608.0
 offset_bottom = 109.0
 text = "００００"
+label_settings = ExtResource("53_rwvbq")
 
 [node name="逃げ道の広さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 481.0
@@ -804,6 +821,7 @@ offset_top = 123.0
 offset_right = 609.0
 offset_bottom = 171.0
 text = "　　　１"
+label_settings = ExtResource("53_rwvbq")
 
 [node name="駒の働き" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 672.0
@@ -811,6 +829,7 @@ offset_top = -4.0
 offset_right = 800.0
 offset_bottom = 37.0
 text = "駒の働き"
+label_settings = ExtResource("49_c6t67")
 
 [node name="駒の働き_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 673.0
@@ -818,6 +837,7 @@ offset_top = 59.0
 offset_right = 801.0
 offset_bottom = 107.0
 text = "０００１"
+label_settings = ExtResource("54_mtkqv")
 
 [node name="駒の働き_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 672.0
@@ -825,6 +845,7 @@ offset_top = 123.0
 offset_right = 800.0
 offset_bottom = 171.0
 text = "　　　０"
+label_settings = ExtResource("54_mtkqv")
 
 [node name="攻めの速度" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 832.0
@@ -832,6 +853,7 @@ offset_top = -4.0
 offset_right = 992.0
 offset_bottom = 37.0
 text = "攻めの速度"
+label_settings = ExtResource("49_c6t67")
 
 [node name="攻めの速度_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 864.0
@@ -839,6 +861,7 @@ offset_top = 61.0
 offset_right = 992.0
 offset_bottom = 109.0
 text = "０００２"
+label_settings = ExtResource("55_q5fb2")
 
 [node name="攻めの速度_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 865.0
@@ -846,6 +869,7 @@ offset_top = 123.0
 offset_right = 993.0
 offset_bottom = 171.0
 text = "　　　１"
+label_settings = ExtResource("55_q5fb2")
 
 [node name="MessageWindow_■下" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
