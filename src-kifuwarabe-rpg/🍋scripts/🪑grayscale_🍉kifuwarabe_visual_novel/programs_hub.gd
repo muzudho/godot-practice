@@ -2,6 +2,9 @@
 extends Node
 
 
+var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department/snapshot.gd")
+
+
 # ーーーーーーーー
 # メモリ関連
 # ーーーーーーーー
@@ -86,6 +89,37 @@ func get_telop_coordinator():
 func get_instruction(instruction_name):
 	return $"../🍱Instructions_🍉KifuwarabeVisualNovel".get_node(instruction_name)
 
+
+# ーーーーーーーー
+# 起動時設定
+# ーーーーーーーー
+
+
+func _ready():
+	# メッセージ・ウィンドウに対応関数紐づけ
+	for message_window_node in self.get_message_windows_node().get_children():
+		if message_window_node is Sprite2D:
+			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
+			message_window_node.on_message_window_page_forward = func():
+				self.get_current_snapshot().set_parse_lock(false)
+
+	# スナップショット辞書作成
+	for department_name in self.get_all_department_names():
+		var department_node = self.get_scenario_writer().get_node(str(department_name))
+		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
+			# 生成
+			var snapshot = DepartmentSnapshot.new()
+
+			# 部門名をコピー
+			snapshot.name = department_node.name		# StringName 型
+
+			# メッセージを出力する対象となるウィンドウの名前。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
+			snapshot.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
+
+			# 先頭セクションの名前
+			snapshot.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name).keys()[0]
+
+			self.snapshots[department_node.name] = snapshot
 
 
 # ーーーーーーーー

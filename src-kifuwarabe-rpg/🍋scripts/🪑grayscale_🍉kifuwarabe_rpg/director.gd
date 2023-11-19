@@ -4,9 +4,6 @@
 extends Node2D
 
 
-var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department/snapshot.gd")
-
-
 # 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
 var current_state = &"WaitForKeyConfig"
 
@@ -85,33 +82,6 @@ func get_telop_coordinator():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
-	# ーーーーーーーー
-	# 初期化を行う
-	# ーーーーーーーー
-
-	# メッセージ・ウィンドウの初期設定
-	for message_window_node in self.get_message_windows_node().get_children():
-		if message_window_node is Sprite2D:
-			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
-			message_window_node.on_message_window_page_forward = func():
-				self.get_programs_hub().get_current_snapshot().set_parse_lock(false)
-
-	# スナップショット辞書作成
-	for department_name in self.get_programs_hub().get_all_department_names():
-		var department_node = self.get_scenario_writer().get_node(str(department_name))
-		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
-			self.get_programs_hub().snapshots[department_node.name] = DepartmentSnapshot.new()
-
-			# （めんどくさいけど） SwitchDepartment からプロパティを移す
-			self.get_programs_hub().get_snapshot(department_node.name).name = department_node.name		# StringName 型
-
-			# この初期化。メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-			self.get_programs_hub().get_snapshot(department_node.name).stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
-
-			# 文書辞書の先頭要素のキー取得
-			var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name)
-			self.get_programs_hub().get_snapshot(department_node.name).section_name = merged_scenario_document.keys()[0]
-	
 	# ーーーーーーーー
 	# 非表示
 	# ーーーーーーーー
