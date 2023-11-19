@@ -10,6 +10,9 @@ extends Node
 # 全角数字
 var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
 
+# スナップショット辞書（キー：StringName型）
+var snapshots = {}
+
 
 # ーーーーーーーー
 # パス関連

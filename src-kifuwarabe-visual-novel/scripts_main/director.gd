@@ -18,9 +18,6 @@ var current_bgm_name = null
 # 現在鳴っている効果音のノード名
 var current_se_name = null
 
-# スナップショット辞書（キー：StringName型）
-var snapshots = {}
-
 # ト書き（シナリオの命令パラグラフ）で使える変数の辞書
 var stage_directions_variables = {}
 # 疑似的なスリープに使うカウント
@@ -82,7 +79,7 @@ func get_telop_coordinator():
 # スナップショット
 func get_snapshot(
 		department_name):	# StringName
-	return self.snapshots[department_name]
+	return self.get_programs_hub().snapshots[department_name]
 
 
 func get_current_snapshot():
@@ -162,23 +159,22 @@ func _ready():
 	for department_name in self.get_all_department_names():
 		var department_node = self.get_scenario_writer().get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
-			self.snapshots[department_node.name] = DepartmentSnapshot.new()
+			self.get_programs_hub().snapshots[department_node.name] = DepartmentSnapshot.new()
 
 			# （めんどくさいけど） SwitchDepartment からプロパティを移す
-			self.snapshots[department_node.name].name = department_node.name		# StringName 型
+			self.get_programs_hub().snapshots[department_node.name].name = department_node.name		# StringName 型
 
 			# TODO この初期化は必要か？
 			# メッセージを出力する対象となるウィンドウの名前（文字列）。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
 			if department_node.name =="📗ビジュアルノベル部門":
-				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
+				self.get_programs_hub().snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■下")	# StringName 型 シンタックス・シュガー
 			elif department_node.name =="📗システムメニュー部門":
-				self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
-				#self.snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■左下")	# StringName 型 シンタックス・シュガー
+				self.get_programs_hub().snapshots[department_node.name].stack_of_last_displayed_message_window.push_back(&"■中央")	# StringName 型 シンタックス・シュガー
 
 
 			# 文書辞書の先頭要素のキー取得
 			var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name)
-			self.snapshots[department_node.name].section_name = merged_scenario_document.keys()[0]
+			self.get_programs_hub().snapshots[department_node.name].section_name = merged_scenario_document.keys()[0]
 	
 	# ーーーーーーーー
 	# 非表示
