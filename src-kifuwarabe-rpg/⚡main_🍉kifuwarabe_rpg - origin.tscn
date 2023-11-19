@@ -38,7 +38,6 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="4_7kdpb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/visual_novel_department.gd" id="5_xa8m5"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_department.gd" id="6_2wd8e"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_department.gd" id="7_5cg5g"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_hub.gd" id="8_yr4ye"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer.gd" id="97_1q7ae"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="98_j22j1"]
@@ -511,7 +510,6 @@ script = ExtResource("5_xa8m5")
 script = ExtResource("6_2wd8e")
 
 [node name="📗バトル部門" type="Node" parent="📂ScenarioWriter"]
-script = ExtResource("7_5cg5g")
 
 [node name="Accessor" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
 script = ExtResource("8_yr4ye")
