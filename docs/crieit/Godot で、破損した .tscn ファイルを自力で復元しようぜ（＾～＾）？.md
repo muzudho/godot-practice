@@ -119,4 +119,37 @@ shadow_offset = Vector2(3, 3)
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　地獄をバリエーション豊かにしないでほしいわね」  
 
+## node
+
+```tscn
+[node name="Director" type="Node2D"]
+material = SubResource("CanvasItemMaterial_glhd8")
+script = ExtResource("1_wmnp6")
+
+
+[node name="Grid" type="Sprite2D" parent="."]
+visible = false
+z_index = 5
+position = Vector2(640, 360)
+texture = ExtResource("2_ivwoj")
+
+
+[node name="📂BackgroundArtist" type="Node2D" parent="."]
+
+
+[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("25_aycb2")
+
+
+[node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("26_4dvmr")
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　あとは　ノードが並んでいるツリービューになっているぜ」  
+
 .
