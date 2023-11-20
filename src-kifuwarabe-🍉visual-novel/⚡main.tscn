@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=79 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -50,15 +50,13 @@
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_choices_mappings.gd" id="59_cw2i4"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_coordinator.tscn" id="60_qck1r"]
-[ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://🍋label_settings/🪑grayscale/game_title.tres" id="61_60miy"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_chapter_1.gd" id="61_cq5dn"]
-[ext_resource type="LabelSettings" uid="uid://dyjivgyvqlov0" path="res://🍋label_settings/🪑grayscale/game_sub_title.tres" id="62_iyky0"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
 [ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="63_346vi"]
 [ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/medium_thick.tres" id="64_105ln"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="65_6texa"]
-[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="65_8vprj"]
+[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/x_large.tres" id="65_qa1vg"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="66_vkf8y"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="68_4axfk"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="68_8n3x2"]
@@ -142,7 +140,6 @@ position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
 [node name="📂BackgroundArtist" type="Node2D" parent="."]
-visible = false
 
 [node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="📂BackgroundArtist"]
 visible = false
@@ -250,6 +247,7 @@ texture = ExtResource("43_7jh74")
 script = ExtResource("21_ild6n")
 
 [node name="■FullScreen" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_ojm4j")
 script = ExtResource("23_u7kqc")
@@ -456,7 +454,6 @@ visible = false
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
 
 [node name="きふわらべＲＰＧ" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
@@ -471,7 +468,7 @@ offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "きふわらべＲＰＧ"
-label_settings = ExtResource("61_60miy")
+label_settings = ExtResource("65_qa1vg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -488,7 +485,7 @@ offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "～ Computer shogi story of the race of the bottom ～"
-label_settings = ExtResource("62_iyky0")
+label_settings = ExtResource("64_105ln")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -553,7 +550,7 @@ offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "完"
-label_settings = ExtResource("65_8vprj")
+label_settings = ExtResource("65_qa1vg")
 horizontal_alignment = 1
 vertical_alignment = 1
 

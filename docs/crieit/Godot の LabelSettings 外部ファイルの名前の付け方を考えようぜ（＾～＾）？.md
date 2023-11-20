@@ -63,4 +63,14 @@ medium_thin.tscn
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　文字サイズ中、線の太さは細い、みたいな　名前の方を　使うことにするぜ」  
 
+![202311__godot__20-2040--large-settings.png](https://crieit.now.sh/upload_images/101bd96e6f8c52fd69d7d2789474b776655b45d83aa6b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　ひとまず　これぐらいでいいだろう」  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
+.
 .
