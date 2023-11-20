@@ -55,7 +55,7 @@
 [ext_resource type="LabelSettings" uid="uid://dyjivgyvqlov0" path="res://🍋label_settings/🪑grayscale/game_sub_title.tres" id="62_iyky0"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
 [ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="63_346vi"]
-[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="64_jemut"]
+[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/medium_thick.tres" id="64_105ln"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="65_6texa"]
 [ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="65_8vprj"]
@@ -537,7 +537,7 @@ text = "　　　　　　音楽　魔王魂
 　　　　　　監督　むずでょ
 
 　同人サークル　ぐれーすけーる"
-label_settings = ExtResource("64_jemut")
+label_settings = ExtResource("64_105ln")
 vertical_alignment = 1
 
 [node name="完" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]

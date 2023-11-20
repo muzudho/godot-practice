@@ -39,15 +39,9 @@
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
 [ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://🍋label_settings/🪑grayscale/game_title.tres" id="43_phx2h"]
-[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="45_k6jkg"]
 [ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="46_ooq6c"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="47_nlh77"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="48_xknfu"]
-[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://🍋label_settings/🪑grayscale/battle_slategray.tres" id="49_c6t67"]
-[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/battle_light_red.tres" id="52_7d5u4"]
-[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="53_rwvbq"]
-[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="54_mtkqv"]
-[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/battle_light_blue.tres" id="55_q5fb2"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="57_vx8va"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="58_sadl4"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
@@ -77,6 +71,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
 [ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="70_vliq2"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
+[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/medium_thick.tres" id="71_egutf"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="71_vwn1b"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director.tscn" id="72_k7xhv"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="72_seukb"]
@@ -84,10 +79,15 @@
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="73_ran2h"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="74_64hjs"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="75_j1pgv"]
+[ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://🍋label_settings/🪑grayscale/medium_slategray_on_battle.tres" id="75_velos"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="76_3ghif"]
 [ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🍋label_settings/🪑grayscale/large.tres" id="76_sy2vu"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="77_2jpbh"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="77_hfxpa"]
+[ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/medium_light_red_on_battle.tres" id="78_5timb"]
+[ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/medium_light_yellow_on_battle.tres" id="79_4bf73"]
+[ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/medium_light_green_on_battle.tres" id="80_b48gy"]
+[ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/medium_light_blue_on_battle.tres" id="81_no8ah"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
@@ -142,6 +142,7 @@ material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_wmnp6")
 
 [node name="Grid" type="Sprite2D" parent="."]
+visible = false
 z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_ivwoj")
@@ -154,11 +155,11 @@ position = Vector2(640, 360)
 texture = ExtResource("25_aycb2")
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("26_4dvmr")
 
 [node name="🗻エンディング" type="Sprite2D" parent="📂BackgroundArtist"]
-visible = false
 position = Vector2(640, 360)
 texture = ExtResource("27_gypff")
 
@@ -255,6 +256,7 @@ script = ExtResource("61_cfuy1")
 script = ExtResource("61_cfuy1")
 
 [node name="■FullScreen" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_rrmg8")
 script = ExtResource("61_tvkup")
@@ -509,6 +511,7 @@ script = ExtResource("70_ifrki")
 [node name="ーーーーきふわらべRPGーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
 
 [node name="きふわらべRPG" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
@@ -545,7 +548,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Ｔエンディング" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
 
 [node name="エンドロール" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
 anchors_preset = 8
@@ -572,7 +574,7 @@ text = "　　　　　　音楽　魔王魂
 　　　　　　監督　むずでょ
 
 　同人サークル　ぐれーすけーる"
-label_settings = ExtResource("45_k6jkg")
+label_settings = ExtResource("71_egutf")
 vertical_alignment = 1
 
 [node name="完" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
@@ -769,7 +771,7 @@ offset_top = -3.0
 offset_right = 1217.0
 offset_bottom = 38.0
 text = "玉の遠さ"
-label_settings = ExtResource("49_c6t67")
+label_settings = ExtResource("75_velos")
 
 [node name="玉の遠さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 130.0
@@ -809,7 +811,7 @@ offset_top = -3.0
 offset_right = 415.0
 offset_bottom = 38.0
 text = "城の堅さ"
-label_settings = ExtResource("49_c6t67")
+label_settings = ExtResource("75_velos")
 
 [node name="城の堅さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 291.0
@@ -817,7 +819,7 @@ offset_top = 61.0
 offset_right = 419.0
 offset_bottom = 109.0
 text = "０００４"
-label_settings = ExtResource("52_7d5u4")
+label_settings = ExtResource("78_5timb")
 
 [node name="城の堅さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 290.0
@@ -825,7 +827,7 @@ offset_top = 125.0
 offset_right = 418.0
 offset_bottom = 173.0
 text = "　　　３"
-label_settings = ExtResource("52_7d5u4")
+label_settings = ExtResource("78_5timb")
 
 [node name="逃げ道の広さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 448.0
@@ -833,7 +835,7 @@ offset_top = -3.0
 offset_right = 640.0
 offset_bottom = 38.0
 text = "逃げ道の広さ"
-label_settings = ExtResource("49_c6t67")
+label_settings = ExtResource("75_velos")
 
 [node name="逃げ道の広さ_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 480.0
@@ -841,7 +843,7 @@ offset_top = 61.0
 offset_right = 608.0
 offset_bottom = 109.0
 text = "００００"
-label_settings = ExtResource("53_rwvbq")
+label_settings = ExtResource("79_4bf73")
 
 [node name="逃げ道の広さ_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 481.0
@@ -849,7 +851,7 @@ offset_top = 123.0
 offset_right = 609.0
 offset_bottom = 171.0
 text = "　　　１"
-label_settings = ExtResource("53_rwvbq")
+label_settings = ExtResource("79_4bf73")
 
 [node name="駒の働き" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 672.0
@@ -857,7 +859,7 @@ offset_top = -4.0
 offset_right = 800.0
 offset_bottom = 37.0
 text = "駒の働き"
-label_settings = ExtResource("49_c6t67")
+label_settings = ExtResource("75_velos")
 
 [node name="駒の働き_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 673.0
@@ -865,7 +867,7 @@ offset_top = 59.0
 offset_right = 801.0
 offset_bottom = 107.0
 text = "０００１"
-label_settings = ExtResource("54_mtkqv")
+label_settings = ExtResource("80_b48gy")
 
 [node name="駒の働き_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 672.0
@@ -873,7 +875,7 @@ offset_top = 123.0
 offset_right = 800.0
 offset_bottom = 171.0
 text = "　　　０"
-label_settings = ExtResource("54_mtkqv")
+label_settings = ExtResource("80_b48gy")
 
 [node name="攻めの速度" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 832.0
@@ -881,7 +883,7 @@ offset_top = -4.0
 offset_right = 992.0
 offset_bottom = 37.0
 text = "攻めの速度"
-label_settings = ExtResource("49_c6t67")
+label_settings = ExtResource("75_velos")
 
 [node name="攻めの速度_上" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 864.0
@@ -889,7 +891,7 @@ offset_top = 61.0
 offset_right = 992.0
 offset_bottom = 109.0
 text = "０００２"
-label_settings = ExtResource("55_q5fb2")
+label_settings = ExtResource("81_no8ah")
 
 [node name="攻めの速度_下" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 865.0
@@ -897,7 +899,7 @@ offset_top = 123.0
 offset_right = 993.0
 offset_bottom = 171.0
 text = "　　　１"
-label_settings = ExtResource("55_q5fb2")
+label_settings = ExtResource("81_no8ah")
 
 [node name="MessageWindow_■FullScreen" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
