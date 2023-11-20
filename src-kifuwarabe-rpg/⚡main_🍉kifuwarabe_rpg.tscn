@@ -479,12 +479,12 @@ script = ExtResource("60_f7oqn")
 
 [node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("62_vgqom")]
 
-[node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
+[node name="📗会話システムメニュー部門_🍉VisualNovel" type="Node" parent="📂ScenarioWriter"]
 
-[node name="📃選択肢と飛び先" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
+[node name="📃選択肢と飛び先" type="Node" parent="📂ScenarioWriter/📗会話システムメニュー部門_🍉VisualNovel"]
 script = ExtResource("64_3h7b4")
 
-[node name="📃はじまり" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
+[node name="📃はじまり" type="Node" parent="📂ScenarioWriter/📗会話システムメニュー部門_🍉VisualNovel"]
 script = ExtResource("66_v5bpr")
 
 [node name="📗バトル部門" type="Node" parent="📂ScenarioWriter"]

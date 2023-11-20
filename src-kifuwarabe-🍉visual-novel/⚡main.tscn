@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=77 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -46,10 +46,9 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="52_4lig0"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/scenario_writer_hub.gd" id="54_5dc2p"]
 [ext_resource type="PackedScene" uid="uid://crgd8anicn08x" path="res://📂ScenarioWriter_📗ビジュアルノベル部門.tscn" id="57_7j2fj"]
+[ext_resource type="PackedScene" uid="uid://h1gka1sqmc0q" path="res://📂ScenarioWriter_📗会話システムメニュー部門.tscn" id="58_frjxl"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_choices_mappings.gd" id="59_cw2i4"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_coordinator.tscn" id="60_qck1r"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_chapter_1.gd" id="61_cq5dn"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
 [ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="63_346vi"]
 [ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/medium_thick.tres" id="64_105ln"]
@@ -433,13 +432,7 @@ script = ExtResource("4_hvtfg")
 
 [node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("57_7j2fj")]
 
-[node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
-
-[node name="📃選択肢と飛び先" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
-script = ExtResource("59_cw2i4")
-
-[node name="📃はじまり" type="Node" parent="📂ScenarioWriter/📗システムメニュー部門"]
-script = ExtResource("61_cq5dn")
+[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("58_frjxl")]
 
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 visible = false
