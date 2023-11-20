@@ -7,7 +7,7 @@ class_name AbstractMessageWindow
 
 
 # 状態機械
-var statemachine_of_message_window = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/statemachines/message_window.gd").new()
+var statemachine_of_message_window = load("res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/statemachines/message_window.gd").new()
 
 # ページ送り時の対応関数
 var on_message_window_page_forward = func():

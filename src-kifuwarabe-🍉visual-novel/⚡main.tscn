@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/switch_department.gd" id="4_hvtfg"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://🍋audio_bgm/🪑sakuramaru/きふわらべファイター２.ogg" id="9_c76by"]
 [ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://🍋audio_bgm/🪑maou_audio/maou_game_town05.ogg" id="10_t6v7f"]
 [ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_acoustic05.ogg" id="11_obewr"]
@@ -16,11 +15,11 @@
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🍋audio_se/🪑maou_audio/maou_se_sound19.ogg" id="19_myb2y"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_switch02.ogg" id="20_nrumj"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_se/🪑maou_audio/maou_se_magic_fire11.ogg" id="21_dmsb3"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/message_windows_hub.gd" id="21_ild6n"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_hub.gd" id="21_kjvby"]
 [ext_resource type="AudioStream" uid="uid://e0olmiofgu0i" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_door02.ogg" id="22_4mqug"]
 [ext_resource type="Texture2D" uid="uid://bsth654xqqy7c" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_ojm4j"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="23_0jkdi"]
 [ext_resource type="AudioStream" uid="uid://ca1bd4eif8lxj" path="res://🍋audio_se/🪑maou_audio/maou_se_system12.ogg" id="23_n7qgt"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/its_concrete.gd" id="23_u7kqc"]
 [ext_resource type="AudioStream" uid="uid://spjfguf4xfp" path="res://🍋audio_se/🪑maou_audio/maou_se_onepoint32.ogg" id="24_wis4x"]
 [ext_resource type="AudioStream" uid="uid://cdj5d7qvlq6cs" path="res://🍋audio_se/🪑maou_audio/maou_se_magic_fire09.ogg" id="25_oxlb4"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://🍋images/🪑grayscale/1280x720/event_room.png" id="26_ljpku"]
@@ -43,8 +42,9 @@
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="43_7jh74"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="48_niso1"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="49_2oco3"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="52_4lig0"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/scenario_writer_hub.gd" id="54_5dc2p"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/programs_hub.gd" id="53_kotpc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/scenario_writer_hub.gd" id="55_wguv8"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/switch_department.gd" id="56_eioho"]
 [ext_resource type="PackedScene" uid="uid://crgd8anicn08x" path="res://📂ScenarioWriter_📗ビジュアルノベル部門.tscn" id="57_7j2fj"]
 [ext_resource type="PackedScene" uid="uid://h1gka1sqmc0q" path="res://📂ScenarioWriter_📗会話システムメニュー部門.tscn" id="58_frjxl"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
@@ -55,13 +55,13 @@
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="65_6texa"]
 [ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/x_large.tres" id="65_qa1vg"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/text_block.gd" id="65_y1lq6"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/end_of_message_blinker.gd" id="66_oe5n6"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="66_vkf8y"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="68_4axfk"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="68_8n3x2"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="69_r34s8"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="70_yopg3"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/text_block.gd" id="72_o7lp3"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/end_of_message_blinker.gd" id="73_d3l32"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="76_lqesr"]
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="77_qbv5q"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="78_8nwg6"]
@@ -242,19 +242,19 @@ texture = ExtResource("43_7jh74")
 [node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
 
 [node name="🛩️MessageWindowsHub" type="Node" parent="📂GuiArtist_MessageWindows"]
-script = ExtResource("21_ild6n")
+script = ExtResource("21_kjvby")
 
 [node name="■FullScreen" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_ojm4j")
-script = ExtResource("23_u7kqc")
+script = ExtResource("23_0jkdi")
 
 [node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("62_y1sjv")
-script = ExtResource("23_u7kqc")
+script = ExtResource("23_0jkdi")
 
 [node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
@@ -262,14 +262,14 @@ modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("64_pfjh7")
-script = ExtResource("23_u7kqc")
+script = ExtResource("23_0jkdi")
 
 [node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("65_6texa")
-script = ExtResource("23_u7kqc")
+script = ExtResource("23_0jkdi")
 
 [node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
 visible = false
@@ -277,7 +277,7 @@ modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("66_vkf8y")
-script = ExtResource("23_u7kqc")
+script = ExtResource("23_0jkdi")
 
 [node name="📂Illustrator" type="Node2D" parent="."]
 visible = false
@@ -418,17 +418,17 @@ volume_db = -15.0
 [node name="📂Programmer" type="Node" parent="."]
 
 [node name="🛩️ProgramsHub" type="Node" parent="📂Programmer"]
-script = ExtResource("52_4lig0")
+script = ExtResource("53_kotpc")
 
 [node name="🍱Instructions_🍉VisualNovel" parent="📂Programmer" instance=ExtResource("81_aev68")]
 
 [node name="📂ScenarioWriter" type="Node" parent="."]
 
 [node name="🛩️ScenarioWritersHub" type="Node" parent="📂ScenarioWriter"]
-script = ExtResource("54_5dc2p")
+script = ExtResource("55_wguv8")
 
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
-script = ExtResource("4_hvtfg")
+script = ExtResource("56_eioho")
 
 [node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("57_7j2fj")]
 
@@ -719,7 +719,7 @@ text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("72_o7lp3")
+script = ExtResource("65_y1lq6")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
 layout_mode = 0
@@ -729,7 +729,7 @@ offset_right = 1278.0
 offset_bottom = 731.0
 text = "▼"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
 layout_mode = 0
@@ -739,7 +739,7 @@ offset_right = 1274.0
 offset_bottom = 730.0
 text = "＿"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
 layout_mode = 0
@@ -749,7 +749,7 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = SubResource("LabelSettings_vfubr")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="MessageWindow_■下" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
@@ -763,7 +763,7 @@ text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("72_o7lp3")
+script = ExtResource("65_y1lq6")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 visible = false
@@ -774,7 +774,7 @@ offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 visible = false
@@ -785,7 +785,7 @@ offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
 visible = false
@@ -796,7 +796,7 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
@@ -811,7 +811,7 @@ text = "表示テストいうえ
 たちつてなにぬね
 はひふへまみむ　　"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("72_o7lp3")
+script = ExtResource("65_y1lq6")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
@@ -821,7 +821,7 @@ offset_right = 262.0
 offset_bottom = 199.0
 text = "▼"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
@@ -831,7 +831,7 @@ offset_right = 260.0
 offset_bottom = 202.0
 text = "＿"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
@@ -841,7 +841,7 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
 visible = false
@@ -856,7 +856,7 @@ text = "表示テストだ
 きくけこさし
 すせたちつて"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("72_o7lp3")
+script = ExtResource("65_y1lq6")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
@@ -866,7 +866,7 @@ offset_right = 195.0
 offset_bottom = 185.0
 text = "▼"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
@@ -876,7 +876,7 @@ offset_right = 192.0
 offset_bottom = 192.0
 text = "＿"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
@@ -886,7 +886,7 @@ offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
 label_settings = ExtResource("68_8n3x2")
-script = ExtResource("73_d3l32")
+script = ExtResource("66_oe5n6")
 
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 

@@ -2,7 +2,7 @@
 extends Node
 
 
-var Department = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department.gd")
+var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/department.gd")
 
 
 # ーーーーーーーー

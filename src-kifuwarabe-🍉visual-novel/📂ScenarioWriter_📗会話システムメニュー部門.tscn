@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://h1gka1sqmc0q"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_choices_mappings.gd" id="1_0xwx7"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_chapter_1.gd" id="2_rrft8"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/system_menu_choices_mappings.gd" id="1_0xwx7"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/system_menu_chapter_1.gd" id="2_rrft8"]
 
 [node name="📗会話システムメニュー部門_🍉VisualNovel" type="Node"]
 
