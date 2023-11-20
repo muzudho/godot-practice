@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=92 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -51,11 +51,10 @@
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
 [ext_resource type="PackedScene" uid="uid://602vjemgoc7j" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂ScenarioWriter_📗ビジュアルノベル部門.tscn" id="62_vgqom"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_choices_mappings.gd" id="64_3h7b4"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="65_lhf23"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_choices_mappings.gd" id="65_vvek8"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="66_5k2cc"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_chapter_1.gd" id="66_v5bpr"]
+[ext_resource type="PackedScene" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂ScenarioWriter_📗会話システムメニュー部門.tscn" id="66_u2oeh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_hub.gd" id="66_vjfnv"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="67_g74iy"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
@@ -477,16 +476,6 @@ script = ExtResource("59_gpblw")
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("60_f7oqn")
 
-[node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("62_vgqom")]
-
-[node name="📗会話システムメニュー部門_🍉VisualNovel" type="Node" parent="📂ScenarioWriter"]
-
-[node name="📃選択肢と飛び先" type="Node" parent="📂ScenarioWriter/📗会話システムメニュー部門_🍉VisualNovel"]
-script = ExtResource("64_3h7b4")
-
-[node name="📃はじまり" type="Node" parent="📂ScenarioWriter/📗会話システムメニュー部門_🍉VisualNovel"]
-script = ExtResource("66_v5bpr")
-
 [node name="📗バトル部門" type="Node" parent="📂ScenarioWriter"]
 
 [node name="🛩️BattleHub" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
@@ -497,6 +486,10 @@ script = ExtResource("65_vvek8")
 
 [node name="📃はじまり" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
 script = ExtResource("70_ifrki")
+
+[node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("62_vgqom")]
+
+[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("66_u2oeh")]
 
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 
