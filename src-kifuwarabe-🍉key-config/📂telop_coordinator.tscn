@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="1_krfc1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/grid.gd" id="2_etwwe"]
-[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🍋label_settings/medium.tres" id="2_g4pru"]
-[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🍋label_settings/large.tres" id="2_rcvbn"]
+[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🍋label_settings/🪑grayscale/medium.tres" id="2_g4pru"]
+[ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🍋label_settings/🪑grayscale/large.tres" id="2_rcvbn"]
 
 [node name="Ｔキーコンフィグ" type="CanvasLayer"]
 

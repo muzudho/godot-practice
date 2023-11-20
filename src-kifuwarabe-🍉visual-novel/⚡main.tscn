@@ -41,11 +41,6 @@
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="41_r4x54"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="42_gxy60"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="43_7jh74"]
-[ext_resource type="LabelSettings" uid="uid://dyjivgyvqlov0" path="res://🍋label_settings/🪑grayscale/game_sub_title.tres" id="43_xk5pg"]
-[ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://🍋label_settings/🪑grayscale/game_title.tres" id="44_q2mgx"]
-[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/game_title_copyright.tres" id="45_5vowo"]
-[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="46_wk7d0"]
-[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="47_b6s0e"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="48_niso1"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="49_2oco3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="52_4lig0"]
@@ -55,14 +50,19 @@
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_choices_mappings.gd" id="59_cw2i4"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_coordinator.tscn" id="60_qck1r"]
+[ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://🍋label_settings/🪑grayscale/game_title.tres" id="61_60miy"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_chapter_1.gd" id="61_cq5dn"]
+[ext_resource type="LabelSettings" uid="uid://dyjivgyvqlov0" path="res://🍋label_settings/🪑grayscale/game_sub_title.tres" id="62_iyky0"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
+[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/game_title_copyright.tres" id="63_vidpl"]
+[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="64_jemut"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="65_6texa"]
+[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="65_8vprj"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="66_vkf8y"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="68_4axfk"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="68_8n3x2"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="69_r34s8"]
-[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="70_upq4c"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="70_yopg3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/text_block.gd" id="72_o7lp3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/end_of_message_blinker.gd" id="73_d3l32"]
@@ -471,7 +471,7 @@ offset_bottom = -43.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "きふわらべＲＰＧ"
-label_settings = ExtResource("44_q2mgx")
+label_settings = ExtResource("61_60miy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -488,7 +488,7 @@ offset_bottom = 79.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "～ Computer shogi story of the race of the bottom ～"
-label_settings = ExtResource("43_xk5pg")
+label_settings = ExtResource("62_iyky0")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -505,7 +505,7 @@ offset_bottom = 356.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
-label_settings = ExtResource("45_5vowo")
+label_settings = ExtResource("63_vidpl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -537,7 +537,7 @@ text = "　　　　　　音楽　魔王魂
 　　　　　　監督　むずでょ
 
 　同人サークル　ぐれーすけーる"
-label_settings = ExtResource("46_wk7d0")
+label_settings = ExtResource("64_jemut")
 vertical_alignment = 1
 
 [node name="完" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
@@ -553,7 +553,7 @@ offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "完"
-label_settings = ExtResource("47_b6s0e")
+label_settings = ExtResource("65_8vprj")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -735,7 +735,7 @@ offset_bottom = 720.0
 text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("72_o7lp3")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
@@ -745,7 +745,7 @@ offset_top = 686.0
 offset_right = 1278.0
 offset_bottom = 731.0
 text = "▼"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
@@ -755,7 +755,7 @@ offset_top = 685.0
 offset_right = 1274.0
 offset_bottom = 730.0
 text = "＿"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
@@ -778,7 +778,7 @@ offset_bottom = 663.0
 text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("72_o7lp3")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -789,7 +789,7 @@ offset_top = 90.0
 offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -800,7 +800,7 @@ offset_top = 98.0
 offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -811,7 +811,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -826,7 +826,7 @@ text = "表示テストいうえ
 かきくけさしすせ
 たちつてなにぬね
 はひふへまみむ　　"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("72_o7lp3")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -836,7 +836,7 @@ offset_top = 154.0
 offset_right = 262.0
 offset_bottom = 199.0
 text = "▼"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -846,7 +846,7 @@ offset_top = 157.0
 offset_right = 260.0
 offset_bottom = 202.0
 text = "＿"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -856,7 +856,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -871,7 +871,7 @@ text = "表示テストだ
 あいうえおか
 きくけこさし
 すせたちつて"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("72_o7lp3")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -881,7 +881,7 @@ offset_top = 140.0
 offset_right = 195.0
 offset_bottom = 185.0
 text = "▼"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -891,7 +891,7 @@ offset_top = 147.0
 offset_right = 192.0
 offset_bottom = 192.0
 text = "＿"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -901,12 +901,11 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = ExtResource("70_upq4c")
+label_settings = ExtResource("68_8n3x2")
 script = ExtResource("73_d3l32")
 
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("60_qck1r")]
-visible = false
 
 [node name="🛩️KeyConfigHub" parent="." instance=ExtResource("103_n24cr")]
