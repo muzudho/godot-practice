@@ -811,7 +811,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = SubResource("LabelSettings_vfubr")
+label_settings = ExtResource("70_upq4c")
 script = ExtResource("73_d3l32")
 
 [node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -856,7 +856,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = SubResource("LabelSettings_vfubr")
+label_settings = ExtResource("70_upq4c")
 script = ExtResource("73_d3l32")
 
 [node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -901,7 +901,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = SubResource("LabelSettings_vfubr")
+label_settings = ExtResource("70_upq4c")
 script = ExtResource("73_d3l32")
 
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]

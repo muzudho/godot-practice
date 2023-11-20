@@ -16,6 +16,7 @@ func get_telop_coordinator():
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー

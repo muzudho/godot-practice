@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=95 format=3 uid="uid://ccxa7p87p2u60"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/director.gd" id="1_wmnp6"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -77,7 +77,6 @@
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
-[ext_resource type="LabelSettings" uid="uid://bpu53byhx3t51" path="res://🍋label_settings/🪑grayscale/label_setting_medium.tres" id="71_dkmtp"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="71_vwn1b"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="72_k7xhv"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="72_seukb"]
@@ -763,6 +762,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Ｔ戦闘シーン" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
 
 [node name="玉の遠さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 1089.0
@@ -911,7 +911,7 @@ offset_bottom = 721.0
 text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
@@ -921,7 +921,7 @@ offset_top = 680.0
 offset_right = 1274.0
 offset_bottom = 725.0
 text = "▼"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
@@ -931,7 +931,7 @@ offset_top = 683.0
 offset_right = 1274.0
 offset_bottom = 728.0
 text = "＿"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
@@ -941,7 +941,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■下" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -955,7 +955,7 @@ offset_bottom = 663.0
 text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -965,7 +965,7 @@ offset_top = 90.0
 offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -975,7 +975,7 @@ offset_top = 98.0
 offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
@@ -985,11 +985,10 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■下on戦" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
 
 [node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■下on戦"]
 offset_left = 319.0
@@ -999,7 +998,7 @@ offset_bottom = 663.0
 text = "表示テストだあいうえかきくけさしすせたち
 つてなにぬねはひふへまみむめやゆよ～わを
 がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下on戦/TextBlock"]
@@ -1009,7 +1008,7 @@ offset_top = 90.0
 offset_right = 675.0
 offset_bottom = 135.0
 text = "▼"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下on戦/TextBlock"]
@@ -1019,7 +1018,7 @@ offset_top = 98.0
 offset_right = 673.0
 offset_bottom = 143.0
 text = "＿"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下on戦/TextBlock"]
@@ -1029,7 +1028,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -1044,7 +1043,7 @@ text = "表示テストいうえ
 かきくけさしすせ
 たちつてなにぬね
 はひふへまみむ　　"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -1054,7 +1053,7 @@ offset_top = 154.0
 offset_right = 262.0
 offset_bottom = 199.0
 text = "▼"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -1064,7 +1063,7 @@ offset_top = 157.0
 offset_right = 260.0
 offset_bottom = 202.0
 text = "＿"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
@@ -1074,7 +1073,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
@@ -1089,7 +1088,7 @@ text = "表示テストだ
 あいうえおか
 きくけこさし
 すせたちつて"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("69_g27j5")
 
 [node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -1099,7 +1098,7 @@ offset_top = 140.0
 offset_right = 195.0
 offset_bottom = 185.0
 text = "▼"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -1109,7 +1108,7 @@ offset_top = 147.0
 offset_right = 192.0
 offset_bottom = 192.0
 text = "＿"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
@@ -1119,7 +1118,7 @@ offset_top = -3.0
 offset_right = 33.0
 offset_bottom = 42.0
 text = "▶"
-label_settings = ExtResource("71_dkmtp")
+label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
