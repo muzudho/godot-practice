@@ -54,7 +54,7 @@ func get_illustrator():
 
 # 命令ノード取得
 func get_instruction(instruction_name):
-	return $"../🍱Instructions_🍉KifuwarabeVisualNovel".get_node(instruction_name)
+	return $"../🍱Instructions_🍉VisualNovel".get_node(instruction_name)
 
 
 # メッセージ・ウィンドウズ取得

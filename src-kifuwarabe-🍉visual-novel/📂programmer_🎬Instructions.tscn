@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱programmer_instructions/telop.gd" id="15_isgat"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱programmer_instructions/var.gd" id="16_j23vk"]
 
-[node name="🍱Instructions_🍉KifuwarabeVisualNovel" type="Node"]
+[node name="🍱Instructions_🍉VisualNovel" type="Node"]
 
 [node name="Bg" type="Node" parent="."]
 script = ExtResource("1_jqu0c")

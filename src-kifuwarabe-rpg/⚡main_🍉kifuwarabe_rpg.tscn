@@ -43,7 +43,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/programs_hub.gd" id="57_vx8va"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/scenario_writer_hub.gd" id="59_gpblw"]
-[ext_resource type="PackedScene" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions.tscn" id="59_gsr24"]
+[ext_resource type="PackedScene" uid="uid://ba52ce5sy3gs7" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂programmer_🎬Instructions.tscn" id="59_gsr24"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="60_f7oqn"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/message_windows_hub.gd" id="61_cfuy1"]
@@ -466,7 +466,7 @@ volume_db = -15.0
 [node name="🛩️ProgramsHub" type="Node" parent="📂Programmer"]
 script = ExtResource("57_vx8va")
 
-[node name="🍱Instructions_🍉KifuwarabeVisualNovel" parent="📂Programmer" instance=ExtResource("59_gsr24")]
+[node name="🍱Instructions_🍉VisualNovel" parent="📂Programmer" instance=ExtResource("59_gsr24")]
 
 [node name="📂ScenarioWriter" type="Node" parent="."]
 
