@@ -49,7 +49,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/message_windows_hub.gd" id="61_cfuy1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/🍱message_windows/its_concrete.gd" id="61_tvkup"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
-[ext_resource type="PackedScene" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂ScenarioWriter_📗ビジュアルノベル部門.tscn" id="62_vgqom"]
+[ext_resource type="PackedScene" uid="uid://602vjemgoc7j" path="res://downloads_from_🍉kifuwarabe_visual_novel/📂ScenarioWriter_📗ビジュアルノベル部門.tscn" id="62_vgqom"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/system_menu_choices_mappings.gd" id="64_3h7b4"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="65_lhf23"]
@@ -477,7 +477,7 @@ script = ExtResource("59_gpblw")
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("60_f7oqn")
 
-[node name="📗ビジュアルノベル部門" parent="📂ScenarioWriter" instance=ExtResource("62_vgqom")]
+[node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("62_vgqom")]
 
 [node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
 

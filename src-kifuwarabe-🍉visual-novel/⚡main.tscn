@@ -431,7 +431,7 @@ script = ExtResource("54_5dc2p")
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("4_hvtfg")
 
-[node name="📗ビジュアルノベル部門" parent="📂ScenarioWriter" instance=ExtResource("57_7j2fj")]
+[node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("57_7j2fj")]
 
 [node name="📗システムメニュー部門" type="Node" parent="📂ScenarioWriter"]
 

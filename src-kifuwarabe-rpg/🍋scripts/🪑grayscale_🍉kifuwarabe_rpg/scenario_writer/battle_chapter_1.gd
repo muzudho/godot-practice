@@ -112,7 +112,7 @@ var scenario_document = {
 		var:		arg_monster_body		,🐕昼ビール
 		var:		arg_monster_face		,😁昼ビール
 		var:		arg_battle_section		,§ＶＳ昼ビール
-		var:		arg_exit_department		,📗ビジュアルノベル部門
+		var:		arg_exit_department		,📗会話部門_🍉VisualNovel
 		var:		arg_exit_section		,§崎川市最強振興会館
 		department:	📗バトル部門
 		goto:		§戦闘の始めに

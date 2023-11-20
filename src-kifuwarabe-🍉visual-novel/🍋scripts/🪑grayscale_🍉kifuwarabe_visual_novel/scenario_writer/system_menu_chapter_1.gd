@@ -27,7 +27,7 @@ var scenario_document = {
 		# 部門変更
 		"""\
 		!
-		department:	📗ビジュアルノベル部門
+		department:	📗会話部門_🍉VisualNovel
 		""",
 	],
 	# 終わるなら
