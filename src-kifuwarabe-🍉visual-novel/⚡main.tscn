@@ -456,6 +456,7 @@ visible = false
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
 
 [node name="きふわらべＲＰＧ" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
