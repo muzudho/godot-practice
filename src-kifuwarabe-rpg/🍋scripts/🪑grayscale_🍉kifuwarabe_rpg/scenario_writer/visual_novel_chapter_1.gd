@@ -163,91 +163,21 @@ var scenario_document = {
 		「あんな　ちんちくりんな生き物は
 		　知らないわねえ
 		""",
+		# バトル部門へ飛ばします
 		"""\
 		!
-		goto:	§１回目戦闘シーン
+		department:		📗バトル部門, %ignorable%
+		goto:			§１回目戦闘シーン
 		""",
-	],
-	"§１回目戦闘シーン":[
-		# 戦闘突入準備
-		# 戦闘突入準備
+		# バトル部門がなければ、直後の goto 文は１回無視され、以下へフォールスルー
+		"""\
+		＊
+		「戦闘シーンは省略しまーす
+		""",
 		"""\
 		!
-		bg:			🗻ツツジロード
-		var:		%clear%
-		var:		arg_bg_out				,🗻ツツジロード
-		var:		arg_bg_in				,🗻ツツジロード
-		var:		arg_battle_bgm			,🎵バトル１
-		var:		arg_battle_bgm_from		,8.6
-		var:		arg_sente_monster_name	,きふわらべ
-		var:		arg_gote_monster_name	,ヘム将棋
-		var:		arg_monster_body		,🐕ヘム将棋
-		var:		arg_monster_face		,😁ヘム将棋
-		var:		arg_return				,§２回目戦闘シーン
-		var:		arg_battle_paragraph	,§ＶＳヘム将棋
-		department:	📗バトル部門
-		goto:		§戦闘の始めに
-		""",
-	],
-	"§２回目戦闘シーン":[
-		# 戦闘突入準備
-		"""\
-		!
-		bg:			🗻ツツジロード
-		var:		%clear%
-		var:		arg_bg_out				,🗻ツツジロード
-		var:		arg_bg_in				,🗻ツツジロード
-		var:		arg_battle_bgm			,🎵バトル２
-		var:		arg_battle_bgm_from		,0.0
-		var:		arg_sente_monster_name	,きふわらべ
-		var:		arg_gote_monster_name	,ケダック
-		var:		arg_monster_body		,🐕ケダック
-		var:		arg_monster_face		,😁ケダック
-		var:		arg_return				,§３回目戦闘シーン
-		var:		arg_battle_paragraph	,§２回目戦闘シーン
-		department:	📗バトル部門
-		goto:		§戦闘の始めに
-		""",
-	],
-	"§３回目戦闘シーン":[
-		# 戦闘突入準備
-		"""\
-		!
-		bg:			🗻ツツジロード
-		var:		%clear%
-		var:		arg_bg_out				,🗻ツツジロード
-		var:		arg_bg_in				,🗻川堀町線ロード
-		var:		arg_battle_bgm			,🎵バトル３
-		var:		arg_battle_bgm_from		,0.0
-		var:		arg_sente_monster_name	,きふわらべ
-		var:		arg_gote_monster_name	,レサぽん改
-		var:		arg_monster_body		,🐕レサぽん改
-		var:		arg_monster_face		,😁レサぽん改
-		var:		arg_return				,§ＶＳ昼ビール
-		var:		arg_battle_paragraph	,§３回目戦闘シーン
-		department:	📗バトル部門
-		goto:		§戦闘の始めに
-		""",
-	],
-	"§ＶＳ昼ビール":[
-		# 戦闘突入準備
-		"""\
-		!
-		bg:			🗻川堀町線ロード
-		var:		%clear%
-		var:		arg_bg_out				,🗻川堀町線ロード
-		var:		arg_bg_in				,🗻川堀町線ロード
-		var:		arg_battle_bgm			,🎵バトル４
-		var:		arg_battle_bgm_from		,0.0
-		var:		arg_sente_monster_name	,きふわらべ
-		var:		arg_gote_monster_name	,昼ビール
-		var:		arg_monster_body		,🐕昼ビール
-		var:		arg_monster_face		,😁昼ビール
-		var:		arg_return				,§崎川市最強振興会館
-		var:		arg_battle_paragraph	,§ＶＳ昼ビール
-		department:	📗バトル部門
-		goto:		§戦闘の始めに
-		""",
+		goto:	§崎川市最強振興会館
+		"""
 	],
 	#	崎川市最強振興会館
 	"§崎川市最強振興会館":[

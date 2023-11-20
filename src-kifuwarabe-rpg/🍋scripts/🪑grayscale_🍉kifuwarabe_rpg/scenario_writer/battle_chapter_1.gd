@@ -32,7 +32,95 @@ func battle_hub():
 var scenario_document = {
 
 	# ーーーーーーーーーー
-	# 最初に、共通処理を並べる
+	# データ部
+	# ーーーーーーーーーー
+
+	"§１回目戦闘シーン":[
+		# 戦闘突入準備
+		# 戦闘突入準備
+		"""\
+		!
+		bg:			🗻ツツジロード
+		var:		%clear%
+		var:		arg_bg_out				,🗻ツツジロード
+		var:		arg_bg_in				,🗻ツツジロード
+		var:		arg_battle_bgm			,🎵バトル１
+		var:		arg_battle_bgm_from		,8.6
+		var:		arg_sente_monster_name	,きふわらべ
+		var:		arg_gote_monster_name	,ヘム将棋
+		var:		arg_monster_body		,🐕ヘム将棋
+		var:		arg_monster_face		,😁ヘム将棋
+		var:		arg_battle_section		,§ＶＳヘム将棋
+		var:		arg_exit_department		,📗バトル部門
+		var:		arg_exit_section		,§２回目戦闘シーン
+		goto:		§戦闘の始めに
+		""",
+	],
+	"§２回目戦闘シーン":[
+		# 戦闘突入準備
+		"""\
+		!
+		bg:			🗻ツツジロード
+		var:		%clear%
+		var:		arg_bg_out				,🗻ツツジロード
+		var:		arg_bg_in				,🗻ツツジロード
+		var:		arg_battle_bgm			,🎵バトル２
+		var:		arg_battle_bgm_from		,0.0
+		var:		arg_sente_monster_name	,きふわらべ
+		var:		arg_gote_monster_name	,ケダック
+		var:		arg_monster_body		,🐕ケダック
+		var:		arg_monster_face		,😁ケダック
+		var:		arg_battle_section		,§ＶＳケダック
+		var:		arg_exit_department		,📗バトル部門
+		var:		arg_exit_section		,§３回目戦闘シーン
+		goto:		§戦闘の始めに
+		""",
+	],
+	"§３回目戦闘シーン":[
+		# 戦闘突入準備
+		"""\
+		!
+		bg:			🗻ツツジロード
+		var:		%clear%
+		var:		arg_bg_out				,🗻ツツジロード
+		var:		arg_bg_in				,🗻川堀町線ロード
+		var:		arg_battle_bgm			,🎵バトル３
+		var:		arg_battle_bgm_from		,0.0
+		var:		arg_sente_monster_name	,きふわらべ
+		var:		arg_gote_monster_name	,レサぽん改
+		var:		arg_monster_body		,🐕レサぽん改
+		var:		arg_monster_face		,😁レサぽん改
+		var:		arg_battle_section		,§ＶＳレサぽん改
+		var:		arg_exit_department		,📗バトル部門
+		var:		arg_exit_section		,§４回目戦闘シーン
+		department:	📗バトル部門
+		goto:		§戦闘の始めに
+		""",
+	],
+	"§４回目戦闘シーン":[
+		# 戦闘突入準備
+		"""\
+		!
+		bg:			🗻川堀町線ロード
+		var:		%clear%
+		var:		arg_bg_out				,🗻川堀町線ロード
+		var:		arg_bg_in				,🗻川堀町線ロード
+		var:		arg_battle_bgm			,🎵バトル４
+		var:		arg_battle_bgm_from		,0.0
+		var:		arg_sente_monster_name	,きふわらべ
+		var:		arg_gote_monster_name	,昼ビール
+		var:		arg_monster_body		,🐕昼ビール
+		var:		arg_monster_face		,😁昼ビール
+		var:		arg_battle_section		,§ＶＳ昼ビール
+		var:		arg_exit_department		,📗ビジュアルノベル部門
+		var:		arg_exit_section		,§崎川市最強振興会館
+		department:	📗バトル部門
+		goto:		§戦闘の始めに
+		""",
+	],
+
+	# ーーーーーーーーーー
+	# 共通処理
 	# ーーーーーーーーーー
 
 	# とりあえず、他の画面からこのセクションへ飛んでくる
@@ -81,7 +169,7 @@ var scenario_document = {
 		#	先背景
 		# {{arg_monster_body}}
 		#	怪物の体
-		# {{arg_battle_paragraph}}
+		# {{arg_battle_section}}
 		#	次のセクション
 		#
 		"""\
@@ -236,7 +324,7 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{arg_battle_paragraph}}
+		goto:			{{arg_battle_section}}
 		""",
 	],
 	# (2023-11-07 tue) 今のところ、常にきふわらべが先手
@@ -271,7 +359,7 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{arg_battle_paragraph}}
+		goto:			{{arg_battle_section}}
 		""",
 	],
 	"§先手の奇跡の角生還":[
@@ -291,7 +379,7 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{arg_battle_paragraph}}
+		goto:			{{arg_battle_section}}
 		""",
 	],
 	"§先手のボンザナ囲い":[
@@ -311,7 +399,7 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{arg_battle_paragraph}}
+		goto:			{{arg_battle_section}}
 		""",
 	],
 	#"§先手のエモル囲い":[
@@ -331,7 +419,7 @@ var scenario_document = {
 	#	""",
 	#	"""\
 	#	!
-	#	goto:			{{arg_battle_paragraph}}
+	#	goto:			{{arg_battle_section}}
 	#	""",
 	#],
 	# (2023-10-16 thu) 今のところ、常にきふわらべが先手
@@ -399,8 +487,8 @@ var scenario_document = {
 		telop:			Ｔ戦闘シーン				,hide
 		#bg:				{{arg_bg_out}}
 
-		department:		📗ビジュアルノベル部門
-		goto:			{{arg_return}}
+		department:		{{arg_exit_department}}
+		goto:			{{arg_exit_section}}
 		""",
 	],
 
@@ -527,7 +615,7 @@ var scenario_document = {
 	#
 	#
 	#
-	"§２回目戦闘シーン":[
+	"§ＶＳケダック":[
 		# 画面設定
 		"""\
 		!
@@ -549,7 +637,7 @@ var scenario_document = {
 	#
 	#
 	#
-	"§３回目戦闘シーン":[
+	"§ＶＳレサぽん改":[
 		# 画面設定
 		"""\
 		!
