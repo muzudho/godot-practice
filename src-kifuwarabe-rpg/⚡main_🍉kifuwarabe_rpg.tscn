@@ -46,7 +46,6 @@
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="48_xknfu"]
 [ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://🍋label_settings/🪑grayscale/battle_slategray.tres" id="49_c6t67"]
 [ext_resource type="LabelSettings" uid="uid://b2nsvqfk7mk4y" path="res://🍋label_settings/🪑grayscale/large_font.tres" id="50_vvxcd"]
-[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/main_medium.tres" id="51_2w4vw"]
 [ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/battle_light_red.tres" id="52_7d5u4"]
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/battle_light_yellow.tres" id="53_rwvbq"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/battle_light_green.tres" id="54_mtkqv"]
@@ -88,6 +87,7 @@
 [ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="74_64hjs"]
 [ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="75_j1pgv"]
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="76_3ghif"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="77_2jpbh"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="77_hfxpa"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
@@ -796,7 +796,7 @@ offset_top = 60.0
 offset_right = 64.0
 offset_bottom = 108.0
 text = "後"
-label_settings = ExtResource("51_2w4vw")
+label_settings = ExtResource("77_2jpbh")
 
 [node name="先" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 31.0
@@ -804,7 +804,7 @@ offset_top = 124.0
 offset_right = 63.0
 offset_bottom = 172.0
 text = "先"
-label_settings = ExtResource("51_2w4vw")
+label_settings = ExtResource("77_2jpbh")
 
 [node name="城の堅さ" type="Label" parent="📂TelopCoordinator/Ｔ戦闘シーン"]
 offset_left = 287.0
