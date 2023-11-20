@@ -7,6 +7,8 @@
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　既にあるのに、同じものを作ってしまうのは　失敗の初期工程だぜ」  
 
+## 実践1
+
 ```plaintext
 battle_light_blue.tres
 battle_light_green.tres
@@ -43,5 +45,22 @@ main_medium.tres
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　一辺が　２倍になったフォントのラベル設定は　`large.tres`　と名付けようぜ？」  
+
+## 実践2
+
+```
+title_copyright.tscn
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　使う場面、使う箇所によって　フォントを　細かく設定していては  
+ファイルが増える一方なんで……」  
+
+```
+medium_thin.tscn
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　文字サイズ中、線の太さは細い、みたいな　名前の方を　使うことにするぜ」  
 
 .

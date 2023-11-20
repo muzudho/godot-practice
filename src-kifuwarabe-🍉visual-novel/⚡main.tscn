@@ -54,7 +54,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_chapter_1.gd" id="61_cq5dn"]
 [ext_resource type="LabelSettings" uid="uid://dyjivgyvqlov0" path="res://🍋label_settings/🪑grayscale/game_sub_title.tres" id="62_iyky0"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
-[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/game_title_copyright.tres" id="63_vidpl"]
+[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="63_346vi"]
 [ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="64_jemut"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="65_6texa"]
@@ -456,7 +456,6 @@ visible = false
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
 
 [node name="きふわらべＲＰＧ" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
@@ -505,7 +504,7 @@ offset_bottom = 356.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
-label_settings = ExtResource("63_vidpl")
+label_settings = ExtResource("63_346vi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -769,6 +768,7 @@ label_settings = SubResource("LabelSettings_vfubr")
 script = ExtResource("73_d3l32")
 
 [node name="MessageWindow_■下" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
 
 [node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■下"]
 offset_left = 319.0
@@ -907,5 +907,6 @@ script = ExtResource("73_d3l32")
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("60_qck1r")]
+visible = false
 
 [node name="🛩️KeyConfigHub" parent="." instance=ExtResource("103_n24cr")]

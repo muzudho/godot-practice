@@ -39,7 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
 [ext_resource type="LabelSettings" uid="uid://dc5ae2mnxhltk" path="res://🍋label_settings/🪑grayscale/game_title.tres" id="43_phx2h"]
-[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/game_title_copyright.tres" id="44_gnhe7"]
 [ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/credits_roll.tres" id="45_k6jkg"]
 [ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/ending_end.tres" id="46_ooq6c"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="47_nlh77"]
@@ -76,6 +75,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_chapter_1.gd" id="70_ifrki"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
+[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="70_vliq2"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="71_vwn1b"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director.tscn" id="72_k7xhv"]
@@ -509,7 +509,6 @@ script = ExtResource("70_ifrki")
 [node name="ーーーーきふわらべRPGーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
-visible = false
 
 [node name="きふわらべRPG" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
@@ -541,7 +540,7 @@ offset_bottom = 356.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
-label_settings = ExtResource("44_gnhe7")
+label_settings = ExtResource("70_vliq2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -989,6 +988,7 @@ label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
 [node name="MessageWindow_■下on戦" type="CanvasLayer" parent="📂TelopCoordinator"]
+visible = false
 
 [node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■下on戦"]
 offset_left = 319.0
@@ -1124,6 +1124,7 @@ script = ExtResource("70_epi57")
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
 
 [node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("69_uwkhx")]
+visible = false
 
 [node name="Scorer" type="Node" parent="."]
 script = ExtResource("72_v7dgx")
