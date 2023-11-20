@@ -19,6 +19,13 @@ var snapshots = {}
 # 現在の部門（StringName型）
 var current_department_name = null
 
+# 全部門名
+var cached_all_department_names = null
+
+# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
+# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
+var is_department_not_found = false
+
 
 # ーーーーーーーー
 # パス関連
@@ -385,7 +392,10 @@ func parse_paragraph(paragraph_text):
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)
 
-		#	［ト書き］終わり
+		# ーーーーーーーー
+		# ［ト書き］終わり
+		# ーーーーーーーー
+		self.is_department_not_found = false
 		return
 
 	var message_window_gui = self.get_current_message_window_gui()
@@ -475,14 +485,15 @@ func set_current_section(section_name):
 
 # 全ての部門名一覧
 func get_all_department_names():
-	var array = []	# StringName の配列
+	if self.cached_all_department_names == null:
+		self.cached_all_department_names = []	# StringName の配列
 	
-	for department in self.get_scenario_writer().get_children():
-		# SwitchDepartment と System は除く
-		if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWritersHub":
-			array.append(department.name)
+		for department in self.get_scenario_writer().get_children():
+			# SwitchDepartment と System は除く
+			if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWritersHub":
+				self.cached_all_department_names.append(department.name)
 
-	return array
+	return self.cached_all_department_names
 
 
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
