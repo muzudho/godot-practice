@@ -26,7 +26,7 @@ func get_snapshot(department_node_name):
 #	それをする
 func do_it(line):
 
-	var csv = line.substr(6).strip_edges()
+	var csv = line.substr("telop:".length()).strip_edges()
 	print("［命令　テロップ］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)

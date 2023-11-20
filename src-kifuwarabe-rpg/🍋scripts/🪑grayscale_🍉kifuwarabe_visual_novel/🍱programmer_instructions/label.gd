@@ -24,7 +24,7 @@ func get_root_relative_path_str():
 # それをする
 func do_it(line):
 
-	var csv = line.substr(6).strip_edges()
+	var csv = line.substr("label:".length()).strip_edges()
 	print("［命令　ラベル］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
