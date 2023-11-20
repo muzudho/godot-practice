@@ -14,7 +14,6 @@
 script = ExtResource("1_b0bth")
 
 [node name="Grid" type="Sprite2D" parent="."]
-visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("8_1n35w")
