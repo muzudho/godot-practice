@@ -2,7 +2,7 @@
 extends Node
 
 
-var DepartmentSnapshot = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department.gd")
+var Department = load("res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/department.gd")
 
 
 # ーーーーーーーー
@@ -18,6 +18,13 @@ var snapshots = {}
 
 # 現在の部門（StringName型）
 var current_department_name = null
+
+# 全部門名
+var cached_all_department_names = null
+
+# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
+# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
+var is_department_not_found = false
 
 
 # ーーーーーーーー
@@ -45,9 +52,9 @@ func get_illustrator():
 	return self.get_director().get_node("📂Illustrator")
 
 
-# 伝言窓（現在、出力の対象になっているもの）
-func get_message_window_gui(node_name_obj):
-	return self.get_message_windows_node().get_node(str(node_name_obj))
+# 命令ノード取得
+func get_instruction(instruction_name):
+	return $"../🍱Instructions_🍉KifuwarabeVisualNovel".get_node(instruction_name)
 
 
 # メッセージ・ウィンドウズ取得
@@ -55,14 +62,24 @@ func get_message_windows_node():
 	return self.get_director().get_node("📂GuiArtist_MessageWindows")
 
 
-# モンスター・フェースズ
-func get_monster_faces():
-	return self.get_director().get_node("MonsterTrainer/Faces")
+# 伝言窓（現在、出力の対象になっているもの）
+func get_message_window_gui(node_name_obj):
+	return self.get_message_windows_node().get_node(str(node_name_obj))
 
 
 # モンスターの全身像
 func get_monster_whole_body():
 	return self.get_director().get_node("MonsterTrainer/WholeBody")
+
+
+# モンスター・フェースズ
+func get_monster_faces():
+	return self.get_director().get_node("MonsterTrainer/Faces")
+
+
+# 効果音取得
+func get_se():
+	return self.get_director().get_node("📂Musician_SE")
 
 
 # シナリオライター取得
@@ -75,19 +92,9 @@ func get_scenario_writers_hub():
 	return self.get_director().get_node("📂ScenarioWriter/🛩️ScenarioWritersHub")
 
 
-# 効果音取得
-func get_se():
-	return self.get_director().get_node("📂Musician_SE")
-
-
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
 	return self.get_director().get_node("📂TelopCoordinator")
-
-
-# 命令ノード取得
-func get_instruction(instruction_name):
-	return $"../🍱Instructions_🍉KifuwarabeVisualNovel".get_node(instruction_name)
 
 
 # ーーーーーーーー
@@ -108,7 +115,7 @@ func _ready():
 		var department_node = self.get_scenario_writer().get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
 			# 生成
-			var snapshot = DepartmentSnapshot.new()
+			var snapshot = Department.new()
 
 			# 部門名をコピー
 			snapshot.name = department_node.name		# StringName 型
@@ -385,7 +392,10 @@ func parse_paragraph(paragraph_text):
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)
 
-		#	［ト書き］終わり
+		# ーーーーーーーー
+		# ［ト書き］終わり
+		# ーーーーーーーー
+		self.is_department_not_found = false
 		return
 
 	var message_window_gui = self.get_current_message_window_gui()
@@ -475,14 +485,15 @@ func set_current_section(section_name):
 
 # 全ての部門名一覧
 func get_all_department_names():
-	var array = []	# StringName の配列
+	if self.cached_all_department_names == null:
+		self.cached_all_department_names = []	# StringName の配列
 	
-	for department in self.get_scenario_writer().get_children():
-		# SwitchDepartment と System は除く
-		if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWritersHub":
-			array.append(department.name)
+		for department in self.get_scenario_writer().get_children():
+			# SwitchDepartment と System は除く
+			if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWritersHub":
+				self.cached_all_department_names.append(department.name)
 
-	return array
+	return self.cached_all_department_names
 
 
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示

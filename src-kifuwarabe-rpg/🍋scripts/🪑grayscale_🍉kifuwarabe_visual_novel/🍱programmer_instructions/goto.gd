@@ -28,7 +28,7 @@ func do_it(
 	var string_packed_array = csv.split(",", true, 1)
 
 	var section_name = self.hub().expand_variables(string_packed_array[0].strip_edges())
-
+	
 	var tail_csv = ""
 	if 1 < string_packed_array.size():
 		tail_csv = string_packed_array[1]
@@ -38,6 +38,11 @@ func do_it(
 
 # 同じ部門内の、指定のセクションに飛ぶ
 func goto(section_name, tail_csv):
+	
+	if self.hub().is_department_not_found:
+		self.hub().is_department_not_found = false
+		return
+	
 	# 伝言窓の状態が Completed で止まってるとフリーズするから、強制解除
 	print("［命令　ゴートゥー］　伝言窓の状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
 	self.hub().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
