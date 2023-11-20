@@ -1,4 +1,4 @@
-[gd_scene load_steps=81 format=3 uid="uid://ccxa7p87p2u60"]
+[gd_scene load_steps=81 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -54,7 +54,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/visual_novel_chapter_1.gd" id="58_ac4ac"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_choices_mappings.gd" id="59_cw2i4"]
-[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_🍉key_config.tscn" id="60_qck1r"]
+[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/📂telop_coordinator.tscn" id="60_qck1r"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_visual_novel/scenario_writer/system_menu_chapter_1.gd" id="61_cq5dn"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
@@ -72,7 +72,7 @@
 [ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="79_le58y"]
 [ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="80_vkv42"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://📂programmer_🎬Instructions_🍉kifuwarabe_visual_novel.tscn" id="81_aev68"]
-[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director_🍉key_config.tscn" id="103_n24cr"]
+[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/📂director.tscn" id="103_n24cr"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
