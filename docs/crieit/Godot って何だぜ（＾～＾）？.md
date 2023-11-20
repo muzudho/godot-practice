@@ -1383,4 +1383,15 @@ Zzz...
 
 📖　[Godot で、破損した .tscn ファイルを自力で復元しようぜ（＾～＾）？](https://crieit.net/posts/Godot-tscn)
 
+# (📅 2023-11-20 mon) ラベル設定のファイル名を整えようぜ？
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ファイル名の付け方が　バラバラでつらい」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　長くなりそうな話は、別記事で解説してくれだぜ」  
+
+📖　[Godot の LabelSettings 外部ファイルの名前の付け方を考えようぜ（＾～＾）？](https://crieit.net/posts/Godot-LabelSettings)  
+
+
 .
