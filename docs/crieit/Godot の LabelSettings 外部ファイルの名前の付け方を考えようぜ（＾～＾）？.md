@@ -39,4 +39,9 @@ main_medium.tres
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　この　ラベル設定の外部ファイルの名前を　`medium.tres`　と名付けるとしようぜ？」  
 
+![202311__godot__20-1900--large-label.png](https://crieit.now.sh/upload_images/cc8e9af7e65aa0317707b0c9b31c7cc6655b2e8a087f5.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　一辺が　２倍になったフォントのラベル設定は　`large.tres`　と名付けようぜ？」  
+
 .
