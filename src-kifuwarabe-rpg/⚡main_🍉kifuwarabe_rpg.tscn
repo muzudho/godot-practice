@@ -42,10 +42,10 @@
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="48_xknfu"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/programs_hub.gd" id="57_vx8va"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/scenario_writer_hub.gd" id="59_gpblw"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉visual_novel/📂programmer_🎬Instructions.tscn" id="59_gsr24"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="60_f7oqn"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/scenario_writers_hub.gd" id="60_kmlfu"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_hub.gd" id="61_cfuy1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="61_tvkup"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
@@ -471,7 +471,7 @@ script = ExtResource("57_vx8va")
 [node name="📂ScenarioWriter" type="Node" parent="."]
 
 [node name="🛩️ScenarioWritersHub" type="Node" parent="📂ScenarioWriter"]
-script = ExtResource("59_gpblw")
+script = ExtResource("60_kmlfu")
 
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("60_f7oqn")
@@ -487,11 +487,11 @@ script = ExtResource("65_vvek8")
 [node name="📃はじまり" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
 script = ExtResource("70_ifrki")
 
-[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("66_u2oeh")]
+[node name="📂Imported" type="Node" parent="📂ScenarioWriter"]
 
 [node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("62_vgqom")]
 
-[node name="📂Imported" type="Node" parent="📂ScenarioWriter"]
+[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("66_u2oeh")]
 
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 
