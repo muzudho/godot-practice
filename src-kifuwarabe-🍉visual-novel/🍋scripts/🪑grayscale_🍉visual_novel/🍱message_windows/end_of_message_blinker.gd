@@ -37,7 +37,7 @@ var elapsed_seconds = 0.0
 
 # 監督取得
 func get_director():
-	return $"../../../../../Director"
+	return $"../../../../../🌏Director"
 
 
 # プログラムズ・ハブ取得

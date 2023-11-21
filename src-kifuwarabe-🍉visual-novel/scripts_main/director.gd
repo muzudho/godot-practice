@@ -1,5 +1,5 @@
 # 🪑grayscale_🎬kifuwarabe_rpg
-#	ディレクター（Director；監督）
+#	ディレクター（🌏Director；監督）
 #	とりあえず、ゲーム全体をコントロールする
 extends Node2D
 
@@ -61,7 +61,7 @@ func get_scenario_writer():
 
 # シナリオライターズ・ハブ取得
 func get_scenario_writers_hub():
-	return $"🌏ScenarioWriter/🛩️ScenarioWritersHub"
+	return $"🌏ScenarioWriter/🛩️ScenarioWritersHub_🍉VisualNovel"
 
 
 # 部門切替取得

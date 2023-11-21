@@ -34,7 +34,7 @@ var is_department_not_found = false
 
 # 監督取得
 func get_director():
-	return $"../../../Director"
+	return $"../../../🌏Director"
 
 
 # 背景アーティスト
@@ -89,7 +89,7 @@ func get_scenario_writer():
 
 # シナリオライター・ハブ取得
 func get_scenario_writers_hub():
-	return self.get_director().get_node("🌏ScenarioWriter/🛩️ScenarioWritersHub")
+	return self.get_director().get_node("🌏ScenarioWriter/🛩️ScenarioWritersHub_🍉VisualNovel")
 
 
 # テロップ・コーディネーター取得
@@ -142,7 +142,7 @@ func _ready():
 	# デパートメント変数辞書作成
 	for department_name in self.get_all_department_names():
 		var department_node = self.get_scenario_writer().get_node(str(department_name))
-		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
+		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub_🍉VisualNovel":
 			# 生成
 			var department_value = Department.new()
 
