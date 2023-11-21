@@ -95,8 +95,13 @@ func search_merged_scenario_document(department_name, current_node):
 # 指定の部門下の choices_mappings 辞書を全てマージして返します。
 # この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
 func get_merged_choices_mappings(department_name):
+	# キャッシュになければ探索
 	if not (department_name in self.cached_choices_mappings):
-		var book_node = self.get_scenario_writer().get_node(str(department_name))
+		
+		# ［📗～］ノードの位置が変わっていることがあるので探索する
+		var book_node = self.search_scenario_book_node(
+				self.get_scenario_writer(),
+				str(department_name))
 		self.cached_choices_mappings[department_name] = {}
 
 		# 再帰。結果は外部変数に格納
