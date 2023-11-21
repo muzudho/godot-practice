@@ -43,7 +43,7 @@
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="48_niso1"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="49_2oco3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/programs_hub.gd" id="53_kotpc"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/scenario_writer_hub.gd" id="55_wguv8"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/scenario_writers_hub.gd" id="55_0od0e"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/switch_department.gd" id="56_eioho"]
 [ext_resource type="PackedScene" uid="uid://crgd8anicn08x" path="res://📂ScenarioWriter_📗ビジュアルノベル部門.tscn" id="57_7j2fj"]
 [ext_resource type="PackedScene" uid="uid://h1gka1sqmc0q" path="res://📂ScenarioWriter_📗会話システムメニュー部門.tscn" id="58_frjxl"]
@@ -425,7 +425,7 @@ script = ExtResource("53_kotpc")
 [node name="📂ScenarioWriter" type="Node" parent="."]
 
 [node name="🛩️ScenarioWritersHub" type="Node" parent="📂ScenarioWriter"]
-script = ExtResource("55_wguv8")
+script = ExtResource("55_0od0e")
 
 [node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
 script = ExtResource("56_eioho")

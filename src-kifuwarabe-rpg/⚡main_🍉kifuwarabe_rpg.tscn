@@ -487,9 +487,11 @@ script = ExtResource("65_vvek8")
 [node name="📃はじまり" type="Node" parent="📂ScenarioWriter/📗バトル部門"]
 script = ExtResource("70_ifrki")
 
+[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("66_u2oeh")]
+
 [node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("62_vgqom")]
 
-[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("66_u2oeh")]
+[node name="📂Imported" type="Node" parent="📂ScenarioWriter"]
 
 [node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
 

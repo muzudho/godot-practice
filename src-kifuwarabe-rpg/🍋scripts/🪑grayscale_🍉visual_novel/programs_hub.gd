@@ -487,13 +487,24 @@ func set_current_section(section_name):
 func get_all_department_names():
 	if self.cached_all_department_names == null:
 		self.cached_all_department_names = []	# StringName の配列
-	
-		for department in self.get_scenario_writer().get_children():
-			# SwitchDepartment と System は除く
-			if department.name != "SwitchDepartment" and department.name != "🛩️ScenarioWritersHub":
-				self.cached_all_department_names.append(department.name)
 
+		# 結果は変数に格納される
+		self.search_all_department_names(
+				self.get_scenario_writer())
+			
 	return self.cached_all_department_names
+
+
+# 結果は変数に格納される
+func search_all_department_names(current_node):
+	for child_node in current_node.get_children():
+		# 部門のノード名は `📗` で始まるものとする
+		if child_node.name.begins_with("📗"):
+			self.cached_all_department_names.append(child_node.name)
+		
+		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
+		elif child_node.name.begins_with("📂"):
+			self.search_all_department_names(child_node)
 
 
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示

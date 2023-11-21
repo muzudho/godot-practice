@@ -3,18 +3,30 @@ extends Node
 
 
 # ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+
+var monkey = Monkey.new()
+
+
+# ーーーーーーーー
 # パス関連
 # ーーーーーーーー
 
 
 # シナリオライターズ・ハブ取得
 func hub():
-	return $"../../🛩️ScenarioWritersHub"
+	return monkey.find_ancestor_child(
+			self,
+			"🛩️ScenarioWritersHub")
 
 
 # 戦闘ハブ取得
 func battle_hub():
-	return $"../🛩️BattleHub"
+	return monkey.find_ancestor_child(
+			self,
+			"🛩️BattleHub")
 
 
 # ーーーーーーーー
