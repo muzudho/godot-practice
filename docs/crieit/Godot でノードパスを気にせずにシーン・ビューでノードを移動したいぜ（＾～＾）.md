@@ -301,6 +301,11 @@ func search_merged_scenario_document(department_name, current_node):
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　ストＩＩ　のキャラクター選択画面のイメージだろ」  
 
+![202311__shogi__21-2303--addon.png](https://crieit.now.sh/upload_images/10798fd3a84fe096dcec4676844abf38655cb8deccad1.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`📂Imported` より、 `📂Addon` の方がイメージをつかめるか。変えたろ」  
+
 # 親記事へ戻る
 
 📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
