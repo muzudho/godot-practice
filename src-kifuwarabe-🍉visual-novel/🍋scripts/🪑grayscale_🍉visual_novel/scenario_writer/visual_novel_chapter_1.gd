@@ -6,7 +6,8 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
-var cached_hubs = {}
+
+var monkey = Monkey.new()
 
 
 # ーーーーーーーー
@@ -14,29 +15,11 @@ var cached_hubs = {}
 # ーーーーーーーー
 
 
-## シナリオライターズ・ハブ取得
-#func hub():
-#	return $"../../🛩️ScenarioWritersHub"
-
-
 # シナリオライターズ・ハブ取得
 func hub():
-	var target = "🛩️ScenarioWritersHub"
-	
-	if target in self.cached_hubs:
-		return self.cached_hubs[target]
-	
-	var cur = $".."
-	
-	while cur != null:
-		if cur.has_node(target):
-			var hub = cur.get_node(target)
-			self.cached_hubs[target] = hub
-			return hub
-		
-		cur = cur.get_parent()
-	
-	return null
+	return monkey.find_parent_child(
+			self,
+			"🛩️ScenarioWritersHub")
 
 
 # ーーーーーーーー
