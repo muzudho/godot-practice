@@ -18,17 +18,17 @@ func get_director():
 
 # 助監取得
 func get_assistant_director():
-	return self.get_director().get_node("📂Programmer")
+	return self.get_director().get_node("🌏Programmer")
 
 
 # プログラムズ・ハブ取得
 func get_programs_hub():
-	return self.get_director().get_node("📂Programmer/🛩️ProgramsHub")
+	return self.get_director().get_node("🌏Programmer/🛩️ProgramsHub")
 
 
 # キャンバス・レイヤー取得
 func get_canvas_layer(message_window_name):
-	return self.get_director().get_node("📂TelopCoordinator/MessageWindow_" + message_window_name)
+	return self.get_director().get_node("🌏TelopCoordinator/MessageWindow_" + message_window_name)
 
 
 # テキストブロック

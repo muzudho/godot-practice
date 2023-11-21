@@ -25,7 +25,7 @@ var sleep_seconds = 0.0
 
 
 func get_background_artist():
-	return $"📂BackgroundArtist"
+	return $"🌏BackgroundArtist"
 
 
 func get_grid():
@@ -33,7 +33,7 @@ func get_grid():
 
 
 func get_illustrator():
-	return $"📂Illustrator"
+	return $"🌏Illustrator"
 
 
 func get_key_config_hub():
@@ -41,7 +41,7 @@ func get_key_config_hub():
 
 
 func get_message_windows_node():
-	return $"📂GuiArtist_MessageWindows"
+	return $"🌏GuiArtist_MessageWindows"
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -52,16 +52,16 @@ func get_message_window_gui(node_name_obj):
 
 # プログラムズ・ハブ取得
 func get_programs_hub():
-	return $"📂Programmer/🛩️ProgramsHub"
+	return $"🌏Programmer/🛩️ProgramsHub"
 
 
 func get_scenario_writer():
-	return $"📂ScenarioWriter"
+	return $"🌏ScenarioWriter"
 
 
 # シナリオライターズ・ハブ取得
 func get_scenario_writers_hub():
-	return $"📂ScenarioWriter/🛩️ScenarioWritersHub"
+	return $"🌏ScenarioWriter/🛩️ScenarioWritersHub"
 
 
 # 部門切替取得
@@ -70,7 +70,7 @@ func get_switch_department():
 
 
 func get_telop_coordinator():
-	return $"📂TelopCoordinator"
+	return $"🌏TelopCoordinator"
 
 
 # ーーーーーーーー

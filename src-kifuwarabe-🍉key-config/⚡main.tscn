@@ -20,36 +20,36 @@ position = Vector2(640, 360)
 texture = ExtResource("2_f72qc")
 script = ExtResource("3_c737f")
 
-[node name="📂BackgroundArtist" type="Node2D" parent="."]
+[node name="🌏BackgroundArtist" type="Node2D" parent="."]
 
-[node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻崎川駅前" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("3_fbnwt")
 
-[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
+[node name="🌏GuiArtist_MessageWindows" type="Node2D" parent="."]
 
-[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+[node name="■下" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("4_otjix")
 
-[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+[node name="■上_大" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("5_dvexc")
 
-[node name="📂Musician_BGM" type="Node" parent="."]
+[node name="🌏Musician_BGM" type="Node" parent="."]
 
-[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("6_x2gst")
 volume_db = -20.0
 pitch_scale = 1.4
 
-[node name="📂Musician_SE" parent="." instance=ExtResource("8_fnys3")]
+[node name="🌏Musician_SE" parent="." instance=ExtResource("8_fnys3")]
 
-[node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
+[node name="🌏TelopCoordinator" type="CanvasLayer" parent="."]
 
-[node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("12_8rfor")]
+[node name="Ｔキーコンフィグ" parent="🌏TelopCoordinator" instance=ExtResource("12_8rfor")]
 
 [node name="🛩️KeyConfigHub" parent="." instance=ExtResource("9_calvn")]

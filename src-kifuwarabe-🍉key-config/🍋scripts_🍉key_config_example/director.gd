@@ -6,12 +6,12 @@ extends Node2D
 
 # 背景職人取得
 func get_background_artist():
-	return $"📂BackgroundArtist"
+	return $"🌏BackgroundArtist"
 
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return $"📂TelopCoordinator"
+	return $"🌏TelopCoordinator"
 
 
 # Called when the node enters the scene tree for the first time.

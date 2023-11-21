@@ -137,126 +137,126 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
-[node name="📂BackgroundArtist" type="Node2D" parent="."]
+[node name="🌏BackgroundArtist" type="Node2D" parent="."]
 
-[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("26_ljpku")
 
-[node name="🗻崎川駅前" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻崎川駅前" type="Sprite2D" parent="🌏BackgroundArtist"]
 position = Vector2(640, 360)
 texture = ExtResource("27_7rlfr")
 
-[node name="🗻エンディング" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻エンディング" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("28_i8h8k")
 
-[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("29_ghcy1")
 
-[node name="🗻川堀町線ロード" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻川堀町線ロード" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("30_tx773")
 
-[node name="🗻ツツジロード" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻ツツジロード" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("31_muky1")
 
-[node name="🗻戦闘シーン" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻戦闘シーン" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("32_jlid3")
 
-[node name="🗻トランジション１コマ１" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ１" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("33_slg0k")
 
-[node name="🗻トランジション１コマ２" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ２" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("34_tpta6")
 
-[node name="🗻トランジション１コマ３" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ３" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("35_2g8i2")
 
-[node name="🗻トランジション１コマ４" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ４" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("36_vslf4")
 
-[node name="🗻トランジション１コマ５" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ５" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("37_6yqmg")
 
-[node name="🗻トランジション１コマ６" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ６" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("38_ar1aa")
 
-[node name="🗻トランジション１コマ７" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ７" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("39_t4i7s")
 
-[node name="🗻トランジション１コマ８" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ８" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("40_3tk6s")
 
-[node name="🗻トランジション１コマ９" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ９" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("41_r4x54")
 
-[node name="🗻トランジション１コマ１０" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ１０" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("42_gxy60")
 
-[node name="🗻トランジション１コマ１１" type="Sprite2D" parent="📂BackgroundArtist"]
+[node name="🗻トランジション１コマ１１" type="Sprite2D" parent="🌏BackgroundArtist"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("43_7jh74")
 
-[node name="📂GuiArtist_MessageWindows" type="Node2D" parent="."]
+[node name="🌏GuiArtist_MessageWindows" type="Node2D" parent="."]
 
-[node name="🛩️MessageWindowsHub" type="Node" parent="📂GuiArtist_MessageWindows"]
+[node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiArtist_MessageWindows"]
 script = ExtResource("21_kjvby")
 
-[node name="■FullScreen" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+[node name="■FullScreen" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_ojm4j")
 script = ExtResource("23_0jkdi")
 
-[node name="■上_大" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+[node name="■上_大" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("62_y1sjv")
 script = ExtResource("23_0jkdi")
 
-[node name="■下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+[node name="■下" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
@@ -264,14 +264,14 @@ position = Vector2(640, 360)
 texture = ExtResource("64_pfjh7")
 script = ExtResource("23_0jkdi")
 
-[node name="■中央" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+[node name="■中央" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("65_6texa")
 script = ExtResource("23_0jkdi")
 
-[node name="■左下" type="Sprite2D" parent="📂GuiArtist_MessageWindows"]
+[node name="■左下" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
@@ -279,169 +279,169 @@ position = Vector2(640, 360)
 texture = ExtResource("66_vkf8y")
 script = ExtResource("23_0jkdi")
 
-[node name="📂Illustrator" type="Node2D" parent="."]
+[node name="🌏Illustrator" type="Node2D" parent="."]
 visible = false
 
-[node name="ーーーーウィンドウーーーー" type="Node" parent="📂Illustrator"]
+[node name="ーーーーウィンドウーーーー" type="Node" parent="🌏Illustrator"]
 
-[node name="🎴中央ウィンドウ" type="Sprite2D" parent="📂Illustrator"]
+[node name="🎴中央ウィンドウ" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("68_4axfk")
 
-[node name="ーーーーオブジェクトーーーー" type="Node" parent="📂Illustrator"]
+[node name="ーーーーオブジェクトーーーー" type="Node" parent="🌏Illustrator"]
 
-[node name="🎴将棋盤" type="Sprite2D" parent="📂Illustrator"]
+[node name="🎴将棋盤" type="Sprite2D" parent="🌏Illustrator"]
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("69_r34s8")
 
-[node name="🎴ファイルとランク" type="Sprite2D" parent="📂Illustrator"]
+[node name="🎴ファイルとランク" type="Sprite2D" parent="🌏Illustrator"]
 z_index = 100
 position = Vector2(640, 272)
 texture = ExtResource("70_yopg3")
 
-[node name="ーーーーモンスター全身ーーーー" type="Node" parent="📂Illustrator"]
+[node name="ーーーーモンスター全身ーーーー" type="Node" parent="🌏Illustrator"]
 
-[node name="🐕ヘム将棋" type="Sprite2D" parent="📂Illustrator"]
+[node name="🐕ヘム将棋" type="Sprite2D" parent="🌏Illustrator"]
 z_index = 10
 position = Vector2(463, 325)
 texture = ExtResource("76_lqesr")
 
-[node name="🐕レサぽん改" type="Sprite2D" parent="📂Illustrator"]
+[node name="🐕レサぽん改" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
 z_index = 10
 position = Vector2(737, 271)
 scale = Vector2(0.639706, 0.639706)
 texture = ExtResource("77_qbv5q")
 
-[node name="🐕ケダック" type="Sprite2D" parent="📂Illustrator"]
+[node name="🐕ケダック" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
 z_index = 10
 position = Vector2(627, 319)
 texture = ExtResource("78_8nwg6")
 
-[node name="🐕きふわらべ" type="Sprite2D" parent="📂Illustrator"]
+[node name="🐕きふわらべ" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
 z_index = 10
 position = Vector2(1014, 273)
 scale = Vector2(0.625506, 0.625506)
 texture = ExtResource("79_le58y")
 
-[node name="🐕昼ビール" type="Sprite2D" parent="📂Illustrator"]
+[node name="🐕昼ビール" type="Sprite2D" parent="🌏Illustrator"]
 position = Vector2(735, 320)
 scale = Vector2(0.596059, 0.596059)
 texture = ExtResource("80_vkv42")
 
-[node name="📂Musician_BGM" type="Node" parent="."]
+[node name="🌏Musician_BGM" type="Node" parent="."]
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂Musician_BGM"]
+[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician_BGM"]
 
-[node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("9_c76by")
 volume_db = -20.0
 
-[node name="🎵タイトル" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵タイトル" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("10_t6v7f")
 volume_db = -20.0
 
-[node name="🎵エンディング" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵エンディング" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("11_obewr")
 volume_db = -15.0
 
-[node name="🎵バトル１" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵バトル１" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("12_xn57w")
 volume_db = -15.0
 
-[node name="🎵バトル２" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵バトル２" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("13_qwhhg")
 volume_db = -15.0
 
-[node name="🎵バトル３" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵バトル３" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("14_caegp")
 volume_db = -15.0
 
-[node name="🎵バトル４" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵バトル４" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("15_i5oj7")
 volume_db = -15.0
 
-[node name="🎵負け" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵負け" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("16_kxcrf")
 volume_db = -15.0
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂Musician_BGM"]
+[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician_BGM"]
 
-[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="📂Musician_BGM"]
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
 stream = ExtResource("17_807s4")
 volume_db = -20.0
 pitch_scale = 1.4
 
-[node name="📂Musician_SE" type="Node" parent="."]
+[node name="🌏Musician_SE" type="Node" parent="."]
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂Musician_SE"]
+[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician_SE"]
 
-[node name="🔔ページめくり音" type="AudioStreamPlayer" parent="📂Musician_SE"]
+[node name="🔔ページめくり音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
 stream = ExtResource("18_ycwla")
 
-[node name="🔔選択肢カーソル移動音" type="AudioStreamPlayer" parent="📂Musician_SE"]
+[node name="🔔選択肢カーソル移動音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
 stream = ExtResource("19_myb2y")
 volume_db = -15.0
 
-[node name="🔔選択肢確定音" type="AudioStreamPlayer" parent="📂Musician_SE"]
+[node name="🔔選択肢確定音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
 stream = ExtResource("20_nrumj")
 volume_db = -10.0
 
-[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="📂Musician_SE"]
+[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
 stream = ExtResource("21_dmsb3")
 volume_db = -15.0
 pitch_scale = 1.5
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂Musician_SE"]
+[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician_SE"]
 
-[node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="📂Musician_SE"]
+[node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
 stream = ExtResource("22_4mqug")
 volume_db = -5.0
 
-[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="📂Musician_SE"]
+[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
 stream = ExtResource("23_n7qgt")
 volume_db = -10.0
 
-[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="📂Musician_SE"]
+[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
 stream = ExtResource("24_wis4x")
 volume_db = -15.0
 
-[node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="📂Musician_SE"]
+[node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
 stream = ExtResource("25_oxlb4")
 volume_db = -15.0
 
-[node name="📂Programmer" type="Node" parent="."]
+[node name="🌏Programmer" type="Node" parent="."]
 
-[node name="🛩️ProgramsHub" type="Node" parent="📂Programmer"]
+[node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
 script = ExtResource("53_kotpc")
 
-[node name="🍱Instructions_🍉VisualNovel" parent="📂Programmer" instance=ExtResource("81_aev68")]
+[node name="🍱Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
 
-[node name="📂ScenarioWriter" type="Node" parent="."]
+[node name="🌏ScenarioWriter" type="Node" parent="."]
 
-[node name="🛩️ScenarioWritersHub" type="Node" parent="📂ScenarioWriter"]
+[node name="🛩️ScenarioWritersHub" type="Node" parent="🌏ScenarioWriter"]
 script = ExtResource("55_0od0e")
 
-[node name="SwitchDepartment" type="Node" parent="📂ScenarioWriter"]
+[node name="SwitchDepartment" type="Node" parent="🌏ScenarioWriter"]
 script = ExtResource("56_eioho")
 
-[node name="📗会話部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("57_7j2fj")]
+[node name="📗会話部門_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("57_7j2fj")]
 
-[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="📂ScenarioWriter" instance=ExtResource("58_frjxl")]
+[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("58_frjxl")]
 
-[node name="📂TelopCoordinator" type="CanvasLayer" parent="."]
+[node name="🌏TelopCoordinator" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="📂TelopCoordinator"]
+[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏TelopCoordinator"]
 
-[node name="Ｔタイトル" type="CanvasLayer" parent="📂TelopCoordinator"]
+[node name="Ｔタイトル" type="CanvasLayer" parent="🌏TelopCoordinator"]
 
-[node name="きふわらべＲＰＧ" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
+[node name="きふわらべＲＰＧ" type="Label" parent="🌏TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -458,7 +458,7 @@ label_settings = ExtResource("65_qa1vg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="サブタイトル" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
+[node name="サブタイトル" type="Label" parent="🌏TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -475,7 +475,7 @@ label_settings = ExtResource("64_105ln")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Copyright" type="Label" parent="📂TelopCoordinator/Ｔタイトル"]
+[node name="Copyright" type="Label" parent="🌏TelopCoordinator/Ｔタイトル"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -492,10 +492,10 @@ label_settings = ExtResource("63_346vi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ｔエンディング" type="CanvasLayer" parent="📂TelopCoordinator"]
+[node name="Ｔエンディング" type="CanvasLayer" parent="🌏TelopCoordinator"]
 visible = false
 
-[node name="エンドロール" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
+[node name="エンドロール" type="Label" parent="🌏TelopCoordinator/Ｔエンディング"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -523,7 +523,7 @@ text = "　　　　　　音楽　魔王魂
 label_settings = ExtResource("64_105ln")
 vertical_alignment = 1
 
-[node name="完" type="Label" parent="📂TelopCoordinator/Ｔエンディング"]
+[node name="完" type="Label" parent="🌏TelopCoordinator/Ｔエンディング"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -540,10 +540,10 @@ label_settings = ExtResource("65_qa1vg")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Ｔ崎川駅周辺地図" type="CanvasLayer" parent="📂TelopCoordinator"]
+[node name="Ｔ崎川駅周辺地図" type="CanvasLayer" parent="🌏TelopCoordinator"]
 visible = false
 
-[node name="NR崎川駅" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="NR崎川駅" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -561,7 +561,7 @@ label_settings = SubResource("LabelSettings_f3kmi")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="西口" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="西口" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -579,7 +579,7 @@ label_settings = SubResource("LabelSettings_ts82g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="東口" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="東口" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -597,7 +597,7 @@ label_settings = SubResource("LabelSettings_ts82g")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="最強振興会館" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="最強振興会館" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -615,7 +615,7 @@ label_settings = SubResource("LabelSettings_ieh2b")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ゾラーナ崎川プラザ" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="ゾラーナ崎川プラザ" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -633,7 +633,7 @@ label_settings = SubResource("LabelSettings_ag644")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="リキッドスクエア" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="リキッドスクエア" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -651,7 +651,7 @@ label_settings = SubResource("LabelSettings_p32rn")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="香急崎川駅" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="香急崎川駅" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -670,7 +670,7 @@ label_settings = SubResource("LabelSettings_ag644")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="バドバシメカラ" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="バドバシメカラ" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -689,7 +689,7 @@ label_settings = SubResource("LabelSettings_ag644")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="アトレ崎川" type="Label" parent="📂TelopCoordinator/Ｔ崎川駅周辺地図"]
+[node name="アトレ崎川" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -708,10 +708,10 @@ label_settings = SubResource("LabelSettings_ag644")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MessageWindow_■FullScreen" type="CanvasLayer" parent="📂TelopCoordinator"]
+[node name="MessageWindow_■FullScreen" type="CanvasLayer" parent="🌏TelopCoordinator"]
 visible = false
 
-[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen"]
+[node name="TextBlock" type="Label" parent="🌏TelopCoordinator/MessageWindow_■FullScreen"]
 offset_left = 3.0
 offset_right = 1278.0
 offset_bottom = 720.0
@@ -721,7 +721,7 @@ text = "表示テストだあいうえかきくけさしすせたち
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("65_y1lq6")
 
-[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="🌏TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
 layout_mode = 0
 offset_left = 1246.0
 offset_top = 686.0
@@ -731,7 +731,7 @@ text = "▼"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="🌏TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
 layout_mode = 0
 offset_left = 1242.0
 offset_top = 685.0
@@ -741,7 +741,7 @@ text = "＿"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="🌏TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -751,10 +751,10 @@ text = "▶"
 label_settings = SubResource("LabelSettings_vfubr")
 script = ExtResource("66_oe5n6")
 
-[node name="MessageWindow_■下" type="CanvasLayer" parent="📂TelopCoordinator"]
+[node name="MessageWindow_■下" type="CanvasLayer" parent="🌏TelopCoordinator"]
 visible = false
 
-[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■下"]
+[node name="TextBlock" type="Label" parent="🌏TelopCoordinator/MessageWindow_■下"]
 offset_left = 319.0
 offset_top = 507.0
 offset_right = 1013.0
@@ -765,7 +765,7 @@ text = "表示テストだあいうえかきくけさしすせたち
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("65_y1lq6")
 
-[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="🌏TelopCoordinator/MessageWindow_■下/TextBlock"]
 visible = false
 layout_mode = 0
 offset_left = 643.0
@@ -776,7 +776,7 @@ text = "▼"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="🌏TelopCoordinator/MessageWindow_■下/TextBlock"]
 visible = false
 layout_mode = 0
 offset_left = 641.0
@@ -787,7 +787,7 @@ text = "＿"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■下/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="🌏TelopCoordinator/MessageWindow_■下/TextBlock"]
 visible = false
 layout_mode = 0
 offset_left = 1.0
@@ -798,10 +798,10 @@ text = "▶"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="MessageWindow_■中央" type="CanvasLayer" parent="📂TelopCoordinator"]
+[node name="MessageWindow_■中央" type="CanvasLayer" parent="🌏TelopCoordinator"]
 visible = false
 
-[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央"]
+[node name="TextBlock" type="Label" parent="🌏TelopCoordinator/MessageWindow_■中央"]
 offset_left = 510.0
 offset_top = 237.0
 offset_right = 824.0
@@ -813,7 +813,7 @@ text = "表示テストいうえ
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("65_y1lq6")
 
-[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="🌏TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 230.0
 offset_top = 154.0
@@ -823,7 +823,7 @@ text = "▼"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="🌏TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 228.0
 offset_top = 157.0
@@ -833,7 +833,7 @@ text = "＿"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■中央/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="🌏TelopCoordinator/MessageWindow_■中央/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -843,10 +843,10 @@ text = "▶"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="MessageWindow_■左下" type="CanvasLayer" parent="📂TelopCoordinator"]
+[node name="MessageWindow_■左下" type="CanvasLayer" parent="🌏TelopCoordinator"]
 visible = false
 
-[node name="TextBlock" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下"]
+[node name="TextBlock" type="Label" parent="🌏TelopCoordinator/MessageWindow_■左下"]
 offset_left = 32.0
 offset_top = 508.0
 offset_right = 726.0
@@ -858,7 +858,7 @@ text = "表示テストだ
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("65_y1lq6")
 
-[node name="BlinkerTriangle" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
+[node name="BlinkerTriangle" type="Label" parent="🌏TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 163.0
 offset_top = 140.0
@@ -868,7 +868,7 @@ text = "▼"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="BlinkerUnderscore" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
+[node name="BlinkerUnderscore" type="Label" parent="🌏TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 160.0
 offset_top = 147.0
@@ -878,7 +878,7 @@ text = "＿"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="ChoicesCursor" type="Label" parent="📂TelopCoordinator/MessageWindow_■左下/TextBlock"]
+[node name="ChoicesCursor" type="Label" parent="🌏TelopCoordinator/MessageWindow_■左下/TextBlock"]
 layout_mode = 0
 offset_left = 1.0
 offset_top = -3.0
@@ -888,9 +888,9 @@ text = "▶"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="📂TelopCoordinator"]
+[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏TelopCoordinator"]
 
-[node name="Ｔキーコンフィグ" parent="📂TelopCoordinator" instance=ExtResource("60_qck1r")]
+[node name="Ｔキーコンフィグ" parent="🌏TelopCoordinator" instance=ExtResource("60_qck1r")]
 visible = false
 
 [node name="🛩️KeyConfigHub" parent="." instance=ExtResource("103_n24cr")]

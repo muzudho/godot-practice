@@ -27,12 +27,12 @@ func get_director():
 
 # BGM取得
 func get_bgm(node_name_str):
-	return self.get_director().get_node("📂Musician_BGM").get_node(node_name_str)
+	return self.get_director().get_node("🌏Musician_BGM").get_node(node_name_str)
 
 
 # メッセージ・ウィンドウ取得
 func get_message_windows():
-	return self.get_director().get_node("📂GuiArtist_MessageWindows")
+	return self.get_director().get_node("🌏GuiArtist_MessageWindows")
 
 
 # メッセージ・ウィンドウ取得
@@ -42,17 +42,17 @@ func get_message_window(node_name_str):
 
 # 効果音取得
 func get_se(node_name_str):
-	return self.get_director().get_node("📂Musician_SE").get_node(node_name_str)
+	return self.get_director().get_node("🌏Musician_SE").get_node(node_name_str)
 
 
 # テロップ取得
 func get_telop_coordinator_key_config():
-	return self.get_director().get_node("📂TelopCoordinator/Ｔキーコンフィグ")
+	return self.get_director().get_node("🌏TelopCoordinator/Ｔキーコンフィグ")
 
 
 # テロップ取得
 func get_telop_of_key_config(node_name_str):
-	return self.get_director().get_node("📂TelopCoordinator/Ｔキーコンフィグ").get_node(node_name_str)
+	return self.get_director().get_node("🌏TelopCoordinator/Ｔキーコンフィグ").get_node(node_name_str)
 
 
 # テキスト・ブロック取得

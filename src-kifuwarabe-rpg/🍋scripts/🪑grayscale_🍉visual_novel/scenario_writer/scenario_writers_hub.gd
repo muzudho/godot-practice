@@ -26,12 +26,12 @@ func get_director():
 
 # プログラムズ・ハブ取得
 func get_programs_hub():
-	return self.get_director().get_node("📂Programmer/🛩️ProgramsHub")
+	return self.get_director().get_node("🌏Programmer/🛩️ProgramsHub")
 
 
 # シナリオライター取得
 func get_scenario_writer():
-	return self.get_director().get_node("📂ScenarioWriter")
+	return self.get_director().get_node("🌏ScenarioWriter")
 
 
 # ーーーーーーーー

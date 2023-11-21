@@ -19,11 +19,11 @@ func get_director():
 
 # プログラムズ・ハブ取得
 func get_programs_hub():
-	return self.get_director().get_node("📂Programmer/🛩️ProgramsHub")
+	return self.get_director().get_node("🌏Programmer/🛩️ProgramsHub")
 
 
 func get_telop_coordinator():
-	return self.get_director().get_node("📂TelopCoordinator")
+	return self.get_director().get_node("🌏TelopCoordinator")
 
 
 func get_scorer():

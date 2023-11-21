@@ -39,17 +39,17 @@ func get_director():
 
 # 背景アーティスト
 func get_background_artist():
-	return self.get_director().get_node("📂BackgroundArtist")
+	return self.get_director().get_node("🌏BackgroundArtist")
 
 
 # BGM取得
 func get_bgm():
-	return self.get_director().get_node("📂Musician_BGM")
+	return self.get_director().get_node("🌏Musician_BGM")
 
 
 # イラストレーター取得
 func get_illustrator():
-	return self.get_director().get_node("📂Illustrator")
+	return self.get_director().get_node("🌏Illustrator")
 
 
 # 命令ノード取得
@@ -59,7 +59,7 @@ func get_instruction(instruction_name):
 
 # メッセージ・ウィンドウズ取得
 func get_message_windows_node():
-	return self.get_director().get_node("📂GuiArtist_MessageWindows")
+	return self.get_director().get_node("🌏GuiArtist_MessageWindows")
 
 
 # 伝言窓（現在、出力の対象になっているもの）
@@ -79,22 +79,22 @@ func get_monster_faces():
 
 # 効果音取得
 func get_se():
-	return self.get_director().get_node("📂Musician_SE")
+	return self.get_director().get_node("🌏Musician_SE")
 
 
 # シナリオライター取得
 func get_scenario_writer():
-	return self.get_director().get_node("📂ScenarioWriter")
+	return self.get_director().get_node("🌏ScenarioWriter")
 
 
 # シナリオライター・ハブ取得
 func get_scenario_writers_hub():
-	return self.get_director().get_node("📂ScenarioWriter/🛩️ScenarioWritersHub")
+	return self.get_director().get_node("🌏ScenarioWriter/🛩️ScenarioWritersHub")
 
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
-	return self.get_director().get_node("📂TelopCoordinator")
+	return self.get_director().get_node("🌏TelopCoordinator")
 
 
 # ーーーーーーーー
