@@ -172,4 +172,115 @@ func hub():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　運用でカバーしろだぜ」  
 
+## フォルダーの深い所に置いたから、探索しろだぜ
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　しまった！」  
+
+📄 `scenario_writers_hub.gd` :  
+
+```gd
+# 指定の部門下の scenario_document 辞書を全てマージして返します。
+# この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
+func get_merged_scenario_document(department_name):
+	if not (department_name in self.cached_scenario_document):
+		var book_node = self.get_scenario_writer().get_node(str(department_name))
+		self.cached_scenario_document[department_name] = {}
+
+		# 再帰。結果は外部変数に格納
+		self.search_merged_scenario_document(department_name, book_node)
+
+	return self.cached_scenario_document[department_name]
+
+
+func search_merged_scenario_document(department_name, current_node):
+	for child_node in current_node.get_children():
+		if "scenario_document" in child_node:
+			self.cached_scenario_document[department_name].merge(child_node.scenario_document)
+
+		# 再帰。結果は外部変数に格納
+		self.search_merged_scenario_document(department_name, child_node)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　フォルダーの下まで　再帰的に探索するコードを書いてないぜ」  
+
+📄 `programs_hub.gd` :  
+
+```gd
+# 全ての部門名一覧
+func get_all_department_names():
+	if self.cached_all_department_names == null:
+		self.cached_all_department_names = []	# StringName の配列
+
+		# 結果は変数に格納される
+		self.search_all_department_names(
+				self.get_scenario_writer())
+			
+	return self.cached_all_department_names
+
+
+# 結果は変数に格納される
+func search_all_department_names(current_node):
+	for child_node in current_node.get_children():
+		# 部門のノード名は `📗` で始まるものとする
+		if child_node.name.begins_with("📗"):
+			self.cached_all_department_names.append(child_node.name)
+		
+		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
+		elif child_node.name.begins_with("📂"):
+			self.search_all_department_names(child_node)
+```
+
+📄 `scenario_writers_hub` :  
+
+```gd
+# 指定の部門下の scenario_document 辞書を全てマージして返します。
+# この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
+func get_merged_scenario_document(department_name):
+	# キャッシュになければ探索
+	if not (department_name in self.cached_scenario_document):
+		
+		# ［📗～］ノードの位置が変わっていることがあるので探索する
+		var book_node = self.search_scenario_book_node(
+				self.get_scenario_writer(),
+				str(department_name))
+		self.cached_scenario_document[department_name] = {}
+
+		# 再帰。結果は外部変数に格納
+		self.search_merged_scenario_document(department_name, book_node)
+
+	return self.cached_scenario_document[department_name]
+
+
+# ［📗～］ノードを探索
+func search_scenario_book_node(
+		current_node,
+		department_name_str):
+	if current_node.has_node(department_name_str):
+		return current_node.get_node(department_name_str)
+
+	for child_node in current_node.get_children():
+		var book_node = self.search_scenario_book_node(
+				child_node,
+				department_name_str)
+		
+		if book_node != null:
+			return book_node
+
+
+func search_merged_scenario_document(department_name, current_node):
+	for child_node in current_node.get_children():
+		if "scenario_document" in child_node:
+			self.cached_scenario_document[department_name].merge(child_node.scenario_document)
+
+		# 再帰。結果は外部変数に格納
+		self.search_merged_scenario_document(department_name, child_node)
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　まず　部門名を再帰的に探すことにするぜ。  
+`📗` で始まるノード名なら　部門名、  
+`📂` で始まる名前のノードなら、その中を探索されるぜ」  
+
 .
