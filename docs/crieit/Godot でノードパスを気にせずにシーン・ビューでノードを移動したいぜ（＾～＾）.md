@@ -283,4 +283,13 @@ func search_merged_scenario_document(department_name, current_node):
 `📗` で始まるノード名なら　部門名、  
 `📂` で始まる名前のノードなら、その中を探索されるぜ」  
 
+![202311__shogi__21-2146--folder-2o0.png](https://crieit.now.sh/upload_images/2fbd3bae185f7f365aa2c7aa99dbb5be655ca6da8efff.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　これで　フォルダーの中に　台本を置いて　任意に整理できるようになったぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　任意に置くことができるフォルダーと、  
+置く場所が決まってるフォルダーのアイコンを　変えた方がよくない？」  
+
 .
