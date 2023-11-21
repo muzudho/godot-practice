@@ -292,4 +292,17 @@ func search_merged_scenario_document(department_name, current_node):
 「　任意に置くことができるフォルダーと、  
 置く場所が決まってるフォルダーのアイコンを　変えた方がよくない？」  
 
+![202311__shogi__21-2226--globe.png](https://crieit.now.sh/upload_images/db8bdc476c0df3ea89b44a88e09bc562655cb0319b04c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　固定のディレクトリーのアイコンをグローブ（Globe；地球）に変えたぜ。  
+ハブ（Hub；中心地）が飛行機なんで、合うぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　ストＩＩ　のキャラクター選択画面のイメージだろ」  
+
+# 親記事へ戻る
+
+📖　[Godot って何だぜ（＾～＾）？](https://crieit.net/posts/Godot-65115761b6a17)  
+
 .
