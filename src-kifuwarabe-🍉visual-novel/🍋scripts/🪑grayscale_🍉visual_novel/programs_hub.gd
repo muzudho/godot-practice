@@ -13,8 +13,8 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 # 全角数字
 var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
 
-# スナップショット辞書（キー：StringName型）
-var snapshots = {}
+# デパートメント変数辞書（キー：StringName型）
+var departments = {}
 
 # 現在の部門（StringName型）
 var current_department_name = null
@@ -137,25 +137,25 @@ func _ready():
 		if message_window_node is Sprite2D:
 			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 			message_window_node.on_message_window_page_forward = func():
-				self.get_current_snapshot().set_parse_lock(false)
+				self.get_current_department_value().set_parse_lock(false)
 
-	# スナップショット辞書作成
+	# デパートメント変数辞書作成
 	for department_name in self.get_all_department_names():
 		var department_node = self.get_scenario_writer().get_node(str(department_name))
 		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
 			# 生成
-			var snapshot = Department.new()
+			var department_value = Department.new()
 
 			# 部門名をコピー
-			snapshot.name = department_node.name		# StringName 型
+			department_value.name = department_node.name		# StringName 型
 
 			# メッセージを出力する対象となるウィンドウの名前。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-			snapshot.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
+			department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 			# 先頭セクションの名前
-			snapshot.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name).keys()[0]
+			department_value.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name).keys()[0]
 
-			self.snapshots[department_node.name] = snapshot
+			self.departments[department_node.name] = department_value
 
 
 # ーーーーーーーー
@@ -259,9 +259,9 @@ func number_to_zenkaku_text(number, figures):
 
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
-	var snapshot = self.get_current_snapshot()
-	var scenario_node_name = snapshot.name		# StringName
-	var section_name =  snapshot.section_name
+	var department_value = self.get_current_department_value()
+	var scenario_node_name = department_value.name		# StringName
+	var section_name =  department_value.section_name
 	
 	var section_array = self.get_scenario_writers_hub().get_section_array(scenario_node_name, section_name)
 	return section_array.size()
@@ -269,25 +269,25 @@ func get_current_section_size_of_scenario():
 
 # シナリオの現在パラグラフ（セクションのアイテム）を返す
 func get_current_paragraph_of_scenario():
-	var snapshot = self.get_current_snapshot()
+	var department_value = self.get_current_department_value()
 	var message_window_gui = self.get_current_message_window_gui()
 
-	var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(snapshot.name)
-	return merged_scenario_document[snapshot.section_name][message_window_gui.section_item_index]
+	var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(department_value.name)
+	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
 
 
 # 「§」セクションの再生
 func play_section():
-	var snapshot = self.get_current_snapshot()
+	var department_value = self.get_current_department_value()
 	var message_window_gui = self.get_current_message_window_gui()
 
 	# 全部消化済みの場合
 	if self.get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
-		print("［助監］（" + snapshot.name + "　" + snapshot.section_name + "）　セクションを読み終わっている")
+		print("［助監］（" + department_value.name + "　" + department_value.section_name + "）　セクションを読み終わっている")
 
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
 		if message_window_gui.statemachine_of_message_window.is_completed():
-			print("［助監］（" + snapshot.name + "　"+ snapshot.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
+			print("［助監］（" + department_value.name + "　"+ department_value.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
 			# 自動で何かしない
 			return
 
@@ -297,9 +297,9 @@ func play_section():
 		# Completed 時もパース始めたらよくない
 		if not message_window_gui.statemachine_of_message_window.is_completed():
 			# TODO 選択肢のときもややこしいが
-			print("［助監］（" + snapshot.name + "　"+ snapshot.section_name + "）　パースを開始してよい（本当か？）")
+			print("［助監］（" + department_value.name + "　"+ department_value.section_name + "）　パースを開始してよい（本当か？）")
 			# パースを開始してよい
-			snapshot.set_parse_lock(false)
+			department_value.set_parse_lock(false)
 
 
 # 伝言窓で選択肢が選ばれたとき、その行番号が渡されてくる
@@ -312,9 +312,9 @@ func on_choice_selected(row_number):
 	self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
-	var snapshot = self.get_current_snapshot()
-	var department_name = str(snapshot.name)
-	var section_name = snapshot.section_name
+	var department_value = self.get_current_department_value()
+	var department_name = str(department_value.name)
+	var section_name = department_value.section_name
 	
 	print("［助監］　現在の部門名　　　：" + department_name)
 	print("［助監］　現在の区画名　　　：" + section_name)
@@ -447,11 +447,11 @@ func on_process(delta):
 		# 疑似スリープ値が残っている間は、シナリオを進めません
 		return
 
-	var snapshot = self.get_current_snapshot()
+	var department_value = self.get_current_department_value()
 	var message_window_gui = self.get_current_message_window_gui()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
-	if not snapshot.is_parse_lock():
+	if not department_value.is_parse_lock():
 		
 		# まだあるよ
 		if message_window_gui.section_item_index < self.get_current_section_size_of_scenario():
@@ -481,34 +481,34 @@ func on_process(delta):
 				self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
-# スナップショット
-func get_snapshot(
+# 部門変数取得
+func get_department_value(
 		department_name):	# StringName
-	return self.snapshots[department_name]
+	return self.departments[department_name]
 
 
-# 現在の部門のスナップショット
-func get_current_snapshot():
-	return self.get_snapshot(self.current_department_name)
+# 現在の部門変数
+func get_current_department_value():
+	return self.get_department_value(self.current_department_name)
 
 
 # 伝言窓（現在、出力の対象になっているもの）
 func get_current_message_window_gui():
-	var snapshot = self.get_current_snapshot()
-	if snapshot.stack_of_last_displayed_message_window.size() < 1:
+	var department_value = self.get_current_department_value()
+	if department_value.stack_of_last_displayed_message_window.size() < 1:
 		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
 
-	var node_name = snapshot.stack_of_last_displayed_message_window[-1]
+	var node_name = department_value.stack_of_last_displayed_message_window[-1]
 	#print("［監督］　伝言窓名：［" + node_name + "］")
 	return self.get_message_window_gui(str(node_name))
 
 
 # 現在の「§」セクション設定
 func set_current_section(section_name):
-	var snapshot = self.get_current_snapshot()
+	var department_value = self.get_current_department_value()
 	var message_window_gui = self.get_current_message_window_gui()
 
-	snapshot.section_name = section_name
+	department_value.section_name = section_name
 	message_window_gui.section_item_index = 0
 
 
@@ -521,8 +521,8 @@ func dump_last_displayed_message_window():
 	for department_name in 	department_names:
 		print("　　部門：　" + department_name)
 
-		# スナップショット
-		var snapshot = self.get_snapshot(department_name)
+		# 部門変数
+		var department = self.get_department_value(department_name)
 		
-		for window_name in snapshot.node_names_of_currently_displayed_message_window:
+		for window_name in department.node_names_of_currently_displayed_message_window:
 			print("　　　　👁 " + window_name)

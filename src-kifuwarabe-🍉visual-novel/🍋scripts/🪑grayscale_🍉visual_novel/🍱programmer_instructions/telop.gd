@@ -13,9 +13,9 @@ func hub():
 	return $"../../🛩️ProgramsHub"
 
 
-# スナップショット取得
-func get_snapshot(department_node_name):
-	return self.hub().get_director().get_snapshot(department_node_name)
+# 部門変数取得
+func get_department_value(department_node_name):
+	return self.hub().get_director().get_department_value(department_node_name)
 
 
 # ーーーーーーーー

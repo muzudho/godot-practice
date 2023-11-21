@@ -74,7 +74,7 @@ func get_telop_coordinator():
 
 
 # ーーーーーーーー
-# その他
+# 初期化
 # ーーーーーーーー
 
 
@@ -128,6 +128,11 @@ func _ready():
 	self.get_telop_coordinator().show()
 
 
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
+
+
 func on_key_config_entered():
 	# 背景
 	self.get_background_artist().get_node("🗻崎川駅前").visible = true
@@ -156,7 +161,7 @@ func _process(delta):
 		self.get_programs_hub().current_department_name = self.get_switch_department().start_department_name
 
 		# パースするな
-		self.get_programs_hub().get_current_snapshot().set_parse_lock(true)
+		self.get_programs_hub().get_current_department_value().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
 		self.get_programs_hub().play_section()

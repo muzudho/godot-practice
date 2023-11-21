@@ -55,17 +55,17 @@ func change_department(next_department_name, tail_csv):
 		var prev_department_name = self.hub().current_department_name
 		print("［命令　部門］　前：［" + prev_department_name + "］　次：［" + next_department_name + "］")
 		
-		var prev_department_snapshot = self.hub().get_snapshot(prev_department_name)
+		var prev_department = self.hub().get_department_value(prev_department_name)
 
 		# 旧部門のウィンドウを閉じる
-		for prev_window_name in prev_department_snapshot.node_names_of_currently_displayed_message_window:
+		for prev_window_name in prev_department.node_names_of_currently_displayed_message_window:
 			self.get_m_wnd().hide_message_window(prev_window_name, true)
 
 		# 部門変更
 		self.hub().current_department_name = next_department_name
 
 		# 次部門
-		var next_department_snapshot = self.hub().get_snapshot(next_department_name)
+		var next_department_snapshot = self.hub().get_department_value(next_department_name)
 
 		# 旧部門のウィンドウを復元する
 		for next_window_name in next_department_snapshot.node_names_of_currently_displayed_message_window:

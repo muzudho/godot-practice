@@ -32,10 +32,10 @@ func put_textblock(
 	temp_text = self.hub().expand_variables(temp_text.strip_edges())
 
 	# メッセージ追加
-	var snapshot = self.hub().get_current_snapshot()
+	var department_value = self.hub().get_current_department_value()
 	var message_window_gui = self.hub().get_current_message_window_gui()
 
-	print("［命令　選択肢テキスト］　部門：［" + str(snapshot.name) + "］　メッセージ：[" + temp_text + "]")
+	print("［命令　選択肢テキスト］　部門：［" + str(department_value.name) + "］　メッセージ：[" + temp_text + "]")
 
 	message_window_gui.remember(temp_text)
 
@@ -43,4 +43,4 @@ func put_textblock(
 	self.hub().get_current_message_window_gui().statemachine_of_message_window.talk()
 
 	# パースをするな
-	snapshot.set_parse_lock(true)
+	department_value.set_parse_lock(true)

@@ -46,21 +46,21 @@ func do_it(line):
 func show_message_window(
 		node_name,						# StringName
 		is_department_entered = false):	# bool
-	var snapshot = self.hub().get_current_snapshot()
-	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　見せる")
+	var department_value = self.hub().get_current_department_value()
+	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
 	self.hub().get_director().get_message_window_gui(node_name).set_appear_subtree(true)
 
 	if not is_department_entered:
 		# 現在開いている伝言窓をスナップショットに記憶
-		snapshot.append_currently_displayed_message_window(node_name)
+		department_value.append_currently_displayed_message_window(node_name)
 
 		# 表示した順を覚えておく。スタックに既存なら最後尾に回す
-		if node_name in snapshot.stack_of_last_displayed_message_window:
-			var index = snapshot.stack_of_last_displayed_message_window.find(node_name)
-			snapshot.stack_of_last_displayed_message_window.remove_at(index)
-		snapshot.stack_of_last_displayed_message_window.push_back(node_name)
+		if node_name in department_value.stack_of_last_displayed_message_window:
+			var index = department_value.stack_of_last_displayed_message_window.find(node_name)
+			department_value.stack_of_last_displayed_message_window.remove_at(index)
+		department_value.stack_of_last_displayed_message_window.push_back(node_name)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 	self.hub().dump_last_displayed_message_window()
@@ -70,20 +70,20 @@ func show_message_window(
 func hide_message_window(
 		node_name,						# StringName
 		is_department_leaved = false):	# bool
-	var snapshot = self.hub().get_current_snapshot()
-	print("［命令　伝言窓　”" + node_name + "”］（" + str(snapshot.name) + "　" + snapshot.section_name + "）　隠す")
+	var department_value = self.hub().get_current_department_value()
+	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
 	self.hub().get_director().get_message_window_gui(node_name).set_appear_subtree(false)
 
 	if not is_department_leaved:
 		# 現在開いている伝言窓をスナップショットから除外
-		snapshot.remove_currently_displayed_message_window(node_name)
+		department_value.remove_currently_displayed_message_window(node_name)
 
 		# 表示した順序を覚えているスタックから除外する
-		var index = snapshot.stack_of_last_displayed_message_window.find(node_name)
+		var index = department_value.stack_of_last_displayed_message_window.find(node_name)
 		if 0 <= index:
-			snapshot.stack_of_last_displayed_message_window.remove_at(index)
+			department_value.stack_of_last_displayed_message_window.remove_at(index)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 	self.hub().dump_last_displayed_message_window()
