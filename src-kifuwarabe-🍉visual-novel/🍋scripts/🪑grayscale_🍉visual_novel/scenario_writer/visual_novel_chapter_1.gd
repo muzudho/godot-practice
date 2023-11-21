@@ -3,6 +3,13 @@ extends Node
 
 
 # ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+var cached_hubs = {}
+
+
+# ーーーーーーーー
 # 親パス関連
 # ーーーーーーーー
 
@@ -14,13 +21,20 @@ extends Node
 
 # シナリオライターズ・ハブ取得
 func hub():
-	var cur_node = $".."
+	var target = "🛩️ScenarioWritersHub"
 	
-	while cur_node != null:
-		if cur_node.has_node("🛩️ScenarioWritersHub"):
-			return cur_node.get_node("🛩️ScenarioWritersHub")
+	if target in self.cached_hubs:
+		return self.cached_hubs[target]
+	
+	var cur = $".."
+	
+	while cur != null:
+		if cur.has_node(target):
+			var hub = cur.get_node(target)
+			self.cached_hubs[target] = hub
+			return hub
 		
-		cur_node = cur_node.get_parent()
+		cur = cur.get_parent()
 	
 	return null
 

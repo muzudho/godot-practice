@@ -58,4 +58,33 @@ func hub():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　例えば　上記のように書きかえれば　親をさかのぼって探してくれるぜ」  
 
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　キャッシュした方が　よくないか？」  
+
+```gd
+var cached_hubs = {}
+
+# シナリオライターズ・ハブ取得
+func hub():
+	var target = "🛩️ScenarioWritersHub"
+	
+	if target in self.cached_hubs:
+		return self.cached_hubs[target]
+	
+	var cur = $".."
+	
+	while cur != null:
+		if cur.has_node(target):
+			var hub = cur.get_node(target)
+			self.cached_hubs[target] = hub
+			return hub
+		
+		cur = cur.get_parent()
+	
+	return null
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　じゃあ　こうだぜ」  
+
 .
