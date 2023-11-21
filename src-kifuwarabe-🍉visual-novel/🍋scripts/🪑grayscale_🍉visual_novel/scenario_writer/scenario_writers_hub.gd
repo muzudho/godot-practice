@@ -40,7 +40,9 @@ func get_scenario_writer():
 
 
 # セクション配列取得
-func get_section_array(department_name, section_name):
+func get_section_array(
+		department_name,		# StringName
+		section_name):
 	var merged_scenario_document = self.get_merged_scenario_document(department_name)
 	
 	if not(section_name in merged_scenario_document):

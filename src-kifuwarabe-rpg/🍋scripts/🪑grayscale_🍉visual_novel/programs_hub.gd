@@ -140,22 +140,30 @@ func _ready():
 				self.get_current_snapshot().set_parse_lock(false)
 
 	# スナップショット辞書作成
-	for department_name in self.get_all_department_names():
-		var department_node = self.get_scenario_writer().get_node(str(department_name))
-		if department_node.name != "SwitchDepartment" and department_node.name != "🛩️ScenarioWritersHub":
+	self.search_department_node_and_new(self.get_scenario_writer())
+
+
+func search_department_node_and_new(current_node):
+	for child_node in current_node.get_children():
+		# 部門のノード名は `📗` で始まるものとする
+		if child_node.name.begins_with("📗"):
 			# 生成
 			var snapshot = Department.new()
 
 			# 部門名をコピー
-			snapshot.name = department_node.name		# StringName 型
+			snapshot.name = child_node.name		# StringName 型
 
 			# メッセージを出力する対象となるウィンドウの名前。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
 			snapshot.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 			# 先頭セクションの名前
-			snapshot.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_node.name).keys()[0]
+			snapshot.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(child_node.name).keys()[0]
 
-			self.snapshots[department_node.name] = snapshot
+			self.snapshots[child_node.name] = snapshot
+		
+		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
+		elif child_node.name.begins_with("📂"):
+			self.search_department_node_and_new(child_node)
 
 
 # ーーーーーーーー
@@ -260,7 +268,7 @@ func number_to_zenkaku_text(number, figures):
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
 	var snapshot = self.get_current_snapshot()
-	var scenario_node_name = snapshot.name
+	var scenario_node_name = snapshot.name		# StringName
 	var section_name =  snapshot.section_name
 	
 	var section_array = self.get_scenario_writers_hub().get_section_array(scenario_node_name, section_name)

@@ -260,7 +260,7 @@ func number_to_zenkaku_text(number, figures):
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
 	var snapshot = self.get_current_snapshot()
-	var scenario_node_name = snapshot.name
+	var scenario_node_name = snapshot.name		# StringName
 	var section_name =  snapshot.section_name
 	
 	var section_array = self.get_scenario_writers_hub().get_section_array(scenario_node_name, section_name)

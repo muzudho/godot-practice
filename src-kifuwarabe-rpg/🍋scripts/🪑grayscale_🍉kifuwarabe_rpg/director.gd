@@ -74,7 +74,7 @@ func get_telop_coordinator():
 
 
 # ーーーーーーーー
-# その他
+# 初期化
 # ーーーーーーーー
 
 
@@ -126,6 +126,11 @@ func _ready():
 	self.get_illustrator().show()
 	# テロップ
 	self.get_telop_coordinator().show()
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 func on_key_config_entered():
