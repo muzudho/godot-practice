@@ -30,5 +30,32 @@ Godot には　あるらしいぜ」
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　やってみろだぜ」  
 
+![202311__shogi__21-1925--node-moved.png](https://crieit.now.sh/upload_images/9667e2c6013a78af394fb214949ae487655c85bba0d19.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　こんな風に　ノードを移動しても、さっきのノードパスは　自動で変更されるといったことはないぜ」  
+
+## 変更案
+
+```gd
+#func hub():
+#	return $"../../🛩️ScenarioWritersHub"
+
+
+# シナリオライターズ・ハブ取得
+func hub():
+	var cur_node = $".."
+	
+	while cur_node != null:
+		if cur_node.has_node("🛩️ScenarioWritersHub"):
+			return cur_node.get_node("🛩️ScenarioWritersHub")
+		
+		cur_node = cur_node.get_parent()
+	
+	return null
+```
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　例えば　上記のように書きかえれば　親をさかのぼって探してくれるぜ」  
 
 .

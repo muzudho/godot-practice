@@ -7,9 +7,22 @@ extends Node
 # ーーーーーーーー
 
 
+## シナリオライターズ・ハブ取得
+#func hub():
+#	return $"../../🛩️ScenarioWritersHub"
+
+
 # シナリオライターズ・ハブ取得
 func hub():
-	return $"../../🛩️ScenarioWritersHub"
+	var cur_node = $".."
+	
+	while cur_node != null:
+		if cur_node.has_node("🛩️ScenarioWritersHub"):
+			return cur_node.get_node("🛩️ScenarioWritersHub")
+		
+		cur_node = cur_node.get_parent()
+	
+	return null
 
 
 # ーーーーーーーー
