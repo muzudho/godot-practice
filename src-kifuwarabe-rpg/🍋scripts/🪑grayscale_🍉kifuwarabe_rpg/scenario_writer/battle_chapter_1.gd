@@ -19,7 +19,7 @@ var monkey = Monkey.new()
 func hub():
 	return monkey.find_ancestor_child(
 			self,
-			"🛩️ScenarioWritersHub")
+			"🛩️ScenarioWritersHub_🍉VisualNovel")
 
 
 # 戦闘ハブ取得
@@ -710,8 +710,8 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		#label:		Director/🌏TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/🌏TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２２９９９９９９９９９"
+		#label:		🌏Director/🌏TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		🌏Director/🌏TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２２９９９９９９９９９"
 		""",
 		"""\
 		昼ビールに　１　のダメージを与えた
@@ -738,9 +738,9 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		label:		Director/🌏TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４４００"
-		#label:		Director/🌏TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
-		label:		Director/🌏TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００９９"
+		label:		🌏Director/🌏TelopCoordinator/Ｔ戦闘シーン/城の堅さ_上		,"４４００"
+		#label:		🌏Director/🌏TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"７６５４３２１０９８７６５４３２１"
+		label:		🌏Director/🌏TelopCoordinator/Ｔ戦闘シーン/玉の遠さ_上		,"　　　　　１２３０００００００９９"
 		""",
 		"""\
 		城の堅さが　１００　上がった

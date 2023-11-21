@@ -61,7 +61,7 @@ func get_scenario_writer():
 
 # シナリオライターズ・ハブ取得
 func get_scenario_writers_hub():
-	return $"🌏ScenarioWriter/🛩️ScenarioWritersHub"
+	return $"🌏ScenarioWriter/🛩️ScenarioWritersHub_🍉VisualNovel"
 
 
 # 部門切替取得

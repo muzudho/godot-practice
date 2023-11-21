@@ -34,7 +34,7 @@ var is_department_not_found = false
 
 # 監督取得
 func get_director():
-	return $"../../../Director"
+	return $"../../../🌏Director"
 
 
 # 背景アーティスト
@@ -89,7 +89,7 @@ func get_scenario_writer():
 
 # シナリオライター・ハブ取得
 func get_scenario_writers_hub():
-	return self.get_director().get_node("🌏ScenarioWriter/🛩️ScenarioWritersHub")
+	return self.get_director().get_node("🌏ScenarioWriter/🛩️ScenarioWritersHub_🍉VisualNovel")
 
 
 # テロップ・コーディネーター取得

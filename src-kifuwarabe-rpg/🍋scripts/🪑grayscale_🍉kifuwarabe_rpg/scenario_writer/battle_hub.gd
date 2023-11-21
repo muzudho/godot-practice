@@ -9,7 +9,7 @@ extends Node
 
 
 func get_director():
-	return $"../../../../Director"
+	return $"../../../../🌏Director"
 
 
 # ーーーーーーーー

@@ -19,7 +19,7 @@ var monkey = Monkey.new()
 func hub():
 	return monkey.find_ancestor_child(
 			self,
-			"🛩️ScenarioWritersHub")
+			"🛩️ScenarioWritersHub_🍉VisualNovel")
 
 
 # ーーーーーーーー

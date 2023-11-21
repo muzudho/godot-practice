@@ -21,7 +21,7 @@ var cached_choices_mappings = {}
 
 # 監督取得
 func get_director():
-	return $"../../../Director"
+	return $"../../../🌏Director"
 
 
 # プログラムズ・ハブ取得

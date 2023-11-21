@@ -13,7 +13,7 @@ var is_fast_forward = false
 
 # 監督取得
 func get_director():
-	return $"../../../Director"
+	return $"../../../🌏Director"
 
 
 # 助監取得
