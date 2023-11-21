@@ -17,7 +17,7 @@ var monkey = Monkey.new()
 
 # シナリオライターズ・ハブ取得
 func hub():
-	return monkey.find_parent_child(
+	return monkey.find_ancestor_child(
 			self,
 			"🛩️ScenarioWritersHub")
 
