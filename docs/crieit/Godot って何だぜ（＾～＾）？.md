@@ -4,7 +4,8 @@
 
 # 情報
 
-📖　[Git Hub / きふわらべＲＰＧ、他](https://github.com/muzudho/godot-practice)  
+📖　[Git Hub / きふわらべRPG、他](https://github.com/muzudho/godot-practice)  
+📺　[Discord サーバー 招待 / きふわらべRPG](https://t.co/ZvT1ICT9x8)  
 
 # 📅 (2023-09-25 mon) Godot を調べろだぜ
 
@@ -1393,5 +1394,23 @@ Zzz...
 
 📖　[Godot の LabelSettings 外部ファイルの名前の付け方を考えようぜ（＾～＾）？](https://crieit.net/posts/Godot-LabelSettings)  
 
+# (📅 2023-11-21 tue) ノードパスに縛られずにフォルダー階層にしたい
+
+![202311__shogi__21-1906--folder-o2o0.png](https://crieit.now.sh/upload_images/a9d8e33df75340cb3aae1214ee2b6af4655c82453f6c7.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　フォルダーを自由に作って　そこにノードを移動できるようにしたいぜ。  
+そのとき　パスも　リンク切れしないようにしたいぜ」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　Godot エディター上で　移動すれば　リンクは切れないんじゃないの？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　ノードパスの仕様が難しい。もっと適当に　ノードを移動したい」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　👇　長くなりそうな話は、別記事で解説してくれだぜ」  
+
+📖　[Godot でノードパスを気にせずにシーン・ビューでノードを移動したいぜ（＾～＾）](https://crieit.net/posts/Godot-655c84cd156d9)  
 
 .
