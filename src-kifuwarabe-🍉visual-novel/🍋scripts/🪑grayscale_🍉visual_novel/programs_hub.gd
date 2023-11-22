@@ -206,20 +206,23 @@ func find_node_in_folder(
 
 # 結果は変数に格納される
 func search_node_in_folder(
-		book_name,			# StringName. `📗` で始まる名前を想定
+		target_name,			# StringName. `🗻` や `📗` などで始まる名前を想定
 		current_node,
 		set_found_node):
-		
+	
+	if current_node.has_node(str(target_name)):
+		print("［検索］　現ノード名：❝" + current_node.name + "❞　ヒット：❝" + target_name + "❞")
+		# キャッシュに追加
+		set_found_node.call(
+				current_node.get_node(str(target_name)))
+		return
+	
+	# `📂` で始まる子ノード名は、さらにその中も再帰的に探索されるものとする
 	for child_node in current_node.get_children():
-		# 探し物
-		if child_node.name == book_name:
-			# キャッシュに追加
-			set_found_node.call(child_node)
-		
-		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
-		elif child_node.name.begins_with("📂"):
+		if child_node.name.begins_with("📂"):
+			print("［検索］　子ノード名：❝" + child_node.name + "❞")
 			self.search_node_in_folder(
-					book_name,
+					target_name,
 					child_node,
 					set_found_node)
 
