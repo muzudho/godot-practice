@@ -19,50 +19,50 @@
 
 [node name="🍱Instructions_🍉VisualNovel" type="Node"]
 
-[node name="Bg" type="Node" parent="."]
+[node name="📗Bg" type="Node" parent="."]
 script = ExtResource("1_hryro")
 
-[node name="Bgm" type="Node" parent="."]
+[node name="📗Bgm" type="Node" parent="."]
 script = ExtResource("2_jbfef")
 
-[node name="Choice" type="Node" parent="."]
+[node name="📗Choice" type="Node" parent="."]
 script = ExtResource("3_jjss0")
 
-[node name="Department" type="Node" parent="."]
+[node name="📗Department" type="Node" parent="."]
 script = ExtResource("4_6lurc")
 
-[node name="Goto" type="Node" parent="."]
+[node name="📗Goto" type="Node" parent="."]
 script = ExtResource("5_kvht0")
 
-[node name="Img" type="Node" parent="."]
+[node name="📗Img" type="Node" parent="."]
 script = ExtResource("6_2iq2t")
 
-[node name="Label" type="Node" parent="."]
+[node name="📗Label" type="Node" parent="."]
 script = ExtResource("7_iilbh")
 
-[node name="MsgSpeed" type="Node" parent="."]
+[node name="📗MsgSpeed" type="Node" parent="."]
 script = ExtResource("8_drm3s")
 
-[node name="MWnd" type="Node" parent="."]
+[node name="📗MWnd" type="Node" parent="."]
 script = ExtResource("9_aqmse")
 
-[node name="NormalText" type="Node" parent="."]
+[node name="📗NormalText" type="Node" parent="."]
 script = ExtResource("10_c2ocp")
 
-[node name="NormalTextChoice" type="Node" parent="."]
+[node name="📗NormalTextChoice" type="Node" parent="."]
 script = ExtResource("11_4u6s3")
 
-[node name="Quit" type="Node" parent="."]
+[node name="📗Quit" type="Node" parent="."]
 script = ExtResource("12_3cfot")
 
-[node name="Se" type="Node" parent="."]
+[node name="📗Se" type="Node" parent="."]
 script = ExtResource("13_d5u0f")
 
-[node name="Sleep" type="Node" parent="."]
+[node name="📗Sleep" type="Node" parent="."]
 script = ExtResource("14_j2wa5")
 
-[node name="Telop" type="Node" parent="."]
+[node name="📗Telop" type="Node" parent="."]
 script = ExtResource("15_q41hp")
 
-[node name="Var" type="Node" parent="."]
+[node name="📗Var" type="Node" parent="."]
 script = ExtResource("16_w2uxi")

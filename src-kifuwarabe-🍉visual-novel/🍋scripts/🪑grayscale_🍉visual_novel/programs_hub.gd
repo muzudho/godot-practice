@@ -364,59 +364,59 @@ func parse_paragraph(paragraph_text):
 				
 			# 背景切替
 			elif second_head.begins_with("bg:"):
-				self.get_instruction("Bg").do_it(second_head)
+				self.get_instruction("📗Bg").do_it(second_head)
 
 			# ＢＧＭ再生／停止
 			elif second_head.begins_with("bgm:"):
-				self.get_instruction("Bgm").do_it(second_head)
+				self.get_instruction("📗Bgm").do_it(second_head)
 			
 			# 選択肢かどうか判定
 			elif second_head.begins_with("choice:"):
-				self.get_instruction("Choice").do_it(second_head)
+				self.get_instruction("📗Choice").do_it(second_head)
 
 			# 部門変更
 			elif second_head.begins_with("department:"):
-				self.get_instruction("Department").do_it(second_head)
+				self.get_instruction("📗Department").do_it(second_head)
 				
 			# 次のセクションへ飛ぶ
 			elif second_head.begins_with("goto:"):
-				self.get_instruction("Goto").do_it(second_head)
+				self.get_instruction("📗Goto").do_it(second_head)
 
 			# 画像を表示する
 			elif second_head.begins_with("img:"):
-				self.get_instruction("Img").do_it(second_head)
+				self.get_instruction("📗Img").do_it(second_head)
 
 			# ラベル設定
 			elif second_head.begins_with("label:"):
-				self.get_instruction("Label").do_it(second_head)
+				self.get_instruction("📗Label").do_it(second_head)
 			
 			# メッセージ・スピード変更
 			elif second_head.begins_with("msg_speed:"):
-				self.get_instruction("MsgSpeed").do_it(second_head)
+				self.get_instruction("📗MsgSpeed").do_it(second_head)
 
 			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("m_wnd:"):
-				self.get_instruction("MWnd").do_it(second_head)
+				self.get_instruction("📗MWnd").do_it(second_head)
 
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
-				self.get_instruction("Quit").do_it(second_head)
+				self.get_instruction("📗Quit").do_it(second_head)
 			
 			# 効果音
 			elif second_head.begins_with("se:"):
-				self.get_instruction("Se").do_it(second_head)
+				self.get_instruction("📗Se").do_it(second_head)
 
 			# スリープ
 			elif second_head.begins_with("sleep:"):
-				self.get_instruction("Sleep").do_it(second_head)
+				self.get_instruction("📗Sleep").do_it(second_head)
 
 			# テロップの表示／非表示
 			elif second_head.begins_with("telop:"):
-				self.get_instruction("Telop").do_it(second_head)
+				self.get_instruction("📗Telop").do_it(second_head)
 			
 			# 変数セット
 			elif second_head.begins_with("var:"):
-				self.get_instruction("Var").do_it(second_head)
+				self.get_instruction("📗Var").do_it(second_head)
 
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)
@@ -431,11 +431,11 @@ func parse_paragraph(paragraph_text):
 
 	# 選択肢だ
 	if message_window_gui.choices_row_numbers != null:
-		self.get_instruction("NormalTextChoice").do_it(paragraph_text)
+		self.get_instruction("📗NormalTextChoice").do_it(paragraph_text)
 		return
 
 	# print("［助監］　選択肢ではない")
-	self.get_instruction("NormalText").do_it(paragraph_text)
+	self.get_instruction("📗NormalText").do_it(paragraph_text)
 
 
 # ディレクターの `_process(delta)` が呼出す

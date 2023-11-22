@@ -329,7 +329,7 @@ func on_page_forward():
 	if message_window_gui.is_choices():
 
 		# カーソル音
-		self.hub().get_programs_hub().get_instruction("Se").play_se("🔔選択肢確定音")
+		self.hub().get_programs_hub().get_instruction("📗Se").play_se("🔔選択肢確定音")
 
 		var row_number = message_window_gui.get_row_number_of_choices()
 		print("［伝言窓　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
@@ -344,7 +344,7 @@ func on_page_forward():
 		print("［伝言窓　”" + self.name + "”］　ページ送り")
 
 		# 効果音
-		self.hub().get_programs_hub().get_instruction("Se").play_se("🔔ページめくり音")
+		self.hub().get_programs_hub().get_instruction("📗Se").play_se("🔔ページめくり音")
 		
 		# ページ送りをしたことを、呼出し元へ伝える
 		self.on_message_window_page_forward.call()
