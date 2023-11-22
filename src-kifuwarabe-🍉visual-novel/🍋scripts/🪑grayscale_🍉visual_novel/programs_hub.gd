@@ -110,52 +110,58 @@ func get_telop_coordinator():
 
 # 命令ノード取得
 func get_instruction(
-		instruction_name):	# StringName
+		target_name):	# StringName
 	
-	if not(instruction_name in self.cached_instructions):
-		self.search_instruction(self.get_programmer(), instruction_name)
+	# キャッシュに無ければ探索
+	if not(target_name in self.cached_instructions):
+		# 探索ルーチン
+		self.search_in_folder(
+				self.get_programmer(),		# 探す場所
+				target_name,
+				func(child_node):
+					self.cached_instructions[target_name] = child_node)
 	
-	return self.cached_instructions[instruction_name]
+	# キャッシュから取得
+	return self.cached_instructions[target_name]
 
 
-# 結果は変数に格納される
-func search_instruction(
-		current_node,
-		book_name):			# StringName. `📗` で始まる名前を想定
-		
-	for child_node in current_node.get_children():
-		# 探し物
-		if child_node.name == book_name:
-			self.cached_instructions[book_name] = child_node
-		
-		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
-		elif child_node.name.begins_with("📂"):
-			self.search_instruction(child_node, book_name)
 
 
 # 背景ノード取得
 func get_background_image(
-		node_name):	# StringName
+		target_name):			# StringName. `🗻` で始まる名前を想定
 	
-	if not(node_name in self.cached_background_images):
-		self.search_background_image(self.get_background_artist(), node_name)
+	# キャッシュに無ければ探索
+	if not(target_name in self.cached_background_images):
+		# 探索ルーチン
+		self.search_in_folder(
+				self.get_background_artist(),	# 探す場所
+				target_name,
+				func(child_node):
+					self.cached_background_images[target_name] = child_node)
 	
-	return self.cached_background_images[node_name]
+	# キャッシュから取得
+	return self.cached_background_images[target_name]
 
 
 # 結果は変数に格納される
-func search_background_image(
+func search_in_folder(
 		current_node,
-		target_name):			# StringName
+		book_name,			# StringName. `📗` で始まる名前を想定
+		set_found_node):
 		
 	for child_node in current_node.get_children():
 		# 探し物
-		if child_node.name == target_name:
-			self.cached_background_images[target_name] = child_node
+		if child_node.name == book_name:
+			# キャッシュに追加
+			set_found_node.call(child_node)
 		
 		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
 		elif child_node.name.begins_with("📂"):
-			self.search_background_image(child_node, target_name)
+			self.search_in_folder(
+					child_node,
+					book_name,
+					set_found_node)
 
 
 # 全ての部門名一覧
