@@ -111,43 +111,48 @@ func get_telop_coordinator():
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName
-	
-	# キャッシュに無ければ探索
-	if not(target_name in self.cached_instructions):
-		# 探索ルーチン
-		self.search_in_folder(
-				self.get_programmer(),		# 探す場所
-				target_name,
-				func(child_node):
-					self.cached_instructions[target_name] = child_node)
-	
-	# キャッシュから取得
-	return self.cached_instructions[target_name]
-
-
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_programmer(),	# 探す場所
+			func():
+				return self.cached_instructions)	# 結果を格納する変数
 
 
 # 背景ノード取得
 func get_background_image(
 		target_name):			# StringName. `🗻` で始まる名前を想定
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_background_artist(),	# 探す場所
+			func():
+				return self.cached_background_images)	# 結果を格納する変数
+
+
+# ノード検索
+func find_node_in_folder(
+		target_name,			# StringName. `🗻` や `📗` などで始まる名前を想定
+		get_target_folder,		# 探すフォルダー
+		get_cache_dictionary):	# 結果を格納する辞書
 	
 	# キャッシュに無ければ探索
-	if not(target_name in self.cached_background_images):
+	if not(target_name in get_cache_dictionary.call()):
 		# 探索ルーチン
-		self.search_in_folder(
-				self.get_background_artist(),	# 探す場所
+		self.search_node_in_folder(
 				target_name,
+				get_target_folder.call(),	# 探す場所
 				func(child_node):
-					self.cached_background_images[target_name] = child_node)
+					get_cache_dictionary.call()[target_name] = child_node)
 	
 	# キャッシュから取得
-	return self.cached_background_images[target_name]
+	return get_cache_dictionary.call()[target_name]
 
 
 # 結果は変数に格納される
-func search_in_folder(
-		current_node,
+func search_node_in_folder(
 		book_name,			# StringName. `📗` で始まる名前を想定
+		current_node,
 		set_found_node):
 		
 	for child_node in current_node.get_children():
@@ -158,9 +163,9 @@ func search_in_folder(
 		
 		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
 		elif child_node.name.begins_with("📂"):
-			self.search_in_folder(
-					child_node,
+			self.search_node_in_folder(
 					book_name,
+					child_node,
 					set_found_node)
 
 
