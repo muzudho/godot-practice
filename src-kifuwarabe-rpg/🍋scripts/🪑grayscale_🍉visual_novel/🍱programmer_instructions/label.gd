@@ -3,17 +3,23 @@ extends Node
 
 
 # ーーーーーーーー
-# パス関連
+# メモリ関連
 # ーーーーーーーー
 
 
-# ハブ取得
+var monkey = Monkey.new()
+
+
+# ーーーーーーーー
+# 親パス関連
+# ーーーーーーーー
+
+
+# プログラマーズ・ハブ取得
 func hub():
-	return $"../../🛩️ProgramsHub"
-
-
-func get_root_relative_path_str():
-	return "../../../../"
+	return monkey.find_ancestor_child(
+			self,
+			"🛩️ProgramsHub")
 
 
 # ーーーーーーーー
@@ -29,24 +35,28 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.hub().expand_variables(string_packed_array[0].strip_edges())
-	node_name = get_root_relative_path_str() + node_name
+	# 例： `Ｔ戦闘シーン/玉の遠さ_上`
+	var node_path_str = self.hub().expand_variables(string_packed_array[0].strip_edges())
 	var its_text = ""	# 空文字列
 	
 	if 2 <= string_packed_array.size():
 		its_text = self.hub().expand_variables(string_packed_array[1].strip_edges())
 		its_text = self.hub().trim_double_quotation(its_text)
 
-	self.set_label(node_name, its_text)
+	self.set_label(node_path_str, its_text)
 
 
 # ラベル設定
-func set_label(node_name, its_text):
-	print("［命令　ラベル］　ノード名：[" + node_name + "]　テキスト：［" + its_text + "］")
+func set_label(
+		node_path_str,	# str. 例： `Ｔ戦闘シーン/玉の遠さ_上`
+		its_text):
+
+	print("［命令　ラベル］　ノード名：[" + node_path_str + "]　テキスト：［" + its_text + "］")
 	
-	var label_node = self.get_node(node_name)
+	var label_node = self.hub().get_telop_coordinator().get_node(node_path_str)
+
 	if label_node == null:
-		print("［命令　ラベル］　▲エラー　”" + node_name + "”　が無い")
+		print("［命令　ラベル］　▲エラー　テロップに ”" + node_path_str + "” ノードが無い")
 		return
 	
 	label_node.text = its_text

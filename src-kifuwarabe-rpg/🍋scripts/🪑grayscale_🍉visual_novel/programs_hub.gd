@@ -139,31 +139,22 @@ func _ready():
 			message_window_node.on_message_window_page_forward = func():
 				self.get_current_department_value().set_parse_lock(false)
 
-	# スナップショット辞書作成
-	self.search_department_node_and_new(self.get_scenario_writer())
-
-
-func search_department_node_and_new(current_node):
-	for child_node in current_node.get_children():
-		# 部門のノード名は `📗` で始まるものとする
-		if child_node.name.begins_with("📗"):
-			# 生成
-			var department = Department.new()
-
-			# 部門名をコピー
-			department.name = child_node.name		# StringName 型
-
-			# メッセージを出力する対象となるウィンドウの名前。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
-			department.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
-
-			# 先頭セクションの名前
-			department.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(child_node.name).keys()[0]
-
-			self.departments[child_node.name] = department
+	# デパートメント変数辞書作成
+	for department_name in self.get_all_department_names():
 		
-		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
-		elif child_node.name.begins_with("📂"):
-			self.search_department_node_and_new(child_node)
+		# 生成
+		var department_value = Department.new()
+
+		# 部門名をコピー
+		department_value.name = department_name		# StringName 型
+
+		# メッセージを出力する対象となるウィンドウの名前。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
+		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
+
+		# 先頭セクションの名前
+		department_value.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_name).keys()[0]
+
+		self.departments[department_name] = department_value
 
 
 # ーーーーーーーー
@@ -489,7 +480,7 @@ func on_process(delta):
 				self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
-# 部門変数
+# 部門変数取得
 func get_department_value(
 		department_name):	# StringName
 	return self.departments[department_name]

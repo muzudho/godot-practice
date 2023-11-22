@@ -4,13 +4,23 @@ extends Node
 
 
 # ーーーーーーーー
-# パス関連
+# メモリ関連
 # ーーーーーーーー
 
 
-# ハブ取得
+var monkey = Monkey.new()
+
+
+# ーーーーーーーー
+# 親パス関連
+# ーーーーーーーー
+
+
+# プログラマーズ・ハブ取得
 func hub():
-	return $"../../🛩️ProgramsHub"
+	return monkey.find_ancestor_child(
+			self,
+			"🛩️ProgramsHub")
 
 
 # ーーーーーーーー
