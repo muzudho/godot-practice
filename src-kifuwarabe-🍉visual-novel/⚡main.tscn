@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=65 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -28,18 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="29_ghcy1"]
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="30_tx773"]
 [ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="31_muky1"]
-[ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://🍋images/🪑grayscale/1280x720/battle_scene_3.png" id="32_jlid3"]
-[ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_1.png" id="33_slg0k"]
-[ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_2.png" id="34_tpta6"]
-[ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_3.png" id="35_2g8i2"]
-[ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_4.png" id="36_vslf4"]
-[ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_5.png" id="37_6yqmg"]
-[ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_6.png" id="38_ar1aa"]
-[ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_7.png" id="39_t4i7s"]
-[ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_8.png" id="40_3tk6s"]
-[ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="41_r4x54"]
-[ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="42_gxy60"]
-[ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="43_7jh74"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="48_niso1"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="49_2oco3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/programs_hub.gd" id="53_kotpc"]
@@ -167,77 +155,6 @@ texture = ExtResource("30_tx773")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("31_muky1")
-
-[node name="🗻戦闘シーン" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("32_jlid3")
-
-[node name="🗻トランジション１コマ１" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("33_slg0k")
-
-[node name="🗻トランジション１コマ２" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("34_tpta6")
-
-[node name="🗻トランジション１コマ３" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("35_2g8i2")
-
-[node name="🗻トランジション１コマ４" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("36_vslf4")
-
-[node name="🗻トランジション１コマ５" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("37_6yqmg")
-
-[node name="🗻トランジション１コマ６" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("38_ar1aa")
-
-[node name="🗻トランジション１コマ７" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("39_t4i7s")
-
-[node name="🗻トランジション１コマ８" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("40_3tk6s")
-
-[node name="🗻トランジション１コマ９" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("41_r4x54")
-
-[node name="🗻トランジション１コマ１０" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("42_gxy60")
-
-[node name="🗻トランジション１コマ１１" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("43_7jh74")
 
 [node name="🌏GuiArtist_MessageWindows" type="Node2D" parent="."]
 
