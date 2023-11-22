@@ -23,7 +23,7 @@ var cached_all_department_names = null
 var current_department_name = null
 
 # 全命令
-var cached_instructions = {}
+var cache_dictionary_for_instruction = {}
 
 # `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
 # 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
@@ -46,8 +46,8 @@ func get_background_artist():
 
 
 # BGM取得
-func get_bgm():
-	return self.get_director().get_node("🌏Musician_BGM")
+func get_bgm(node_name):
+	return self.get_director().get_node("🌏Musician_BGM").get_node(node_name)
 
 
 # イラストレーター取得
@@ -81,8 +81,8 @@ func get_programmer():
 
 
 # 効果音取得
-func get_se():
-	return self.get_director().get_node("🌏Musician_SE")
+func get_se(node_name):
+	return self.get_director().get_node("🌏Musician_SE").get_node(node_name)
 
 
 # シナリオライター取得
@@ -109,10 +109,10 @@ func get_telop_coordinator():
 func get_instruction(
 		instruction_name):	# StringName
 	
-	if not(instruction_name in self.cached_instructions):
+	if not(instruction_name in self.cache_dictionary_for_instruction):
 		self.search_instruction(self.get_programmer(), instruction_name)
 	
-	return self.cached_instructions[instruction_name]
+	return self.cache_dictionary_for_instruction[instruction_name]
 
 
 # 結果は変数に格納される
@@ -123,7 +123,7 @@ func search_instruction(
 	for child_node in current_node.get_children():
 		# 探し物
 		if child_node.name == book_name:
-			self.cached_instructions[book_name] = child_node
+			self.cache_dictionary_for_instruction[book_name] = child_node
 		
 		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
 		elif child_node.name.begins_with("📂"):

@@ -20,13 +20,19 @@ var departments = {}
 var cached_all_department_names = null
 
 # 全背景
-var cached_background_images = {}
+var cache_dictionary_for_background_image = {}
+
+# 全BGM
+var cache_dictionary_for_bgm = {}
 
 # 現在の部門（StringName型）
 var current_department_name = null
 
 # 全命令
-var cached_instructions = {}
+var cache_dictionary_for_instruction = {}
+
+# 全SE
+var cached_se_dictionary = {}
 
 # `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
 # 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
@@ -46,11 +52,6 @@ func get_director():
 # 背景アーティスト
 func get_background_artist():
 	return self.get_director().get_node("🌏BackgroundArtist")
-
-
-# BGM取得
-func get_bgm():
-	return self.get_director().get_node("🌏Musician_BGM")
 
 
 # イラストレーター取得
@@ -83,11 +84,6 @@ func get_programmer():
 	return self.get_director().get_node("🌏Programmer")
 
 
-# 効果音取得
-func get_se():
-	return self.get_director().get_node("🌏Musician_SE")
-
-
 # シナリオライター取得
 func get_scenario_writer():
 	return self.get_director().get_node("🌏ScenarioWriter")
@@ -108,17 +104,6 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
-# 命令ノード取得
-func get_instruction(
-		target_name):	# StringName
-	return self.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_programmer(),	# 探す場所
-			func():
-				return self.cached_instructions)	# 結果を格納する変数
-
-
 # 背景ノード取得
 func get_background_image(
 		target_name):			# StringName. `🗻` で始まる名前を想定
@@ -127,7 +112,40 @@ func get_background_image(
 			func():
 				return self.get_background_artist(),	# 探す場所
 			func():
-				return self.cached_background_images)	# 結果を格納する変数
+				return self.cache_dictionary_for_background_image)	# 結果を格納する変数
+
+
+# BGM取得
+func get_bgm(
+		target_name):
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_director().get_node("🌏Musician_BGM"),	# 探す場所
+			func():
+				return self.cache_dictionary_for_bgm)	# 結果を格納する変数
+
+
+# 命令ノード取得
+func get_instruction(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_programmer(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
+
+
+# 効果音取得
+func get_se(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_director().get_node("🌏Musician_SE"),	# 探す場所
+			func():
+				return self.cached_se_dictionary)	# 結果を格納する変数
 
 
 # ノード検索

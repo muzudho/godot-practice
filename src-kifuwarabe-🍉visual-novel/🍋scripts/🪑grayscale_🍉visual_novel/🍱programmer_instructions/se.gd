@@ -52,7 +52,7 @@ func play_se(node_name):
 	self.hub().get_director().current_se_name = node_name
 
 	var se_name = self.hub().get_director().current_se_name
-	var se_node = self.hub().get_se().get_node(se_name)
+	var se_node = self.hub().get_se(se_name)
 	if se_node == null:
 		print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 	
@@ -65,7 +65,7 @@ func stop_se():
 		print("［命令　効果音］　停止")
 		
 		var se_name = self.hub().get_director().current_se_name
-		var se_node = self.hub().get_se().get_node(se_name)
+		var se_node = self.hub().get_se(se_name)
 		if se_node == null:
 			print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 		
