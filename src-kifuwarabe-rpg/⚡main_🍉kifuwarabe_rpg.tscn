@@ -180,67 +180,69 @@ visible = false
 position = Vector2(640, 360)
 texture = ExtResource("31_3w7mi")
 
-[node name="🗻トランジション１コマ１" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="📂戦闘開始トランジション2" type="Node" parent="🌏BackgroundArtist"]
+
+[node name="🗻トランジション１コマ１" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("32_l43dy")
 
-[node name="🗻トランジション１コマ２" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ２" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("33_63jpw")
 
-[node name="🗻トランジション１コマ３" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ３" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("34_x34j5")
 
-[node name="🗻トランジション１コマ４" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ４" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("35_jcaiw")
 
-[node name="🗻トランジション１コマ５" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ５" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("36_1keft")
 
-[node name="🗻トランジション１コマ６" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ６" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("37_tdxrv")
 
-[node name="🗻トランジション１コマ７" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ７" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("38_vlm38")
 
-[node name="🗻トランジション１コマ８" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ８" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("39_nr2kt")
 
-[node name="🗻トランジション１コマ９" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ９" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("40_25lxp")
 
-[node name="🗻トランジション１コマ１０" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ１０" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("41_j4orm")
 
-[node name="🗻トランジション１コマ１１" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="🗻トランジション１コマ１１" type="Sprite2D" parent="🌏BackgroundArtist/📂戦闘開始トランジション2"]
 visible = false
 z_index = 900
 position = Vector2(640, 360)

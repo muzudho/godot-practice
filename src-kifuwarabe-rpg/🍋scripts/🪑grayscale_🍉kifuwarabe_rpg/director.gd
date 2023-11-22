@@ -92,8 +92,9 @@ func _ready():
 	self.get_grid().hide()
 
 	# 背景画像は全部隠す
-	for sprite2d_node in self.get_background_artist().get_children():
-		sprite2d_node.hide()
+	for child_node in self.get_background_artist().get_children():
+		if child_node is Node2D:
+			child_node.hide()
 
 	# ウィンドウはとにかく隠す
 	#
