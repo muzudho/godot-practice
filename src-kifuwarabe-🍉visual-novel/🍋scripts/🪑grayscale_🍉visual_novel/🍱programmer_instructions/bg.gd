@@ -42,22 +42,29 @@ func do_it(line):
 	if 2 <= string_packed_array.size():
 		sub_command = self.hub().expand_variables(string_packed_array[1].strip_edges())
 
-	self.control_bg(node_name, sub_command)
+	if sub_command == "hide":
+		self.hide_bg(node_name)
+		return
+
+	self.show_bg(node_name)
 
 
-# 背景を制御
-func control_bg(node_name, sub_command):
+# 背景画像表示
+func show_bg(node_name):
 
-	var node = self.hub().get_background_artist().get_node(node_name)
+	var node = self.hub().get_background_image(node_name)
 	if node == null:
 		print("［命令　背景］　▲エラー　”" + node_name + "”　が無い")
 
-	if sub_command == "hide":
-		# 背景画像非表示
-		print("［命令　背景］（❝" + node_name + "❞）　非表示")
-		node.hide()
-		return
-
-	# 背景画像表示
-	print("［命令　背景］（❝" + node_name + "❞）　表示")
+	print("［命令　背景］　表示　❝" + node_name + "❞")
 	node.show()
+
+# 背景画像非表示
+func hide_bg(node_name):
+
+	var node = self.hub().get_background_image(node_name)
+	if node == null:
+		print("［命令　背景］　▲エラー　”" + node_name + "”　が無い")
+
+	print("［命令　背景］　非表示　❝" + node_name + "❞")
+	node.hide()

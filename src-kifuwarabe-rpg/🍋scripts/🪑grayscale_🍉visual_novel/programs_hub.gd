@@ -16,11 +16,11 @@ var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "
 # デパートメント変数辞書（キー：StringName型）
 var departments = {}
 
-# 現在の部門（StringName型）
-var current_department_name = null
-
 # 全部門名
 var cached_all_department_names = null
+
+# 現在の部門（StringName型）
+var current_department_name = null
 
 # 全命令
 var cached_instructions = {}

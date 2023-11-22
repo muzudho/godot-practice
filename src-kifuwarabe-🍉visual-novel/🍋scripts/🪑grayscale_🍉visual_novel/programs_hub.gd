@@ -16,11 +16,14 @@ var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "
 # デパートメント変数辞書（キー：StringName型）
 var departments = {}
 
-# 現在の部門（StringName型）
-var current_department_name = null
-
 # 全部門名
 var cached_all_department_names = null
+
+# 全背景
+var cached_background_images = {}
+
+# 現在の部門（StringName型）
+var current_department_name = null
 
 # 全命令
 var cached_instructions = {}
@@ -128,6 +131,31 @@ func search_instruction(
 		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
 		elif child_node.name.begins_with("📂"):
 			self.search_instruction(child_node, book_name)
+
+
+# 背景ノード取得
+func get_background_image(
+		node_name):	# StringName
+	
+	if not(node_name in self.cached_background_images):
+		self.search_background_image(self.get_background_artist(), node_name)
+	
+	return self.cached_background_images[node_name]
+
+
+# 結果は変数に格納される
+func search_background_image(
+		current_node,
+		target_name):			# StringName
+		
+	for child_node in current_node.get_children():
+		# 探し物
+		if child_node.name == target_name:
+			self.cached_background_images[target_name] = child_node
+		
+		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
+		elif child_node.name.begins_with("📂"):
+			self.search_background_image(child_node, target_name)
 
 
 # 全ての部門名一覧
