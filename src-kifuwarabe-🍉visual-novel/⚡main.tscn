@@ -420,7 +420,7 @@ volume_db = -15.0
 [node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
 script = ExtResource("53_kotpc")
 
-[node name="🍱Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
+[node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
 
 [node name="🌏ScenarioWriter" type="Node" parent="."]
 
