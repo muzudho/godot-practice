@@ -56,7 +56,7 @@ func show_bg(node_name):
 	if node == null:
 		print("［命令　背景］　▲エラー　”" + node_name + "”　が無い")
 
-	print("［命令　背景］　表示　❝" + node_name + "❞")
+	print("［命令　背景］　表示　指定ノード名：❝" + node_name + "❞　検索結果ノードの名前：❝" + node.name + "❞")
 	node.show()
 
 # 背景画像非表示
@@ -66,5 +66,5 @@ func hide_bg(node_name):
 	if node == null:
 		print("［命令　背景］　▲エラー　”" + node_name + "”　が無い")
 
-	print("［命令　背景］　非表示　❝" + node_name + "❞")
+	print("［命令　背景］　非表示　指定ノード名：❝" + node_name + "❞　検索結果ノードの名前：❝" + node.name + "❞")
 	node.hide()
