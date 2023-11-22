@@ -1413,4 +1413,14 @@ Zzz...
 
 📖　[Godot でノードパスを気にせずにシーン・ビューでノードを移動したいぜ（＾～＾）](https://crieit.net/posts/Godot-655c84cd156d9)  
 
+# (📅 2023-11-22 wed) 命令も、ノードパスに縛られずにフォルダー階層を作れるようにしたい
+
+![202311__shogi__22-2138--programmers-monkey-o2o0.png](https://crieit.now.sh/upload_images/7a7297ebe4cf1720016223fdb8a78296655df68abe05c.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　したいというか、もうした」  
+
+![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
+「　他の　グローブ 🌏 の下も　そうできるようにしなさいよ」  
+
 .
