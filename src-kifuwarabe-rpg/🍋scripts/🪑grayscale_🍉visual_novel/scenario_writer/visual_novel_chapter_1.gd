@@ -74,7 +74,7 @@ var scenario_document = {
 			self.hub().get_director().stage_directions_variables["arg_title"] = "Ｔタイトル"
 			
 			# セクションの名前を指定して飛ぶ
-			self.hub().get_programs_hub().get_instruction("📗Goto").goto("§はじまり２", "")
+			self.hub().get_programs_hub().get_instruction(&"📗Goto").goto("§はじまり２", "")
 			
 			# 匿名関数の最後にカンマを書く
 			,

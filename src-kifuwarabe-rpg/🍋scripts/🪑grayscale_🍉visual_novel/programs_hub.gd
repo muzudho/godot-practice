@@ -22,6 +22,9 @@ var current_department_name = null
 # 全部門名
 var cached_all_department_names = null
 
+# 全命令
+var cached_instructions = {}
+
 # `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
 # 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
 var is_department_not_found = false
@@ -52,11 +55,6 @@ func get_illustrator():
 	return self.get_director().get_node("🌏Illustrator")
 
 
-# 命令ノード取得
-func get_instruction(instruction_name):
-	return $"../🍱Instructions_🍉VisualNovel".get_node(instruction_name)
-
-
 # メッセージ・ウィンドウズ取得
 func get_message_windows_node():
 	return self.get_director().get_node("🌏GuiArtist_MessageWindows")
@@ -75,6 +73,11 @@ func get_monster_whole_body():
 # モンスター・フェースズ
 func get_monster_faces():
 	return self.get_director().get_node("MonsterTrainer/Faces")
+
+
+# プログラマー取得
+func get_programmer():
+	return self.get_director().get_node("🌏Programmer")
 
 
 # 効果音取得
@@ -100,6 +103,31 @@ func get_telop_coordinator():
 # ーーーーーーーー
 # 子パス関連
 # ーーーーーーーー
+
+
+# 命令ノード取得
+func get_instruction(
+		instruction_name):	# StringName
+	
+	if not(instruction_name in self.cached_instructions):
+		self.search_instruction(self.get_programmer(), instruction_name)
+	
+	return self.cached_instructions[instruction_name]
+
+
+# 結果は変数に格納される
+func search_instruction(
+		current_node,
+		book_name):			# StringName. `📗` で始まる名前を想定
+		
+	for child_node in current_node.get_children():
+		# 探し物
+		if child_node.name == book_name:
+			self.cached_instructions[book_name] = child_node
+		
+		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
+		elif child_node.name.begins_with("📂"):
+			self.search_instruction(child_node, book_name)
 
 
 # 全ての部門名一覧
@@ -141,7 +169,6 @@ func _ready():
 
 	# デパートメント変数辞書作成
 	for department_name in self.get_all_department_names():
-		
 		# 生成
 		var department_value = Department.new()
 
@@ -363,59 +390,59 @@ func parse_paragraph(paragraph_text):
 				
 			# 背景切替
 			elif second_head.begins_with("bg:"):
-				self.get_instruction("📗Bg").do_it(second_head)
+				self.get_instruction(&"📗Bg").do_it(second_head)
 
 			# ＢＧＭ再生／停止
 			elif second_head.begins_with("bgm:"):
-				self.get_instruction("📗Bgm").do_it(second_head)
+				self.get_instruction(&"📗Bgm").do_it(second_head)
 			
 			# 選択肢かどうか判定
 			elif second_head.begins_with("choice:"):
-				self.get_instruction("📗Choice").do_it(second_head)
+				self.get_instruction(&"📗Choice").do_it(second_head)
 
 			# 部門変更
 			elif second_head.begins_with("department:"):
-				self.get_instruction("📗Department").do_it(second_head)
+				self.get_instruction(&"📗Department").do_it(second_head)
 				
 			# 次のセクションへ飛ぶ
 			elif second_head.begins_with("goto:"):
-				self.get_instruction("📗Goto").do_it(second_head)
+				self.get_instruction(&"📗Goto").do_it(second_head)
 
 			# 画像を表示する
 			elif second_head.begins_with("img:"):
-				self.get_instruction("📗Img").do_it(second_head)
+				self.get_instruction(&"📗Img").do_it(second_head)
 
 			# ラベル設定
 			elif second_head.begins_with("label:"):
-				self.get_instruction("📗Label").do_it(second_head)
+				self.get_instruction(&"📗Label").do_it(second_head)
 			
 			# メッセージ・スピード変更
 			elif second_head.begins_with("msg_speed:"):
-				self.get_instruction("📗MsgSpeed").do_it(second_head)
+				self.get_instruction(&"📗MsgSpeed").do_it(second_head)
 
 			# メッセージ出力先ウィンドウ変更
 			elif second_head.begins_with("m_wnd:"):
-				self.get_instruction("📗MWnd").do_it(second_head)
+				self.get_instruction(&"📗MWnd").do_it(second_head)
 
 			# アプリケーション終了
 			elif second_head.begins_with("quit:"):
-				self.get_instruction("📗Quit").do_it(second_head)
+				self.get_instruction(&"📗Quit").do_it(second_head)
 			
 			# 効果音
 			elif second_head.begins_with("se:"):
-				self.get_instruction("📗Se").do_it(second_head)
+				self.get_instruction(&"📗Se").do_it(second_head)
 
 			# スリープ
 			elif second_head.begins_with("sleep:"):
-				self.get_instruction("📗Sleep").do_it(second_head)
+				self.get_instruction(&"📗Sleep").do_it(second_head)
 
 			# テロップの表示／非表示
 			elif second_head.begins_with("telop:"):
-				self.get_instruction("📗Telop").do_it(second_head)
+				self.get_instruction(&"📗Telop").do_it(second_head)
 			
 			# 変数セット
 			elif second_head.begins_with("var:"):
-				self.get_instruction("📗Var").do_it(second_head)
+				self.get_instruction(&"📗Var").do_it(second_head)
 
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)
@@ -430,11 +457,11 @@ func parse_paragraph(paragraph_text):
 
 	# 選択肢だ
 	if message_window_gui.choices_row_numbers != null:
-		self.get_instruction("📗NormalTextChoice").do_it(paragraph_text)
+		self.get_instruction(&"📗NormalTextChoice").do_it(paragraph_text)
 		return
 
 	# print("［助監］　選択肢ではない")
-	self.get_instruction("📗NormalText").do_it(paragraph_text)
+	self.get_instruction(&"📗NormalText").do_it(paragraph_text)
 
 
 # ディレクターの `_process(delta)` が呼出す

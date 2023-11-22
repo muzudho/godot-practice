@@ -42,7 +42,7 @@
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="48_xknfu"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/programs_hub.gd" id="57_vx8va"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
-[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉visual_novel/🌏Programmer_🎬Instructions.tscn" id="59_osg35"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉visual_novel/🌏Programmer_📂Instructions.tscn" id="59_osg35"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="60_f7oqn"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
 [ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://downloads_from_🍉visual_novel/🌏ScenarioWriter_🛩️scenario_writers_hub.tscn" id="60_yrjnf"]
@@ -466,7 +466,7 @@ volume_db = -15.0
 [node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
 script = ExtResource("57_vx8va")
 
-[node name="🍱Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("59_osg35")]
+[node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("59_osg35")]
 
 [node name="🌏ScenarioWriter" type="Node" parent="."]
 

@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱programmer_instructions/telop.gd" id="15_q41hp"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱programmer_instructions/var.gd" id="16_w2uxi"]
 
-[node name="🍱Instructions_🍉VisualNovel" type="Node"]
+[node name="📂Instructions_🍉VisualNovel" type="Node"]
 
 [node name="📗Bg" type="Node" parent="."]
 script = ExtResource("1_hryro")
