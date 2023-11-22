@@ -1423,4 +1423,10 @@ Zzz...
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　他の　グローブ 🌏 の下も　そうできるようにしなさいよ」  
 
+![202311__shogi__22-2329--folder-o2o0.png](https://crieit.now.sh/upload_images/a679ba28aeefaf4671d7567b323690c6655e10932977b.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　`📂` を見つけると、引き続きその中も探索される、という特別な意味を持たせた。  
+`📂🗻戦闘開始トランジション` を省いても `🗻１コマ` は見つけてくれるぜ」  
+
 .
