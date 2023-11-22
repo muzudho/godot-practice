@@ -53,7 +53,7 @@ func set_label(
 
 	print("［命令　ラベル］　ノード名：[" + node_path_str + "]　テキスト：［" + its_text + "］")
 	
-	var label_node = self.hub().get_telop_coordinator().get_node(node_path_str)
+	var label_node = self.hub().get_telop(node_path_str)
 
 	if label_node == null:
 		print("［命令　ラベル］　▲エラー　テロップに ”" + node_path_str + "” ノードが無い")

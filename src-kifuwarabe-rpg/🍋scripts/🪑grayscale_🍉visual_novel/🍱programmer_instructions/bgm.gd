@@ -44,10 +44,10 @@ func do_it(line):
 	if node_name == "":
 		# BGM 停止
 		self.stop_bgm()
+		return
 		
-	else:
-		# じゃあ BGM 流すか
-		self.play_bgm(node_name, from)
+	# じゃあ BGM 流すか
+	self.play_bgm(node_name, from)
 
 
 # BGM 再生

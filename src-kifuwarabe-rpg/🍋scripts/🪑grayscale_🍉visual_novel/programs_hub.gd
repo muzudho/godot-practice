@@ -19,11 +19,29 @@ var departments = {}
 # 全部門名
 var cached_all_department_names = null
 
+# 全背景
+var cache_dictionary_for_background_image = {}
+
+# 全BGM
+var cache_dictionary_for_bgm = {}
+
 # 現在の部門（StringName型）
 var current_department_name = null
 
+# 全イラスト
+var cache_dictionary_for_illust = {}
+
 # 全命令
 var cache_dictionary_for_instruction = {}
+
+# 全メッセージ・ウィンドウGUI
+var cache_dictionary_for_message_window_gui = {}
+
+# 全SE
+var cache_dictionary_for_se = {}
+
+# 全テロップ
+var cache_dictionary_for_telop = {}
 
 # `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
 # 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
@@ -45,11 +63,6 @@ func get_background_artist():
 	return self.get_director().get_node("🌏BackgroundArtist")
 
 
-# BGM取得
-func get_bgm(node_name):
-	return self.get_director().get_node("🌏Musician_BGM").get_node(node_name)
-
-
 # イラストレーター取得
 func get_illustrator():
 	return self.get_director().get_node("🌏Illustrator")
@@ -58,11 +71,6 @@ func get_illustrator():
 # メッセージ・ウィンドウズ取得
 func get_message_windows_node():
 	return self.get_director().get_node("🌏GuiArtist_MessageWindows")
-
-
-# 伝言窓（現在、出力の対象になっているもの）
-func get_message_window_gui(node_name_obj):
-	return self.get_message_windows_node().get_node(str(node_name_obj))
 
 
 # モンスターの全身像
@@ -78,11 +86,6 @@ func get_monster_faces():
 # プログラマー取得
 func get_programmer():
 	return self.get_director().get_node("🌏Programmer")
-
-
-# 効果音取得
-func get_se(node_name):
-	return self.get_director().get_node("🌏Musician_SE").get_node(node_name)
 
 
 # シナリオライター取得
@@ -105,29 +108,121 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
+# 背景ノード取得
+func get_background_image(
+		target_name):			# StringName. `🗻` で始まる名前を想定
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_background_artist(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_background_image)	# 結果を格納する変数
+
+
+# BGM取得
+func get_bgm(
+		target_name):
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_director().get_node("🌏Musician_BGM"),	# 探す場所
+			func():
+				return self.cache_dictionary_for_bgm)	# 結果を格納する変数
+
+
+# イラスト取得
+func get_illust(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_illustrator(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_illust)	# 結果を格納する変数
+
+
 # 命令ノード取得
 func get_instruction(
-		instruction_name):	# StringName
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_programmer(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
+
+
+# 伝言窓（現在、出力の対象になっているもの）
+func get_message_window_gui(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_message_windows_node(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_message_window_gui)	# 結果を格納する変数
+
+
+# 効果音取得
+func get_se(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_director().get_node("🌏Musician_SE"),	# 探す場所
+			func():
+				return self.cache_dictionary_for_se)	# 結果を格納する変数
+
+
+# テロップ取得
+func get_telop(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_telop_coordinator(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_telop)	# 結果を格納する変数
+
+
+# ノード検索
+func find_node_in_folder(
+		target_name,			# StringName. `🗻` や `📗` などで始まる名前を想定
+		get_target_folder,		# 探すフォルダー
+		get_cache_dictionary):	# 結果を格納する辞書
 	
-	if not(instruction_name in self.cache_dictionary_for_instruction):
-		self.search_instruction(self.get_programmer(), instruction_name)
+	# キャッシュに無ければ探索
+	if not(target_name in get_cache_dictionary.call()):
+		# 探索ルーチン
+		self.search_node_in_folder(
+				target_name,
+				get_target_folder.call(),	# 探す場所
+				func(child_node):
+					get_cache_dictionary.call()[target_name] = child_node)
 	
-	return self.cache_dictionary_for_instruction[instruction_name]
+	# キャッシュから取得
+	return get_cache_dictionary.call()[target_name]
 
 
 # 結果は変数に格納される
-func search_instruction(
+func search_node_in_folder(
+		target_name,			# StringName. `📗` で始まる名前を想定
 		current_node,
-		book_name):			# StringName. `📗` で始まる名前を想定
-		
+		set_found_node):
+	
+	if current_node.has_node(str(target_name)):
+		# キャッシュに追加
+		set_found_node.call(
+				current_node.get_node(str(target_name)))
+		return
+	
+	# `📂` で始まる子ノード名は、さらにその中も再帰的に探索されるものとする
 	for child_node in current_node.get_children():
-		# 探し物
-		if child_node.name == book_name:
-			self.cache_dictionary_for_instruction[book_name] = child_node
-		
-		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
-		elif child_node.name.begins_with("📂"):
-			self.search_instruction(child_node, book_name)
+		if child_node.name.begins_with("📂"):
+			self.search_node_in_folder(
+					target_name,
+					child_node,
+					set_found_node)
 
 
 # 全ての部門名一覧

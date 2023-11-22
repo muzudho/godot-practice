@@ -50,7 +50,7 @@ func do_it(line):
 
 #	ウィンドウを表示する
 func show_image(node_name):
-	var node = self.hub().get_illustrator().get_node(node_name)
+	var node = self.hub().get_illust(node_name)
 	
 	if node == null:
 		print("［画像　表示］　▲！エラー　❝" + node_name + "❞ノードが見つかりません")
@@ -62,7 +62,7 @@ func show_image(node_name):
 
 #	ウィンドウを非表示にする
 func hide_image(node_name):
-	var node = self.hub().get_illustrator().get_node(node_name)
+	var node = self.hub().get_illust(node_name)
 
 	if node == null:
 		print("［画像　非表示］　▲！エラー　❝" + node_name + "❞ノードが見つかりません")
