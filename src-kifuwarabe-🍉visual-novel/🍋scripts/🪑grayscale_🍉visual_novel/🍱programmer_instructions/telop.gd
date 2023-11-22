@@ -58,7 +58,7 @@ func do_it(line):
 # テロップを見せる
 func show_telop(node_name):
 	
-	var telop_node = self.hub().get_telop_coordinator().get_node(node_name)
+	var telop_node = self.hub().get_telop(node_name)
 	if telop_node == null:
 		print("［命令　テロップ］　▲エラー　”" + node_name + "”　が無い")
 	
@@ -68,7 +68,7 @@ func show_telop(node_name):
 # テロップを隠す
 func hide_telop(node_name):
 	
-	var telop_node = self.hub().get_telop_coordinator().get_node(node_name)
+	var telop_node = self.hub().get_telop(node_name)
 	if telop_node == null:
 		print("［命令　テロップ］　▲エラー　”" + node_name + "”　が無い")
 

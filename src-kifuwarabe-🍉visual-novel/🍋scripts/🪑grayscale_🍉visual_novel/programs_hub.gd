@@ -28,11 +28,20 @@ var cache_dictionary_for_bgm = {}
 # 現在の部門（StringName型）
 var current_department_name = null
 
+# 全イラスト
+var cache_dictionary_for_illust = {}
+
 # 全命令
 var cache_dictionary_for_instruction = {}
 
+# 全メッセージ・ウィンドウGUI
+var cache_dictionary_for_message_window_gui = {}
+
 # 全SE
-var cached_se_dictionary = {}
+var cache_dictionary_for_se = {}
+
+# 全テロップ
+var cache_dictionary_for_telop = {}
 
 # `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
 # 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
@@ -62,11 +71,6 @@ func get_illustrator():
 # メッセージ・ウィンドウズ取得
 func get_message_windows_node():
 	return self.get_director().get_node("🌏GuiArtist_MessageWindows")
-
-
-# 伝言窓（現在、出力の対象になっているもの）
-func get_message_window_gui(node_name_obj):
-	return self.get_message_windows_node().get_node(str(node_name_obj))
 
 
 # モンスターの全身像
@@ -126,6 +130,17 @@ func get_bgm(
 				return self.cache_dictionary_for_bgm)	# 結果を格納する変数
 
 
+# イラスト取得
+func get_illust(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_illustrator(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_illust)	# 結果を格納する変数
+
+
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName
@@ -137,6 +152,17 @@ func get_instruction(
 				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
 
 
+# 伝言窓（現在、出力の対象になっているもの）
+func get_message_window_gui(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_message_windows_node(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_message_window_gui)	# 結果を格納する変数
+
+
 # 効果音取得
 func get_se(
 		target_name):	# StringName
@@ -145,7 +171,18 @@ func get_se(
 			func():
 				return self.get_director().get_node("🌏Musician_SE"),	# 探す場所
 			func():
-				return self.cached_se_dictionary)	# 結果を格納する変数
+				return self.cache_dictionary_for_se)	# 結果を格納する変数
+
+
+# テロップ取得
+func get_telop(
+		target_name):	# StringName
+	return self.find_node_in_folder(
+			target_name,
+			func():
+				return self.get_telop_coordinator(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_telop)	# 結果を格納する変数
 
 
 # ノード検索
