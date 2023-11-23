@@ -196,6 +196,26 @@ position = Vector2(640, 360)
 texture = ExtResource("66_vkf8y")
 script = ExtResource("23_0jkdi")
 
+[node name="■FullScreen3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+visible = false
+script = ExtResource("23_0jkdi")
+
+[node name="■上_大3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+visible = false
+script = ExtResource("23_0jkdi")
+
+[node name="■下3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+visible = false
+script = ExtResource("23_0jkdi")
+
+[node name="■中央3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+visible = false
+script = ExtResource("23_0jkdi")
+
+[node name="■左下3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+visible = false
+script = ExtResource("23_0jkdi")
+
 [node name="🌏Illustrator" type="Node2D" parent="."]
 visible = false
 
