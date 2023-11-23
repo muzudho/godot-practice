@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://crgd8anicn08x"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/visual_novel_choices_mappings.gd" id="1_u172c"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/visual_novel_chapter_1.gd" id="2_j8vkv"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/visual_novel_choices_mappings.gd" id="1_u172c"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/visual_novel_chapter_1.gd" id="2_j8vkv"]
 
 [node name="📗会話部門_🍉VisualNovel" type="Node"]
 

@@ -12,7 +12,7 @@ extends Node
 
 
 # 命令名
-var code = "m_wnd:"
+var code = "msg_wnd:"
 
 
 # ーーーーーーーー
@@ -43,7 +43,7 @@ func hub():
 # それをする
 func do_it(line):
 
-	var csv = line.substr("m_wnd:".length()).strip_edges()
+	var csv = line.substr("msg_wnd:".length()).strip_edges()
 	print("［命令　伝言窓］　CSV：[" + csv + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)

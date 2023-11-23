@@ -28,11 +28,11 @@
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="29_ghcy1"]
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="30_tx773"]
 [ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="31_muky1"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/switch_department.gd" id="44_c0141"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="48_niso1"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="49_2oco3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/programs_hub.gd" id="53_kotpc"]
 [ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🌏ScenarioWriter_🛩️scenario_writers_hub.tscn" id="55_dfxei"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/scenario_writer/switch_department.gd" id="56_eioho"]
 [ext_resource type="PackedScene" uid="uid://crgd8anicn08x" path="res://🌏ScenarioWriter_📗ビジュアルノベル部門.tscn" id="57_7j2fj"]
 [ext_resource type="PackedScene" uid="uid://h1gka1sqmc0q" path="res://🌏ScenarioWriter_📗会話システムメニュー部門.tscn" id="58_frjxl"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
@@ -344,7 +344,7 @@ script = ExtResource("53_kotpc")
 [node name="🛩️ScenarioWritersHub_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("55_dfxei")]
 
 [node name="SwitchDepartment" type="Node" parent="🌏ScenarioWriter"]
-script = ExtResource("56_eioho")
+script = ExtResource("44_c0141")
 
 [node name="📗会話部門_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("57_7j2fj")]
 

@@ -37,7 +37,7 @@ func hub():
 
 
 func get_m_wnd():
-	return self.hub().get_instruction(&"📗MWnd")
+	return self.hub().get_instruction(&"📗MsgWnd")
 
 
 # ーーーーーーーー
