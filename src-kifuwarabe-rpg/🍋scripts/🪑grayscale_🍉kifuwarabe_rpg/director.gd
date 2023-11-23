@@ -1,5 +1,5 @@
 # 🪑grayscale_🎬kifuwarabe_rpg
-#	ディレクター（Director；監督）
+#	ディレクター（🌏Director；監督）
 #	とりあえず、ゲーム全体をコントロールする
 extends Node2D
 
@@ -96,9 +96,10 @@ func _ready():
 	# ウィンドウはとにかく隠す
 	#
 	#	伝言窓はとにかく隠す
-	for message_window in self.get_message_windows_node().get_children():
-		if message_window is Sprite2D:
-			message_window.hide()
+	for illust_a in self.get_illustrator().get_children():
+		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
+		if illust_a.name.begins_with("■"):
+			illust_a.hide()
 	
 	# イラストレーターはとにかく隠す
 	for sprite2d_node in self.get_illustrator().get_children():

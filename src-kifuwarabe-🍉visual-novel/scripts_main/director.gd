@@ -20,7 +20,7 @@ var sleep_seconds = 0.0
 
 
 # ーーーーーーーー
-# パス関連
+# 子パス関連
 # ーーーーーーーー
 
 
@@ -75,10 +75,10 @@ func get_telop_coordinator():
 # サブツリーが全てインスタンス化されたときに呼び出される
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	
+
 	# キャッシュを作成するだけ
 	var _all_instruction_code = self.get_programs_hub().get_all_instruction_codes()
-	
+
 	# ーーーーーーーー
 	# 非表示
 	# ーーーーーーーー
@@ -89,8 +89,9 @@ func _ready():
 	self.get_grid().hide()
 
 	# 背景画像は全部隠す
-	for sprite2d_node in self.get_background_artist().get_children():
-		sprite2d_node.hide()
+	for child_node in self.get_background_artist().get_children():
+		if child_node is Node2D:
+			child_node.hide()
 
 	# ウィンドウはとにかく隠す
 	#
