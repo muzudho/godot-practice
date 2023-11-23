@@ -3,28 +3,6 @@ extends Node
 
 
 # ーーーーーーーー
-# 準備
-# ーーーーーーーー
-
-
-func _ready():
-	self.bg_images = MonkeyHand.create(
-			self.get_background_artist())	# 探す場所
-
-	self.bg_musics = MonkeyHand.create(
-			self.get_musician_bg_musics())		# 探す場所
-
-	self.images = MonkeyHand.create(
-			self.get_illustrator())			# 探す場所
-
-	self.sound_fx = MonkeyHand.create(
-			self.get_musician_sound_fx())			# 探す場所
-
-	self.telops = MonkeyHand.create(
-			self.get_telop_coordinator())	# 探す場所
-
-
-# ーーーーーーーー
 # 外パス関連
 # ーーーーーーーー
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=13 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config_local/director.gd" id="1_oadph"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_f72qc"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="5_dvexc"]
 [ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_cyber36.ogg" id="6_x2gst"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config_local/programs_hub.gd" id="7_5goiq"]
+[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://🌏Programmer_🛩ProgramsHub_📄nodes.tscn" id="8_fbelh"]
 [ext_resource type="PackedScene" uid="uid://d03iqgbiqphby" path="res://🌏Musician_BGM.tscn" id="8_fnys3"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🌏Director_🛩️KeyConfigHub.tscn" id="9_calvn"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🌏TelopCoordinator.tscn" id="12_8rfor"]
@@ -44,6 +45,8 @@ texture = ExtResource("5_dvexc")
 
 [node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
 script = ExtResource("7_5goiq")
+
+[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("8_fbelh")]
 
 [node name="🌏Musician_BgMusics" type="Node" parent="."]
 
