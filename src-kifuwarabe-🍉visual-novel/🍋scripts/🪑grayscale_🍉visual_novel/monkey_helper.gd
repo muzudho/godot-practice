@@ -47,3 +47,26 @@ static func search_node_in_folder(
 					target_name,
 					child_node,
 					set_found_node)
+
+
+# 親の直下の子を調べる。なければ、祖先の直下の子を調べる
+static func find_ancestor_child(
+		current_node,		# Node
+		target_node_name,	# StringName
+		get_cache_dictionary):
+	
+	var cur = current_node
+	var target = str(target_node_name)
+	
+	if target in get_cache_dictionary.call():
+		return get_cache_dictionary.call()[target]
+		
+	while cur != null:
+		if cur.has_node(target):
+			var hub = cur.get_node(target)
+			get_cache_dictionary.call()[target] = hub
+			return hub
+		
+		cur = cur.get_parent()
+	
+	return null
