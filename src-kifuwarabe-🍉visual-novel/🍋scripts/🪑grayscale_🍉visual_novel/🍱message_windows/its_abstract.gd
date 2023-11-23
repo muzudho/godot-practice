@@ -129,17 +129,19 @@ func set_process_subtree(
 func set_visible_subtree(
 		visible_flag):			# bool
 
-	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(self.visible) + "　次可視性：" + str(visible_flag))
+	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(self.hub().get_programs_hub().get_illust(self.name).visible) + "　次可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
-	if visible_flag != self.visible:
+	#if visible_flag != self.visible:
+	if visible_flag != self.hub().get_programs_hub().get_illust(self.name).visible:
 
 		print("［伝言窓　”" + self.name + "”］　可視性：" + str(visible_flag))
 
-		self.visible = visible_flag
+		# self.visible = visible_flag
+		self.hub().get_programs_hub().get_illust(self.name).visible = visible_flag
 		self.hub().get_canvas_layer(self.name).visible = visible_flag
 
 		# 子ノード

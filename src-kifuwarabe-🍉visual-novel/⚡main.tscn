@@ -199,7 +199,39 @@ script = ExtResource("23_0jkdi")
 [node name="🌏Illustrator" type="Node2D" parent="."]
 visible = false
 
-[node name="ーーーーウィンドウーーーー" type="Node" parent="🌏Illustrator"]
+[node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="🌏Illustrator"]
+
+[node name="■FullScreen" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("22_ojm4j")
+
+[node name="■上_大" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("62_y1sjv")
+
+[node name="■下" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("64_pfjh7")
+
+[node name="■中央" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("65_6texa")
+
+[node name="■左下" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("66_vkf8y")
+
+[node name="ーーーーその他のウィンドウーーーー" type="Node" parent="🌏Illustrator"]
 
 [node name="🎴中央ウィンドウ" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
