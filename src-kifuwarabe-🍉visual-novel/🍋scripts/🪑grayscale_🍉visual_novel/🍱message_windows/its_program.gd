@@ -1,6 +1,6 @@
 # メッセージ・ウィンドウ（Message Window；伝言窓）
 # イッツ・プログラム（Its program；そのプログラム）
-extends Node2D
+extends Node
 
 
 class_name MessageWindowProgram

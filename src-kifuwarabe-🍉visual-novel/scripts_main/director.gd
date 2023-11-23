@@ -96,7 +96,8 @@ func _ready():
 	#
 	#	伝言窓はとにかく隠す
 	for message_window in self.get_message_windows_node().get_children():
-		if message_window is Sprite2D or message_window is Node2D:
+		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
+		if message_window.name.begins_with("■"):
 			message_window.hide()
 	
 	# イラストレーターはとにかく隠す

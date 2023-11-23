@@ -285,10 +285,11 @@ func search_all_instruction_codes(current_node):
 
 func _ready():
 	# メッセージ・ウィンドウに対応関数紐づけ
-	for message_window_node in self.get_message_windows_node().get_children():
-		if message_window_node is Sprite2D or message_window_node is Node2D:
+	for message_window in self.get_message_windows_node().get_children():
+		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
+		if message_window.name.begins_with("■"):
 			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
-			message_window_node.on_message_window_page_forward = func():
+			message_window.on_message_window_page_forward = func():
 				self.get_current_department_value().set_parse_lock(false)
 
 	# デパートメント変数辞書作成
