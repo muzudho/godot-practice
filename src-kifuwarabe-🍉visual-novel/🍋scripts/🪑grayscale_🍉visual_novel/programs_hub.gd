@@ -338,7 +338,6 @@ func parse_paragraph(paragraph_text):
 			var string_packed_array = second_head.split(":", true, 1)
 			var instruction_code = string_packed_array[0] + ":"
 
-
 			# 以下の命令は、アルファベット順で並べてある
 			#
 			# コメント
@@ -346,6 +345,7 @@ func parse_paragraph(paragraph_text):
 				pass
 
 			else:
+				# `bg:` といったコードから、 `📗Bg` といった命令ノードを検索し、それを実行します
 				if instruction_code in self.directory_for_instruction_code_and_node_name:
 					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
 					var instruction = self.get_instruction(instruction_node_name)

@@ -1,6 +1,16 @@
 # テロップ（Telop, Television opaque projector；テレビ投射映像機）
-#	撮影場所変更
+#
+#	ラベルよりは大きなかたまり。CanvasLayer
 extends Node
+
+
+# ーーーーーーーー
+# ピックアップ
+# ーーーーーーーー
+
+
+# 命令名
+var code = "telop:"
 
 
 # ーーーーーーーー

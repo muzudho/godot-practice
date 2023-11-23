@@ -82,6 +82,9 @@ func get_telop_coordinator():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 
+	# キャッシュを作成するだけ
+	var _all_instruction_code = self.get_programs_hub().get_all_instruction_codes()
+
 	# ーーーーーーーー
 	# 非表示
 	# ーーーーーーーー

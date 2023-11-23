@@ -19,6 +19,9 @@ var departments = {}
 # 全部門名
 var all_department_names = null
 
+# 全命令（キー："命令名:"　値：ノード名）
+var directory_for_instruction_code_and_node_name = null
+
 # 全背景
 var cache_dictionary_for_background_image = {}
 
@@ -31,7 +34,7 @@ var current_department_name = null
 # 全イラスト
 var cache_dictionary_for_illust = {}
 
-# 全命令
+# 全命令（キー：ノード名　値：ノード）
 var cache_dictionary_for_instruction = {}
 
 # 全メッセージ・ウィンドウGUI
@@ -251,6 +254,30 @@ func search_all_department_names(current_node):
 			self.search_all_department_names(child_node)
 
 
+# 全ての命令コード一覧
+func get_all_instruction_codes():
+	if self.directory_for_instruction_code_and_node_name == null:
+		self.directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
+
+		# 結果は変数に格納される
+		self.search_all_instruction_codes(
+				self.get_programmer())
+			
+	return self.directory_for_instruction_code_and_node_name
+
+
+# 結果は変数に格納される
+func search_all_instruction_codes(current_node):
+	for child_node in current_node.get_children():
+		# 命令のノード名は `📗` で始まるものとする
+		if child_node.name.begins_with("📗"):
+			self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name
+		
+		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
+		elif child_node.name.begins_with("📂"):
+			self.search_all_instruction_codes(child_node)
+
+
 # ーーーーーーーー
 # 起動時設定
 # ーーーーーーーー
@@ -284,6 +311,64 @@ func _ready():
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
+
+
+# パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
+func parse_paragraph(paragraph_text):
+	
+	# ［ト書き］かどうか判定
+	var first_head_tail = self.split_head_line_or_tail(paragraph_text)
+	var first_head = first_head_tail[0].strip_edges()
+	var first_tail = first_head_tail[1] 
+	
+	# ［ト書き］
+	# `.strip_edges()` - 先頭行の最初と、最終行の最後の表示されない文字を消去
+	if first_head.strip_edges() == "!":
+		print("［助監］　命令テキストだ：[" + first_tail + "]")
+
+		# さらに先頭行を取得
+		var second_head_tail = self.split_head_line_or_tail(first_tail)
+		
+		while second_head_tail != null:
+			var second_head = second_head_tail[0].strip_edges()
+			var second_tail = second_head_tail[1]
+			# print("［助監］　second_head：[" + second_head + "]")
+			# print("［助監］　second_tail：[" + second_tail + "]")
+			# 文字列の配列に分割
+			var string_packed_array = second_head.split(":", true, 1)
+			var instruction_code = string_packed_array[0] + ":"
+
+			# 以下の命令は、アルファベット順で並べてある
+			#
+			# コメント
+			if second_head.begins_with("#"):
+				pass
+
+			else:
+				# `bg:` といったコードから、 `📗Bg` といった命令ノードを検索し、それを実行します
+				if instruction_code in self.directory_for_instruction_code_and_node_name:
+					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
+					var instruction = self.get_instruction(instruction_node_name)
+					instruction.do_it(second_head)
+				
+			# さらに先頭行を取得
+			second_head_tail = split_head_line_or_tail(second_tail)
+
+		# ーーーーーーーー
+		# ［ト書き］終わり
+		# ーーーーーーーー
+		self.is_department_not_found = false
+		return
+
+	var message_window_gui = self.get_current_message_window_gui()
+
+	# 選択肢だ
+	if message_window_gui.choices_row_numbers != null:
+		self.get_instruction(&"📗NormalTextChoice").do_it(paragraph_text)
+		return
+
+	# print("［助監］　選択肢ではない")
+	self.get_instruction(&"📗NormalText").do_it(paragraph_text)
 
 
 # 変数展開する
@@ -455,110 +540,6 @@ func on_choice_selected(row_number):
 	
 	self.set_current_section(next_section_name)
 	self.play_section()
-
-
-# パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
-func parse_paragraph(paragraph_text):
-	
-	# ［ト書き］かどうか判定
-	var first_head_tail = self.split_head_line_or_tail(paragraph_text)
-	var first_head = first_head_tail[0].strip_edges()
-	var first_tail = first_head_tail[1] 
-	
-	# ［ト書き］
-	# `.strip_edges()` - 先頭行の最初と、最終行の最後の表示されない文字を消去
-	if first_head.strip_edges() == "!":
-		print("［助監］　命令テキストだ：[" + first_tail + "]")
-
-		# さらに先頭行を取得
-		var second_head_tail = self.split_head_line_or_tail(first_tail)
-		
-		while second_head_tail != null:
-			var second_head = second_head_tail[0].strip_edges()
-			var second_tail = second_head_tail[1]
-			# print("［助監］　second_head：[" + second_head + "]")
-			# print("［助監］　second_tail：[" + second_tail + "]")
-
-			# 以下の命令は、アルファベット順で並べてある
-			#
-			# コメント
-			if second_head.begins_with("#"):
-				pass
-				
-			# 背景切替
-			elif second_head.begins_with("bg:"):
-				self.get_instruction(&"📗Bg").do_it(second_head)
-
-			# ＢＧＭ再生／停止
-			elif second_head.begins_with("bgm:"):
-				self.get_instruction(&"📗Bgm").do_it(second_head)
-			
-			# 選択肢かどうか判定
-			elif second_head.begins_with("choice:"):
-				self.get_instruction(&"📗Choice").do_it(second_head)
-
-			# 部門変更
-			elif second_head.begins_with("department:"):
-				self.get_instruction(&"📗Department").do_it(second_head)
-				
-			# 次のセクションへ飛ぶ
-			elif second_head.begins_with("goto:"):
-				self.get_instruction(&"📗Goto").do_it(second_head)
-
-			# 画像を表示する
-			elif second_head.begins_with("img:"):
-				self.get_instruction(&"📗Img").do_it(second_head)
-
-			# ラベル設定
-			elif second_head.begins_with("label:"):
-				self.get_instruction(&"📗Label").do_it(second_head)
-			
-			# メッセージ・スピード変更
-			elif second_head.begins_with("msg_speed:"):
-				self.get_instruction(&"📗MsgSpeed").do_it(second_head)
-
-			# メッセージ出力先ウィンドウ変更
-			elif second_head.begins_with("m_wnd:"):
-				self.get_instruction(&"📗MWnd").do_it(second_head)
-
-			# アプリケーション終了
-			elif second_head.begins_with("quit:"):
-				self.get_instruction(&"📗Quit").do_it(second_head)
-			
-			# 効果音
-			elif second_head.begins_with("se:"):
-				self.get_instruction(&"📗Se").do_it(second_head)
-
-			# スリープ
-			elif second_head.begins_with("sleep:"):
-				self.get_instruction(&"📗Sleep").do_it(second_head)
-
-			# テロップの表示／非表示
-			elif second_head.begins_with("telop:"):
-				self.get_instruction(&"📗Telop").do_it(second_head)
-			
-			# 変数セット
-			elif second_head.begins_with("var:"):
-				self.get_instruction(&"📗Var").do_it(second_head)
-
-			# さらに先頭行を取得
-			second_head_tail = split_head_line_or_tail(second_tail)
-
-		# ーーーーーーーー
-		# ［ト書き］終わり
-		# ーーーーーーーー
-		self.is_department_not_found = false
-		return
-
-	var message_window_gui = self.get_current_message_window_gui()
-
-	# 選択肢だ
-	if message_window_gui.choices_row_numbers != null:
-		self.get_instruction(&"📗NormalTextChoice").do_it(paragraph_text)
-		return
-
-	# print("［助監］　選択肢ではない")
-	self.get_instruction(&"📗NormalText").do_it(paragraph_text)
 
 
 # ディレクターの `_process(delta)` が呼出す
