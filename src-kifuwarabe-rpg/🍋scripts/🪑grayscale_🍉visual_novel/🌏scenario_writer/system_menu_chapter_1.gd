@@ -14,7 +14,7 @@ var scenario_document = {
 		"""\
 		!
 		# 先にメッセージ・ウィンドウを指定してから、選択肢を設定してください
-		m_wnd:		■中央
+		msg_wnd:		■中央
 		choice:		1,2
 		""",
 		"""\
@@ -34,7 +34,7 @@ var scenario_document = {
 	"§終了" : [
 		"""\
 		!
-		m_wnd:		■中央, hide
+		msg_wnd:		■中央, hide
 		quit:
 		"""
 	],

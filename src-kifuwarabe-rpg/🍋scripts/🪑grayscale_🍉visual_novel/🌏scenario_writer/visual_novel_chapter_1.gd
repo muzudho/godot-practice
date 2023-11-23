@@ -48,7 +48,7 @@ var scenario_document = {
 		telop:		Ｔタイトル
 		bg:			🗻崎川駅前
 		# 先にメッセージ・ウィンドウを指定してから、選択肢を設定してください
-		m_wnd:		■下
+		msg_wnd:		■下
 		choice:		1,2
 		""",
 		"""\
