@@ -128,7 +128,7 @@ func set_key_ok():
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.hub().get_programs_hub().get_se("🔔キーコンフィグ受入音").play()
+	self.hub().get_programs_hub().se_cache.find_node("🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
@@ -217,7 +217,7 @@ func set_press_message_to_button(step):
 	elif step == 8:
 		#													   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.hub().get_telop_of_key_config("TextBlock").text = "完了"
-		self.hub().get_programs_hub().get_se("🔔キーコンフィグ完了音").play()
+		self.hub().get_programs_hub().se_cache.find_node("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
