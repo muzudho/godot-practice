@@ -48,7 +48,7 @@ func get_m_wnd():
 # それをする
 func do_it(line):
 
-	var csv = line.substr("department:".length()).strip_edges()
+	var csv = line.substr(self.code.length()).strip_edges()
 	print("［命令　部門］　CSV：［" + csv + "］")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)

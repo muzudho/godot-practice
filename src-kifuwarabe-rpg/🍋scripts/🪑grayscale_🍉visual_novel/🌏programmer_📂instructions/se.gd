@@ -41,7 +41,7 @@ func hub():
 # それをする
 func do_it(line):
 
-	var node_name = line.substr("se:".length()).strip_edges()
+	var node_name = line.substr(self.code.length()).strip_edges()
 	print("［命令　効果音］　ノード名：[" + node_name + "]")
 	node_name = self.hub().expand_variables(node_name.strip_edges())
 
