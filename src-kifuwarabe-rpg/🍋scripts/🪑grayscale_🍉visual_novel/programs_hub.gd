@@ -17,7 +17,7 @@ var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "
 var departments = {}
 
 # 全部門名
-var cache_array_for_all_department_names = null
+var all_department_names = null
 
 # 全背景
 var cache_dictionary_for_background_image = {}
@@ -229,14 +229,14 @@ func search_node_in_folder(
 
 # 全ての部門名一覧
 func get_all_department_names():
-	if self.cache_array_for_all_department_names == null:
-		self.cache_array_for_all_department_names = []	# StringName の配列
+	if self.all_department_names == null:
+		self.all_department_names = []	# StringName の配列
 
 		# 結果は変数に格納される
 		self.search_all_department_names(
 				self.get_scenario_writer())
 			
-	return self.cache_array_for_all_department_names
+	return self.all_department_names
 
 
 # 結果は変数に格納される
@@ -244,7 +244,7 @@ func search_all_department_names(current_node):
 	for child_node in current_node.get_children():
 		# 部門のノード名は `📗` で始まるものとする
 		if child_node.name.begins_with("📗"):
-			self.cache_array_for_all_department_names.append(child_node.name)
+			self.all_department_names.append(child_node.name)
 		
 		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
 		elif child_node.name.begins_with("📂"):

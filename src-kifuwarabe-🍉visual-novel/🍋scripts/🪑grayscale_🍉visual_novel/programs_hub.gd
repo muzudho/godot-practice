@@ -17,10 +17,10 @@ var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "
 var departments = {}
 
 # 全部門名
-var cache_array_for_all_department_names = null
+var all_department_names = null
 
 # 全命令（キー："命令名:"　値：ノード名）
-var cache_dictionary_for_all_instruction_codes = null
+var all_instruction_codes = null
 
 # 全背景
 var cache_dictionary_for_background_image = {}
@@ -232,14 +232,14 @@ func search_node_in_folder(
 
 # 全ての部門名一覧
 func get_all_department_names():
-	if self.cache_array_for_all_department_names == null:
-		self.cache_array_for_all_department_names = []	# StringName の配列
+	if self.all_department_names == null:
+		self.all_department_names = []	# StringName の配列
 
 		# 結果は変数に格納される
 		self.search_all_department_names(
 				self.get_scenario_writer())
 			
-	return self.cache_array_for_all_department_names
+	return self.all_department_names
 
 
 # 結果は変数に格納される
@@ -247,7 +247,7 @@ func search_all_department_names(current_node):
 	for child_node in current_node.get_children():
 		# 部門のノード名は `📗` で始まるものとする
 		if child_node.name.begins_with("📗"):
-			self.cache_array_for_all_department_names.append(child_node.name)
+			self.all_department_names.append(child_node.name)
 		
 		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
 		elif child_node.name.begins_with("📂"):
@@ -256,14 +256,14 @@ func search_all_department_names(current_node):
 
 # 全ての命令コード一覧
 func get_all_instruction_codes():
-	if self.cache_dictionary_for_all_instruction_codes == null:
-		self.cache_dictionary_for_all_instruction_codes = {}	# キー：StringName, 値：None
+	if self.all_instruction_codes == null:
+		self.all_instruction_codes = {}	# キー：StringName, 値：None
 
 		# 結果は変数に格納される
 		self.search_all_instruction_codes(
 				self.get_programmer())
 			
-	return self.cache_dictionary_for_all_instruction_codes
+	return self.all_instruction_codes
 
 
 # 結果は変数に格納される
@@ -271,7 +271,7 @@ func search_all_instruction_codes(current_node):
 	for child_node in current_node.get_children():
 		# 命令のノード名は `📗` で始まるものとする
 		if child_node.name.begins_with("📗"):
-			self.cache_dictionary_for_all_instruction_codes[child_node.name] = child_node
+			self.all_instruction_codes[child_node.code] = child_node.name
 		
 		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
 		elif child_node.name.begins_with("📂"):
@@ -340,7 +340,7 @@ func parse_paragraph(paragraph_text):
 			# コメント
 			if second_head.begins_with("#"):
 				pass
-				
+
 			# 背景切替
 			elif second_head.begins_with("bg:"):
 				self.get_instruction(&"📗Bg").do_it(second_head)
@@ -397,6 +397,12 @@ func parse_paragraph(paragraph_text):
 			elif second_head.begins_with("var:"):
 				self.get_instruction(&"📗Var").do_it(second_head)
 
+			else:
+				if second_head in self.all_instruction_codes:
+					var instruction_node_name = self.all_instruction_codes[second_head]
+					var instruction = self.get_instruction(instruction_node_name)
+					instruction.do_it(second_head)
+				
 			# さらに先頭行を取得
 			second_head_tail = split_head_line_or_tail(second_tail)
 
