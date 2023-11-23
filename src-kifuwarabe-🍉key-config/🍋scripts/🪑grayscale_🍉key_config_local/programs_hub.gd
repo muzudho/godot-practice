@@ -8,41 +8,20 @@ extends Node
 
 
 func _ready():
-	self.background_image_cache = MonkeyHand.create(
+	self.bg_images = MonkeyHand.create(
 			self.get_background_artist())	# 探す場所
 
-	self.bgm_cache = MonkeyHand.create(
-			self.get_musician_bgm())		# 探す場所
+	self.bg_musics = MonkeyHand.create(
+			self.get_musician_bg_musics())		# 探す場所
 
-	self.illust_cache = MonkeyHand.create(
+	self.images = MonkeyHand.create(
 			self.get_illustrator())			# 探す場所
 
-	self.se_cache = MonkeyHand.create(
-			self.get_musician_se())			# 探す場所
+	self.sound_fx = MonkeyHand.create(
+			self.get_musician_sound_fx())			# 探す場所
 
-	self.telop_cache = MonkeyHand.create(
+	self.telops = MonkeyHand.create(
 			self.get_telop_coordinator())	# 探す場所
-
-
-# ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-
-# 背景ノードのキャッシュ
-var background_image_cache = null
-
-# BGMノードのキャッシュ
-var bgm_cache = null
-
-# イラスト・ノードのキャッシュ
-var illust_cache = null
-
-# 全SE
-var se_cache = {}
-
-# 全テロップ
-var telop_cache = {}
 
 
 # ーーーーーーーー
@@ -66,15 +45,36 @@ func get_illustrator():
 
 
 # BGM取得
-func get_musician_bgm():
-	return self.get_director().get_node("🌏Musician_BGM")
+func get_musician_bg_musics():
+	return self.get_director().get_node("🌏Musician_BgMusics")
 
 
 # SE取得
-func get_musician_se():
-	return self.get_director().get_node("🌏Musician_SE")
+func get_musician_sound_fx():
+	return self.get_director().get_node("🌏Musician_SoundFX")
 
 
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
 	return self.get_director().get_node("🌏TelopCoordinator")
+
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+
+# 背景ノードのキャッシュ
+var bg_images = null
+
+# BGMノードのキャッシュ
+var bg_musics = null
+
+# イラスト・ノードのキャッシュ
+var images = null
+
+# サウンド・エフェクト（Sound Effect, Sound FX；効果音）のキャッシュ
+var sound_fx = null
+
+# テロップのキャッシュ
+var telops = null

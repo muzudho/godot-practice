@@ -91,8 +91,8 @@ func entry():
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.hub().get_programs_hub().illust_cache.find_node("■上_大").show()
-	self.hub().get_programs_hub().illust_cache.find_node("■下").show()
+	self.hub().get_programs_hub().images.find_node("■上_大").show()
+	self.hub().get_programs_hub().images.find_node("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
@@ -109,14 +109,14 @@ func entry():
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.hub().get_programs_hub().illust_cache.find_node("■上_大").hide()
-	self.hub().get_programs_hub().illust_cache.find_node("■下").hide()
+	self.hub().get_programs_hub().images.find_node("■上_大").hide()
+	self.hub().get_programs_hub().images.find_node("■下").hide()
 	# テロップ非表示
 	self.hub().get_telop_of_key_config("TextBlock").text = ""
 	self.hub().get_telop_coordinator_key_config().hide()
 
 	# BGM 停止	
-	self.hub().get_programs_hub().bgm_cache.find_node("🎵キーコンフィグ").stop()
+	self.hub().get_programs_hub().bg_musics.find_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
 	self.hub().on_exit()
@@ -128,7 +128,7 @@ func set_key_ok():
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.hub().get_programs_hub().se_cache.find_node("🔔キーコンフィグ受入音").play()
+	self.hub().get_programs_hub().sound_fx.find_node("🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
@@ -217,7 +217,7 @@ func set_press_message_to_button(step):
 	elif step == 8:
 		#													   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.hub().get_telop_of_key_config("TextBlock").text = "完了"
-		self.hub().get_programs_hub().se_cache.find_node("🔔キーコンフィグ完了音").play()
+		self.hub().get_programs_hub().sound_fx.find_node("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
@@ -373,7 +373,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.current_step == 0:
-		self.hub().get_programs_hub().bgm_cache.find_node("🎵キーコンフィグ").play()
+		self.hub().get_programs_hub().bg_musics.find_node("🎵キーコンフィグ").play()
 		self.current_step += 1
 		self.clear_count()
 	

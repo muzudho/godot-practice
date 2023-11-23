@@ -45,14 +45,14 @@ texture = ExtResource("5_dvexc")
 [node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
 script = ExtResource("7_5goiq")
 
-[node name="🌏Musician_BGM" type="Node" parent="."]
+[node name="🌏Musician_BgMusics" type="Node" parent="."]
 
-[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("6_x2gst")
 volume_db = -20.0
 pitch_scale = 1.4
 
-[node name="🌏Musician_SE" parent="." instance=ExtResource("8_fnys3")]
+[node name="🌏Musician_SoundFX" parent="." instance=ExtResource("8_fnys3")]
 
 [node name="🌏TelopCoordinator" type="CanvasLayer" parent="."]
 
