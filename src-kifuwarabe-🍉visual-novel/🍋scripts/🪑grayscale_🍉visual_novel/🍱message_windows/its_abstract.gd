@@ -1,6 +1,6 @@
 # メッセージ・ウィンドウ（Message Window；伝言窓）
 # イッツ・アブストラクト（Its abstract；その抽象的な）
-extends Sprite2D
+extends Node2D
 
 
 class_name AbstractMessageWindow
