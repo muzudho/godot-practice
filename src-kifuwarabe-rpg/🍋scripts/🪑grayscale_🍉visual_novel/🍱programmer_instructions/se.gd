@@ -1,4 +1,6 @@
 # エスイー（SE, Sound Effects；効果音）
+#
+# `📗` （緑の本）で始まる名前の命令は、アドオンです
 extends Node
 
 

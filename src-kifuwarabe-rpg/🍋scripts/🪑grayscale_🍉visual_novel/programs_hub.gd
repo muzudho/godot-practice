@@ -364,11 +364,11 @@ func parse_paragraph(paragraph_text):
 
 	# 選択肢だ
 	if message_window_gui.choices_row_numbers != null:
-		self.get_instruction(&"📗NormalTextChoice").do_it(paragraph_text)
+		self.get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
 		return
 
 	# print("［助監］　選択肢ではない")
-	self.get_instruction(&"📗NormalText").do_it(paragraph_text)
+	self.get_instruction(&"📘NormalText").do_it(paragraph_text)
 
 
 # 変数展開する

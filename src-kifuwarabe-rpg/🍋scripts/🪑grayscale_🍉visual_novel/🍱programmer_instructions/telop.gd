@@ -1,6 +1,8 @@
 # テロップ（Telop, Television opaque projector；テレビ投射映像機）
 #
-#	ラベルよりは大きなかたまり。CanvasLayer
+# `📗` （緑の本）で始まる名前の命令は、アドオンです
+#
+# ラベルよりは大きなかたまり。CanvasLayer
 extends Node
 
 
