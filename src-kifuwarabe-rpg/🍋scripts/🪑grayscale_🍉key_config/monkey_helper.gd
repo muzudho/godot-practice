@@ -8,6 +8,25 @@ class_name MonkeyHelper
 
 
 # ノード検索
+static func find_node(
+		target_name,			# StringName. `🗻` や `📗` などで始まる名前を想定
+		target_folder_node,		# 探す場所
+		get_cache_dictionary):	# 結果を格納する辞書
+	
+	# キャッシュに無ければ探索
+	if not(target_name in get_cache_dictionary.call()):
+		# 探索ルーチン
+		MonkeyHelper.search_node_in_folder(
+				target_name,
+				target_folder_node,		# 探す場所
+				func(child_node):
+					get_cache_dictionary.call()[target_name] = child_node)
+	
+	# キャッシュから取得
+	return get_cache_dictionary.call()[target_name]
+
+
+# ノード検索
 static func find_node_in_folder(
 		target_name,			# StringName. `🗻` や `📗` などで始まる名前を想定
 		get_target_folder,		# 探すフォルダー

@@ -64,7 +64,7 @@ func do_it(line):
 # 背景画像表示
 func show_bg(node_name):
 
-	var node = self.hub().get_background_image(node_name)
+	var node = self.hub().bg_images.find_node(node_name)
 	if node == null:
 		print("［命令　背景］　▲エラー　”" + node_name + "”　が無い")
 
@@ -74,7 +74,7 @@ func show_bg(node_name):
 # 背景画像非表示
 func hide_bg(node_name):
 
-	var node = self.hub().get_background_image(node_name)
+	var node = self.hub().bg_images.find_node(node_name)
 	if node == null:
 		print("［命令　背景］　▲エラー　”" + node_name + "”　が無い")
 
