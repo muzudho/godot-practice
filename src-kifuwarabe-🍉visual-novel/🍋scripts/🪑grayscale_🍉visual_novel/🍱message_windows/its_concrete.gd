@@ -1,6 +1,6 @@
 # メッセージ・ウィンドウ（Message Window；伝言窓）
 # イッツ・コンクリート（Its concrete；その具体的な）
-extends AbstractMessageWindow
+extends MessageWindowProgram
 
 
 # ーーーーーーーー
