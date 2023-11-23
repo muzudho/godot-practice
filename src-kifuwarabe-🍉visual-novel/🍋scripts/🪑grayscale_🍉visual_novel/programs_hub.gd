@@ -86,6 +86,16 @@ func get_monster_faces():
 	return self.get_director().get_node("MonsterTrainer/Faces")
 
 
+# BGM取得
+func get_musician_bgm():
+	return self.get_director().get_node("🌏Musician_BGM")
+
+
+# SE取得
+func get_musician_se():
+	return self.get_director().get_node("🌏Musician_SE")
+
+
 # プログラマー取得
 func get_programmer():
 	return self.get_director().get_node("🌏Programmer")
@@ -128,7 +138,7 @@ func get_bgm(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.get_director().get_node("🌏Musician_BGM"),	# 探す場所
+				return self.get_musician_bgm(),			# 探す場所
 			func():
 				return self.cache_dictionary_for_bgm)	# 結果を格納する変数
 
@@ -172,7 +182,7 @@ func get_se(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.get_director().get_node("🌏Musician_SE"),	# 探す場所
+				return self.get_musician_se(),			# 探す場所
 			func():
 				return self.cache_dictionary_for_se)	# 結果を格納する変数
 

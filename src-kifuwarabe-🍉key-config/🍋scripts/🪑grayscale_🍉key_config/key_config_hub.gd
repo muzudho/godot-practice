@@ -16,7 +16,7 @@ var key_config = {
 
 
 # ーーーーーーーー
-# パス関連
+# 外パス関連
 # ーーーーーーーー
 
 
@@ -25,24 +25,9 @@ func get_director():
 	return $"../../🌏Director"
 
 
-# BGM取得
-func get_bgm(node_name_str):
-	return self.get_director().get_node("🌏Musician_BGM").get_node(node_name_str)
-
-
-# イラスト取得
-func get_illust(node_name_str):
-	return self.get_illustrator().get_node(node_name_str)
-
-
-# イラスト取得
-func get_illustrator():
-	return self.get_director().get_node("🌏Illustrator")
-
-
-# 効果音取得
-func get_se(node_name_str):
-	return self.get_director().get_node("🌏Musician_SE").get_node(node_name_str)
+# プログラムズ・ハブ取得
+func get_programs_hub():
+	return self.get_director().get_node("🌏Programmer/🛩️ProgramsHub")
 
 
 # テロップ取得
@@ -58,6 +43,11 @@ func get_telop_of_key_config(node_name_str):
 # テキスト・ブロック取得
 func get_telop_coordinator_key_config_text_block():
 	return self.get_telop_coordinator_key_config().get_node("TextBlock")
+
+
+# ーーーーーーーー
+# 内パス関連
+# ーーーーーーーー
 
 
 # 司会進行取得
@@ -77,9 +67,9 @@ func entry():
 	# 表示
 	# ーーーーーーーー
 	self.get_telop_coordinator_key_config().show()
-	self.get_illustrator().show()
-	self.get_illust("■下").show()
-	self.get_illust("■上_大").show()
+	self.get_programs_hub().get_illustrator().show()
+	self.get_programs_hub().get_illust("■下").show()
+	self.get_programs_hub().get_illust("■上_大").show()
 
 	# ーーーーーーーー
 	# イベント
