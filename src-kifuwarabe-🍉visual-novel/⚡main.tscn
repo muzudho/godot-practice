@@ -1,6 +1,6 @@
 [gd_scene load_steps=65 format=3 uid="uid://df3w8nurqp4dl"]
 
-[ext_resource type="Script" path="res://scripts_main/director.gd" id="1_lwnsa"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/director.gd" id="1_7cses"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
 [ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://🍋audio_bgm/🪑sakuramaru/きふわらべファイター２.ogg" id="9_c76by"]
 [ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://🍋audio_bgm/🪑maou_audio/maou_game_town05.ogg" id="10_t6v7f"]
@@ -28,10 +28,10 @@
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="29_ghcy1"]
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="30_tx773"]
 [ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="31_muky1"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/programs_hub.gd" id="41_xkso2"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/switch_department.gd" id="44_c0141"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="48_niso1"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="49_2oco3"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/programs_hub.gd" id="53_kotpc"]
 [ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🌏ScenarioWriter_🛩️scenario_writers_hub.tscn" id="55_dfxei"]
 [ext_resource type="PackedScene" uid="uid://crgd8anicn08x" path="res://🌏ScenarioWriter_📗ビジュアルノベル部門.tscn" id="57_7j2fj"]
 [ext_resource type="PackedScene" uid="uid://h1gka1sqmc0q" path="res://🌏ScenarioWriter_📗会話システムメニュー部門.tscn" id="58_frjxl"]
@@ -118,7 +118,7 @@ shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
 
 [node name="🌏Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
-script = ExtResource("1_lwnsa")
+script = ExtResource("1_7cses")
 
 [node name="Grid" type="Sprite2D" parent="."]
 z_index = 5
@@ -347,7 +347,7 @@ volume_db = -15.0
 [node name="🌏Programmer" type="Node" parent="."]
 
 [node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
-script = ExtResource("53_kotpc")
+script = ExtResource("41_xkso2")
 
 [node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
 
