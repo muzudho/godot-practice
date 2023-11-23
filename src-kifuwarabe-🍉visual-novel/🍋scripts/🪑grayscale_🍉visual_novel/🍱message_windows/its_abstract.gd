@@ -129,19 +129,18 @@ func set_process_subtree(
 func set_visible_subtree(
 		visible_flag):			# bool
 
-	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(self.hub().get_programs_hub().get_illust(self.name).visible) + "　次可視性：" + str(visible_flag))
+	var illust_a = self.hub().get_programs_hub().get_illust(self.name)
+	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(illust_a.visible) + "　次可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
 	# 見せろ（true） という指示のとき、隠れてれば（false）、見せる　　（true）。
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
-	#if visible_flag != self.visible:
-	if visible_flag != self.hub().get_programs_hub().get_illust(self.name).visible:
+	if visible_flag != illust_a.visible:
 
 		print("［伝言窓　”" + self.name + "”］　可視性：" + str(visible_flag))
 
-		# self.visible = visible_flag
-		self.hub().get_programs_hub().get_illust(self.name).visible = visible_flag
+		illust_a.visible = visible_flag
 		self.hub().get_canvas_layer(self.name).visible = visible_flag
 
 		# 子ノード
@@ -162,11 +161,12 @@ func set_appear_subtree(
 
 		print("［伝言窓　”" + self.name + "”］　appear：" + str(appear_flag))
 
+		var illust_a = self.hub().get_programs_hub().get_illust(self.name)
 		self.is_appear = appear_flag
 
 		if self.is_appear:
 			# 画面内に戻す
-			self.position += Vector2(0, -720)
+			illust_a.position += Vector2(0, -720)
 			self.hub().get_text_block(self.name).position += Vector2(0, -720)
 
 			## 会話が停止してしまっているなら、再開する（すぐ停止するかもしれない）
@@ -179,7 +179,7 @@ func set_appear_subtree(
 
 		else:
 			# 画面下の外に押し出す
-			self.position += Vector2(0, 720)
+			illust_a.position += Vector2(0, 720)
 			self.hub().get_text_block(self.name).position -= Vector2(0, -720)
 
 		# 子ノード
@@ -296,9 +296,11 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 # 状態遷移するだけ
 func on_talked_2():
 
+	var illust_a = self.hub().get_programs_hub().get_illust(self.name)
+
 	# 表示
 	self.set_visible_subtree(true)
-	self.modulate.a = 1.0	# メッセージ追加による不透明化
+	illust_a.modulate.a = 1.0	# メッセージ追加による不透明化
 
 	var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
 
@@ -384,6 +386,7 @@ func on_all_pages_flushed():
 	var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
 
 	print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
+	var illust_a = self.hub().get_programs_hub().get_illust(self.name)
 
 	# テキストブロック
 	var text_block_node = self.hub().get_text_block(self.name)
@@ -401,4 +404,4 @@ func on_all_pages_flushed():
 
 	# この要素の初期状態は、非表示、透明
 	self.set_visible_subtree(false)
-	self.modulate.a = 0.0	# 初期化による透明化
+	illust_a.modulate.a = 0.0	# 初期化による透明化
