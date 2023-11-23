@@ -46,10 +46,10 @@ script = ExtResource("8_drm3s")
 [node name="📗MWnd" type="Node" parent="."]
 script = ExtResource("9_aqmse")
 
-[node name="📗NormalText" type="Node" parent="."]
+[node name="📘NormalText" type="Node" parent="."]
 script = ExtResource("10_c2ocp")
 
-[node name="📗NormalTextChoice" type="Node" parent="."]
+[node name="📘NormalTextChoice" type="Node" parent="."]
 script = ExtResource("11_4u6s3")
 
 [node name="📗Quit" type="Node" parent="."]

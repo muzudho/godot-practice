@@ -1,4 +1,6 @@
 # ビージーエム（BGM, Background Music；背景音楽）
+#
+# `📗` （緑の本）で始まる名前の命令は、アドオンです
 extends Node
 
 
