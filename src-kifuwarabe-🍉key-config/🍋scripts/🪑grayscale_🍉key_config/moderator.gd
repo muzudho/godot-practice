@@ -116,7 +116,7 @@ func on_exit():
 	self.hub().get_telop_coordinator_key_config().hide()
 
 	# BGM 停止	
-	self.hub().get_programs_hub().get_bgm("🎵キーコンフィグ").stop()
+	self.hub().get_programs_hub().bgm_cache.find_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
 	self.hub().on_exit()
@@ -373,7 +373,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.current_step == 0:
-		self.hub().get_programs_hub().get_bgm("🎵キーコンフィグ").play()
+		self.hub().get_programs_hub().bgm_cache.find_node("🎵キーコンフィグ").play()
 		self.current_step += 1
 		self.clear_count()
 	

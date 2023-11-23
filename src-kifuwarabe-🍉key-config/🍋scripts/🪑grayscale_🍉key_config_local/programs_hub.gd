@@ -11,17 +11,20 @@ func _ready():
 	self.background_image_cache = MonkeyHand.create(
 			self.get_background_artist())	# 探す場所
 
+	self.bgm_cache = MonkeyHand.create(
+			self.get_musician_bgm())		# 探す場所
+
 
 # ーーーーーーーー
 # メモリ関連
 # ーーーーーーーー
 
 
-# 背景ノードをつかみにいく猿の手
+# 背景ノードのキャッシュ
 var background_image_cache = null
 
-# 全BGM
-var cache_dictionary_for_bgm = {}
+# BGMノードのキャッシュ
+var bgm_cache = null
 
 # 全イラスト
 var cache_dictionary_for_illust = {}
@@ -71,17 +74,6 @@ func get_telop_coordinator():
 # ーーーーーーーー
 # 子パス関連
 # ーーーーーーーー
-
-
-# BGM取得
-func get_bgm(
-		target_name):
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_musician_bgm(),			# 探す場所
-			func():
-				return self.cache_dictionary_for_bgm)	# 結果を格納する変数
 
 
 # イラスト取得
