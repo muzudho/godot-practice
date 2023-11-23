@@ -1,3 +1,6 @@
+# モンキー（Monkey；猿）
+#
+# 木登りが得意
 extends Object
 
 
