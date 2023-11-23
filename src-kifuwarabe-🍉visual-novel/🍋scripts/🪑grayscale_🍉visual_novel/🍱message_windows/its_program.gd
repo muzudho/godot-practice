@@ -176,8 +176,80 @@ func on_all_pages_flushed():
 
 
 # ーーーーーーーー
-# その他
+# その他のイベントハンドラ
 # ーーーーーーーー
+
+
+# 仮想キー入力時
+func on_virtual_key_input(virtual_key, lever_value, vk_operation):
+
+	# 選択肢カーソル
+	self.hub().get_choices_cursor(self.name).on_virtual_key_input(virtual_key, lever_value, vk_operation)
+
+	if virtual_key == &"VK_FastForward":
+		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
+		if vk_operation == &"VKO_Pressed":
+			self.hub().is_fast_forward = true
+
+		elif vk_operation == &"VKO_Released":
+			self.hub().is_fast_forward = false
+
+	# 完全表示中
+	if self.statemachine_of_message_window.is_completed():
+
+		# 選択肢モードなら
+		if self.is_choices():
+			
+			# 押下時
+			if vk_operation == &"VKO_Pressed":
+				
+				# TODO カーソルの上下もここにくる？
+
+				# 確定ボタン以外は無効
+				if virtual_key != &"VK_Ok":
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキーではないのでメッセージ送りしません")
+					return
+					
+				else:
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキー　ページ送りする")
+					# 選択肢を確定した
+					# ページ送り
+					self.statemachine_of_message_window.page_forward()
+					return
+
+			else:
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時ではない")
+		
+		# 通常テキストモードなら
+		else:
+			# 何かキーを押したとき
+			if vk_operation == &"VKO_Pressed":
+				
+				# ページ早送りボタンは無効
+				if virtual_key == &"VK_FastForward":
+					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキーでは、メッセージ送りしません")
+					return
+
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキー以外だ（" + virtual_key + "）　ページ送りする")
+				# ページ送り
+				self.statemachine_of_message_window.page_forward()
+
+			else:
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
+				pass
+
+	else:
+		print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　完全表示中ではないから何もしない")
+
+
+# ーーーーーーーー
+# その他のメソッド
+# ーーーーーーーー
+
+
+# 選択肢か？
+func is_choices():
+	return self.choices_row_numbers != null
 
 
 # サブツリーの visible を設定
