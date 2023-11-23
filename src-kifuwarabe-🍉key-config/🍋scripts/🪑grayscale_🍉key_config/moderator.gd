@@ -91,8 +91,8 @@ func entry():
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.hub().get_programs_hub().get_illust("■上_大").show()
-	self.hub().get_programs_hub().get_illust("■下").show()
+	self.hub().get_programs_hub().illust_cache.find_node("■上_大").show()
+	self.hub().get_programs_hub().illust_cache.find_node("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
@@ -109,8 +109,8 @@ func entry():
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.hub().get_programs_hub().get_illust("■上_大").hide()
-	self.hub().get_programs_hub().get_illust("■下").hide()
+	self.hub().get_programs_hub().illust_cache.find_node("■上_大").hide()
+	self.hub().get_programs_hub().illust_cache.find_node("■下").hide()
 	# テロップ非表示
 	self.hub().get_telop_of_key_config("TextBlock").text = ""
 	self.hub().get_telop_coordinator_key_config().hide()

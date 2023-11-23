@@ -68,8 +68,8 @@ func entry():
 	# ーーーーーーーー
 	self.get_telop_coordinator_key_config().show()
 	self.get_programs_hub().get_illustrator().show()
-	self.get_programs_hub().get_illust("■下").show()
-	self.get_programs_hub().get_illust("■上_大").show()
+	self.get_programs_hub().illust_cache.find_node("■下").show()
+	self.get_programs_hub().illust_cache.find_node("■上_大").show()
 
 	# ーーーーーーーー
 	# イベント
