@@ -20,7 +20,7 @@ var departments = {}
 var all_department_names = null
 
 # 全命令（キー："命令名:"　値：ノード名）
-var all_instruction_codes = null
+var directory_for_instruction_code_and_node_name = null
 
 # 全背景
 var cache_dictionary_for_background_image = {}
@@ -256,14 +256,14 @@ func search_all_department_names(current_node):
 
 # 全ての命令コード一覧
 func get_all_instruction_codes():
-	if self.all_instruction_codes == null:
-		self.all_instruction_codes = {}	# キー：StringName, 値：None
+	if self.directory_for_instruction_code_and_node_name == null:
+		self.directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
 
 		# 結果は変数に格納される
 		self.search_all_instruction_codes(
 				self.get_programmer())
 			
-	return self.all_instruction_codes
+	return self.directory_for_instruction_code_and_node_name
 
 
 # 結果は変数に格納される
@@ -271,7 +271,7 @@ func search_all_instruction_codes(current_node):
 	for child_node in current_node.get_children():
 		# 命令のノード名は `📗` で始まるものとする
 		if child_node.name.begins_with("📗"):
-			self.all_instruction_codes[child_node.code] = child_node.name
+			self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name
 		
 		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
 		elif child_node.name.begins_with("📂"):
@@ -345,69 +345,9 @@ func parse_paragraph(paragraph_text):
 			if second_head.begins_with("#"):
 				pass
 
-			# 背景切替
-			elif second_head.begins_with("bg:"):
-				#self.get_instruction(&"📗Bg").do_it(second_head)
-				#var instruction_node_name = self.all_instruction_codes["bg:"]
-				var instruction_node_name = self.all_instruction_codes[instruction_code]
-				var instruction = self.get_instruction(instruction_node_name)
-				instruction.do_it(second_head)
-
-			# ＢＧＭ再生／停止
-			elif second_head.begins_with("bgm:"):
-				self.get_instruction(&"📗Bgm").do_it(second_head)
-			
-			# 選択肢かどうか判定
-			elif second_head.begins_with("choice:"):
-				self.get_instruction(&"📗Choice").do_it(second_head)
-
-			# 部門変更
-			elif second_head.begins_with("department:"):
-				self.get_instruction(&"📗Department").do_it(second_head)
-				
-			# 次のセクションへ飛ぶ
-			elif second_head.begins_with("goto:"):
-				self.get_instruction(&"📗Goto").do_it(second_head)
-
-			# 画像を表示する
-			elif second_head.begins_with("img:"):
-				self.get_instruction(&"📗Img").do_it(second_head)
-
-			# ラベル設定
-			elif second_head.begins_with("label:"):
-				self.get_instruction(&"📗Label").do_it(second_head)
-			
-			# メッセージ・スピード変更
-			elif second_head.begins_with("msg_speed:"):
-				self.get_instruction(&"📗MsgSpeed").do_it(second_head)
-
-			# メッセージ出力先ウィンドウ変更
-			elif second_head.begins_with("m_wnd:"):
-				self.get_instruction(&"📗MWnd").do_it(second_head)
-
-			# アプリケーション終了
-			elif second_head.begins_with("quit:"):
-				self.get_instruction(&"📗Quit").do_it(second_head)
-			
-			# 効果音
-			elif second_head.begins_with("se:"):
-				self.get_instruction(&"📗Se").do_it(second_head)
-
-			# スリープ
-			elif second_head.begins_with("sleep:"):
-				self.get_instruction(&"📗Sleep").do_it(second_head)
-
-			# テロップの表示／非表示
-			elif second_head.begins_with("telop:"):
-				self.get_instruction(&"📗Telop").do_it(second_head)
-			
-			# 変数セット
-			elif second_head.begins_with("var:"):
-				self.get_instruction(&"📗Var").do_it(second_head)
-
 			else:
-				if second_head in self.all_instruction_codes:
-					var instruction_node_name = self.all_instruction_codes[second_head]
+				if instruction_code in self.directory_for_instruction_code_and_node_name:
+					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
 					var instruction = self.get_instruction(instruction_node_name)
 					instruction.do_it(second_head)
 				
