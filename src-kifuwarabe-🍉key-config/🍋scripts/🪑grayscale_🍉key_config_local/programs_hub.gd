@@ -20,6 +20,9 @@ func _ready():
 	self.se_cache = MonkeyHand.create(
 			self.get_musician_se())			# 探す場所
 
+	self.telop_cache = MonkeyHand.create(
+			self.get_telop_coordinator())	# 探す場所
+
 
 # ーーーーーーーー
 # メモリ関連
@@ -39,7 +42,7 @@ var illust_cache = null
 var se_cache = {}
 
 # 全テロップ
-var cache_dictionary_for_telop = {}
+var telop_cache = {}
 
 
 # ーーーーーーーー
@@ -75,19 +78,3 @@ func get_musician_se():
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
 	return self.get_director().get_node("🌏TelopCoordinator")
-
-
-# ーーーーーーーー
-# 子パス関連
-# ーーーーーーーー
-
-
-# テロップ取得
-func get_telop(
-		target_name):	# StringName
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_telop_coordinator(),	# 探す場所
-			func():
-				return self.cache_dictionary_for_telop)	# 結果を格納する変数
