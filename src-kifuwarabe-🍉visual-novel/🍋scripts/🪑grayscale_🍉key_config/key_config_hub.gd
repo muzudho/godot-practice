@@ -30,14 +30,14 @@ func get_bgm(node_name_str):
 	return self.get_director().get_node("🌏Musician_BGM").get_node(node_name_str)
 
 
-# メッセージ・ウィンドウ取得
-func get_message_windows():
-	return self.get_director().get_node("🌏GuiArtist_MessageWindows")
+# イラスト取得
+func get_illust(node_name_str):
+	return self.get_illustrator().get_node(node_name_str)
 
 
-# メッセージ・ウィンドウ取得
-func get_message_window(node_name_str):
-	return self.get_message_windows().get_node(node_name_str)
+# イラスト取得
+func get_illustrator():
+	return self.get_director().get_node("🌏Illustrator")
 
 
 # 効果音取得
@@ -77,9 +77,9 @@ func entry():
 	# 表示
 	# ーーーーーーーー
 	self.get_telop_coordinator_key_config().show()
-	self.get_message_windows().show()
-	self.get_message_window("■下").show()
-	self.get_message_window("■上_大").show()
+	self.get_illustrator().show()
+	self.get_illust("■下").show()
+	self.get_illust("■上_大").show()
 
 	# ーーーーーーーー
 	# イベント

@@ -51,14 +51,19 @@ func is_cancel_button_pressed(button_number_1):
 func _ready():
 
 	# ーーーーーーーー
-	# 初期化
+	# 非表示
 	# ーーーーーーーー
 	
-	# メッセージ・ウィンドウ非表示
-	self.hub().get_message_windows().hide()
+	# イラストレーター非表示
+	self.hub().get_illustrator().hide()
 		
 	# テロップ非表示
 	self.hub().get_telop_of_key_config("TextBlock").visible = false
+
+
+	# ーーーーーーーー
+	# 準備
+	# ーーーーーーーー
 
 	# 入力イベントが返す文字列。仕様さっぱり分からん
 	# 最後に半角スペースを入れること。 `Button 1` と `Button 10` を区別するために
@@ -69,23 +74,25 @@ func _ready():
 
 # キーコンフィグ画面に入る
 func entry():
+	
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
 	
-	# ウィンドウ表示
-	self.hub().get_message_windows().show()
+	# イラストレーター表示
+	self.hub().get_illustrator().show()
 	
 	# テロップ表示
 	self.hub().get_telop_of_key_config("TextBlock").visible = true
+
 
 	# ーーーーーーーー
 	# 設定
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.hub().get_message_window("■上_大").show()
-	self.hub().get_message_window("■下").show()
+	self.hub().get_illust("■上_大").show()
+	self.hub().get_illust("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
@@ -102,8 +109,8 @@ func entry():
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.hub().get_message_window("■上_大").hide()
-	self.hub().get_message_window("■下").hide()
+	self.hub().get_illust("■上_大").hide()
+	self.hub().get_illust("■下").hide()
 	# テロップ非表示
 	self.hub().get_telop_of_key_config("TextBlock").text = ""
 	self.hub().get_telop_coordinator_key_config().hide()
