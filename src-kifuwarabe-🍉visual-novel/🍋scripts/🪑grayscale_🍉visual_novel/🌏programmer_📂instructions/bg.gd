@@ -43,7 +43,7 @@ func hub():
 #	それをする
 func do_it(line):
 
-	var csv = line.substr("bg:".length()).strip_edges()
+	var csv = line.substr(self.code.length()).strip_edges()
 	print("［命令解析　背景］　CSV：[" + csv + "]　Line：[" + line + "]")
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)

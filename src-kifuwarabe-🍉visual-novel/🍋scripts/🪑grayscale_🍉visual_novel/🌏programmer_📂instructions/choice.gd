@@ -42,7 +42,7 @@ func hub():
 func do_it(line):
 	print("［命令　選択肢］　前処理だ：[" + line + "]")
 
-	var csv = line.substr("choice:".length()).strip_edges()
+	var csv = line.substr(self.code.length()).strip_edges()
 	# TODO 数は昇順であること
 	var string_packed_array = csv.split(",", true, 0)
 	# FIXME 変数展開には対応してない

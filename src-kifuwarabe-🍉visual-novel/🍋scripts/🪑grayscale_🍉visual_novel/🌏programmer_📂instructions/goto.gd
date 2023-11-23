@@ -43,7 +43,7 @@ func do_it(
 	line):				# str
 
 	# 次の「§」セクション名
-	var csv = line.substr("goto:".length()).strip_edges()
+	var csv = line.substr(self.code.length()).strip_edges()
 	print("［命令　ゴートゥー］　CSV：[" + csv + "]")
 	# 文字列を最初のカンマで分割して配列に入れる
 	var string_packed_array = csv.split(",", true, 1)
