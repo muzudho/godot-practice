@@ -38,9 +38,8 @@ func get_telop_coordinator():
 
 
 # ーーーーーーーー
-# メモリ関連
+# 共通メモリ関連
 # ーーーーーーーー
-
 
 # 背景ノードのキャッシュ
 var bg_images = null

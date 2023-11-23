@@ -133,7 +133,7 @@ func set_key_accepted():
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied(reason):
-	self.hub().get_programs_hub().get_se("🔔キーコンフィグ不可音").play()
+	self.hub().get_programs_hub().sound_fx.find_node("🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
 		self.hub().get_telop_of_key_config("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
@@ -147,7 +147,7 @@ func set_key_denied(reason):
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
-	self.hub().get_programs_hub().get_se("🔔キーコンフィグ取消音").play()
+	self.hub().get_programs_hub().sound_fx.find_node("🔔キーコンフィグ取消音").play()
 	self.hub().get_telop_of_key_config("TextBlock").text = ""
 
 

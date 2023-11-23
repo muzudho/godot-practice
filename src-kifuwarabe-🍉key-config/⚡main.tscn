@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_cyber36.ogg" id="6_x2gst"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config_local/programs_hub.gd" id="7_5goiq"]
 [ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://🌏Programmer_🛩ProgramsHub_📄nodes.tscn" id="8_fbelh"]
-[ext_resource type="PackedScene" uid="uid://d03iqgbiqphby" path="res://🌏Musician_BGM.tscn" id="8_fnys3"]
+[ext_resource type="PackedScene" uid="uid://d03iqgbiqphby" path="res://🌏Musician_BgMusics.tscn" id="8_fnys3"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🌏Director_🛩️KeyConfigHub.tscn" id="9_calvn"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🌏TelopCoordinator.tscn" id="12_8rfor"]
 
