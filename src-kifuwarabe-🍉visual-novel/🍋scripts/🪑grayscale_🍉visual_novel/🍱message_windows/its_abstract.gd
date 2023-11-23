@@ -172,13 +172,11 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		elif vk_operation == &"VKO_Released":
 			self.hub().is_fast_forward = false
 
-	var message_window_gui = self.hub().get_programs_hub().get_current_message_window_gui()
-
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
 
 		# 選択肢モードなら
-		if message_window_gui.is_choices():
+		if self.is_choices():
 			
 			# 押下時
 			if vk_operation == &"VKO_Pressed":
