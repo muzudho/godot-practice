@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=66 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/director.gd" id="1_7cses"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="30_tx773"]
 [ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="31_muky1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/programs_hub.gd" id="41_xkso2"]
+[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://downloads_from_🍉key_config/🌏Programmer_🛩ProgramsHub_📄nodes.tscn" id="42_pytk4"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/switch_department.gd" id="44_c0141"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="48_niso1"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="49_2oco3"]
@@ -263,84 +264,84 @@ position = Vector2(735, 320)
 scale = Vector2(0.596059, 0.596059)
 texture = ExtResource("80_vkv42")
 
-[node name="🌏Musician_BGM" type="Node" parent="."]
+[node name="🌏Musician_BgMusics" type="Node" parent="."]
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician_BGM"]
+[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician_BgMusics"]
 
-[node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("9_c76by")
 volume_db = -20.0
 
-[node name="🎵タイトル" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵タイトル" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("10_t6v7f")
 volume_db = -20.0
 
-[node name="🎵エンディング" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵エンディング" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("11_obewr")
 volume_db = -15.0
 
-[node name="🎵バトル１" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵バトル１" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("12_xn57w")
 volume_db = -15.0
 
-[node name="🎵バトル２" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵バトル２" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("13_qwhhg")
 volume_db = -15.0
 
-[node name="🎵バトル３" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵バトル３" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("14_caegp")
 volume_db = -15.0
 
-[node name="🎵バトル４" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵バトル４" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("15_i5oj7")
 volume_db = -15.0
 
-[node name="🎵負け" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵負け" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("16_kxcrf")
 volume_db = -15.0
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician_BGM"]
+[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician_BgMusics"]
 
-[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician_BGM"]
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
 stream = ExtResource("17_807s4")
 volume_db = -20.0
 pitch_scale = 1.4
 
-[node name="🌏Musician_SE" type="Node" parent="."]
+[node name="🌏Musician_SoundFX" type="Node" parent="."]
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician_SE"]
+[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician_SoundFX"]
 
-[node name="🔔ページめくり音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
+[node name="🔔ページめくり音" type="AudioStreamPlayer" parent="🌏Musician_SoundFX"]
 stream = ExtResource("18_ycwla")
 
-[node name="🔔選択肢カーソル移動音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
+[node name="🔔選択肢カーソル移動音" type="AudioStreamPlayer" parent="🌏Musician_SoundFX"]
 stream = ExtResource("19_myb2y")
 volume_db = -15.0
 
-[node name="🔔選択肢確定音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
+[node name="🔔選択肢確定音" type="AudioStreamPlayer" parent="🌏Musician_SoundFX"]
 stream = ExtResource("20_nrumj")
 volume_db = -10.0
 
-[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
+[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="🌏Musician_SoundFX"]
 stream = ExtResource("21_dmsb3")
 volume_db = -15.0
 pitch_scale = 1.5
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician_SE"]
+[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician_SoundFX"]
 
-[node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
+[node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="🌏Musician_SoundFX"]
 stream = ExtResource("22_4mqug")
 volume_db = -5.0
 
-[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
+[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="🌏Musician_SoundFX"]
 stream = ExtResource("23_n7qgt")
 volume_db = -10.0
 
-[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
+[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="🌏Musician_SoundFX"]
 stream = ExtResource("24_wis4x")
 volume_db = -15.0
 
-[node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="🌏Musician_SE"]
+[node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="🌏Musician_SoundFX"]
 stream = ExtResource("25_oxlb4")
 volume_db = -15.0
 
@@ -348,6 +349,8 @@ volume_db = -15.0
 
 [node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
 script = ExtResource("41_xkso2")
+
+[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("42_pytk4")]
 
 [node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
 

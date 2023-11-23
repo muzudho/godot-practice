@@ -6,53 +6,7 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 
 
 # ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-
-# 全角数字
-var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
-
-# デパートメント変数辞書（キー：StringName型）
-var departments = {}
-
-# 全部門名
-var all_department_names = null
-
-# 全命令（キー："命令名:"　値：ノード名）
-var directory_for_instruction_code_and_node_name = null
-
-# 全背景
-var cache_dictionary_for_background_image = {}
-
-# 全BGM
-var cache_dictionary_for_bgm = {}
-
-# 現在の部門（StringName型）
-var current_department_name = null
-
-# 全イラスト
-var cache_dictionary_for_illust = {}
-
-# 全命令（キー：ノード名　値：ノード）
-var cache_dictionary_for_instruction = {}
-
-# 全メッセージ・ウィンドウGUI
-var cache_dictionary_for_message_window_gui = {}
-
-# 全SE
-var cache_dictionary_for_se = {}
-
-# 全テロップ
-var cache_dictionary_for_telop = {}
-
-# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
-# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
-var is_department_not_found = false
-
-
-# ーーーーーーーー
-# 親パス関連
+# 外パス関連
 # ーーーーーーーー
 
 
@@ -87,13 +41,13 @@ func get_monster_faces():
 
 
 # BGM取得
-func get_musician_bgm():
-	return self.get_director().get_node("🌏Musician_BGM")
+func get_musician_bg_musics():
+	return self.get_director().get_node("🌏Musician_BgMusics")
 
 
 # SE取得
-func get_musician_se():
-	return self.get_director().get_node("🌏Musician_SE")
+func get_musician_sound_fx():
+	return self.get_director().get_node("🌏Musician_SoundFX")
 
 
 # プログラマー取得
@@ -117,41 +71,8 @@ func get_telop_coordinator():
 
 
 # ーーーーーーーー
-# 子パス関連
+# 内パス関連
 # ーーーーーーーー
-
-
-# 背景ノード取得
-func get_background_image(
-		target_name):			# StringName. `🗻` で始まる名前を想定
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_background_artist(),	# 探す場所
-			func():
-				return self.cache_dictionary_for_background_image)	# 結果を格納する変数
-
-
-# BGM取得
-func get_bgm(
-		target_name):
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_musician_bgm(),			# 探す場所
-			func():
-				return self.cache_dictionary_for_bgm)	# 結果を格納する変数
-
-
-# イラスト取得
-func get_illust(
-		target_name):	# StringName
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_illustrator(),	# 探す場所
-			func():
-				return self.cache_dictionary_for_illust)	# 結果を格納する変数
 
 
 # 命令ノード取得
@@ -174,28 +95,6 @@ func get_message_window_gui(
 				return self.get_message_windows_node(),	# 探す場所
 			func():
 				return self.cache_dictionary_for_message_window_gui)	# 結果を格納する変数
-
-
-# 効果音取得
-func get_se(
-		target_name):	# StringName
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_musician_se(),			# 探す場所
-			func():
-				return self.cache_dictionary_for_se)	# 結果を格納する変数
-
-
-# テロップ取得
-func get_telop(
-		target_name):	# StringName
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_telop_coordinator(),	# 探す場所
-			func():
-				return self.cache_dictionary_for_telop)	# 結果を格納する変数
 
 
 # 全ての部門名一覧
@@ -275,6 +174,57 @@ func _ready():
 		department_value.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
+
+
+# ーーーーーーーー
+# 共通メモリ関連
+# ーーーーーーーー
+
+# 背景ノードのキャッシュ
+var bg_images = null
+
+# BGMノードのキャッシュ
+var bg_musics = null
+
+# イラスト・ノードのキャッシュ
+var images = null
+
+# サウンド・エフェクト（Sound Effect, Sound FX；効果音）のキャッシュ
+var sound_fx = null
+
+# テロップのキャッシュ
+var telops = null
+
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+
+# 全角数字
+var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
+
+# デパートメント変数辞書（キー：StringName型）
+var departments = {}
+
+# 全部門名
+var all_department_names = null
+
+# 全命令（キー："命令名:"　値：ノード名）
+var directory_for_instruction_code_and_node_name = null
+
+# 現在の部門（StringName型）
+var current_department_name = null
+
+# 全命令（キー：ノード名　値：ノード）
+var cache_dictionary_for_instruction = {}
+
+# 全メッセージ・ウィンドウGUI
+var cache_dictionary_for_message_window_gui = {}
+
+# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
+# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
+var is_department_not_found = false
 
 
 # ーーーーーーーー
