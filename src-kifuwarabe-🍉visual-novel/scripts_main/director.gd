@@ -96,7 +96,7 @@ func _ready():
 	#
 	#	伝言窓はとにかく隠す
 	for message_window in self.get_message_windows_node().get_children():
-		if message_window is Sprite2D:
+		if message_window is Sprite2D or message_window is Node2D:
 			message_window.hide()
 	
 	# イラストレーターはとにかく隠す

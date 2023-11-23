@@ -161,19 +161,19 @@ texture = ExtResource("31_muky1")
 [node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiArtist_MessageWindows"]
 script = ExtResource("21_kjvby")
 
-[node name="■FullScreen" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■FullScreen4" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_ojm4j")
 script = ExtResource("23_0jkdi")
 
-[node name="■上_大" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■上_大4" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("62_y1sjv")
 script = ExtResource("23_0jkdi")
 
-[node name="■下" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■下4" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
@@ -181,14 +181,14 @@ position = Vector2(640, 360)
 texture = ExtResource("64_pfjh7")
 script = ExtResource("23_0jkdi")
 
-[node name="■中央" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■中央4" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("65_6texa")
 script = ExtResource("23_0jkdi")
 
-[node name="■左下" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■左下4" type="Sprite2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
@@ -196,23 +196,23 @@ position = Vector2(640, 360)
 texture = ExtResource("66_vkf8y")
 script = ExtResource("23_0jkdi")
 
-[node name="■FullScreen3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■FullScreen" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 script = ExtResource("23_0jkdi")
 
-[node name="■上_大3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■上_大" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 script = ExtResource("23_0jkdi")
 
-[node name="■下3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■下" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 script = ExtResource("23_0jkdi")
 
-[node name="■中央3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■中央" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 script = ExtResource("23_0jkdi")
 
-[node name="■左下3" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
+[node name="■左下" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
 visible = false
 script = ExtResource("23_0jkdi")
 
