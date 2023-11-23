@@ -1,7 +1,13 @@
-# 🪑grayscale_🎬key_config_driver
-#	キーコンフィグの使い方の実例です。このノード自身はキーコンフィグ本体ではありません
+# ディレクター（Director；監督）
+#
+# キーコンフィグの使い方の実例です。このノード自身はキーコンフィグ本体ではありません
 #
 extends Node2D
+
+
+# ーーーーーーーー
+# 内パス関連
+# ーーーーーーーー
 
 
 # 背景職人取得
@@ -12,6 +18,11 @@ func get_background_artist():
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
 	return $"🌏TelopCoordinator"
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 
 # Called when the node enters the scene tree for the first time.

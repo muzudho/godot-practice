@@ -3,12 +3,22 @@ extends Node
 
 
 # ーーーーーーーー
+# 準備
+# ーーーーーーーー
+
+
+func _ready():
+	self.background_image_cache = MonkeyHand.create(
+			self.get_background_artist())	# 探す場所
+
+
+# ーーーーーーーー
 # メモリ関連
 # ーーーーーーーー
 
 
-# 全背景
-var cache_dictionary_for_background_image = {}
+# 背景ノードをつかみにいく猿の手
+var background_image_cache = null
 
 # 全BGM
 var cache_dictionary_for_bgm = {}
@@ -61,17 +71,6 @@ func get_telop_coordinator():
 # ーーーーーーーー
 # 子パス関連
 # ーーーーーーーー
-
-
-# 背景ノード取得
-func get_background_image(
-		target_name):			# StringName. `🗻` で始まる名前を想定
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_background_artist(),	# 探す場所
-			func():
-				return self.cache_dictionary_for_background_image)	# 結果を格納する変数
 
 
 # BGM取得
