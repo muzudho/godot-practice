@@ -44,12 +44,6 @@ func get_message_windows_node():
 	return $"🌏GuiArtist_MessageWindows"
 
 
-# 伝言窓（現在、出力の対象になっているもの）
-func get_message_window_gui(node_name_obj):
-	#print("［監督］　伝言窓名：［" + str(node_name_obj) + "］")
-	return self.get_message_windows_node().get_node(str(node_name_obj))
-
-
 # プログラムズ・ハブ取得
 func get_programs_hub():
 	return $"🌏Programmer/🛩️ProgramsHub"

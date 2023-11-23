@@ -295,7 +295,7 @@ var scenario_document = {
 		"""\
 		!
 		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -330,7 +330,7 @@ var scenario_document = {
 	"§先手の攻め":[
 		"""\
 		!
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
 		"""\
@@ -342,7 +342,7 @@ var scenario_document = {
 	"§先手の守り":[
 		"""\
 		!
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		msg_speed:		20
 		choice:			1,2,3
 		""",
@@ -356,7 +356,7 @@ var scenario_document = {
 	"§先手の新無敵囲い":[
 		"""\
 		!
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -376,7 +376,7 @@ var scenario_document = {
 	"§先手の奇跡の角生還":[
 		"""\
 		!
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -396,7 +396,7 @@ var scenario_document = {
 	"§先手のボンザナ囲い":[
 		"""\
 		!
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -416,7 +416,7 @@ var scenario_document = {
 	#"§先手のエモル囲い":[
 	#	"""\
 	#	!
-	#	msg_wnd:			■下on戦
+	#	msg_wnd:		■下on戦
 	#	msg_speed:		20
 	#	""",
 	#	# ２３４５６７８９０１２３４５６７８９０
@@ -438,7 +438,7 @@ var scenario_document = {
 		"""\
 		!
 		bgm:			🎵負け
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
 		"""\
@@ -458,7 +458,7 @@ var scenario_document = {
 	"§先手の勝ち宣言":[
 		"""\
 		!
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
 		"""\
@@ -631,7 +631,7 @@ var scenario_document = {
 		"""\
 		!
 		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		""",
 		# 戦闘開始
 		# ２３４５６７８９０１２３４５６７８９０
@@ -653,7 +653,7 @@ var scenario_document = {
 		"""\
 		!
 		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -675,7 +675,7 @@ var scenario_document = {
 		"""\
 		!
 		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
-		msg_wnd:			■下on戦
+		msg_wnd:		■下on戦
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
