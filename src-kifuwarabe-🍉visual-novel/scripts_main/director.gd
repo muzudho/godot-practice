@@ -95,10 +95,10 @@ func _ready():
 	# ウィンドウはとにかく隠す
 	#
 	#	伝言窓はとにかく隠す
-	for message_window in self.get_message_windows_node().get_children():
+	for illust_a in self.get_illustrator().get_children():
 		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
-		if message_window.name.begins_with("■"):
-			message_window.hide()
+		if illust_a.name.begins_with("■"):
+			illust_a.hide()
 	
 	# イラストレーターはとにかく隠す
 	for sprite2d_node in self.get_illustrator().get_children():
