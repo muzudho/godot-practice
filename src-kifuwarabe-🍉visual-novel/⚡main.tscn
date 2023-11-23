@@ -161,26 +161,6 @@ texture = ExtResource("31_muky1")
 [node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiArtist_MessageWindows"]
 script = ExtResource("21_kjvby")
 
-[node name="■FullScreen2" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
-visible = false
-script = ExtResource("23_0jkdi")
-
-[node name="■上_大2" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
-visible = false
-script = ExtResource("23_0jkdi")
-
-[node name="■下2" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
-visible = false
-script = ExtResource("23_0jkdi")
-
-[node name="■中央2" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
-visible = false
-script = ExtResource("23_0jkdi")
-
-[node name="■左下2" type="Node2D" parent="🌏GuiArtist_MessageWindows"]
-visible = false
-script = ExtResource("23_0jkdi")
-
 [node name="■FullScreen" type="Node" parent="🌏GuiArtist_MessageWindows"]
 script = ExtResource("23_0jkdi")
 
