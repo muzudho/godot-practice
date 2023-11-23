@@ -334,6 +334,10 @@ func parse_paragraph(paragraph_text):
 			var second_tail = second_head_tail[1]
 			# print("［助監］　second_head：[" + second_head + "]")
 			# print("［助監］　second_tail：[" + second_tail + "]")
+			# 文字列の配列に分割
+			var string_packed_array = second_head.split(":", true, 1)
+			var instruction_code = string_packed_array[0] + ":"
+
 
 			# 以下の命令は、アルファベット順で並べてある
 			#
@@ -343,7 +347,11 @@ func parse_paragraph(paragraph_text):
 
 			# 背景切替
 			elif second_head.begins_with("bg:"):
-				self.get_instruction(&"📗Bg").do_it(second_head)
+				#self.get_instruction(&"📗Bg").do_it(second_head)
+				#var instruction_node_name = self.all_instruction_codes["bg:"]
+				var instruction_node_name = self.all_instruction_codes[instruction_code]
+				var instruction = self.get_instruction(instruction_node_name)
+				instruction.do_it(second_head)
 
 			# ＢＧＭ再生／停止
 			elif second_head.begins_with("bgm:"):
