@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://tpups3rpk2j8"]
+
+[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://🍋audio_bgm/🪑sakuramaru/きふわらべファイター２.ogg" id="1_2783b"]
+[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://🍋audio_bgm/🪑maou_audio/maou_game_town05.ogg" id="2_cs3fq"]
+[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_acoustic05.ogg" id="3_6tn0y"]
+[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🍋audio_bgm/🪑maou_audio/maou_game_rock28.ogg" id="4_7tj2q"]
+[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_cyber06.ogg" id="5_45w2f"]
+[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_neorock14.ogg" id="6_c3e7x"]
+[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_orchestra12.ogg" id="7_f0mrq"]
+[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bgm/🪑maou_audio/maou_game_event17.ogg" id="8_xdheu"]
+
+[node name="📂🍉VisualNovel" type="Node"]
+
+[node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_2783b")
+volume_db = -20.0
+
+[node name="🎵タイトル" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cs3fq")
+volume_db = -20.0
+
+[node name="🎵エンディング" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6tn0y")
+volume_db = -15.0
+
+[node name="🎵バトル１" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7tj2q")
+volume_db = -15.0
+
+[node name="🎵バトル２" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_45w2f")
+volume_db = -15.0
+
+[node name="🎵バトル３" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_c3e7x")
+volume_db = -15.0
+
+[node name="🎵バトル４" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_f0mrq")
+volume_db = -15.0
+
+[node name="🎵負け" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xdheu")
+volume_db = -15.0
