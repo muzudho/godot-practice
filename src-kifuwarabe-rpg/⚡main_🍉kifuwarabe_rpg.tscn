@@ -1,4 +1,4 @@
-[gd_scene load_steps=80 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=86 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg_local/director.gd" id="1_u2dch"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -19,14 +19,20 @@
 [ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_7.png" id="38_vlm38"]
 [ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_8.png" id="39_nr2kt"]
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="40_25lxp"]
+[ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_rock28.ogg" id="41_2y5jy"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
-[ext_resource type="PackedScene" path="res://downloads_from_🍉visual_novel/🌏Musician_🌏BgMusics_📂🍉VisualNovel.tscn" id="41_v5ypx"]
+[ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://downloads_from_🍉visual_novel/🌏Musician_🌏BgMusics_📂🍉VisualNovel.tscn" id="41_v5ypx"]
+[ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_cyber06.ogg" id="42_j4tsf"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
-[ext_resource type="PackedScene" path="res://downloads_from_🍉visual_novel/🌏Musician_🌏SoundFX_📂🍉visual_novel.tscn" id="43_7nbsh"]
+[ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://downloads_from_🍉visual_novel/🌏Musician_🌏SoundFX_📂🍉visual_novel.tscn" id="43_7nbsh"]
+[ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_neorock14.ogg" id="43_k3tfj"]
+[ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_orchestra12.ogg" id="44_beusv"]
+[ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_event17.ogg" id="45_dlghs"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="47_nlh77"]
+[ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_magic_fire11.ogg" id="48_nxrfb"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="48_xknfu"]
-[ext_resource type="PackedScene" path="res://downloads_from_🍉key_config/🌏Musician_🌏BgMusics_📂🍉key_config.tscn" id="49_3jcrv"]
-[ext_resource type="PackedScene" path="res://downloads_from_🍉key_config/🌏Musician_🌏SoundFX_📂🍉key_config.tscn" id="54_aeutl"]
+[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://downloads_from_🍉key_config/🌏Musician_🌏BgMusics_📂🍉key_config.tscn" id="49_3jcrv"]
+[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://downloads_from_🍉key_config/🌏Musician_🌏SoundFX_📂🍉key_config.tscn" id="54_aeutl"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg_local/programs_hub.gd" id="58_5qams"]
 [ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://downloads_from_🍉key_config/🌏Programmer_🛩ProgramsHub_📄nodes.tscn" id="58_d26ev"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
@@ -412,6 +418,28 @@ texture = ExtResource("72_seukb")
 
 [node name="🌏BgMusics" type="Node" parent="🌏Musician"]
 
+[node name="ーーーーきふわらべRPGーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
+
+[node name="🎵バトル１" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+stream = ExtResource("41_2y5jy")
+volume_db = -15.0
+
+[node name="🎵バトル２" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+stream = ExtResource("42_j4tsf")
+volume_db = -15.0
+
+[node name="🎵バトル３" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+stream = ExtResource("43_k3tfj")
+volume_db = -15.0
+
+[node name="🎵バトル４" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+stream = ExtResource("44_beusv")
+volume_db = -15.0
+
+[node name="🎵負け" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+stream = ExtResource("45_dlghs")
+volume_db = -15.0
+
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
 
 [node name="📂🍉VisualNovel" parent="🌏Musician/🌏BgMusics" instance=ExtResource("41_v5ypx")]
@@ -421,6 +449,13 @@ texture = ExtResource("72_seukb")
 [node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("49_3jcrv")]
 
 [node name="🌏SoundFX" type="Node" parent="🌏Musician"]
+
+[node name="ーーーーきふわらべRPGーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
+
+[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="🌏Musician/🌏SoundFX"]
+stream = ExtResource("48_nxrfb")
+volume_db = -15.0
+pitch_scale = 1.5
 
 [node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
 
