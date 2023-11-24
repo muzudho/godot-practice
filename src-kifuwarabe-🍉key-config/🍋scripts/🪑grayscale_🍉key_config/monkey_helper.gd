@@ -95,17 +95,17 @@ static func find_ancestor_child(
 static func find_ancestor(
 		current_node,		# Node
 		target_node_name,	# StringName
-		get_cache_dictionary):
+		cache_dictionary):
 	
 	var cur = current_node
 	var target = str(target_node_name)
 	
-	if target in get_cache_dictionary.call():
-		return get_cache_dictionary.call()[target]
+	if target in cache_dictionary:
+		return cache_dictionary[target]
 		
 	while cur != null:
 		if cur.name == target:
-			get_cache_dictionary.call()[target] = cur
+			cache_dictionary[target] = cur
 			return cur
 		
 		cur = cur.get_parent()
