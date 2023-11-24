@@ -70,6 +70,7 @@ func entry():
 	self.get_programs_hub().get_illustrator().show()
 	self.get_programs_hub().images.find_node("■下").show()
 	self.get_programs_hub().images.find_node("■上_大").show()
+	self.get_programs_hub().telops.find_node("Ｔキーコンフィグ").show()
 
 	# ーーーーーーーー
 	# イベント
