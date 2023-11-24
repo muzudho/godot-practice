@@ -182,9 +182,6 @@ var ancestors = {}
 # BGMノードのキャッシュ
 var bg_musics = null
 
-# メッセージ・ウィンドウ・プログラムのキャッシュ
-var message_window_programs = null
-
 # イラスト・ノードのキャッシュ
 var images = null
 

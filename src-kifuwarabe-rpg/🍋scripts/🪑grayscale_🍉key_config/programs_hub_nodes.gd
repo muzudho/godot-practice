@@ -14,6 +14,9 @@ func _ready():
 	self.hub().images = MonkeyHand.create(
 			self.hub().get_illustrator())			# 探す場所
 
+	self.hub().message_window_programs = MonkeyHand.create(
+			self.hub().get_gui_programmer_message_windows())			# 探す場所
+
 	self.hub().sound_fx = MonkeyHand.create(
 			self.hub().get_musician_sound_fx())			# 探す場所
 
