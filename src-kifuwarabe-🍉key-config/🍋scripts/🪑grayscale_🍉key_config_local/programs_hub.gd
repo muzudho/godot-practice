@@ -12,11 +12,6 @@ func get_director():
 	return $"../../../🌏Director"
 
 
-# 背景アーティスト
-func get_background_artist():
-	return self.get_director().get_node("🌏BackgroundArtist")
-
-
 # イラストレーター取得
 func get_illustrator():
 	return self.get_director().get_node("🌏Illustrator")
@@ -40,9 +35,6 @@ func get_telop_coordinator():
 # ーーーーーーーー
 # 共通メモリ関連
 # ーーーーーーーー
-
-# 背景ノードのキャッシュ
-var bg_images = null
 
 # BGMノードのキャッシュ
 var bg_musics = null

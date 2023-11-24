@@ -10,9 +10,14 @@ extends Node2D
 # ーーーーーーーー
 
 
-# 背景職人取得
-func get_background_artist():
-	return $"🌏BackgroundArtist"
+# イラストレーター取得
+func get_illustrator():
+	return $"🌏Illustrator"
+
+
+# プログラムズ・ハブ取得
+func get_programs_hub():
+	return $"🌏Programmer/🛩️ProgramsHub"
 
 
 # テロップ・コーディネーター取得
@@ -55,8 +60,8 @@ func _unhandled_input(event):
 # キーコンフィグ開始時
 func on_key_config_entered():
 	# 背景
-	self.get_background_artist().visible = true
-	self.get_background_artist().get_node("🗻崎川駅前").visible = true
+	self.get_illustrator().visible = true
+	self.get_programs_hub().images.find_node("🗻崎川駅前").visible = true
 
 
 # キーコンフィグ完了時
@@ -64,4 +69,4 @@ func on_key_config_exited():
 	print("［キーコンフィグ］　完了")
 
 	# 背景
-	self.get_background_artist().get_node("🗻崎川駅前").visible = false
+	self.get_programs_hub().images.find_node("🗻崎川駅前").visible = false

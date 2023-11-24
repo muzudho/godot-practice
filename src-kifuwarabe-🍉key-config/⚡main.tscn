@@ -22,14 +22,16 @@ position = Vector2(640, 360)
 texture = ExtResource("2_f72qc")
 script = ExtResource("3_c737f")
 
-[node name="🌏BackgroundArtist" type="Node2D" parent="."]
+[node name="🌏Illustrator" type="Node2D" parent="."]
 
-[node name="🗻崎川駅前" type="Sprite2D" parent="🌏BackgroundArtist"]
+[node name="ーーーー背景ーーーー" type="Node" parent="🌏Illustrator"]
+
+[node name="🗻崎川駅前" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("3_fbnwt")
 
-[node name="🌏Illustrator" type="Node2D" parent="."]
+[node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="🌏Illustrator"]
 
 [node name="■下" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
