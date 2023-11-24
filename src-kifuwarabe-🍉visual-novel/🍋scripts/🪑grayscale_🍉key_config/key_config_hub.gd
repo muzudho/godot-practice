@@ -31,18 +31,18 @@ func get_programs_hub():
 
 
 # テロップ取得
-func get_telop_coordinator_key_config():
-	return self.get_director().get_node("🌏TelopCoordinator/Ｔキーコンフィグ")
+func get_telop_coordinator():
+	return self.get_director().get_node("🌏TelopCoordinator")
 
 
 # テロップ取得
-func get_telop_of_key_config(node_name_str):
-	return self.get_director().get_node("🌏TelopCoordinator/Ｔキーコンフィグ").get_node(node_name_str)
+func get_my_telop_canvas_layer():
+	return self.get_programs_hub().telops.find_node("Ｔキーコンフィグ")
 
 
-# テキスト・ブロック取得
-func get_telop_coordinator_key_config_text_block():
-	return self.get_telop_coordinator_key_config().get_node("TextBlock")
+# テロップ取得
+func get_my_telop(node_name_str):
+	return self.get_my_telop_canvas_layer().get_node(node_name_str)
 
 
 # ーーーーーーーー
@@ -66,7 +66,7 @@ func entry():
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
-	self.get_telop_coordinator_key_config().show()
+	self.get_telop_coordinator().show()
 	self.get_programs_hub().get_illustrator().show()
 	self.get_programs_hub().images.find_node("■下").show()
 	self.get_programs_hub().images.find_node("■上_大").show()

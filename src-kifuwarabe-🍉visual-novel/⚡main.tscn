@@ -1,22 +1,23 @@
-[gd_scene load_steps=53 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=51 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/director.gd" id="1_7cses"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_hub.gd" id="21_kjvby"]
+[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://downloads_from_🍉key_config/🌏Illustrator.tscn" id="21_wljdh"]
 [ext_resource type="Texture2D" uid="uid://bsth654xqqy7c" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_ojm4j"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="23_0jkdi"]
+[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://downloads_from_🍉key_config/🌏Musician_🌏BgMusics.tscn" id="23_5bwgy"]
 [ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://🌏Musician_🌏BgMusics_📂🍉VisualNovel.tscn" id="24_8oncv"]
+[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://downloads_from_🍉key_config/🌏Musician_🌏SoundFX.tscn" id="25_4re2d"]
 [ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://🌏Musician_🌏SoundFX_📂🍉visual_novel.tscn" id="26_hgiuu"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://🍋images/🪑grayscale/1280x720/event_room.png" id="26_ljpku"]
-[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://🍋images/🪑grayscale/1280x720/in_front_of_sakiwaka_station.png" id="27_7rlfr"]
+[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://downloads_from_🍉key_config/🌏Programmer_🛩ProgramsHub.tscn" id="27_t3xld"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://🍋images/🪑grayscale/1280x720/ending.png" id="28_i8h8k"]
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="29_ghcy1"]
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="30_tx773"]
 [ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="31_muky1"]
-[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://downloads_from_🍉key_config/🌏Musician_🌏BgMusics_📂🍉key_config.tscn" id="32_ydci0"]
-[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://downloads_from_🍉key_config/🌏Musician_🌏SoundFX_📂🍉key_config.tscn" id="37_3vkfu"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/programs_hub.gd" id="41_xkso2"]
-[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://downloads_from_🍉key_config/🌏Programmer_🛩ProgramsHub_📄nodes.tscn" id="42_pytk4"]
+[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/🌏Director.tscn" id="43_1kc47"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/switch_department.gd" id="44_c0141"]
 [ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="48_niso1"]
 [ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="49_2oco3"]
@@ -24,10 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://crgd8anicn08x" path="res://🌏ScenarioWriter_📗ビジュアルノベル部門.tscn" id="57_7j2fj"]
 [ext_resource type="PackedScene" uid="uid://h1gka1sqmc0q" path="res://🌏ScenarioWriter_📗会話システムメニュー部門.tscn" id="58_frjxl"]
 [ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="59_3xfks"]
-[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="62_y1sjv"]
 [ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="63_346vi"]
 [ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/medium_thick.tres" id="64_105ln"]
-[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="64_pfjh7"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="65_6texa"]
 [ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/x_large.tres" id="65_qa1vg"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/text_block.gd" id="65_y1lq6"]
@@ -36,7 +35,6 @@
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="68_4axfk"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="68_8n3x2"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/🌏TelopCoordinator.tscn" id="68_rpnem"]
-[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/🌏Director_🛩️KeyConfigHub.tscn" id="69_f0h55"]
 [ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="69_r34s8"]
 [ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="70_yopg3"]
 [ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="76_lqesr"]
@@ -143,10 +141,6 @@ visible = false
 position = Vector2(640, 360)
 texture = ExtResource("26_ljpku")
 
-[node name="🗻崎川駅前" type="Sprite2D" parent="🌏Illustrator"]
-position = Vector2(640, 360)
-texture = ExtResource("27_7rlfr")
-
 [node name="🗻エンディング" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
 position = Vector2(640, 360)
@@ -173,18 +167,6 @@ texture = ExtResource("31_muky1")
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_ojm4j")
-
-[node name="■上_大" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("62_y1sjv")
-
-[node name="■下" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("64_pfjh7")
 
 [node name="■中央" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
@@ -251,34 +233,36 @@ position = Vector2(735, 320)
 scale = Vector2(0.596059, 0.596059)
 texture = ExtResource("80_vkv42")
 
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Illustrator"]
+
+[node name="📂🍉KeyConfig" parent="🌏Illustrator" instance=ExtResource("21_wljdh")]
+
 [node name="🌏Musician" type="Node" parent="."]
 
 [node name="🌏BgMusics" type="Node" parent="🌏Musician"]
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
-
 [node name="📂🍉VisualNovel" parent="🌏Musician/🌏BgMusics" instance=ExtResource("24_8oncv")]
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
 
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("32_ydci0")]
+[node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("23_5bwgy")]
 
 [node name="🌏SoundFX" type="Node" parent="🌏Musician"]
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
-
 [node name="📂🍉VisualNovel" parent="🌏Musician/🌏SoundFX" instance=ExtResource("26_hgiuu")]
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
 
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏SoundFX" instance=ExtResource("37_3vkfu")]
+[node name="📂🍉KeyConfig" parent="🌏Musician/🌏SoundFX" instance=ExtResource("25_4re2d")]
 
 [node name="🌏Programmer" type="Node" parent="."]
 
 [node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
 script = ExtResource("41_xkso2")
 
-[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("42_pytk4")]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Programmer/🛩️ProgramsHub"]
+
+[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("27_t3xld")]
 
 [node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
 
@@ -747,8 +731,10 @@ text = "▶"
 label_settings = ExtResource("68_8n3x2")
 script = ExtResource("66_oe5n6")
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏TelopCoordinator"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏TelopCoordinator"]
 
-[node name="Ｔキーコンフィグ" parent="🌏TelopCoordinator" instance=ExtResource("68_rpnem")]
+[node name="📂🍉KeyConfig" parent="🌏TelopCoordinator" instance=ExtResource("68_rpnem")]
 
-[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("69_f0h55")]
+[node name="ーーーーアドオンーーーー" type="Node" parent="."]
+
+[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("43_1kc47")]
