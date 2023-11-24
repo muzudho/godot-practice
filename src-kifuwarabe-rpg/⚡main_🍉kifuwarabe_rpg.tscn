@@ -1,56 +1,48 @@
-[gd_scene load_steps=86 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=64 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg_local/director.gd" id="1_u2dch"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
 [ext_resource type="Texture2D" uid="uid://bfjtuxbo3tuqn" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_rrmg8"]
-[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://🍋images/🪑grayscale/1280x720/event_room.png" id="25_aycb2"]
-[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://🍋images/🪑grayscale/1280x720/in_front_of_sakiwaka_station.png" id="26_4dvmr"]
-[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://🍋images/🪑grayscale/1280x720/ending.png" id="27_gypff"]
-[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="28_lwuey"]
-[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="29_s5ma0"]
-[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="30_jo83x"]
+[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://downloads_from_🍉key_config/🌏Illustrator.tscn" id="27_dp8m2"]
+[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://downloads_from_🍉visual_novel/🌏Illustrator.tscn" id="28_iuuq5"]
 [ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://🍋images/🪑grayscale/1280x720/battle_scene_3.png" id="31_3w7mi"]
 [ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_1.png" id="32_l43dy"]
 [ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_2.png" id="33_63jpw"]
+[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://downloads_from_🍉key_config/🌏Musician_🌏BgMusics.tscn" id="34_3hqwd"]
 [ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_3.png" id="34_x34j5"]
+[ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://downloads_from_🍉visual_novel/🌏Musician_🌏BgMusics.tscn" id="35_65fhg"]
 [ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_4.png" id="35_jcaiw"]
 [ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_5.png" id="36_1keft"]
+[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://downloads_from_🍉key_config/🌏Musician_🌏SoundFX.tscn" id="37_nknd3"]
 [ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_6.png" id="37_tdxrv"]
+[ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://downloads_from_🍉visual_novel/🌏Musician_🌏SoundFX.tscn" id="38_kb7xl"]
 [ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_7.png" id="38_vlm38"]
 [ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_8.png" id="39_nr2kt"]
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="40_25lxp"]
+[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://downloads_from_🍉key_config/🌏Programmer_🛩ProgramsHub.tscn" id="40_dv74k"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_rock28.ogg" id="41_2y5jy"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
-[ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://downloads_from_🍉visual_novel/🌏Musician_🌏BgMusics_📂🍉VisualNovel.tscn" id="41_v5ypx"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉visual_novel/🌏Programmer.tscn" id="41_kb3a0"]
 [ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_cyber06.ogg" id="42_j4tsf"]
+[ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://downloads_from_🍉visual_novel/🌏ScenarioWriter_＋🛩️scenario_writers_hub.tscn" id="42_lg1ip"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
-[ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://downloads_from_🍉visual_novel/🌏Musician_🌏SoundFX_📂🍉visual_novel.tscn" id="43_7nbsh"]
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_neorock14.ogg" id="43_k3tfj"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_orchestra12.ogg" id="44_beusv"]
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_event17.ogg" id="45_dlghs"]
-[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="47_nlh77"]
+[ext_resource type="PackedScene" uid="uid://7owsgytxxeua" path="res://downloads_from_🍉visual_novel/🌏ScenarioWriter.tscn" id="47_8cd71"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_magic_fire11.ogg" id="48_nxrfb"]
-[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="48_xknfu"]
-[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://downloads_from_🍉key_config/🌏Musician_🌏BgMusics_📂🍉key_config.tscn" id="49_3jcrv"]
-[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://downloads_from_🍉key_config/🌏Musician_🌏SoundFX_📂🍉key_config.tscn" id="54_aeutl"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg_local/programs_hub.gd" id="58_5qams"]
-[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://downloads_from_🍉key_config/🌏Programmer_🛩ProgramsHub_📄nodes.tscn" id="58_d26ev"]
+[ext_resource type="PackedScene" uid="uid://7d1c4sgwele3" path="res://downloads_from_🍉visual_novel/🌏TelopCoordinator.tscn" id="58_gje64"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
-[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://downloads_from_🍉visual_novel/🌏Programmer_📂Instructions.tscn" id="59_osg35"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="60_f7oqn"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
-[ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://downloads_from_🍉visual_novel/🌏ScenarioWriter_🛩️scenario_writers_hub.tscn" id="60_yrjnf"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_hub.gd" id="61_cfuy1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="61_tvkup"]
+[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/🌏Director.tscn" id="62_isghc"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
-[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="65_lhf23"]
-[ext_resource type="PackedScene" uid="uid://crgd8anicn08x" path="res://downloads_from_🍉visual_novel/🌏ScenarioWriter_📗ビジュアルノベル部門.tscn" id="65_ujuus"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_choices_mappings.gd" id="65_vvek8"]
-[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="66_5k2cc"]
-[ext_resource type="PackedScene" uid="uid://h1gka1sqmc0q" path="res://downloads_from_🍉visual_novel/🌏ScenarioWriter_📗会話システムメニュー部門.tscn" id="66_qwyk4"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_hub.gd" id="66_vjfnv"]
-[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="67_g74iy"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/text_block.gd" id="69_g27j5"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="69_u1h4l"]
@@ -58,75 +50,20 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_chapter_1.gd" id="70_ifrki"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
-[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="70_vliq2"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
-[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/medium_thick.tres" id="71_egutf"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/monster_data.gd" id="71_vwn1b"]
 [ext_resource type="Texture2D" uid="uid://b4s2drlxcic4g" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__18-0039--shiroBeerFace.png" id="72_seukb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer.gd" id="72_v7dgx"]
-[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/x_large.tres" id="72_v7m4c"]
-[ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="73_ran2h"]
-[ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="74_64hjs"]
-[ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="75_j1pgv"]
 [ext_resource type="LabelSettings" uid="uid://cja1nflyxbgox" path="res://🍋label_settings/🪑grayscale/medium_slategray_on_battle.tres" id="75_velos"]
-[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="76_3ghif"]
 [ext_resource type="LabelSettings" uid="uid://donpyopvts3i0" path="res://🍋label_settings/🪑grayscale/large.tres" id="76_sy2vu"]
 [ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="77_2jpbh"]
-[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="77_hfxpa"]
 [ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/medium_light_red_on_battle.tres" id="78_5timb"]
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/medium_light_yellow_on_battle.tres" id="79_4bf73"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/medium_light_green_on_battle.tres" id="80_b48gy"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://downloads_from_🍉key_config/🌏TelopCoordinator.tscn" id="81_acbnt"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/medium_light_blue_on_battle.tres" id="81_no8ah"]
-[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://downloads_from_🍉key_config/🌏Director_🛩️KeyConfigHub.tscn" id="85_1ani2"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_f3kmi"]
-line_spacing = 1.0
-font = ExtResource("47_nlh77")
-font_size = 32
-outline_size = 10
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 5
-shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_offset = Vector2(3, 3)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ts82g"]
-line_spacing = 1.0
-font = ExtResource("47_nlh77")
-font_size = 24
-outline_size = 10
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 5
-shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_offset = Vector2(3, 3)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ieh2b"]
-line_spacing = 1.0
-font = ExtResource("47_nlh77")
-font_size = 24
-outline_size = 10
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 5
-shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_offset = Vector2(3, 3)
-
-[sub_resource type="LabelSettings" id="LabelSettings_ag644"]
-line_spacing = 1.0
-font = ExtResource("47_nlh77")
-font_size = 24
-outline_size = 10
-outline_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_size = 5
-shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
-shadow_offset = Vector2(3, 3)
-
-[sub_resource type="LabelSettings" id="LabelSettings_p32rn"]
-line_spacing = 1.0
-font = ExtResource("48_xknfu")
-font_size = 20
-font_color = Color(0.85098, 0, 0.219608, 1)
 
 [node name="🌏Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
@@ -187,130 +124,50 @@ texture = ExtResource("63_a2lr3")
 script = ExtResource("61_tvkup")
 
 [node name="🌏Illustrator" type="Node2D" parent="."]
-visible = false
 
-[node name="ーーーー背景ーーーー" type="Node" parent="🌏Illustrator"]
-
-[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("25_aycb2")
-
-[node name="🗻崎川駅前" type="Sprite2D" parent="🌏Illustrator"]
-position = Vector2(640, 360)
-texture = ExtResource("26_4dvmr")
-
-[node name="🗻エンディング" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("27_gypff")
-
-[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("28_lwuey")
-
-[node name="🗻川堀町線ロード" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("29_s5ma0")
-
-[node name="🗻ツツジロード" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("30_jo83x")
+[node name="ーーーー戦闘HUD（Ｚ＝９００）ーーーー" type="Node" parent="🌏Illustrator"]
 
 [node name="🗻戦闘シーン" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
+z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("31_3w7mi")
 
-[node name="📂🗻戦闘開始トランジション" type="Node" parent="🌏Illustrator"]
+[node name="ーーーーモンスター顔（Ｚ＝９１０）ーーーー" type="Node" parent="🌏Illustrator"]
 
-[node name="🗻１コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="😁ヘム将棋" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("32_l43dy")
+z_index = 910
+position = Vector2(97, 70)
+scale = Vector2(0.266871, 0.266871)
+texture = ExtResource("68_8k378")
 
-[node name="🗻２コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="😁レサぽん改" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("33_63jpw")
+z_index = 910
+position = Vector2(94.5, 64.9293)
+scale = Vector2(0.191919, 0.191919)
+texture = ExtResource("69_u1h4l")
 
-[node name="🗻３コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="😁ケダック" type="Sprite2D" parent="🌏Illustrator"]
+z_index = 910
+position = Vector2(96.4521, 67.25)
+scale = Vector2(0.80137, 0.80137)
+texture = ExtResource("70_kltin")
+
+[node name="😁きふわらべ" type="Sprite2D" parent="🌏Illustrator"]
+z_index = 910
+position = Vector2(97, 129)
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("71_cminn")
+
+[node name="😁昼ビール" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("34_x34j5")
+z_index = 910
+position = Vector2(97.5, 66.525)
+scale = Vector2(0.221014, 0.197109)
+texture = ExtResource("72_seukb")
 
-[node name="🗻４コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("35_jcaiw")
-
-[node name="🗻５コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("36_1keft")
-
-[node name="🗻６コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("37_tdxrv")
-
-[node name="🗻７コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("38_vlm38")
-
-[node name="🗻８コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("39_nr2kt")
-
-[node name="🗻９コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("40_25lxp")
-
-[node name="🗻１０コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("41_j4orm")
-
-[node name="🗻１１コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("42_qrihd")
-
-[node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="🌏Illustrator"]
-
-[node name="■FullScreen" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("22_rrmg8")
-
-[node name="■上_大" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("59_4vstx")
-
-[node name="■下" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("60_ked68")
+[node name="ーーーーメッセージ・ウィンドウ（Ｚ＝１０００）ーーーー" type="Node" parent="🌏Illustrator"]
 
 [node name="■下on戦" type="Sprite2D" parent="🌏Illustrator"]
 visible = false
@@ -319,106 +176,90 @@ z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("60_ked68")
 
-[node name="■中央" type="Sprite2D" parent="🌏Illustrator"]
-visible = false
-z_index = 1000
+[node name="■下" type="Sprite2D" parent="🌏Illustrator"]
+z_index = 1
 position = Vector2(640, 360)
-texture = ExtResource("62_q6u17")
+texture = ExtResource("60_ked68")
 
-[node name="■左下" type="Sprite2D" parent="🌏Illustrator"]
+[node name="ーーーートランジション（Ｚ＝４０００）ーーーー" type="Node" parent="🌏Illustrator"]
+
+[node name="📂🗻戦闘開始トランジション" type="Node" parent="🌏Illustrator"]
+
+[node name="🗻１コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
+z_index = 4000
 position = Vector2(640, 360)
-texture = ExtResource("63_a2lr3")
+texture = ExtResource("32_l43dy")
 
-[node name="ーーーーその他のウィンドウーーーー" type="Node" parent="🌏Illustrator"]
-
-[node name="🎴中央ウィンドウ" type="Sprite2D" parent="🌏Illustrator"]
+[node name="🗻２コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
-z_index = 1000
+z_index = 4000
 position = Vector2(640, 360)
-texture = ExtResource("65_lhf23")
+texture = ExtResource("33_63jpw")
 
-[node name="ーーーーオブジェクトーーーー" type="Node" parent="🌏Illustrator"]
-
-[node name="🎴将棋盤" type="Sprite2D" parent="🌏Illustrator"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("66_5k2cc")
-
-[node name="🎴ファイルとランク" type="Sprite2D" parent="🌏Illustrator"]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("67_g74iy")
-
-[node name="ーーーーモンスター全身ーーーー" type="Node" parent="🌏Illustrator"]
-
-[node name="🐕ヘム将棋" type="Sprite2D" parent="🌏Illustrator"]
-z_index = 10
-position = Vector2(463, 325)
-texture = ExtResource("73_ran2h")
-
-[node name="🐕レサぽん改" type="Sprite2D" parent="🌏Illustrator"]
+[node name="🗻３コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
-z_index = 10
-position = Vector2(737, 271)
-scale = Vector2(0.639706, 0.639706)
-texture = ExtResource("74_64hjs")
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("34_x34j5")
 
-[node name="🐕ケダック" type="Sprite2D" parent="🌏Illustrator"]
+[node name="🗻４コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
-z_index = 10
-position = Vector2(627, 319)
-texture = ExtResource("75_j1pgv")
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("35_jcaiw")
 
-[node name="🐕きふわらべ" type="Sprite2D" parent="🌏Illustrator"]
+[node name="🗻５コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
-z_index = 10
-position = Vector2(1014, 273)
-scale = Vector2(0.625506, 0.625506)
-texture = ExtResource("76_3ghif")
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("36_1keft")
 
-[node name="🐕昼ビール" type="Sprite2D" parent="🌏Illustrator"]
-position = Vector2(735, 320)
-scale = Vector2(0.596059, 0.596059)
-texture = ExtResource("77_hfxpa")
-
-[node name="ーーーーモンスター顔ーーーー" type="Node" parent="🌏Illustrator"]
-
-[node name="😁ヘム将棋" type="Sprite2D" parent="🌏Illustrator"]
+[node name="🗻６コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
-position = Vector2(97, 70)
-scale = Vector2(0.266871, 0.266871)
-texture = ExtResource("68_8k378")
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("37_tdxrv")
 
-[node name="😁レサぽん改" type="Sprite2D" parent="🌏Illustrator"]
+[node name="🗻７コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
-position = Vector2(94.5, 64.9293)
-scale = Vector2(0.191919, 0.191919)
-texture = ExtResource("69_u1h4l")
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("38_vlm38")
 
-[node name="😁ケダック" type="Sprite2D" parent="🌏Illustrator"]
-position = Vector2(96.4521, 67.25)
-scale = Vector2(0.80137, 0.80137)
-texture = ExtResource("70_kltin")
-
-[node name="😁きふわらべ" type="Sprite2D" parent="🌏Illustrator"]
-position = Vector2(97, 129)
-scale = Vector2(0.1875, 0.1875)
-texture = ExtResource("71_cminn")
-
-[node name="😁昼ビール" type="Sprite2D" parent="🌏Illustrator"]
+[node name="🗻８コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
-position = Vector2(97.5, 66.525)
-scale = Vector2(0.221014, 0.197109)
-texture = ExtResource("72_seukb")
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("39_nr2kt")
+
+[node name="🗻９コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("40_25lxp")
+
+[node name="🗻１０コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("41_j4orm")
+
+[node name="🗻１１コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 4000
+position = Vector2(640, 360)
+texture = ExtResource("42_qrihd")
+
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Illustrator"]
+
+[node name="📂🍉KeyConfig" parent="🌏Illustrator" instance=ExtResource("27_dp8m2")]
+
+[node name="📂🍉VisualNovel" parent="🌏Illustrator" instance=ExtResource("28_iuuq5")]
 
 [node name="🌏Musician" type="Node" parent="."]
 
 [node name="🌏BgMusics" type="Node" parent="🌏Musician"]
-
-[node name="ーーーーきふわらべRPGーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
 
 [node name="🎵バトル１" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
 stream = ExtResource("41_2y5jy")
@@ -440,43 +281,39 @@ volume_db = -15.0
 stream = ExtResource("45_dlghs")
 volume_db = -15.0
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
 
-[node name="📂🍉VisualNovel" parent="🌏Musician/🌏BgMusics" instance=ExtResource("41_v5ypx")]
+[node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("34_3hqwd")]
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
-
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("49_3jcrv")]
+[node name="📂🍉VisualNovel" parent="🌏Musician/🌏BgMusics" instance=ExtResource("35_65fhg")]
 
 [node name="🌏SoundFX" type="Node" parent="🌏Musician"]
-
-[node name="ーーーーきふわらべRPGーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
 
 [node name="🔔エンカウント音" type="AudioStreamPlayer" parent="🌏Musician/🌏SoundFX"]
 stream = ExtResource("48_nxrfb")
 volume_db = -15.0
 pitch_scale = 1.5
 
-[node name="ーーーーきふわらべVNーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
 
-[node name="📂🍉VisualNovel" parent="🌏Musician/🌏SoundFX" instance=ExtResource("43_7nbsh")]
+[node name="📂🍉KeyConfig" parent="🌏Musician/🌏SoundFX" instance=ExtResource("37_nknd3")]
 
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
-
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏SoundFX" instance=ExtResource("54_aeutl")]
+[node name="📂🍉VisualNovel" parent="🌏Musician/🌏SoundFX" instance=ExtResource("38_kb7xl")]
 
 [node name="🌏Programmer" type="Node" parent="."]
 
 [node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
 script = ExtResource("58_5qams")
 
-[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("58_d26ev")]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Programmer/🛩️ProgramsHub"]
 
-[node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("59_osg35")]
+[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("40_dv74k")]
+
+[node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("41_kb3a0")]
 
 [node name="🌏ScenarioWriter" type="Node" parent="."]
 
-[node name="🛩️ScenarioWritersHub_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("60_yrjnf")]
+[node name="🛩️ScenarioWritersHub_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("42_lg1ip")]
 
 [node name="SwitchDepartment" type="Node" parent="🌏ScenarioWriter"]
 script = ExtResource("60_f7oqn")
@@ -492,267 +329,11 @@ script = ExtResource("65_vvek8")
 [node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗バトル部門"]
 script = ExtResource("70_ifrki")
 
-[node name="📂Addon" type="Node" parent="🌏ScenarioWriter"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏ScenarioWriter"]
 
-[node name="📗会話部門_🍉VisualNovel" parent="🌏ScenarioWriter/📂Addon" instance=ExtResource("65_ujuus")]
-
-[node name="📗会話システムメニュー部門_🍉VisualNovel" parent="🌏ScenarioWriter/📂Addon" instance=ExtResource("66_qwyk4")]
+[node name="📂🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("47_8cd71")]
 
 [node name="🌏TelopCoordinator" type="CanvasLayer" parent="."]
-
-[node name="ーーーーきふわらべRPGーーーー" type="Node" parent="🌏TelopCoordinator"]
-
-[node name="Ｔタイトル" type="CanvasLayer" parent="🌏TelopCoordinator"]
-
-[node name="きふわらべRPG" type="Label" parent="🌏TelopCoordinator/Ｔタイトル"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -512.0
-offset_top = -232.0
-offset_right = 512.0
-offset_bottom = -43.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "きふわらべＲＰＧ"
-label_settings = ExtResource("72_v7m4c")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Copyright" type="Label" parent="🌏TelopCoordinator/Ｔタイトル"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -639.0
-offset_top = 305.0
-offset_right = 637.0
-offset_bottom = 356.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
-label_settings = ExtResource("70_vliq2")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Ｔエンディング" type="CanvasLayer" parent="🌏TelopCoordinator"]
-visible = false
-
-[node name="エンドロール" type="Label" parent="🌏TelopCoordinator/Ｔエンディング"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 53.0
-offset_top = -356.0
-offset_right = 542.0
-offset_bottom = 358.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "　　　　　　音楽　魔王魂
-　
-　『きふわらべファイター２』
-　　　　　　作曲　桜丸
-　
-　ゲームエンジン　Ｇｏｄｏｔ
-
-　　　　イラスト
-　　　　シナリオ
-　　　プログラム
-　　　　　　監督　むずでょ
-
-　同人サークル　ぐれーすけーる"
-label_settings = ExtResource("71_egutf")
-vertical_alignment = 1
-
-[node name="完" type="Label" parent="🌏TelopCoordinator/Ｔエンディング"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -132.0
-offset_top = 111.0
-offset_right = -4.0
-offset_bottom = 300.0
-grow_horizontal = 2
-grow_vertical = 2
-text = "完"
-label_settings = ExtResource("72_v7m4c")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Ｔ崎川駅周辺地図" type="CanvasLayer" parent="🌏TelopCoordinator"]
-visible = false
-
-[node name="NR崎川駅" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -635.0
-offset_top = -17.0
-offset_right = -442.0
-offset_bottom = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.0465592
-text = "ＮＲ 崎川駅"
-label_settings = SubResource("LabelSettings_f3kmi")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="西口" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -492.0
-offset_top = -164.0
-offset_right = -299.0
-offset_bottom = -115.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.00380094
-text = "西 口"
-label_settings = SubResource("LabelSettings_ts82g")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="東口" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -493.0
-offset_top = 93.0
-offset_right = -300.0
-offset_bottom = 142.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.141261
-text = "東 口"
-label_settings = SubResource("LabelSettings_ts82g")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="最強振興会館" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 411.0
-offset_top = -90.0
-offset_right = 604.0
-offset_bottom = -41.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.0134654
-text = "最強振興会館"
-label_settings = SubResource("LabelSettings_ieh2b")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ゾラーナ崎川プラザ" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -344.0
-offset_top = -355.0
-offset_right = -151.0
-offset_bottom = -306.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.121196
-text = "ゾラーナ崎川プラザ"
-label_settings = SubResource("LabelSettings_ag644")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="リキッドスクエア" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 323.0
-offset_top = -189.0
-offset_right = 516.0
-offset_bottom = -140.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = 0.0246742
-text = "リキッドスクエア"
-label_settings = SubResource("LabelSettings_p32rn")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="香急崎川駅" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 75.0
-offset_top = 223.0
-offset_right = 268.0
-offset_bottom = 272.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.16054
-text = "香急崎川駅"
-label_settings = SubResource("LabelSettings_ag644")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="バドバシメカラ" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 219.0
-offset_top = 127.0
-offset_right = 412.0
-offset_bottom = 176.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.11144
-text = "バドバシメカラ"
-label_settings = SubResource("LabelSettings_ag644")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="アトレ崎川" type="Label" parent="🌏TelopCoordinator/Ｔ崎川駅周辺地図"]
-visible = false
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -450.0
-offset_top = 157.0
-offset_right = -257.0
-offset_bottom = 206.0
-grow_horizontal = 2
-grow_vertical = 2
-rotation = -0.107918
-text = "アトレ崎川"
-label_settings = SubResource("LabelSettings_ag644")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="Ｔ戦闘シーン" type="CanvasLayer" parent="🌏TelopCoordinator"]
 visible = false
@@ -893,94 +474,6 @@ offset_bottom = 171.0
 text = "　　　１"
 label_settings = ExtResource("81_no8ah")
 
-[node name="MessageWindow_■FullScreen" type="CanvasLayer" parent="🌏TelopCoordinator"]
-visible = false
-
-[node name="TextBlock" type="Label" parent="🌏TelopCoordinator/MessageWindow_■FullScreen"]
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 1278.0
-offset_bottom = 721.0
-text = "表示テストだあいうえかきくけさしすせたち
-つてなにぬねはひふへまみむめやゆよ～わを
-がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("69_g27j5")
-
-[node name="BlinkerTriangle" type="Label" parent="🌏TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
-layout_mode = 0
-offset_left = 1242.0
-offset_top = 680.0
-offset_right = 1274.0
-offset_bottom = 725.0
-text = "▼"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="BlinkerUnderscore" type="Label" parent="🌏TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
-layout_mode = 0
-offset_left = 1242.0
-offset_top = 683.0
-offset_right = 1274.0
-offset_bottom = 728.0
-text = "＿"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="ChoicesCursor" type="Label" parent="🌏TelopCoordinator/MessageWindow_■FullScreen/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="MessageWindow_■下" type="CanvasLayer" parent="🌏TelopCoordinator"]
-visible = false
-
-[node name="TextBlock" type="Label" parent="🌏TelopCoordinator/MessageWindow_■下"]
-offset_left = 319.0
-offset_top = 507.0
-offset_right = 1013.0
-offset_bottom = 663.0
-text = "表示テストだあいうえかきくけさしすせたち
-つてなにぬねはひふへまみむめやゆよ～わを
-がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("69_g27j5")
-
-[node name="BlinkerTriangle" type="Label" parent="🌏TelopCoordinator/MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 643.0
-offset_top = 90.0
-offset_right = 675.0
-offset_bottom = 135.0
-text = "▼"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="BlinkerUnderscore" type="Label" parent="🌏TelopCoordinator/MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 641.0
-offset_top = 98.0
-offset_right = 673.0
-offset_bottom = 143.0
-text = "＿"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="ChoicesCursor" type="Label" parent="🌏TelopCoordinator/MessageWindow_■下/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
 [node name="MessageWindow_■下on戦" type="CanvasLayer" parent="🌏TelopCoordinator"]
 visible = false
 
@@ -1025,99 +518,11 @@ text = "▶"
 label_settings = ExtResource("77_2jpbh")
 script = ExtResource("70_epi57")
 
-[node name="MessageWindow_■中央" type="CanvasLayer" parent="🌏TelopCoordinator"]
-visible = false
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏TelopCoordinator"]
 
-[node name="TextBlock" type="Label" parent="🌏TelopCoordinator/MessageWindow_■中央"]
-offset_left = 510.0
-offset_top = 237.0
-offset_right = 824.0
-offset_bottom = 483.0
-text = "表示テストいうえ
-かきくけさしすせ
-たちつてなにぬね
-はひふへまみむ　　"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("69_g27j5")
+[node name="📂🍉KeyConfig" parent="🌏TelopCoordinator" instance=ExtResource("81_acbnt")]
 
-[node name="BlinkerTriangle" type="Label" parent="🌏TelopCoordinator/MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 230.0
-offset_top = 154.0
-offset_right = 262.0
-offset_bottom = 199.0
-text = "▼"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="BlinkerUnderscore" type="Label" parent="🌏TelopCoordinator/MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 228.0
-offset_top = 157.0
-offset_right = 260.0
-offset_bottom = 202.0
-text = "＿"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="ChoicesCursor" type="Label" parent="🌏TelopCoordinator/MessageWindow_■中央/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="MessageWindow_■左下" type="CanvasLayer" parent="🌏TelopCoordinator"]
-visible = false
-
-[node name="TextBlock" type="Label" parent="🌏TelopCoordinator/MessageWindow_■左下"]
-offset_left = 32.0
-offset_top = 508.0
-offset_right = 726.0
-offset_bottom = 700.0
-text = "表示テストだ
-あいうえおか
-きくけこさし
-すせたちつて"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("69_g27j5")
-
-[node name="BlinkerTriangle" type="Label" parent="🌏TelopCoordinator/MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 163.0
-offset_top = 140.0
-offset_right = 195.0
-offset_bottom = 185.0
-text = "▼"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="BlinkerUnderscore" type="Label" parent="🌏TelopCoordinator/MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 147.0
-offset_right = 192.0
-offset_bottom = 192.0
-text = "＿"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="ChoicesCursor" type="Label" parent="🌏TelopCoordinator/MessageWindow_■左下/TextBlock"]
-layout_mode = 0
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 33.0
-offset_bottom = 42.0
-text = "▶"
-label_settings = ExtResource("77_2jpbh")
-script = ExtResource("70_epi57")
-
-[node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏TelopCoordinator"]
-
-[node name="Ｔキーコンフィグ" parent="🌏TelopCoordinator" instance=ExtResource("81_acbnt")]
+[node name="📂🍉VisualNovel" parent="🌏TelopCoordinator" instance=ExtResource("58_gje64")]
 
 [node name="Scorer" type="Node" parent="."]
 script = ExtResource("72_v7dgx")
@@ -1128,4 +533,4 @@ script = ExtResource("70_mcty4")
 [node name="MonsterData" type="Node" parent="Scorer"]
 script = ExtResource("71_vwn1b")
 
-[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("85_1ani2")]
+[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("62_isghc")]
