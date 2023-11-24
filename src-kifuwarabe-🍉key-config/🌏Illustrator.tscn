@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://d245mt0k8bh53"]
+
+[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://🍋images/🪑grayscale/1280x720/in_front_of_sakiwaka_station.png" id="1_xwysv"]
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="2_4771a"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="3_08ghv"]
+
+[node name="📂🍉KeyConfig" type="Node"]
+
+[node name="ーーーー背景ーーーー" type="Node" parent="."]
+
+[node name="🗻崎川駅前" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("1_xwysv")
+
+[node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="."]
+
+[node name="■下" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_4771a")
+
+[node name="■上_大" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("3_08ghv")
