@@ -6,21 +6,23 @@
 
 [node name="📂🍉KeyConfig" type="Node"]
 
-[node name="ーーーー背景ーーーー" type="Node" parent="."]
+[node name="ーーーー背景（Ｚ＝０）ーーーー" type="Node" parent="."]
 
 [node name="🗻崎川駅前" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("1_xwysv")
 
-[node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="."]
+[node name="ーーーーメッセージ・ウィンドウ（Ｚ＝１０００）ーーーー" type="Node" parent="."]
 
 [node name="■下" type="Sprite2D" parent="."]
 visible = false
+z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("2_4771a")
 
 [node name="■上_大" type="Sprite2D" parent="."]
 visible = false
+z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("3_08ghv")
