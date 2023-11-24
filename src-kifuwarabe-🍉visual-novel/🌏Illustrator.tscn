@@ -1,0 +1,119 @@
+[gd_scene load_steps=17 format=3 uid="uid://b2ubr7dn0hb1m"]
+
+[ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://🍋images/🪑grayscale/1280x720/event_room.png" id="1_bkjec"]
+[ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://🍋images/🪑grayscale/1280x720/ending.png" id="2_04i5w"]
+[ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="3_8aocr"]
+[ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="4_lm548"]
+[ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="5_cj82d"]
+[ext_resource type="Texture2D" uid="uid://bsth654xqqy7c" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="6_vbtfu"]
+[ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="7_qic1n"]
+[ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="8_nk4cv"]
+[ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="9_atiwg"]
+[ext_resource type="Texture2D" uid="uid://bwg68n0qnvqvb" path="res://🍋images/🪑grayscale/0512x288/ShogiBan.png" id="10_mha8e"]
+[ext_resource type="Texture2D" uid="uid://dqxq5q0bpom30" path="res://🍋images/🪑grayscale/0512x288/file_and_rank.png" id="11_gagqq"]
+[ext_resource type="Texture2D" uid="uid://cdt5hnyr8emu1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2317--Hamu.png" id="12_fiw8p"]
+[ext_resource type="Texture2D" uid="uid://cavm1ndrs74w1" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2226--resakai.png" id="13_nx5o7"]
+[ext_resource type="Texture2D" uid="uid://dovi8ulepkxf8" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2320--Kodack.png" id="14_gffge"]
+[ext_resource type="Texture2D" uid="uid://dlhgydn0tvw10" path="res://🍋images/🪑grayscale/monsters/202310__godot__15-2339--Kifuwarabe.png" id="15_m8r1r"]
+[ext_resource type="Texture2D" uid="uid://dih8hkurgnfir" path="res://🍋images/🪑grayscale/monsters/202310__godot__18-0039--shiroBeer.png" id="16_jtcae"]
+
+[node name="📂🍉VisualNovel" type="Node"]
+
+[node name="ーーーー背景ーーーー" type="Node" parent="."]
+
+[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("1_bkjec")
+
+[node name="🗻エンディング" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("2_04i5w")
+
+[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("3_8aocr")
+
+[node name="🗻川堀町線ロード" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("4_lm548")
+
+[node name="🗻ツツジロード" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("5_cj82d")
+
+[node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="."]
+
+[node name="■FullScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("6_vbtfu")
+
+[node name="■中央" type="Sprite2D" parent="."]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("7_qic1n")
+
+[node name="■左下" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("8_nk4cv")
+
+[node name="ーーーーその他のウィンドウーーーー" type="Node" parent="."]
+
+[node name="🎴中央ウィンドウ" type="Sprite2D" parent="."]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("9_atiwg")
+
+[node name="ーーーーオブジェクトーーーー" type="Node" parent="."]
+
+[node name="🎴将棋盤" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("10_mha8e")
+
+[node name="🎴ファイルとランク" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(640, 272)
+texture = ExtResource("11_gagqq")
+
+[node name="ーーーーモンスター全身ーーーー" type="Node" parent="."]
+
+[node name="🐕ヘム将棋" type="Sprite2D" parent="."]
+z_index = 10
+position = Vector2(463, 325)
+texture = ExtResource("12_fiw8p")
+
+[node name="🐕レサぽん改" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+position = Vector2(737, 271)
+scale = Vector2(0.639706, 0.639706)
+texture = ExtResource("13_nx5o7")
+
+[node name="🐕ケダック" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+position = Vector2(627, 319)
+texture = ExtResource("14_gffge")
+
+[node name="🐕きふわらべ" type="Sprite2D" parent="."]
+visible = false
+z_index = 10
+position = Vector2(1014, 273)
+scale = Vector2(0.625506, 0.625506)
+texture = ExtResource("15_m8r1r")
+
+[node name="🐕昼ビール" type="Sprite2D" parent="."]
+position = Vector2(735, 320)
+scale = Vector2(0.596059, 0.596059)
+texture = ExtResource("16_jtcae")

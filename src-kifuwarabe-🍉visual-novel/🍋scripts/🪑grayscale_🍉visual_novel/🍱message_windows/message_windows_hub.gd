@@ -28,7 +28,7 @@ func get_programs_hub():
 
 # キャンバス・レイヤー取得
 func get_canvas_layer(message_window_name):
-	return self.get_director().get_node("🌏TelopCoordinator/MessageWindow_" + message_window_name)
+	return self.get_programs_hub().telops.find_node("MessageWindow_" + message_window_name)
 
 
 # テキストブロック

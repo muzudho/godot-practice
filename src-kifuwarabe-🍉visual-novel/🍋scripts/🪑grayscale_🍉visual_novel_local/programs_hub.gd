@@ -12,7 +12,10 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 
 # 監督取得
 func get_director():
-	return $"../../../🌏Director"
+	return MonkeyHelper.find_ancestor(
+			self,
+			&"🌏Director",
+			self.ancestors)
 
 
 # イラストレーター取得
@@ -174,6 +177,9 @@ func _ready():
 # ーーーーーーーー
 # 共通メモリ関連
 # ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
 
 # BGMノードのキャッシュ
 var bg_musics = null

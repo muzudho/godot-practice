@@ -1,0 +1,518 @@
+[gd_scene load_steps=16 format=3 uid="uid://7d1c4sgwele3"]
+
+[ext_resource type="LabelSettings" uid="uid://bxfp11qlgp84q" path="res://🍋label_settings/🪑grayscale/x_large.tres" id="1_cmj1v"]
+[ext_resource type="LabelSettings" uid="uid://bngcpl7weake8" path="res://🍋label_settings/🪑grayscale/medium_thick.tres" id="2_ilxpb"]
+[ext_resource type="LabelSettings" uid="uid://dxnccgjo7wqga" path="res://🍋label_settings/🪑grayscale/medium_thin.tres" id="3_33htm"]
+[ext_resource type="FontFile" uid="uid://dvl62tovxmupk" path="res://🍋fonts/🪑mplus/Mplus2-Regular.otf" id="4_y64j6"]
+[ext_resource type="FontFile" uid="uid://bt4nkr8e52kvc" path="res://🍋fonts/🪑mplus/Mplus2-Bold.otf" id="5_jkaiw"]
+[ext_resource type="LabelSettings" uid="uid://m8dj47wqvbg7" path="res://🍋label_settings/🪑grayscale/medium.tres" id="6_igvtw"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/text_block.gd" id="7_o5oko"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/end_of_message_blinker.gd" id="8_lmq0q"]
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="9_80ig2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_f3kmi"]
+line_spacing = 1.0
+font = ExtResource("4_y64j6")
+font_size = 32
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ts82g"]
+line_spacing = 1.0
+font = ExtResource("4_y64j6")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ieh2b"]
+line_spacing = 1.0
+font = ExtResource("4_y64j6")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ag644"]
+line_spacing = 1.0
+font = ExtResource("4_y64j6")
+font_size = 24
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 5
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p32rn"]
+line_spacing = 1.0
+font = ExtResource("5_jkaiw")
+font_size = 20
+font_color = Color(0.85098, 0, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vfubr"]
+line_spacing = 8.0
+font = ExtResource("9_80ig2")
+font_size = 32
+font_color = Color(0.972549, 0.972549, 0.972549, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 4
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)
+
+[node name="📂🍉VisualNovel" type="Node"]
+
+[node name="Ｔタイトル" type="CanvasLayer" parent="."]
+
+[node name="きふわらべＲＰＧ" type="Label" parent="Ｔタイトル"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.0
+offset_top = -232.0
+offset_right = 512.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "きふわらべＲＰＧ"
+label_settings = ExtResource("1_cmj1v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="サブタイトル" type="Label" parent="Ｔタイトル"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -568.0
+offset_top = -110.0
+offset_right = 584.0
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "～ Computer shogi story of the race of the bottom ～"
+label_settings = ExtResource("2_ilxpb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Copyright" type="Label" parent="Ｔタイトル"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -639.0
+offset_top = 305.0
+offset_right = 637.0
+offset_bottom = 356.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "(C) 2023 同人サークルぐれーすけーる／むずでょ　音楽：(C) 魔王魂, 桜丸"
+label_settings = ExtResource("3_33htm")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ｔエンディング" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="エンドロール" type="Label" parent="Ｔエンディング"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 53.0
+offset_top = -356.0
+offset_right = 542.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "　　　　　　音楽　魔王魂
+　
+　『きふわらべファイター２』
+　　　　　　作曲　桜丸
+　
+　ゲームエンジン　Ｇｏｄｏｔ
+
+　　　　イラスト
+　　　　シナリオ
+　　　プログラム
+　　　　　　監督　むずでょ
+
+　同人サークル　ぐれーすけーる"
+label_settings = ExtResource("2_ilxpb")
+vertical_alignment = 1
+
+[node name="完" type="Label" parent="Ｔエンディング"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = 111.0
+offset_right = -4.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "完"
+label_settings = ExtResource("1_cmj1v")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Ｔ崎川駅周辺地図" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="NR崎川駅" type="Label" parent="Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -635.0
+offset_top = -17.0
+offset_right = -442.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.0465592
+text = "ＮＲ 崎川駅"
+label_settings = SubResource("LabelSettings_f3kmi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="西口" type="Label" parent="Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = -164.0
+offset_right = -299.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.00380094
+text = "西 口"
+label_settings = SubResource("LabelSettings_ts82g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="東口" type="Label" parent="Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -493.0
+offset_top = 93.0
+offset_right = -300.0
+offset_bottom = 142.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.141261
+text = "東 口"
+label_settings = SubResource("LabelSettings_ts82g")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="最強振興会館" type="Label" parent="Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 411.0
+offset_top = -90.0
+offset_right = 604.0
+offset_bottom = -41.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0134654
+text = "最強振興会館"
+label_settings = SubResource("LabelSettings_ieh2b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ゾラーナ崎川プラザ" type="Label" parent="Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = -355.0
+offset_right = -151.0
+offset_bottom = -306.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.121196
+text = "ゾラーナ崎川プラザ"
+label_settings = SubResource("LabelSettings_ag644")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="リキッドスクエア" type="Label" parent="Ｔ崎川駅周辺地図"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 323.0
+offset_top = -189.0
+offset_right = 516.0
+offset_bottom = -140.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.0246742
+text = "リキッドスクエア"
+label_settings = SubResource("LabelSettings_p32rn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="香急崎川駅" type="Label" parent="Ｔ崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.0
+offset_top = 223.0
+offset_right = 268.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.16054
+text = "香急崎川駅"
+label_settings = SubResource("LabelSettings_ag644")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="バドバシメカラ" type="Label" parent="Ｔ崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 219.0
+offset_top = 127.0
+offset_right = 412.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.11144
+text = "バドバシメカラ"
+label_settings = SubResource("LabelSettings_ag644")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="アトレ崎川" type="Label" parent="Ｔ崎川駅周辺地図"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -450.0
+offset_top = 157.0
+offset_right = -257.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.107918
+text = "アトレ崎川"
+label_settings = SubResource("LabelSettings_ag644")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MessageWindow_■FullScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextBlock" type="Label" parent="MessageWindow_■FullScreen"]
+offset_left = 3.0
+offset_right = 1278.0
+offset_bottom = 720.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("7_o5oko")
+
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■FullScreen/TextBlock"]
+layout_mode = 0
+offset_left = 1246.0
+offset_top = 686.0
+offset_right = 1278.0
+offset_bottom = 731.0
+text = "▼"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■FullScreen/TextBlock"]
+layout_mode = 0
+offset_left = 1242.0
+offset_top = 685.0
+offset_right = 1274.0
+offset_bottom = 730.0
+text = "＿"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="ChoicesCursor" type="Label" parent="MessageWindow_■FullScreen/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = SubResource("LabelSettings_vfubr")
+script = ExtResource("8_lmq0q")
+
+[node name="MessageWindow_■下" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextBlock" type="Label" parent="MessageWindow_■下"]
+offset_left = 319.0
+offset_top = 507.0
+offset_right = 1013.0
+offset_bottom = 663.0
+text = "表示テストだあいうえかきくけさしすせたち
+つてなにぬねはひふへまみむめやゆよ～わを
+がぎざじずぜだぢづでばぶびべぱぴぷぺぐげ"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("7_o5oko")
+
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■下/TextBlock"]
+visible = false
+layout_mode = 0
+offset_left = 643.0
+offset_top = 90.0
+offset_right = 675.0
+offset_bottom = 135.0
+text = "▼"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■下/TextBlock"]
+visible = false
+layout_mode = 0
+offset_left = 641.0
+offset_top = 98.0
+offset_right = 673.0
+offset_bottom = 143.0
+text = "＿"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="ChoicesCursor" type="Label" parent="MessageWindow_■下/TextBlock"]
+visible = false
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="MessageWindow_■中央" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextBlock" type="Label" parent="MessageWindow_■中央"]
+offset_left = 510.0
+offset_top = 237.0
+offset_right = 824.0
+offset_bottom = 483.0
+text = "表示テストいうえ
+かきくけさしすせ
+たちつてなにぬね
+はひふへまみむ　　"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("7_o5oko")
+
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 230.0
+offset_top = 154.0
+offset_right = 262.0
+offset_bottom = 199.0
+text = "▼"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 228.0
+offset_top = 157.0
+offset_right = 260.0
+offset_bottom = 202.0
+text = "＿"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="ChoicesCursor" type="Label" parent="MessageWindow_■中央/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="MessageWindow_■左下" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TextBlock" type="Label" parent="MessageWindow_■左下"]
+offset_left = 32.0
+offset_top = 508.0
+offset_right = 726.0
+offset_bottom = 700.0
+text = "表示テストだ
+あいうえおか
+きくけこさし
+すせたちつて"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("7_o5oko")
+
+[node name="BlinkerTriangle" type="Label" parent="MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 140.0
+offset_right = 195.0
+offset_bottom = 185.0
+text = "▼"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="BlinkerUnderscore" type="Label" parent="MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 147.0
+offset_right = 192.0
+offset_bottom = 192.0
+text = "＿"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")
+
+[node name="ChoicesCursor" type="Label" parent="MessageWindow_■左下/TextBlock"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -3.0
+offset_right = 33.0
+offset_bottom = 42.0
+text = "▶"
+label_settings = ExtResource("6_igvtw")
+script = ExtResource("8_lmq0q")

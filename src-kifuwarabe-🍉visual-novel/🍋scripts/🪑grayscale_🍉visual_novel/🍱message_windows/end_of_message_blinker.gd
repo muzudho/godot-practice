@@ -2,6 +2,14 @@
 extends Label
 
 
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
+
 # 状態機械
 var statemachine_of_end_of_message_blinker = load("res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/statemachines/end_of_message_blinker.gd").new()
 var statemachine_of_blinker = load("res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/statemachines/blinker.gd").new()
@@ -35,9 +43,17 @@ var total_seconds = 0.0
 var elapsed_seconds = 0.0
 
 
+# ーーーーーーーー
+# 外パス関連
+# ーーーーーーーー
+
+
 # 監督取得
 func get_director():
-	return $"../../../../../🌏Director"
+	return MonkeyHelper.find_ancestor(
+			self,
+			&"🌏Director",
+			self.ancestors)
 
 
 # プログラムズ・ハブ取得

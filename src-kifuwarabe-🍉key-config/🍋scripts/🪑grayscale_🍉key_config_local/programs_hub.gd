@@ -3,15 +3,6 @@ extends Node
 
 
 # ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-
-# 先祖の辞書キャッシュ
-var ancestors = {}
-
-
-# ーーーーーーーー
 # 外パス関連
 # ーーーーーーーー
 
@@ -47,6 +38,9 @@ func get_telop_coordinator():
 # ーーーーーーーー
 # 共通メモリ関連
 # ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
 
 # BGMノードのキャッシュ
 var bg_musics = null
