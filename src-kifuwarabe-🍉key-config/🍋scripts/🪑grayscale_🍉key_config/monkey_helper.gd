@@ -89,3 +89,25 @@ static func find_ancestor_child(
 		cur = cur.get_parent()
 	
 	return null
+
+
+# 祖先を調べる
+static func find_ancestor(
+		current_node,		# Node
+		target_node_name,	# StringName
+		get_cache_dictionary):
+	
+	var cur = current_node
+	var target = str(target_node_name)
+	
+	if target in get_cache_dictionary.call():
+		return get_cache_dictionary.call()[target]
+		
+	while cur != null:
+		if cur.name == target:
+			get_cache_dictionary.call()[target] = cur
+			return cur
+		
+		cur = cur.get_parent()
+	
+	return null
