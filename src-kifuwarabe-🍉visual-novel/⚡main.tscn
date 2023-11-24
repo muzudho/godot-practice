@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/director.gd" id="1_7cses"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
+[ext_resource type="PackedScene" uid="uid://bru7a2wmr7m8y" path="res://🌏GuiProgrammer_MessageWindows.tscn" id="4_qbs6l"]
 [ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🌏Illustrator.tscn" id="5_ocgan"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_hub.gd" id="21_kjvby"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://downloads_from_🍉key_config/🌏Illustrator.tscn" id="21_wljdh"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="23_0jkdi"]
 [ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://downloads_from_🍉key_config/🌏Musician_🌏BgMusics.tscn" id="23_5bwgy"]
 [ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://🌏Musician_🌏BgMusics.tscn" id="24_8oncv"]
 [ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://downloads_from_🍉key_config/🌏Musician_🌏SoundFX.tscn" id="25_4re2d"]
@@ -36,20 +36,7 @@ texture = ExtResource("2_6by5p")
 [node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("21_kjvby")
 
-[node name="■FullScreen" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
-script = ExtResource("23_0jkdi")
-
-[node name="■上_大" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
-script = ExtResource("23_0jkdi")
-
-[node name="■下" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
-script = ExtResource("23_0jkdi")
-
-[node name="■中央" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
-script = ExtResource("23_0jkdi")
-
-[node name="■左下" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
-script = ExtResource("23_0jkdi")
+[node name="📂🍉VisualNovel" parent="🌏GuiProgrammer_MessageWindows" instance=ExtResource("4_qbs6l")]
 
 [node name="🌏Illustrator" type="Node2D" parent="."]
 visible = false

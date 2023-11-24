@@ -72,7 +72,7 @@ func show_message_window(
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
-	self.hub().get_message_window_gui(node_name).set_appear_subtree(true)
+	self.hub().message_window_programs.find_node(node_name).set_appear_subtree(true)
 
 	if not is_department_entered:
 		# 現在開いている伝言窓をスナップショットに記憶
@@ -96,7 +96,7 @@ func hide_message_window(
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
-	self.hub().get_message_window_gui(node_name).set_appear_subtree(false)
+	self.hub().message_window_programs.find_node(node_name).set_appear_subtree(false)
 
 	if not is_department_leaved:
 		# 現在開いている伝言窓をスナップショットから除外

@@ -84,17 +84,6 @@ func get_instruction(
 				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
 
 
-# 伝言窓（現在、出力の対象になっているもの）
-func get_message_window_gui(
-		target_name):	# StringName
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.get_gui_programmer_message_windows(),	# 探す場所
-			func():
-				return self.cache_dictionary_for_message_window_gui)	# 結果を格納する変数
-
-
 # 全ての部門名一覧
 func get_all_department_names():
 	if self.all_department_names == null:
@@ -148,14 +137,23 @@ func search_all_instruction_codes(current_node):
 # ーーーーーーーー
 
 
+# TODO ライブラリにまとめたい
+func search_message_window_gui(current_node):
+	for child_node in current_node.get_children():
+
+		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
+		if child_node.name.begins_with("■"):
+			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
+			child_node.on_message_window_page_forward = func():
+				self.get_current_department_value().set_parse_lock(false)
+
+		elif child_node.name.begins_with("📂"):
+			self.search_message_window_gui(child_node)
+
+
 func _ready():
 	# メッセージ・ウィンドウに対応関数紐づけ
-	for message_window in self.get_gui_programmer_message_windows().get_children():
-		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
-		if message_window.name.begins_with("■"):
-			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
-			message_window.on_message_window_page_forward = func():
-				self.get_current_department_value().set_parse_lock(false)
+	self.search_message_window_gui(self.get_gui_programmer_message_windows())
 
 	# デパートメント変数辞書作成
 	for department_name in self.get_all_department_names():
@@ -183,6 +181,9 @@ var ancestors = {}
 
 # BGMノードのキャッシュ
 var bg_musics = null
+
+# メッセージ・ウィンドウ・プログラムのキャッシュ
+var message_window_programs = null
 
 # イラスト・ノードのキャッシュ
 var images = null
@@ -521,7 +522,7 @@ func get_current_message_window_gui():
 
 	var node_name = department_value.stack_of_last_displayed_message_window[-1]
 	#print("［監督］　伝言窓名：［" + node_name + "］")
-	return self.get_message_window_gui(str(node_name))
+	return self.message_window_programs.find_node(str(node_name))
 
 
 # 現在の「§」セクション設定
