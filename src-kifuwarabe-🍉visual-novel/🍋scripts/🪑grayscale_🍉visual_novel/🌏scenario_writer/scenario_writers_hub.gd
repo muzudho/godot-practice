@@ -21,7 +21,10 @@ var cached_choices_mappings = {}
 
 # 監督取得
 func get_director():
-	return $"../../../🌏Director"
+	return MonkeyHelper.find_ancestor(
+			self,
+			&"🌏Director",
+			self.ancestors)
 
 
 # プログラムズ・ハブ取得
@@ -32,6 +35,14 @@ func get_programs_hub():
 # シナリオライター取得
 func get_scenario_writer():
 	return self.get_director().get_node("🌏ScenarioWriter")
+
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
 
 
 # ーーーーーーーー

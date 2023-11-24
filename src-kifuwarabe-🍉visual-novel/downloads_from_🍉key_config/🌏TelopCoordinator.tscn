@@ -8,6 +8,7 @@
 [node name="📂🍉KeyConfig" type="Node"]
 
 [node name="Ｔキーコンフィグ" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Grid" type="Sprite2D" parent="Ｔキーコンフィグ"]
 z_index = 1000

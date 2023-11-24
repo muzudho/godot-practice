@@ -13,7 +13,10 @@ var is_fast_forward = false
 
 # 監督取得
 func get_director():
-	return $"../../../🌏Director"
+	return MonkeyHelper.find_ancestor(
+			self,
+			&"🌏Director",
+			self.ancestors)
 
 
 # 助監取得
@@ -49,6 +52,14 @@ func get_blinker_underscore(message_window_name):
 # 選択肢カーソル
 func get_choices_cursor(message_window_name):
 	return self.get_canvas_layer(message_window_name).get_node("TextBlock/ChoicesCursor")
+
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
 
 
 # ーーーーーーーー

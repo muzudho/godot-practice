@@ -22,7 +22,10 @@ var key_config = {
 
 # 監督取得
 func get_director():
-	return $"../../🌏Director"
+	return MonkeyHelper.find_ancestor(
+			self,
+			&"🌏Director",
+			self.ancestors)
 
 
 # プログラムズ・ハブ取得
@@ -53,6 +56,14 @@ func get_my_telop(node_name_str):
 # 司会進行取得
 func get_moderator():
 	return $"Moderator"
+
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
 
 
 # ーーーーーーーー
