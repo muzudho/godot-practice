@@ -126,24 +126,24 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
-[node name="🌏GuiArtist_MessageWindows" type="Node2D" parent="."]
+[node name="🌏GuiProgrammer_MessageWindows" type="Node" parent="."]
 
-[node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiArtist_MessageWindows"]
+[node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("21_kjvby")
 
-[node name="■FullScreen" type="Node" parent="🌏GuiArtist_MessageWindows"]
+[node name="■FullScreen" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("23_0jkdi")
 
-[node name="■上_大" type="Node" parent="🌏GuiArtist_MessageWindows"]
+[node name="■上_大" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("23_0jkdi")
 
-[node name="■下" type="Node" parent="🌏GuiArtist_MessageWindows"]
+[node name="■下" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("23_0jkdi")
 
-[node name="■中央" type="Node" parent="🌏GuiArtist_MessageWindows"]
+[node name="■中央" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("23_0jkdi")
 
-[node name="■左下" type="Node" parent="🌏GuiArtist_MessageWindows"]
+[node name="■左下" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("23_0jkdi")
 
 [node name="🌏Illustrator" type="Node2D" parent="."]

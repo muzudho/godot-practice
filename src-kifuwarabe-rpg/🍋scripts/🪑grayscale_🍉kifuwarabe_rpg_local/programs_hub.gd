@@ -6,37 +6,6 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 
 
 # ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-
-# 全角数字
-var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
-
-# デパートメント変数辞書（キー：StringName型）
-var departments = {}
-
-# 全部門名
-var all_department_names = null
-
-# 全命令（キー："命令名:"　値：ノード名）
-var directory_for_instruction_code_and_node_name = null
-
-# 現在の部門（StringName型）
-var current_department_name = null
-
-# 全命令（キー：ノード名　値：ノード）
-var cache_dictionary_for_instruction = {}
-
-# 全メッセージ・ウィンドウGUI
-var cache_dictionary_for_message_window_gui = {}
-
-# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
-# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
-var is_department_not_found = false
-
-
-# ーーーーーーーー
 # 親パス関連
 # ーーーーーーーー
 
@@ -52,8 +21,8 @@ func get_illustrator():
 
 
 # メッセージ・ウィンドウズ取得
-func get_message_windows_node():
-	return self.get_director().get_node("🌏GuiArtist_MessageWindows")
+func get_gui_programmer_message_windows():
+	return self.get_director().get_node("🌏GuiProgrammer_MessageWindows")
 
 
 # モンスターの全身像
@@ -118,7 +87,7 @@ func get_message_window_gui(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.get_message_windows_node(),	# 探す場所
+				return self.get_gui_programmer_message_windows(),	# 探す場所
 			func():
 				return self.cache_dictionary_for_message_window_gui)	# 結果を格納する変数
 
@@ -178,7 +147,7 @@ func search_all_instruction_codes(current_node):
 
 func _ready():
 	# メッセージ・ウィンドウに対応関数紐づけ
-	for message_window in self.get_message_windows_node().get_children():
+	for message_window in self.get_gui_programmer_message_windows().get_children():
 		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
 		if message_window.name.begins_with("■"):
 			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
@@ -200,6 +169,54 @@ func _ready():
 		department_value.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
+
+
+# ーーーーーーーー
+# 共通メモリ関連
+# ーーーーーーーー
+
+# BGMノードのキャッシュ
+var bg_musics = null
+
+# イラスト・ノードのキャッシュ
+var images = null
+
+# サウンド・エフェクト（Sound Effect, Sound FX；効果音）のキャッシュ
+var sound_fx = null
+
+# テロップのキャッシュ
+var telops = null
+
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+
+# 全角数字
+var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
+
+# デパートメント変数辞書（キー：StringName型）
+var departments = {}
+
+# 全部門名
+var all_department_names = null
+
+# 全命令（キー："命令名:"　値：ノード名）
+var directory_for_instruction_code_and_node_name = null
+
+# 現在の部門（StringName型）
+var current_department_name = null
+
+# 全命令（キー：ノード名　値：ノード）
+var cache_dictionary_for_instruction = {}
+
+# 全メッセージ・ウィンドウGUI
+var cache_dictionary_for_message_window_gui = {}
+
+# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
+# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
+var is_department_not_found = false
 
 
 # ーーーーーーーー

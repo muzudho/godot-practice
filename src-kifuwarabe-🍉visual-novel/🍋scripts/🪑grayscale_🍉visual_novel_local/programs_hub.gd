@@ -21,8 +21,8 @@ func get_illustrator():
 
 
 # メッセージ・ウィンドウズ取得
-func get_message_windows_node():
-	return self.get_director().get_node("🌏GuiArtist_MessageWindows")
+func get_gui_programmer_message_windows():
+	return self.get_director().get_node("🌏GuiProgrammer_MessageWindows")
 
 
 # モンスターの全身像
@@ -87,7 +87,7 @@ func get_message_window_gui(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.get_message_windows_node(),	# 探す場所
+				return self.get_gui_programmer_message_windows(),	# 探す場所
 			func():
 				return self.cache_dictionary_for_message_window_gui)	# 結果を格納する変数
 
@@ -147,7 +147,7 @@ func search_all_instruction_codes(current_node):
 
 func _ready():
 	# メッセージ・ウィンドウに対応関数紐づけ
-	for message_window in self.get_message_windows_node().get_children():
+	for message_window in self.get_gui_programmer_message_windows().get_children():
 		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
 		if message_window.name.begins_with("■"):
 			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除

@@ -36,8 +36,8 @@ func get_key_config_hub():
 	return $"🛩️KeyConfigHub"
 
 
-func get_message_windows_node():
-	return $"🌏GuiArtist_MessageWindows"
+func get_gui_programmer_message_windows():
+	return $"🌏GuiProgrammer_MessageWindows"
 
 
 # プログラムズ・ハブ取得
@@ -106,8 +106,6 @@ func _ready():
 	
 	# 監督自身
 	self.show()
-	# メッセージ・ウィンドウ自身
-	self.get_message_windows_node().show()
 	# イラストレーター
 	self.get_illustrator().show()
 	# テロップ
