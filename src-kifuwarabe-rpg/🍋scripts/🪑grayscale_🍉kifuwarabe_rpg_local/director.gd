@@ -20,13 +20,8 @@ var sleep_seconds = 0.0
 
 
 # ーーーーーーーー
-# 子パス関連
+# 内パス関連
 # ーーーーーーーー
-
-
-func get_background_artist():
-	return $"🌏BackgroundArtist"
-
 
 func get_grid():
 	return $"Grid"
@@ -88,23 +83,16 @@ func _ready():
 	# グリッドは隠す
 	self.get_grid().hide()
 
-	# 背景画像は全部隠す
-	for child_node in self.get_background_artist().get_children():
-		if child_node is Node2D:
-			child_node.hide()
-
-	# ウィンドウはとにかく隠す
-	#
-	#	伝言窓はとにかく隠す
-	for illust_a in self.get_illustrator().get_children():
+	# 伝言窓はとにかく隠す
+	for child_node in self.get_illustrator().get_children():
 		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
-		if illust_a.name.begins_with("■"):
-			illust_a.hide()
+		if child_node.name.begins_with("■"):
+			child_node.hide()
 	
 	# イラストレーターはとにかく隠す
-	for sprite2d_node in self.get_illustrator().get_children():
-		if sprite2d_node is Sprite2D:
-			sprite2d_node.hide()
+	for child_node in self.get_illustrator().get_children():
+		if child_node is Sprite2D:
+			child_node.hide()
 	
 	#	テロップはとにかく非表示にする
 	for canvas_layer in self.get_telop_coordinator().get_children():
@@ -117,8 +105,6 @@ func _ready():
 	
 	# 	監督自身
 	self.show()
-	# 	背景アーティスト自身
-	self.get_background_artist().show()
 	#	メッセージ・ウィンドウ自身
 	self.get_message_windows_node().show()
 	# イラストレーター
@@ -134,7 +120,7 @@ func _ready():
 
 func on_key_config_entered():
 	# 背景
-	self.get_background_artist().get_node("🗻崎川駅前").visible = true
+	self.get_programs_hub().images.find_node("🗻崎川駅前").visible = true
 
 
 func on_key_config_exited():

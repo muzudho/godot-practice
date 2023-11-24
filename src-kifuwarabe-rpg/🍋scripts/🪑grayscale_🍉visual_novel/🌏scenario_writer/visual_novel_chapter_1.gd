@@ -46,7 +46,7 @@ var scenario_document = {
 		!
 		bgm:		🎵タイトル
 		telop:		Ｔタイトル
-		bg:			🗻崎川駅前
+		img:		🗻崎川駅前
 		# 先にメッセージ・ウィンドウを指定してから、選択肢を設定してください
 		msg_wnd:		■下
 		choice:		1,2
@@ -124,8 +124,8 @@ var scenario_document = {
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
 		!
-		bg:		🗻崎川駅前, hide
-		bg:		🗻崎川駅周辺地図
+		img:	🗻崎川駅前, hide
+		img:	🗻崎川駅周辺地図
 		telop:	Ｔ崎川駅周辺地図
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -148,8 +148,8 @@ var scenario_document = {
 		"""\
 		!
 		telop:		Ｔ崎川駅周辺地図, hide
-		bg:			🗻崎川駅周辺地図,hide
-		bg:			🗻ツツジロード
+		img:		🗻崎川駅周辺地図,hide
+		img:		🗻ツツジロード
 		img:		🐕ヘム将棋
 		""",
 		"""\
@@ -187,7 +187,7 @@ var scenario_document = {
 		"""\
 		!
 		img:		🐕ヘム将棋, hide
-		bg:			🗻ツツジロード, hide
+		img:		🗻ツツジロード, hide
 		goto:		§崎川市最強振興会館
 		"""
 	],
@@ -195,7 +195,7 @@ var scenario_document = {
 		"""\
 		!
 		bgm:
-		bg:			🗻４Ｆイベントルーム
+		img:		🗻４Ｆイベントルーム
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
@@ -349,7 +349,7 @@ var scenario_document = {
 		"""\
 		!
 		bgm:	🎵エンディング
-		bg:		🗻エンディング
+		img:	🗻エンディング
 		telop:	Ｔエンディング
 		"""
 	],

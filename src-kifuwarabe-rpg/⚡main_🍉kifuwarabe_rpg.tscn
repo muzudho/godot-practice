@@ -698,110 +698,6 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_ivwoj")
 
-[node name="🌏BackgroundArtist" type="Node2D" parent="."]
-
-[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("25_aycb2")
-
-[node name="🗻崎川駅前" type="Sprite2D" parent="🌏BackgroundArtist"]
-position = Vector2(640, 360)
-texture = ExtResource("26_4dvmr")
-
-[node name="🗻エンディング" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("27_gypff")
-
-[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("28_lwuey")
-
-[node name="🗻川堀町線ロード" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("29_s5ma0")
-
-[node name="🗻ツツジロード" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("30_jo83x")
-
-[node name="🗻戦闘シーン" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("31_3w7mi")
-
-[node name="📂🗻戦闘開始トランジション" type="Node" parent="🌏BackgroundArtist"]
-
-[node name="🗻１コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("32_l43dy")
-
-[node name="🗻２コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("33_63jpw")
-
-[node name="🗻３コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("34_x34j5")
-
-[node name="🗻４コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("35_jcaiw")
-
-[node name="🗻５コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("36_1keft")
-
-[node name="🗻６コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("37_tdxrv")
-
-[node name="🗻７コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("38_vlm38")
-
-[node name="🗻８コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("39_nr2kt")
-
-[node name="🗻９コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("40_25lxp")
-
-[node name="🗻１０コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("41_j4orm")
-
-[node name="🗻１１コマ" type="Sprite2D" parent="🌏BackgroundArtist/📂🗻戦闘開始トランジション"]
-visible = false
-z_index = 900
-position = Vector2(640, 360)
-texture = ExtResource("42_qrihd")
-
 [node name="🌏GuiArtist_MessageWindows" type="Node2D" parent="."]
 script = ExtResource("61_cfuy1")
 
@@ -853,6 +749,110 @@ script = ExtResource("61_tvkup")
 
 [node name="🌏Illustrator" type="Node2D" parent="."]
 visible = false
+
+[node name="ーーーー背景ーーーー" type="Node" parent="🌏Illustrator"]
+
+[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("25_aycb2")
+
+[node name="🗻崎川駅前" type="Sprite2D" parent="🌏Illustrator"]
+position = Vector2(640, 360)
+texture = ExtResource("26_4dvmr")
+
+[node name="🗻エンディング" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("27_gypff")
+
+[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("28_lwuey")
+
+[node name="🗻川堀町線ロード" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("29_s5ma0")
+
+[node name="🗻ツツジロード" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("30_jo83x")
+
+[node name="🗻戦闘シーン" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("31_3w7mi")
+
+[node name="📂🗻戦闘開始トランジション" type="Node" parent="🌏Illustrator"]
+
+[node name="🗻１コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("32_l43dy")
+
+[node name="🗻２コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("33_63jpw")
+
+[node name="🗻３コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("34_x34j5")
+
+[node name="🗻４コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("35_jcaiw")
+
+[node name="🗻５コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("36_1keft")
+
+[node name="🗻６コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("37_tdxrv")
+
+[node name="🗻７コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("38_vlm38")
+
+[node name="🗻８コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("39_nr2kt")
+
+[node name="🗻９コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("40_25lxp")
+
+[node name="🗻１０コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("41_j4orm")
+
+[node name="🗻１１コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+visible = false
+z_index = 900
+position = Vector2(640, 360)
+texture = ExtResource("42_qrihd")
 
 [node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="🌏Illustrator"]
 

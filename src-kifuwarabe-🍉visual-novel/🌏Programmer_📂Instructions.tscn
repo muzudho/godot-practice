@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://daqtppg5rtuat"]
+[gd_scene load_steps=16 format=3 uid="uid://daqtppg5rtuat"]
 
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏programmer_📂instructions/bgm.gd" id="2_t5aeh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏programmer_📂instructions/choice.gd" id="3_04b3g"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏programmer_📂instructions/department.gd" id="4_6lqmd"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏programmer_📂instructions/goto.gd" id="5_5xr3r"]
@@ -16,6 +17,9 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏programmer_📂instructions/var.gd" id="16_0m320"]
 
 [node name="📂Instructions_🍉VisualNovel" type="Node"]
+
+[node name="📗Bgm" type="Node" parent="."]
+script = ExtResource("2_t5aeh")
 
 [node name="📗Choice" type="Node" parent="."]
 script = ExtResource("3_04b3g")

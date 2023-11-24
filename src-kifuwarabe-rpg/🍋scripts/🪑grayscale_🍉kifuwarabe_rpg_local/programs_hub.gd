@@ -46,11 +46,6 @@ func get_director():
 	return $"../../../🌏Director"
 
 
-# 背景アーティスト
-func get_background_artist():
-	return self.get_director().get_node("🌏BackgroundArtist")
-
-
 # イラストレーター取得
 func get_illustrator():
 	return self.get_director().get_node("🌏Illustrator")
@@ -244,7 +239,7 @@ func parse_paragraph(paragraph_text):
 				pass
 
 			else:
-				# `bg:` といったコードから、 `📗Bg` といった命令ノードを検索し、それを実行します
+				# `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
 				if instruction_code in self.directory_for_instruction_code_and_node_name:
 					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
 					var instruction = self.get_instruction(instruction_node_name)
