@@ -18,7 +18,7 @@
 
 [node name="📂Instructions_🍉VisualNovel" type="Node"]
 
-[node name="📗Bgm" type="Node" parent="."]
+[node name="📗BgMusic" type="Node" parent="."]
 script = ExtResource("2_t5aeh")
 
 [node name="📗Choice" type="Node" parent="."]

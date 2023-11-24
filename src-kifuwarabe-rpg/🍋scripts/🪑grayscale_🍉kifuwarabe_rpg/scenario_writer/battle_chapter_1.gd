@@ -55,8 +55,8 @@ var scenario_document = {
 		var:		%clear%
 		var:		arg_bg_out				,🗻ツツジロード
 		var:		arg_bg_in				,🗻ツツジロード
-		var:		arg_battle_bgm			,🎵バトル１
-		var:		arg_battle_bgm_from		,8.6
+		var:		arg_battle_bg_music			,🎵バトル１
+		var:		arg_battle_bg_music_from		,8.6
 		var:		arg_sente_monster_name	,きふわらべ
 		var:		arg_gote_monster_name	,ヘム将棋
 		var:		arg_monster_body		,🐕ヘム将棋
@@ -75,8 +75,8 @@ var scenario_document = {
 		var:		%clear%
 		var:		arg_bg_out				,🗻ツツジロード
 		var:		arg_bg_in				,🗻ツツジロード
-		var:		arg_battle_bgm			,🎵バトル２
-		var:		arg_battle_bgm_from		,0.0
+		var:		arg_battle_bg_music			,🎵バトル２
+		var:		arg_battle_bg_music_from		,0.0
 		var:		arg_sente_monster_name	,きふわらべ
 		var:		arg_gote_monster_name	,ケダック
 		var:		arg_monster_body		,🐕ケダック
@@ -95,8 +95,8 @@ var scenario_document = {
 		var:		%clear%
 		var:		arg_bg_out				,🗻ツツジロード
 		var:		arg_bg_in				,🗻川堀町線ロード
-		var:		arg_battle_bgm			,🎵バトル３
-		var:		arg_battle_bgm_from		,0.0
+		var:		arg_battle_bg_music			,🎵バトル３
+		var:		arg_battle_bg_music_from		,0.0
 		var:		arg_sente_monster_name	,きふわらべ
 		var:		arg_gote_monster_name	,レサぽん改
 		var:		arg_monster_body		,🐕レサぽん改
@@ -116,8 +116,8 @@ var scenario_document = {
 		var:		%clear%
 		var:		arg_bg_out				,🗻川堀町線ロード
 		var:		arg_bg_in				,🗻川堀町線ロード
-		var:		arg_battle_bgm			,🎵バトル４
-		var:		arg_battle_bgm_from		,0.0
+		var:		arg_battle_bg_music			,🎵バトル４
+		var:		arg_battle_bg_music_from		,0.0
 		var:		arg_sente_monster_name	,きふわらべ
 		var:		arg_gote_monster_name	,昼ビール
 		var:		arg_monster_body		,🐕昼ビール
@@ -185,7 +185,7 @@ var scenario_document = {
 		#
 		"""\
 		!
-		bgm:
+		bg_music:
 		se:				🔔エンカウント音
 		sleep:			0.15
 		""",
@@ -294,7 +294,7 @@ var scenario_document = {
 	"§定刻": [
 		"""\
 		!
-		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
+		bg_music:			{{arg_battle_bg_music}}	,{{arg_battle_bg_music_from}}
 		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
@@ -437,7 +437,7 @@ var scenario_document = {
 	"§先手の投了":[
 		"""\
 		!
-		bgm:			🎵負け
+		bg_music:			🎵負け
 		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
@@ -472,7 +472,7 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		bgm:			🎵負け
+		bg_music:			🎵負け
 		""",
 		"""\
 		{{arg_sente_monster_name}}
@@ -630,7 +630,7 @@ var scenario_document = {
 		# 画面設定
 		"""\
 		!
-		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
+		bg_music:			{{arg_battle_bg_music}}	,{{arg_battle_bg_music_from}}
 		msg_wnd:		■下on戦
 		""",
 		# 戦闘開始
@@ -652,7 +652,7 @@ var scenario_document = {
 		# 画面設定
 		"""\
 		!
-		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
+		bg_music:			{{arg_battle_bg_music}}	,{{arg_battle_bg_music_from}}
 		msg_wnd:		■下on戦
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -674,7 +674,7 @@ var scenario_document = {
 		# 画面設定
 		"""\
 		!
-		bgm:			{{arg_battle_bgm}}	,{{arg_battle_bgm_from}}
+		bg_music:			{{arg_battle_bg_music}}	,{{arg_battle_bg_music_from}}
 		msg_wnd:		■下on戦
 		""",
 		# ２３４５６７８９０１２３４５６７８９０

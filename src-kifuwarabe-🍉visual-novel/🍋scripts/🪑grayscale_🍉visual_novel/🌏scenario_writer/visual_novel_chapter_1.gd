@@ -44,7 +44,7 @@ var scenario_document = {
 	"§タイトル画面":[
 		"""\
 		!
-		bgm:		🎵タイトル
+		bg_music:		🎵タイトル
 		telop:		Ｔタイトル
 		img:		🗻崎川駅前
 		# 先にメッセージ・ウィンドウを指定してから、選択肢を設定してください
@@ -194,7 +194,7 @@ var scenario_document = {
 	"§崎川市最強振興会館":[
 		"""\
 		!
-		bgm:
+		bg_music:
 		img:		🗻４Ｆイベントルーム
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -256,7 +256,7 @@ var scenario_document = {
 		# 音楽鳴らす
 		"""\
 		!
-		bgm: 🎵きふわらべファイター２
+		bg_music: 🎵きふわらべファイター２
 		""",
 		"""\
 		きふわらべ
@@ -286,7 +286,7 @@ var scenario_document = {
 		# 無音にする
 		"""\
 		!
-		bgm:
+		bg_music:
 		""",
 		"""\
 		ひよ子
@@ -348,7 +348,7 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		bgm:	🎵エンディング
+		bg_music:	🎵エンディング
 		img:	🗻エンディング
 		telop:	Ｔエンディング
 		"""

@@ -9,7 +9,7 @@ var current_state = &"WaitForKeyConfig"
 
 
 # 現在鳴っている背景音楽のノード名
-var current_bgm_name = null
+var current_bg_music_name = null
 # 現在鳴っている効果音のノード名
 var current_se_name = null
 
