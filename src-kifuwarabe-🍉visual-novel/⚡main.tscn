@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=63 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/director.gd" id="1_7cses"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -10,24 +10,21 @@
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_neorock14.ogg" id="14_caegp"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_orchestra12.ogg" id="15_i5oj7"]
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bgm/🪑maou_audio/maou_game_event17.ogg" id="16_kxcrf"]
-[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🍋audio_bgm/🪑maou_audio/maou_bgm_cyber36.ogg" id="17_807s4"]
 [ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://🍋audio_se/🪑maou_audio/maou_se_sound17.ogg" id="18_ycwla"]
 [ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🍋audio_se/🪑maou_audio/maou_se_sound19.ogg" id="19_myb2y"]
 [ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_switch02.ogg" id="20_nrumj"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_se/🪑maou_audio/maou_se_magic_fire11.ogg" id="21_dmsb3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_hub.gd" id="21_kjvby"]
-[ext_resource type="AudioStream" uid="uid://e0olmiofgu0i" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_door02.ogg" id="22_4mqug"]
 [ext_resource type="Texture2D" uid="uid://bsth654xqqy7c" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_ojm4j"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="23_0jkdi"]
-[ext_resource type="AudioStream" uid="uid://ca1bd4eif8lxj" path="res://🍋audio_se/🪑maou_audio/maou_se_system12.ogg" id="23_n7qgt"]
-[ext_resource type="AudioStream" uid="uid://spjfguf4xfp" path="res://🍋audio_se/🪑maou_audio/maou_se_onepoint32.ogg" id="24_wis4x"]
-[ext_resource type="AudioStream" uid="uid://cdj5d7qvlq6cs" path="res://🍋audio_se/🪑maou_audio/maou_se_magic_fire09.ogg" id="25_oxlb4"]
 [ext_resource type="Texture2D" uid="uid://dcao5gmtt113o" path="res://🍋images/🪑grayscale/1280x720/event_room.png" id="26_ljpku"]
 [ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://🍋images/🪑grayscale/1280x720/in_front_of_sakiwaka_station.png" id="27_7rlfr"]
 [ext_resource type="Texture2D" uid="uid://nkj3xedigtox" path="res://🍋images/🪑grayscale/1280x720/ending.png" id="28_i8h8k"]
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="29_ghcy1"]
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="30_tx773"]
 [ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="31_muky1"]
+[ext_resource type="PackedScene" path="res://downloads_from_🍉key_config/🌏Musician_🌏BgMusics_📂🍉key_config.tscn" id="32_ydci0"]
+[ext_resource type="PackedScene" path="res://downloads_from_🍉key_config/🌏Musician_🌏SoundFX_📂🍉key_config.tscn" id="37_3vkfu"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/programs_hub.gd" id="41_xkso2"]
 [ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://downloads_from_🍉key_config/🌏Programmer_🛩ProgramsHub_📄nodes.tscn" id="42_pytk4"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/switch_department.gd" id="44_c0141"]
@@ -304,10 +301,7 @@ volume_db = -15.0
 
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
 
-[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
-stream = ExtResource("17_807s4")
-volume_db = -20.0
-pitch_scale = 1.4
+[node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("32_ydci0")]
 
 [node name="🌏SoundFX" type="Node" parent="🌏Musician"]
 
@@ -331,21 +325,7 @@ pitch_scale = 1.5
 
 [node name="ーーーーキーコンフィグーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
 
-[node name="🔔キーコンフィグ受入音" type="AudioStreamPlayer" parent="🌏Musician/🌏SoundFX"]
-stream = ExtResource("22_4mqug")
-volume_db = -5.0
-
-[node name="🔔キーコンフィグ取消音" type="AudioStreamPlayer" parent="🌏Musician/🌏SoundFX"]
-stream = ExtResource("23_n7qgt")
-volume_db = -10.0
-
-[node name="🔔キーコンフィグ不可音" type="AudioStreamPlayer" parent="🌏Musician/🌏SoundFX"]
-stream = ExtResource("24_wis4x")
-volume_db = -15.0
-
-[node name="🔔キーコンフィグ完了音" type="AudioStreamPlayer" parent="🌏Musician/🌏SoundFX"]
-stream = ExtResource("25_oxlb4")
-volume_db = -15.0
+[node name="📂🍉KeyConfig" parent="🌏Musician/🌏SoundFX" instance=ExtResource("37_3vkfu")]
 
 [node name="🌏Programmer" type="Node" parent="."]
 

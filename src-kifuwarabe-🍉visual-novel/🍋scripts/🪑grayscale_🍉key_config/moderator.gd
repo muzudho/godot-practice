@@ -115,7 +115,7 @@ func on_exit():
 	self.hub().get_telop_of_key_config("TextBlock").text = ""
 	self.hub().get_telop_coordinator_key_config().hide()
 
-	# BGM 停止
+	# BGM 停止	
 	self.hub().get_programs_hub().bg_musics.find_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
