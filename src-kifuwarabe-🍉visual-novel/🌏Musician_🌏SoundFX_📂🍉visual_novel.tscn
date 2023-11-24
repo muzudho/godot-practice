@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkfvsu8du416f"]
 
-[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://🍋audio_se/🪑maou_audio/maou_se_sound17.ogg" id="1_dadji"]
-[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🍋audio_se/🪑maou_audio/maou_se_sound19.ogg" id="2_a4e72"]
-[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🍋audio_se/🪑maou_audio/maou_se_sound_switch02.ogg" id="3_c3qgk"]
+[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_sound17.ogg" id="1_dadji"]
+[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_sound19.ogg" id="2_a4e72"]
+[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_sound_switch02.ogg" id="3_c3qgk"]
 
 [node name="📂🍉VisualNovel" type="Node"]
 
