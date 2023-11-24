@@ -8,9 +8,6 @@ extends Node
 
 
 func _ready():
-	self.hub().bg_images = MonkeyHand.create(
-			self.hub().get_background_artist())	# 探す場所
-
 	self.hub().bg_musics = MonkeyHand.create(
 			self.hub().get_musician_bg_musics())		# 探す場所
 

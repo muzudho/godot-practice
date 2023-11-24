@@ -126,37 +126,6 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
-[node name="🌏BackgroundArtist" type="Node2D" parent="."]
-
-[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("26_ljpku")
-
-[node name="🗻崎川駅前" type="Sprite2D" parent="🌏BackgroundArtist"]
-position = Vector2(640, 360)
-texture = ExtResource("27_7rlfr")
-
-[node name="🗻エンディング" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("28_i8h8k")
-
-[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("29_ghcy1")
-
-[node name="🗻川堀町線ロード" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("30_tx773")
-
-[node name="🗻ツツジロード" type="Sprite2D" parent="🌏BackgroundArtist"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("31_muky1")
-
 [node name="🌏GuiArtist_MessageWindows" type="Node2D" parent="."]
 
 [node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiArtist_MessageWindows"]
@@ -179,6 +148,37 @@ script = ExtResource("23_0jkdi")
 
 [node name="🌏Illustrator" type="Node2D" parent="."]
 visible = false
+
+[node name="ーーーー背景ーーーー" type="Node" parent="🌏Illustrator"]
+
+[node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("26_ljpku")
+
+[node name="🗻崎川駅前" type="Sprite2D" parent="🌏Illustrator"]
+position = Vector2(640, 360)
+texture = ExtResource("27_7rlfr")
+
+[node name="🗻エンディング" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("28_i8h8k")
+
+[node name="🗻崎川駅周辺地図" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("29_ghcy1")
+
+[node name="🗻川堀町線ロード" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("30_tx773")
+
+[node name="🗻ツツジロード" type="Sprite2D" parent="🌏Illustrator"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("31_muky1")
 
 [node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="🌏Illustrator"]
 
