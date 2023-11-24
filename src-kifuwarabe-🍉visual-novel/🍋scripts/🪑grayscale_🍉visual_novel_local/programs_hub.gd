@@ -37,12 +37,12 @@ func get_monster_faces():
 
 # BGM取得
 func get_musician_bg_musics():
-	return self.get_director().get_node("🌏Musician_BgMusics")
+	return self.get_director().get_node("🌏Musician/🌏BgMusics")
 
 
 # SE取得
 func get_musician_sound_fx():
-	return self.get_director().get_node("🌏Musician_SoundFX")
+	return self.get_director().get_node("🌏Musician/🌏SoundFX")
 
 
 # プログラマー取得

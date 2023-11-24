@@ -50,14 +50,16 @@ script = ExtResource("7_5goiq")
 
 [node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("8_fbelh")]
 
-[node name="🌏Musician_BgMusics" type="Node" parent="."]
+[node name="🌏Musician" type="Node" parent="."]
 
-[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician_BgMusics"]
+[node name="🌏BgMusics" type="Node" parent="🌏Musician"]
+
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
 stream = ExtResource("6_x2gst")
 volume_db = -20.0
 pitch_scale = 1.4
 
-[node name="🌏Musician_SoundFX" parent="." instance=ExtResource("8_fnys3")]
+[node name="🌏SoundFX" parent="🌏Musician" instance=ExtResource("8_fnys3")]
 
 [node name="🌏TelopCoordinator" type="CanvasLayer" parent="."]
 
