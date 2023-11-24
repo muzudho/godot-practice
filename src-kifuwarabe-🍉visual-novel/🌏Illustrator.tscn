@@ -19,7 +19,7 @@
 
 [node name="📂🍉VisualNovel" type="Node"]
 
-[node name="ーーーー背景ーーーー" type="Node" parent="."]
+[node name="ーーーー背景（Ｚ＝０）ーーーー" type="Node" parent="."]
 
 [node name="🗻４Ｆイベントルーム" type="Sprite2D" parent="."]
 visible = false
@@ -46,10 +46,56 @@ visible = false
 position = Vector2(640, 360)
 texture = ExtResource("5_cj82d")
 
-[node name="ーーーーメッセージ・ウィンドウーーーー" type="Node" parent="."]
+[node name="ーーーーモンスター全身（Ｚ＝１００）ーーーー" type="Node" parent="."]
+
+[node name="🐕ヘム将棋" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(463, 325)
+texture = ExtResource("12_fiw8p")
+
+[node name="🐕レサぽん改" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+position = Vector2(737, 271)
+scale = Vector2(0.639706, 0.639706)
+texture = ExtResource("13_nx5o7")
+
+[node name="🐕ケダック" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+position = Vector2(627, 319)
+texture = ExtResource("14_gffge")
+
+[node name="🐕きふわらべ" type="Sprite2D" parent="."]
+visible = false
+z_index = 100
+position = Vector2(1014, 273)
+scale = Vector2(0.625506, 0.625506)
+texture = ExtResource("15_m8r1r")
+
+[node name="🐕昼ビール" type="Sprite2D" parent="."]
+z_index = 100
+position = Vector2(735, 320)
+scale = Vector2(0.596059, 0.596059)
+texture = ExtResource("16_jtcae")
+
+[node name="ーーーーウィンドウの中に表示（Ｚ＝９００）ーーーー" type="Node" parent="."]
+
+[node name="🎴将棋盤" type="Sprite2D" parent="."]
+z_index = 900
+position = Vector2(640, 272)
+texture = ExtResource("10_mha8e")
+
+[node name="🎴ファイルとランク" type="Sprite2D" parent="."]
+z_index = 900
+position = Vector2(640, 272)
+texture = ExtResource("11_gagqq")
+
+[node name="ーーーーメッセージ・ウィンドウ（Ｚ＝１０００）ーーーー" type="Node" parent="."]
 
 [node name="■FullScreen" type="Sprite2D" parent="."]
 visible = false
+z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("6_vbtfu")
 
@@ -66,54 +112,10 @@ z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("8_nk4cv")
 
-[node name="ーーーーその他のウィンドウーーーー" type="Node" parent="."]
+[node name="ーーーーその他のウィンドウ（Ｚ＝１０００）ーーーー" type="Node" parent="."]
 
 [node name="🎴中央ウィンドウ" type="Sprite2D" parent="."]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("9_atiwg")
-
-[node name="ーーーーオブジェクトーーーー" type="Node" parent="."]
-
-[node name="🎴将棋盤" type="Sprite2D" parent="."]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("10_mha8e")
-
-[node name="🎴ファイルとランク" type="Sprite2D" parent="."]
-z_index = 100
-position = Vector2(640, 272)
-texture = ExtResource("11_gagqq")
-
-[node name="ーーーーモンスター全身ーーーー" type="Node" parent="."]
-
-[node name="🐕ヘム将棋" type="Sprite2D" parent="."]
-z_index = 10
-position = Vector2(463, 325)
-texture = ExtResource("12_fiw8p")
-
-[node name="🐕レサぽん改" type="Sprite2D" parent="."]
-visible = false
-z_index = 10
-position = Vector2(737, 271)
-scale = Vector2(0.639706, 0.639706)
-texture = ExtResource("13_nx5o7")
-
-[node name="🐕ケダック" type="Sprite2D" parent="."]
-visible = false
-z_index = 10
-position = Vector2(627, 319)
-texture = ExtResource("14_gffge")
-
-[node name="🐕きふわらべ" type="Sprite2D" parent="."]
-visible = false
-z_index = 10
-position = Vector2(1014, 273)
-scale = Vector2(0.625506, 0.625506)
-texture = ExtResource("15_m8r1r")
-
-[node name="🐕昼ビール" type="Sprite2D" parent="."]
-position = Vector2(735, 320)
-scale = Vector2(0.596059, 0.596059)
-texture = ExtResource("16_jtcae")

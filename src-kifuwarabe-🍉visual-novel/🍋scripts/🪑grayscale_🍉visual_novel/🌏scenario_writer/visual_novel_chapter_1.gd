@@ -44,11 +44,11 @@ var scenario_document = {
 	"§タイトル画面":[
 		"""\
 		!
-		bg_music:		🎵タイトル
+		bg_music:	🎵タイトル
 		telop:		Ｔタイトル
 		img:		🗻崎川駅前
 		# 先にメッセージ・ウィンドウを指定してから、選択肢を設定してください
-		msg_wnd:		■下
+		msg_wnd:	■下
 		choice:		1,2
 		""",
 		"""\
