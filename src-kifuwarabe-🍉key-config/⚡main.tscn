@@ -43,6 +43,6 @@ script = ExtResource("7_5goiq")
 
 [node name="🌏TelopCoordinator" type="CanvasLayer" parent="."]
 
-[node name="Ｔキーコンフィグ" parent="🌏TelopCoordinator" instance=ExtResource("12_8rfor")]
+[node name="📂🍉KeyConfig" parent="🌏TelopCoordinator" instance=ExtResource("12_8rfor")]
 
 [node name="🛩️KeyConfigHub" parent="." instance=ExtResource("9_calvn")]
