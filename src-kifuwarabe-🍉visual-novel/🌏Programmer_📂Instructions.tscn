@@ -51,7 +51,7 @@ script = ExtResource("11_5jh1t")
 [node name="📗Quit" type="Node" parent="."]
 script = ExtResource("12_lqd63")
 
-[node name="📗Se" type="Node" parent="."]
+[node name="📗SoundFx" type="Node" parent="."]
 script = ExtResource("13_844xe")
 
 [node name="📗Sleep" type="Node" parent="."]

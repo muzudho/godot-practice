@@ -226,7 +226,7 @@ func reset_cursor_position():
 # カーソルが上に移動します
 func on_cursor_up(_target_index):
 	# 効果音鳴らす
-	self.get_programs_hub().get_instruction(&"📗Se").play_se("🔔選択肢カーソル移動音")
+	self.get_programs_hub().get_instruction(&"📗SoundFx").play_se("🔔選択肢カーソル移動音")
 
 	var message_window_gui = self.get_programs_hub().get_current_message_window_gui()
 
@@ -243,7 +243,7 @@ func on_cursor_up(_target_index):
 # カーソルが下に移動します
 func on_cursor_down(_target_index):
 	# 効果音鳴らす
-	self.get_programs_hub().get_instruction(&"📗Se").play_se("🔔選択肢カーソル移動音")
+	self.get_programs_hub().get_instruction(&"📗SoundFx").play_se("🔔選択肢カーソル移動音")
 
 	var message_window_gui = self.get_programs_hub().get_current_message_window_gui()
 

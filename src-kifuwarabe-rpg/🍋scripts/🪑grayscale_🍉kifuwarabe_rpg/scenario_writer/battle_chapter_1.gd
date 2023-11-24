@@ -186,7 +186,7 @@ var scenario_document = {
 		"""\
 		!
 		bg_music:
-		se:				🔔エンカウント音
+		sound_fx:				🔔エンカウント音
 		sleep:			0.15
 		""",
 		"""\
@@ -284,7 +284,7 @@ var scenario_document = {
 		# 戦闘開始
 		"""\
 		!
-		se:
+		sound_fx:
 		telop:			Ｔ戦闘シーン
 		img:			😁きふわらべ
 		img:			{{arg_monster_face}}
