@@ -11,8 +11,8 @@ extends Node
 # 状態機械
 var statemachine_of_message_window = load("res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/statemachines/message_window.gd").new()
 
-# 木登りが得意
-var monkey = Monkey.new()
+# 祖先の直下の子
+var ancestor_children_dictionary = {}
 
 # ページ送り時の対応関数の変数
 var on_message_window_page_forward = func():
@@ -46,9 +46,10 @@ var choices_index = 0
 
 # メッセージ・ウィンドウの軸取得
 func hub():
-	return monkey.find_ancestor_child(
+	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🛩️MessageWindowsHub")
+			"🛩️MessageWindowsHub",
+			self.ancestor_children_dictionary)
 
 
 # ーーーーーーーー

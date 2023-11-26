@@ -18,7 +18,7 @@ var code = "var:"
 # ーーーーーーーー
 
 
-var monkey = Monkey.new()
+var ancestor_children_dictionary = {}
 
 
 # ーーーーーーーー
@@ -28,9 +28,10 @@ var monkey = Monkey.new()
 
 # プログラマーズ・ハブ取得
 func hub():
-	return monkey.find_ancestor_child(
+	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🛩️ProgramsHub")
+			"🛩️ProgramsHub",
+			self.ancestor_children_dictionary)
 
 
 # ーーーーーーーー

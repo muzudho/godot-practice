@@ -7,7 +7,7 @@ extends Node
 # ーーーーーーーー
 
 
-var monkey = Monkey.new()
+var ancestor_children_dictionary = {}
 
 
 # ーーーーーーーー
@@ -17,16 +17,18 @@ var monkey = Monkey.new()
 
 # シナリオライターズ・ハブ取得
 func hub():
-	return monkey.find_ancestor_child(
+	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🛩️ScenarioWritersHub_🍉VisualNovel")
+			"🛩️ScenarioWritersHub_🍉VisualNovel",
+			self.ancestor_children_dictionary)
 
 
 # 戦闘ハブ取得
 func battle_hub():
-	return monkey.find_ancestor_child(
+	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🛩️BattleHub")
+			"🛩️BattleHub",
+			self.ancestor_children_dictionary)
 
 
 # ーーーーーーーー

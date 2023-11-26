@@ -72,18 +72,18 @@ static func search_node_in_folder(
 static func find_ancestor_child(
 		current_node,		# Node
 		target_node_name,	# StringName
-		get_cache_dictionary):
+		ancestor_children_dictionary):
 	
 	var cur = current_node
 	var target = str(target_node_name)
 	
-	if target in get_cache_dictionary.call():
-		return get_cache_dictionary.call()[target]
+	if target in ancestor_children_dictionary:
+		return ancestor_children_dictionary[target]
 		
 	while cur != null:
 		if cur.has_node(target):
 			var hub = cur.get_node(target)
-			get_cache_dictionary.call()[target] = hub
+			ancestor_children_dictionary[target] = hub
 			return hub
 		
 		cur = cur.get_parent()
