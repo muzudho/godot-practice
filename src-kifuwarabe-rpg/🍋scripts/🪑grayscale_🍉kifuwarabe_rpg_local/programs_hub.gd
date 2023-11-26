@@ -113,23 +113,16 @@ func get_all_instruction_codes():
 	if self.directory_for_instruction_code_and_node_name == null:
 		self.directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
 
-		# 結果は変数に格納される
-		self.search_all_instruction_codes(
-				self.get_programmer())
-			
+		MonkeyHelper.search_node_name_begins_with(
+				# 命令のノード名は `📗` で始まるものとする
+				&"📗",
+				# 探す場所
+				self.get_programmer(),
+				func(child_node):
+					# コードにノード名を紐づける
+					self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
+
 	return self.directory_for_instruction_code_and_node_name
-
-
-# 結果は変数に格納される
-func search_all_instruction_codes(current_node):
-	for child_node in current_node.get_children():
-		# 命令のノード名は `📗` で始まるものとする
-		if child_node.name.begins_with("📗"):
-			self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name
-		
-		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
-		elif child_node.name.begins_with("📂"):
-			self.search_all_instruction_codes(child_node)
 
 
 # ーーーーーーーー
@@ -139,7 +132,9 @@ func search_all_instruction_codes(current_node):
 func _ready():
 	# メッセージ・ウィンドウに対応関数紐づけ
 	MonkeyHelper.search_node_name_begins_with(
+			# メッセージ・ウィンドウの名前は `■` で始まるものとする
 			&"■",
+			# 探す場所
 			self.get_gui_programmer_message_windows(),
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
