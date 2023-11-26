@@ -65,31 +65,10 @@ var scenario_document = {
 		"""
 	],
 	# ゲーム開始
-	# TODO 消す 動作テスト中
 	"§はじまり":[
-		# 関数を要素にするとどうなるか？
-		func() :
-			print("匿名関数の使い方テスト")
-			
-			# 変数を設定するテスト。あとで `{{arg_title}}` で使える
-			self.hub().get_director().stage_directions_variables["arg_title"] = "Ｔタイトル"
-			
-			# セクションの名前を指定して飛ぶ
-			self.hub().get_programs_hub().get_instruction(&"📗Goto").goto("§はじまり２", "")
-			
-			# 匿名関数の最後にカンマを書く
-			,
-	],
-	"§ここには来ない":[
-		"""\
-		ここは飛ばされるぜ
-		""",
-	],
-	"§はじまり２":[
 		"""\
 		!
-		#telop:	Ｔタイトル, hide
-		telop:	{{arg_title}}, hide
+		telop:	Ｔタイトル, hide
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
