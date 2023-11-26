@@ -136,24 +136,15 @@ func search_all_instruction_codes(current_node):
 # 起動時設定
 # ーーーーーーーー
 
-
-# TODO ライブラリにまとめたい
-func search_message_window_gui(current_node):
-	for child_node in current_node.get_children():
-
-		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
-		if child_node.name.begins_with("■"):
-			# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
-			child_node.on_message_window_page_forward = func():
-				self.get_current_department_value().set_parse_lock(false)
-
-		elif child_node.name.begins_with("📂"):
-			self.search_message_window_gui(child_node)
-
-
 func _ready():
 	# メッセージ・ウィンドウに対応関数紐づけ
-	self.search_message_window_gui(self.get_gui_programmer_message_windows())
+	MonkeyHelper.search_node_name_begins_with(
+			&"■",
+			self.get_gui_programmer_message_windows(),
+			func(child_node):
+				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
+				child_node.on_message_window_page_forward = func():
+					self.get_current_department_value().set_parse_lock(false))
 
 	# デパートメント変数辞書作成
 	for department_name in self.get_all_department_names():

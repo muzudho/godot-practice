@@ -111,3 +111,21 @@ static func find_ancestor(
 		cur = cur.get_parent()
 	
 	return null
+
+
+# 頭文字が initials のノードを取得。 頭文字が '📂' のノードの下は再帰的に検索
+static func search_node_name_begins_with(
+		initials,		# StringName 頭文字
+		current_node,
+		on_node_found):
+	for child_node in current_node.get_children():
+
+		# `■` で始まる名前のノードを、メッセージ・ウィンドウの名前とします
+		if child_node.name.begins_with(initials):
+			on_node_found.call(child_node)
+
+		elif child_node.name.begins_with("📂"):
+			MonkeyHelper.search_node_name_begins_with(
+					initials,
+					child_node,
+					on_node_found)

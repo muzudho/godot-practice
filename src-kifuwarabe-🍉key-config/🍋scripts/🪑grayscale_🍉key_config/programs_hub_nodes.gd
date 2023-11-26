@@ -11,6 +11,19 @@ var ancestors = {}
 
 
 # ーーーーーーーー
+# 外パス関連
+# ーーーーーーーー
+
+
+# プログラムズ・ハブ取得
+func hub():
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			"🌏Programmer/🛩️Hub",
+			self.ancestors)
+
+
+# ーーーーーーーー
 # 準備
 # ーーーーーーーー
 
@@ -27,16 +40,3 @@ func _ready():
 
 	self.hub().telops = MonkeyHand.create(
 			self.hub().get_telop_coordinator())	# 探す場所
-
-
-# ーーーーーーーー
-# 外パス関連
-# ーーーーーーーー
-
-
-# プログラムズ・ハブ取得
-func hub():
-	return MonkeyHelper.find_ancestor_child(
-			self,
-			"🌏Programmer/🛩️Hub",
-			self.ancestors)
