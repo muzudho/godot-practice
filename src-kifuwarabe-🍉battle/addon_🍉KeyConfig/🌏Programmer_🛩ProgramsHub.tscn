@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://duy5utr23c82g"]
+
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/programs_hub_nodes.gd" id="1_k18cp"]
+
+[node name="📄Nodes_🍉KeyConfig" type="Node"]
+script = ExtResource("1_k18cp")

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://tpups3rpk2j8"]
+
+[ext_resource type="AudioStream" uid="uid://wtqqhswcs7ni" path="res://🍋audio_bg_musics/🪑sakuramaru/きふわらべファイター２.ogg" id="1_2783b"]
+[ext_resource type="AudioStream" uid="uid://bcg0ntta7xh26" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_town05.ogg" id="2_cs3fq"]
+[ext_resource type="AudioStream" uid="uid://d356e6en335us" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_acoustic05.ogg" id="3_6tn0y"]
+
+[node name="📂🍉VisualNovel" type="Node"]
+
+[node name="🎵きふわらべファイター２" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_2783b")
+volume_db = -20.0
+
+[node name="🎵タイトル" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cs3fq")
+volume_db = -20.0
+
+[node name="🎵エンディング" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_6tn0y")
+volume_db = -15.0

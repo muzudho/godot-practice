@@ -1,0 +1,13 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://oqwf4pqavaql"]
+
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="1_1oxky"]
+
+[resource]
+line_spacing = 8.0
+font = ExtResource("1_1oxky")
+font_size = 32
+font_color = Color(0.705882, 0.705882, 0.980392, 1)
+outline_size = 1
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 20
+shadow_color = Color(0.12549, 0.12549, 0.12549, 1)

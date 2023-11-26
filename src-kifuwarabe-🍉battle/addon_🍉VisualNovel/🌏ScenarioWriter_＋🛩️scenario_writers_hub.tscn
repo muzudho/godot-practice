@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpcq5iy2or1wx"]
+
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/scenario_writers_hub.gd" id="1_u6g4b"]
+
+[node name="🛩️ScenarioWritersHub_🍉VisualNovel" type="Node"]
+script = ExtResource("1_u6g4b")

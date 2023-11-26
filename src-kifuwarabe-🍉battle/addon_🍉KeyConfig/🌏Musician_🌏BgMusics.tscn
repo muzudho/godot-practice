@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5rj8mk8bwirj"]
+
+[ext_resource type="AudioStream" uid="uid://blnmvs8yao64s" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_cyber36.ogg" id="1_antxl"]
+
+[node name="📂🍉KeyConfig" type="Node"]
+
+[node name="🎵キーコンフィグ" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_antxl")
+volume_db = -20.0
+pitch_scale = 1.4

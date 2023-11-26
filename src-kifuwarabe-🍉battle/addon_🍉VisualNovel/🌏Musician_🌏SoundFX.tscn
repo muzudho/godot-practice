@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkfvsu8du416f"]
+
+[ext_resource type="AudioStream" uid="uid://bhjhqoh8swgni" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_sound17.ogg" id="1_dadji"]
+[ext_resource type="AudioStream" uid="uid://dded01e4u8xny" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_sound19.ogg" id="2_a4e72"]
+[ext_resource type="AudioStream" uid="uid://d2he7oscflr6e" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_sound_switch02.ogg" id="3_c3qgk"]
+
+[node name="📂🍉VisualNovel" type="Node"]
+
+[node name="🔔ページめくり音" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_dadji")
+
+[node name="🔔選択肢カーソル移動音" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_a4e72")
+volume_db = -15.0
+
+[node name="🔔選択肢確定音" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c3qgk")
+volume_db = -10.0

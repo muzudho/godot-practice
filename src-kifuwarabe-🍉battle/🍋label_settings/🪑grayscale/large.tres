@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://donpyopvts3i0"]
+
+[ext_resource type="FontFile" uid="uid://cmv22aufk0np2" path="res://🍋fonts/🪑mplus/Mplus1Code-Bold.otf" id="1_n7exv"]
+
+[resource]
+font = ExtResource("1_n7exv")
+font_size = 64
+outline_size = 10
+outline_color = Color(0.12549, 0.12549, 0.12549, 1)
+shadow_size = 10
+shadow_color = Color(0.12549, 0.12549, 0.12549, 0.752941)
