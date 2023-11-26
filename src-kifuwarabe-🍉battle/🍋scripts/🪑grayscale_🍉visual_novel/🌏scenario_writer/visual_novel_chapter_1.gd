@@ -91,8 +91,8 @@ var scenario_document = {
 		# バトル部門へ飛ばします
 		"""\
 		!
-		var:			arg_exit_department_2		,📗会話部門_🍉Battle
-		var:			arg_exit_section_2			,§崎川市最強振興会館
+		var:			battle_exit_department		,📗会話部門_🍉Battle
+		var:			battle_exit_section			,§崎川市最強振興会館
 		department:		📗バトル部門_🍉Battle			,%ignorable%
 		goto:			§１回目戦闘シーン
 		""",
