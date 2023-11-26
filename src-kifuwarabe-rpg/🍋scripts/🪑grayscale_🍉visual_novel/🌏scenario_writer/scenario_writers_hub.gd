@@ -88,24 +88,17 @@ func get_merged_scenario_document(department_name):
 func get_merged_choices_mappings(department_name):
 	# キャッシュになければ探索
 	if not (department_name in self.cached_choices_mappings):
-		
+
 		# ［📗～］ノードの位置が変わっていることがあるので探索する
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
 				self.get_scenario_writer(),
 				str(department_name))
 		self.cached_choices_mappings[department_name] = {}
 
-		# 再帰。結果は外部変数に格納
-		self.search_merged_choices_mappings(department_name, book_node)
+		MonkeyHelper.search_descendant_within_member(
+				"choices_mappings",
+				book_node,
+				func(child_node):
+					self.cached_choices_mappings[department_name].merge(child_node.choices_mappings))
 
 	return self.cached_choices_mappings[department_name]
-
-
-func search_merged_choices_mappings(department_name, current_node):
-	for child_node in current_node.get_children():
-		if "choices_mappings" in child_node:
-			self.cached_choices_mappings[department_name].merge(child_node.choices_mappings)
-
-		# 再帰。結果は外部変数に格納
-		self.search_merged_choices_mappings(department_name, child_node)
-
