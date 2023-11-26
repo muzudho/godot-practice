@@ -3,6 +3,14 @@ extends Node
 
 
 # ーーーーーーーー
+# 共通メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
+
+# ーーーーーーーー
 # 準備
 # ーーーーーーーー
 
@@ -31,4 +39,7 @@ func _ready():
 
 # プログラムズ・ハブ取得
 func hub():
-	return $"../../../🌏Programmer/🛩️Hub"
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			"🌏Programmer/🛩️Hub",
+			self.ancestors)
