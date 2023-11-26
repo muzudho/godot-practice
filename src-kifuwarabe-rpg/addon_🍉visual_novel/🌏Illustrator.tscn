@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b81tmjslp5ae6" path="res://🍋images/🪑grayscale/1280x720/map_arround_sakikawa_station.png" id="3_8aocr"]
 [ext_resource type="Texture2D" uid="uid://dpc35dvufjgp4" path="res://🍋images/🪑grayscale/1280x720/kawahori_road.png" id="4_lm548"]
 [ext_resource type="Texture2D" uid="uid://dii7tlfnq4rhb" path="res://🍋images/🪑grayscale/1280x720/tsutsuji_road.png" id="5_cj82d"]
-[ext_resource type="Texture2D" uid="uid://bsth654xqqy7c" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="6_vbtfu"]
+[ext_resource type="Texture2D" uid="uid://bfjtuxbo3tuqn" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="6_vbtfu"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="7_qic1n"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="8_nk4cv"]
 [ext_resource type="Texture2D" uid="uid://c6j864566m67c" path="res://🍋images/🪑grayscale/1280x720/window_middle_at_center.png" id="9_atiwg"]
@@ -49,6 +49,7 @@ texture = ExtResource("5_cj82d")
 [node name="ーーーーモンスター全身（Ｚ＝１００）ーーーー" type="Node" parent="."]
 
 [node name="🐕ヘム将棋" type="Sprite2D" parent="."]
+visible = false
 z_index = 100
 position = Vector2(463, 325)
 texture = ExtResource("12_fiw8p")
@@ -74,6 +75,7 @@ scale = Vector2(0.625506, 0.625506)
 texture = ExtResource("15_m8r1r")
 
 [node name="🐕昼ビール" type="Sprite2D" parent="."]
+visible = false
 z_index = 100
 position = Vector2(735, 320)
 scale = Vector2(0.596059, 0.596059)
@@ -82,11 +84,13 @@ texture = ExtResource("16_jtcae")
 [node name="ーーーーウィンドウの中に表示（Ｚ＝９００）ーーーー" type="Node" parent="."]
 
 [node name="🎴将棋盤" type="Sprite2D" parent="."]
+visible = false
 z_index = 900
 position = Vector2(640, 272)
 texture = ExtResource("10_mha8e")
 
 [node name="🎴ファイルとランク" type="Sprite2D" parent="."]
+visible = false
 z_index = 900
 position = Vector2(640, 272)
 texture = ExtResource("11_gagqq")
