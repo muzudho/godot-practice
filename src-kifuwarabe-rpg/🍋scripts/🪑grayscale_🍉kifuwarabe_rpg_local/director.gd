@@ -55,7 +55,7 @@ func get_scenario_writers_hub():
 
 # 部門切替取得
 func get_switch_department():
-	return self.get_scenario_writer().get_node("📘SwitchDepartment")
+	return self.get_scenario_writer().get_node("📘DepartmentControl")
 
 
 func get_telop_coordinator():

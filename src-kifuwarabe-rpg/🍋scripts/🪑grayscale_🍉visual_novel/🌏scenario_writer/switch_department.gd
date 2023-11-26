@@ -1,5 +1,5 @@
 # スイッチ・デパートメント（Switch Department；部門切替え）
-#	このノード名の `📘SwitchDepartment` は変更不可
+#	このノード名の `📘DepartmentControl` は変更不可
 #	部門の切替えを司る
 extends Node
 
