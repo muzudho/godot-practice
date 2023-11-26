@@ -1448,4 +1448,18 @@ Zzz...
 
 📖　[Godot の GDスクリプトを、自前のスクリプトで置き換えようぜ（＾～＾）？.md](https://crieit.net/posts/Godot-GD-md)  
 
+## フォルダ―構成、ツリー構成
+
+![202311__shogi__26-2037--Structure-o2o0.png](https://crieit.now.sh/upload_images/77bcf694d804ec97dc447ec1cac1eef965632e60d724f.png)  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　👆　役職ごとに　プロジェクトを分け、  
+あとで　各プロジェクトをマージするための構成は　ひとまず　このようにするぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　何日間も　微妙に　仕様変更を繰り返していたやつが　終わったのか？」  
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　まだ暫定だぜ」  
+
 .
