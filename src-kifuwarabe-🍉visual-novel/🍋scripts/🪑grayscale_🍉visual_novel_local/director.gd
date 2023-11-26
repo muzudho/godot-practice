@@ -56,7 +56,7 @@ func get_scenario_writers_hub():
 
 # 部門切替取得
 func get_switch_department():
-	return self.get_scenario_writer().get_node("SwitchDepartment")
+	return self.get_scenario_writer().get_node("📘SwitchDepartment")
 
 
 func get_telop_coordinator():
@@ -283,24 +283,11 @@ func _unhandled_input(event):
 # 仮想キーを押下したという建付け
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if vk_operation == &"VKO_Pressed" and str(self.get_programs_hub().current_department_name) in self.get_switch_department().key_pressed_stage_directions:
-		
-		# その要素を取得
-		var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[str(self.get_programs_hub().current_department_name)]
-		
-		# 押したキーに紐づく、ト書きは辞書に記載されているか？
-		if virtual_key in key_pressed_stage_directions_1:
-			
-			# そのト書き
-			var stage_directions = key_pressed_stage_directions_1[virtual_key]
-
-			print("［監督］　アンハンドルド・キー押下　部門変更")
-
-			# TODO ここで stage_directions をト書きとして実行したいが、できるか？
-			self.get_programs_hub().parse_paragraph(stage_directions)
-
-			# 子要素には渡しません
-			return
+	if self.get_scenario_writers_hub().on_virtual_key_input(
+			virtual_key,
+			lever_value,
+			vk_operation):
+		return
 
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 

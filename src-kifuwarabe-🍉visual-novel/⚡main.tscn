@@ -80,7 +80,7 @@ script = ExtResource("41_xkso2")
 
 [node name="🛩️Hub_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("55_dfxei")]
 
-[node name="SwitchDepartment" type="Node" parent="🌏ScenarioWriter"]
+[node name="📘SwitchDepartment" type="Node" parent="🌏ScenarioWriter"]
 script = ExtResource("44_c0141")
 
 [node name="📂🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("31_ywbpe")]

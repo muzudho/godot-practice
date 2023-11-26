@@ -37,6 +37,11 @@ func get_scenario_writer():
 	return self.get_director().get_node("🌏ScenarioWriter")
 
 
+# 部門切替取得
+func get_switch_department():
+	return self.get_scenario_writer().get_node("📘SwitchDepartment")
+
+
 # ーーーーーーーー
 # メモリ関連
 # ーーーーーーーー
@@ -102,3 +107,35 @@ func get_merged_choices_mappings(department_name):
 					self.cached_choices_mappings[department_name].merge(child_node.choices_mappings))
 
 	return self.cached_choices_mappings[department_name]
+
+
+# 仮想キーを押下したという建付け
+func on_virtual_key_input(
+		virtual_key,
+		lever_value,
+		vk_operation):
+
+	var cur_department_name = self.get_programs_hub().current_department_name
+
+	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
+	if vk_operation == &"VKO_Pressed" and cur_department_name in self.get_switch_department().key_pressed_stage_directions:
+		
+		# その要素を取得
+		var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[cur_department_name]
+		
+		# 押したキーに紐づく、ト書きは辞書に記載されているか？
+		if virtual_key in key_pressed_stage_directions_1:
+			
+			# そのト書き
+			var stage_directions = key_pressed_stage_directions_1[virtual_key]
+
+			print("［監督］　アンハンドルド・キー押下　部門変更")
+
+			# TODO ここで stage_directions をト書きとして実行したいが、できるか？
+			self.get_programs_hub().parse_paragraph(stage_directions)
+
+			# 子要素には渡しません
+			return true
+
+	# 何もしませんでした
+	return false
