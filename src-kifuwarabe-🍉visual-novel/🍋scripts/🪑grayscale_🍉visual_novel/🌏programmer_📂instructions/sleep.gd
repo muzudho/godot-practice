@@ -32,7 +32,7 @@ var ancestor_children_dictionary = {}
 func hub():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🛩️ProgramsHub",
+			"🌏Programmer/🛩️Hub",
 			self.ancestor_children_dictionary)
 
 

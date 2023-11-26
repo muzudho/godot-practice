@@ -29,7 +29,7 @@ func get_director():
 
 # プログラムズ・ハブ取得
 func get_programs_hub():
-	return self.get_director().get_node("🌏Programmer/🛩️ProgramsHub")
+	return self.get_director().get_node("🌏Programmer/🛩️Hub")
 
 
 # シナリオライター取得

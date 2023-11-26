@@ -67,12 +67,12 @@ visible = false
 
 [node name="🌏Programmer" type="Node" parent="."]
 
-[node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
+[node name="🛩️Hub" type="Node" parent="🌏Programmer"]
 script = ExtResource("41_xkso2")
 
-[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Programmer/🛩️ProgramsHub"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Programmer/🛩️Hub"]
 
-[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("27_t3xld")]
+[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️Hub" instance=ExtResource("27_t3xld")]
 
 [node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
 
