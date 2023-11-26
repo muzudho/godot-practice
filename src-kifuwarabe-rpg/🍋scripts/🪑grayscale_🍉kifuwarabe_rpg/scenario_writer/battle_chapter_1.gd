@@ -55,17 +55,17 @@ var scenario_document = {
 		!
 		img:		🗻ツツジロード
 		#var:		%clear%
-		var:		arg_bg_out				,🗻ツツジロード
-		var:		arg_bg_in				,🗻ツツジロード
-		var:		arg_battle_bg_music			,🎵バトル１
-		var:		arg_battle_bg_music_from		,8.6
-		var:		arg_sente_monster_name	,きふわらべ
-		var:		arg_gote_monster_name	,ヘム将棋
-		var:		arg_monster_body		,🐕ヘム将棋
-		var:		arg_monster_face		,😁ヘム将棋
-		var:		arg_battle_section		,§ＶＳヘム将棋
-		var:		arg_exit_department		,📗バトル部門_🍉Battle
-		var:		arg_exit_section		,§２回目戦闘シーン
+		var:		battle_bg_out				,🗻ツツジロード
+		var:		battle_bg_in				,🗻ツツジロード
+		var:		battle_battle_bg_music			,🎵バトル１
+		var:		battle_battle_bg_music_from		,8.6
+		var:		battle_sente_monster_name	,きふわらべ
+		var:		battle_gote_monster_name	,ヘム将棋
+		var:		battle_monster_body		,🐕ヘム将棋
+		var:		battle_monster_face		,😁ヘム将棋
+		var:		battle_section		,§ＶＳヘム将棋
+		var:		battle_exit_department_local		,📗バトル部門_🍉Battle
+		var:		battle_exit_section_local		,§２回目戦闘シーン
 		goto:		§戦闘の始めに
 		""",
 	],
@@ -75,17 +75,17 @@ var scenario_document = {
 		!
 		img:		🗻ツツジロード
 		#var:		%clear%
-		var:		arg_bg_out				,🗻ツツジロード
-		var:		arg_bg_in				,🗻ツツジロード
-		var:		arg_battle_bg_music			,🎵バトル２
-		var:		arg_battle_bg_music_from		,0.0
-		var:		arg_sente_monster_name	,きふわらべ
-		var:		arg_gote_monster_name	,ケダック
-		var:		arg_monster_body		,🐕ケダック
-		var:		arg_monster_face		,😁ケダック
-		var:		arg_battle_section		,§ＶＳケダック
-		var:		arg_exit_department		,📗バトル部門_🍉Battle
-		var:		arg_exit_section		,§３回目戦闘シーン
+		var:		battle_bg_out				,🗻ツツジロード
+		var:		battle_bg_in				,🗻ツツジロード
+		var:		battle_battle_bg_music			,🎵バトル２
+		var:		battle_battle_bg_music_from		,0.0
+		var:		battle_sente_monster_name	,きふわらべ
+		var:		battle_gote_monster_name	,ケダック
+		var:		battle_monster_body		,🐕ケダック
+		var:		battle_monster_face		,😁ケダック
+		var:		battle_section		,§ＶＳケダック
+		var:		battle_exit_department_local		,📗バトル部門_🍉Battle
+		var:		battle_exit_section_local		,§３回目戦闘シーン
 		goto:		§戦闘の始めに
 		""",
 	],
@@ -95,17 +95,17 @@ var scenario_document = {
 		!
 		img:		🗻ツツジロード
 		#var:		%clear%
-		var:		arg_bg_out				,🗻ツツジロード
-		var:		arg_bg_in				,🗻川堀町線ロード
-		var:		arg_battle_bg_music			,🎵バトル３
-		var:		arg_battle_bg_music_from		,0.0
-		var:		arg_sente_monster_name	,きふわらべ
-		var:		arg_gote_monster_name	,レサぽん改
-		var:		arg_monster_body		,🐕レサぽん改
-		var:		arg_monster_face		,😁レサぽん改
-		var:		arg_battle_section		,§ＶＳレサぽん改
-		var:		arg_exit_department		,📗バトル部門_🍉Battle
-		var:		arg_exit_section		,§４回目戦闘シーン
+		var:		battle_bg_out				,🗻ツツジロード
+		var:		battle_bg_in				,🗻川堀町線ロード
+		var:		battle_battle_bg_music			,🎵バトル３
+		var:		battle_battle_bg_music_from		,0.0
+		var:		battle_sente_monster_name	,きふわらべ
+		var:		battle_gote_monster_name	,レサぽん改
+		var:		battle_monster_body		,🐕レサぽん改
+		var:		battle_monster_face		,😁レサぽん改
+		var:		battle_section		,§ＶＳレサぽん改
+		var:		battle_exit_department_local		,📗バトル部門_🍉Battle
+		var:		battle_exit_section_local		,§４回目戦闘シーン
 		department:	📗バトル部門_🍉Battle
 		goto:		§戦闘の始めに
 		""",
@@ -116,17 +116,17 @@ var scenario_document = {
 		!
 		img:		🗻川堀町線ロード
 		#var:		%clear%
-		var:		arg_bg_out				,🗻川堀町線ロード
-		var:		arg_bg_in				,🗻川堀町線ロード
-		var:		arg_battle_bg_music			,🎵バトル４
-		var:		arg_battle_bg_music_from		,0.0
-		var:		arg_sente_monster_name	,きふわらべ
-		var:		arg_gote_monster_name	,昼ビール
-		var:		arg_monster_body		,🐕昼ビール
-		var:		arg_monster_face		,😁昼ビール
-		var:		arg_battle_section		,§ＶＳ昼ビール
-		var:		arg_exit_department		,{{arg_exit_department_2}}
-		var:		arg_exit_section		,{{arg_exit_section_2}}
+		var:		battle_bg_out				,🗻川堀町線ロード
+		var:		battle_bg_in				,🗻川堀町線ロード
+		var:		battle_battle_bg_music			,🎵バトル４
+		var:		battle_battle_bg_music_from		,0.0
+		var:		battle_sente_monster_name	,きふわらべ
+		var:		battle_gote_monster_name	,昼ビール
+		var:		battle_monster_body		,🐕昼ビール
+		var:		battle_monster_face		,😁昼ビール
+		var:		battle_section		,§ＶＳ昼ビール
+		var:		battle_exit_department_local		,{{battle_exit_department}}
+		var:		battle_exit_section_local		,{{battle_exit_section}}
 		department:	📗バトル部門_🍉Battle
 		goto:		§戦闘の始めに
 		""",
@@ -148,15 +148,15 @@ var scenario_document = {
 		#
 		# Arguments
 		# =========
-		# {{arg_sente_monster_name}}
+		# {{battle_sente_monster_name}}
 		#	先手対局者名
-		# {{arg_gote_monster_name}}
+		# {{battle_gote_monster_name}}
 		#	後手対局者名
 		#
 		func():
 			# 変数取得
-			var sente_monster_name = self.hub().get_director().stage_directions_variables["arg_sente_monster_name"]
-			var gote_monster_name = self.hub().get_director().stage_directions_variables["arg_gote_monster_name"]
+			var sente_monster_name = self.hub().get_director().stage_directions_variables["battle_sente_monster_name"]
+			var gote_monster_name = self.hub().get_director().stage_directions_variables["battle_gote_monster_name"]
 			
 			# モンスターＩｄ取得
 			var sente_monster_id = self.battle_hub().get_scorer().lookup_monster_id_by_name(sente_monster_name)
@@ -176,13 +176,13 @@ var scenario_document = {
 		#
 		# Arguments
 		# =========
-		# {{arg_bg_out}}
+		# {{battle_bg_out}}
 		#	元背景
-		# {{arg_bg_in}}
+		# {{battle_bg_in}}
 		#	先背景
-		# {{arg_monster_body}}
+		# {{battle_monster_body}}
 		#	怪物の体
-		# {{arg_battle_section}}
+		# {{battle_section}}
 		#	次のセクション
 		#
 		"""\
@@ -212,15 +212,15 @@ var scenario_document = {
 		!
 		img:			📂🗻戦闘開始トランジション/🗻４コマ
 		img:			📂🗻戦闘開始トランジション/🗻３コマ, hide
-		img:			{{arg_bg_out}}, hide
-		img:			{{arg_bg_in}}
+		img:			{{battle_bg_out}}, hide
+		img:			{{battle_bg_in}}
 		sleep:			0.15
 		""",
 		# ここで画面全体が真っ黒になっている
 		# モンスターの全身像もここで表示する
 		"""\
 		!
-		img:			{{arg_monster_body}}
+		img:			{{battle_monster_body}}
 		img:			📂🗻戦闘開始トランジション/🗻８コマ
 		img:			📂🗻戦闘開始トランジション/🗻４コマ, hide
 		sleep:			0.10
@@ -289,14 +289,14 @@ var scenario_document = {
 		sound_fx:
 		telop:			Ｔ戦闘シーン
 		img:			😁きふわらべ
-		img:			{{arg_monster_face}}
+		img:			{{battle_monster_face}}
 		goto:			§定刻
 		""",
 	],
 	"§定刻": [
 		"""\
 		!
-		bg_music:			{{arg_battle_bg_music}}	,{{arg_battle_bg_music_from}}
+		bg_music:			{{battle_battle_bg_music}}	,{{battle_battle_bg_music_from}}
 		msg_wnd:		■下on戦
 		msg_speed:		20
 		""",
@@ -337,7 +337,7 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{arg_battle_section}}
+		goto:			{{battle_section}}
 		""",
 	],
 	# (2023-11-07 tue) 今のところ、常にきふわらべが先手
@@ -363,16 +363,16 @@ var scenario_document = {
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
-		{{arg_sente_monster_name}} は
+		{{battle_sente_monster_name}} は
 		犯人コラブの囲いを　真似した！
 		""",
 		"""\
-		{{arg_sente_monster_name}}
+		{{battle_sente_monster_name}}
 		「金、銀を足したろ
 		""",
 		"""\
 		!
-		goto:			{{arg_battle_section}}
+		goto:			{{battle_section}}
 		""",
 	],
 	"§先手の奇跡の角生還":[
@@ -383,16 +383,16 @@ var scenario_document = {
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
-		{{arg_sente_monster_name}} は
+		{{battle_sente_monster_name}} は
 		角を動かした！
 		""",
 		"""\
-		{{arg_sente_monster_name}}
+		{{battle_sente_monster_name}}
 		「ここらへんで　いいだろ
 		""",
 		"""\
 		!
-		goto:			{{arg_battle_section}}
+		goto:			{{battle_section}}
 		""",
 	],
 	"§先手のボンザナ囲い":[
@@ -403,16 +403,16 @@ var scenario_document = {
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
 		"""\
-		{{arg_sente_monster_name}} は
+		{{battle_sente_monster_name}} は
 		１路ずらして銀冠を作った
 		""",
 		"""\
-		{{arg_sente_monster_name}}
+		{{battle_sente_monster_name}}
 		「飛車先も、角道も、避けてるしな
 		""",
 		"""\
 		!
-		goto:			{{arg_battle_section}}
+		goto:			{{battle_section}}
 		""",
 	],
 	#"§先手のエモル囲い":[
@@ -423,16 +423,16 @@ var scenario_document = {
 	#	""",
 	#	# ２３４５６７８９０１２３４５６７８９０
 	#	"""\
-	#	{{arg_sente_monster_name}} の玉は
+	#	{{battle_sente_monster_name}} の玉は
 	#	金の上に乗った
 	#	""",
 	#	"""\
-	#	{{arg_sente_monster_name}}
+	#	{{battle_sente_monster_name}}
 	#	「よっこらせっと
 	#	""",
 	#	"""\
 	#	!
-	#	goto:			{{arg_battle_section}}
+	#	goto:			{{battle_section}}
 	#	""",
 	#],
 	# (2023-10-16 thu) 今のところ、常にきふわらべが先手
@@ -444,7 +444,7 @@ var scenario_document = {
 		msg_speed:		20
 		""",
 		"""\
-		{{arg_sente_monster_name}}
+		{{battle_sente_monster_name}}
 		「参りました
 		""",
 		"""\
@@ -464,20 +464,20 @@ var scenario_document = {
 		msg_speed:		20
 		""",
 		"""\
-		{{arg_sente_monster_name}}
+		{{battle_sente_monster_name}}
 		「勝ち宣言をします
 		""",
 		"""\
 		審判
 		「駒の枚数が足りません。
-		{{arg_sente_monster_name}} の反則負けです
+		{{battle_sente_monster_name}} の反則負けです
 		""",
 		"""\
 		!
 		bg_music:			🎵負け
 		""",
 		"""\
-		{{arg_sente_monster_name}}
+		{{battle_sente_monster_name}}
 		「参りました
 		""",
 		"""\
@@ -492,16 +492,16 @@ var scenario_document = {
 	"§撤収":[
 		"""\
 		!
-		img:			{{arg_bg_in}}			,hide
+		img:			{{battle_bg_in}}			,hide
 		img:			🗻戦闘シーン			,hide
 		img:			😁きふわらべ			,hide
-		img:			{{arg_monster_body}}	,hide
-		img:			{{arg_monster_face}}	,hide
+		img:			{{battle_monster_body}}	,hide
+		img:			{{battle_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン				,hide
-		#img:				{{arg_bg_out}}
+		#img:				{{battle_bg_out}}
 
-		department:		{{arg_exit_department}}
-		goto:			{{arg_exit_section}}
+		department:		{{battle_exit_department_local}}
+		goto:			{{battle_exit_section_local}}
 		""",
 	],
 
@@ -510,20 +510,20 @@ var scenario_document = {
 	# ーーーーーーーーーー
 	"§ＶＳヘム将棋":[
 		"""\
-		{{arg_sente_monster_name}}の先手だ！
+		{{battle_sente_monster_name}}の先手だ！
 		""",
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("arg_damage", str(damage))
+			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 
 			# 後手の［玉の遠さ］を減らす
 			self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] -= damage
 			,
 		"""\
-		{{arg_sente_monster_name}}
+		{{battle_sente_monster_name}}
 		「歩を突く
-		　{{arg_gote_monster_name}}の玉に{{arg_damage}}歩近づく
+		　{{battle_gote_monster_name}}の玉に{{battle_damage}}歩近づく
 		""",
 		func():
 			# 後手の［玉の遠さ］表示更新
@@ -532,15 +532,15 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("arg_damage", str(damage))
+			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
 			self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] -= 1
 			,
 		"""\
-		{{arg_gote_monster_name}}
+		{{battle_gote_monster_name}}
 		「合わせて歩を突く
-		　{{arg_sente_monster_name}}の玉に{{arg_damage}}歩近づく
+		　{{battle_sente_monster_name}}の玉に{{battle_damage}}歩近づく
 		""",
 		func():
 			# 先手の［玉の遠さ］表示更新
@@ -556,7 +556,7 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("arg_damage", str(damage))
+			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 後手の［玉の遠さ］を５減らす
 			self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] -= damage
@@ -565,9 +565,9 @@ var scenario_document = {
 			self.battle_hub().refresh_gote_distance_of_king()
 			,
 		"""\
-		{{arg_sente_monster_name}}
+		{{battle_sente_monster_name}}
 		「銀が上がる
-		　{{arg_gote_monster_name}}の玉に{{arg_damage}}歩近づく
+		　{{battle_gote_monster_name}}の玉に{{battle_damage}}歩近づく
 		""",
 		func():
 			
@@ -582,7 +582,7 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("arg_damage", str(damage))
+			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
 			self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] -= damage
@@ -591,9 +591,9 @@ var scenario_document = {
 			self.battle_hub().refresh_sente_distance_of_king()
 			,
 		"""\
-		{{arg_gote_monster_name}}
+		{{battle_gote_monster_name}}
 		「銀が上がる
-		　{{arg_sente_monster_name}}の玉に{{arg_damage}}歩近づく
+		　{{battle_sente_monster_name}}の玉に{{battle_damage}}歩近づく
 		""",
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
@@ -605,7 +605,7 @@ var scenario_document = {
 	],
 	"§先手番投了": [
 		"""\
-		{{arg_gote_monster_name}}
+		{{battle_gote_monster_name}}
 		「参りました
 		""",
 		# 戦闘終了
@@ -616,7 +616,7 @@ var scenario_document = {
 	],
 	"§後手番投了": [
 		"""\
-		{{arg_gote_monster_name}}
+		{{battle_gote_monster_name}}
 		「参りました
 		""",
 		# 戦闘終了
@@ -632,7 +632,7 @@ var scenario_document = {
 		# 画面設定
 		"""\
 		!
-		bg_music:			{{arg_battle_bg_music}}	,{{arg_battle_bg_music_from}}
+		bg_music:			{{battle_battle_bg_music}}	,{{battle_battle_bg_music_from}}
 		msg_wnd:		■下on戦
 		""",
 		# 戦闘開始
@@ -654,7 +654,7 @@ var scenario_document = {
 		# 画面設定
 		"""\
 		!
-		bg_music:			{{arg_battle_bg_music}}	,{{arg_battle_bg_music_from}}
+		bg_music:			{{battle_battle_bg_music}}	,{{battle_battle_bg_music_from}}
 		msg_wnd:		■下on戦
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
@@ -676,7 +676,7 @@ var scenario_document = {
 		# 画面設定
 		"""\
 		!
-		bg_music:			{{arg_battle_bg_music}}	,{{arg_battle_bg_music_from}}
+		bg_music:			{{battle_battle_bg_music}}	,{{battle_battle_bg_music_from}}
 		msg_wnd:		■下on戦
 		""",
 		# ２３４５６７８９０１２３４５６７８９０
