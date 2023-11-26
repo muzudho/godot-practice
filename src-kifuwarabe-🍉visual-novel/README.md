@@ -1,6 +1,6 @@
-# src-kifuwarabe-🍉key-config
+# src-kifuwarabe-🍉visual-novel
 
-きふわらべのキー・コンフィグです  
+きふわらべのビジュアル・ノベルです  
 
 ## 再利用の方法
 
