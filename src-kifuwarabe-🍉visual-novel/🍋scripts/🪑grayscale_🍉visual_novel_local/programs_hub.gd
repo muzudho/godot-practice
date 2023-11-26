@@ -60,7 +60,7 @@ func get_scenario_writer():
 
 # シナリオライター・ハブ取得
 func get_scenario_writers_hub():
-	return self.get_director().get_node("🌏ScenarioWriter/🛩️ScenarioWritersHub_🍉VisualNovel")
+	return self.get_director().get_node("🌏ScenarioWriter/🛩️Hub_🍉VisualNovel")
 
 
 # テロップ・コーディネーター取得

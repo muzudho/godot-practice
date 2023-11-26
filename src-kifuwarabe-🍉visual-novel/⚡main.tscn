@@ -78,7 +78,7 @@ script = ExtResource("41_xkso2")
 
 [node name="🌏ScenarioWriter" type="Node" parent="."]
 
-[node name="🛩️ScenarioWritersHub_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("55_dfxei")]
+[node name="🛩️Hub_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("55_dfxei")]
 
 [node name="SwitchDepartment" type="Node" parent="🌏ScenarioWriter"]
 script = ExtResource("44_c0141")
