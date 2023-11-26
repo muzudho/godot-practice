@@ -41,7 +41,7 @@ func get_gui_programmer_message_windows():
 
 # プログラムズ・ハブ取得
 func get_programs_hub():
-	return $"🌏Programmer/🛩️ProgramsHub"
+	return $"🌏Programmer/🛩️Hub"
 
 
 func get_scenario_writer():
