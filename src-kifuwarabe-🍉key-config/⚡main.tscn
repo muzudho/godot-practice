@@ -26,10 +26,10 @@ script = ExtResource("3_c737f")
 
 [node name="🌏Programmer" type="Node" parent="."]
 
-[node name="🛩️ProgramsHub" type="Node" parent="🌏Programmer"]
+[node name="🛩️Hub" type="Node" parent="🌏Programmer"]
 script = ExtResource("7_5goiq")
 
-[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️ProgramsHub" instance=ExtResource("8_fbelh")]
+[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️Hub" instance=ExtResource("8_fbelh")]
 
 [node name="🌏Musician" type="Node" parent="."]
 

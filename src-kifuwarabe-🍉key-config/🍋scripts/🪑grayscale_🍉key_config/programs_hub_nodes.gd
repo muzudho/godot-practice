@@ -28,4 +28,4 @@ func _ready():
 
 # プログラムズ・ハブ取得
 func hub():
-	return $"../../🛩️ProgramsHub"
+	return $"../../../🌏Programmer/🛩️Hub"

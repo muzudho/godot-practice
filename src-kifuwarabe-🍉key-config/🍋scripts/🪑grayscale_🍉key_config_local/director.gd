@@ -17,7 +17,7 @@ func get_illustrator():
 
 # プログラムズ・ハブ取得
 func get_programs_hub():
-	return $"🌏Programmer/🛩️ProgramsHub"
+	return $"🌏Programmer/🛩️Hub"
 
 
 # テロップ・コーディネーター取得
