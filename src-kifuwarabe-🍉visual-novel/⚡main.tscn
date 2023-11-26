@@ -33,7 +33,7 @@ texture = ExtResource("2_6by5p")
 
 [node name="🌏GuiProgrammer_MessageWindows" type="Node" parent="."]
 
-[node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
+[node name="🛩️Hub" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("21_kjvby")
 
 [node name="📂🍉VisualNovel" parent="🌏GuiProgrammer_MessageWindows" instance=ExtResource("4_qbs6l")]

@@ -77,7 +77,7 @@ texture = ExtResource("2_ivwoj")
 
 [node name="🌏GuiProgrammer_MessageWindows" type="Node" parent="."]
 
-[node name="🛩️MessageWindowsHub" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
+[node name="🛩️Hub" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
 script = ExtResource("61_cfuy1")
 
 [node name="■FullScreen" type="Sprite2D" parent="🌏GuiProgrammer_MessageWindows"]
