@@ -72,7 +72,7 @@ func get_section_array(
 func get_merged_scenario_document(department_name):
 	# キャッシュになければ探索
 	if not (department_name in self.cached_scenario_document):
-		
+
 		# ［📗～］ノードの位置が変わっていることがあるので探索する
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
 				self.get_scenario_writer(),

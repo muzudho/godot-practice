@@ -34,11 +34,6 @@ func get_programs_hub():
 
 
 # テロップ取得
-func get_telop_coordinator():
-	return self.get_director().get_node("🌏TelopCoordinator")
-
-
-# テロップ取得
 func get_my_telop_canvas_layer():
 	return self.get_programs_hub().telops.find_node("Ｔキーコンフィグ")
 
@@ -77,7 +72,7 @@ func entry():
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
-	self.get_telop_coordinator().show()
+	self.get_programs_hub().get_telop_coordinator().show()
 	self.get_programs_hub().get_illustrator().show()
 	self.get_programs_hub().images.find_node("■下").show()
 	self.get_programs_hub().images.find_node("■上_大").show()

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csqladmrcvyby"]
+
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏programmer/📄Nodes_🍉VisualNovel.gd" id="1_iahao"]
+
+[node name="📄Nodes_🍉VisualNovel" type="Node"]
+script = ExtResource("1_iahao")
