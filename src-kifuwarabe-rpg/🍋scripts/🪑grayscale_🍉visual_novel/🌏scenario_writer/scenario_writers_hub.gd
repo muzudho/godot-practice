@@ -74,19 +74,13 @@ func get_merged_scenario_document(department_name):
 				str(department_name))
 		self.cached_scenario_document[department_name] = {}
 
-		# 再帰。結果は外部変数に格納
-		self.search_merged_scenario_document(department_name, book_node)
+		MonkeyHelper.search_descendant_within_member(
+				"scenario_document",
+				book_node,
+				func(child_node):
+					self.cached_scenario_document[department_name].merge(child_node.scenario_document))
 
 	return self.cached_scenario_document[department_name]
-
-
-func search_merged_scenario_document(department_name, current_node):
-	for child_node in current_node.get_children():
-		if "scenario_document" in child_node:
-			self.cached_scenario_document[department_name].merge(child_node.scenario_document)
-
-		# 再帰。結果は外部変数に格納
-		self.search_merged_scenario_document(department_name, child_node)
 
 
 # 指定の部門下の choices_mappings 辞書を全てマージして返します。

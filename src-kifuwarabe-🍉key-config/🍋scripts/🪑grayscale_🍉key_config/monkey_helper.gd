@@ -151,3 +151,20 @@ static func search_descendant_node_by_name_str(
 
 	# 見つからなかった
 	return null
+
+
+# 指定のメンバー名を含む子孫
+static func search_descendant_within_member(
+		member_name,
+		current_node,		# 探す場所
+		on_node_found):
+
+	for child_node in current_node.get_children():
+
+		if member_name in child_node:
+			on_node_found.call(child_node)
+
+		MonkeyHelper.search_descendant_within_member(
+				member_name,
+				child_node,
+				on_node_found)
