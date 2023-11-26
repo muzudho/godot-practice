@@ -129,3 +129,25 @@ static func search_node_name_begins_with(
 					initials,
 					child_node,
 					on_node_found)
+
+
+# 子孫ノードを名前の文字列で指定して検索
+static func search_descendant_node_by_name_str(
+		current_node,
+		node_name_str):	# ノードの名前。文字列
+	# 子要素にあればそれを取得
+	if current_node.has_node(node_name_str):
+		return current_node.get_node(node_name_str)
+
+	# さらに子を探索
+	for child_node in current_node.get_children():
+		var found_node = MonkeyHelper.search_descendant_node_by_name_str(
+				child_node,
+				node_name_str)
+
+		# 見つかればそれを返す
+		if found_node != null:
+			return found_node
+
+	# 見つからなかった
+	return null
