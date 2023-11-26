@@ -1,31 +1,31 @@
 [gd_scene load_steps=22 format=3 uid="uid://df3w8nurqp4dl"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/director.gd" id="1_7cses"]
+[ext_resource type="Script" path="res://⚓local_🍉VisualNovel/director.gd" id="1_36c3q"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
-[ext_resource type="PackedScene" uid="uid://bru7a2wmr7m8y" path="res://addon_🍉VisualNovel/🌏GuiProgrammer_MessageWindows.tscn" id="4_qbs6l"]
-[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://addon_🍉VisualNovel/🌏Illustrator.tscn" id="5_ocgan"]
-[ext_resource type="PackedScene" uid="uid://csqladmrcvyby" path="res://addon_🍉VisualNovel/🌏Programmer_🛩Hub.tscn" id="12_8g6tr"]
+[ext_resource type="PackedScene" uid="uid://bru7a2wmr7m8y" path="res://🎄addon_🍉VisualNovel/🌏GuiProgrammer_MessageWindows.tscn" id="4_qbs6l"]
+[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/🌏Illustrator.tscn" id="5_ocgan"]
+[ext_resource type="Script" path="res://⚓local_🍉VisualNovel/programs_hub.gd" id="11_nqlsq"]
+[ext_resource type="PackedScene" uid="uid://csqladmrcvyby" path="res://🎄addon_🍉VisualNovel/🌏Programmer_🛩Hub.tscn" id="12_8g6tr"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_hub.gd" id="21_kjvby"]
-[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://addon_🍉KeyConfig/🌏Illustrator.tscn" id="21_wljdh"]
-[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://addon_🍉KeyConfig/🌏Musician_🌏BgMusics.tscn" id="23_5bwgy"]
-[ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://addon_🍉VisualNovel/🌏Musician_🌏BgMusics.tscn" id="24_8oncv"]
-[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://addon_🍉KeyConfig/🌏Musician_🌏SoundFX.tscn" id="25_4re2d"]
-[ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://addon_🍉VisualNovel/🌏Musician_🌏SoundFX.tscn" id="26_hgiuu"]
-[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://addon_🍉KeyConfig/🌏Programmer_🛩ProgramsHub.tscn" id="27_t3xld"]
-[ext_resource type="PackedScene" uid="uid://7owsgytxxeua" path="res://addon_🍉VisualNovel/🌏ScenarioWriter.tscn" id="31_ywbpe"]
-[ext_resource type="PackedScene" uid="uid://7d1c4sgwele3" path="res://addon_🍉VisualNovel/🌏TelopCoordinator.tscn" id="32_12dmy"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel_local/programs_hub.gd" id="41_xkso2"]
-[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://addon_🍉KeyConfig/🌏Director.tscn" id="43_1kc47"]
+[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/🌏Illustrator.tscn" id="21_wljdh"]
+[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉KeyConfig/🌏Musician_🌏BgMusics.tscn" id="23_5bwgy"]
+[ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://🎄addon_🍉VisualNovel/🌏Musician_🌏BgMusics.tscn" id="24_8oncv"]
+[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉KeyConfig/🌏Musician_🌏SoundFX.tscn" id="25_4re2d"]
+[ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://🎄addon_🍉VisualNovel/🌏Musician_🌏SoundFX.tscn" id="26_hgiuu"]
+[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://🎄addon_🍉KeyConfig/🌏Programmer_🛩ProgramsHub.tscn" id="27_t3xld"]
+[ext_resource type="PackedScene" uid="uid://7owsgytxxeua" path="res://🎄addon_🍉VisualNovel/🌏ScenarioWriter.tscn" id="31_ywbpe"]
+[ext_resource type="PackedScene" uid="uid://7d1c4sgwele3" path="res://🎄addon_🍉VisualNovel/🌏TelopCoordinator.tscn" id="32_12dmy"]
+[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉KeyConfig/🌏Director.tscn" id="43_1kc47"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/switch_department.gd" id="44_c0141"]
-[ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://addon_🍉VisualNovel/🌏ScenarioWriter_＋🛩️scenario_writers_hub.tscn" id="55_dfxei"]
-[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://addon_🍉KeyConfig/🌏TelopCoordinator.tscn" id="68_rpnem"]
-[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://addon_🍉VisualNovel/🌏Programmer.tscn" id="81_aev68"]
+[ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉VisualNovel/🌏ScenarioWriter_＋🛩️scenario_writers_hub.tscn" id="55_dfxei"]
+[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🎄addon_🍉KeyConfig/🌏TelopCoordinator.tscn" id="68_rpnem"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉VisualNovel/🌏Programmer.tscn" id="81_aev68"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
 [node name="🌏Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
-script = ExtResource("1_7cses")
+script = ExtResource("1_36c3q")
 
 [node name="Grid" type="Sprite2D" parent="."]
 z_index = 5
@@ -69,7 +69,7 @@ visible = false
 [node name="🌏Programmer" type="Node" parent="."]
 
 [node name="🛩️Hub" type="Node" parent="🌏Programmer"]
-script = ExtResource("41_xkso2")
+script = ExtResource("11_nqlsq")
 
 [node name="ーーーーアドオンーーーー" type="Node" parent="🌏Programmer/🛩️Hub"]
 
