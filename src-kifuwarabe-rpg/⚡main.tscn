@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=63 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg_local/director.gd" id="1_u2dch"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -30,6 +30,7 @@
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_neorock14.ogg" id="43_k3tfj"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_orchestra12.ogg" id="44_beusv"]
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_event17.ogg" id="45_dlghs"]
+[ext_resource type="PackedScene" uid="uid://blh00f8ui284" path="res://addon_🍉Battle/🌏ScenarioWriter.tscn" id="45_xowih"]
 [ext_resource type="PackedScene" uid="uid://7owsgytxxeua" path="res://addon_🍉VisualNovel/🌏ScenarioWriter.tscn" id="47_8cd71"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_magic_fire11.ogg" id="48_nxrfb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg_local/programs_hub.gd" id="58_5qams"]
@@ -42,13 +43,10 @@
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://addon_🍉KeyConfig/🌏Director.tscn" id="62_isghc"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_choices_mappings.gd" id="65_vvek8"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_hub.gd" id="66_vjfnv"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/text_block.gd" id="69_g27j5"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="69_u1h4l"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/end_of_message_blinker.gd" id="70_epi57"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/battle_chapter_1.gd" id="70_ifrki"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
@@ -322,18 +320,9 @@ script = ExtResource("58_5qams")
 [node name="📘DepartmentControl" type="Node" parent="🌏ScenarioWriter"]
 script = ExtResource("60_f7oqn")
 
-[node name="📗バトル部門" type="Node" parent="🌏ScenarioWriter"]
-
-[node name="🛩️BattleHub" type="Node" parent="🌏ScenarioWriter/📗バトル部門"]
-script = ExtResource("66_vjfnv")
-
-[node name="📃選択肢と飛び先" type="Node" parent="🌏ScenarioWriter/📗バトル部門"]
-script = ExtResource("65_vvek8")
-
-[node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗バトル部門"]
-script = ExtResource("70_ifrki")
-
 [node name="ーーーーアドオンーーーー" type="Node" parent="🌏ScenarioWriter"]
+
+[node name="📂🍉Battle" parent="🌏ScenarioWriter" instance=ExtResource("45_xowih")]
 
 [node name="📂🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("47_8cd71")]
 

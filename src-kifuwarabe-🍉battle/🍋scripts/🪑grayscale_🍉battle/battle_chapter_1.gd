@@ -498,7 +498,6 @@ var scenario_document = {
 		img:			{{arg_monster_body}}	,hide
 		img:			{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン				,hide
-		#img:				{{arg_bg_out}}
 
 		department:		{{arg_exit_department}}
 		goto:			{{arg_exit_section}}

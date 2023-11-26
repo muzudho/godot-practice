@@ -64,7 +64,7 @@ var scenario_document = {
 		var:		arg_monster_body		,🐕ヘム将棋
 		var:		arg_monster_face		,😁ヘム将棋
 		var:		arg_battle_section		,§ＶＳヘム将棋
-		var:		arg_exit_department		,📗バトル部門
+		var:		arg_exit_department		,📗バトル部門_🍉Battle
 		var:		arg_exit_section		,§２回目戦闘シーン
 		goto:		§戦闘の始めに
 		""",
@@ -84,7 +84,7 @@ var scenario_document = {
 		var:		arg_monster_body		,🐕ケダック
 		var:		arg_monster_face		,😁ケダック
 		var:		arg_battle_section		,§ＶＳケダック
-		var:		arg_exit_department		,📗バトル部門
+		var:		arg_exit_department		,📗バトル部門_🍉Battle
 		var:		arg_exit_section		,§３回目戦闘シーン
 		goto:		§戦闘の始めに
 		""",
@@ -104,9 +104,9 @@ var scenario_document = {
 		var:		arg_monster_body		,🐕レサぽん改
 		var:		arg_monster_face		,😁レサぽん改
 		var:		arg_battle_section		,§ＶＳレサぽん改
-		var:		arg_exit_department		,📗バトル部門
+		var:		arg_exit_department		,📗バトル部門_🍉Battle
 		var:		arg_exit_section		,§４回目戦闘シーン
-		department:	📗バトル部門
+		department:	📗バトル部門_🍉Battle
 		goto:		§戦闘の始めに
 		""",
 	],
@@ -127,7 +127,7 @@ var scenario_document = {
 		var:		arg_battle_section		,§ＶＳ昼ビール
 		var:		arg_exit_department		,{{arg_exit_department_2}}
 		var:		arg_exit_section		,{{arg_exit_section_2}}
-		department:	📗バトル部門
+		department:	📗バトル部門_🍉Battle
 		goto:		§戦闘の始めに
 		""",
 	],
