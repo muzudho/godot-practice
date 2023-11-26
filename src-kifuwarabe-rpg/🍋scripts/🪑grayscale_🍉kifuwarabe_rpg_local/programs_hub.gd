@@ -6,6 +6,34 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 
 
 # ーーーーーーーー
+# 共通メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
+
+# ーーーーーーーー
+# アドオン・スロット
+# ーーーーーーーー
+
+# BGMノードのキャッシュ
+var bg_musics = null
+
+# メッセージ・ウィンドウ・プログラムのキャッシュ
+var message_window_programs = null
+
+# イラスト・ノードのキャッシュ
+var images = null
+
+# サウンド・エフェクト（Sound Effect, Sound FX；効果音）のキャッシュ
+var sound_fx = null
+
+# テロップのキャッシュ
+var telops = null
+
+
+# ーーーーーーーー
 # 外パス関連
 # ーーーーーーーー
 
@@ -149,29 +177,6 @@ func _ready():
 		department_value.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
-
-
-# ーーーーーーーー
-# 共通メモリ関連
-# ーーーーーーーー
-
-# 先祖の辞書キャッシュ
-var ancestors = {}
-
-# BGMノードのキャッシュ
-var bg_musics = null
-
-# メッセージ・ウィンドウ・プログラムのキャッシュ
-var message_window_programs = null
-
-# イラスト・ノードのキャッシュ
-var images = null
-
-# サウンド・エフェクト（Sound Effect, Sound FX；効果音）のキャッシュ
-var sound_fx = null
-
-# テロップのキャッシュ
-var telops = null
 
 
 # ーーーーーーーー

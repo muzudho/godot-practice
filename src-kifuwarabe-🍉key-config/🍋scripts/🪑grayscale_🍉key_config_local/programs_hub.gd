@@ -9,6 +9,11 @@ extends Node
 # 先祖の辞書キャッシュ
 var ancestors = {}
 
+
+# ーーーーーーーー
+# アドオン・スロット
+# ーーーーーーーー
+
 # BGMノードのキャッシュ
 var bg_musics = null
 
