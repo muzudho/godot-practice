@@ -336,22 +336,22 @@ script = ExtResource("65_vvek8")
 [node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗バトル部門"]
 script = ExtResource("70_ifrki")
 
-[node name="ーーーーアドオンーーーー" type="Node" parent="🌏ScenarioWriter"]
+[node name="ーーーーローカルーーーー" type="Node" parent="🌏ScenarioWriter"]
 
-[node name="📗会話部門_🍉VisualNovel" type="Node" parent="🌏ScenarioWriter"]
+[node name="📗会話部門_🍉Battle" type="Node" parent="🌏ScenarioWriter"]
 
-[node name="📃選択肢と飛び先" type="Node" parent="🌏ScenarioWriter/📗会話部門_🍉VisualNovel"]
+[node name="📃選択肢と飛び先" type="Node" parent="🌏ScenarioWriter/📗会話部門_🍉Battle"]
 script = ExtResource("48_v4a4k")
 
-[node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗会話部門_🍉VisualNovel"]
+[node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗会話部門_🍉Battle"]
 script = ExtResource("49_yek8s")
 
-[node name="📗会話システムメニュー部門_🍉VisualNovel" type="Node" parent="🌏ScenarioWriter"]
+[node name="📗会話システムメニュー部門_🍉Battle" type="Node" parent="🌏ScenarioWriter"]
 
-[node name="📃選択肢と飛び先" type="Node" parent="🌏ScenarioWriter/📗会話システムメニュー部門_🍉VisualNovel"]
+[node name="📃選択肢と飛び先" type="Node" parent="🌏ScenarioWriter/📗会話システムメニュー部門_🍉Battle"]
 script = ExtResource("50_qpkfo")
 
-[node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗会話システムメニュー部門_🍉VisualNovel"]
+[node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗会話システムメニュー部門_🍉Battle"]
 script = ExtResource("51_intjl")
 
 [node name="🌏TelopCoordinator" type="CanvasLayer" parent="."]

@@ -54,7 +54,7 @@ var scenario_document = {
 		"""\
 		!
 		img:		🗻ツツジロード
-		var:		%clear%
+		#var:		%clear%
 		var:		arg_bg_out				,🗻ツツジロード
 		var:		arg_bg_in				,🗻ツツジロード
 		var:		arg_battle_bg_music			,🎵バトル１
@@ -74,7 +74,7 @@ var scenario_document = {
 		"""\
 		!
 		img:		🗻ツツジロード
-		var:		%clear%
+		#var:		%clear%
 		var:		arg_bg_out				,🗻ツツジロード
 		var:		arg_bg_in				,🗻ツツジロード
 		var:		arg_battle_bg_music			,🎵バトル２
@@ -94,7 +94,7 @@ var scenario_document = {
 		"""\
 		!
 		img:		🗻ツツジロード
-		var:		%clear%
+		#var:		%clear%
 		var:		arg_bg_out				,🗻ツツジロード
 		var:		arg_bg_in				,🗻川堀町線ロード
 		var:		arg_battle_bg_music			,🎵バトル３
@@ -115,7 +115,7 @@ var scenario_document = {
 		"""\
 		!
 		img:		🗻川堀町線ロード
-		var:		%clear%
+		#var:		%clear%
 		var:		arg_bg_out				,🗻川堀町線ロード
 		var:		arg_bg_in				,🗻川堀町線ロード
 		var:		arg_battle_bg_music			,🎵バトル４
@@ -125,8 +125,8 @@ var scenario_document = {
 		var:		arg_monster_body		,🐕昼ビール
 		var:		arg_monster_face		,😁昼ビール
 		var:		arg_battle_section		,§ＶＳ昼ビール
-		var:		arg_exit_department		,📗会話部門_🍉VisualNovel
-		var:		arg_exit_section		,§崎川市最強振興会館
+		var:		arg_exit_department		,{{arg_exit_department_2}}
+		var:		arg_exit_section		,{{arg_exit_section_2}}
 		department:	📗バトル部門
 		goto:		§戦闘の始めに
 		""",
@@ -498,7 +498,6 @@ var scenario_document = {
 		img:			{{arg_monster_body}}	,hide
 		img:			{{arg_monster_face}}	,hide
 		telop:			Ｔ戦闘シーン				,hide
-		#img:				{{arg_bg_out}}
 
 		department:		{{arg_exit_department}}
 		goto:			{{arg_exit_section}}

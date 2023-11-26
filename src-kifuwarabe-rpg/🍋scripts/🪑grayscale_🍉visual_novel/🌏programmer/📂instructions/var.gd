@@ -47,12 +47,13 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	# 変数展開はしません
+	# 第１引数は、変数展開しない
 	var key = string_packed_array[0].strip_edges()
 	var value = null
-	
+
 	if 2 <= string_packed_array.size():
-		value = string_packed_array[1].strip_edges()
+		# 第２引数は、変数展開する
+		value = self.hub().expand_variables(string_packed_array[1].strip_edges())
 
 		self.set_var(key, value)
 		return
