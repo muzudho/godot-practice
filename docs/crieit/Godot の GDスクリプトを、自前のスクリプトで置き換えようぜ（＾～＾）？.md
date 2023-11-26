@@ -15,4 +15,12 @@
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
 「　その前に、お父んの　自前スクリプト　の仕様を説明してくれだぜ」  
 
+# キー・コンフィグが確定してないと動かない
+
+![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
+「　と、思ったんだが、キー・コンフィグが確定していないときに　自前スクリプトを動かすことは　無理だぜ」  
+
+![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
+「　なんだ」  
+
 .
