@@ -32,13 +32,6 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
 
-[node name="🌏GuiProgrammer_MessageWindows" type="Node" parent="."]
-
-[node name="🛩️Hub" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
-script = ExtResource("21_kjvby")
-
-[node name="📂🍉VisualNovel" parent="🌏GuiProgrammer_MessageWindows" instance=ExtResource("4_qbs6l")]
-
 [node name="🌏Illustrator" type="Node2D" parent="."]
 visible = false
 
@@ -78,6 +71,13 @@ script = ExtResource("11_nqlsq")
 [node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️Hub" instance=ExtResource("27_t3xld")]
 
 [node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
+
+[node name="🌏Programmer_MessageWindow" type="Node" parent="."]
+
+[node name="🛩️Hub" type="Node" parent="🌏Programmer_MessageWindow"]
+script = ExtResource("21_kjvby")
+
+[node name="📂🍉VisualNovel" parent="🌏Programmer_MessageWindow" instance=ExtResource("4_qbs6l")]
 
 [node name="🌏ScenarioWriter" type="Node" parent="."]
 

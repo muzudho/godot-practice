@@ -74,54 +74,6 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_ivwoj")
 
-[node name="🌏GuiProgrammer_MessageWindows" type="Node" parent="."]
-
-[node name="🛩️Hub" type="Node" parent="🌏GuiProgrammer_MessageWindows"]
-script = ExtResource("61_cfuy1")
-
-[node name="■FullScreen" type="Sprite2D" parent="🌏GuiProgrammer_MessageWindows"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("22_rrmg8")
-script = ExtResource("61_tvkup")
-
-[node name="■上_大" type="Sprite2D" parent="🌏GuiProgrammer_MessageWindows"]
-visible = false
-position = Vector2(640, 360)
-texture = ExtResource("59_4vstx")
-script = ExtResource("61_tvkup")
-
-[node name="■下" type="Sprite2D" parent="🌏GuiProgrammer_MessageWindows"]
-visible = false
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("60_ked68")
-script = ExtResource("61_tvkup")
-
-[node name="■下on戦" type="Sprite2D" parent="🌏GuiProgrammer_MessageWindows"]
-visible = false
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("60_ked68")
-script = ExtResource("61_tvkup")
-
-[node name="■中央" type="Sprite2D" parent="🌏GuiProgrammer_MessageWindows"]
-visible = false
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("62_q6u17")
-script = ExtResource("61_tvkup")
-
-[node name="■左下" type="Sprite2D" parent="🌏GuiProgrammer_MessageWindows"]
-visible = false
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("63_a2lr3")
-script = ExtResource("61_tvkup")
-
 [node name="🌏Illustrator" type="Node2D" parent="."]
 visible = false
 
@@ -312,6 +264,54 @@ script = ExtResource("39_w7ugv")
 [node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️Hub" instance=ExtResource("40_dv74k")]
 
 [node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("41_kb3a0")]
+
+[node name="🌏Programmer_MessageWindow" type="Node" parent="."]
+
+[node name="🛩️Hub" type="Node" parent="🌏Programmer_MessageWindow"]
+script = ExtResource("61_cfuy1")
+
+[node name="■FullScreen" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("22_rrmg8")
+script = ExtResource("61_tvkup")
+
+[node name="■上_大" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+visible = false
+position = Vector2(640, 360)
+texture = ExtResource("59_4vstx")
+script = ExtResource("61_tvkup")
+
+[node name="■下" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+visible = false
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("60_ked68")
+script = ExtResource("61_tvkup")
+
+[node name="■下on戦" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+visible = false
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("60_ked68")
+script = ExtResource("61_tvkup")
+
+[node name="■中央" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+visible = false
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("62_q6u17")
+script = ExtResource("61_tvkup")
+
+[node name="■左下" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+visible = false
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("63_a2lr3")
+script = ExtResource("61_tvkup")
 
 [node name="🌏ScenarioWriter" type="Node" parent="."]
 

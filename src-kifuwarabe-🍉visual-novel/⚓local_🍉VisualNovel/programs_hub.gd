@@ -53,7 +53,7 @@ func get_illustrator():
 
 # メッセージ・ウィンドウズ取得
 func get_gui_programmer_message_windows():
-	return self.get_director().get_node("🌏GuiProgrammer_MessageWindows")
+	return self.get_director().get_node("🌏Programmer_MessageWindow")
 
 
 # モンスターの全身像

@@ -48,7 +48,7 @@ var choices_index = 0
 func hub():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🌏GuiProgrammer_MessageWindows/🛩️Hub",
+			"🌏Programmer_MessageWindow/🛩️Hub",
 			self.ancestor_children_dictionary)
 
 

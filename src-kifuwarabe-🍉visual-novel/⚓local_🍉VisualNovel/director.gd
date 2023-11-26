@@ -37,7 +37,7 @@ func get_key_config_hub():
 
 
 func get_gui_programmer_message_windows():
-	return $"🌏GuiProgrammer_MessageWindows"
+	return $"🌏Programmer_MessageWindow"
 
 
 # プログラムズ・ハブ取得
