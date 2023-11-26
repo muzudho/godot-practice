@@ -89,23 +89,16 @@ func get_all_department_names():
 	if self.all_department_names == null:
 		self.all_department_names = []	# StringName の配列
 
-		# 結果は変数に格納される
-		self.search_all_department_names(
-				self.get_scenario_writer())
-			
+		MonkeyHelper.search_node_name_begins_with(
+				# 命令のノード名は `📗` で始まるものとする
+				&"📗",
+				# 探す場所
+				self.get_scenario_writer(),
+				func(child_node):
+					# デパートメント名を記憶
+					self.all_department_names.append(child_node.name))
+
 	return self.all_department_names
-
-
-# 結果は変数に格納される
-func search_all_department_names(current_node):
-	for child_node in current_node.get_children():
-		# 部門のノード名は `📗` で始まるものとする
-		if child_node.name.begins_with("📗"):
-			self.all_department_names.append(child_node.name)
-		
-		# `📂` で始まるノード名は、さらにその中も再帰的に探索されるものとする
-		elif child_node.name.begins_with("📂"):
-			self.search_all_department_names(child_node)
 
 
 # 全ての命令コード一覧
