@@ -84,14 +84,12 @@ func execute_stage_directions(paragraph_text):
 			var string_packed_array = second_head.split(":", true, 1)
 			var instruction_code = string_packed_array[0] + ":"
 
-			# 以下の命令は、アルファベット順で並べてある
-			#
 			# コメント
 			if second_head.begins_with("#"):
 				pass
 
 			else:
-				# `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
+				# 例えば `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
 				if instruction_code in self.hub().directory_for_instruction_code_and_node_name:
 					var instruction_node_name = self.hub().directory_for_instruction_code_and_node_name[instruction_code]
 					var instruction = self.hub().get_instruction(instruction_node_name)
