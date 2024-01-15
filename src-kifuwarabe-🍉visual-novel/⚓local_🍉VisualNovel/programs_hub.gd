@@ -195,26 +195,6 @@ var is_department_not_found = false
 # ーーーーーーーー
 
 
-# パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
-func parse_paragraph(paragraph_text):
-	
-	# エンジン・ノード
-	var engine_node = self.get_instruction("📄Engine_🍉VisualNovel")
-	
-	# ト書きなら実行
-	if engine_node.execute_stage_directions(paragraph_text):
-		# すれば抜ける
-		return
-
-	# 選択肢なら表示
-	if engine_node.print_choices(paragraph_text):
-		# すれば抜ける
-		return
-
-	# 通常文書の表示
-	engine_node.print_normal_text(paragraph_text)
-
-
 # 変数展開する
 # `target_before_change` - １行かもしれないし、段落かもしれないし、匿名関数かもしれない
 func expand_variables(target_before_change):
@@ -415,7 +395,9 @@ func on_process(delta):
 				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
 
 				# ここで、命令と、台詞は区別する
-				self.parse_paragraph(latest_message)
+				# エンジン・ノード
+				var engine_node = self.get_instruction("📄Engine_🍉VisualNovel")
+				engine_node.parse_paragraph(latest_message)
 			
 			else:
 				# TODO 文字列以外のパラグラフに対応したい

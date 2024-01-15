@@ -60,6 +60,23 @@ func _process(delta):
 	pass
 
 
+# パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
+func parse_paragraph(paragraph_text):
+		
+	# ト書きなら実行
+	if self.execute_stage_directions(paragraph_text):
+		# すれば抜ける
+		return
+
+	# 選択肢なら表示
+	if self.print_choices(paragraph_text):
+		# すれば抜ける
+		return
+
+	# 通常文書の表示
+	self.print_normal_text(paragraph_text)
+
+
 # 通常文書の表示	
 func print_normal_text(paragraph_text):
 	#print("［シナリオエンジン］　準備中　通常文書の表示")
