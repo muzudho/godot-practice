@@ -218,6 +218,10 @@ var is_department_not_found = false
 # パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
 func parse_paragraph(paragraph_text):
 	
+	# TODO 読めるかテスト
+	var engine_node = self.get_instruction("📄Engine_🍉VisualNovel")
+	engine_node.parse_paragraph_test()
+	
 	# ［ト書き］かどうか判定
 	var first_head_tail = self.split_head_line_or_tail(paragraph_text)
 	var first_head = first_head_tail[0].strip_edges()

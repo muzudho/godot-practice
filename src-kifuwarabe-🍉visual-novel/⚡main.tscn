@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=23 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/director.gd" id="1_36c3q"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/🌏Illustrator.tscn" id="5_ocgan"]
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/programs_hub.gd" id="11_nqlsq"]
 [ext_resource type="PackedScene" uid="uid://csqladmrcvyby" path="res://🎄addon_🍉VisualNovel/🌏Programmer_🛩Hub.tscn" id="12_8g6tr"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏programmer/📂scenario_player/📄Engine.gd" id="13_cddwg"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_hub.gd" id="21_kjvby"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/🌏Illustrator.tscn" id="21_wljdh"]
 [ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉KeyConfig/🌏Musician_🌏BgMusics.tscn" id="23_5bwgy"]
@@ -71,6 +72,11 @@ script = ExtResource("11_nqlsq")
 [node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️Hub" instance=ExtResource("27_t3xld")]
 
 [node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("81_aev68")]
+
+[node name="📂ScenarioPlayer_🍉VisualNovel" type="Node" parent="🌏Programmer"]
+
+[node name="📄Engine_🍉VisualNovel" type="Node" parent="🌏Programmer/📂ScenarioPlayer_🍉VisualNovel"]
+script = ExtResource("13_cddwg")
 
 [node name="🌏Programmer_MessageWindow" type="Node" parent="."]
 
