@@ -36,6 +36,7 @@ func get_all_instruction_codes():
 				# 命令のノード名は `📗` で始まるものとする
 				&"📗",
 				# 探す場所
+				# 本当は `🌏Programmer` ノードの下のどこかにある `📂ScenarioPlayer_🍉VisualNovel` ノードのさらに下の `📂Instructions` ノードの下を探して欲しいが。
 				self.hub().get_programmer(),
 				func(child_node):
 					# コードにノード名を紐づける
