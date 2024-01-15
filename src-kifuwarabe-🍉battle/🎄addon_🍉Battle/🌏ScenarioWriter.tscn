@@ -1,20 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://blh00f8ui284"]
+[gd_scene load_steps=4 format=3 uid="uid://blh00f8ui284"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉battle/battle_hub.gd" id="1_ygw8g"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/visual_novel_choices_mappings.gd" id="1_yyuwb"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/visual_novel_chapter_1.gd" id="2_5e2yv"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉battle/battle_choices_mappings.gd" id="2_ynxgj"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉battle/battle_chapter_1.gd" id="3_yo50r"]
 
 [node name="📂🍉Battle" type="Node"]
-
-[node name="📗会話部門_🍉VisualNovel" type="Node" parent="."]
-
-[node name="📃選択肢と飛び先" type="Node" parent="📗会話部門_🍉VisualNovel"]
-script = ExtResource("1_yyuwb")
-
-[node name="📃はじまり" type="Node" parent="📗会話部門_🍉VisualNovel"]
-script = ExtResource("2_5e2yv")
 
 [node name="📗バトル部門_🍉Battle" type="Node" parent="."]
 
