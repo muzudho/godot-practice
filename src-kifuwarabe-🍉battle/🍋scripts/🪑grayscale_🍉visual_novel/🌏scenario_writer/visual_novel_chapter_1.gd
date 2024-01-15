@@ -1,4 +1,5 @@
 # ユーザー・デファインド・ファイル（User defined file；利用者定義書類）
+# Note: 戦闘テスト用に改造している
 extends Node
 
 
