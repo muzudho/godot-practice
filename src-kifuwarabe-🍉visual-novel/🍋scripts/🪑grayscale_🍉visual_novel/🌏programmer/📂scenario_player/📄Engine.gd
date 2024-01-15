@@ -42,7 +42,21 @@ func parse_paragraph_test():
 	print("［シナリオエンジン］　準備中")
 	pass
 
+
 # 通常文書の表示	
 func print_normal_text(paragraph_text):
-	print("［シナリオエンジン］　準備中　通常文書の表示")
+	#print("［シナリオエンジン］　準備中　通常文書の表示")
 	self.hub().get_instruction(&"📘NormalText").do_it(paragraph_text)
+
+
+# 選択肢の表示
+func print_choices(paragraph_text):
+	print("［シナリオエンジン］　準備中　選択肢の表示")
+	var message_window_gui = self.hub().get_current_message_window_gui()
+
+	# 選択肢だ
+	if message_window_gui.choices_row_numbers != null:
+		self.hub().get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
+		return true
+
+	return false

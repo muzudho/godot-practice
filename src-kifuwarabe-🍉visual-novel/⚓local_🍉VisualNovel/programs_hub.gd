@@ -266,16 +266,13 @@ func parse_paragraph(paragraph_text):
 		self.is_department_not_found = false
 		return
 
-	var message_window_gui = self.get_current_message_window_gui()
-
-	# 選択肢だ
-	if message_window_gui.choices_row_numbers != null:
-		self.get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
+	# 選択肢の表示
+	if engine_node.print_choices(paragraph_text):
+		# すれば抜ける
 		return
 
-	# print("［助監］　選択肢ではない")
+	# 通常文書の表示
 	engine_node.print_normal_text(paragraph_text)
-	# self.get_instruction(&"📘NormalText").do_it(paragraph_text)
 
 
 # 変数展開する
