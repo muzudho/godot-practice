@@ -73,7 +73,7 @@ func get_telop_coordinator():
 func _ready():
 
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.get_programs_hub().get_all_instruction_codes()
+	var _all_instruction_code = self.get_programs_hub().get_instruction("📄Engine_🍉VisualNovel").get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示

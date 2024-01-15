@@ -4,11 +4,14 @@ extends Node
 
 
 # ーーーーーーーー
-# 共通メモリ関連
+# メモリ関連
 # ーーーーーーーー
 
 # 先祖の辞書キャッシュ
 var ancestors = {}
+
+# 全命令（キー："命令名:"　値：ノード名）
+var directory_for_instruction_code_and_node_name = null
 
 
 # ーーーーーーーー
@@ -22,6 +25,23 @@ func hub():
 			self,
 			"🌏Programmer/🛩️Hub",
 			self.ancestors)
+
+
+# 全ての命令コード一覧
+func get_all_instruction_codes():
+	if self.directory_for_instruction_code_and_node_name == null:
+		self.directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
+
+		MonkeyHelper.search_node_name_begins_with(
+				# 命令のノード名は `📗` で始まるものとする
+				&"📗",
+				# 探す場所
+				self.hub().get_programmer(),
+				func(child_node):
+					# コードにノード名を紐づける
+					self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
+
+	return self.directory_for_instruction_code_and_node_name
 
 
 # ーーーーーーーー
@@ -90,8 +110,8 @@ func execute_stage_directions(paragraph_text):
 
 			else:
 				# 例えば `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
-				if instruction_code in self.hub().directory_for_instruction_code_and_node_name:
-					var instruction_node_name = self.hub().directory_for_instruction_code_and_node_name[instruction_code]
+				if instruction_code in self.directory_for_instruction_code_and_node_name:
+					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
 					var instruction = self.hub().get_instruction(instruction_node_name)
 					instruction.do_it(second_head)
 				

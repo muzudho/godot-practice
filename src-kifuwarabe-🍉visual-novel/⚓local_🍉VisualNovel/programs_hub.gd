@@ -129,23 +129,6 @@ func get_all_department_names():
 	return self.all_department_names
 
 
-# 全ての命令コード一覧
-func get_all_instruction_codes():
-	if self.directory_for_instruction_code_and_node_name == null:
-		self.directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
-
-		MonkeyHelper.search_node_name_begins_with(
-				# 命令のノード名は `📗` で始まるものとする
-				&"📗",
-				# 探す場所
-				self.get_programmer(),
-				func(child_node):
-					# コードにノード名を紐づける
-					self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
-
-	return self.directory_for_instruction_code_and_node_name
-
-
 # ーーーーーーーー
 # 起動時設定
 # ーーーーーーーー
@@ -192,9 +175,6 @@ var departments = {}
 
 # 全部門名
 var all_department_names = null
-
-# 全命令（キー："命令名:"　値：ノード名）
-var directory_for_instruction_code_and_node_name = null
 
 # 現在の部門（StringName型）
 var current_department_name = null
