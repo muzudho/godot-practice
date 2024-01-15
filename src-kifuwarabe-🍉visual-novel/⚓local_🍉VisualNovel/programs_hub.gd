@@ -274,7 +274,8 @@ func parse_paragraph(paragraph_text):
 		return
 
 	# print("［助監］　選択肢ではない")
-	self.get_instruction(&"📘NormalText").do_it(paragraph_text)
+	engine_node.print_normal_text(paragraph_text)
+	# self.get_instruction(&"📘NormalText").do_it(paragraph_text)
 
 
 # 変数展開する
