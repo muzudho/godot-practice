@@ -65,7 +65,6 @@ var scenario_document = {
 		"""
 	],
 	# ゲーム開始
-	# TODO 消す 動作テスト中
 	"§はじまり":[
 		"""\
 		!

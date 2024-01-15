@@ -20,11 +20,11 @@ var key_pressed_stage_directions = {
 			# 段落は１つまで
 			"""\
 			!
-			department:		📗会話システムメニュー部門_🍉Battle
+			department:		📗会話システムメニュー部門_🍉VisualNovel
 			goto:			§システムメニュー画面
 			""",
 	},
-	&"📗会話システムメニュー部門_🍉Battle" : {
+	&"📗会話システムメニュー部門_🍉VisualNovel" : {
 		# キャンセルボタンでノベルに戻る
 		&"VK_Cancel" :
 			"""\
