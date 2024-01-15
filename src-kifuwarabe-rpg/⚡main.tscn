@@ -263,7 +263,7 @@ script = ExtResource("39_w7ugv")
 
 [node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️Hub" instance=ExtResource("40_dv74k")]
 
-[node name="📂Instructions_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("41_kb3a0")]
+[node name="📂ScenarioPlayer_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("41_kb3a0")]
 
 [node name="🌏Programmer_MessageWindow" type="Node" parent="."]
 

@@ -1,4 +1,5 @@
 # プログラム・ハブ（Program Hub；プログラムの中心地）
+# TODO このファイルの内容は、`📄Nodes_🍉xxxx` に小分けにしていきたい。少なくしたい
 extends Node
 
 
@@ -101,6 +102,11 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
+# シナリオ再生エンジン取得
+func get_scenario_player_engine():
+	return self.get_instruction("📄Engine_🍉VisualNovel")
+
+
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName
@@ -127,23 +133,6 @@ func get_all_department_names():
 					self.all_department_names.append(child_node.name))
 
 	return self.all_department_names
-
-
-# 全ての命令コード一覧
-func get_all_instruction_codes():
-	if self.directory_for_instruction_code_and_node_name == null:
-		self.directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
-
-		MonkeyHelper.search_node_name_begins_with(
-				# 命令のノード名は `📗` で始まるものとする
-				&"📗",
-				# 探す場所
-				self.get_programmer(),
-				func(child_node):
-					# コードにノード名を紐づける
-					self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
-
-	return self.directory_for_instruction_code_and_node_name
 
 
 # ーーーーーーーー
@@ -193,9 +182,6 @@ var departments = {}
 # 全部門名
 var all_department_names = null
 
-# 全命令（キー："命令名:"　値：ノード名）
-var directory_for_instruction_code_and_node_name = null
-
 # 現在の部門（StringName型）
 var current_department_name = null
 
@@ -213,64 +199,6 @@ var is_department_not_found = false
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
-
-
-# パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
-func parse_paragraph(paragraph_text):
-	
-	# ［ト書き］かどうか判定
-	var first_head_tail = self.split_head_line_or_tail(paragraph_text)
-	var first_head = first_head_tail[0].strip_edges()
-	var first_tail = first_head_tail[1] 
-	
-	# ［ト書き］
-	# `.strip_edges()` - 先頭行の最初と、最終行の最後の表示されない文字を消去
-	if first_head.strip_edges() == "!":
-		print("［助監］　命令テキストだ：[" + first_tail + "]")
-
-		# さらに先頭行を取得
-		var second_head_tail = self.split_head_line_or_tail(first_tail)
-		
-		while second_head_tail != null:
-			var second_head = second_head_tail[0].strip_edges()
-			var second_tail = second_head_tail[1]
-			# print("［助監］　second_head：[" + second_head + "]")
-			# print("［助監］　second_tail：[" + second_tail + "]")
-			# 文字列の配列に分割
-			var string_packed_array = second_head.split(":", true, 1)
-			var instruction_code = string_packed_array[0] + ":"
-
-			# 以下の命令は、アルファベット順で並べてある
-			#
-			# コメント
-			if second_head.begins_with("#"):
-				pass
-
-			else:
-				# `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
-				if instruction_code in self.directory_for_instruction_code_and_node_name:
-					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
-					var instruction = self.get_instruction(instruction_node_name)
-					instruction.do_it(second_head)
-				
-			# さらに先頭行を取得
-			second_head_tail = split_head_line_or_tail(second_tail)
-
-		# ーーーーーーーー
-		# ［ト書き］終わり
-		# ーーーーーーーー
-		self.is_department_not_found = false
-		return
-
-	var message_window_gui = self.get_current_message_window_gui()
-
-	# 選択肢だ
-	if message_window_gui.choices_row_numbers != null:
-		self.get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
-		return
-
-	# print("［助監］　選択肢ではない")
-	self.get_instruction(&"📘NormalText").do_it(paragraph_text)
 
 
 # 変数展開する
@@ -473,7 +401,9 @@ func on_process(delta):
 				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
 
 				# ここで、命令と、台詞は区別する
-				self.parse_paragraph(latest_message)
+				# エンジン・ノード
+				var engine_node = self.get_scenario_player_engine()
+				engine_node.parse_paragraph(latest_message)
 			
 			else:
 				# TODO 文字列以外のパラグラフに対応したい
