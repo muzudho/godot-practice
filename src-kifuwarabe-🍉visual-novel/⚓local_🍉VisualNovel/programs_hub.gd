@@ -218,55 +218,59 @@ var is_department_not_found = false
 # パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
 func parse_paragraph(paragraph_text):
 	
-	# TODO 読めるかテスト
+	# エンジン・ノード
 	var engine_node = self.get_instruction("📄Engine_🍉VisualNovel")
-	engine_node.parse_paragraph_test()
 	
-	# ［ト書き］かどうか判定
-	var first_head_tail = self.split_head_line_or_tail(paragraph_text)
-	var first_head = first_head_tail[0].strip_edges()
-	var first_tail = first_head_tail[1] 
+	# ト書きなら実行
+	if engine_node.execute_stage_directions(paragraph_text):
+		# すれば抜ける
+		return
 	
+	## ［ト書き］かどうか判定
+	#var first_head_tail = self.split_head_line_or_tail(paragraph_text)
+	#var first_head = first_head_tail[0].strip_edges()
+	#var first_tail = first_head_tail[1] 
+	#	
 	# ［ト書き］
 	# `.strip_edges()` - 先頭行の最初と、最終行の最後の表示されない文字を消去
-	if first_head.strip_edges() == "!":
-		print("［助監］　命令テキストだ：[" + first_tail + "]")
+	#if first_head.strip_edges() == "!":
+	#	print("［助監］　命令テキストだ：[" + first_tail + "]")
+	#
+	#	# さらに先頭行を取得
+	#	var second_head_tail = self.split_head_line_or_tail(first_tail)
+	#	
+	#	while second_head_tail != null:
+	#		var second_head = second_head_tail[0].strip_edges()
+	#		var second_tail = second_head_tail[1]
+	#		# print("［助監］　second_head：[" + second_head + "]")
+	#		# print("［助監］　second_tail：[" + second_tail + "]")
+	#		# 文字列の配列に分割
+	#		var string_packed_array = second_head.split(":", true, 1)
+	#		var instruction_code = string_packed_array[0] + ":"
+	#
+	#		# 以下の命令は、アルファベット順で並べてある
+	#		#
+	#		# コメント
+	#		if second_head.begins_with("#"):
+	#			pass
+	#
+	#		else:
+	#			# `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
+	#			if instruction_code in self.directory_for_instruction_code_and_node_name:
+	#				var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
+	#				var instruction = self.get_instruction(instruction_node_name)
+	#				instruction.do_it(second_head)
+	#			
+	#		# さらに先頭行を取得
+	#		second_head_tail = split_head_line_or_tail(second_tail)
+	#
+	#	# ーーーーーーーー
+	#	# ［ト書き］終わり
+	#	# ーーーーーーーー
+	#	self.is_department_not_found = false
+	#	return
 
-		# さらに先頭行を取得
-		var second_head_tail = self.split_head_line_or_tail(first_tail)
-		
-		while second_head_tail != null:
-			var second_head = second_head_tail[0].strip_edges()
-			var second_tail = second_head_tail[1]
-			# print("［助監］　second_head：[" + second_head + "]")
-			# print("［助監］　second_tail：[" + second_tail + "]")
-			# 文字列の配列に分割
-			var string_packed_array = second_head.split(":", true, 1)
-			var instruction_code = string_packed_array[0] + ":"
-
-			# 以下の命令は、アルファベット順で並べてある
-			#
-			# コメント
-			if second_head.begins_with("#"):
-				pass
-
-			else:
-				# `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
-				if instruction_code in self.directory_for_instruction_code_and_node_name:
-					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
-					var instruction = self.get_instruction(instruction_node_name)
-					instruction.do_it(second_head)
-				
-			# さらに先頭行を取得
-			second_head_tail = split_head_line_or_tail(second_tail)
-
-		# ーーーーーーーー
-		# ［ト書き］終わり
-		# ーーーーーーーー
-		self.is_department_not_found = false
-		return
-
-	# 選択肢の表示
+	# 選択肢なら表示
 	if engine_node.print_choices(paragraph_text):
 		# すれば抜ける
 		return
