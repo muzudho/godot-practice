@@ -131,8 +131,8 @@ func on_virtual_key_input(
 
 			print("［監督］　アンハンドルド・キー押下　部門変更")
 
-			# TODO ここで stage_directions をト書きとして実行したいが、できるか？
-			var engine_node = self.get_programs_hub().get_instruction("📄Engine_🍉VisualNovel")
+			# ここで stage_directions をト書きとして実行したい
+			var engine_node = self.get_programs_hub().get_scenario_player_engine()
 			engine_node.parse_paragraph(stage_directions)
 
 			# 子要素には渡しません

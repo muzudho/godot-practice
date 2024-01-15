@@ -101,6 +101,11 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
+# シナリオ再生エンジン取得
+func get_scenario_player_engine():
+	return self.get_instruction("📄Engine_🍉VisualNovel")
+
+
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName
@@ -396,7 +401,7 @@ func on_process(delta):
 
 				# ここで、命令と、台詞は区別する
 				# エンジン・ノード
-				var engine_node = self.get_instruction("📄Engine_🍉VisualNovel")
+				var engine_node = self.get_scenario_player_engine()
 				engine_node.parse_paragraph(latest_message)
 			
 			else:
