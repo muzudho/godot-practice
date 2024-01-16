@@ -74,7 +74,7 @@ func goto(section_name, tail_csv):
 	
 	if section_name in merged_scenario_document:
 		self.hub().set_current_section(section_name)
-		self.hub().scenario_player_engine().play_section()
+		self.hub().scenario_player().play_section()
 		return
 	
 	# 該当なければ、とりあえず２番目のセクションまで見る
@@ -85,4 +85,4 @@ func goto(section_name, tail_csv):
 	var section_name2 = self.hub().expand_variables(string_packed_array[0].strip_edges())
 
 	self.hub().set_current_section(section_name2)
-	self.hub().scenario_player_engine().play_section()
+	self.hub().scenario_player().play_section()

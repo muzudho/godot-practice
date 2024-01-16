@@ -132,8 +132,7 @@ func on_virtual_key_input(
 			print("［監督］　アンハンドルド・キー押下　部門変更")
 
 			# ここで stage_directions をト書きとして実行したい
-			var engine_node = self.get_programs_hub().scenario_player_engine()
-			engine_node.parse_paragraph(stage_directions)
+			self.get_programs_hub().scenario_player().parse_paragraph(stage_directions)
 
 			# 子要素には渡しません
 			return true

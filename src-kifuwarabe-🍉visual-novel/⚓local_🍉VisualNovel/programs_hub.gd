@@ -102,13 +102,8 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
-# プログラマー・ハブのビジュアル・ノベル部
-func visual_novel_part():
-	return self.get_instruction("📄Hub_🍉VisualNovel")
-
-
-# シナリオ再生エンジン取得
-func scenario_player_engine():
+# シナリオ再生機取得
+func scenario_player():
 	return self.get_instruction("📄Engine_🍉VisualNovel")
 
 
@@ -319,38 +314,6 @@ func get_current_paragraph_of_scenario():
 	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
 
 
-# 伝言窓で選択肢が選ばれたとき、その行番号が渡されてくる
-func on_choice_selected(row_number):
-	print("［助監］　選択肢を確定させた")
-
-	# 伝言窓の状態遷移
-	#	ずっと Completed だと、困るから
-	print("［助監］　伝言窓を　オール・ページズ・フラッシュド　する")
-	self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
-
-
-	var department_value = self.get_current_department_value()
-	var department_name = str(department_value.name)
-	var section_name = department_value.section_name
-	
-	print("［助監］　現在の部門名　　　：" + department_name)
-	print("［助監］　現在の区画名　　　：" + section_name)
-	print("［助監］　選んだ選択肢行番号：" + str(row_number))
-
-	# 辞書
-	var choices_mappings_a = self.get_scenario_writers_hub().get_merged_choices_mappings(department_name)
-
-	# 区画名。実質的には選択肢の配列
-	var section_obj = choices_mappings_a[section_name]
-
-	# 次のセクション名
-	var next_section_name = section_obj[row_number]
-	print("［助監］　次の区画名　　　　：" + next_section_name)
-	
-	self.set_current_section(next_section_name)
-	self.scenario_player_engine().play_section()
-
-
 # ディレクターの `_process(delta)` が呼出す
 func on_process(delta):
 
@@ -380,9 +343,7 @@ func on_process(delta):
 				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
 
 				# ここで、命令と、台詞は区別する
-				# エンジン・ノード
-				var engine_node = self.scenario_player_engine()
-				engine_node.parse_paragraph(latest_message)
+				self.scenario_player().parse_paragraph(latest_message)
 			
 			else:
 				# TODO 文字列以外のパラグラフに対応したい

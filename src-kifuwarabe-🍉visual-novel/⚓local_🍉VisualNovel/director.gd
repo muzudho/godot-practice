@@ -73,7 +73,7 @@ func get_telop_coordinator():
 func _ready():
 
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.get_programs_hub().scenario_player_engine().get_all_instruction_codes()
+	var _all_instruction_code = self.get_programs_hub().scenario_player().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示
@@ -166,7 +166,7 @@ func _process(delta):
 		self.get_programs_hub().get_current_department_value().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
-		self.get_programs_hub().scenario_player_engine().play_section()
+		self.get_programs_hub().scenario_player().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
 		self.get_programs_hub().get_current_message_window_gui().set_appear_subtree(true)
