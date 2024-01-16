@@ -163,7 +163,7 @@ func _process(delta):
 		self.get_programs_hub().current_department_name = self.get_switch_department().start_department_name
 
 		# パースするな
-		self.get_programs_hub().get_current_department_value().set_parse_lock(true)
+		self.get_programs_hub().scenario_player().get_current_department_value().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
 		self.get_programs_hub().scenario_player().play_section()

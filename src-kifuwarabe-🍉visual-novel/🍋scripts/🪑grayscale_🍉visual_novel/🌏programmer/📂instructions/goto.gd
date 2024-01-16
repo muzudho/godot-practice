@@ -73,7 +73,7 @@ func goto(section_name, tail_csv):
 		self.hub().current_department_name)
 	
 	if section_name in merged_scenario_document:
-		self.hub().set_current_section(section_name)
+		self.hub().scenario_player().set_current_section(section_name)
 		self.hub().scenario_player().play_section()
 		return
 	
@@ -84,5 +84,5 @@ func goto(section_name, tail_csv):
 
 	var section_name2 = self.hub().expand_variables(string_packed_array[0].strip_edges())
 
-	self.hub().set_current_section(section_name2)
+	self.hub().scenario_player().set_current_section(section_name2)
 	self.hub().scenario_player().play_section()

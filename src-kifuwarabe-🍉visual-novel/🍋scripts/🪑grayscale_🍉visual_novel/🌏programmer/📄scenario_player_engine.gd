@@ -46,6 +46,25 @@ func get_all_instruction_codes():
 
 
 # ーーーーーーーー
+# プロパティーズ
+# ーーーーーーーー
+
+
+# 現在の部門変数
+func get_current_department_value():
+	return self.hub().get_department_value(self.hub().current_department_name)
+
+
+# 現在の「§」セクション設定
+func set_current_section(section_name):
+	var department_value = self.get_current_department_value()
+	var message_window_gui = self.hub().get_current_message_window_gui()
+
+	department_value.section_name = section_name
+	message_window_gui.section_item_index = 0
+
+
+# ーーーーーーーー
 # 以下、主要プログラム
 # ーーーーーーーー
 
@@ -62,7 +81,7 @@ func _process(delta):
 
 # 「§」セクションの再生
 func play_section():
-	var department_value = self.hub().get_current_department_value()
+	var department_value = self.get_current_department_value()
 	var message_window_gui = self.hub().get_current_message_window_gui()
 
 	# 全部消化済みの場合
@@ -96,7 +115,7 @@ func on_choice_selected(row_number):
 	self.hub().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
-	var department_value = self.hub().get_current_department_value()
+	var department_value = self.get_current_department_value()
 	var department_name = str(department_value.name)
 	var section_name = department_value.section_name
 	
@@ -114,7 +133,7 @@ func on_choice_selected(row_number):
 	var next_section_name = section_obj[row_number]
 	print("［助監］　次の区画名　　　　：" + next_section_name)
 	
-	self.hub().set_current_section(next_section_name)
+	self.hub().scenario_player().set_current_section(next_section_name)
 	self.hub().scenario_player().play_section()
 
 
@@ -127,7 +146,7 @@ func on_process(delta):
 		# 疑似スリープ値が残っている間は、シナリオを進めません
 		return
 
-	var department_value = self.hub().get_current_department_value()
+	var department_value = self.get_current_department_value()
 	var message_window_gui = self.hub().get_current_message_window_gui()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）

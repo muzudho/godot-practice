@@ -69,7 +69,7 @@ func do_it(line):
 func show_message_window(
 		node_name,						# StringName
 		is_department_entered = false):	# bool
-	var department_value = self.hub().get_current_department_value()
+	var department_value = self.hub().scenario_player().get_current_department_value()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
@@ -93,7 +93,7 @@ func show_message_window(
 func hide_message_window(
 		node_name,						# StringName
 		is_department_leaved = false):	# bool
-	var department_value = self.hub().get_current_department_value()
+	var department_value = self.hub().scenario_player().get_current_department_value()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする

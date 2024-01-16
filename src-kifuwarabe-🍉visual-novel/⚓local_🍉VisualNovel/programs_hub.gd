@@ -149,7 +149,7 @@ func _ready():
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 				child_node.on_message_window_page_forward = func():
-					self.get_current_department_value().set_parse_lock(false))
+					self.scenario_player().get_current_department_value().set_parse_lock(false))
 
 	# デパートメント変数辞書作成
 	for department_name in self.get_all_department_names():
@@ -226,16 +226,16 @@ func expand_variables(target_before_change):
 
 				# 変数名取得
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
-				print("［助監　変数展開］　変数キー：［" + key + "］")
+				print("［プログラマーズ・ハブ　変数展開］　変数キー：［" + key + "］")
 				
 				if key in self.get_director().stage_directions_variables:
 					var value = self.get_director().stage_directions_variables[key]
-					print("［助監　変数展開］　変数値：［" + value + "］")
+					print("［プログラマーズ・ハブ　変数展開］　変数値：［" + value + "］")
 				
 					terget_after_change += value
 				
 				else:
-					print("［助監　変数展開］　変数値が見つかりません")
+					print("［プログラマーズ・ハブ　変数展開］　変数値が見つかりません")
 					
 					# 仕方ないので、カッコ悪いが、キー（ハンドルバー）を画面に表示する
 					terget_after_change += "{{" + key + "}}"
@@ -297,7 +297,7 @@ func number_to_zenkaku_text(number, figures):
 
 # シナリオの現在セクション配列のサイズを返す
 func get_current_section_size_of_scenario():
-	var department_value = self.get_current_department_value()
+	var department_value = self.scenario_player().get_current_department_value()
 	var scenario_node_name = department_value.name		# StringName
 	var section_name =  department_value.section_name
 	
@@ -307,7 +307,7 @@ func get_current_section_size_of_scenario():
 
 # シナリオの現在パラグラフ（セクションのアイテム）を返す
 func get_current_paragraph_of_scenario():
-	var department_value = self.get_current_department_value()
+	var department_value = self.scenario_player().get_current_department_value()
 	var message_window_gui = self.get_current_message_window_gui()
 
 	var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(department_value.name)
@@ -320,34 +320,20 @@ func get_department_value(
 	return self.departments[department_name]
 
 
-# 現在の部門変数
-func get_current_department_value():
-	return self.get_department_value(self.current_department_name)
-
-
 # 伝言窓（現在、出力の対象になっているもの）
 func get_current_message_window_gui():
-	var department_value = self.get_current_department_value()
+	var department_value = self.scenario_player().get_current_department_value()
 	if department_value.stack_of_last_displayed_message_window.size() < 1:
-		print("［監督］　▲！　最後に表示したメッセージウィンドウが無い")
+		print("［プログラマーズ・ハブ］　▲！　最後に表示したメッセージウィンドウが無い")
 
 	var node_name = department_value.stack_of_last_displayed_message_window[-1]
 	#print("［監督］　伝言窓名：［" + node_name + "］")
 	return self.message_window_programs.find_node(str(node_name))
 
 
-# 現在の「§」セクション設定
-func set_current_section(section_name):
-	var department_value = self.get_current_department_value()
-	var message_window_gui = self.get_current_message_window_gui()
-
-	department_value.section_name = section_name
-	message_window_gui.section_item_index = 0
-
-
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 func dump_last_displayed_message_window():
-	print("［監督］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
+	print("［プログラマーズ・ハブ］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
 	
 	# 部門名一覧
 	var department_names = self.get_all_department_names()

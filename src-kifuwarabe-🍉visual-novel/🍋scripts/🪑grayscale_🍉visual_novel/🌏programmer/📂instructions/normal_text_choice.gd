@@ -54,7 +54,7 @@ func put_textblock(
 	temp_text = self.hub().expand_variables(temp_text.strip_edges())
 
 	# メッセージ追加
-	var department_value = self.hub().get_current_department_value()
+	var department_value = self.hub().scenario_player().get_current_department_value()
 	var message_window_gui = self.hub().get_current_message_window_gui()
 
 	print("［命令　選択肢テキスト］　部門：［" + str(department_value.name) + "］　メッセージ：[" + temp_text + "]")
