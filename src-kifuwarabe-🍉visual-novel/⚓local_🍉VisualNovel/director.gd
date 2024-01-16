@@ -144,13 +144,16 @@ func on_key_config_exited():
 
 func _process(delta):
 
+	# キー・コンフィグが始まる
 	if self.current_state == &"WaitForKeyConfig":
 		self.get_key_config_hub().entry()
 		self.current_state = &"KeyConfig"
 
+	# キー・コンフィグに制御を譲る
 	elif self.current_state == &"KeyConfig":
 		self.get_key_config_hub().on_process(delta)
 
+	# 主な状態の前に
 	elif self.current_state == &"Ready":
 		self.current_state = &"Main"
 		# ーーーーーーーー
@@ -169,6 +172,7 @@ func _process(delta):
 		# 伝言窓を、一時的に居なくなっていたのを解除する
 		self.get_programs_hub().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
+	# 主な状態に制御を譲る
 	elif self.current_state == &"Main":
 		self.get_programs_hub().scenario_player().on_process(delta)
 
@@ -179,12 +183,15 @@ func _process(delta):
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
 
+	# キー・コンフィグのために、何もするな
 	if self.current_state == &"WaitForKeyConfig":
 		pass
 
+	# キー・コンフィグ中なので、何もするな
 	elif self.current_state == &"KeyConfig":
 		pass
 
+	# 主要な状態
 	elif self.current_state == &"Main":
 
 		var vk_operation = null
@@ -234,12 +241,15 @@ func _unhandled_key_input(event):
 # テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 func _unhandled_input(event):
 
+	# キー・コンフィグのために何もするな、という状態
 	if self.current_state == &"WaitForKeyConfig":
 		pass
 
+	# キー・コンフィグに入力の制御を譲れ、という状態
 	elif self.current_state == &"KeyConfig":
 		self.get_key_config_hub().on_unhandled_input(event)
 
+	# 主な状態
 	elif self.current_state == &"Main":
 
 		var vk_operation = null
@@ -279,14 +289,21 @@ func _unhandled_input(event):
 
 
 # 仮想キーを押下したという建付け
+#
+# 呼出し元:
+# 	_unhandled_key_input()
+#	_unhandled_input()
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
+
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
 	if self.get_scenario_writers_hub().on_virtual_key_input(
 			virtual_key,
 			lever_value,
 			vk_operation):
+		# 入力されたキーへの対処が完了したなら、処理を抜ける
 		return
 
+	# シナリオライター・ハブで　この入力をスルーしたなら、以降の処理を続ける
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
