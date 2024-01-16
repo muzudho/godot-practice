@@ -23,6 +23,7 @@ var sleep_seconds = 0.0
 # 内パス関連
 # ーーーーーーーー
 
+
 func get_grid():
 	return $"Grid"
 
@@ -72,7 +73,7 @@ func get_telop_coordinator():
 func _ready():
 
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.get_programs_hub().get_scenario_player_engine().get_all_instruction_codes()
+	var _all_instruction_code = self.get_programs_hub().scenario_player().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示
@@ -82,7 +83,7 @@ func _ready():
 	
 	# グリッドは隠す
 	self.get_grid().hide()
-
+	
 	# イラストレーターはとにかく隠す
 	self.search_in_folder(
 			self.get_illustrator(),		# 探す場所
@@ -160,16 +161,16 @@ func _process(delta):
 		self.get_programs_hub().current_department_name = self.get_switch_department().start_department_name
 
 		# パースするな
-		self.get_programs_hub().get_current_department_value().set_parse_lock(true)
+		self.get_programs_hub().scenario_player().get_current_department_value().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
-		self.get_programs_hub().play_section()
+		self.get_programs_hub().scenario_player().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.get_programs_hub().get_current_message_window_gui().set_appear_subtree(true)
+		self.get_programs_hub().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
 	elif self.current_state == &"Main":
-		self.get_programs_hub().on_process(delta)
+		self.get_programs_hub().scenario_player().on_process(delta)
 
 
 # テキストボックスなどにフォーカスが無いときのキー入力を拾う
@@ -289,4 +290,4 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.get_programs_hub().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.get_programs_hub().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)

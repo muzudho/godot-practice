@@ -110,7 +110,6 @@ func _ready():
 	self.get_illustrator().show()
 	# テロップ
 	self.get_telop_coordinator().show()
-	# キー・コンフィグ
 	
 
 

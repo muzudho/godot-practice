@@ -108,7 +108,7 @@ func on_page_forward():
 		print("［伝言窓　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
-		self.hub().get_programs_hub().on_choice_selected(row_number)
+		self.hub().get_programs_hub().scenario_player().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
 		self.choices_row_numbers = null
