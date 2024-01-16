@@ -93,7 +93,7 @@ func change_department(next_department_name, tail_csv):
 			self.get_m_wnd().show_message_window(next_window_name, true)
 
 		# 台本の「§」セクションの再生
-		self.hub().play_section()
+		self.hub().scenario_player_engine().play_section()
 
 		return
 

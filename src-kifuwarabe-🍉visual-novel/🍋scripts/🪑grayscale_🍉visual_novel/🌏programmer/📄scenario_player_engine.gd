@@ -60,6 +60,32 @@ func _process(delta):
 	pass
 
 
+# 「§」セクションの再生
+func play_section():
+	var department_value = self.hub().get_current_department_value()
+	var message_window_gui = self.hub().get_current_message_window_gui()
+
+	# 全部消化済みの場合
+	if self.hub().get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
+		print("［シナリオ再生エンジン］（" + department_value.name + "　" + department_value.section_name + "）　セクションを読み終わっている")
+
+		# かつ、コンプリート中の場合、ユーザー入力を待つ
+		if message_window_gui.statemachine_of_message_window.is_completed():
+			print("［シナリオ再生エンジン］（" + department_value.name + "　"+ department_value.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
+			# 自動で何かしない
+			return
+
+	# パースを開始してよくないケースもあるが？
+	# バッファーが残ってるときとか
+	if not message_window_gui.has_text_block_buffer():
+		# Completed 時もパース始めたらよくない
+		if not message_window_gui.statemachine_of_message_window.is_completed():
+			# TODO 選択肢のときもややこしいが
+			print("［シナリオ再生エンジン］（" + department_value.name + "　"+ department_value.section_name + "）　パースを開始してよい（本当か？）")
+			# パースを開始してよい
+			department_value.set_parse_lock(false)
+
+
 # パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
 func parse_paragraph(paragraph_text):
 		

@@ -66,7 +66,7 @@ script = ExtResource("11_nqlsq")
 
 [node name="ーーーーアドオンーーーー" type="Node" parent="🌏Programmer/🛩️Hub"]
 
-[node name="📄Nodes_🍉VisualNovel" parent="🌏Programmer/🛩️Hub" instance=ExtResource("12_8g6tr")]
+[node name="📄Hub_🍉VisualNovel" parent="🌏Programmer/🛩️Hub" instance=ExtResource("12_8g6tr")]
 
 [node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️Hub" instance=ExtResource("27_t3xld")]
 

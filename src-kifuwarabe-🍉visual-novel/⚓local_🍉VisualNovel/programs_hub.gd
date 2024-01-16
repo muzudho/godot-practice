@@ -102,8 +102,13 @@ func get_telop_coordinator():
 # ーーーーーーーー
 
 
+# プログラマー・ハブのビジュアル・ノベル部
+func visual_novel_part():
+	return self.get_instruction("📄Hub_🍉VisualNovel")
+
+
 # シナリオ再生エンジン取得
-func get_scenario_player_engine():
+func scenario_player_engine():
 	return self.get_instruction("📄Engine_🍉VisualNovel")
 
 
@@ -314,32 +319,6 @@ func get_current_paragraph_of_scenario():
 	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
 
 
-# 「§」セクションの再生
-func play_section():
-	var department_value = self.get_current_department_value()
-	var message_window_gui = self.get_current_message_window_gui()
-
-	# 全部消化済みの場合
-	if self.get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
-		print("［助監］（" + department_value.name + "　" + department_value.section_name + "）　セクションを読み終わっている")
-
-		# かつ、コンプリート中の場合、ユーザー入力を待つ
-		if message_window_gui.statemachine_of_message_window.is_completed():
-			print("［助監］（" + department_value.name + "　"+ department_value.section_name + "）　全消化済みだが、コンプリート中だから、勝手に何もしない。ユーザー入力を待つ")
-			# 自動で何かしない
-			return
-
-	# パースを開始してよくないケースもあるが？
-	# バッファーが残ってるときとか
-	if not message_window_gui.has_text_block_buffer():
-		# Completed 時もパース始めたらよくない
-		if not message_window_gui.statemachine_of_message_window.is_completed():
-			# TODO 選択肢のときもややこしいが
-			print("［助監］（" + department_value.name + "　"+ department_value.section_name + "）　パースを開始してよい（本当か？）")
-			# パースを開始してよい
-			department_value.set_parse_lock(false)
-
-
 # 伝言窓で選択肢が選ばれたとき、その行番号が渡されてくる
 func on_choice_selected(row_number):
 	print("［助監］　選択肢を確定させた")
@@ -369,7 +348,7 @@ func on_choice_selected(row_number):
 	print("［助監］　次の区画名　　　　：" + next_section_name)
 	
 	self.set_current_section(next_section_name)
-	self.play_section()
+	self.scenario_player_engine().play_section()
 
 
 # ディレクターの `_process(delta)` が呼出す
@@ -402,7 +381,7 @@ func on_process(delta):
 
 				# ここで、命令と、台詞は区別する
 				# エンジン・ノード
-				var engine_node = self.get_scenario_player_engine()
+				var engine_node = self.scenario_player_engine()
 				engine_node.parse_paragraph(latest_message)
 			
 			else:
