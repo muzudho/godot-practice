@@ -172,7 +172,7 @@ func _process(delta):
 		self.get_programs_hub().get_current_message_window_gui().set_appear_subtree(true)
 
 	elif self.current_state == &"Main":
-		self.get_programs_hub().on_process(delta)
+		self.get_programs_hub().scenario_player().on_process(delta)
 
 
 # テキストボックスなどにフォーカスが無いときのキー入力を拾う
