@@ -169,7 +169,7 @@ func _process(delta):
 		self.get_programs_hub().scenario_player().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.get_programs_hub().get_current_message_window_gui().set_appear_subtree(true)
+		self.get_programs_hub().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
 	elif self.current_state == &"Main":
 		self.get_programs_hub().scenario_player().on_process(delta)
@@ -292,4 +292,4 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.get_programs_hub().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.get_programs_hub().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)

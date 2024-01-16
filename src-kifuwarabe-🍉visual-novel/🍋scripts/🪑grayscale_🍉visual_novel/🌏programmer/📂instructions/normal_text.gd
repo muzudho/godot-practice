@@ -53,12 +53,12 @@ func put_textblock(
 
 	# メッセージの追加
 	var department_value = self.hub().scenario_player().get_current_department_value()
-	var message_window_gui = self.hub().get_current_message_window_gui()
+	var message_window_gui = self.hub().scenario_player().get_current_message_window_gui()
 
 	message_window_gui.remember(temp_text)
 
 	# 会話の開始
-	self.hub().get_current_message_window_gui().statemachine_of_message_window.talk()
+	self.hub().scenario_player().get_current_message_window_gui().statemachine_of_message_window.talk()
 
 	# パースをするな
 	department_value.set_parse_lock(true)

@@ -188,13 +188,6 @@ var current_department_name = null
 # 全命令（キー：ノード名　値：ノード）
 var cache_dictionary_for_instruction = {}
 
-# 全メッセージ・ウィンドウGUI
-var cache_dictionary_for_message_window_gui = {}
-
-# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
-# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
-var is_department_not_found = false
-
 
 # ーーーーーーーー
 # その他
@@ -295,53 +288,7 @@ func number_to_zenkaku_text(number, figures):
 	return zenkaku_text
 
 
-# シナリオの現在セクション配列のサイズを返す
-func get_current_section_size_of_scenario():
-	var department_value = self.scenario_player().get_current_department_value()
-	var scenario_node_name = department_value.name		# StringName
-	var section_name =  department_value.section_name
-	
-	var section_array = self.get_scenario_writers_hub().get_section_array(scenario_node_name, section_name)
-	return section_array.size()
-
-
-# シナリオの現在パラグラフ（セクションのアイテム）を返す
-func get_current_paragraph_of_scenario():
-	var department_value = self.scenario_player().get_current_department_value()
-	var message_window_gui = self.get_current_message_window_gui()
-
-	var merged_scenario_document = self.get_scenario_writers_hub().get_merged_scenario_document(department_value.name)
-	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
-
-
 # 部門変数取得
 func get_department_value(
 		department_name):	# StringName
 	return self.departments[department_name]
-
-
-# 伝言窓（現在、出力の対象になっているもの）
-func get_current_message_window_gui():
-	var department_value = self.scenario_player().get_current_department_value()
-	if department_value.stack_of_last_displayed_message_window.size() < 1:
-		print("［プログラマーズ・ハブ］　▲！　最後に表示したメッセージウィンドウが無い")
-
-	var node_name = department_value.stack_of_last_displayed_message_window[-1]
-	#print("［監督］　伝言窓名：［" + node_name + "］")
-	return self.message_window_programs.find_node(str(node_name))
-
-
-# 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-func dump_last_displayed_message_window():
-	print("［プログラマーズ・ハブ］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
-	
-	# 部門名一覧
-	var department_names = self.get_all_department_names()
-	for department_name in 	department_names:
-		print("　　部門：　" + department_name)
-
-		# 部門変数
-		var department = self.get_department_value(department_name)
-		
-		for window_name in department.node_names_of_currently_displayed_message_window:
-			print("　　　　👁 " + window_name)

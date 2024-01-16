@@ -13,6 +13,10 @@ var ancestors = {}
 # 全命令（キー："命令名:"　値：ノード名）
 var directory_for_instruction_code_and_node_name = null
 
+# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
+# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
+var is_department_not_found = false
+
 
 # ーーーーーーーー
 # 外パス関連
@@ -58,10 +62,56 @@ func get_current_department_value():
 # 現在の「§」セクション設定
 func set_current_section(section_name):
 	var department_value = self.get_current_department_value()
-	var message_window_gui = self.hub().get_current_message_window_gui()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	department_value.section_name = section_name
 	message_window_gui.section_item_index = 0
+
+
+# 伝言窓（現在、出力の対象になっているもの）
+func get_current_message_window_gui():
+	var department_value = self.get_current_department_value()
+	if department_value.stack_of_last_displayed_message_window.size() < 1:
+		print("［プログラマーズ・ハブ］　▲！　最後に表示したメッセージウィンドウが無い")
+
+	var node_name = department_value.stack_of_last_displayed_message_window[-1]
+	#print("［監督］　伝言窓名：［" + node_name + "］")
+	return self.hub().message_window_programs.find_node(str(node_name))
+
+
+# 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
+func dump_last_displayed_message_window():
+	print("［プログラマーズ・ハブ］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
+	
+	# 部門名一覧
+	var department_names = self.hub().get_all_department_names()
+	for department_name in 	department_names:
+		print("　　部門：　" + department_name)
+
+		# 部門変数
+		var department = self.hub().get_department_value(department_name)
+		
+		for window_name in department.node_names_of_currently_displayed_message_window:
+			print("　　　　👁 " + window_name)
+
+
+# シナリオの現在セクション配列のサイズを返す
+func get_current_section_size_of_scenario():
+	var department_value = self.get_current_department_value()
+	var scenario_node_name = department_value.name		# StringName
+	var section_name =  department_value.section_name
+	
+	var section_array = self.hub().get_scenario_writers_hub().get_section_array(scenario_node_name, section_name)
+	return section_array.size()
+
+
+# シナリオの現在パラグラフ（セクションのアイテム）を返す
+func get_current_paragraph_of_scenario():
+	var department_value = self.get_current_department_value()
+	var message_window_gui = self.get_current_message_window_gui()
+
+	var merged_scenario_document = self.hub().get_scenario_writers_hub().get_merged_scenario_document(department_value.name)
+	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
 
 
 # ーーーーーーーー
@@ -82,10 +132,10 @@ func _process(delta):
 # 「§」セクションの再生
 func play_section():
 	var department_value = self.get_current_department_value()
-	var message_window_gui = self.hub().get_current_message_window_gui()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	# 全部消化済みの場合
-	if self.hub().get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
+	if self.get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
 		print("［シナリオ再生エンジン］（" + department_value.name + "　" + department_value.section_name + "）　セクションを読み終わっている")
 
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
@@ -112,7 +162,7 @@ func on_choice_selected(row_number):
 	# 伝言窓の状態遷移
 	#	ずっと Completed だと、困るから
 	print("［助監］　伝言窓を　オール・ページズ・フラッシュド　する")
-	self.hub().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+	self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
 	var department_value = self.get_current_department_value()
@@ -147,16 +197,16 @@ func on_process(delta):
 		return
 
 	var department_value = self.get_current_department_value()
-	var message_window_gui = self.hub().get_current_message_window_gui()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not department_value.is_parse_lock():
 		
 		# まだあるよ
-		if message_window_gui.section_item_index < self.hub().get_current_section_size_of_scenario():
+		if message_window_gui.section_item_index < self.get_current_section_size_of_scenario():
 		
 			# 現在のシナリオの次のパラグラフを取得
-			var paragraph = self.hub().get_current_paragraph_of_scenario()
+			var paragraph = self.get_current_paragraph_of_scenario()
 
 			# カウントアップ
 			message_window_gui.section_item_index += 1
@@ -175,9 +225,9 @@ func on_process(delta):
 
 		# もう無いよ
 		else:
-			if not self.hub().get_current_message_window_gui().statemachine_of_message_window.is_none():
+			if not self.get_current_message_window_gui().statemachine_of_message_window.is_none():
 				# 伝言窓を閉じる
-				self.hub().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+				self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
 # パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
@@ -206,7 +256,7 @@ func print_normal_text(paragraph_text):
 # 選択肢なら表示
 func print_choices(paragraph_text):
 	#print("［シナリオエンジン］　準備中　選択肢なら表示")
-	var message_window_gui = self.hub().get_current_message_window_gui()
+	var message_window_gui = self.get_current_message_window_gui()
 
 	# 選択肢だ
 	if message_window_gui.choices_row_numbers != null:
@@ -259,7 +309,7 @@ func execute_stage_directions(paragraph_text):
 		# ーーーーーーーー
 		# ［ト書き］終わり
 		# ーーーーーーーー
-		self.hub().is_department_not_found = false
+		self.is_department_not_found = false
 		return true
 
 	return false

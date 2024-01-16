@@ -70,7 +70,7 @@ func change_department(next_department_name, tail_csv):
 	if next_department_name in self.hub().get_all_department_names():
 
 		# フラグを下ろす
-		self.hub().is_department_not_found = false
+		self.hub().scenario_player().is_department_not_found = false
 
 		# 前部門
 		var prev_department_name = self.hub().current_department_name
@@ -98,7 +98,7 @@ func change_department(next_department_name, tail_csv):
 		return
 
 	# 指定の部門が無かった
-	self.hub().is_department_not_found = true
+	self.hub().scenario_player().is_department_not_found = true
 
 	# 文字列の配列に分割
 	var string_packed_array = tail_csv.split(",", true, 0)
