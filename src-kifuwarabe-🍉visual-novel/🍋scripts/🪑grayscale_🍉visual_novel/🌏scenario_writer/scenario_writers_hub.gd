@@ -15,7 +15,7 @@ var cached_choices_mappings = {}
 
 
 # ーーーーーーーー
-# パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
@@ -35,14 +35,9 @@ func get_director_hub():
 			self.ancestors)
 
 
-# シナリオライター取得
-func get_scenario_writer():
-	return self.get_director().get_node("🌏ScenarioWriter")
-
-
 # 部門切替取得
-func get_switch_department():
-	return self.get_scenario_writer().get_node("📘DepartmentControl")
+func department_control():
+	return self.get_director_hub().scenario_writer().get_node("📘DepartmentControl")
 
 
 # ーーーーーーーー
@@ -78,7 +73,7 @@ func get_merged_scenario_document(department_name):
 
 		# ［📗～］ノードの位置が変わっていることがあるので探索する
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.get_scenario_writer(),
+				self.get_director_hub().scenario_writer(),
 				str(department_name))
 		self.cached_scenario_document[department_name] = {}
 
@@ -99,7 +94,7 @@ func get_merged_choices_mappings(department_name):
 
 		# ［📗～］ノードの位置が変わっていることがあるので探索する
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.get_scenario_writer(),
+				self.get_director_hub().scenario_writer(),
 				str(department_name))
 		self.cached_choices_mappings[department_name] = {}
 
@@ -121,10 +116,10 @@ func on_virtual_key_input(
 	var cur_department_name = self.get_director_hub().programmer_hub().current_department_name
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if vk_operation == &"VKO_Pressed" and cur_department_name in self.get_switch_department().key_pressed_stage_directions:
+	if vk_operation == &"VKO_Pressed" and cur_department_name in self.department_control().key_pressed_stage_directions:
 		
 		# その要素を取得
-		var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[cur_department_name]
+		var key_pressed_stage_directions_1 = self.department_control().key_pressed_stage_directions[cur_department_name]
 		
 		# 押したキーに紐づく、ト書きは辞書に記載されているか？
 		if virtual_key in key_pressed_stage_directions_1:

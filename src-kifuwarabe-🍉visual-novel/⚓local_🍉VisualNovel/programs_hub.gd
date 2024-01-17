@@ -80,16 +80,6 @@ func get_programmer():
 	return self.get_director().get_node("🌏Programmer")
 
 
-# シナリオライター取得
-func get_scenario_writer():
-	return self.get_director().get_node("🌏ScenarioWriter")
-
-
-# シナリオライター・ハブ取得
-func get_scenario_writers_hub():
-	return self.get_director().get_node("🌏ScenarioWriter/🛩️Hub_🍉VisualNovel")
-
-
 # テロップ・コーディネーター取得
 func get_telop_coordinator():
 	return self.get_director().get_node("🌏TelopCoordinator")
@@ -125,7 +115,7 @@ func get_all_department_names():
 				# 命令のノード名は `📗` で始まるものとする
 				&"📗",
 				# 探す場所
-				self.get_scenario_writer(),
+				self.get_director_hub().scenario_writer(),
 				func(child_node):
 					# デパートメント名を記憶
 					self.all_department_names.append(child_node.name))
@@ -161,7 +151,7 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = self.get_scenario_writers_hub().get_merged_scenario_document(department_name).keys()[0]
+		department_value.section_name = self.get_director_hub().scenario_writers_hub().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
 
