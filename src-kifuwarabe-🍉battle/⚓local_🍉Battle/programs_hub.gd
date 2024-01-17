@@ -7,7 +7,7 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 
 
 # ーーーーーーーー
-# 共通メモリ関連
+# メモリ関連
 # ーーーーーーーー
 
 # 先祖の辞書キャッシュ
@@ -52,36 +52,6 @@ func owner_node():
 	return self.get_node("../../🌏Programmer")
 
 
-# モンスターの全身像
-func get_monster_whole_body():
-	return self.get_director_hub().owner_node().get_node("MonsterTrainer/WholeBody")
-
-
-# モンスター・フェースズ
-func get_monster_faces():
-	return self.get_director_hub().owner_node().get_node("MonsterTrainer/Faces")
-
-
-# BGM取得
-func get_musician_bg_musics():
-	return self.get_director_hub().owner_node().get_node("🌏Musician/🌏BgMusics")
-
-
-# SE取得
-func get_musician_sound_fx():
-	return self.get_director_hub().owner_node().get_node("🌏Musician/🌏SoundFX")
-
-
-# プログラマー取得
-func get_programmer():
-	return self.get_director_hub().owner_node().get_node("🌏Programmer")
-
-
-# ーーーーーーーー
-# 内パス関連
-# ーーーーーーーー
-
-
 # シナリオ再生機取得
 func scenario_player():
 	return self.get_instruction("📄Engine_🍉VisualNovel")
@@ -93,7 +63,7 @@ func get_instruction(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.get_programmer(),	# 探す場所
+				return self.get_director_hub().programmer_hub().owner_node(),	# 探す場所
 			func():
 				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
 

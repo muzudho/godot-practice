@@ -4,6 +4,11 @@
 extends Node2D
 
 
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+
 # 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
 var current_state = &"WaitForKeyConfig"
 
