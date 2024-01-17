@@ -26,7 +26,7 @@ var is_enabled = false
 
 
 # ーーーーーーーー
-# パス関連
+# 内パス関連
 # ーーーーーーーー
 
 
@@ -379,7 +379,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.current_step == 0:
-		self.hub().get_programs_hub().bg_musics.find_node("🎵キーコンフィグ").play()
+		self.hub().get_director_hub().programmer_hub().bg_musics.find_node("🎵キーコンフィグ").play()
 		self.current_step += 1
 		self.clear_count()
 	

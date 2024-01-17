@@ -38,3 +38,13 @@ func get_director_hub():
 			self,
 			&"🌏Director/🛩️Hub",
 			self.ancestors)
+
+
+# ーーーーーーーー
+# 内パス関連
+# ーーーーーーーー
+
+
+# プログラマー取得
+func owner():
+	return self.get_node("../../🌏Programmer")
