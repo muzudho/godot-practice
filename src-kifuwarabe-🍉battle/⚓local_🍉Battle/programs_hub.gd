@@ -60,11 +60,6 @@ func owner_node():
 	return self.get_node("../../🌏Programmer")
 
 
-# メッセージ・ウィンドウズ取得
-func get_gui_programmer_message_windows():
-	return self.get_director().get_node("🌏Programmer_MessageWindow")
-
-
 # モンスターの全身像
 func get_monster_whole_body():
 	return self.get_director().get_node("MonsterTrainer/WholeBody")
@@ -98,11 +93,6 @@ func get_scenario_writer():
 # シナリオライター・ハブ取得
 func get_scenario_writers_hub():
 	return self.get_director().get_node("🌏ScenarioWriter/🛩️Hub_🍉VisualNovel")
-
-
-# テロップ・コーディネーター取得
-func get_telop_coordinator():
-	return self.get_director().get_node("🌏TelopCoordinator")
 
 
 # ーーーーーーーー
@@ -153,7 +143,7 @@ func _ready():
 			# メッセージ・ウィンドウの名前は `■` で始まるものとする
 			&"■",
 			# 探す場所
-			self.get_gui_programmer_message_windows(),
+			self.get_director_hub().gui_programmer_message_windows(),
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 				child_node.on_message_window_page_forward = func():

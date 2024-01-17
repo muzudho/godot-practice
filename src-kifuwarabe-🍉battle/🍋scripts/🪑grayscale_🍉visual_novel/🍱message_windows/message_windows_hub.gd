@@ -19,19 +19,22 @@ func get_director():
 			self.ancestors)
 
 
+# 監督ハブ取得
+func get_director_hub():
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			&"🌏Director/🛩️Hub",
+			self.ancestors)
+
+
 # 助監取得
 func get_assistant_director():
 	return self.get_director().get_node("🌏Programmer")
 
 
-# プログラムズ・ハブ取得
-func get_programs_hub():
-	return self.get_director().get_node("🌏Programmer/🛩️Hub")
-
-
 # キャンバス・レイヤー取得
 func get_canvas_layer(message_window_name):
-	return self.get_programs_hub().telops.find_node("MessageWindow_" + message_window_name)
+	return self.get_director_hub().programmer_hub().telops.find_node("MessageWindow_" + message_window_name)
 
 
 # テキストブロック
