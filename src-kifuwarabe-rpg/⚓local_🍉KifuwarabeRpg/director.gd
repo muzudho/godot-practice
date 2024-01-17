@@ -20,18 +20,13 @@ var sleep_seconds = 0.0
 
 
 # ーーーーーーーー
-# 内パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
 # ディレクター・ハブ取得
 func hub():
 	return $"🛩️Hub"
-
-
-# プログラムズ・ハブ取得
-func get_programs_hub():
-	return $"🌏Programmer/🛩️Hub"
 
 
 func get_scenario_writer():
@@ -58,7 +53,7 @@ func get_switch_department():
 func _ready():
 
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.get_programs_hub().scenario_player().get_all_instruction_codes()
+	var _all_instruction_code = self.hub().programmer_hub().scenario_player().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示
@@ -120,7 +115,7 @@ func search_in_folder(
 
 func on_key_config_entered():
 	# 背景
-	self.get_programs_hub().images.find_node("🗻崎川駅前").visible = true
+	self.hub().programmer_hub().images.find_node("🗻崎川駅前").visible = true
 
 
 func on_key_config_exited():
@@ -143,19 +138,19 @@ func _process(delta):
 		# ーーーーーーーー
 
 		# 最初に実行する部門名
-		self.get_programs_hub().current_department_name = self.get_switch_department().start_department_name
+		self.hub().programmer_hub().current_department_name = self.get_switch_department().start_department_name
 
 		# パースするな
-		self.get_programs_hub().scenario_player().get_current_department_value().set_parse_lock(true)
+		self.hub().programmer_hub().scenario_player().get_current_department_value().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
-		self.get_programs_hub().scenario_player().play_section()
+		self.hub().programmer_hub().scenario_player().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.get_programs_hub().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
+		self.hub().programmer_hub().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
 	elif self.current_state == &"Main":
-		self.get_programs_hub().scenario_player().on_process(delta)
+		self.hub().programmer_hub().scenario_player().on_process(delta)
 
 
 # テキストボックスなどにフォーカスが無いときのキー入力を拾う
@@ -275,4 +270,4 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.get_programs_hub().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.hub().programmer_hub().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)

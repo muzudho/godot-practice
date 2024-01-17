@@ -515,7 +515,7 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.hub().get_director_hub().programmer_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 
 			# 後手の［玉の遠さ］を減らす
 			self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] -= damage
@@ -532,7 +532,7 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.hub().get_director_hub().programmer_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
 			self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] -= 1
@@ -556,7 +556,7 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.hub().get_director_hub().programmer_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 後手の［玉の遠さ］を５減らす
 			self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] -= damage
@@ -573,16 +573,16 @@ var scenario_document = {
 			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.battle_hub().get_game_sheet_for_battle().distance_of_king[1] < 5:
-				self.hub().get_programs_hub().get_instruction(&"📗Goto").goto("§後手番投了", "")
+				self.hub().get_director_hub().programmer_hub().get_instruction(&"📗Goto").goto("§後手番投了", "")
 			else:
-				self.hub().get_programs_hub().get_instruction(&"📗Goto").goto("§後手番１", "")
+				self.hub().get_director_hub().programmer_hub().get_instruction(&"📗Goto").goto("§後手番１", "")
 			,
 	],
 	"§後手番１": [
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.hub().get_programs_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.hub().get_director_hub().programmer_hub().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
 			self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] -= damage
@@ -598,9 +598,9 @@ var scenario_document = {
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.battle_hub().get_game_sheet_for_battle().distance_of_king[0] < 5:
-				self.hub().get_programs_hub().get_instruction(&"📗Goto").goto("§先手番投了", "")
+				self.hub().get_director_hub().programmer_hub().get_instruction(&"📗Goto").goto("§先手番投了", "")
 			else:
-				self.hub().get_programs_hub().get_instruction(&"📗Goto").goto("§先手番１", "")
+				self.hub().get_director_hub().programmer_hub().get_instruction(&"📗Goto").goto("§先手番１", "")
 			,
 	],
 	"§先手番投了": [
