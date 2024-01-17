@@ -20,8 +20,13 @@ var sleep_seconds = 0.0
 
 
 # ーーーーーーーー
-# 内パス関連
+# ノード・パス関連
 # ーーーーーーーー
+
+
+# ディレクター・ハブ取得
+func hub():
+	return $"🛩️Hub"
 
 
 func get_grid():

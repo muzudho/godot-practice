@@ -10,7 +10,7 @@ extends Node2D
 # ーーーーーーーー
 
 
-# ハブ取得
+# ディレクター・ハブ取得
 func hub():
 	return $"🛩️Hub"
 
