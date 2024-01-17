@@ -69,7 +69,7 @@ func _ready():
 # 状態遷移するだけ
 func on_talked_2():
 
-	var illust_a = self.hub().get_programs_hub().images.find_node(self.name)
+	var illust_a = self.hub().get_director_hub().programmer_hub().images.find_node(self.name)
 
 	# 表示
 	self.set_visible_subtree(true)
@@ -102,13 +102,13 @@ func on_page_forward():
 	if self.is_choices():
 
 		# カーソル音
-		self.hub().get_programs_hub().get_instruction(&"📗SoundFx").play_se("🔔選択肢確定音")
+		self.hub().get_director_hub().programmer_hub().get_instruction(&"📗SoundFx").play_se("🔔選択肢確定音")
 
 		var row_number = self.get_row_number_of_choices()
 		print("［伝言窓　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
-		self.hub().get_programs_hub().scenario_player().on_choice_selected(row_number)
+		self.hub().get_director_hub().programmer_hub().scenario_player().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
 		self.choices_row_numbers = null
@@ -117,7 +117,7 @@ func on_page_forward():
 		print("［伝言窓　”" + self.name + "”］　ページ送り")
 
 		# 効果音
-		self.hub().get_programs_hub().get_instruction(&"📗SoundFx").play_se("🔔ページめくり音")
+		self.hub().get_director_hub().programmer_hub().get_instruction(&"📗SoundFx").play_se("🔔ページめくり音")
 		
 		# ページ送りをしたことを、呼出し元へ伝える
 		self.on_message_window_page_forward.call()
@@ -151,7 +151,7 @@ func on_all_characters_pushed():
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
 	print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
-	var illust_a = self.hub().get_programs_hub().images.find_node(self.name)
+	var illust_a = self.hub().get_director_hub().programmer_hub().images.find_node(self.name)
 
 	# テキストブロック
 	var text_block_node = self.hub().get_text_block(self.name)
@@ -293,7 +293,7 @@ func is_choices():
 func set_visible_subtree(
 		visible_flag):			# bool
 
-	var illust_a = self.hub().get_programs_hub().images.find_node(self.name)
+	var illust_a = self.hub().get_director_hub().programmer_hub().images.find_node(self.name)
 	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(illust_a.visible) + "　次可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
@@ -350,7 +350,7 @@ func set_appear_subtree(
 
 		print("［伝言窓　”" + self.name + "”］　appear：" + str(appear_flag))
 
-		var illust_a = self.hub().get_programs_hub().images.find_node(self.name)
+		var illust_a = self.hub().get_director_hub().programmer_hub().images.find_node(self.name)
 		self.is_appear = appear_flag
 
 		if self.is_appear:

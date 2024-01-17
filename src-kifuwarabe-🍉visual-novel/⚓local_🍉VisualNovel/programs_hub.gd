@@ -55,11 +55,6 @@ func get_director_hub():
 			self.ancestors)
 
 
-# メッセージ・ウィンドウズ取得
-func get_gui_programmer_message_windows():
-	return self.get_director().get_node("🌏Programmer_MessageWindow")
-
-
 # モンスターの全身像
 func get_monster_whole_body():
 	return self.get_director().get_node("MonsterTrainer/WholeBody")
@@ -148,7 +143,7 @@ func _ready():
 			# メッセージ・ウィンドウの名前は `■` で始まるものとする
 			&"■",
 			# 探す場所
-			self.get_gui_programmer_message_windows(),
+			self.get_director_hub().gui_programmer_message_windows(),
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 				child_node.on_message_window_page_forward = func():
