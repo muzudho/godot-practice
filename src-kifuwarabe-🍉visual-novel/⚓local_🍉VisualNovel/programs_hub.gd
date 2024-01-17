@@ -47,6 +47,14 @@ func get_director():
 			self.ancestors)
 
 
+# 監督ハブ取得
+func get_director_hub():
+	return MonkeyHelper.find_ancestor(
+			self,
+			&"🌏Director/🛩️Hub",
+			self.ancestors)
+
+
 # イラストレーター取得
 func get_illustrator():
 	return self.get_director().get_node("🌏Illustrator")
