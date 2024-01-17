@@ -1,7 +1,8 @@
-[gd_scene load_steps=63 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=64 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/director.gd" id="1_rk62n"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
+[ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/director_hub.gd" id="2_mr32a"]
 [ext_resource type="Texture2D" uid="uid://bfjtuxbo3tuqn" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_rrmg8"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/🌏Illustrator.tscn" id="27_dp8m2"]
 [ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/🌏Illustrator.tscn" id="28_iuuq5"]
@@ -67,6 +68,9 @@
 [node name="🌏Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_rk62n")
+
+[node name="🛩️Hub" type="Node" parent="."]
+script = ExtResource("2_mr32a")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false

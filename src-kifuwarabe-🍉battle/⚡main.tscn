@@ -1,6 +1,7 @@
-[gd_scene load_steps=66 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=67 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://⚓local_🍉Battle/director.gd" id="1_2gst5"]
+[ext_resource type="Script" path="res://⚓local_🍉Battle/director_hub.gd" id="2_glcnh"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
 [ext_resource type="Texture2D" uid="uid://bfjtuxbo3tuqn" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_rrmg8"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/🌏Illustrator.tscn" id="27_dp8m2"]
@@ -70,6 +71,9 @@
 [node name="🌏Director" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_2gst5")
+
+[node name="🛩️Hub" type="Node" parent="."]
+script = ExtResource("2_glcnh")
 
 [node name="Grid" type="Sprite2D" parent="."]
 visible = false
