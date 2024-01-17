@@ -10,16 +10,10 @@ extends Node
 # 先祖の辞書キャッシュ
 var ancestors = {}
 
+
 # ーーーーーーーー
 # ノード・パス関連
 # ーーーーーーーー
-
-
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
 
 
 # 監督ハブ取得
@@ -36,11 +30,11 @@ func owner_node():
 
 
 func get_scorer():
-	return self.get_director().get_node("Scorer")
+	return self.get_director_hub().owner_node().get_node("Scorer")
 
 
 func get_game_sheet_for_battle():
-	return self.get_director().get_node("Scorer/GameSheetForBattle")
+	return self.get_director_hub().owner_node().get_node("Scorer/GameSheetForBattle")
 
 
 

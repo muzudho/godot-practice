@@ -7,16 +7,8 @@ var is_fast_forward = false
 
 
 # ーーーーーーーー
-# パス関連
+# ノード・パス関連
 # ーーーーーーーー
-
-
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
 
 
 # 監督ハブ取得
@@ -34,7 +26,7 @@ func owner_node():
 
 # 助監取得
 func get_assistant_director():
-	return self.get_director().get_node("🌏Programmer")
+	return self.get_director_hub().owner_node().get_node("🌏Programmer")
 
 
 # キャンバス・レイヤー取得

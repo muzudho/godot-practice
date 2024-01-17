@@ -22,7 +22,7 @@ var ancestor_children_dictionary = {}
 
 
 # ーーーーーーーー
-# 親パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
@@ -65,10 +65,10 @@ func do_it(line):
 # 変数の記憶
 func set_var(key, value):
 	print("［命令　変数］　（" + key + "）[" + value + "]")
-	self.hub().get_director().stage_directions_variables[key] = value
+	self.hub().get_director_hub().owner_node().stage_directions_variables[key] = value
 
 
 # 変数のクリアー
 func clear_var():
 	print("［命令　変数］　クリアー")
-	self.hub().get_director().stage_directions_variables = {}
+	self.hub().get_director_hub().owner_node().stage_directions_variables = {}

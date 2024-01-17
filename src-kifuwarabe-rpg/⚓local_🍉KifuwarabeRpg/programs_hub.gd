@@ -7,7 +7,7 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 
 
 # ーーーーーーーー
-# 共通メモリ関連
+# メモリ関連
 # ーーーーーーーー
 
 # 先祖の辞書キャッシュ
@@ -35,16 +35,8 @@ var telops = null
 
 
 # ーーーーーーーー
-# 外パス関連
+# ノード・パス関連
 # ーーーーーーーー
-
-
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
 
 
 # 監督ハブ取得
@@ -62,27 +54,27 @@ func owner_node():
 
 # モンスターの全身像
 func get_monster_whole_body():
-	return self.get_director().get_node("MonsterTrainer/WholeBody")
+	return self.get_director_hub().owner_node().get_node("MonsterTrainer/WholeBody")
 
 
 # モンスター・フェースズ
 func get_monster_faces():
-	return self.get_director().get_node("MonsterTrainer/Faces")
+	return self.get_director_hub().owner_node().get_node("MonsterTrainer/Faces")
 
 
 # BGM取得
 func get_musician_bg_musics():
-	return self.get_director().get_node("🌏Musician/🌏BgMusics")
+	return self.get_director_hub().owner_node().get_node("🌏Musician/🌏BgMusics")
 
 
 # SE取得
 func get_musician_sound_fx():
-	return self.get_director().get_node("🌏Musician/🌏SoundFX")
+	return self.get_director_hub().owner_node().get_node("🌏Musician/🌏SoundFX")
 
 
 # プログラマー取得
 func get_programmer():
-	return self.get_director().get_node("🌏Programmer")
+	return self.get_director_hub().owner_node().get_node("🌏Programmer")
 
 
 # ーーーーーーーー
@@ -209,8 +201,8 @@ func expand_variables(target_before_change):
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
 				print("［プログラマーズ・ハブ　変数展開］　変数キー：［" + key + "］")
 				
-				if key in self.get_director().stage_directions_variables:
-					var value = self.get_director().stage_directions_variables[key]
+				if key in self.get_director_hub().owner_node().stage_directions_variables:
+					var value = self.get_director_hub().owner_node().stage_directions_variables[key]
 					print("［プログラマーズ・ハブ　変数展開］　変数値：［" + value + "］")
 				
 					terget_after_change += value

@@ -7,6 +7,9 @@ extends Node
 # ーーーーーーーー
 
 
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
 # シナリオ・ドキュメント
 var cached_scenario_document = {}
 
@@ -15,16 +18,8 @@ var cached_choices_mappings = {}
 
 
 # ーーーーーーーー
-# パス関連
+# ノード・パス関連
 # ーーーーーーーー
-
-
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
 
 
 # 監督ハブ取得
@@ -43,14 +38,6 @@ func owner_node():
 # 部門切替取得
 func department_control():
 	return self.owner_node().get_node("📘DepartmentControl")
-
-
-# ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-# 先祖の辞書キャッシュ
-var ancestors = {}
 
 
 # ーーーーーーーー

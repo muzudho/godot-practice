@@ -44,16 +44,8 @@ var elapsed_seconds = 0.0
 
 
 # ーーーーーーーー
-# 外パス関連
+# ノード・パス関連
 # ーーーーーーーー
-
-
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
 
 
 # 監督ハブ取得
@@ -71,7 +63,7 @@ func owner_node():
 
 # キーコンフィグ監督取得
 func get_director_for_key_config():
-	return self.get_director().get_node("🛩️KeyConfigHub")
+	return self.get_director_hub().owner_node().get_node("🛩️KeyConfigHub")
 
 
 # 伝言窓名を取得

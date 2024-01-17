@@ -11,7 +11,7 @@ var ancestor_children_dictionary = {}
 
 
 # ーーーーーーーー
-# パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
@@ -155,8 +155,8 @@ var scenario_document = {
 		#
 		func():
 			# 変数取得
-			var sente_monster_name = self.hub().get_director().stage_directions_variables["battle_sente_monster_name"]
-			var gote_monster_name = self.hub().get_director().stage_directions_variables["battle_gote_monster_name"]
+			var sente_monster_name = self.hub().get_director_hub().owner_node().stage_directions_variables["battle_sente_monster_name"]
+			var gote_monster_name = self.hub().get_director_hub().owner_node().stage_directions_variables["battle_gote_monster_name"]
 			
 			# モンスターＩｄ取得
 			var sente_monster_id = self.battle_hub().get_scorer().lookup_monster_id_by_name(sente_monster_name)
