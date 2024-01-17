@@ -22,6 +22,11 @@ func illustrator():
 	return self.owner_node().get_node("🌏Illustrator")
 
 
+# キー・コンフィグ・ハブ取得
+func key_config_hub():
+	return self.owner_node().get_node("🛩️KeyConfigHub")
+
+
 # メッセージ・ウィンドウズ取得
 func gui_programmer_message_windows():
 	return self.owner_node().get_node("🌏Programmer_MessageWindow")

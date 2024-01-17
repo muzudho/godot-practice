@@ -29,14 +29,6 @@ func hub():
 	return $"🛩️Hub"
 
 
-func get_key_config_hub():
-	return $"🛩️KeyConfigHub"
-
-
-func get_gui_programmer_message_windows():
-	return $"🌏Programmer_MessageWindow"
-
-
 # プログラムズ・ハブ取得
 func get_programs_hub():
 	return $"🌏Programmer/🛩️Hub"
@@ -54,10 +46,6 @@ func get_scenario_writers_hub():
 # 部門切替取得
 func get_switch_department():
 	return self.get_scenario_writer().get_node("📘DepartmentControl")
-
-
-func get_telop_coordinator():
-	return $"🌏TelopCoordinator"
 
 
 # ーーーーーーーー
@@ -91,7 +79,7 @@ func _ready():
 	
 	# テロップはとにかく非表示にする
 	self.search_in_folder(
-			self.get_telop_coordinator(),		# 探す場所
+			self.hub().telop_coordinator(),		# 探す場所
 			func(child_node):
 				return child_node is CanvasLayer,
 			func(child_node):
@@ -106,7 +94,7 @@ func _ready():
 	# イラストレーター
 	self.hub().illustrator().show()
 	# テロップ
-	self.get_telop_coordinator().show()
+	self.hub().telop_coordinator().show()
 
 
 # ーーーーーーーー
@@ -142,11 +130,11 @@ func on_key_config_exited():
 func _process(delta):
 
 	if self.current_state == &"WaitForKeyConfig":
-		self.get_key_config_hub().entry()
+		self.hub().key_config_hub().entry()
 		self.current_state = &"KeyConfig"
 
 	elif self.current_state == &"KeyConfig":
-		self.get_key_config_hub().on_process(delta)
+		self.hub().key_config_hub().on_process(delta)
 
 	elif self.current_state == &"Ready":
 		self.current_state = &"Main"
@@ -235,7 +223,7 @@ func _unhandled_input(event):
 		pass
 
 	elif self.current_state == &"KeyConfig":
-		self.get_key_config_hub().on_unhandled_input(event)
+		self.hub().key_config_hub().on_unhandled_input(event)
 
 	elif self.current_state == &"Main":
 
@@ -263,13 +251,13 @@ func _unhandled_input(event):
 		var event_as_text = event.as_text()
 		
 		# 文字列をボタン番号に変換
-		var button_number = self.get_key_config_hub().get_button_number_by_text(event_as_text)
+		var button_number = self.hub().key_config_hub().get_button_number_by_text(event_as_text)
 		
 		# ボタン番号を、仮想キー名に変換
-		var virtual_key_name = self.get_key_config_hub().get_virtual_key_name_by_button_number(button_number)
+		var virtual_key_name = self.hub().key_config_hub().get_virtual_key_name_by_button_number(button_number)
 
 		# レバー値
-		var lever_value = self.get_key_config_hub().get_lever_value_by_text(event_as_text)
+		var lever_value = self.hub().key_config_hub().get_lever_value_by_text(event_as_text)
 
 		# 仮想キーを押下したという建付け
 		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)

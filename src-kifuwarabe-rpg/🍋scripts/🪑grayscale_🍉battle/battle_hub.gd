@@ -25,10 +25,6 @@ func get_programs_hub():
 	return self.get_director().get_node("🌏Programmer/🛩️Hub")
 
 
-func get_telop_coordinator():
-	return self.get_director().get_node("🌏TelopCoordinator")
-
-
 func get_scorer():
 	return self.get_director().get_node("Scorer")
 
