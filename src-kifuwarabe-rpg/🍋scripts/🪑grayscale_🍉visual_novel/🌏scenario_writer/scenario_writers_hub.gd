@@ -27,6 +27,19 @@ func get_director():
 			self.ancestors)
 
 
+# 監督ハブ取得
+func get_director_hub():
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			&"🌏Director/🛩️Hub",
+			self.ancestors)
+
+
+# シナリオライター取得
+func owner_node():
+	return self.get_node("../../🌏ScenarioWriter")
+
+
 # プログラムズ・ハブ取得
 func get_programs_hub():
 	return self.get_director().get_node("🌏Programmer/🛩️Hub")

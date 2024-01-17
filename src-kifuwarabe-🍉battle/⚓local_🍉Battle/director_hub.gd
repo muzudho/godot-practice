@@ -52,11 +52,6 @@ func musician_sound_fx():
 	return self.owner_node().get_node("🌏Musician/🌏SoundFX")
 
 
-# プログラマー取得
-func programmer():
-	return self.owner_node().get_node("🌏Programmer")
-
-
 # プログラマー・ハブ取得
 func programmer_hub():
 	return self.owner_node().get_node("🌏Programmer/🛩️Hub")

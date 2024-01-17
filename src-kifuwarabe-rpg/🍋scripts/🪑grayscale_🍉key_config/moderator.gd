@@ -1,6 +1,12 @@
 # モデレーター（Moderator；司会進行）
 extends Node
 
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+
 # 文字列解析用
 var re_button = RegEx.new()
 var re_lever = RegEx.new()
@@ -20,7 +26,7 @@ var is_enabled = false
 
 
 # ーーーーーーーー
-# パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
@@ -55,7 +61,7 @@ func _ready():
 	# ーーーーーーーー
 	
 	# イラストレーター非表示
-	self.hub().get_programs_hub().get_illustrator().hide()
+	self.hub().get_director_hub().illustrator().hide()
 		
 	# テロップ非表示
 	self.hub().get_my_telop("TextBlock").visible = false
@@ -80,7 +86,7 @@ func entry():
 	# ーーーーーーーー
 	
 	# イラストレーター表示
-	self.hub().get_programs_hub().get_illustrator().show()
+	self.hub().get_director_hub().illustrator().show()
 	
 	# テロップ表示
 	self.hub().get_my_telop("TextBlock").visible = true
@@ -91,8 +97,8 @@ func entry():
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.hub().get_programs_hub().images.find_node("■上_大").show()
-	self.hub().get_programs_hub().images.find_node("■下").show()
+	self.hub().get_director_hub().programmer_hub().images.find_node("■上_大").show()
+	self.hub().get_director_hub().programmer_hub().images.find_node("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
@@ -109,14 +115,14 @@ func entry():
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.hub().get_programs_hub().images.find_node("■上_大").hide()
-	self.hub().get_programs_hub().images.find_node("■下").hide()
+	self.hub().get_director_hub().programmer_hub().images.find_node("■上_大").hide()
+	self.hub().get_director_hub().programmer_hub().images.find_node("■下").hide()
 	# テロップ非表示
 	self.hub().get_my_telop("TextBlock").text = ""
 	self.hub().get_my_telop_canvas_layer().hide()
 
 	# BGM 停止	
-	self.hub().get_programs_hub().bg_musics.find_node("🎵キーコンフィグ").stop()
+	self.hub().get_director_hub().programmer_hub().bg_musics.find_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
 	self.hub().on_exit()
@@ -128,12 +134,12 @@ func set_key_ok():
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.hub().get_programs_hub().sound_fx.find_node("🔔キーコンフィグ受入音").play()
+	self.hub().get_director_hub().programmer_hub().sound_fx.find_node("🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied(reason):
-	self.hub().get_programs_hub().sound_fx.find_node("🔔キーコンフィグ不可音").play()
+	self.hub().get_director_hub().programmer_hub().sound_fx.find_node("🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
 		self.hub().get_my_telop("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
@@ -147,7 +153,7 @@ func set_key_denied(reason):
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
-	self.hub().get_programs_hub().sound_fx.find_node("🔔キーコンフィグ取消音").play()
+	self.hub().get_director_hub().programmer_hub().sound_fx.find_node("🔔キーコンフィグ取消音").play()
 	self.hub().get_my_telop("TextBlock").text = ""
 
 
@@ -217,7 +223,7 @@ func set_press_message_to_button(step):
 	elif step == 8:
 		#											"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.hub().get_my_telop("TextBlock").text = "完了"
-		self.hub().get_programs_hub().sound_fx.find_node("🔔キーコンフィグ完了音").play()
+		self.hub().get_director_hub().programmer_hub().sound_fx.find_node("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
@@ -373,7 +379,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.current_step == 0:
-		self.hub().get_programs_hub().bg_musics.find_node("🎵キーコンフィグ").play()
+		self.hub().get_director_hub().programmer_hub().bg_musics.find_node("🎵キーコンフィグ").play()
 		self.current_step += 1
 		self.clear_count()
 	
