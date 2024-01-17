@@ -41,7 +41,7 @@ func get_all_instruction_codes():
 				&"📗",
 				# 探す場所
 				# 本当は `🌏Programmer` ノードの下のどこかにある `📂ScenarioPlayer_🍉VisualNovel` ノードのさらに下の `📂Instructions` ノードの下を探して欲しいが。
-				self.hub().get_programmer(),
+				self.hub().get_director_hub().programmer_hub().owner_node(),
 				func(child_node):
 					# コードにノード名を紐づける
 					self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
@@ -190,8 +190,8 @@ func on_choice_selected(row_number):
 # ディレクターの `_process(delta)` が呼出す
 func on_process(delta):
 
-	if 0.0 < self.hub().get_director().sleep_seconds:
-		self.hub().get_director().sleep_seconds -= delta
+	if 0.0 < self.hub().get_director_hub().owner_node().sleep_seconds:
+		self.hub().get_director_hub().owner_node().sleep_seconds -= delta
 
 		# 疑似スリープ値が残っている間は、シナリオを進めません
 		return

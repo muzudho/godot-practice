@@ -57,13 +57,13 @@ func do_it(line):
 
 # 効果音再生
 func play_se(node_name):
-	if self.hub().get_director().current_se_name!=null:
+	if self.hub().get_director_hub().owner_node().current_se_name!=null:
 		self.stop_se()
 
 	print("［命令　効果音］　開始：[" + node_name + "]")
-	self.hub().get_director().current_se_name = node_name
+	self.hub().get_director_hub().owner_node().current_se_name = node_name
 
-	var se_name = self.hub().get_director().current_se_name
+	var se_name = self.hub().get_director_hub().owner_node().current_se_name
 	var se_node = self.hub().sound_fx.find_node(se_name)
 	if se_node == null:
 		print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
@@ -73,13 +73,13 @@ func play_se(node_name):
 
 # 効果音停止
 func stop_se():
-	if self.hub().get_director().current_se_name != null:
+	if self.hub().get_director_hub().owner_node().current_se_name != null:
 		print("［命令　効果音］　停止")
 		
-		var se_name = self.hub().get_director().current_se_name
+		var se_name = self.hub().get_director_hub().owner_node().current_se_name
 		var se_node = self.hub().sound_fx.find_node(se_name)
 		if se_node == null:
 			print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 		
 		se_node.stop()
-		self.hub().get_director().current_se_name = null
+		self.hub().get_director_hub().owner_node().current_se_name = null

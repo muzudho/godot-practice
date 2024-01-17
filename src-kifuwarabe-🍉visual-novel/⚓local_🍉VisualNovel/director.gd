@@ -4,6 +4,11 @@
 extends Node2D
 
 
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+
 # 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
 var current_state = &"WaitForKeyConfig"
 
@@ -27,10 +32,6 @@ var sleep_seconds = 0.0
 # ディレクター・ハブ取得
 func hub():
 	return $"🛩️Hub"
-
-
-func get_telop_coordinator():
-	return $"🌏TelopCoordinator"
 
 
 # ーーーーーーーー
@@ -64,7 +65,7 @@ func _ready():
 	
 	# テロップはとにかく非表示にする
 	self.search_in_folder(
-			self.get_telop_coordinator(),		# 探す場所
+			self.hub().telop_coordinator(),		# 探す場所
 			func(child_node):
 				return child_node is CanvasLayer,
 			func(child_node):
@@ -79,7 +80,7 @@ func _ready():
 	# イラストレーター
 	self.hub().illustrator().show()
 	# テロップ
-	self.get_telop_coordinator().show()
+	self.hub().telop_coordinator().show()
 
 
 # ーーーーーーーー

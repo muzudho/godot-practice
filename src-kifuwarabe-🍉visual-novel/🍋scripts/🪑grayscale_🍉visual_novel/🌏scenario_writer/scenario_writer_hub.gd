@@ -19,14 +19,6 @@ var cached_choices_mappings = {}
 # ーーーーーーーー
 
 
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
-
-
 # 監督ハブ取得
 func get_director_hub():
 	return MonkeyHelper.find_ancestor_child(

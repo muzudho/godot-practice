@@ -39,14 +39,6 @@ var telops = null
 # ーーーーーーーー
 
 
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
-
-
 # 監督ハブ取得
 func get_director_hub():
 	return MonkeyHelper.find_ancestor_child(
@@ -60,41 +52,6 @@ func owner_node():
 	return self.get_node("../../🌏Programmer")
 
 
-# モンスターの全身像
-func get_monster_whole_body():
-	return self.get_director().get_node("MonsterTrainer/WholeBody")
-
-
-# モンスター・フェースズ
-func get_monster_faces():
-	return self.get_director().get_node("MonsterTrainer/Faces")
-
-
-# BGM取得
-func get_musician_bg_musics():
-	return self.get_director().get_node("🌏Musician/🌏BgMusics")
-
-
-# SE取得
-func get_musician_sound_fx():
-	return self.get_director().get_node("🌏Musician/🌏SoundFX")
-
-
-# プログラマー取得
-func get_programmer():
-	return self.get_director().get_node("🌏Programmer")
-
-
-# テロップ・コーディネーター取得
-func get_telop_coordinator():
-	return self.get_director().get_node("🌏TelopCoordinator")
-
-
-# ーーーーーーーー
-# 内パス関連
-# ーーーーーーーー
-
-
 # シナリオ再生機取得
 func scenario_player():
 	return self.get_instruction("📄Engine_🍉VisualNovel")
@@ -106,7 +63,7 @@ func get_instruction(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.get_programmer(),	# 探す場所
+				return self.owner_node(),	# 探す場所
 			func():
 				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
 
@@ -131,6 +88,7 @@ func get_all_department_names():
 # ーーーーーーーー
 # 起動時設定
 # ーーーーーーーー
+
 
 func _ready():
 	# メッセージ・ウィンドウに対応関数紐づけ
@@ -214,8 +172,8 @@ func expand_variables(target_before_change):
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
 				print("［プログラマーズ・ハブ　変数展開］　変数キー：［" + key + "］")
 				
-				if key in self.get_director().stage_directions_variables:
-					var value = self.get_director().stage_directions_variables[key]
+				if key in self.get_director_hub().owner_node().stage_directions_variables:
+					var value = self.get_director_hub().owner_node().stage_directions_variables[key]
 					print("［プログラマーズ・ハブ　変数展開］　変数値：［" + value + "］")
 				
 					terget_after_change += value

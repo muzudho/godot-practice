@@ -59,5 +59,4 @@ func do_it(line):
 #	シナリオのパラグラフを抜けてから、疑似スリープを行います
 func sleep(seconds):
 	print("［命令　スリープ］　秒：[" + str(seconds) + "]")
-	self.hub().get_director().sleep_seconds = seconds
-	
+	self.hub().get_director_hub().owner_node().sleep_seconds = seconds
