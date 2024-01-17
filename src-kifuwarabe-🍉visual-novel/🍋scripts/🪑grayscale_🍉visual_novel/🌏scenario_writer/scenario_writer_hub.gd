@@ -35,9 +35,14 @@ func get_director_hub():
 			self.ancestors)
 
 
+# シナリオライター取得
+func owner_node():
+	return self.get_node("../../🌏ScenarioWriter")
+
+
 # 部門切替取得
 func department_control():
-	return self.get_director_hub().scenario_writer().get_node("📘DepartmentControl")
+	return self.get_director_hub().scenario_writer_hub().owner_node().get_node("📘DepartmentControl")
 
 
 # ーーーーーーーー
@@ -73,7 +78,7 @@ func get_merged_scenario_document(department_name):
 
 		# ［📗～］ノードの位置が変わっていることがあるので探索する
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.get_director_hub().scenario_writer(),
+				self.get_director_hub().scenario_writer_hub().owner_node(),
 				str(department_name))
 		self.cached_scenario_document[department_name] = {}
 
@@ -94,7 +99,7 @@ func get_merged_choices_mappings(department_name):
 
 		# ［📗～］ノードの位置が変わっていることがあるので探索する
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.get_director_hub().scenario_writer(),
+				self.get_director_hub().scenario_writer_hub().owner_node(),
 				str(department_name))
 		self.cached_choices_mappings[department_name] = {}
 

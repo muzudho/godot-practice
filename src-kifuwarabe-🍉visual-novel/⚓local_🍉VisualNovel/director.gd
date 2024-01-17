@@ -131,7 +131,7 @@ func _process(delta):
 		# ーーーーーーーー
 
 		# 最初に実行する部門名
-		self.hub().programmer_hub().current_department_name = self.hub().scenario_writers_hub().department_control().start_department_name
+		self.hub().programmer_hub().current_department_name = self.hub().scenario_writer_hub().department_control().start_department_name
 
 		# パースするな
 		self.hub().programmer_hub().scenario_player().get_current_department_value().set_parse_lock(true)
@@ -266,7 +266,7 @@ func _unhandled_input(event):
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if self.hub().scenario_writers_hub().on_virtual_key_input(
+	if self.hub().scenario_writer_hub().on_virtual_key_input(
 			virtual_key,
 			lever_value,
 			vk_operation):

@@ -57,13 +57,8 @@ func programmer_hub():
 	return self.owner_node().get_node("🌏Programmer/🛩️Hub")
 
 
-# シナリオライター取得
-func scenario_writer():
-	return self.owner_node().get_node("🌏ScenarioWriter")
-
-
 # シナリオライター・ハブ取得
-func scenario_writers_hub():
+func scenario_writer_hub():
 	return self.owner_node().get_node("🌏ScenarioWriter/🛩️Hub_🍉VisualNovel")
 
 

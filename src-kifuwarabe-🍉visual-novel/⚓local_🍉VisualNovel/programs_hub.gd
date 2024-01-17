@@ -55,6 +55,11 @@ func get_director_hub():
 			self.ancestors)
 
 
+# プログラマー取得
+func owner_node():
+	return self.get_node("../../🌏Programmer")
+
+
 # モンスターの全身像
 func get_monster_whole_body():
 	return self.get_director().get_node("MonsterTrainer/WholeBody")
@@ -115,7 +120,7 @@ func get_all_department_names():
 				# 命令のノード名は `📗` で始まるものとする
 				&"📗",
 				# 探す場所
-				self.get_director_hub().scenario_writer(),
+				self.get_director_hub().scenario_writer_hub().owner_node(),
 				func(child_node):
 					# デパートメント名を記憶
 					self.all_department_names.append(child_node.name))
@@ -151,7 +156,7 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = self.get_director_hub().scenario_writers_hub().get_merged_scenario_document(department_name).keys()[0]
+		department_value.section_name = self.get_director_hub().scenario_writer_hub().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
 
