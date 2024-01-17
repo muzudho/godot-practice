@@ -11,11 +11,11 @@ var ancestors = {}
 
 
 # ーーーーーーーー
-# 外パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
-# プログラムズ・ハブ取得
+# プログラマー・ハブ取得
 func hub():
 	return MonkeyHelper.find_ancestor_child(
 			self,

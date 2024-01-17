@@ -28,7 +28,7 @@ var telops = null
 
 
 # ーーーーーーーー
-# 外パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
@@ -40,11 +40,6 @@ func get_director_hub():
 			self.ancestors)
 
 
-# ーーーーーーーー
-# 内パス関連
-# ーーーーーーーー
-
-
 # プログラマー取得
-func owner():
+func owner_node():
 	return self.get_node("../../🌏Programmer")

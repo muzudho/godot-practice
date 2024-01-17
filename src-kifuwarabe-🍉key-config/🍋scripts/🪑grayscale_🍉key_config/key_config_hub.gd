@@ -4,6 +4,14 @@
 extends Node2D
 
 
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
+
 # 値はボタン番号。レバーは +1000
 var key_config = {
 	# 仮想キー（１）決定ボタン、メッセージ送りボタン
@@ -16,7 +24,7 @@ var key_config = {
 
 
 # ーーーーーーーー
-# 外パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
@@ -28,32 +36,19 @@ func get_director_hub():
 			self.ancestors)
 
 
-# テロップ取得
+# （外ノード）テロップ取得
 func get_my_telop_canvas_layer():
 	return self.get_director_hub().programmer_hub().telops.find_node("Ｔキーコンフィグ")
 
 
-# テロップ取得
+# （外ノード）テロップ取得
 func get_my_telop(node_name_str):
 	return self.get_my_telop_canvas_layer().get_node(node_name_str)
-
-
-# ーーーーーーーー
-# 内パス関連
-# ーーーーーーーー
 
 
 # 司会進行取得
 func get_moderator():
 	return $"Moderator"
-
-
-# ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-# 先祖の辞書キャッシュ
-var ancestors = {}
 
 
 # ーーーーーーーー
@@ -77,7 +72,7 @@ func entry():
 	# イベント
 	# ーーーーーーーー
 	# シーンの外側の１階層上の `🌏Director` ノードへアクセス
-	self.get_director_hub().owner().on_key_config_entered()
+	self.get_director_hub().owner_node().on_key_config_entered()
 	
 	# ーーーーーーーー
 	# 状態遷移開始
@@ -87,7 +82,7 @@ func entry():
 
 func on_exit():
 	# シーンの外側の１階層上の `🌏Director` ノードへアクセス
-	self.get_director_hub().owner().on_key_config_exited()
+	self.get_director_hub().owner_node().on_key_config_exited()
 
 
 func on_process(delta):
