@@ -28,14 +28,9 @@ func get_director_hub():
 			self.ancestors)
 
 
-# プログラムズ・ハブ取得
-func get_programs_hub():
-	return self.get_director_hub().programmer_hub()
-
-
 # テロップ取得
 func get_my_telop_canvas_layer():
-	return self.get_programs_hub().telops.find_node("Ｔキーコンフィグ")
+	return self.get_director_hub().programmer_hub().telops.find_node("Ｔキーコンフィグ")
 
 
 # テロップ取得
@@ -74,9 +69,9 @@ func entry():
 	# ーーーーーーーー
 	self.get_director_hub().telop_coordinator().show()
 	self.get_director_hub().illustrator().show()
-	self.get_programs_hub().images.find_node("■下").show()
-	self.get_programs_hub().images.find_node("■上_大").show()
-	self.get_programs_hub().telops.find_node("Ｔキーコンフィグ").show()
+	self.get_director_hub().programmer_hub().images.find_node("■下").show()
+	self.get_director_hub().programmer_hub().images.find_node("■上_大").show()
+	self.get_director_hub().programmer_hub().telops.find_node("Ｔキーコンフィグ").show()
 
 	# ーーーーーーーー
 	# イベント
