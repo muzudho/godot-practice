@@ -46,18 +46,3 @@ func get_director_hub():
 			self,
 			&"🌏Director/🛩️Hub",
 			self.ancestors)
-
-
-# BGM取得
-func get_musician_bg_musics():
-	return self.get_director().get_node("🌏Musician/🌏BgMusics")
-
-
-# SE取得
-func get_musician_sound_fx():
-	return self.get_director().get_node("🌏Musician/🌏SoundFX")
-
-
-# テロップ・コーディネーター取得
-func get_telop_coordinator():
-	return self.get_director().get_node("🌏TelopCoordinator")

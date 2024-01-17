@@ -20,11 +20,6 @@ func get_programs_hub():
 	return $"🌏Programmer/🛩️Hub"
 
 
-# テロップ・コーディネーター取得
-func get_telop_coordinator():
-	return $"🌏TelopCoordinator"
-
-
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
@@ -38,7 +33,7 @@ func _ready():
 	# ーーーーーーーー
 
 	# テロップ・コーディネーター表示
-	self.get_telop_coordinator().show()
+	self.hub().telop_coordinator().show()
 
 	# ーーーーーーーー
 	# 初期化
