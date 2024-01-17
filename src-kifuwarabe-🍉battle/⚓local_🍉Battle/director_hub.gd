@@ -68,7 +68,7 @@ func scenario_writer():
 
 
 # シナリオライター・ハブ取得
-func scenario_writers_hub():
+func scenario_writer_hub():
 	return self.owner_node().get_node("🌏ScenarioWriter/🛩️Hub_🍉VisualNovel")
 
 

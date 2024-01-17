@@ -7,6 +7,9 @@ extends Node
 # ーーーーーーーー
 
 
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
 # シナリオ・ドキュメント
 var cached_scenario_document = {}
 
@@ -36,21 +39,18 @@ func get_director_hub():
 
 
 # シナリオライター取得
+func owner_node():
+	return self.get_node("../../🌏ScenarioWriter")
+
+
+# シナリオライター取得
 func get_scenario_writer():
 	return self.get_director().get_node("🌏ScenarioWriter")
 
 
 # 部門切替取得
-func get_switch_department():
+func department_control():
 	return self.get_scenario_writer().get_node("📘DepartmentControl")
-
-
-# ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-# 先祖の辞書キャッシュ
-var ancestors = {}
 
 
 # ーーーーーーーー
@@ -121,10 +121,10 @@ func on_virtual_key_input(
 	var cur_department_name = self.get_director_hub().programmer_hub().current_department_name
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if vk_operation == &"VKO_Pressed" and cur_department_name in self.get_switch_department().key_pressed_stage_directions:
+	if vk_operation == &"VKO_Pressed" and cur_department_name in self.department_control().key_pressed_stage_directions:
 		
 		# その要素を取得
-		var key_pressed_stage_directions_1 = self.get_switch_department().key_pressed_stage_directions[cur_department_name]
+		var key_pressed_stage_directions_1 = self.department_control().key_pressed_stage_directions[cur_department_name]
 		
 		# 押したキーに紐づく、ト書きは辞書に記載されているか？
 		if virtual_key in key_pressed_stage_directions_1:

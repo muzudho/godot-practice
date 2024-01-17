@@ -29,20 +29,6 @@ func hub():
 	return $"🛩️Hub"
 
 
-func get_scenario_writer():
-	return $"🌏ScenarioWriter"
-
-
-# シナリオライターズ・ハブ取得
-func get_scenario_writers_hub():
-	return $"🌏ScenarioWriter/🛩️Hub_🍉VisualNovel"
-
-
-# 部門切替取得
-func get_switch_department():
-	return self.get_scenario_writer().get_node("📘DepartmentControl")
-
-
 # ーーーーーーーー
 # 初期化
 # ーーーーーーーー
@@ -138,7 +124,7 @@ func _process(delta):
 		# ーーーーーーーー
 
 		# 最初に実行する部門名
-		self.hub().programmer_hub().current_department_name = self.get_switch_department().start_department_name
+		self.hub().programmer_hub().current_department_name = self.hub().scenario_writer_hub().department_control().start_department_name
 
 		# パースするな
 		self.hub().programmer_hub().scenario_player().get_current_department_value().set_parse_lock(true)
@@ -261,7 +247,7 @@ func _unhandled_input(event):
 # 仮想キーを押下したという建付け
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if self.get_scenario_writers_hub().on_virtual_key_input(
+	if self.hub().scenario_writer_hub().on_virtual_key_input(
 			virtual_key,
 			lever_value,
 			vk_operation):
