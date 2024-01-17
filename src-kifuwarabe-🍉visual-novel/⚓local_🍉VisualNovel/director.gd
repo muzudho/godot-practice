@@ -29,10 +29,6 @@ func hub():
 	return $"🛩️Hub"
 
 
-func get_grid():
-	return $"Grid"
-
-
 func get_illustrator():
 	return $"🌏Illustrator"
 
@@ -87,7 +83,7 @@ func _ready():
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	
 	# グリッドは隠す
-	self.get_grid().hide()
+	self.hub().grid().hide()
 	
 	# イラストレーターはとにかく隠す
 	self.search_in_folder(

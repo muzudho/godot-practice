@@ -12,6 +12,11 @@ func owner_node():
 	return self.get_node("../../🌏Director")
 
 
+# グリッド取得
+func grid():
+	return $"Grid"
+
+
 # イラストレーター取得
 func illustrator():
 	return self.get_node("🌏Illustrator")

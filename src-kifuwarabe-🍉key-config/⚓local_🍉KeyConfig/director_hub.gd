@@ -12,26 +12,31 @@ func owner_node():
 	return self.get_node("../../🌏Director")
 
 
+# グリッド取得
+func grid():
+	return self.owner_node().get_node("Grid")
+
+
 # イラストレーター取得
 func illustrator():
-	return self.get_node("../../🌏Director/🌏Illustrator")
+	return self.owner_node().get_node("🌏Illustrator")
 
 
 # BGM取得
 func musician_bg_musics():
-	return self.get_node("../../🌏Director/🌏Musician/🌏BgMusics")
+	return self.owner_node().get_node("🌏Musician/🌏BgMusics")
 
 
 # SE取得
 func musician_sound_fx():
-	return self.get_node("../../🌏Director/🌏Musician/🌏SoundFX")
+	return self.owner_node().get_node("🌏Musician/🌏SoundFX")
 
 
 # プログラマー・ハブ取得
 func programmer_hub():
-	return self.get_node("../../🌏Director/🌏Programmer/🛩️Hub")
+	return self.owner_node().get_node("🌏Programmer/🛩️Hub")
 
 
 # テロップ・コーディネーター取得
 func telop_coordinator():
-	return self.get_node("../../🌏Director/🌏TelopCoordinator")
+	return self.owner_node().get_node("🌏TelopCoordinator")
