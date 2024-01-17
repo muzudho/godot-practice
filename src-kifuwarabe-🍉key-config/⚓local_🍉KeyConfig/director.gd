@@ -10,9 +10,9 @@ extends Node2D
 # ーーーーーーーー
 
 
-# イラストレーター取得
-func get_illustrator():
-	return $"🌏Illustrator"
+# ハブ取得
+func hub():
+	return $"🛩️Hub"
 
 
 # プログラムズ・ハブ取得
@@ -60,7 +60,7 @@ func _unhandled_input(event):
 # キーコンフィグ開始時
 func on_key_config_entered():
 	# 背景
-	self.get_illustrator().visible = true
+	self.hub().illustrator().visible = true
 	self.get_programs_hub().images.find_node("🗻崎川駅前").visible = true
 
 

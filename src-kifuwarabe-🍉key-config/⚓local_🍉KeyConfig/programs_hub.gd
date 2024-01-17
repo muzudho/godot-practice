@@ -3,7 +3,7 @@ extends Node
 
 
 # ーーーーーーーー
-# 共通メモリ関連
+# メモリ関連
 # ーーーーーーーー
 
 # 先祖の辞書キャッシュ
@@ -40,9 +40,12 @@ func get_director():
 			self.ancestors)
 
 
-# イラストレーター取得
-func get_illustrator():
-	return self.get_director().get_node("🌏Illustrator")
+# 監督ハブ取得
+func get_director_hub():
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			&"🌏Director/🛩️Hub",
+			self.ancestors)
 
 
 # BGM取得

@@ -1,6 +1,12 @@
 # モデレーター（Moderator；司会進行）
 extends Node
 
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+
 # 文字列解析用
 var re_button = RegEx.new()
 var re_lever = RegEx.new()
@@ -55,7 +61,7 @@ func _ready():
 	# ーーーーーーーー
 	
 	# イラストレーター非表示
-	self.hub().get_programs_hub().get_illustrator().hide()
+	self.hub().get_director_hub().illustrator().hide()
 		
 	# テロップ非表示
 	self.hub().get_my_telop("TextBlock").visible = false
@@ -80,7 +86,7 @@ func entry():
 	# ーーーーーーーー
 	
 	# イラストレーター表示
-	self.hub().get_programs_hub().get_illustrator().show()
+	self.hub().get_director_hub().illustrator().show()
 	
 	# テロップ表示
 	self.hub().get_my_telop("TextBlock").visible = true

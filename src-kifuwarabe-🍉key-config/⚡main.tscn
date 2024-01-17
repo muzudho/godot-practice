@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=12 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/director.gd" id="1_dum2v"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_f72qc"]
+[ext_resource type="Script" path="res://⚓local_🍉KeyConfig/director_hub.gd" id="2_qa5np"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/grid.gd" id="3_c737f"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/🌏Illustrator.tscn" id="4_u7crs"]
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/programs_hub.gd" id="5_2fo8k"]
@@ -13,6 +14,9 @@
 
 [node name="🌏Director" type="Node2D"]
 script = ExtResource("1_dum2v")
+
+[node name="🛩️Hub" type="Node" parent="."]
+script = ExtResource("2_qa5np")
 
 [node name="Grid" type="Sprite2D" parent="."]
 z_index = 1000

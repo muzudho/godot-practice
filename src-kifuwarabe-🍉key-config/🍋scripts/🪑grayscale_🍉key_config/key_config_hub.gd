@@ -28,9 +28,17 @@ func get_director():
 			self.ancestors)
 
 
+# 監督ハブ取得
+func get_director_hub():
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			&"🌏Director/🛩️Hub",
+			self.ancestors)
+
+
 # プログラムズ・ハブ取得
 func get_programs_hub():
-	return self.get_director().get_node("🌏Programmer/🛩️Hub")
+	return self.get_director_hub().programmer_hub()
 
 
 # テロップ取得
@@ -73,7 +81,7 @@ func entry():
 	# 表示
 	# ーーーーーーーー
 	self.get_programs_hub().get_telop_coordinator().show()
-	self.get_programs_hub().get_illustrator().show()
+	self.get_director_hub().illustrator().show()
 	self.get_programs_hub().images.find_node("■下").show()
 	self.get_programs_hub().images.find_node("■上_大").show()
 	self.get_programs_hub().telops.find_node("Ｔキーコンフィグ").show()
