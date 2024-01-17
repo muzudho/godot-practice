@@ -7,7 +7,7 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 
 
 # ーーーーーーーー
-# 共通メモリ関連
+# メモリ関連
 # ーーーーーーーー
 
 # 先祖の辞書キャッシュ
@@ -35,7 +35,7 @@ var telops = null
 
 
 # ーーーーーーーー
-# 外パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
@@ -49,15 +49,10 @@ func get_director():
 
 # 監督ハブ取得
 func get_director_hub():
-	return MonkeyHelper.find_ancestor(
+	return MonkeyHelper.find_ancestor_child(
 			self,
 			&"🌏Director/🛩️Hub",
 			self.ancestors)
-
-
-# イラストレーター取得
-func get_illustrator():
-	return self.get_director().get_node("🌏Illustrator")
 
 
 # メッセージ・ウィンドウズ取得

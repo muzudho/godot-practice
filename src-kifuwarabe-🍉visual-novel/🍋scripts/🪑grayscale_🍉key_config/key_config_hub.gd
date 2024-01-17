@@ -4,6 +4,14 @@
 extends Node2D
 
 
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
+
 # 値はボタン番号。レバーは +1000
 var key_config = {
 	# 仮想キー（１）決定ボタン、メッセージ送りボタン
@@ -16,49 +24,31 @@ var key_config = {
 
 
 # ーーーーーーーー
-# 外パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
+# 監督ハブ取得
+func get_director_hub():
+	return MonkeyHelper.find_ancestor_child(
 			self,
-			&"🌏Director",
+			&"🌏Director/🛩️Hub",
 			self.ancestors)
 
 
-# プログラムズ・ハブ取得
-func get_programs_hub():
-	return self.get_director().get_node("🌏Programmer/🛩️Hub")
-
-
-# テロップ取得
+# （外ノード）テロップ取得
 func get_my_telop_canvas_layer():
-	return self.get_programs_hub().telops.find_node("Ｔキーコンフィグ")
+	return self.get_director_hub().programmer_hub().telops.find_node("Ｔキーコンフィグ")
 
 
-# テロップ取得
+# （外ノード）テロップ取得
 func get_my_telop(node_name_str):
 	return self.get_my_telop_canvas_layer().get_node(node_name_str)
-
-
-# ーーーーーーーー
-# 内パス関連
-# ーーーーーーーー
 
 
 # 司会進行取得
 func get_moderator():
 	return $"Moderator"
-
-
-# ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-# 先祖の辞書キャッシュ
-var ancestors = {}
 
 
 # ーーーーーーーー
@@ -72,17 +62,17 @@ func entry():
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
-	self.get_programs_hub().get_telop_coordinator().show()
-	self.get_programs_hub().get_illustrator().show()
-	self.get_programs_hub().images.find_node("■下").show()
-	self.get_programs_hub().images.find_node("■上_大").show()
-	self.get_programs_hub().telops.find_node("Ｔキーコンフィグ").show()
+	self.get_director_hub().telop_coordinator().show()
+	self.get_director_hub().illustrator().show()
+	self.get_director_hub().programmer_hub().images.find_node("■下").show()
+	self.get_director_hub().programmer_hub().images.find_node("■上_大").show()
+	self.get_director_hub().programmer_hub().telops.find_node("Ｔキーコンフィグ").show()
 
 	# ーーーーーーーー
 	# イベント
 	# ーーーーーーーー
 	# シーンの外側の１階層上の `🌏Director` ノードへアクセス
-	self.get_director().on_key_config_entered()
+	self.get_director_hub().owner_node().on_key_config_entered()
 	
 	# ーーーーーーーー
 	# 状態遷移開始
@@ -92,7 +82,7 @@ func entry():
 
 func on_exit():
 	# シーンの外側の１階層上の `🌏Director` ノードへアクセス
-	self.get_director().on_key_config_exited()
+	self.get_director_hub().owner_node().on_key_config_exited()
 
 
 func on_process(delta):

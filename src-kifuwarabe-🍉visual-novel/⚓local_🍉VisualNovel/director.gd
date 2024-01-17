@@ -29,10 +29,6 @@ func hub():
 	return $"🛩️Hub"
 
 
-func get_illustrator():
-	return $"🌏Illustrator"
-
-
 func get_key_config_hub():
 	return $"🛩️KeyConfigHub"
 
@@ -87,7 +83,7 @@ func _ready():
 	
 	# イラストレーターはとにかく隠す
 	self.search_in_folder(
-			self.get_illustrator(),		# 探す場所
+			self.hub().illustrator(),		# 探す場所
 			func(child_node):
 				return child_node is Sprite2D,
 			func(child_node):
@@ -108,7 +104,7 @@ func _ready():
 	# 監督自身
 	self.show()
 	# イラストレーター
-	self.get_illustrator().show()
+	self.hub().illustrator().show()
 	# テロップ
 	self.get_telop_coordinator().show()
 
