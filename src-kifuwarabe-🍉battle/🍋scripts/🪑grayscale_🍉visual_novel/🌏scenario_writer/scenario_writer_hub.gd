@@ -22,14 +22,6 @@ var cached_choices_mappings = {}
 # ーーーーーーーー
 
 
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
-
-
 # 監督ハブ取得
 func get_director_hub():
 	return MonkeyHelper.find_ancestor_child(
@@ -45,7 +37,7 @@ func owner_node():
 
 # シナリオライター取得
 func get_scenario_writer():
-	return self.get_director().get_node("🌏ScenarioWriter")
+	return self.get_director_hub().owner_node().get_node("🌏ScenarioWriter")
 
 
 # 部門切替取得

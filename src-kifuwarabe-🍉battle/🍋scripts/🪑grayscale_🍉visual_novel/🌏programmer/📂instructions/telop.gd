@@ -38,7 +38,7 @@ func hub():
 
 # 部門変数取得
 func get_department_value(department_node_name):
-	return self.hub().get_director().get_department_value(department_node_name)
+	return self.hub().get_director_hub().owner_node().get_department_value(department_node_name)
 
 
 # ーーーーーーーー

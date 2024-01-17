@@ -190,8 +190,8 @@ func on_choice_selected(row_number):
 # ディレクターの `_process(delta)` が呼出す
 func on_process(delta):
 
-	if 0.0 < self.hub().get_director().sleep_seconds:
-		self.hub().get_director().sleep_seconds -= delta
+	if 0.0 < self.hub().get_director_hub().owner_node().sleep_seconds:
+		self.hub().get_director_hub().owner_node().sleep_seconds -= delta
 
 		# 疑似スリープ値が残っている間は、シナリオを進めません
 		return

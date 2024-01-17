@@ -8,13 +8,6 @@ extends Node
 # ーーーーーーーー
 
 
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
-
-
 # 監督ハブ取得
 func get_director_hub():
 	return MonkeyHelper.find_ancestor_child(
@@ -24,11 +17,11 @@ func get_director_hub():
 
 
 func get_scorer():
-	return self.get_director().get_node("Scorer")
+	return self.get_director_hub().owner_node().get_node("Scorer")
 
 
 func get_game_sheet_for_battle():
-	return self.get_director().get_node("Scorer/GameSheetForBattle")
+	return self.get_director_hub().owner_node().get_node("Scorer/GameSheetForBattle")
 
 
 # ーーーーーーーー

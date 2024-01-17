@@ -64,13 +64,13 @@ func do_it(line):
 
 # BGM 再生
 func play_bg_music(node_name, from = null):
-	if self.hub().get_director().current_bg_music_name!=null:
+	if self.hub().get_director_hub().owner_node().current_bg_music_name!=null:
 		self.stop_bg_music()
 		
 	print("［命令　ＢＧＭ］　開始：[" + node_name + "]")
-	self.hub().get_director().current_bg_music_name = node_name
+	self.hub().get_director_hub().owner_node().current_bg_music_name = node_name
 	
-	var bg_music_name = self.hub().get_director().current_bg_music_name
+	var bg_music_name = self.hub().get_director_hub().owner_node().current_bg_music_name
 	var audio_node = self.hub().bg_musics.find_node(bg_music_name)
 	if audio_node == null:
 		print("［命令　ＢＧＭ］　▲エラー　”" + bg_music_name + "”　が無い")
@@ -84,13 +84,13 @@ func play_bg_music(node_name, from = null):
 
 # BGM 停止
 func stop_bg_music():
-	if self.hub().get_director().current_bg_music_name != null:
+	if self.hub().get_director_hub().owner_node().current_bg_music_name != null:
 		print("［命令　ＢＧＭ］　停止")
 		
-		var bg_music_name = self.hub().get_director().current_bg_music_name
+		var bg_music_name = self.hub().get_director_hub().owner_node().current_bg_music_name
 		var audio_node = self.hub().bg_musics.find_node(bg_music_name)
 		if audio_node == null:
 			print("［命令　ＢＧＭ］　▲エラー　”" + bg_music_name + "”　が無い")
 		
 		audio_node.stop()
-		self.hub().get_director().current_bg_music_name = null
+		self.hub().get_director_hub().owner_node().current_bg_music_name = null
