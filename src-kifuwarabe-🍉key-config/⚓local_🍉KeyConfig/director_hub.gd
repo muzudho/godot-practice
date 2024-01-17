@@ -7,6 +7,11 @@ extends Node
 # ーーーーーーーー
 
 
+# 監督取得
+func owner():
+	return self.get_node("../../🌏Director")
+
+
 # イラストレーター取得
 func illustrator():
 	return self.get_node("../../🌏Director/🌏Illustrator")

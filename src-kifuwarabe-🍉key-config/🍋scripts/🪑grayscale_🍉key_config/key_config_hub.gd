@@ -20,14 +20,6 @@ var key_config = {
 # ーーーーーーーー
 
 
-# 監督取得
-func get_director():
-	return MonkeyHelper.find_ancestor(
-			self,
-			&"🌏Director",
-			self.ancestors)
-
-
 # 監督ハブ取得
 func get_director_hub():
 	return MonkeyHelper.find_ancestor_child(
@@ -90,7 +82,7 @@ func entry():
 	# イベント
 	# ーーーーーーーー
 	# シーンの外側の１階層上の `🌏Director` ノードへアクセス
-	self.get_director().on_key_config_entered()
+	self.get_director_hub().owner().on_key_config_entered()
 	
 	# ーーーーーーーー
 	# 状態遷移開始
@@ -100,7 +92,7 @@ func entry():
 
 func on_exit():
 	# シーンの外側の１階層上の `🌏Director` ノードへアクセス
-	self.get_director().on_key_config_exited()
+	self.get_director_hub().owner().on_key_config_exited()
 
 
 func on_process(delta):
