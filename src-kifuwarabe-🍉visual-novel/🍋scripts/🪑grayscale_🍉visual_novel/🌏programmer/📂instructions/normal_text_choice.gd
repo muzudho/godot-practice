@@ -51,7 +51,7 @@ func put_textblock(
 		temp_text):		# str
 
 	# 変数展開
-	temp_text = self.monkey().expand_variables(temp_text.strip_edges())
+	temp_text = self.monkey().owner_node().expand_variables(temp_text.strip_edges())
 
 	# メッセージ追加
 	var department_value = self.monkey().scenario_player().get_current_department_value()

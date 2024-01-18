@@ -69,7 +69,7 @@ func _ready():
 # 状態遷移するだけ
 func on_talked_2():
 
-	var illust_a = self.monkey().of_director().programmer().images.find_node(self.name)
+	var illust_a = self.monkey().of_director().programmer().owner_node().images.find_node(self.name)
 
 	# 表示
 	self.set_visible_subtree(true)
@@ -151,7 +151,7 @@ func on_all_characters_pushed():
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
 	print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
-	var illust_a = self.monkey().of_director().programmer().images.find_node(self.name)
+	var illust_a = self.monkey().of_director().programmer().owner_node().images.find_node(self.name)
 
 	# テキストブロック
 	var text_block_node = self.monkey().get_text_block(self.name)
@@ -293,7 +293,7 @@ func is_choices():
 func set_visible_subtree(
 		visible_flag):			# bool
 
-	var illust_a = self.monkey().of_director().programmer().images.find_node(self.name)
+	var illust_a = self.monkey().of_director().programmer().owner_node().images.find_node(self.name)
 	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(illust_a.visible) + "　次可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
@@ -350,7 +350,7 @@ func set_appear_subtree(
 
 		print("［伝言窓　”" + self.name + "”］　appear：" + str(appear_flag))
 
-		var illust_a = self.monkey().of_director().programmer().images.find_node(self.name)
+		var illust_a = self.monkey().of_director().programmer().owner_node().images.find_node(self.name)
 		self.is_appear = appear_flag
 
 		if self.is_appear:

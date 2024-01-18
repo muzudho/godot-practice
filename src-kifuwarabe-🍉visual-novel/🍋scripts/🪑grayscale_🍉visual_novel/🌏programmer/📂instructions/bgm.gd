@@ -47,11 +47,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.monkey().expand_variables(string_packed_array[0].strip_edges())
+	var node_name = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
 	var from = null
 	
 	if 2 <= string_packed_array.size():
-		from = float(self.monkey().expand_variables(string_packed_array[1].strip_edges()))
+		from = float(self.monkey().owner_node().expand_variables(string_packed_array[1].strip_edges()))
 
 	if node_name == "":
 		# BGM 停止
@@ -71,7 +71,7 @@ func play_bg_music(node_name, from = null):
 	self.monkey().of_director().owner_node().current_bg_music_name = node_name
 	
 	var bg_music_name = self.monkey().of_director().owner_node().current_bg_music_name
-	var audio_node = self.monkey().bg_musics.find_node(bg_music_name)
+	var audio_node = self.monkey().owner_node().bg_musics.find_node(bg_music_name)
 	if audio_node == null:
 		print("［命令　ＢＧＭ］　▲エラー　”" + bg_music_name + "”　が無い")
 	
@@ -88,7 +88,7 @@ func stop_bg_music():
 		print("［命令　ＢＧＭ］　停止")
 		
 		var bg_music_name = self.monkey().of_director().owner_node().current_bg_music_name
-		var audio_node = self.monkey().bg_musics.find_node(bg_music_name)
+		var audio_node = self.monkey().owner_node().bg_musics.find_node(bg_music_name)
 		if audio_node == null:
 			print("［命令　ＢＧＭ］　▲エラー　”" + bg_music_name + "”　が無い")
 		

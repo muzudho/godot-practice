@@ -48,11 +48,11 @@ func do_it(line):
 	var string_packed_array = csv.split(",", true, 0)
 
 	# 例： `Ｔ戦闘シーン/玉の遠さ_上`
-	var node_path_str = self.monkey().expand_variables(string_packed_array[0].strip_edges())
+	var node_path_str = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
 	var its_text = ""	# 空文字列
 	
 	if 2 <= string_packed_array.size():
-		its_text = self.monkey().expand_variables(string_packed_array[1].strip_edges())
+		its_text = self.monkey().owner_node().expand_variables(string_packed_array[1].strip_edges())
 		its_text = self.monkey().trim_double_quotation(its_text)
 
 	self.set_label(node_path_str, its_text)
@@ -65,7 +65,7 @@ func set_label(
 
 	print("［命令　ラベル］　ノード名：[" + node_path_str + "]　テキスト：［" + its_text + "］")
 	
-	var label_node = self.monkey().telops.find_node(node_path_str)
+	var label_node = self.monkey().owner_node().telops.find_node(node_path_str)
 
 	if label_node == null:
 		print("［命令　ラベル］　▲エラー　テロップに ”" + node_path_str + "” ノードが無い")
