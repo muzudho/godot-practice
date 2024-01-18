@@ -68,7 +68,7 @@ func get_instruction(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.monkey().of_director().programmer_monkey().owner_node(),	# 探す場所
+				return self.monkey().of_director().programmer().owner_node(),	# 探す場所
 			func():
 				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
 
@@ -82,7 +82,7 @@ func get_all_department_names():
 				# 命令のノード名は `📗` で始まるものとする
 				&"📗",
 				# 探す場所
-				self.monkey().of_director().scenario_writer_monkey().owner_node(),
+				self.monkey().of_director().scenario_writer().owner_node(),
 				func(child_node):
 					# デパートメント名を記憶
 					self.all_department_names.append(child_node.name))
@@ -118,7 +118,7 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = self.monkey().of_director().scenario_writer_monkey().get_merged_scenario_document(department_name).keys()[0]
+		department_value.section_name = self.monkey().of_director().scenario_writer().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
 

@@ -41,7 +41,7 @@ func get_all_instruction_codes():
 				&"📗",
 				# 探す場所
 				# 本当は `🌏Programmer` ノードの下のどこかにある `📂ScenarioPlayer_🍉VisualNovel` ノードのさらに下の `📂Instructions` ノードの下を探して欲しいが。
-				self.monkey().of_director().programmer_monkey().owner_node(),
+				self.monkey().of_director().programmer().owner_node(),
 				func(child_node):
 					# コードにノード名を紐づける
 					self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
@@ -101,7 +101,7 @@ func get_current_section_size_of_scenario():
 	var scenario_node_name = department_value.name		# StringName
 	var section_name =  department_value.section_name
 	
-	var section_array = self.monkey().of_director().scenario_writer_monkey().get_section_array(scenario_node_name, section_name)
+	var section_array = self.monkey().of_director().scenario_writer().get_section_array(scenario_node_name, section_name)
 	return section_array.size()
 
 
@@ -110,7 +110,7 @@ func get_current_paragraph_of_scenario():
 	var department_value = self.get_current_department_value()
 	var message_window_gui = self.get_current_message_window_gui()
 
-	var merged_scenario_document = self.monkey().of_director().scenario_writer_monkey().get_merged_scenario_document(department_value.name)
+	var merged_scenario_document = self.monkey().of_director().scenario_writer().get_merged_scenario_document(department_value.name)
 	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
 
 
@@ -174,7 +174,7 @@ func on_choice_selected(row_number):
 	print("［助監］　選んだ選択肢行番号：" + str(row_number))
 
 	# 辞書
-	var choices_mappings_a = self.monkey().of_director().scenario_writer_monkey().get_merged_choices_mappings(department_name)
+	var choices_mappings_a = self.monkey().of_director().scenario_writer().get_merged_choices_mappings(department_name)
 
 	# 区画名。実質的には選択肢の配列
 	var section_obj = choices_mappings_a[section_name]

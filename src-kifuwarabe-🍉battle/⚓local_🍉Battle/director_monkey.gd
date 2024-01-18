@@ -53,17 +53,12 @@ func musician_sound_fx():
 
 
 # プログラマー・ハブ取得
-func programmer_monkey():
+func programmer():
 	return self.owner_node().get_node("🌏Programmer/🐵Monkey")
 
 
-# シナリオライター取得
-func scenario_writer():
-	return self.owner_node().get_node("🌏ScenarioWriter")
-
-
 # シナリオライター・ハブ取得
-func scenario_writer_monkey():
+func scenario_writer():
 	return self.owner_node().get_node("🌏ScenarioWriter/🐵Monkey_🍉VisualNovel")
 
 

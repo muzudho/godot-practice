@@ -26,12 +26,12 @@ func of_director():
 
 # 助監取得
 func get_assistant_director():
-	return self.monkey().of_director().programmer_monkey().owner_node()
+	return self.monkey().of_director().programmer().owner_node()
 
 
 # キャンバス・レイヤー取得
 func get_canvas_layer(message_window_name):
-	return self.monkey().of_director().programmer_monkey().telops.find_node("MessageWindow_" + message_window_name)
+	return self.monkey().of_director().programmer().telops.find_node("MessageWindow_" + message_window_name)
 
 
 # テキストブロック

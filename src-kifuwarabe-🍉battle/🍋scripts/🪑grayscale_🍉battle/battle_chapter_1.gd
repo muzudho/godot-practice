@@ -24,7 +24,7 @@ func monkey():
 
 
 # 戦闘ハブ取得
-func battle_monkey():
+func monkey_of_battle():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🐵BattleMonkey",
@@ -159,11 +159,11 @@ var scenario_document = {
 			var gote_monster_name = self.monkey().of_director().owner_node().stage_directions_variables["battle_gote_monster_name"]
 			
 			# モンスターＩｄ取得
-			var sente_monster_id = self.battle_monkey().get_scorer().lookup_monster_id_by_name(sente_monster_name)
-			var gote_monster_id = self.battle_monkey().get_scorer().lookup_monster_id_by_name(gote_monster_name)
+			var sente_monster_id = self.monkey_of_battle().get_scorer().lookup_monster_id_by_name(sente_monster_name)
+			var gote_monster_id = self.monkey_of_battle().get_scorer().lookup_monster_id_by_name(gote_monster_name)
 			
 			# ロード
-			self.battle_monkey().get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
+			self.monkey_of_battle().get_scorer().load_game_data_for_battle(sente_monster_id, gote_monster_id)
 			
 			# 匿名関数の終わりのコンマ
 			,
@@ -259,27 +259,27 @@ var scenario_document = {
 		func():
 			# 先手
 			# 先手の［城の堅さ］表示更新
-			self.battle_monkey().refresh_sente_solidity_of_castle()
+			self.monkey_of_battle().refresh_sente_solidity_of_castle()
 			# 先手の［逃げ道の広さ］表示更新
-			self.battle_monkey().refresh_sente_breadth_of_escape_route()
+			self.monkey_of_battle().refresh_sente_breadth_of_escape_route()
 			# 先手の［駒の働き］表示更新
-			self.battle_monkey().refresh_sente_work_of_pieces()
+			self.monkey_of_battle().refresh_sente_work_of_pieces()
 			# 先手の［攻めの速度］表示更新
-			self.battle_monkey().refresh_sente_offensive_speed()
+			self.monkey_of_battle().refresh_sente_offensive_speed()
 			# 先手の［玉の遠さ］表示更新
-			self.battle_monkey().refresh_sente_distance_of_king()
+			self.monkey_of_battle().refresh_sente_distance_of_king()
 			
 			# 後手
 			# 後手の［城の堅さ］表示更新
-			self.battle_monkey().refresh_gote_solidity_of_castle()
+			self.monkey_of_battle().refresh_gote_solidity_of_castle()
 			# 後手の［逃げ道の広さ］表示更新
-			self.battle_monkey().refresh_gote_breadth_of_escape_route()
+			self.monkey_of_battle().refresh_gote_breadth_of_escape_route()
 			# 後手の［駒の働き］表示更新
-			self.battle_monkey().refresh_gote_work_of_pieces()
+			self.monkey_of_battle().refresh_gote_work_of_pieces()
 			# 後手の［攻めの速度］表示更新
-			self.battle_monkey().refresh_gote_offensive_speed()
+			self.monkey_of_battle().refresh_gote_offensive_speed()
 			# 後手の［玉の遠さ］表示更新
-			self.battle_monkey().refresh_gote_distance_of_king()
+			self.monkey_of_battle().refresh_gote_distance_of_king()
 			
 			# 匿名関数の終わりのコンマ
 			,
@@ -514,10 +514,10 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.monkey().of_director().programmer_monkey().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.monkey().of_director().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 
 			# 後手の［玉の遠さ］を減らす
-			self.battle_monkey().get_game_sheet_for_battle().distance_of_king[1] -= damage
+			self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[1] -= damage
 			,
 		"""\
 		{{battle_sente_monster_name}}
@@ -526,15 +526,15 @@ var scenario_document = {
 		""",
 		func():
 			# 後手の［玉の遠さ］表示更新
-			self.battle_monkey().refresh_gote_distance_of_king()
+			self.monkey_of_battle().refresh_gote_distance_of_king()
 			,
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.monkey().of_director().programmer_monkey().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.monkey().of_director().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
-			self.battle_monkey().get_game_sheet_for_battle().distance_of_king[0] -= 1
+			self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[0] -= 1
 			,
 		"""\
 		{{battle_gote_monster_name}}
@@ -543,7 +543,7 @@ var scenario_document = {
 		""",
 		func():
 			# 先手の［玉の遠さ］表示更新
-			self.battle_monkey().refresh_sente_distance_of_king()
+			self.monkey_of_battle().refresh_sente_distance_of_king()
 
 			,
 		"""\
@@ -555,13 +555,13 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.monkey().of_director().programmer_monkey().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.monkey().of_director().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 後手の［玉の遠さ］を５減らす
-			self.battle_monkey().get_game_sheet_for_battle().distance_of_king[1] -= damage
+			self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[1] -= damage
 
 			# 後手の［玉の遠さ］表示更新
-			self.battle_monkey().refresh_gote_distance_of_king()
+			self.monkey_of_battle().refresh_gote_distance_of_king()
 			,
 		"""\
 		{{battle_sente_monster_name}}
@@ -571,23 +571,23 @@ var scenario_document = {
 		func():
 			
 			# 玉の遠さは、 0 になる前に投了することがある
-			if self.battle_monkey().get_game_sheet_for_battle().distance_of_king[1] < 5:
-				self.monkey().of_director().programmer_monkey().get_instruction(&"📗Goto").goto("§後手番投了", "")
+			if self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[1] < 5:
+				self.monkey().of_director().programmer().get_instruction(&"📗Goto").goto("§後手番投了", "")
 			else:
-				self.monkey().of_director().programmer_monkey().get_instruction(&"📗Goto").goto("§後手番１", "")
+				self.monkey().of_director().programmer().get_instruction(&"📗Goto").goto("§後手番１", "")
 			,
 	],
 	"§後手番１": [
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.monkey().of_director().programmer_monkey().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.monkey().of_director().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
-			self.battle_monkey().get_game_sheet_for_battle().distance_of_king[0] -= damage
+			self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[0] -= damage
 			
 			# 先手の［玉の遠さ］表示更新
-			self.battle_monkey().refresh_sente_distance_of_king()
+			self.monkey_of_battle().refresh_sente_distance_of_king()
 			,
 		"""\
 		{{battle_gote_monster_name}}
@@ -596,10 +596,10 @@ var scenario_document = {
 		""",
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
-			if self.battle_monkey().get_game_sheet_for_battle().distance_of_king[0] < 5:
-				self.monkey().of_director().programmer_monkey().get_instruction(&"📗Goto").goto("§先手番投了", "")
+			if self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[0] < 5:
+				self.monkey().of_director().programmer().get_instruction(&"📗Goto").goto("§先手番投了", "")
 			else:
-				self.monkey().of_director().programmer_monkey().get_instruction(&"📗Goto").goto("§先手番１", "")
+				self.monkey().of_director().programmer().get_instruction(&"📗Goto").goto("§先手番１", "")
 			,
 	],
 	"§先手番投了": [

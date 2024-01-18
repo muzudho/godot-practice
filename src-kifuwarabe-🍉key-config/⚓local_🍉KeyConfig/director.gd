@@ -60,7 +60,7 @@ func _unhandled_input(event):
 func on_key_config_entered():
 	# 背景
 	self.monkey().illustrator().visible = true
-	self.monkey().programmer_monkey().images.find_node("🗻崎川駅前").visible = true
+	self.monkey().programmer().images.find_node("🗻崎川駅前").visible = true
 
 
 # キーコンフィグ完了時
@@ -68,4 +68,4 @@ func on_key_config_exited():
 	print("［キーコンフィグ］　完了")
 
 	# 背景
-	self.monkey().programmer_monkey().images.find_node("🗻崎川駅前").visible = false
+	self.monkey().programmer().images.find_node("🗻崎川駅前").visible = false

@@ -44,7 +44,7 @@ func monkey():
 func _ready():
 
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.monkey().programmer_monkey().scenario_player().get_all_instruction_codes()
+	var _all_instruction_code = self.monkey().programmer().scenario_player().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示
@@ -106,7 +106,7 @@ func search_in_folder(
 
 func on_key_config_entered():
 	# 背景
-	self.monkey().programmer_monkey().images.find_node("🗻崎川駅前").visible = true
+	self.monkey().programmer().images.find_node("🗻崎川駅前").visible = true
 
 
 func on_key_config_exited():
@@ -132,20 +132,20 @@ func _process(delta):
 		# ーーーーーーーー
 
 		# 最初に実行する部門名
-		self.monkey().programmer_monkey().current_department_name = self.monkey().scenario_writer_monkey().department_control().start_department_name
+		self.monkey().programmer().current_department_name = self.monkey().scenario_writer().department_control().start_department_name
 
 		# パースするな
-		self.monkey().programmer_monkey().scenario_player().get_current_department_value().set_parse_lock(true)
+		self.monkey().programmer().scenario_player().get_current_department_value().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
-		self.monkey().programmer_monkey().scenario_player().play_section()
+		self.monkey().programmer().scenario_player().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.monkey().programmer_monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
+		self.monkey().programmer().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
 	# 主な状態に制御を譲る
 	elif self.current_state == &"Main":
-		self.monkey().programmer_monkey().scenario_player().on_process(delta)
+		self.monkey().programmer().scenario_player().on_process(delta)
 
 
 # テキストボックスなどにフォーカスが無いときのキー入力を拾う
@@ -267,7 +267,7 @@ func _unhandled_input(event):
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if self.monkey().scenario_writer_monkey().on_virtual_key_input(
+	if self.monkey().scenario_writer().on_virtual_key_input(
 			virtual_key,
 			lever_value,
 			vk_operation):
@@ -278,4 +278,4 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.monkey().programmer_monkey().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().programmer().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
