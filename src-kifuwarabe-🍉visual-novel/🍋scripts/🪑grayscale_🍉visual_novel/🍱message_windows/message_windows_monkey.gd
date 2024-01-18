@@ -14,12 +14,17 @@ var is_fast_forward = false
 
 
 # ーーーーーーーー
-# パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
+# 自身取得
+func monkey():
+	return self
+
+
 # 監督ハブ取得
-func director_monkey():
+func of_director():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			&"🌏Director/🐵Monkey",
@@ -28,7 +33,7 @@ func director_monkey():
 
 # キャンバス・レイヤー取得
 func get_canvas_layer(message_window_name):
-	return self.director_monkey().programmer_monkey().telops.find_node("MessageWindow_" + message_window_name)
+	return self.monkey().of_director().programmer_monkey().telops.find_node("MessageWindow_" + message_window_name)
 
 
 # テキストブロック

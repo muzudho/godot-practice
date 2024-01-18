@@ -39,8 +39,13 @@ var telops = null
 # ーーーーーーーー
 
 
+# 自身取得
+func monkey():
+	return self
+
+
 # 監督ハブ取得
-func director_monkey():
+func of_director():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			&"🌏Director/🐵Monkey",
@@ -77,7 +82,7 @@ func get_all_department_names():
 				# 命令のノード名は `📗` で始まるものとする
 				&"📗",
 				# 探す場所
-				self.director_monkey().scenario_writer_monkey().owner_node(),
+				self.monkey().of_director().scenario_writer_monkey().owner_node(),
 				func(child_node):
 					# デパートメント名を記憶
 					self.all_department_names.append(child_node.name))
@@ -96,7 +101,7 @@ func _ready():
 			# メッセージ・ウィンドウの名前は `■` で始まるものとする
 			&"■",
 			# 探す場所
-			self.director_monkey().gui_programmer_message_windows(),
+			self.monkey().of_director().gui_programmer_message_windows(),
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 				child_node.on_message_window_page_forward = func():
@@ -114,7 +119,7 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = self.director_monkey().scenario_writer_monkey().get_merged_scenario_document(department_name).keys()[0]
+		department_value.section_name = self.monkey().of_director().scenario_writer_monkey().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
 
@@ -172,8 +177,8 @@ func expand_variables(target_before_change):
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
 				print("［プログラマーズ・ハブ　変数展開］　変数キー：［" + key + "］")
 				
-				if key in self.director_monkey().owner_node().stage_directions_variables:
-					var value = self.director_monkey().owner_node().stage_directions_variables[key]
+				if key in self.monkey().of_director().owner_node().stage_directions_variables:
+					var value = self.monkey().of_director().owner_node().stage_directions_variables[key]
 					print("［プログラマーズ・ハブ　変数展開］　変数値：［" + value + "］")
 				
 					terget_after_change += value

@@ -38,7 +38,7 @@ func monkey():
 
 # 部門変数取得
 func get_department_value(department_node_name):
-	return self.monkey().director_monkey().owner_node().get_department_value(department_node_name)
+	return self.monkey().of_director().owner_node().get_department_value(department_node_name)
 
 
 # ーーーーーーーー

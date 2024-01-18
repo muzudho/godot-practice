@@ -30,13 +30,13 @@ func monkey():
 
 func _ready():
 	self.monkey().bg_musics = MonkeyHand.create(
-			self.monkey().director_monkey().musician_bg_musics())		# 探す場所
+			self.monkey().of_director().musician_bg_musics())		# 探す場所
 
 	self.monkey().images = MonkeyHand.create(
-			self.monkey().director_monkey().illustrator())			# 探す場所
+			self.monkey().of_director().illustrator())			# 探す場所
 
 	self.monkey().sound_fx = MonkeyHand.create(
-			self.monkey().director_monkey().musician_sound_fx())			# 探す場所
+			self.monkey().of_director().musician_sound_fx())			# 探す場所
 
 	self.monkey().telops = MonkeyHand.create(
-			self.monkey().director_monkey().telop_coordinator())	# 探す場所
+			self.monkey().of_director().telop_coordinator())	# 探す場所
