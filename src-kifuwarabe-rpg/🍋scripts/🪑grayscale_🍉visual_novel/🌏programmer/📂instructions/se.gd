@@ -44,7 +44,7 @@ func do_it(line):
 
 	var node_name = line.substr(self.code.length()).strip_edges()
 	print("［命令　効果音］　ノード名：[" + node_name + "]")
-	node_name = self.monkey().expand_variables(node_name.strip_edges())
+	node_name = self.monkey().owner_node().expand_variables(node_name.strip_edges())
 
 	if node_name == "":
 		# 効果音 停止
@@ -64,7 +64,7 @@ func play_se(node_name):
 	self.monkey().of_director().owner_node().current_se_name = node_name
 
 	var se_name = self.monkey().of_director().owner_node().current_se_name
-	var se_node = self.monkey().sound_fx.find_node(se_name)
+	var se_node = self.monkey().owner_node().sound_fx.find_node(se_name)
 	if se_node == null:
 		print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 	
@@ -77,7 +77,7 @@ func stop_se():
 		print("［命令　効果音］　停止")
 		
 		var se_name = self.monkey().of_director().owner_node().current_se_name
-		var se_node = self.monkey().sound_fx.find_node(se_name)
+		var se_node = self.monkey().owner_node().sound_fx.find_node(se_name)
 		if se_node == null:
 			print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 		

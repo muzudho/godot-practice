@@ -56,7 +56,7 @@ func get_all_instruction_codes():
 
 # 現在の部門変数
 func get_current_department_value():
-	return self.monkey().get_department_value(self.monkey().current_department_name)
+	return self.monkey().owner_node().get_department_value(self.monkey().owner_node().current_department_name)
 
 
 # 現在の「§」セクション設定
@@ -76,7 +76,7 @@ func get_current_message_window_gui():
 
 	var node_name = department_value.stack_of_last_displayed_message_window[-1]
 	#print("［監督］　伝言窓名：［" + node_name + "］")
-	return self.monkey().message_window_programs.find_node(str(node_name))
+	return self.monkey().owner_node().message_window_programs.find_node(str(node_name))
 
 
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
@@ -89,7 +89,7 @@ func dump_last_displayed_message_window():
 		print("　　部門：　" + department_name)
 
 		# 部門変数
-		var department = self.monkey().get_department_value(department_name)
+		var department = self.monkey().owner_node().get_department_value(department_name)
 		
 		for window_name in department.node_names_of_currently_displayed_message_window:
 			print("　　　　👁 " + window_name)
@@ -271,7 +271,7 @@ func execute_stage_directions(paragraph_text):
 	print("［シナリオエンジン］　準備中　ト書きなら実行")
 	
 	# ［ト書き］かどうか判定
-	var first_head_tail = self.monkey().split_head_line_or_tail(paragraph_text)
+	var first_head_tail = self.monkey().owner_node().split_head_line_or_tail(paragraph_text)
 	var first_head = first_head_tail[0].strip_edges()
 	var first_tail = first_head_tail[1] 
 		
@@ -281,7 +281,7 @@ func execute_stage_directions(paragraph_text):
 		print("［助監］　命令テキストだ：[" + first_tail + "]")
 
 		# さらに先頭行を取得
-		var second_head_tail = self.monkey().split_head_line_or_tail(first_tail)
+		var second_head_tail = self.monkey().owner_node().split_head_line_or_tail(first_tail)
 		
 		while second_head_tail != null:
 			var second_head = second_head_tail[0].strip_edges()
@@ -304,7 +304,7 @@ func execute_stage_directions(paragraph_text):
 					instruction.do_it(second_head)
 				
 			# さらに先頭行を取得
-			second_head_tail = self.monkey().split_head_line_or_tail(second_tail)
+			second_head_tail = self.monkey().owner_node().split_head_line_or_tail(second_tail)
 
 		# ーーーーーーーー
 		# ［ト書き］終わり

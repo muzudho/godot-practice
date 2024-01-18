@@ -49,7 +49,7 @@ func do_it(
 	# 文字列を最初のカンマで分割して配列に入れる
 	var string_packed_array = csv.split(",", true, 1)
 
-	var section_name = self.monkey().expand_variables(string_packed_array[0].strip_edges())
+	var section_name = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
 	
 	var tail_csv = ""
 	if 1 < string_packed_array.size():
@@ -70,7 +70,7 @@ func goto(section_name, tail_csv):
 	self.monkey().scenario_player().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 	var merged_scenario_document = self.monkey().of_director().scenario_writer().get_merged_scenario_document(
-		self.monkey().current_department_name)
+		self.monkey().owner_node().current_department_name)
 	
 	if section_name in merged_scenario_document:
 		self.monkey().scenario_player().set_current_section(section_name)
@@ -82,7 +82,7 @@ func goto(section_name, tail_csv):
 	# 文字列を最初のカンマで分割して配列に入れる
 	var string_packed_array = tail_csv.split(",", true, 1)
 
-	var section_name2 = self.monkey().expand_variables(string_packed_array[0].strip_edges())
+	var section_name2 = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
 
 	self.monkey().scenario_player().set_current_section(section_name2)
 	self.monkey().scenario_player().play_section()

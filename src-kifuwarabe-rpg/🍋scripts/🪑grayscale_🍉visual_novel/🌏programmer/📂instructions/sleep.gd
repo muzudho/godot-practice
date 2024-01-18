@@ -49,7 +49,7 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var seconds = float(self.monkey().expand_variables(string_packed_array[0].strip_edges()))
+	var seconds = float(self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges()))
 
 	self.sleep(seconds)
 

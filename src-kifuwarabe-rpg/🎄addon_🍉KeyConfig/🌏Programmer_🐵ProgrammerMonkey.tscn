@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://duy5utr23c82g"]
+[gd_scene load_steps=2 format=3 uid="uid://d0nd7ri4xgsxn"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/programmer_monkey_nodes.gd" id="1_k18cp"]
+[sub_resource type="GDScript" id="GDScript_q8p5g"]
+script/source = "# プログラムズ・ハブ・ノーズ（Programs Hub Nodes；プログラム中心地節）
+extends Node
+
+
+# ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
+
+# ーーーーーーーー
+# ノード・パス関連
+# ーーーーーーーー
+
+
+# プログラマー・ハブ取得
+func monkey():
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			\"🌏Programmer/🐵Monkey\",
+			self.ancestors)
+"
 
 [node name="📄Nodes_🍉KeyConfig" type="Node"]
-script = ExtResource("1_k18cp")
+script = SubResource("GDScript_q8p5g")
