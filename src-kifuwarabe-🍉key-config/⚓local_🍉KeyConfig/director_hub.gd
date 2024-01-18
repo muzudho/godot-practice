@@ -34,7 +34,7 @@ func musician_sound_fx():
 
 # プログラマー・ハブ取得
 func programmer_hub():
-	return self.owner_node().get_node("🌏Programmer/🛩️Hub")
+	return self.owner_node().get_node("🌏Programmer/🐵Monkey")
 
 
 # テロップ・コーディネーター取得

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/key_config_hub.gd" id="1_031ms"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/moderator.gd" id="2_j1eyt"]
 
-[node name="🛩️KeyConfigHub" type="Node2D"]
+[node name="🏝️KeyConfigIsland" type="Node2D"]
 script = ExtResource("1_031ms")
 
 [node name="Moderator" type="Node" parent="."]

@@ -52,13 +52,13 @@ var elapsed_seconds = 0.0
 func get_director_hub():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			&"🌏Director/🛩️Hub",
+			&"🌏Director/🐵Monkey",
 			self.ancestors)
 
 
 # キーコンフィグ監督取得
 func get_director_for_key_config():
-	return self.get_director_hub().owner_node().get_node("🛩️KeyConfigHub")
+	return self.get_director_hub().owner_node().get_node("🏝️KeyConfigIsland")
 
 
 # 伝言窓名を取得

@@ -23,7 +23,7 @@ var cached_choices_mappings = {}
 func get_director_hub():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			&"🌏Director/🛩️Hub",
+			&"🌏Director/🐵Monkey",
 			self.ancestors)
 
 

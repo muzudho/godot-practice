@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/scenario_writer_hub.gd" id="1_u6g4b"]
 
-[node name="🛩️ScenarioWritersHub_🍉VisualNovel" type="Node"]
+[node name="🐵Monkey_🍉VisualNovel" type="Node"]
 script = ExtResource("1_u6g4b")

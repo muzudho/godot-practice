@@ -19,7 +19,7 @@ var ancestors = {}
 func hub():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🌏Programmer/🛩️Hub",
+			"🌏Programmer/🐵Monkey",
 			self.ancestors)
 
 

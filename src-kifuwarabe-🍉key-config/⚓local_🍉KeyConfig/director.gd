@@ -12,7 +12,7 @@ extends Node2D
 
 # ディレクター・ハブ取得
 func hub():
-	return $"🛩️Hub"
+	return $"🐵Monkey"
 
 
 # ーーーーーーーー
@@ -42,18 +42,18 @@ func _ready():
 	# ーーーーーーーー
 	# 初期化
 	# ーーーーーーーー
-	$"🛩️KeyConfigHub".entry()
+	$"🏝️KeyConfigIsland".entry()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# キーコンフィグで必要です
-	$"🛩️KeyConfigHub".on_process(delta)
+	$"🏝️KeyConfigIsland".on_process(delta)
 
 
 func _unhandled_input(event):
 	# キーコンフィグで必要です
-	$"🛩️KeyConfigHub".on_unhandled_input(event)
+	$"🏝️KeyConfigIsland".on_unhandled_input(event)
 
 
 # キーコンフィグ開始時

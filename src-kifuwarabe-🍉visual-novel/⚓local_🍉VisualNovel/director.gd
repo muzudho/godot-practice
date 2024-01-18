@@ -31,7 +31,7 @@ var sleep_seconds = 0.0
 
 # ディレクター・ハブ取得
 func hub():
-	return $"🛩️Hub"
+	return $"🐵Monkey"
 
 
 # ーーーーーーーー

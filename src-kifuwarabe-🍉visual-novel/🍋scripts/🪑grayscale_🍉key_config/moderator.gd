@@ -32,7 +32,7 @@ var is_enabled = false
 
 # ハブ取得
 func hub():
-	return $"../../🛩️KeyConfigHub"
+	return $"../../🏝️KeyConfigIsland"
 
 
 # ーーーーーーーー

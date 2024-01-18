@@ -39,7 +39,7 @@ Godot には　あるらしいぜ」
 
 ```gd
 #func hub():
-#	return $"../../🛩️ScenarioWritersHub"
+#	return $"../../🐵ScenarioWriterMonkey"
 
 
 # シナリオライターズ・ハブ取得
@@ -47,8 +47,8 @@ func hub():
 	var cur_node = $".."
 	
 	while cur_node != null:
-		if cur_node.has_node("🛩️ScenarioWritersHub"):
-			return cur_node.get_node("🛩️ScenarioWritersHub")
+		if cur_node.has_node("🐵ScenarioWriterMonkey"):
+			return cur_node.get_node("🐵ScenarioWriterMonkey")
 		
 		cur_node = cur_node.get_parent()
 	
@@ -66,7 +66,7 @@ var cached_hubs = {}
 
 # シナリオライターズ・ハブ取得
 func hub():
-	var target = "🛩️ScenarioWritersHub"
+	var target = "🐵ScenarioWriterMonkey"
 	
 	if target in self.cached_hubs:
 		return self.cached_hubs[target]
@@ -157,7 +157,7 @@ var monkey = Monkey.new()
 func hub():
 	return monkey.find_ancestor_child(
 			self,
-			"🛩️ScenarioWritersHub")
+			"🐵ScenarioWriterMonkey")
 ```
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  

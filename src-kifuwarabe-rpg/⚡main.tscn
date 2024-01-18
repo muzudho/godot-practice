@@ -21,13 +21,13 @@
 [ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_8.png" id="39_nr2kt"]
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/programs_hub.gd" id="39_w7ugv"]
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="40_25lxp"]
-[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://🎄addon_🍉KeyConfig/🌏Programmer_🛩ProgramsHub.tscn" id="40_dv74k"]
-[ext_resource type="PackedScene" uid="uid://csqladmrcvyby" path="res://🎄addon_🍉VisualNovel/🌏Programmer_🛩Hub.tscn" id="40_q42s8"]
+[ext_resource type="PackedScene" uid="uid://duy5utr23c82g" path="res://🎄addon_🍉KeyConfig/🌏Programmer_🐵ProgrammerMonkey.tscn" id="40_dv74k"]
+[ext_resource type="PackedScene" uid="uid://csqladmrcvyby" path="res://🎄addon_🍉VisualNovel/🌏Programmer_🐵Monkey.tscn" id="40_q42s8"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_rock28.ogg" id="41_2y5jy"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉VisualNovel/🌏Programmer.tscn" id="41_kb3a0"]
 [ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_cyber06.ogg" id="42_j4tsf"]
-[ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉VisualNovel/🌏ScenarioWriter_＋🛩️scenario_writers_hub.tscn" id="42_lg1ip"]
+[ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉VisualNovel/🌏ScenarioWriter_＋🐵scenario_writer_monkey.tscn" id="42_lg1ip"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_neorock14.ogg" id="43_k3tfj"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_orchestra12.ogg" id="44_beusv"]
@@ -69,7 +69,7 @@
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_rk62n")
 
-[node name="🛩️Hub" type="Node" parent="."]
+[node name="🐵Monkey" type="Node" parent="."]
 script = ExtResource("2_mr32a")
 
 [node name="Grid" type="Sprite2D" parent="."]
@@ -258,20 +258,20 @@ pitch_scale = 1.5
 
 [node name="🌏Programmer" type="Node" parent="."]
 
-[node name="🛩️Hub" type="Node" parent="🌏Programmer"]
+[node name="🐵Monkey" type="Node" parent="🌏Programmer"]
 script = ExtResource("39_w7ugv")
 
-[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Programmer/🛩️Hub"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Programmer/🐵Monkey"]
 
-[node name="📄Nodes_🍉VisualNovel" parent="🌏Programmer/🛩️Hub" instance=ExtResource("40_q42s8")]
+[node name="📄Nodes_🍉VisualNovel" parent="🌏Programmer/🐵Monkey" instance=ExtResource("40_q42s8")]
 
-[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🛩️Hub" instance=ExtResource("40_dv74k")]
+[node name="📄Nodes_🍉KeyConfig" parent="🌏Programmer/🐵Monkey" instance=ExtResource("40_dv74k")]
 
 [node name="📂ScenarioPlayer_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("41_kb3a0")]
 
 [node name="🌏Programmer_MessageWindow" type="Node" parent="."]
 
-[node name="🛩️Hub" type="Node" parent="🌏Programmer_MessageWindow"]
+[node name="🐵Monkey" type="Node" parent="🌏Programmer_MessageWindow"]
 script = ExtResource("61_cfuy1")
 
 [node name="■FullScreen" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
@@ -319,7 +319,7 @@ script = ExtResource("61_tvkup")
 
 [node name="🌏ScenarioWriter" type="Node" parent="."]
 
-[node name="🛩️Hub_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("42_lg1ip")]
+[node name="🐵Monkey_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("42_lg1ip")]
 
 [node name="📘DepartmentControl" type="Node" parent="🌏ScenarioWriter"]
 script = ExtResource("60_f7oqn")
@@ -531,4 +531,4 @@ script = ExtResource("70_mcty4")
 [node name="MonsterData" type="Node" parent="Scorer"]
 script = ExtResource("71_vwn1b")
 
-[node name="🛩️KeyConfigHub" parent="." instance=ExtResource("62_isghc")]
+[node name="🏝️KeyConfigIsland" parent="." instance=ExtResource("62_isghc")]

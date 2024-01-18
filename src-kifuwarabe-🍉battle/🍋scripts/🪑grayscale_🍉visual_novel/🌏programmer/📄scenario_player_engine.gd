@@ -27,7 +27,7 @@ var is_department_not_found = false
 func hub():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🌏Programmer/🛩️Hub",
+			"🌏Programmer/🐵Monkey",
 			self.ancestors)
 
 

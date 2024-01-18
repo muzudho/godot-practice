@@ -8,7 +8,7 @@
 
 [node name="📗バトル部門_🍉Battle" type="Node" parent="."]
 
-[node name="🛩️BattleHub" type="Node" parent="📗バトル部門_🍉Battle"]
+[node name="🐵BattleMonkey" type="Node" parent="📗バトル部門_🍉Battle"]
 script = ExtResource("1_ygw8g")
 
 [node name="📃選択肢と飛び先" type="Node" parent="📗バトル部門_🍉Battle"]

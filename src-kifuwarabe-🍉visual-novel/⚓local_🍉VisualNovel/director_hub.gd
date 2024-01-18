@@ -24,7 +24,7 @@ func illustrator():
 
 # キー・コンフィグ・ハブ取得
 func key_config_hub():
-	return self.owner_node().get_node("🛩️KeyConfigHub")
+	return self.owner_node().get_node("🏝️KeyConfigIsland")
 
 
 # メッセージ・ウィンドウズ取得
@@ -54,12 +54,12 @@ func musician_sound_fx():
 
 # プログラマー・ハブ取得
 func programmer_hub():
-	return self.owner_node().get_node("🌏Programmer/🛩️Hub")
+	return self.owner_node().get_node("🌏Programmer/🐵Monkey")
 
 
 # シナリオライター・ハブ取得
 func scenario_writer_hub():
-	return self.owner_node().get_node("🌏ScenarioWriter/🛩️Hub_🍉VisualNovel")
+	return self.owner_node().get_node("🌏ScenarioWriter/🐵Monkey_🍉VisualNovel")
 
 
 # テロップ・コーディネーター取得
