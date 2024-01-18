@@ -54,7 +54,7 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 	
-	var department_name = StringName(self.monkey().expand_variables(string_packed_array[0].strip_edges()))
+	var department_name = StringName(self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges()))
 	
 	var tail_csv = ""
 	if 1 < string_packed_array.size():
@@ -73,20 +73,20 @@ func change_department(next_department_name, tail_csv):
 		self.monkey().scenario_player().is_department_not_found = false
 
 		# 前部門
-		var prev_department_name = self.monkey().current_department_name
+		var prev_department_name = self.monkey().owner_node().current_department_name
 		print("［命令　部門］　前：［" + prev_department_name + "］　次：［" + next_department_name + "］")
 		
-		var prev_department = self.monkey().get_department_value(prev_department_name)
+		var prev_department = self.monkey().owner_node().get_department_value(prev_department_name)
 
 		# 旧部門のウィンドウを閉じる
 		for prev_window_name in prev_department.node_names_of_currently_displayed_message_window:
 			self.get_m_wnd().hide_message_window(prev_window_name, true)
 
 		# 部門変更
-		self.monkey().current_department_name = next_department_name
+		self.monkey().owner_node().current_department_name = next_department_name
 
 		# 次部門
-		var next_department_snapshot = self.monkey().get_department_value(next_department_name)
+		var next_department_snapshot = self.monkey().owner_node().get_department_value(next_department_name)
 
 		# 旧部門のウィンドウを復元する
 		for next_window_name in next_department_snapshot.node_names_of_currently_displayed_message_window:

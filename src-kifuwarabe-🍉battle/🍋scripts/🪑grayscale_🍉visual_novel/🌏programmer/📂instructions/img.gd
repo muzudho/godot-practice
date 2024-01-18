@@ -49,11 +49,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.monkey().expand_variables(string_packed_array[0].strip_edges())
+	var node_name = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
 	var sub_command = null
 	
 	if 2 <= string_packed_array.size():
-		sub_command = self.monkey().expand_variables(string_packed_array[1].strip_edges())
+		sub_command = self.monkey().owner_node().expand_variables(string_packed_array[1].strip_edges())
 
 	if sub_command == "hide":
 		self.hide_image(node_name)
@@ -64,7 +64,7 @@ func do_it(line):
 
 # 画像表示
 func show_image(node_name):
-	var node = self.monkey().images.find_node(node_name)
+	var node = self.monkey().owner_node().images.find_node(node_name)
 
 	if node == null:
 		print("［画像］　▲！エラー　❝" + node_name + "❞ノードが見つかりません")
@@ -76,7 +76,7 @@ func show_image(node_name):
 
 # 画像非表示
 func hide_image(node_name):
-	var node = self.monkey().images.find_node(node_name)
+	var node = self.monkey().owner_node().images.find_node(node_name)
 
 	if node == null:
 		print("［画像　非表示］　▲！エラー　❝" + node_name + "❞ノードが見つかりません")

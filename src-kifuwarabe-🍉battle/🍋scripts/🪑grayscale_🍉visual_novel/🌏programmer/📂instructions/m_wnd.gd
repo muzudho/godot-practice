@@ -49,11 +49,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.monkey().expand_variables(string_packed_array[0].strip_edges())
+	var node_name = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
 	var sub_command = null
 
 	if 2 <= string_packed_array.size():
-		sub_command = self.monkey().expand_variables(string_packed_array[1].strip_edges())
+		sub_command = self.monkey().owner_node().expand_variables(string_packed_array[1].strip_edges())
 
 	if sub_command == "hide":
 		# 伝言窓を隠す
@@ -73,7 +73,7 @@ func show_message_window(
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
-	self.monkey().message_window_programs.find_node(node_name).set_appear_subtree(true)
+	self.monkey().owner_node().message_window_programs.find_node(node_name).set_appear_subtree(true)
 
 	if not is_department_entered:
 		# 現在開いている伝言窓をスナップショットに記憶
@@ -97,7 +97,7 @@ func hide_message_window(
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
-	self.monkey().message_window_programs.find_node(node_name).set_appear_subtree(false)
+	self.monkey().owner_node().message_window_programs.find_node(node_name).set_appear_subtree(false)
 
 	if not is_department_leaved:
 		# 現在開いている伝言窓をスナップショットから除外

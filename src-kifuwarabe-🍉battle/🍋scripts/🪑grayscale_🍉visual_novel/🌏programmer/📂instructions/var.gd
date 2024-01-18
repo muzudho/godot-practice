@@ -53,7 +53,7 @@ func do_it(line):
 
 	if 2 <= string_packed_array.size():
 		# 第２引数は、変数展開する
-		value = self.monkey().expand_variables(string_packed_array[1].strip_edges())
+		value = self.monkey().owner_node().expand_variables(string_packed_array[1].strip_edges())
 
 		self.set_var(key, value)
 		return

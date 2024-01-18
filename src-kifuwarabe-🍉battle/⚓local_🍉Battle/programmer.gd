@@ -54,10 +54,8 @@ func monkey():
 # 起動時設定
 # ーーーーーーーー
 
-
 func _ready():
-
-
+	
 	self.bg_musics = MonkeyHand.create(
 			self.monkey().of_director().musician_bg_musics())		# 探す場所
 
@@ -74,7 +72,7 @@ func _ready():
 	self.message_window_programs = MonkeyHand.create(
 			self.monkey().of_director().gui_programmer_message_windows())			# 探す場所
 
-	
+
 	# メッセージ・ウィンドウに対応関数紐づけ
 	MonkeyHelper.search_node_name_begins_with(
 			# メッセージ・ウィンドウの名前は `■` で始まるものとする

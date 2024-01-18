@@ -31,7 +31,7 @@ func get_assistant_director():
 
 # キャンバス・レイヤー取得
 func get_canvas_layer(message_window_name):
-	return self.monkey().of_director().programmer().telops.find_node("MessageWindow_" + message_window_name)
+	return self.monkey().of_director().programmer().owner_node().telops.find_node("MessageWindow_" + message_window_name)
 
 
 # テキストブロック
@@ -60,21 +60,3 @@ func get_choices_cursor(message_window_name):
 
 # 先祖の辞書キャッシュ
 var ancestors = {}
-
-
-# ーーーーーーーー
-# その他
-# ーーーーーーーー
-
-
-## 先頭行と、それ以外に分けます
-#func split_head_line_or_tail(text):
-#	# 最初の改行を見つける
-#	var index = text.find("\n")
-#	var head = text.substr(0, index)
-#	var tail = text.substr(index+1)
-#
-#	#print("［伝言窓］　head：　[" + head + "]")
-#	#print("［伝言窓］　tail：　[" + tail + "]")
-#
-#	return [head, tail]

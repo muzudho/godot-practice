@@ -43,7 +43,7 @@ func of_director():
 
 # （外ノード）テロップ取得
 func get_my_telop_canvas_layer():
-	return self.monkey().of_director().programmer().telops.find_node("Ｔキーコンフィグ")
+	return self.monkey().of_director().programmer().owner_node().telops.find_node("Ｔキーコンフィグ")
 
 
 # （外ノード）テロップ取得
@@ -69,9 +69,9 @@ func entry():
 	# ーーーーーーーー
 	self.monkey().of_director().telop_coordinator().show()
 	self.monkey().of_director().illustrator().show()
-	self.monkey().of_director().programmer().images.find_node("■下").show()
-	self.monkey().of_director().programmer().images.find_node("■上_大").show()
-	self.monkey().of_director().programmer().telops.find_node("Ｔキーコンフィグ").show()
+	self.monkey().of_director().programmer().owner_node().images.find_node("■下").show()
+	self.monkey().of_director().programmer().owner_node().images.find_node("■上_大").show()
+	self.monkey().of_director().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
 
 	# ーーーーーーーー
 	# イベント
