@@ -6,25 +6,9 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
+
 # 先祖の辞書キャッシュ
 var ancestors = {}
-
-
-# ーーーーーーーー
-# アドオン・スロット
-# ーーーーーーーー
-
-# BGMノードのキャッシュ
-var bg_musics = null
-
-# イラスト・ノードのキャッシュ
-var images = null
-
-# サウンド・エフェクト（Sound Effect, Sound FX；効果音）のキャッシュ
-var sound_fx = null
-
-# テロップのキャッシュ
-var telops = null
 
 
 # ーーーーーーーー
