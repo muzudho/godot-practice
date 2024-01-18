@@ -30,7 +30,7 @@ var sleep_seconds = 0.0
 
 
 # ディレクター・ハブ取得
-func hub():
+func monkey():
 	return $"🐵Monkey"
 
 
@@ -44,7 +44,7 @@ func hub():
 func _ready():
 
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.hub().programmer_hub().scenario_player().get_all_instruction_codes()
+	var _all_instruction_code = self.monkey().programmer_monkey().scenario_player().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示
@@ -53,11 +53,11 @@ func _ready():
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	
 	# グリッドは隠す
-	self.hub().grid().hide()
+	self.monkey().grid().hide()
 	
 	# イラストレーターはとにかく隠す
 	self.search_in_folder(
-			self.hub().illustrator(),		# 探す場所
+			self.monkey().illustrator(),		# 探す場所
 			func(child_node):
 				return child_node is Sprite2D,
 			func(child_node):
@@ -65,7 +65,7 @@ func _ready():
 	
 	# テロップはとにかく非表示にする
 	self.search_in_folder(
-			self.hub().telop_coordinator(),		# 探す場所
+			self.monkey().telop_coordinator(),		# 探す場所
 			func(child_node):
 				return child_node is CanvasLayer,
 			func(child_node):
@@ -78,9 +78,9 @@ func _ready():
 	# 監督自身
 	self.show()
 	# イラストレーター
-	self.hub().illustrator().show()
+	self.monkey().illustrator().show()
 	# テロップ
-	self.hub().telop_coordinator().show()
+	self.monkey().telop_coordinator().show()
 
 
 # ーーーーーーーー
@@ -106,7 +106,7 @@ func search_in_folder(
 
 func on_key_config_entered():
 	# 背景
-	self.hub().programmer_hub().images.find_node("🗻崎川駅前").visible = true
+	self.monkey().programmer_monkey().images.find_node("🗻崎川駅前").visible = true
 
 
 func on_key_config_exited():
@@ -116,11 +116,11 @@ func on_key_config_exited():
 func _process(delta):
 
 	if self.current_state == &"WaitForKeyConfig":
-		self.hub().key_config_hub().entry()
+		self.monkey().key_config_island().entry()
 		self.current_state = &"KeyConfig"
 
 	elif self.current_state == &"KeyConfig":
-		self.hub().key_config_hub().on_process(delta)
+		self.monkey().key_config_island().on_process(delta)
 
 	elif self.current_state == &"Ready":
 		self.current_state = &"Main"
@@ -129,19 +129,19 @@ func _process(delta):
 		# ーーーーーーーー
 
 		# 最初に実行する部門名
-		self.hub().programmer_hub().current_department_name = self.hub().scenario_writer_hub().department_control().start_department_name
+		self.monkey().programmer_monkey().current_department_name = self.monkey().scenario_writer_monkey().department_control().start_department_name
 
 		# パースするな
-		self.hub().programmer_hub().scenario_player().get_current_department_value().set_parse_lock(true)
+		self.monkey().programmer_monkey().scenario_player().get_current_department_value().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
-		self.hub().programmer_hub().scenario_player().play_section()
+		self.monkey().programmer_monkey().scenario_player().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.hub().programmer_hub().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
+		self.monkey().programmer_monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
 	elif self.current_state == &"Main":
-		self.hub().programmer_hub().scenario_player().on_process(delta)
+		self.monkey().programmer_monkey().scenario_player().on_process(delta)
 
 
 # テキストボックスなどにフォーカスが無いときのキー入力を拾う
@@ -209,7 +209,7 @@ func _unhandled_input(event):
 		pass
 
 	elif self.current_state == &"KeyConfig":
-		self.hub().key_config_hub().on_unhandled_input(event)
+		self.monkey().key_config_island().on_unhandled_input(event)
 
 	elif self.current_state == &"Main":
 
@@ -237,13 +237,13 @@ func _unhandled_input(event):
 		var event_as_text = event.as_text()
 		
 		# 文字列をボタン番号に変換
-		var button_number = self.hub().key_config_hub().get_button_number_by_text(event_as_text)
+		var button_number = self.monkey().key_config_island().get_button_number_by_text(event_as_text)
 		
 		# ボタン番号を、仮想キー名に変換
-		var virtual_key_name = self.hub().key_config_hub().get_virtual_key_name_by_button_number(button_number)
+		var virtual_key_name = self.monkey().key_config_island().get_virtual_key_name_by_button_number(button_number)
 
 		# レバー値
-		var lever_value = self.hub().key_config_hub().get_lever_value_by_text(event_as_text)
+		var lever_value = self.monkey().key_config_island().get_lever_value_by_text(event_as_text)
 
 		# 仮想キーを押下したという建付け
 		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
@@ -252,7 +252,7 @@ func _unhandled_input(event):
 # 仮想キーを押下したという建付け
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if self.hub().scenario_writer_hub().on_virtual_key_input(
+	if self.monkey().scenario_writer_monkey().on_virtual_key_input(
 			virtual_key,
 			lever_value,
 			vk_operation):
@@ -261,4 +261,4 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.hub().programmer_hub().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().programmer_monkey().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)

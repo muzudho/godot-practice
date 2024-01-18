@@ -27,7 +27,7 @@ var ancestor_children_dictionary = {}
 
 
 # プログラマーズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -49,7 +49,7 @@ func do_it(
 	# 文字列を最初のカンマで分割して配列に入れる
 	var string_packed_array = csv.split(",", true, 1)
 
-	var section_name = self.hub().expand_variables(string_packed_array[0].strip_edges())
+	var section_name = self.monkey().expand_variables(string_packed_array[0].strip_edges())
 	
 	var tail_csv = ""
 	if 1 < string_packed_array.size():
@@ -61,20 +61,20 @@ func do_it(
 # 同じ部門内の、指定のセクションに飛ぶ
 func goto(section_name, tail_csv):
 	
-	if self.hub().scenario_player().is_department_not_found:
-		self.hub().scenario_player().is_department_not_found = false
+	if self.monkey().scenario_player().is_department_not_found:
+		self.monkey().scenario_player().is_department_not_found = false
 		return
 	
 	# 伝言窓の状態が Completed で止まってるとフリーズするから、強制解除
 	print("［命令　ゴートゥー］　伝言窓の状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
-	self.hub().scenario_player().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+	self.monkey().scenario_player().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
-	var merged_scenario_document = self.hub().get_director_hub().scenario_writer_hub().get_merged_scenario_document(
-		self.hub().current_department_name)
+	var merged_scenario_document = self.monkey().director_monkey().scenario_writer_monkey().get_merged_scenario_document(
+		self.monkey().current_department_name)
 	
 	if section_name in merged_scenario_document:
-		self.hub().scenario_player().set_current_section(section_name)
-		self.hub().scenario_player().play_section()
+		self.monkey().scenario_player().set_current_section(section_name)
+		self.monkey().scenario_player().play_section()
 		return
 	
 	# 該当なければ、とりあえず２番目のセクションまで見る
@@ -82,7 +82,7 @@ func goto(section_name, tail_csv):
 	# 文字列を最初のカンマで分割して配列に入れる
 	var string_packed_array = tail_csv.split(",", true, 1)
 
-	var section_name2 = self.hub().expand_variables(string_packed_array[0].strip_edges())
+	var section_name2 = self.monkey().expand_variables(string_packed_array[0].strip_edges())
 
-	self.hub().scenario_player().set_current_section(section_name2)
-	self.hub().scenario_player().play_section()
+	self.monkey().scenario_player().set_current_section(section_name2)
+	self.monkey().scenario_player().play_section()

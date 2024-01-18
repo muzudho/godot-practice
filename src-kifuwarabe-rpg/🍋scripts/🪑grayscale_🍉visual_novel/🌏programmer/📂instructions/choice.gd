@@ -27,7 +27,7 @@ var ancestor_children_dictionary = {}
 
 
 # プログラマーズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -50,10 +50,10 @@ func do_it(line):
 	# 文字列パック配列を、数値の配列に変換
 	var number_array = self.convert_string_packed_array_to_number_array(string_packed_array)
 
-	self.hub().scenario_player().get_current_message_window_gui().choices_row_numbers = number_array
+	self.monkey().scenario_player().get_current_message_window_gui().choices_row_numbers = number_array
 
 	# カーソル位置の初期化
-	self.hub().scenario_player().get_current_message_window_gui().reset_cursor_position()
+	self.monkey().scenario_player().get_current_message_window_gui().reset_cursor_position()
 
 
 # 文字列パック配列を、数値の配列に変換

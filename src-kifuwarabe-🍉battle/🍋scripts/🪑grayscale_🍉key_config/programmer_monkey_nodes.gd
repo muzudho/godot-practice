@@ -16,7 +16,7 @@ var ancestors = {}
 
 
 # プログラマー・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -29,14 +29,14 @@ func hub():
 
 
 func _ready():
-	self.hub().bg_musics = MonkeyHand.create(
-			self.hub().get_director_hub().musician_bg_musics())		# 探す場所
+	self.monkey().bg_musics = MonkeyHand.create(
+			self.monkey().director_monkey().musician_bg_musics())		# 探す場所
 
-	self.hub().images = MonkeyHand.create(
-			self.hub().get_director_hub().illustrator())			# 探す場所
+	self.monkey().images = MonkeyHand.create(
+			self.monkey().director_monkey().illustrator())			# 探す場所
 
-	self.hub().sound_fx = MonkeyHand.create(
-			self.hub().get_director_hub().musician_sound_fx())			# 探す場所
+	self.monkey().sound_fx = MonkeyHand.create(
+			self.monkey().director_monkey().musician_sound_fx())			# 探す場所
 
-	self.hub().telops = MonkeyHand.create(
-			self.hub().get_director_hub().telop_coordinator())	# 探す場所
+	self.monkey().telops = MonkeyHand.create(
+			self.monkey().director_monkey().telop_coordinator())	# 探す場所

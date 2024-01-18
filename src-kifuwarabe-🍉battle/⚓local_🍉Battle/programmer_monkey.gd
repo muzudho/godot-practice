@@ -40,7 +40,7 @@ var telops = null
 
 
 # 監督ハブ取得
-func get_director_hub():
+func director_monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			&"🌏Director/🐵Monkey",
@@ -63,7 +63,7 @@ func get_instruction(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.get_director_hub().programmer_hub().owner_node(),	# 探す場所
+				return self.director_monkey().programmer_monkey().owner_node(),	# 探す場所
 			func():
 				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
 
@@ -77,7 +77,7 @@ func get_all_department_names():
 				# 命令のノード名は `📗` で始まるものとする
 				&"📗",
 				# 探す場所
-				self.get_director_hub().scenario_writer_hub().owner_node(),
+				self.director_monkey().scenario_writer_monkey().owner_node(),
 				func(child_node):
 					# デパートメント名を記憶
 					self.all_department_names.append(child_node.name))
@@ -95,7 +95,7 @@ func _ready():
 			# メッセージ・ウィンドウの名前は `■` で始まるものとする
 			&"■",
 			# 探す場所
-			self.get_director_hub().gui_programmer_message_windows(),
+			self.director_monkey().gui_programmer_message_windows(),
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 				child_node.on_message_window_page_forward = func():
@@ -113,7 +113,7 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = self.get_director_hub().scenario_writer_hub().get_merged_scenario_document(department_name).keys()[0]
+		department_value.section_name = self.director_monkey().scenario_writer_monkey().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
 
@@ -171,8 +171,8 @@ func expand_variables(target_before_change):
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
 				print("［プログラマーズ・ハブ　変数展開］　変数キー：［" + key + "］")
 				
-				if key in self.get_director_hub().owner_node().stage_directions_variables:
-					var value = self.get_director_hub().owner_node().stage_directions_variables[key]
+				if key in self.director_monkey().owner_node().stage_directions_variables:
+					var value = self.director_monkey().owner_node().stage_directions_variables[key]
 					print("［プログラマーズ・ハブ　変数展開］　変数値：［" + value + "］")
 				
 					terget_after_change += value

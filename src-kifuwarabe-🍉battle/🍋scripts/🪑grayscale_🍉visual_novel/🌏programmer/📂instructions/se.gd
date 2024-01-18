@@ -27,7 +27,7 @@ var ancestor_children_dictionary = {}
 
 
 # プログラマーズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -44,7 +44,7 @@ func do_it(line):
 
 	var node_name = line.substr(self.code.length()).strip_edges()
 	print("［命令　効果音］　ノード名：[" + node_name + "]")
-	node_name = self.hub().expand_variables(node_name.strip_edges())
+	node_name = self.monkey().expand_variables(node_name.strip_edges())
 
 	if node_name == "":
 		# 効果音 停止
@@ -57,14 +57,14 @@ func do_it(line):
 
 # 効果音再生
 func play_se(node_name):
-	if self.hub().get_director_hub().owner_node().current_se_name!=null:
+	if self.monkey().director_monkey().owner_node().current_se_name!=null:
 		self.stop_se()
 
 	print("［命令　効果音］　開始：[" + node_name + "]")
-	self.hub().get_director_hub().owner_node().current_se_name = node_name
+	self.monkey().director_monkey().owner_node().current_se_name = node_name
 
-	var se_name = self.hub().get_director_hub().owner_node().current_se_name
-	var se_node = self.hub().sound_fx.find_node(se_name)
+	var se_name = self.monkey().director_monkey().owner_node().current_se_name
+	var se_node = self.monkey().sound_fx.find_node(se_name)
 	if se_node == null:
 		print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 	
@@ -73,13 +73,13 @@ func play_se(node_name):
 
 # 効果音停止
 func stop_se():
-	if self.hub().get_director_hub().owner_node().current_se_name != null:
+	if self.monkey().director_monkey().owner_node().current_se_name != null:
 		print("［命令　効果音］　停止")
 		
-		var se_name = self.hub().get_director_hub().owner_node().current_se_name
-		var se_node = self.hub().sound_fx.find_node(se_name)
+		var se_name = self.monkey().director_monkey().owner_node().current_se_name
+		var se_node = self.monkey().sound_fx.find_node(se_name)
 		if se_node == null:
 			print("［命令　効果音］　▲エラー　”" + se_name + "”　が無い")
 		
 		se_node.stop()
-		self.hub().get_director_hub().owner_node().current_se_name = null
+		self.monkey().director_monkey().owner_node().current_se_name = null

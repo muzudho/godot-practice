@@ -24,7 +24,7 @@ var is_department_not_found = false
 
 
 # プログラムズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -41,7 +41,7 @@ func get_all_instruction_codes():
 				&"📗",
 				# 探す場所
 				# 本当は `🌏Programmer` ノードの下のどこかにある `📂ScenarioPlayer_🍉VisualNovel` ノードのさらに下の `📂Instructions` ノードの下を探して欲しいが。
-				self.hub().get_director_hub().programmer_hub().owner_node(),
+				self.monkey().director_monkey().programmer_monkey().owner_node(),
 				func(child_node):
 					# コードにノード名を紐づける
 					self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
@@ -56,7 +56,7 @@ func get_all_instruction_codes():
 
 # 現在の部門変数
 func get_current_department_value():
-	return self.hub().get_department_value(self.hub().current_department_name)
+	return self.monkey().get_department_value(self.monkey().current_department_name)
 
 
 # 現在の「§」セクション設定
@@ -76,7 +76,7 @@ func get_current_message_window_gui():
 
 	var node_name = department_value.stack_of_last_displayed_message_window[-1]
 	#print("［監督］　伝言窓名：［" + node_name + "］")
-	return self.hub().message_window_programs.find_node(str(node_name))
+	return self.monkey().message_window_programs.find_node(str(node_name))
 
 
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
@@ -84,12 +84,12 @@ func dump_last_displayed_message_window():
 	print("［プログラマーズ・ハブ］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
 	
 	# 部門名一覧
-	var department_names = self.hub().get_all_department_names()
+	var department_names = self.monkey().get_all_department_names()
 	for department_name in 	department_names:
 		print("　　部門：　" + department_name)
 
 		# 部門変数
-		var department = self.hub().get_department_value(department_name)
+		var department = self.monkey().get_department_value(department_name)
 		
 		for window_name in department.node_names_of_currently_displayed_message_window:
 			print("　　　　👁 " + window_name)
@@ -101,7 +101,7 @@ func get_current_section_size_of_scenario():
 	var scenario_node_name = department_value.name		# StringName
 	var section_name =  department_value.section_name
 	
-	var section_array = self.hub().get_director_hub().scenario_writer_hub().get_section_array(scenario_node_name, section_name)
+	var section_array = self.monkey().director_monkey().scenario_writer_monkey().get_section_array(scenario_node_name, section_name)
 	return section_array.size()
 
 
@@ -110,7 +110,7 @@ func get_current_paragraph_of_scenario():
 	var department_value = self.get_current_department_value()
 	var message_window_gui = self.get_current_message_window_gui()
 
-	var merged_scenario_document = self.hub().get_director_hub().scenario_writer_hub().get_merged_scenario_document(department_value.name)
+	var merged_scenario_document = self.monkey().director_monkey().scenario_writer_monkey().get_merged_scenario_document(department_value.name)
 	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
 
 
@@ -174,7 +174,7 @@ func on_choice_selected(row_number):
 	print("［助監］　選んだ選択肢行番号：" + str(row_number))
 
 	# 辞書
-	var choices_mappings_a = self.hub().get_director_hub().scenario_writer_hub().get_merged_choices_mappings(department_name)
+	var choices_mappings_a = self.monkey().director_monkey().scenario_writer_monkey().get_merged_choices_mappings(department_name)
 
 	# 区画名。実質的には選択肢の配列
 	var section_obj = choices_mappings_a[section_name]
@@ -183,15 +183,15 @@ func on_choice_selected(row_number):
 	var next_section_name = section_obj[row_number]
 	print("［助監］　次の区画名　　　　：" + next_section_name)
 	
-	self.hub().scenario_player().set_current_section(next_section_name)
-	self.hub().scenario_player().play_section()
+	self.monkey().scenario_player().set_current_section(next_section_name)
+	self.monkey().scenario_player().play_section()
 
 
 # ディレクターの `_process(delta)` が呼出す
 func on_process(delta):
 
-	if 0.0 < self.hub().get_director_hub().owner_node().sleep_seconds:
-		self.hub().get_director_hub().owner_node().sleep_seconds -= delta
+	if 0.0 < self.monkey().director_monkey().owner_node().sleep_seconds:
+		self.monkey().director_monkey().owner_node().sleep_seconds -= delta
 
 		# 疑似スリープ値が残っている間は、シナリオを進めません
 		return
@@ -216,7 +216,7 @@ func on_process(delta):
 				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
 
 				# ここで、命令と、台詞は区別する
-				self.hub().scenario_player().parse_paragraph(latest_message)
+				self.monkey().scenario_player().parse_paragraph(latest_message)
 			
 			else:
 				# TODO 文字列以外のパラグラフに対応したい
@@ -250,7 +250,7 @@ func parse_paragraph(paragraph_text):
 # 通常文書の表示	
 func print_normal_text(paragraph_text):
 	#print("［シナリオエンジン］　準備中　通常文書の表示")
-	self.hub().get_instruction(&"📘NormalText").do_it(paragraph_text)
+	self.monkey().get_instruction(&"📘NormalText").do_it(paragraph_text)
 
 
 # 選択肢なら表示
@@ -260,7 +260,7 @@ func print_choices(paragraph_text):
 
 	# 選択肢だ
 	if message_window_gui.choices_row_numbers != null:
-		self.hub().get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
+		self.monkey().get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
 		return true
 
 	return false
@@ -271,7 +271,7 @@ func execute_stage_directions(paragraph_text):
 	print("［シナリオエンジン］　準備中　ト書きなら実行")
 	
 	# ［ト書き］かどうか判定
-	var first_head_tail = self.hub().split_head_line_or_tail(paragraph_text)
+	var first_head_tail = self.monkey().split_head_line_or_tail(paragraph_text)
 	var first_head = first_head_tail[0].strip_edges()
 	var first_tail = first_head_tail[1] 
 		
@@ -281,7 +281,7 @@ func execute_stage_directions(paragraph_text):
 		print("［助監］　命令テキストだ：[" + first_tail + "]")
 
 		# さらに先頭行を取得
-		var second_head_tail = self.hub().split_head_line_or_tail(first_tail)
+		var second_head_tail = self.monkey().split_head_line_or_tail(first_tail)
 		
 		while second_head_tail != null:
 			var second_head = second_head_tail[0].strip_edges()
@@ -300,11 +300,11 @@ func execute_stage_directions(paragraph_text):
 				# 例えば `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
 				if instruction_code in self.directory_for_instruction_code_and_node_name:
 					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
-					var instruction = self.hub().get_instruction(instruction_node_name)
+					var instruction = self.monkey().get_instruction(instruction_node_name)
 					instruction.do_it(second_head)
 				
 			# さらに先頭行を取得
-			second_head_tail = self.hub().split_head_line_or_tail(second_tail)
+			second_head_tail = self.monkey().split_head_line_or_tail(second_tail)
 
 		# ーーーーーーーー
 		# ［ト書き］終わり

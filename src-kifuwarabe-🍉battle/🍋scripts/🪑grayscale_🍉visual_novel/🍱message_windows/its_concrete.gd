@@ -45,7 +45,7 @@ var choices_index = 0
 
 
 # メッセージ・ウィンドウの軸取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer_MessageWindow/🐵Monkey",
@@ -69,7 +69,7 @@ func _ready():
 # 状態遷移するだけ
 func on_talked_2():
 
-	var illust_a = self.hub().get_director_hub().programmer_hub().images.find_node(self.name)
+	var illust_a = self.monkey().director_monkey().programmer_monkey().images.find_node(self.name)
 
 	# 表示
 	self.set_visible_subtree(true)
@@ -79,20 +79,20 @@ func on_talked_2():
 	if self.is_choices():
 		print("［伝言窓　”" + self.name + "”］　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
-		self.hub().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
-		self.hub().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
 		
 		# メッセージエンド・ブリンカー　状態機械［考える］
-		self.hub().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
+		self.monkey().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
 	
 	else:
 		print("［伝言窓　”" + self.name + "”］　台詞開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
-		self.hub().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 		
 		# メッセージエンド・ブリンカー　状態機械［考える］
-		self.hub().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
-		self.hub().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.think()
+		self.monkey().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
+		self.monkey().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.think()
 
 
 # ページ送り
@@ -102,13 +102,13 @@ func on_page_forward():
 	if self.is_choices():
 
 		# カーソル音
-		self.hub().get_director_hub().programmer_hub().get_instruction(&"📗SoundFx").play_se("🔔選択肢確定音")
+		self.monkey().director_monkey().programmer_monkey().get_instruction(&"📗SoundFx").play_se("🔔選択肢確定音")
 
 		var row_number = self.get_row_number_of_choices()
 		print("［伝言窓　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
-		self.hub().get_director_hub().programmer_hub().scenario_player().on_choice_selected(row_number)
+		self.monkey().director_monkey().programmer_monkey().scenario_player().on_choice_selected(row_number)
 
 		# 選択肢はお役御免
 		self.choices_row_numbers = null
@@ -117,55 +117,55 @@ func on_page_forward():
 		print("［伝言窓　”" + self.name + "”］　ページ送り")
 
 		# 効果音
-		self.hub().get_director_hub().programmer_hub().get_instruction(&"📗SoundFx").play_se("🔔ページめくり音")
+		self.monkey().director_monkey().programmer_monkey().get_instruction(&"📗SoundFx").play_se("🔔ページめくり音")
 		
 		# ページ送りをしたことを、呼出し元へ伝える
 		self.on_message_window_page_forward.call()
 
 	# 空っぽのウィンドウを残して、次の指示を待ちます
 	# テキストブロック
-	var text_block_node = self.hub().get_text_block(self.name)
+	var text_block_node = self.monkey().get_text_block(self.name)
 	if true:
 		# テキストが空っぽ
 		text_block_node.text = ""
 		# 全てのブリンカー　状態機械［決めた］
-		self.hub().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
-		self.hub().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
-		self.hub().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 
 
 func on_all_characters_pushed():
 	# 選択肢
 	if self.is_choices():
 		# 文末ブリンカー	状態機械［考える］
-		self.hub().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
+		self.monkey().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
 
 	# それ以外
 	else:
 		# 文末ブリンカー	状態機械［考える］
-		self.hub().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
-		self.hub().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.think()
+		self.monkey().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.think()
+		self.monkey().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.think()
 
 
 # 初期化
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
 	print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
-	var illust_a = self.hub().get_director_hub().programmer_hub().images.find_node(self.name)
+	var illust_a = self.monkey().director_monkey().programmer_monkey().images.find_node(self.name)
 
 	# テキストブロック
-	var text_block_node = self.hub().get_text_block(self.name)
+	var text_block_node = self.monkey().get_text_block(self.name)
 	# テキストが空っぽ
 	text_block_node.text = ""
 
 	# 選択肢
 	if self.is_choices():
 		# 全てのブリンカー　状態機械［決めた］
-		self.hub().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 	else:
 		# 全てのブリンカー　状態機械［決めた］
-		self.hub().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
-		self.hub().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
+		self.monkey().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
 
 	# この要素の初期状態は、非表示、透明
 	self.set_visible_subtree(false)
@@ -196,7 +196,7 @@ func _process(delta):
 		var wait_time = 1 / self.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
-		if self.hub().is_fast_forward:
+		if self.monkey().is_fast_forward:
 			# print("［テキストブロック］　メッセージの早送り")
 			wait_time = 1 / (self.msg_speed * self.msg_speed) # 旧 0.01
 	
@@ -204,7 +204,7 @@ func _process(delta):
 
 			# TODO キャッシュ化したい
 			# テキストブロック
-			var text_block_node = self.hub().get_text_block(self.name)
+			var text_block_node = self.monkey().get_text_block(self.name)
 
 			if 0 < self.text_block_buffer.length():
 				# バッファーの先頭の１文字を切り取って、テキストブロックへ移動
@@ -221,15 +221,15 @@ func _process(delta):
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	# 選択肢カーソル
-	self.hub().get_choices_cursor(self.name).on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(virtual_key, lever_value, vk_operation)
 
 	if virtual_key == &"VK_FastForward":
 		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
 		if vk_operation == &"VKO_Pressed":
-			self.hub().is_fast_forward = true
+			self.monkey().is_fast_forward = true
 
 		elif vk_operation == &"VKO_Released":
-			self.hub().is_fast_forward = false
+			self.monkey().is_fast_forward = false
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
@@ -293,7 +293,7 @@ func is_choices():
 func set_visible_subtree(
 		visible_flag):			# bool
 
-	var illust_a = self.hub().get_director_hub().programmer_hub().images.find_node(self.name)
+	var illust_a = self.monkey().director_monkey().programmer_monkey().images.find_node(self.name)
 	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(illust_a.visible) + "　次可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
@@ -305,17 +305,17 @@ func set_visible_subtree(
 		print("［伝言窓　”" + self.name + "”］　可視性：" + str(visible_flag))
 
 		illust_a.visible = visible_flag
-		self.hub().get_canvas_layer(self.name).visible = visible_flag
+		self.monkey().get_canvas_layer(self.name).visible = visible_flag
 
 		# 子ノード
-		for child in self.hub().get_text_block(self.name).get_children():
+		for child in self.monkey().get_text_block(self.name).get_children():
 			if child.has_method("set_visible_subtree"):
 				child.set_visible_subtree(visible_flag)
 
 
 # 選択肢カーソル位置のリセット
 func reset_cursor_position():
-	self.hub().get_choices_cursor(self.name).reset_cursor_position()
+	self.monkey().get_choices_cursor(self.name).reset_cursor_position()
 
 
 # サブツリーの is_process を設定。ポーズ（Pause；一時停止）の逆の操作
@@ -333,7 +333,7 @@ func set_process_subtree(
 		self.set_process(is_process)
 
 		# 子ノード
-		for child in self.hub().get_text_block(self.name).get_children():
+		for child in self.monkey().get_text_block(self.name).get_children():
 			if child.has_method("set_process_subtree"):
 				child.set_process_subtree(is_process)
 
@@ -350,13 +350,13 @@ func set_appear_subtree(
 
 		print("［伝言窓　”" + self.name + "”］　appear：" + str(appear_flag))
 
-		var illust_a = self.hub().get_director_hub().programmer_hub().images.find_node(self.name)
+		var illust_a = self.monkey().director_monkey().programmer_monkey().images.find_node(self.name)
 		self.is_appear = appear_flag
 
 		if self.is_appear:
 			# 画面内に戻す
 			illust_a.position += Vector2(0, -720)
-			self.hub().get_text_block(self.name).position += Vector2(0, -720)
+			self.monkey().get_text_block(self.name).position += Vector2(0, -720)
 
 			## 会話が停止してしまっているなら、再開する（すぐ停止するかもしれない）
 			#if self.statemachine_of_message_window.is_none():
@@ -369,10 +369,10 @@ func set_appear_subtree(
 		else:
 			# 画面下の外に押し出す
 			illust_a.position += Vector2(0, 720)
-			self.hub().get_text_block(self.name).position -= Vector2(0, -720)
+			self.monkey().get_text_block(self.name).position -= Vector2(0, -720)
 
 		# 子ノード
-		for child in self.hub().get_text_block(self.name).get_children():
+		for child in self.monkey().get_text_block(self.name).get_children():
 			if child.has_method("set_appear_subtree"):
 				child.set_appear_subtree(appear_flag)
 

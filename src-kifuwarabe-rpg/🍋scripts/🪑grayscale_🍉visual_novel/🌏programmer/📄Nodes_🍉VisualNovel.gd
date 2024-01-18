@@ -16,7 +16,7 @@ var ancestors = {}
 
 
 # プログラムズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -29,5 +29,5 @@ func hub():
 
 
 func _ready():
-	self.hub().message_window_programs = MonkeyHand.create(
-			self.hub().get_director_hub().gui_programmer_message_windows())			# 探す場所
+	self.monkey().message_window_programs = MonkeyHand.create(
+			self.monkey().director_monkey().gui_programmer_message_windows())			# 探す場所

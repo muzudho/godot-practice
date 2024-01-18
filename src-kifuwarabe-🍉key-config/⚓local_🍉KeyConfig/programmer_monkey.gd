@@ -33,7 +33,7 @@ var telops = null
 
 
 # 監督ハブ取得
-func get_director_hub():
+func director_monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			&"🌏Director/🐵Monkey",

@@ -29,7 +29,7 @@ var ancestor_children_dictionary = {}
 
 
 # プログラマーズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -49,7 +49,7 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var seconds = float(self.hub().expand_variables(string_packed_array[0].strip_edges()))
+	var seconds = float(self.monkey().expand_variables(string_packed_array[0].strip_edges()))
 
 	self.sleep(seconds)
 
@@ -59,4 +59,4 @@ func do_it(line):
 #	シナリオのパラグラフを抜けてから、疑似スリープを行います
 func sleep(seconds):
 	print("［命令　スリープ］　秒：[" + str(seconds) + "]")
-	self.hub().get_director_hub().owner_node().sleep_seconds = seconds
+	self.monkey().director_monkey().owner_node().sleep_seconds = seconds

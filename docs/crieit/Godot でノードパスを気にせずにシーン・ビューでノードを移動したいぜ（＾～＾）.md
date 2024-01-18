@@ -38,12 +38,12 @@ Godot には　あるらしいぜ」
 ## 変更案
 
 ```gd
-#func hub():
+#func monkey():
 #	return $"../../🐵ScenarioWriterMonkey"
 
 
 # シナリオライターズ・ハブ取得
-func hub():
+func monkey():
 	var cur_node = $".."
 	
 	while cur_node != null:
@@ -62,21 +62,21 @@ func hub():
 「　キャッシュした方が　よくないか？」  
 
 ```gd
-var cached_hubs = {}
+var cached_monkeys = {}
 
 # シナリオライターズ・ハブ取得
-func hub():
+func monkey():
 	var target = "🐵ScenarioWriterMonkey"
 	
-	if target in self.cached_hubs:
-		return self.cached_hubs[target]
+	if target in self.cached_monkeys:
+		return self.cached_monkeys[target]
 	
 	var cur = $".."
 	
 	while cur != null:
 		if cur.has_node(target):
 			var hub = cur.get_node(target)
-			self.cached_hubs[target] = hub
+			self.cached_monkeys[target] = hub
 			return hub
 		
 		cur = cur.get_parent()
@@ -154,7 +154,7 @@ var monkey = Monkey.new()
 
 
 # シナリオライターズ・ハブ取得
-func hub():
+func monkey():
 	return monkey.find_ancestor_child(
 			self,
 			"🐵ScenarioWriterMonkey")
@@ -177,7 +177,7 @@ func hub():
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　しまった！」  
 
-📄 `scenario_writers_hub.gd` :  
+📄 `scenario_writer_monkey.gd` :  
 
 ```gd
 # 指定の部門下の scenario_document 辞書を全てマージして返します。
@@ -205,7 +205,7 @@ func search_merged_scenario_document(department_name, current_node):
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　フォルダーの下まで　再帰的に探索するコードを書いてないぜ」  
 
-📄 `programs_hub.gd` :  
+📄 `programmer_monkey.gd` :  
 
 ```gd
 # 全ての部門名一覧
@@ -232,7 +232,7 @@ func search_all_department_names(current_node):
 			self.search_all_department_names(child_node)
 ```
 
-📄 `scenario_writers_hub` :  
+📄 `scenario_writer_monkey` :  
 
 ```gd
 # 指定の部門下の scenario_document 辞書を全てマージして返します。

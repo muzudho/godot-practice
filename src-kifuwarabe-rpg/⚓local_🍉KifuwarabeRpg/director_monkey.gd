@@ -23,7 +23,7 @@ func illustrator():
 
 
 # キー・コンフィグ・ハブ取得
-func key_config_hub():
+func key_config_island():
 	return self.owner_node().get_node("🏝️KeyConfigIsland")
 
 
@@ -52,13 +52,23 @@ func musician_sound_fx():
 	return self.owner_node().get_node("🌏Musician/🌏SoundFX")
 
 
+# プログラマー取得
+func programmer():
+	return self.owner_node().get_node("🌏Programmer")
+
+
 # プログラマー・ハブ取得
-func programmer_hub():
+func programmer_monkey():
 	return self.owner_node().get_node("🌏Programmer/🐵Monkey")
 
 
+# シナリオライター取得
+func scenario_writer():
+	return self.owner_node().get_node("🌏ScenarioWriter")
+
+
 # シナリオライター・ハブ取得
-func scenario_writer_hub():
+func scenario_writer_monkey():
 	return self.owner_node().get_node("🌏ScenarioWriter/🐵Monkey_🍉VisualNovel")
 
 

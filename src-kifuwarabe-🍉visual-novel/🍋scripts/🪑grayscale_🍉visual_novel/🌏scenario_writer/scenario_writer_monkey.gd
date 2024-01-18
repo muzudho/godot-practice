@@ -20,7 +20,7 @@ var cached_choices_mappings = {}
 
 
 # 監督ハブ取得
-func get_director_hub():
+func director_monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			&"🌏Director/🐵Monkey",
@@ -34,7 +34,7 @@ func owner_node():
 
 # 部門切替取得
 func department_control():
-	return self.get_director_hub().scenario_writer_hub().owner_node().get_node("📘DepartmentControl")
+	return self.director_monkey().scenario_writer_monkey().owner_node().get_node("📘DepartmentControl")
 
 
 # ーーーーーーーー
@@ -70,7 +70,7 @@ func get_merged_scenario_document(department_name):
 
 		# ［📗～］ノードの位置が変わっていることがあるので探索する
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.get_director_hub().scenario_writer_hub().owner_node(),
+				self.director_monkey().scenario_writer_monkey().owner_node(),
 				str(department_name))
 		self.cached_scenario_document[department_name] = {}
 
@@ -91,7 +91,7 @@ func get_merged_choices_mappings(department_name):
 
 		# ［📗～］ノードの位置が変わっていることがあるので探索する
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.get_director_hub().scenario_writer_hub().owner_node(),
+				self.director_monkey().scenario_writer_monkey().owner_node(),
 				str(department_name))
 		self.cached_choices_mappings[department_name] = {}
 
@@ -110,7 +110,7 @@ func on_virtual_key_input(
 		lever_value,
 		vk_operation):
 
-	var cur_department_name = self.get_director_hub().programmer_hub().current_department_name
+	var cur_department_name = self.director_monkey().programmer_monkey().current_department_name
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
 	if vk_operation == &"VKO_Pressed" and cur_department_name in self.department_control().key_pressed_stage_directions:
@@ -127,7 +127,7 @@ func on_virtual_key_input(
 			print("［監督］　アンハンドルド・キー押下　部門変更")
 
 			# ここで stage_directions をト書きとして実行したい
-			self.get_director_hub().programmer_hub().scenario_player().parse_paragraph(stage_directions)
+			self.director_monkey().programmer_monkey().scenario_player().parse_paragraph(stage_directions)
 
 			# 子要素には渡しません
 			return true

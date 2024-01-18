@@ -30,7 +30,7 @@ var ancestor_children_dictionary = {}
 
 
 # プログラマーズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -38,7 +38,7 @@ func hub():
 
 
 func get_m_wnd():
-	return self.hub().get_instruction(&"📗MsgWnd")
+	return self.monkey().get_instruction(&"📗MsgWnd")
 
 
 # ーーーーーーーー
@@ -54,7 +54,7 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 	
-	var department_name = StringName(self.hub().expand_variables(string_packed_array[0].strip_edges()))
+	var department_name = StringName(self.monkey().expand_variables(string_packed_array[0].strip_edges()))
 	
 	var tail_csv = ""
 	if 1 < string_packed_array.size():
@@ -67,38 +67,38 @@ func do_it(line):
 func change_department(next_department_name, tail_csv):
 
 	# 指定の部門へ飛ぶ
-	if next_department_name in self.hub().get_all_department_names():
+	if next_department_name in self.monkey().get_all_department_names():
 
 		# フラグを下ろす
-		self.hub().scenario_player().is_department_not_found = false
+		self.monkey().scenario_player().is_department_not_found = false
 
 		# 前部門
-		var prev_department_name = self.hub().current_department_name
+		var prev_department_name = self.monkey().current_department_name
 		print("［命令　部門］　前：［" + prev_department_name + "］　次：［" + next_department_name + "］")
 		
-		var prev_department = self.hub().get_department_value(prev_department_name)
+		var prev_department = self.monkey().get_department_value(prev_department_name)
 
 		# 旧部門のウィンドウを閉じる
 		for prev_window_name in prev_department.node_names_of_currently_displayed_message_window:
 			self.get_m_wnd().hide_message_window(prev_window_name, true)
 
 		# 部門変更
-		self.hub().current_department_name = next_department_name
+		self.monkey().current_department_name = next_department_name
 
 		# 次部門
-		var next_department_snapshot = self.hub().get_department_value(next_department_name)
+		var next_department_snapshot = self.monkey().get_department_value(next_department_name)
 
 		# 旧部門のウィンドウを復元する
 		for next_window_name in next_department_snapshot.node_names_of_currently_displayed_message_window:
 			self.get_m_wnd().show_message_window(next_window_name, true)
 
 		# 台本の「§」セクションの再生
-		self.hub().scenario_player().play_section()
+		self.monkey().scenario_player().play_section()
 
 		return
 
 	# 指定の部門が無かった
-	self.hub().scenario_player().is_department_not_found = true
+	self.monkey().scenario_player().is_department_not_found = true
 
 	# 文字列の配列に分割
 	var string_packed_array = tail_csv.split(",", true, 0)

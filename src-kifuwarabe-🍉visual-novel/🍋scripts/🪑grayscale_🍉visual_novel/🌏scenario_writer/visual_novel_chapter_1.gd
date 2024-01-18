@@ -16,7 +16,7 @@ var ancestor_children_dictionary = {}
 
 
 # シナリオライターズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏ScenarioWriter/🐵Monkey_🍉VisualNovel",

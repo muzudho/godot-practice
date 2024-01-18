@@ -29,7 +29,7 @@ var ancestor_children_dictionary = {}
 
 
 # プログラマーズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -38,7 +38,7 @@ func hub():
 
 # 部門変数取得
 func get_department_value(department_node_name):
-	return self.hub().get_director_hub().owner_node().get_department_value(department_node_name)
+	return self.monkey().director_monkey().owner_node().get_department_value(department_node_name)
 
 
 # ーーーーーーーー
@@ -54,11 +54,11 @@ func do_it(line):
 	# 文字列の配列に分割
 	var string_packed_array = csv.split(",", true, 0)
 
-	var node_name = self.hub().expand_variables(string_packed_array[0].strip_edges())
+	var node_name = self.monkey().expand_variables(string_packed_array[0].strip_edges())
 	var sub_command = null
 	
 	if 2 <= string_packed_array.size():
-		sub_command = self.hub().expand_variables(string_packed_array[1].strip_edges())
+		sub_command = self.monkey().expand_variables(string_packed_array[1].strip_edges())
 	
 	if sub_command == "hide":
 		# テロップを隠す
@@ -71,7 +71,7 @@ func do_it(line):
 # テロップを見せる
 func show_telop(node_name):
 	
-	var telop_node = self.hub().telops.find_node(node_name)
+	var telop_node = self.monkey().telops.find_node(node_name)
 	if telop_node == null:
 		print("［命令　テロップ］　▲エラー　”" + node_name + "”　が無い")
 	
@@ -81,7 +81,7 @@ func show_telop(node_name):
 # テロップを隠す
 func hide_telop(node_name):
 	
-	var telop_node = self.hub().telops.find_node(node_name)
+	var telop_node = self.monkey().telops.find_node(node_name)
 	if telop_node == null:
 		print("［命令　テロップ］　▲エラー　”" + node_name + "”　が無い")
 

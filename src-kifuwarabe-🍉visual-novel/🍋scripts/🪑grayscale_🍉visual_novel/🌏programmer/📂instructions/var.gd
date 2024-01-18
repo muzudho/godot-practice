@@ -27,7 +27,7 @@ var ancestor_children_dictionary = {}
 
 
 # プログラマーズ・ハブ取得
-func hub():
+func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			"🌏Programmer/🐵Monkey",
@@ -53,7 +53,7 @@ func do_it(line):
 
 	if 2 <= string_packed_array.size():
 		# 第２引数は、変数展開する
-		value = self.hub().expand_variables(string_packed_array[1].strip_edges())
+		value = self.monkey().expand_variables(string_packed_array[1].strip_edges())
 
 		self.set_var(key, value)
 		return
@@ -65,10 +65,10 @@ func do_it(line):
 # 変数の記憶
 func set_var(key, value):
 	print("［命令　変数］　（" + key + "）[" + value + "]")
-	self.hub().get_director_hub().owner_node().stage_directions_variables[key] = value
+	self.monkey().director_monkey().owner_node().stage_directions_variables[key] = value
 
 
 # 変数のクリアー
 func clear_var():
 	print("［命令　変数］　クリアー")
-	self.hub().get_director_hub().owner_node().stage_directions_variables = {}
+	self.monkey().director_monkey().owner_node().stage_directions_variables = {}

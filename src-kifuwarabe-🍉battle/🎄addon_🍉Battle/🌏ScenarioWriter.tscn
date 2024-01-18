@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://blh00f8ui284"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉battle/battle_hub.gd" id="1_ygw8g"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉battle/battle_monkey.gd" id="1_ygw8g"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉battle/battle_choices_mappings.gd" id="2_ynxgj"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉battle/battle_chapter_1.gd" id="3_yo50r"]
 
