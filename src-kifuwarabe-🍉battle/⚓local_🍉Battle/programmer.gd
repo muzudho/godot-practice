@@ -57,20 +57,20 @@ func monkey():
 func _ready():
 	
 	self.bg_musics = MonkeyHand.create(
-			self.monkey().of_director().musician_bg_musics())		# 探す場所
+			self.monkey().of_staff().musician_bg_musics())		# 探す場所
 
 	self.images = MonkeyHand.create(
-			self.monkey().of_director().illustrator())			# 探す場所
+			self.monkey().of_staff().illustrator())			# 探す場所
 
 	self.sound_fx = MonkeyHand.create(
-			self.monkey().of_director().musician_sound_fx())			# 探す場所
+			self.monkey().of_staff().musician_sound_fx())			# 探す場所
 
 	self.telops = MonkeyHand.create(
-			self.monkey().of_director().telop_coordinator())	# 探す場所
+			self.monkey().of_staff().telop_coordinator())	# 探す場所
 
 
 	self.message_window_programs = MonkeyHand.create(
-			self.monkey().of_director().gui_programmer_message_windows())			# 探す場所
+			self.monkey().of_staff().gui_programmer_message_windows())			# 探す場所
 
 
 	# メッセージ・ウィンドウに対応関数紐づけ
@@ -78,7 +78,7 @@ func _ready():
 			# メッセージ・ウィンドウの名前は `■` で始まるものとする
 			&"■",
 			# 探す場所
-			self.monkey().of_director().gui_programmer_message_windows(),
+			self.monkey().of_staff().gui_programmer_message_windows(),
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 				child_node.on_message_window_page_forward = func():
@@ -96,7 +96,7 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = self.monkey().of_director().scenario_writer().get_merged_scenario_document(department_name).keys()[0]
+		department_value.section_name = self.monkey().of_staff().scenario_writer().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
 
@@ -133,8 +133,8 @@ func expand_variables(target_before_change):
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
 				print("［プログラマーズ・ハブ　変数展開］　変数キー：［" + key + "］")
 				
-				if key in self.monkey().of_director().owner_node().stage_directions_variables:
-					var value = self.monkey().of_director().owner_node().stage_directions_variables[key]
+				if key in self.monkey().of_staff().owner_node().stage_directions_variables:
+					var value = self.monkey().of_staff().owner_node().stage_directions_variables[key]
 					print("［プログラマーズ・ハブ　変数展開］　変数値：［" + value + "］")
 				
 					terget_after_change += value

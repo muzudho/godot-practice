@@ -52,10 +52,10 @@ OS に何か刺さった、という　自動認識まではしてくれるん�
 📖　[Controllers, gamepads, and joysticks](https://docs.godotengine.org/en/stable/tutorials/inputs/controllers_gamepads_joysticks.html)  
 
 ```
-E 0:00:00:0571   director.gd:24 @ _process(): The InputMap action "move_back" doesn't exist. Did you mean "ui_text_backspace"?
+E 0:00:00:0571   staff.gd:24 @ _process(): The InputMap action "move_back" doesn't exist. Did you mean "ui_text_backspace"?
   <C++ エラー>      Condition "!InputMap::get_singleton()->has_action(p_action)" is true. Returning: 0.0
   <C++ ソース>      core/input/input.cpp:346 @ get_action_raw_strength()
-  <スタックトレース>     director.gd:24 @ _process()
+  <スタックトレース>     staff.gd:24 @ _process()
 ```
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  

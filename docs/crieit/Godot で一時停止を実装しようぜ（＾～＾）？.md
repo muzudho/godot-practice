@@ -234,7 +234,7 @@ func _unhandled_key_input(event):
 「　ラベルなどのコントロールは　`CanvasLayer`　の下に管理される前提よね」  
 
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
-「　入力系や　自律的な系は　`Director` と `AssistantDirector` に抑えさせよう。  
+「　入力系や　自律的な系は　`Staff` と `AssistantDirector` に抑えさせよう。  
 他は　指示待ちで」  
 
 # 階層は浅く

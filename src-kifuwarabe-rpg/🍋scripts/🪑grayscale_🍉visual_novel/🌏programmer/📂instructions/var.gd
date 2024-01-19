@@ -65,10 +65,10 @@ func do_it(line):
 # 変数の記憶
 func set_var(key, value):
 	print("［命令　変数］　（" + key + "）[" + value + "]")
-	self.monkey().of_director().owner_node().stage_directions_variables[key] = value
+	self.monkey().of_staff().owner_node().stage_directions_variables[key] = value
 
 
 # 変数のクリアー
 func clear_var():
 	print("［命令　変数］　クリアー")
-	self.monkey().of_director().owner_node().stage_directions_variables = {}
+	self.monkey().of_staff().owner_node().stage_directions_variables = {}

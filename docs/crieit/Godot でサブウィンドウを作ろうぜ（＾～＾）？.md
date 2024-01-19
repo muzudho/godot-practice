@@ -25,7 +25,7 @@
 「　じゃあ　どっちも　ウィンドウなのだから　スクリプトは共通化できるはずなのよ。  
 `メッセージ`　と　`センター`　のスクリプトは何が違うの？」  
 
-📄　`Director/Windows/メッセージ`:  
+📄　`Staff/Windows/メッセージ`:  
 
 ```gd
 #	メッセージ・ウィンドウ（Message Window）
@@ -161,7 +161,7 @@ func _unhandled_key_input(event):
 				self.on_page_forward()
 ```
 
-📄　`Director/Windows/センター`:  
+📄　`Staff/Windows/センター`:  
 
 ```gd
 #	センター・ウィンドウ（Center Window；中央窓）
@@ -328,7 +328,7 @@ func hide_window():
 「　そうだぜ」  
 
 ```plaintext
-　　📂 Director
+　　📂 Staff
   　　├── 📂 Main
   　　└── 📂 SystemMenu
 ```
@@ -337,7 +337,7 @@ func hide_window():
 「　👆　じゃあ　大きく２つに分かれないかだぜ？」  
 
 ```plaintext
-　　📂 Director
+　　📂 Staff
   　　├── 📂 Main
   　　├── 📂 SystemMenu
 👉　　└── 📂 Musician
@@ -347,7 +347,7 @@ func hide_window():
 「　👆　ミュージシャンは　別れなくてよくない？」  
 
 ```plaintext
-　　📂 Director
+　　📂 Staff
 👉　└── 📂 ScenarioBook
 　　  　　├── Main
   　　　　└── SystemMenu

@@ -17,10 +17,10 @@ var ancestors = {}
 
 
 # 監督ハブ取得
-func of_director():
+func of_staff():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			&"🌏Director/🐵Monkey",
+			&"👥Staff/🐵Monkey",
 			self.ancestors)
 
 

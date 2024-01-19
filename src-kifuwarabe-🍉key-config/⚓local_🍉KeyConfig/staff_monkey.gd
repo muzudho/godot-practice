@@ -1,4 +1,4 @@
-# ディレクター・ハブ（Director Hub）
+# ディレクター・ハブ（Staff Hub）
 extends Node
 
 
@@ -9,7 +9,7 @@ extends Node
 
 # 監督取得
 func owner_node():
-	return self.get_node("../../🌏Director")
+	return self.get_node("../../👥Staff")
 
 
 # グリッド取得

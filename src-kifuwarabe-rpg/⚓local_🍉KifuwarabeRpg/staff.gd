@@ -1,5 +1,5 @@
 # 🪑grayscale_🎬kifuwarabe_rpg
-#	ディレクター（🌏Director；監督）
+#	ディレクター（👥Staff；監督）
 #	とりあえず、ゲーム全体をコントロールする
 extends Node2D
 
@@ -265,7 +265,6 @@ func _unhandled_input(event):
 # 	_unhandled_key_input()
 #	_unhandled_input()
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
-
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
 	if self.monkey().scenario_writer().on_virtual_key_input(
 			virtual_key,

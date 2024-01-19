@@ -25,7 +25,7 @@
 「　👇　ソースは一部抜粋すると　こんな感じ」  
 
 ```gd
-# ディレクター（Director）
+# ディレクター（Staff）
 extends Node2D
 
 
@@ -344,7 +344,7 @@ func _unhandled_input(event):
 ```gd
 # ディレクター取得
 func get_director():
-	return $"../../Director"
+	return $"../../Staff"
 ```
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
@@ -359,7 +359,7 @@ func get_director():
 ![202311__godot__03-2230--Subtree-o2o0.png](https://crieit.now.sh/upload_images/92e8da4acfac9ac3aba19d479851f5866544f63097b9d.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　👆　`Director` が名前被りするんで、嫌なんで `DirectorForKeyConfig` にリネームしたら……」  
+「　👆　`Staff` が名前被りするんで、嫌なんで `DirectorForKeyConfig` にリネームしたら……」  
 
 ![202311__godot__03-2233--ChangePath-o2o0.png](https://crieit.now.sh/upload_images/7c0f018880a8118949f1b21e4f8d86236544f6cc9d051.png)  
 

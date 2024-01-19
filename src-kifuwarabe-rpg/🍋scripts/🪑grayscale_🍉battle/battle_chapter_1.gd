@@ -155,8 +155,8 @@ var scenario_document = {
 		#
 		func():
 			# 変数取得
-			var sente_monster_name = self.monkey().of_director().owner_node().stage_directions_variables["battle_sente_monster_name"]
-			var gote_monster_name = self.monkey().of_director().owner_node().stage_directions_variables["battle_gote_monster_name"]
+			var sente_monster_name = self.monkey().of_staff().owner_node().stage_directions_variables["battle_sente_monster_name"]
+			var gote_monster_name = self.monkey().of_staff().owner_node().stage_directions_variables["battle_gote_monster_name"]
 			
 			# モンスターＩｄ取得
 			var sente_monster_id = self.monkey_of_battle().get_scorer().lookup_monster_id_by_name(sente_monster_name)
@@ -514,7 +514,7 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.monkey().of_director().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.monkey().of_staff().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 
 			# 後手の［玉の遠さ］を減らす
 			self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[1] -= damage
@@ -531,7 +531,7 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 1
-			self.monkey().of_director().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.monkey().of_staff().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
 			self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[0] -= 1
@@ -555,7 +555,7 @@ var scenario_document = {
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.monkey().of_director().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.monkey().of_staff().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 後手の［玉の遠さ］を５減らす
 			self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[1] -= damage
@@ -572,16 +572,16 @@ var scenario_document = {
 			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[1] < 5:
-				self.monkey().of_director().programmer().get_instruction(&"📗Goto").goto("§後手番投了", "")
+				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("§後手番投了", "")
 			else:
-				self.monkey().of_director().programmer().get_instruction(&"📗Goto").goto("§後手番１", "")
+				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("§後手番１", "")
 			,
 	],
 	"§後手番１": [
 		func():
 			# ダメージ計算
 			var damage = 5
-			self.monkey().of_director().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
+			self.monkey().of_staff().programmer().get_instruction(&"📗Var").set_var("battle_damage", str(damage))
 			
 			# 先手の［玉の遠さ］を５減らす
 			self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[0] -= damage
@@ -597,9 +597,9 @@ var scenario_document = {
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[0] < 5:
-				self.monkey().of_director().programmer().get_instruction(&"📗Goto").goto("§先手番投了", "")
+				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("§先手番投了", "")
 			else:
-				self.monkey().of_director().programmer().get_instruction(&"📗Goto").goto("§先手番１", "")
+				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("§先手番１", "")
 			,
 	],
 	"§先手番投了": [

@@ -28,10 +28,10 @@ func monkey():
 
 
 # 監督ハブ取得
-func of_director():
+func of_staff():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			&"🌏Director/🐵Monkey",
+			&"👥Staff/🐵Monkey",
 			self.ancestors)
 
 
@@ -110,7 +110,7 @@ func on_virtual_key_input(
 		lever_value,
 		vk_operation):
 
-	var cur_department_name = self.monkey().of_director().programmer().owner_node().current_department_name
+	var cur_department_name = self.monkey().of_staff().programmer().owner_node().current_department_name
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
 	if vk_operation == &"VKO_Pressed" and cur_department_name in self.department_control().key_pressed_stage_directions:
@@ -127,7 +127,7 @@ func on_virtual_key_input(
 			print("［監督］　アンハンドルド・キー押下　部門変更")
 
 			# ここで stage_directions をト書きとして実行したい
-			self.monkey().of_director().programmer().scenario_player().parse_paragraph(stage_directions)
+			self.monkey().of_staff().programmer().scenario_player().parse_paragraph(stage_directions)
 
 			# 子要素には渡しません
 			return true

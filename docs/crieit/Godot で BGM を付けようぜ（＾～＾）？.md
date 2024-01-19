@@ -56,7 +56,7 @@
 ![202310__godot__06-2250--Musician.png](https://crieit.now.sh/upload_images/0e19d3cd505912c2e9bf46df20fff71c652010b268a94.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　👆　とりあえず　`Director`　の下に　`Musician`　を置こうぜ？  
+「　👆　とりあえず　`Staff`　の下に　`Musician`　を置こうぜ？  
 音楽のことは　全部　こいつに丸投げしよう！」  
 
 ![kifuwarabe-futsu.png](https://crieit.now.sh/upload_images/beaf94b260ae2602ca8cf7f5bbc769c261daf8686dbda.png)  
@@ -110,7 +110,7 @@ BGM が鳴ることにしたらどうだぜ？」
 番組制作がいうプログラムは　また別物なんだよな」  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　分かった、 `Director`　の下に　`AssistantDirector` 　を置こう！」  
+「　分かった、 `Staff`　の下に　`AssistantDirector` 　を置こう！」  
 
 ![202310__godot__06-2325--AssistantDirector.png](https://crieit.now.sh/upload_images/fd7e7281c823db8ea13fc830f4a5735e6520190f94283.png)  
 

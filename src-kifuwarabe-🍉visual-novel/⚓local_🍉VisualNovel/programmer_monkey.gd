@@ -27,10 +27,10 @@ func monkey():
 
 
 # 監督ハブ取得
-func of_director():
+func of_staff():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			&"🌏Director/🐵Monkey",
+			&"👥Staff/🐵Monkey",
 			self.ancestors)
 
 
@@ -64,7 +64,7 @@ func get_all_department_names():
 				# 命令のノード名は `📗` で始まるものとする
 				&"📗",
 				# 探す場所
-				self.monkey().of_director().scenario_writer().owner_node(),
+				self.monkey().of_staff().scenario_writer().owner_node(),
 				func(child_node):
 					# デパートメント名を記憶
 					self.all_department_names.append(child_node.name))

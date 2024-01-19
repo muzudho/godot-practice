@@ -34,16 +34,16 @@ func monkey():
 
 
 # 監督ハブ取得
-func of_director():
+func of_staff():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			&"🌏Director/🐵Monkey",
+			&"👥Staff/🐵Monkey",
 			self.ancestors)
 
 
 # （外ノード）テロップ取得
 func get_my_telop_canvas_layer():
-	return self.monkey().of_director().programmer().owner_node().telops.find_node("Ｔキーコンフィグ")
+	return self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ")
 
 
 # （外ノード）テロップ取得
@@ -67,17 +67,17 @@ func entry():
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
-	self.monkey().of_director().telop_coordinator().show()
-	self.monkey().of_director().illustrator().show()
-	self.monkey().of_director().programmer().owner_node().images.find_node("■下").show()
-	self.monkey().of_director().programmer().owner_node().images.find_node("■上_大").show()
-	self.monkey().of_director().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
+	self.monkey().of_staff().telop_coordinator().show()
+	self.monkey().of_staff().illustrator().show()
+	self.monkey().of_staff().programmer().owner_node().images.find_node("■下").show()
+	self.monkey().of_staff().programmer().owner_node().images.find_node("■上_大").show()
+	self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
 
 	# ーーーーーーーー
 	# イベント
 	# ーーーーーーーー
-	# シーンの外側の１階層上の `🌏Director` ノードへアクセス
-	self.monkey().of_director().owner_node().on_key_config_entered()
+	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
+	self.monkey().of_staff().owner_node().on_key_config_entered()
 	
 	# ーーーーーーーー
 	# 状態遷移開始
@@ -86,8 +86,8 @@ func entry():
 
 
 func on_exit():
-	# シーンの外側の１階層上の `🌏Director` ノードへアクセス
-	self.monkey().of_director().owner_node().on_key_config_exited()
+	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
+	self.monkey().of_staff().owner_node().on_key_config_exited()
 
 
 func on_process(delta):

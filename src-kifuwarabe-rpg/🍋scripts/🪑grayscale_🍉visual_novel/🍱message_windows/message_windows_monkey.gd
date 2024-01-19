@@ -17,10 +17,10 @@ func monkey():
 
 
 # 監督ハブ取得
-func of_director():
+func of_staff():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			&"🌏Director/🐵Monkey",
+			&"👥Staff/🐵Monkey",
 			self.ancestors)
 
 
@@ -29,14 +29,9 @@ func owner_node():
 	return self.get_node("../../🌏Programmer")
 
 
-# 助監取得
-func get_assistant_director():
-	return self.monkey().of_director().owner_node().get_node("🌏Programmer")
-
-
 # キャンバス・レイヤー取得
 func get_canvas_layer(message_window_name):
-	return self.monkey().of_director().programmer().owner_node().telops.find_node("MessageWindow_" + message_window_name)
+	return self.monkey().of_staff().programmer().owner_node().telops.find_node("MessageWindow_" + message_window_name)
 
 
 # テキストブロック

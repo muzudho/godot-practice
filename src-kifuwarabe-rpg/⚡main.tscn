@@ -1,8 +1,8 @@
 [gd_scene load_steps=63 format=3 uid="uid://c7druiymjvw6i"]
 
-[ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/director.gd" id="1_rk62n"]
+[ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/staff.gd" id="1_rk62n"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
-[ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/director_monkey.gd" id="2_mr32a"]
+[ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/staff_monkey.gd" id="2_mr32a"]
 [ext_resource type="Texture2D" uid="uid://bfjtuxbo3tuqn" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_rrmg8"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/🌏Illustrator.tscn" id="27_dp8m2"]
 [ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/🌏Illustrator.tscn" id="28_iuuq5"]
@@ -40,7 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_monkey.gd" id="61_cfuy1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="61_tvkup"]
-[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉KeyConfig/🌏Director.tscn" id="62_isghc"]
+[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉KeyConfig/👥Staff.tscn" id="62_isghc"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
@@ -64,7 +64,7 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
-[node name="🌏Director" type="Node2D"]
+[node name="👥Staff" type="Node2D"]
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_rk62n")
 

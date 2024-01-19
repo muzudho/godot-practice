@@ -152,12 +152,12 @@ func _process(delta):
 ![202310__godot__04-2232--DirectorNode.png](https://crieit.now.sh/upload_images/d4b4b27152485f228316425dfd6597e4651d6c20b2aad.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
-「　👆　ルート・ノードの名前を `Director` にしたった」  
+「　👆　ルート・ノードの名前を `Staff` にしたった」  
 
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
 「　合理的ねえ」  
 
-📄 `Director.gd`:  
+📄 `Staff.gd`:  
 
 ```gd
 # ディレクター（Director；監督）

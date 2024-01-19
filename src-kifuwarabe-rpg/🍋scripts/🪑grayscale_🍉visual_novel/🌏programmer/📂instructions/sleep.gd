@@ -59,5 +59,5 @@ func do_it(line):
 #	シナリオのパラグラフを抜けてから、疑似スリープを行います
 func sleep(seconds):
 	print("［命令　スリープ］　秒：[" + str(seconds) + "]")
-	self.monkey().of_director().owner_node().sleep_seconds = seconds
+	self.monkey().of_staff().owner_node().sleep_seconds = seconds
 	

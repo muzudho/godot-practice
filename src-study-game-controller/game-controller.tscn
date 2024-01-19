@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://ds85tqhkwh84l"]
 
-[ext_resource type="Script" path="res://director.gd" id="1_gaklu"]
+[ext_resource type="Script" path="res://staff.gd" id="1_gaklu"]
 [ext_resource type="Texture2D" uid="uid://b8t4cjwjju8ay" path="res://images/1280x720/202310__godot__29-0043--MegaDriveGamepad-o2o0.png" id="2_by728"]
 [ext_resource type="Script" path="res://pc_engine_input.gd" id="2_hat2p"]
 [ext_resource type="FontFile" uid="uid://u2t28507xb6k" path="res://fonts/Mplus1Code-Bold.otf" id="2_qv7p0"]
@@ -20,7 +20,7 @@ outline_color = Color(0.12549, 0.12549, 0.12549, 1)
 shadow_size = 10
 shadow_color = Color(0.12549, 0.12549, 0.12549, 0.752941)
 
-[node name="Director" type="Node2D"]
+[node name="Staff" type="Node2D"]
 script = ExtResource("1_gaklu")
 
 [node name="GuiArtist" type="Node" parent="."]
