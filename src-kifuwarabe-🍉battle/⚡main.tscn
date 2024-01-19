@@ -24,7 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="40_25lxp"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_rock28.ogg" id="41_2y5jy"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
-[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉VisualNovel/🌏Programmer.tscn" id="41_kb3a0"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉VisualNovel/👤Programmer.tscn" id="41_kb3a0"]
 [ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_cyber06.ogg" id="42_j4tsf"]
 [ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉VisualNovel/🌏ScenarioWriter_＋🐵scenario_writer_monkey.tscn" id="42_lg1ip"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
@@ -258,13 +258,13 @@ pitch_scale = 1.5
 
 [node name="📂🍉VisualNovel" parent="🌏Musician/🌏SoundFX" instance=ExtResource("38_kb7xl")]
 
-[node name="🌏Programmer" type="Node" parent="."]
+[node name="👤Programmer" type="Node" parent="."]
 script = ExtResource("34_0dcbg")
 
-[node name="🐵Monkey" type="Node" parent="🌏Programmer"]
+[node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("39_83reh")
 
-[node name="📂ScenarioPlayer_🍉VisualNovel" parent="🌏Programmer" instance=ExtResource("41_kb3a0")]
+[node name="📂ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("41_kb3a0")]
 
 [node name="🌏Programmer_MessageWindow" type="Node" parent="."]
 

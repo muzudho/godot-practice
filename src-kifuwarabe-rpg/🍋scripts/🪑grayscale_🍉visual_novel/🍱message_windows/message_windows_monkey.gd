@@ -26,7 +26,7 @@ func of_staff():
 
 # プログラマー取得
 func owner_node():
-	return self.get_node("../../🌏Programmer")
+	return self.get_node("../../👤Programmer")
 
 
 # キャンバス・レイヤー取得

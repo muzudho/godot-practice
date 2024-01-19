@@ -28,10 +28,10 @@ script = ExtResource("3_c737f")
 
 [node name="📂🍉KeyConfig" parent="👤Illustrator" instance=ExtResource("4_u7crs")]
 
-[node name="🌏Programmer" type="Node" parent="."]
+[node name="👤Programmer" type="Node" parent="."]
 script = ExtResource("6_h3blb")
 
-[node name="🐵Monkey" type="Node" parent="🌏Programmer"]
+[node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("5_2fo8k")
 
 [node name="🌏Musician" type="Node" parent="."]
