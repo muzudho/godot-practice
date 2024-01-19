@@ -72,7 +72,7 @@ func entry():
 	# 表示
 	# ーーーーーーーー
 	self.monkey().of_staff().telop_coordinator().show()
-	self.monkey().of_staff().illustrator().show()
+	self.monkey().of_staff().illustrator_node().show()
 	self.monkey().of_staff().programmer().owner_node().images.find_node("■下").show()
 	self.monkey().of_staff().programmer().owner_node().images.find_node("■上_大").show()
 	self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
@@ -81,7 +81,7 @@ func entry():
 	# イベント
 	# ーーーーーーーー
 	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey().of_staff().programmer().owner_node().on_key_config_entered()
+	self.monkey().of_staff().config_node().on_key_config_entered()
 	
 	# ーーーーーーーー
 	# 状態遷移開始
@@ -91,7 +91,7 @@ func entry():
 
 func on_exit():
 	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey().of_staff().programmer().owner_node().on_key_config_exited()
+	self.monkey().of_staff().config_node().on_key_config_exited()
 
 
 func on_process(delta):

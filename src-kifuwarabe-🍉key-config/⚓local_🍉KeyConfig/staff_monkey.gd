@@ -12,13 +12,18 @@ func owner_node():
 	return self.get_node("../../👥Staff")
 
 
+# 構成取得
+func config_node():
+	return self.owner_node().get_node("⚙Config")
+
+
 # グリッド取得
-func grid():
+func grid_node():
 	return self.owner_node().get_node("Grid")
 
 
 # イラストレーター取得
-func illustrator():
+func illustrator_node():
 	return self.owner_node().get_node("👤Illustrator")
 
 

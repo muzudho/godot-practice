@@ -28,6 +28,9 @@
 material = SubResource("CanvasItemMaterial_glhd8")
 script = ExtResource("1_36c3q")
 
+[node name="⚙Config" type="Node" parent="."]
+script = ExtResource("4_eqa3o")
+
 [node name="🐵Monkey" type="Node" parent="."]
 script = ExtResource("2_o4l5f")
 
@@ -35,9 +38,6 @@ script = ExtResource("2_o4l5f")
 z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
-
-[node name="⚙Config" type="Node" parent="."]
-script = ExtResource("4_eqa3o")
 
 [node name="👤Illustrator" type="Node2D" parent="."]
 visible = false

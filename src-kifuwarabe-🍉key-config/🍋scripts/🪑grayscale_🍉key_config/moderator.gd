@@ -75,7 +75,7 @@ func ready_in_staff():
 	# ーーーーーーーー
 	
 	# イラストレーター非表示
-	self.monkey().of_staff().illustrator().hide()
+	self.monkey().of_staff().illustrator_node().hide()
 		
 	# テロップ非表示
 	self.monkey().get_my_telop("TextBlock").visible = false
@@ -89,7 +89,7 @@ func entry():
 	# ーーーーーーーー
 	
 	# イラストレーター表示
-	self.monkey().of_staff().illustrator().show()
+	self.monkey().of_staff().illustrator_node().show()
 	
 	# テロップ表示
 	self.monkey().get_my_telop("TextBlock").visible = true

@@ -72,7 +72,7 @@ func entry():
 	# 表示
 	# ーーーーーーーー
 	self.monkey().of_staff().telop_coordinator().show()
-	self.monkey().of_staff().illustrator().show()
+	self.monkey().of_staff().illustrator_node().show()
 	self.monkey().of_staff().programmer().owner_node().images.find_node("■下").show()
 	self.monkey().of_staff().programmer().owner_node().images.find_node("■上_大").show()
 	self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()

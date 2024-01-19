@@ -16,11 +16,11 @@
 [node name="👥Staff" type="Node2D"]
 script = ExtResource("1_dum2v")
 
-[node name="🐵Monkey" type="Node" parent="."]
-script = ExtResource("2_qa5np")
-
 [node name="⚙Config" type="Node" parent="."]
 script = ExtResource("3_y3tm7")
+
+[node name="🐵Monkey" type="Node" parent="."]
+script = ExtResource("2_qa5np")
 
 [node name="Grid" type="Sprite2D" parent="."]
 z_index = 1000

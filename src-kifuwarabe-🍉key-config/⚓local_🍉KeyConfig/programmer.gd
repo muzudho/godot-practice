@@ -40,7 +40,7 @@ func _ready():
 			self.monkey().of_staff().musician_bg_musics())		# 探す場所
 
 	self.images = MonkeyHand.create(
-			self.monkey().of_staff().illustrator())			# 探す場所
+			self.monkey().of_staff().illustrator_node())			# 探す場所
 
 	self.sound_fx = MonkeyHand.create(
 			self.monkey().of_staff().musician_sound_fx())			# 探す場所
@@ -57,7 +57,7 @@ func ready_in_staff():
 	# 開発中にいじったものが残ってるかもしれないから、掃除
 	
 	# グリッドは隠す
-	self.monkey().of_staff().grid().hide()
+	self.monkey().of_staff().grid_node().hide()
 
 	# ーーーーーーーー
 	# 表示
@@ -81,21 +81,6 @@ func ready_in_staff():
 func _unhandled_input(event):
 	# キーコンフィグで必要です
 	self.monkey().key_config_node().on_unhandled_input(event)
-
-
-# キーコンフィグ開始時
-func on_key_config_entered():
-	# 背景
-	self.monkey().of_staff().illustrator().visible = true
-	self.images.find_node("🗻崎川駅前").visible = true
-
-
-# キーコンフィグ完了時
-func on_key_config_exited():
-	print("［キーコンフィグ］　完了")
-
-	# 背景
-	self.images.find_node("🗻崎川駅前").visible = false
 
 
 # ーーーーーーーー
