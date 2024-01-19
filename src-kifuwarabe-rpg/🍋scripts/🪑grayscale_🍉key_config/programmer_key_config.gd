@@ -61,6 +61,10 @@ func get_moderator():
 # ーーーーーーーー
 
 
+func ready_in_staff():
+	self.get_moderator().ready_in_staff()
+
+
 # キー・コンフィグ画面を始めるタイミングで以下を呼出す
 func entry():
 

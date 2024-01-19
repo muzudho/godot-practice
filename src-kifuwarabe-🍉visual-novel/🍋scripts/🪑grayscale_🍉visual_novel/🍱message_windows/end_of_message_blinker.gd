@@ -61,11 +61,6 @@ func of_staff():
 			self.ancestors)
 
 
-# キーコンフィグ監督取得
-func get_staff_for_key_config():
-	return self.monkey().of_staff().owner_node().get_node("📂KayConfig_🍉KeyConfig")
-
-
 # 伝言窓名を取得
 #
 # `MessageWindow_■下` の中の `■下` の部分
@@ -335,7 +330,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 				
 				# 手動でカーソルは移動開始
 				# 上へ移動する分
-				if self.get_staff_for_key_config().is_key_up(virtual_key, lever_value):
+				if self.monkey().of_staff().programmer().key_config_node().is_key_up(virtual_key, lever_value):
 					#print("［選択肢カーソル］　上へ")
 
 					# カーソルは上へ移動できるか？
@@ -344,7 +339,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 						self.on_cursor_up(message_window_gui.choices_index)
 					
 				# 下へ移動する分
-				elif self.get_staff_for_key_config().is_key_down(virtual_key, lever_value):
+				elif self.monkey().of_staff().programmer().key_config_node().is_key_down(virtual_key, lever_value):
 					#print("［選択肢カーソル］　下へ")
 
 					if self.can_cursor_down():

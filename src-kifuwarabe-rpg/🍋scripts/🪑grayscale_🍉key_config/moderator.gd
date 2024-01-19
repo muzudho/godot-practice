@@ -57,17 +57,6 @@ func is_cancel_button_pressed(button_number_1):
 func _ready():
 
 	# ーーーーーーーー
-	# 非表示
-	# ーーーーーーーー
-	
-	# イラストレーター非表示
-	self.monkey().of_staff().illustrator().hide()
-		
-	# テロップ非表示
-	self.monkey().get_my_telop("TextBlock").visible = false
-
-
-	# ーーーーーーーー
 	# 準備
 	# ーーーーーーーー
 
@@ -76,6 +65,19 @@ func _ready():
 	re_button.compile("Joypad Button (\\d+) ")
 	# 例： Joypad Motion on Axis 4 (Joystick 2 X-Axis, Left Trigger, Sony L2, Xbox LT) with Value 0.00
 	re_lever.compile("Joypad Motion on Axis (\\d+) \\(.*\\) with Value (-?\\d+(?:\\.\\d+)?)")
+
+
+func ready_in_staff():
+
+	# ーーーーーーーー
+	# 非表示
+	# ーーーーーーーー
+	
+	# イラストレーター非表示
+	self.monkey().of_staff().illustrator().hide()
+		
+	# テロップ非表示
+	self.monkey().get_my_telop("TextBlock").visible = false
 
 
 # キーコンフィグ画面に入る

@@ -71,6 +71,8 @@ func _ready():
 			func(child_node):
 				child_node.hide())
 
+	self.monkey().programmer().key_config_node().ready_in_staff()
+
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
