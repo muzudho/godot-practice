@@ -12,15 +12,21 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 
 # 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
 var current_state = &"WaitForKeyConfig"
-
 # 現在の部門（StringName型）
 var current_department_name = null
+# 現在鳴っている背景音楽のノード名
+var current_bg_music_name = null
+# 現在鳴っている効果音のノード名
+var current_se_name = null
 
 # 全角数字
 var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
-
 # デパートメント変数辞書（キー：StringName型）
 var departments = {}
+# ト書き（シナリオの命令パラグラフ）で使える変数の辞書
+var stage_directions_variables = {}
+# 疑似的なスリープに使うカウント
+var sleep_seconds = 0.0
 
 
 # ーーーーーーーー
@@ -136,8 +142,8 @@ func expand_variables(target_before_change):
 				var key = target_before_change.substr(open_index + 2, close_index - (open_index + 2))
 				print("［プログラマーズ・ハブ　変数展開］　変数キー：［" + key + "］")
 				
-				if key in self.monkey().of_staff().owner_node().stage_directions_variables:
-					var value = self.monkey().of_staff().owner_node().stage_directions_variables[key]
+				if key in self.monkey().of_staff().programmer().owner_node().stage_directions_variables:
+					var value = self.monkey().of_staff().programmer().owner_node().stage_directions_variables[key]
 					print("［プログラマーズ・ハブ　変数展開］　変数値：［" + value + "］")
 				
 					terget_after_change += value

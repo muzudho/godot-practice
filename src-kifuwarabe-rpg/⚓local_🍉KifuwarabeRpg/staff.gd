@@ -1,23 +1,6 @@
-# 🪑grayscale_🎬kifuwarabe_rpg
-#	ディレクター（👥Staff；監督）
+# スタッフ（Staff；制作者）
 #	とりあえず、ゲーム全体をコントロールする
 extends Node2D
-
-
-# ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-
-# 現在鳴っている背景音楽のノード名
-var current_bg_music_name = null
-# 現在鳴っている効果音のノード名
-var current_se_name = null
-
-# ト書き（シナリオの命令パラグラフ）で使える変数の辞書
-var stage_directions_variables = {}
-# 疑似的なスリープに使うカウント
-var sleep_seconds = 0.0
 
 
 # ーーーーーーーー

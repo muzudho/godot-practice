@@ -64,13 +64,13 @@ func do_it(line):
 
 # BGM 再生
 func play_bg_music(node_name, from = null):
-	if self.monkey().of_staff().owner_node().current_bg_music_name!=null:
+	if self.monkey().of_staff().programmer().owner_node().current_bg_music_name!=null:
 		self.stop_bg_music()
 		
 	print("［命令　ＢＧＭ］　開始：[" + node_name + "]")
-	self.monkey().of_staff().owner_node().current_bg_music_name = node_name
+	self.monkey().of_staff().programmer().owner_node().current_bg_music_name = node_name
 	
-	var bg_music_name = self.monkey().of_staff().owner_node().current_bg_music_name
+	var bg_music_name = self.monkey().of_staff().programmer().owner_node().current_bg_music_name
 	var audio_node = self.monkey().owner_node().bg_musics.find_node(bg_music_name)
 	if audio_node == null:
 		print("［命令　ＢＧＭ］　▲エラー　”" + bg_music_name + "”　が無い")
@@ -84,13 +84,13 @@ func play_bg_music(node_name, from = null):
 
 # BGM 停止
 func stop_bg_music():
-	if self.monkey().of_staff().owner_node().current_bg_music_name != null:
+	if self.monkey().of_staff().programmer().owner_node().current_bg_music_name != null:
 		print("［命令　ＢＧＭ］　停止")
 		
-		var bg_music_name = self.monkey().of_staff().owner_node().current_bg_music_name
+		var bg_music_name = self.monkey().of_staff().programmer().owner_node().current_bg_music_name
 		var audio_node = self.monkey().owner_node().bg_musics.find_node(bg_music_name)
 		if audio_node == null:
 			print("［命令　ＢＧＭ］　▲エラー　”" + bg_music_name + "”　が無い")
 		
 		audio_node.stop()
-		self.monkey().of_staff().owner_node().current_bg_music_name = null
+		self.monkey().of_staff().programmer().owner_node().current_bg_music_name = null
