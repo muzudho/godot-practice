@@ -8,11 +8,6 @@ extends Node2D
 # メモリ関連
 # ーーーーーーーー
 
-
-# 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
-var current_state = &"WaitForKeyConfig"
-
-
 # 現在鳴っている背景音楽のノード名
 var current_bg_music_name = null
 # 現在鳴っている効果音のノード名
@@ -112,23 +107,23 @@ func on_key_config_entered():
 
 
 func on_key_config_exited():
-	self.current_state = &"Ready"
+	self.monkey().programmer().owner_node().current_state = &"Ready"
 
 
 func _process(delta):
 
 	# キー・コンフィグが始まる
-	if self.current_state == &"WaitForKeyConfig":
+	if self.monkey().programmer().owner_node().current_state == &"WaitForKeyConfig":
 		self.monkey().programmer().key_config_node().entry()
-		self.current_state = &"KeyConfig"
+		self.monkey().programmer().owner_node().current_state = &"KeyConfig"
 
 	# キー・コンフィグに制御を譲る
-	elif self.current_state == &"KeyConfig":
+	elif self.monkey().programmer().owner_node().current_state == &"KeyConfig":
 		self.monkey().programmer().key_config_node().on_process(delta)
 
 	# 主な状態の前に
-	elif self.current_state == &"Ready":
-		self.current_state = &"Main"
+	elif self.monkey().programmer().owner_node().current_state == &"Ready":
+		self.monkey().programmer().owner_node().current_state = &"Main"
 		# ーーーーーーーー
 		# 準備
 		# ーーーーーーーー
@@ -146,7 +141,7 @@ func _process(delta):
 		self.monkey().programmer().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
 	# 主な状態に制御を譲る
-	elif self.current_state == &"Main":
+	elif self.monkey().programmer().owner_node().current_state == &"Main":
 		self.monkey().programmer().scenario_player().on_process(delta)
 
 
@@ -157,15 +152,15 @@ func _process(delta):
 func _unhandled_key_input(event):
 
 	# キー・コンフィグのために、何もするな
-	if self.current_state == &"WaitForKeyConfig":
+	if self.monkey().programmer().owner_node().current_state == &"WaitForKeyConfig":
 		pass
 
 	# キー・コンフィグ中なので、何もするな
-	elif self.current_state == &"KeyConfig":
+	elif self.monkey().programmer().owner_node().current_state == &"KeyConfig":
 		pass
 
 	# 主要な状態
-	elif self.current_state == &"Main":
+	elif self.monkey().programmer().owner_node().current_state == &"Main":
 
 		var vk_operation = null
 
@@ -215,15 +210,15 @@ func _unhandled_key_input(event):
 func _unhandled_input(event):
 
 	# キー・コンフィグのために何もするな、という状態
-	if self.current_state == &"WaitForKeyConfig":
+	if self.monkey().programmer().owner_node().current_state == &"WaitForKeyConfig":
 		pass
 
 	# キー・コンフィグに入力の制御を譲れ、という状態
-	elif self.current_state == &"KeyConfig":
+	elif self.monkey().programmer().owner_node().current_state == &"KeyConfig":
 		self.monkey().programmer().key_config_node().on_unhandled_input(event)
 
 	# 主な状態
-	elif self.current_state == &"Main":
+	elif self.monkey().programmer().owner_node().current_state == &"Main":
 
 		var vk_operation = null
 
