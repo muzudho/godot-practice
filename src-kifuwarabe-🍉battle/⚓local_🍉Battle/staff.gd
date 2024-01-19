@@ -1,5 +1,4 @@
-# 🪑grayscale_🎬kifuwarabe_rpg
-#	ディレクター（👥Staff；監督）
+# スタッフ（Staff；制作者）
 #	とりあえず、ゲーム全体をコントロールする
 extends Node2D
 
@@ -7,10 +6,6 @@ extends Node2D
 # ーーーーーーーー
 # メモリ関連
 # ーーーーーーーー
-
-
-# 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
-var current_state = &"WaitForKeyConfig"
 
 
 # 現在鳴っている背景音楽のノード名
@@ -112,20 +107,20 @@ func on_key_config_entered():
 
 
 func on_key_config_exited():
-	self.current_state = &"Ready"
+	self.monkey().programmer().owner_node().current_state = &"Ready"
 
 
 func _process(delta):
 
-	if self.current_state == &"WaitForKeyConfig":
+	if self.monkey().programmer().owner_node().current_state == &"WaitForKeyConfig":
 		self.monkey().programmer().key_config_node().entry()
-		self.current_state = &"KeyConfig"
+		self.monkey().programmer().owner_node().current_state = &"KeyConfig"
 
-	elif self.current_state == &"KeyConfig":
+	elif self.monkey().programmer().owner_node().current_state == &"KeyConfig":
 		self.monkey().programmer().key_config_node().on_process(delta)
 
-	elif self.current_state == &"Ready":
-		self.current_state = &"Main"
+	elif self.monkey().programmer().owner_node().current_state == &"Ready":
+		self.monkey().programmer().owner_node().current_state = &"Main"
 		# ーーーーーーーー
 		# 準備
 		# ーーーーーーーー
@@ -142,7 +137,7 @@ func _process(delta):
 		# 伝言窓を、一時的に居なくなっていたのを解除する
 		self.monkey().programmer().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
-	elif self.current_state == &"Main":
+	elif self.monkey().programmer().owner_node().current_state == &"Main":
 		self.monkey().programmer().scenario_player().on_process(delta)
 
 
@@ -152,13 +147,13 @@ func _process(delta):
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
 
-	if self.current_state == &"WaitForKeyConfig":
+	if self.monkey().programmer().owner_node().current_state == &"WaitForKeyConfig":
 		pass
 
-	elif self.current_state == &"KeyConfig":
+	elif self.monkey().programmer().owner_node().current_state == &"KeyConfig":
 		pass
 
-	elif self.current_state == &"Main":
+	elif self.monkey().programmer().owner_node().current_state == &"Main":
 
 		var vk_operation = null
 
@@ -207,13 +202,13 @@ func _unhandled_key_input(event):
 # テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 func _unhandled_input(event):
 
-	if self.current_state == &"WaitForKeyConfig":
+	if self.monkey().programmer().owner_node().current_state == &"WaitForKeyConfig":
 		pass
 
-	elif self.current_state == &"KeyConfig":
+	elif self.monkey().programmer().owner_node().current_state == &"KeyConfig":
 		self.monkey().programmer().key_config_node().on_unhandled_input(event)
 
-	elif self.current_state == &"Main":
+	elif self.monkey().programmer().owner_node().current_state == &"Main":
 
 		var vk_operation = null
 

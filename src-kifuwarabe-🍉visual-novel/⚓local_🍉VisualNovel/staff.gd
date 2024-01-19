@@ -1,5 +1,4 @@
-# 🪑grayscale_🎬kifuwarabe_rpg
-#	ディレクター（👥Staff；監督）
+# スタッフ（Staff；制作者）
 #	とりあえず、ゲーム全体をコントロールする
 extends Node2D
 
