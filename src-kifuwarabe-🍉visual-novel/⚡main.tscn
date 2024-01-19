@@ -44,23 +44,23 @@ visible = false
 
 [node name="📂🍉KeyConfig" parent="👤Illustrator" instance=ExtResource("21_wljdh")]
 
-[node name="🌏Musician" type="Node" parent="."]
+[node name="👤Musician" type="Node" parent="."]
 
-[node name="🌏BgMusics" type="Node" parent="🌏Musician"]
+[node name="🌏BgMusics" type="Node" parent="👤Musician"]
 
-[node name="📂🍉VisualNovel" parent="🌏Musician/🌏BgMusics" instance=ExtResource("24_8oncv")]
+[node name="📂🍉VisualNovel" parent="👤Musician/🌏BgMusics" instance=ExtResource("24_8oncv")]
 
-[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="👤Musician/🌏BgMusics"]
 
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("23_5bwgy")]
+[node name="📂🍉KeyConfig" parent="👤Musician/🌏BgMusics" instance=ExtResource("23_5bwgy")]
 
-[node name="🌏SoundFX" type="Node" parent="🌏Musician"]
+[node name="🌏SoundFX" type="Node" parent="👤Musician"]
 
-[node name="📂🍉VisualNovel" parent="🌏Musician/🌏SoundFX" instance=ExtResource("26_hgiuu")]
+[node name="📂🍉VisualNovel" parent="👤Musician/🌏SoundFX" instance=ExtResource("26_hgiuu")]
 
-[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="👤Musician/🌏SoundFX"]
 
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏SoundFX" instance=ExtResource("25_4re2d")]
+[node name="📂🍉KeyConfig" parent="👤Musician/🌏SoundFX" instance=ExtResource("25_4re2d")]
 
 [node name="👤Programmer" type="Node" parent="."]
 script = ExtResource("10_0qoqs")

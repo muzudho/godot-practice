@@ -34,15 +34,15 @@ script = ExtResource("6_h3blb")
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("5_2fo8k")
 
-[node name="🌏Musician" type="Node" parent="."]
+[node name="👤Musician" type="Node" parent="."]
 
-[node name="🌏BgMusics" type="Node" parent="🌏Musician"]
+[node name="🌏BgMusics" type="Node" parent="👤Musician"]
 
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("9_uae6e")]
+[node name="📂🍉KeyConfig" parent="👤Musician/🌏BgMusics" instance=ExtResource("9_uae6e")]
 
-[node name="🌏SoundFX" type="Node" parent="🌏Musician"]
+[node name="🌏SoundFX" type="Node" parent="👤Musician"]
 
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏SoundFX" instance=ExtResource("10_b6gok")]
+[node name="📂🍉KeyConfig" parent="👤Musician/🌏SoundFX" instance=ExtResource("10_b6gok")]
 
 [node name="🌏TelopCoordinator" type="CanvasLayer" parent="."]
 

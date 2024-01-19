@@ -215,48 +215,48 @@ texture = ExtResource("42_qrihd")
 
 [node name="📂🍉VisualNovel" parent="👤Illustrator" instance=ExtResource("28_iuuq5")]
 
-[node name="🌏Musician" type="Node" parent="."]
+[node name="👤Musician" type="Node" parent="."]
 
-[node name="🌏BgMusics" type="Node" parent="🌏Musician"]
+[node name="🌏BgMusics" type="Node" parent="👤Musician"]
 
-[node name="🎵バトル１" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+[node name="🎵バトル１" type="AudioStreamPlayer" parent="👤Musician/🌏BgMusics"]
 stream = ExtResource("41_2y5jy")
 volume_db = -15.0
 
-[node name="🎵バトル２" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+[node name="🎵バトル２" type="AudioStreamPlayer" parent="👤Musician/🌏BgMusics"]
 stream = ExtResource("42_j4tsf")
 volume_db = -15.0
 
-[node name="🎵バトル３" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+[node name="🎵バトル３" type="AudioStreamPlayer" parent="👤Musician/🌏BgMusics"]
 stream = ExtResource("43_k3tfj")
 volume_db = -15.0
 
-[node name="🎵バトル４" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+[node name="🎵バトル４" type="AudioStreamPlayer" parent="👤Musician/🌏BgMusics"]
 stream = ExtResource("44_beusv")
 volume_db = -15.0
 
-[node name="🎵負け" type="AudioStreamPlayer" parent="🌏Musician/🌏BgMusics"]
+[node name="🎵負け" type="AudioStreamPlayer" parent="👤Musician/🌏BgMusics"]
 stream = ExtResource("45_dlghs")
 volume_db = -15.0
 
-[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Musician/🌏BgMusics"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="👤Musician/🌏BgMusics"]
 
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏BgMusics" instance=ExtResource("34_3hqwd")]
+[node name="📂🍉KeyConfig" parent="👤Musician/🌏BgMusics" instance=ExtResource("34_3hqwd")]
 
-[node name="📂🍉VisualNovel" parent="🌏Musician/🌏BgMusics" instance=ExtResource("35_65fhg")]
+[node name="📂🍉VisualNovel" parent="👤Musician/🌏BgMusics" instance=ExtResource("35_65fhg")]
 
-[node name="🌏SoundFX" type="Node" parent="🌏Musician"]
+[node name="🌏SoundFX" type="Node" parent="👤Musician"]
 
-[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="🌏Musician/🌏SoundFX"]
+[node name="🔔エンカウント音" type="AudioStreamPlayer" parent="👤Musician/🌏SoundFX"]
 stream = ExtResource("48_nxrfb")
 volume_db = -15.0
 pitch_scale = 1.5
 
-[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Musician/🌏SoundFX"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="👤Musician/🌏SoundFX"]
 
-[node name="📂🍉KeyConfig" parent="🌏Musician/🌏SoundFX" instance=ExtResource("37_nknd3")]
+[node name="📂🍉KeyConfig" parent="👤Musician/🌏SoundFX" instance=ExtResource("37_nknd3")]
 
-[node name="📂🍉VisualNovel" parent="🌏Musician/🌏SoundFX" instance=ExtResource("38_kb7xl")]
+[node name="📂🍉VisualNovel" parent="👤Musician/🌏SoundFX" instance=ExtResource("38_kb7xl")]
 
 [node name="👤Programmer" type="Node" parent="."]
 script = ExtResource("34_0dcbg")

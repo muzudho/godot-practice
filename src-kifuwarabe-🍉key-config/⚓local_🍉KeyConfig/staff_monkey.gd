@@ -24,12 +24,12 @@ func illustrator():
 
 # BGM取得
 func musician_bg_musics():
-	return self.owner_node().get_node("🌏Musician/🌏BgMusics")
+	return self.owner_node().get_node("👤Musician/🌏BgMusics")
 
 
 # SE取得
 func musician_sound_fx():
-	return self.owner_node().get_node("🌏Musician/🌏SoundFX")
+	return self.owner_node().get_node("👤Musician/🌏SoundFX")
 
 
 # プログラマー・ハブ取得
