@@ -160,7 +160,9 @@ func ready_in_staff():
 
 func on_key_config_entered():
 	# 背景
-	self.images.find_node("🗻崎川駅前").visible = true
+	self.images.find_node(
+		str(self.monkey().of_staff().config_node().key_config_background_image_name)
+	).visible = true
 
 
 func on_key_config_exited():
