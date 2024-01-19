@@ -34,7 +34,7 @@ func _ready():
 	self.monkey().grid().hide()
 	
 	# イラストレーターはとにかく隠す
-	self.search_in_folder(
+	MonkeyHelper.search_in_folder(
 			self.monkey().illustrator(),		# 探す場所
 			func(child_node):
 				return child_node is Sprite2D,
@@ -42,7 +42,7 @@ func _ready():
 				child_node.hide())
 	
 	# テロップはとにかく非表示にする
-	self.search_in_folder(
+	MonkeyHelper.search_in_folder(
 			self.monkey().telop_coordinator(),		# 探す場所
 			func(child_node):
 				return child_node is CanvasLayer,
@@ -66,22 +66,6 @@ func _ready():
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
-
-
-# TODO ライブラリへ移動したい
-func search_in_folder(
-		folder,				# 探す場所
-		is_match,
-		on_node_found):
-	for child_node in folder.get_children():
-		if child_node.name.begins_with("📂"):
-			self.search_in_folder(
-					child_node,
-					is_match,
-					on_node_found)
-
-		elif is_match.call(child_node):
-			on_node_found.call(child_node)
 
 
 func on_key_config_entered():
