@@ -39,4 +39,4 @@ func programmer():
 
 # テロップ・コーディネーター取得
 func telop_coordinator():
-	return self.owner_node().get_node("🌏TelopCoordinator")
+	return self.owner_node().get_node("👤TelopCoordinator")
