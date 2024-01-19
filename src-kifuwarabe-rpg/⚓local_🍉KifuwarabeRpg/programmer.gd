@@ -10,14 +10,17 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 # ーーーーーーーー
 
 
+# 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
+var current_state = &"WaitForKeyConfig"
+
+# 現在の部門（StringName型）
+var current_department_name = null
+
 # 全角数字
 var zenkaku_numbers = ["０", "１", "２", "３", "４", "５", "６", "７", "８", "９"]
 
 # デパートメント変数辞書（キー：StringName型）
 var departments = {}
-
-# 現在の部門（StringName型）
-var current_department_name = null
 
 
 # ーーーーーーーー
