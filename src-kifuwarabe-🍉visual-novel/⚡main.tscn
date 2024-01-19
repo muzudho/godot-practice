@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=23 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/staff.gd" id="1_36c3q"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/staff_monkey.gd" id="2_o4l5f"]
+[ext_resource type="Script" path="res://⚓local_🍉VisualNovel/config.gd" id="4_eqa3o"]
 [ext_resource type="PackedScene" uid="uid://bru7a2wmr7m8y" path="res://🎄addon_🍉VisualNovel/🌏GuiProgrammer_MessageWindows.tscn" id="4_qbs6l"]
 [ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/👤Illustrator.tscn" id="5_ocgan"]
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/programmer.gd" id="10_0qoqs"]
@@ -34,6 +35,9 @@ script = ExtResource("2_o4l5f")
 z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_6by5p")
+
+[node name="⚙Config" type="Node" parent="."]
+script = ExtResource("4_eqa3o")
 
 [node name="👤Illustrator" type="Node2D" parent="."]
 visible = false
