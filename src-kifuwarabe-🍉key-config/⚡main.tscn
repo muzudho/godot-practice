@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_f72qc"]
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/staff_monkey.gd" id="2_qa5np"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/grid.gd" id="3_c737f"]
-[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/🌏Illustrator.tscn" id="4_u7crs"]
+[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/👤Illustrator.tscn" id="4_u7crs"]
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/programmer_monkey.gd" id="5_2fo8k"]
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/programmer.gd" id="6_h3blb"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉KeyConfig/👥Staff.tscn" id="9_calvn"]
@@ -24,9 +24,9 @@ position = Vector2(640, 360)
 texture = ExtResource("2_f72qc")
 script = ExtResource("3_c737f")
 
-[node name="🌏Illustrator" type="Node2D" parent="."]
+[node name="👤Illustrator" type="Node2D" parent="."]
 
-[node name="📂🍉KeyConfig" parent="🌏Illustrator" instance=ExtResource("4_u7crs")]
+[node name="📂🍉KeyConfig" parent="👤Illustrator" instance=ExtResource("4_u7crs")]
 
 [node name="🌏Programmer" type="Node" parent="."]
 script = ExtResource("6_h3blb")

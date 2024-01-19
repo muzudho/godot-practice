@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://⚓local_🍉Battle/staff_monkey.gd" id="2_glcnh"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
 [ext_resource type="Texture2D" uid="uid://bfjtuxbo3tuqn" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_rrmg8"]
-[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/🌏Illustrator.tscn" id="27_dp8m2"]
-[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/🌏Illustrator.tscn" id="28_iuuq5"]
+[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/👤Illustrator.tscn" id="27_dp8m2"]
+[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/👤Illustrator.tscn" id="28_iuuq5"]
 [ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://🍋images/🪑grayscale/1280x720/battle_scene_3.png" id="31_3w7mi"]
 [ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_1.png" id="32_l43dy"]
 [ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_2.png" id="33_63jpw"]
@@ -80,140 +80,140 @@ z_index = 5
 position = Vector2(640, 360)
 texture = ExtResource("2_ivwoj")
 
-[node name="🌏Illustrator" type="Node2D" parent="."]
+[node name="👤Illustrator" type="Node2D" parent="."]
 visible = false
 
-[node name="ーーーー戦闘HUD（Ｚ＝９００）ーーーー" type="Node" parent="🌏Illustrator"]
+[node name="ーーーー戦闘HUD（Ｚ＝９００）ーーーー" type="Node" parent="👤Illustrator"]
 
-[node name="🗻戦闘シーン" type="Sprite2D" parent="🌏Illustrator"]
+[node name="🗻戦闘シーン" type="Sprite2D" parent="👤Illustrator"]
 z_index = 900
 position = Vector2(640, 360)
 texture = ExtResource("31_3w7mi")
 
-[node name="ーーーーモンスター顔（Ｚ＝９１０）ーーーー" type="Node" parent="🌏Illustrator"]
+[node name="ーーーーモンスター顔（Ｚ＝９１０）ーーーー" type="Node" parent="👤Illustrator"]
 
-[node name="😁ヘム将棋" type="Sprite2D" parent="🌏Illustrator"]
+[node name="😁ヘム将棋" type="Sprite2D" parent="👤Illustrator"]
 visible = false
 z_index = 910
 position = Vector2(97, 70)
 scale = Vector2(0.266871, 0.266871)
 texture = ExtResource("68_8k378")
 
-[node name="😁レサぽん改" type="Sprite2D" parent="🌏Illustrator"]
+[node name="😁レサぽん改" type="Sprite2D" parent="👤Illustrator"]
 visible = false
 z_index = 910
 position = Vector2(94.5, 64.9293)
 scale = Vector2(0.191919, 0.191919)
 texture = ExtResource("69_u1h4l")
 
-[node name="😁ケダック" type="Sprite2D" parent="🌏Illustrator"]
+[node name="😁ケダック" type="Sprite2D" parent="👤Illustrator"]
 z_index = 910
 position = Vector2(96.4521, 67.25)
 scale = Vector2(0.80137, 0.80137)
 texture = ExtResource("70_kltin")
 
-[node name="😁きふわらべ" type="Sprite2D" parent="🌏Illustrator"]
+[node name="😁きふわらべ" type="Sprite2D" parent="👤Illustrator"]
 z_index = 910
 position = Vector2(97, 129)
 scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("71_cminn")
 
-[node name="😁昼ビール" type="Sprite2D" parent="🌏Illustrator"]
+[node name="😁昼ビール" type="Sprite2D" parent="👤Illustrator"]
 visible = false
 z_index = 910
 position = Vector2(97.5, 66.525)
 scale = Vector2(0.221014, 0.197109)
 texture = ExtResource("72_seukb")
 
-[node name="ーーーーメッセージ・ウィンドウ（Ｚ＝１０００）ーーーー" type="Node" parent="🌏Illustrator"]
+[node name="ーーーーメッセージ・ウィンドウ（Ｚ＝１０００）ーーーー" type="Node" parent="👤Illustrator"]
 
-[node name="■下on戦" type="Sprite2D" parent="🌏Illustrator"]
+[node name="■下on戦" type="Sprite2D" parent="👤Illustrator"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("60_ked68")
 
-[node name="■下" type="Sprite2D" parent="🌏Illustrator"]
+[node name="■下" type="Sprite2D" parent="👤Illustrator"]
 z_index = 1
 position = Vector2(640, 360)
 texture = ExtResource("60_ked68")
 
-[node name="ーーーートランジション（Ｚ＝４０００）ーーーー" type="Node" parent="🌏Illustrator"]
+[node name="ーーーートランジション（Ｚ＝４０００）ーーーー" type="Node" parent="👤Illustrator"]
 
-[node name="📂🗻戦闘開始トランジション" type="Node" parent="🌏Illustrator"]
+[node name="📂🗻戦闘開始トランジション" type="Node" parent="👤Illustrator"]
 
-[node name="🗻１コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻１コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("32_l43dy")
 
-[node name="🗻２コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻２コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("33_63jpw")
 
-[node name="🗻３コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻３コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("34_x34j5")
 
-[node name="🗻４コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻４コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("35_jcaiw")
 
-[node name="🗻５コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻５コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("36_1keft")
 
-[node name="🗻６コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻６コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("37_tdxrv")
 
-[node name="🗻７コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻７コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("38_vlm38")
 
-[node name="🗻８コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻８コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("39_nr2kt")
 
-[node name="🗻９コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻９コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("40_25lxp")
 
-[node name="🗻１０コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻１０コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("41_j4orm")
 
-[node name="🗻１１コマ" type="Sprite2D" parent="🌏Illustrator/📂🗻戦闘開始トランジション"]
+[node name="🗻１１コマ" type="Sprite2D" parent="👤Illustrator/📂🗻戦闘開始トランジション"]
 visible = false
 z_index = 4000
 position = Vector2(640, 360)
 texture = ExtResource("42_qrihd")
 
-[node name="ーーーーアドオンーーーー" type="Node" parent="🌏Illustrator"]
+[node name="ーーーーアドオンーーーー" type="Node" parent="👤Illustrator"]
 
-[node name="📂🍉KeyConfig" parent="🌏Illustrator" instance=ExtResource("27_dp8m2")]
+[node name="📂🍉KeyConfig" parent="👤Illustrator" instance=ExtResource("27_dp8m2")]
 
-[node name="📂🍉VisualNovel" parent="🌏Illustrator" instance=ExtResource("28_iuuq5")]
+[node name="📂🍉VisualNovel" parent="👤Illustrator" instance=ExtResource("28_iuuq5")]
 
 [node name="🌏Musician" type="Node" parent="."]
 

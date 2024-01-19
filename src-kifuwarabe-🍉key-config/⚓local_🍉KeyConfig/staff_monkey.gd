@@ -19,7 +19,7 @@ func grid():
 
 # イラストレーター取得
 func illustrator():
-	return self.owner_node().get_node("🌏Illustrator")
+	return self.owner_node().get_node("👤Illustrator")
 
 
 # BGM取得
