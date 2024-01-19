@@ -505,12 +505,12 @@ await get_tree().create_timer(2).timeout
 「　そんな肩書きのやつ　いるかな？」  
 
 ![ohkina-hiyoko-futsu2.png](https://crieit.now.sh/upload_images/96fb09724c3ce40ee0861a0fd1da563d61daf8a09d9bc.png)  
-「　スコアラー（Scorer）で　いいんじゃないの？」  
+「　スコアラー（👤Scorer）で　いいんじゃないの？」  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　しっくりくるぜ。　それで」  
 
-![202310__godot__20-2359--Scorer-o2o0.png](https://crieit.now.sh/upload_images/5fbef252917411d2e8fad20bdbe6d2c2653295ef35b1b.png)  
+![202310__godot__20-2359--👤Scorer-o2o0.png](https://crieit.now.sh/upload_images/5fbef252917411d2e8fad20bdbe6d2c2653295ef35b1b.png)  
 
 ![ramen-tabero-futsu2.png](https://crieit.now.sh/upload_images/d27ea8dcfad541918d9094b9aed83e7d61daf8532bbbe.png)  
 「　👆　スコアラーが　戦闘用紙を持っているという建付けにしようぜ」  

@@ -22,11 +22,11 @@ func of_staff():
 
 
 func get_scorer():
-	return self.monkey().of_staff().owner_node().get_node("Scorer")
+	return self.monkey().of_staff().owner_node().get_node("👤Scorer")
 
 
 func get_game_sheet_for_battle():
-	return self.monkey().of_staff().owner_node().get_node("Scorer/GameSheetForBattle")
+	return self.monkey().of_staff().owner_node().get_node("👤Scorer/GameSheetForBattle")
 
 
 # ーーーーーーーー

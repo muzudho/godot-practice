@@ -1,4 +1,4 @@
-# スコアラー（Scorer；記録する人）
+# スコアラー（👤Scorer；記録する人）
 extends Node
 
 

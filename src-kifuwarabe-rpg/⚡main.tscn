@@ -516,13 +516,13 @@ script = ExtResource("70_epi57")
 
 [node name="📂🍉VisualNovel" parent="👤TelopCoordinator" instance=ExtResource("58_gje64")]
 
-[node name="Scorer" type="Node" parent="."]
+[node name="👤Scorer" type="Node" parent="."]
 script = ExtResource("72_v7dgx")
 
-[node name="GameSheetForBattle" type="Node" parent="Scorer"]
+[node name="GameSheetForBattle" type="Node" parent="👤Scorer"]
 script = ExtResource("70_mcty4")
 
-[node name="MonsterData" type="Node" parent="Scorer"]
+[node name="MonsterData" type="Node" parent="👤Scorer"]
 script = ExtResource("71_vwn1b")
 
 [node name="🏝️KeyConfigIsland" parent="." instance=ExtResource("62_isghc")]
