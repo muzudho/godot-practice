@@ -32,7 +32,7 @@ var is_enabled = false
 
 # ハブ取得
 func monkey():
-	return $"../../📂KeyConfig_🍉KeyConfig"
+	return $"../../📂🍉KeyConfig"
 
 
 # ーーーーーーーー

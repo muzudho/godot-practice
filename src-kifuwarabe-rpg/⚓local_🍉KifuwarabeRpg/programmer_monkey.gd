@@ -35,7 +35,7 @@ func owner_node():
 
 # キー・コンフィグ取得
 func key_config_node():
-	return self.owner_node().get_node("📂KeyConfig_🍉KeyConfig")
+	return self.owner_node().get_node("📂🍉KeyConfig")
 
 
 # シナリオ再生機取得
