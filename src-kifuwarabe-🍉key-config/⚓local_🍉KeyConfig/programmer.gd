@@ -49,6 +49,55 @@ func _ready():
 			self.monkey().of_staff().telop_coordinator())	# 探す場所
 
 
+func ready_in_staff():
+	# ーーーーーーーー
+	# 非表示
+	# ーーーーーーーー
+	#
+	# 開発中にいじったものが残ってるかもしれないから、掃除
+	
+	# グリッドは隠す
+	self.monkey().of_staff().grid().hide()
+
+	# ーーーーーーーー
+	# 表示
+	# ーーーーーーーー
+
+	# テロップ・コーディネーター表示
+	self.monkey().of_staff().telop_coordinator().show()
+
+	# ーーーーーーーー
+	# 初期化
+	# ーーーーーーーー
+	self.monkey().key_config_node().ready_in_staff()
+	self.monkey().key_config_node().entry()
+
+
+# ーーーーーーーー
+# 入力
+# ーーーーーーーー
+
+
+func _unhandled_input(event):
+	# キーコンフィグで必要です
+	self.monkey().key_config_node().on_unhandled_input(event)
+
+
+# キーコンフィグ開始時
+func on_key_config_entered():
+	# 背景
+	self.monkey().of_staff().illustrator().visible = true
+	self.images.find_node("🗻崎川駅前").visible = true
+
+
+# キーコンフィグ完了時
+func on_key_config_exited():
+	print("［キーコンフィグ］　完了")
+
+	# 背景
+	self.images.find_node("🗻崎川駅前").visible = false
+
+
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
