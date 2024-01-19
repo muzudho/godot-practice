@@ -45,12 +45,6 @@ func _ready():
 	self.monkey().programmer().key_config_node().entry()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# キーコンフィグで必要です
-	self.monkey().programmer().key_config_node().on_process(delta)
-
-
 func _unhandled_input(event):
 	# キーコンフィグで必要です
 	self.monkey().programmer().key_config_node().on_unhandled_input(event)

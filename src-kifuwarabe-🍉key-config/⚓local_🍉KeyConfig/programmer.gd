@@ -47,3 +47,14 @@ func _ready():
 
 	self.telops = MonkeyHand.create(
 			self.monkey().of_staff().telop_coordinator())	# 探す場所
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	# キーコンフィグで必要です
+	self.monkey().key_config_node().on_process(delta)

@@ -115,6 +115,37 @@ func _ready():
 # ーーーーーーーー
 
 
+func _process(delta):
+
+	if self.current_state == &"WaitForKeyConfig":
+		self.monkey().key_config_node().entry()
+		self.current_state = &"KeyConfig"
+
+	elif self.current_state == &"KeyConfig":
+		self.monkey().key_config_node().on_process(delta)
+
+	elif self.current_state == &"Ready":
+		self.current_state = &"Main"
+		# ーーーーーーーー
+		# 準備
+		# ーーーーーーーー
+
+		# 最初に実行する部門名
+		self.current_department_name = self.monkey().scenario_writer().department_control().start_department_name
+
+		# パースするな
+		self.monkey().scenario_player().get_current_department_value().set_parse_lock(true)
+
+		# 台本の「§」セクションの再生
+		self.monkey().scenario_player().play_section()
+
+		# 伝言窓を、一時的に居なくなっていたのを解除する
+		self.monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
+
+	elif self.current_state == &"Main":
+		self.monkey().scenario_player().on_process(delta)
+
+
 # 変数展開する
 # `target_before_change` - １行かもしれないし、段落かもしれないし、匿名関数かもしれない
 func expand_variables(target_before_change):
