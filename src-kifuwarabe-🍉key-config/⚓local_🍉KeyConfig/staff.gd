@@ -42,18 +42,19 @@ func _ready():
 	# ーーーーーーーー
 	# 初期化
 	# ーーーーーーーー
-	$"🏝️KeyConfigIsland".entry()
+	self.monkey().programmer().key_config_node().ready_in_staff()
+	self.monkey().programmer().key_config_node().entry()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# キーコンフィグで必要です
-	$"🏝️KeyConfigIsland".on_process(delta)
+	self.monkey().programmer().key_config_node().on_process(delta)
 
 
 func _unhandled_input(event):
 	# キーコンフィグで必要です
-	$"🏝️KeyConfigIsland".on_unhandled_input(event)
+	self.monkey().programmer().key_config_node().on_unhandled_input(event)
 
 
 # キーコンフィグ開始時

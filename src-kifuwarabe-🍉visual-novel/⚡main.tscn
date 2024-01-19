@@ -68,6 +68,8 @@ script = ExtResource("10_0qoqs")
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("11_nqlsq")
 
+[node name="📂KayConfig_🍉KeyConfig" parent="👤Programmer" instance=ExtResource("43_1kc47")]
+
 [node name="📂ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("81_aev68")]
 
 [node name="👤Programmer_MessageWindow" type="Node" parent="."]
@@ -96,5 +98,3 @@ visible = false
 [node name="📂🍉KeyConfig" parent="👤TelopCoordinator" instance=ExtResource("68_rpnem")]
 
 [node name="ーーーーアドオンーーーー" type="Node" parent="."]
-
-[node name="🏝️KeyConfigIsland" parent="." instance=ExtResource("43_1kc47")]

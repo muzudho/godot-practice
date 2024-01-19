@@ -33,6 +33,11 @@ func owner_node():
 	return self.get_node("../../👤Programmer")
 
 
+# キー・コンフィグ取得
+func key_config_node():
+	return self.owner_node().get_node("📂KayConfig_🍉KeyConfig")
+
+
 # シナリオ再生機取得
 func scenario_player():
 	return self.get_instruction("📄Engine_🍉VisualNovel")

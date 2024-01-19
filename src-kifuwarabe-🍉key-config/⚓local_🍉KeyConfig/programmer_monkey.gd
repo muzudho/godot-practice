@@ -27,3 +27,8 @@ func of_staff():
 # プログラマー取得
 func owner_node():
 	return self.get_node("../../👤Programmer")
+
+
+# キー・コンフィグ取得
+func key_config_node():
+	return self.owner_node().get_node("📂KayConfig_🍉KeyConfig")

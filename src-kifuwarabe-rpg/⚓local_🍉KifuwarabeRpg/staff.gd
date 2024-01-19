@@ -117,12 +117,12 @@ func _process(delta):
 
 	# キー・コンフィグが始まる
 	if self.current_state == &"WaitForKeyConfig":
-		self.monkey().key_config_island().entry()
+		self.monkey().programmer().key_config_node().entry()
 		self.current_state = &"KeyConfig"
 
 	# キー・コンフィグに制御を譲る
 	elif self.current_state == &"KeyConfig":
-		self.monkey().key_config_island().on_process(delta)
+		self.monkey().programmer().key_config_node().on_process(delta)
 
 	# 主な状態の前に
 	elif self.current_state == &"Ready":
@@ -218,7 +218,7 @@ func _unhandled_input(event):
 
 	# キー・コンフィグに入力の制御を譲れ、という状態
 	elif self.current_state == &"KeyConfig":
-		self.monkey().key_config_island().on_unhandled_input(event)
+		self.monkey().programmer().key_config_node().on_unhandled_input(event)
 
 	# 主な状態
 	elif self.current_state == &"Main":
@@ -247,13 +247,13 @@ func _unhandled_input(event):
 		var event_as_text = event.as_text()
 		
 		# 文字列をボタン番号に変換
-		var button_number = self.monkey().key_config_island().get_button_number_by_text(event_as_text)
+		var button_number = self.monkey().programmer().key_config_node().get_button_number_by_text(event_as_text)
 		
 		# ボタン番号を、仮想キー名に変換
-		var virtual_key_name = self.monkey().key_config_island().get_virtual_key_name_by_button_number(button_number)
+		var virtual_key_name = self.monkey().programmer().key_config_node().get_virtual_key_name_by_button_number(button_number)
 
 		# レバー値
-		var lever_value = self.monkey().key_config_island().get_lever_value_by_text(event_as_text)
+		var lever_value = self.monkey().programmer().key_config_node().get_lever_value_by_text(event_as_text)
 
 		# 仮想キーを押下したという建付け
 		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)

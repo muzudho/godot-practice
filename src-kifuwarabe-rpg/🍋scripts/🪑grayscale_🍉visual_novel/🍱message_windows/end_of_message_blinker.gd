@@ -68,7 +68,7 @@ func owner_node():
 
 # キーコンフィグ監督取得
 func get_staff_for_key_config():
-	return self.monkey().of_staff().owner_node().get_node("🏝️KeyConfigIsland")
+	return self.monkey().of_staff().owner_node().get_node("📂KayConfig_🍉KeyConfig")
 
 
 # 伝言窓名を取得

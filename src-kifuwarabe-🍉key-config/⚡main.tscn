@@ -34,6 +34,8 @@ script = ExtResource("6_h3blb")
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("5_2fo8k")
 
+[node name="📂KayConfig_🍉KeyConfig" parent="👤Programmer" instance=ExtResource("9_calvn")]
+
 [node name="👤Musician" type="Node" parent="."]
 
 [node name="🌏BgMusics" type="Node" parent="👤Musician"]
@@ -47,5 +49,3 @@ script = ExtResource("5_2fo8k")
 [node name="👤TelopCoordinator" type="CanvasLayer" parent="."]
 
 [node name="📂🍉KeyConfig" parent="👤TelopCoordinator" instance=ExtResource("12_8rfor")]
-
-[node name="🏝️KeyConfigIsland" parent="." instance=ExtResource("9_calvn")]
