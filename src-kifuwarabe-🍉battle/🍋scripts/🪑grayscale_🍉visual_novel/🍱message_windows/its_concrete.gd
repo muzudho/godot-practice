@@ -48,7 +48,7 @@ var choices_index = 0
 func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🌏Programmer_MessageWindow/🐵Monkey",
+			"👤Programmer_MessageWindow/🐵Monkey",
 			self.ancestor_children_dictionary)
 
 

@@ -31,7 +31,7 @@
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_neorock14.ogg" id="43_k3tfj"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_orchestra12.ogg" id="44_beusv"]
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_event17.ogg" id="45_dlghs"]
-[ext_resource type="PackedScene" uid="uid://blh00f8ui284" path="res://🎄addon_🍉Battle/🌏ScenarioWriter.tscn" id="45_j8tqe"]
+[ext_resource type="PackedScene" uid="uid://blh00f8ui284" path="res://🎄addon_🍉Battle/👤ScenarioWriter.tscn" id="45_j8tqe"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_magic_fire11.ogg" id="48_nxrfb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/visual_novel_choices_mappings.gd" id="48_v4a4k"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/visual_novel_chapter_1.gd" id="49_yek8s"]
@@ -266,24 +266,24 @@ script = ExtResource("39_83reh")
 
 [node name="📂ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("41_kb3a0")]
 
-[node name="🌏Programmer_MessageWindow" type="Node" parent="."]
+[node name="👤Programmer_MessageWindow" type="Node" parent="."]
 
-[node name="🐵Monkey" type="Node" parent="🌏Programmer_MessageWindow"]
+[node name="🐵Monkey" type="Node" parent="👤Programmer_MessageWindow"]
 script = ExtResource("61_cfuy1")
 
-[node name="■FullScreen" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+[node name="■FullScreen" type="Sprite2D" parent="👤Programmer_MessageWindow"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("22_rrmg8")
 script = ExtResource("61_tvkup")
 
-[node name="■上_大" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+[node name="■上_大" type="Sprite2D" parent="👤Programmer_MessageWindow"]
 visible = false
 position = Vector2(640, 360)
 texture = ExtResource("59_4vstx")
 script = ExtResource("61_tvkup")
 
-[node name="■下" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+[node name="■下" type="Sprite2D" parent="👤Programmer_MessageWindow"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
@@ -291,7 +291,7 @@ position = Vector2(640, 360)
 texture = ExtResource("60_ked68")
 script = ExtResource("61_tvkup")
 
-[node name="■下on戦" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+[node name="■下on戦" type="Sprite2D" parent="👤Programmer_MessageWindow"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
@@ -299,14 +299,14 @@ position = Vector2(640, 360)
 texture = ExtResource("60_ked68")
 script = ExtResource("61_tvkup")
 
-[node name="■中央" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+[node name="■中央" type="Sprite2D" parent="👤Programmer_MessageWindow"]
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("62_q6u17")
 script = ExtResource("61_tvkup")
 
-[node name="■左下" type="Sprite2D" parent="🌏Programmer_MessageWindow"]
+[node name="■左下" type="Sprite2D" parent="👤Programmer_MessageWindow"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
@@ -314,31 +314,31 @@ position = Vector2(640, 360)
 texture = ExtResource("63_a2lr3")
 script = ExtResource("61_tvkup")
 
-[node name="🌏ScenarioWriter" type="Node" parent="."]
+[node name="👤ScenarioWriter" type="Node" parent="."]
 
-[node name="🐵Monkey_🍉VisualNovel" parent="🌏ScenarioWriter" instance=ExtResource("42_lg1ip")]
+[node name="🐵Monkey_🍉VisualNovel" parent="👤ScenarioWriter" instance=ExtResource("42_lg1ip")]
 
-[node name="📘DepartmentControl" type="Node" parent="🌏ScenarioWriter"]
+[node name="📘DepartmentControl" type="Node" parent="👤ScenarioWriter"]
 script = ExtResource("60_f7oqn")
 
-[node name="📗バトル部門_🍉Battle" parent="🌏ScenarioWriter" instance=ExtResource("45_j8tqe")]
+[node name="📗バトル部門_🍉Battle" parent="👤ScenarioWriter" instance=ExtResource("45_j8tqe")]
 
-[node name="ーーーーローカルーーーー" type="Node" parent="🌏ScenarioWriter"]
+[node name="ーーーーローカルーーーー" type="Node" parent="👤ScenarioWriter"]
 
-[node name="📗会話部門_🍉Battle" type="Node" parent="🌏ScenarioWriter"]
+[node name="📗会話部門_🍉Battle" type="Node" parent="👤ScenarioWriter"]
 
-[node name="📃選択肢と飛び先" type="Node" parent="🌏ScenarioWriter/📗会話部門_🍉Battle"]
+[node name="📃選択肢と飛び先" type="Node" parent="👤ScenarioWriter/📗会話部門_🍉Battle"]
 script = ExtResource("48_v4a4k")
 
-[node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗会話部門_🍉Battle"]
+[node name="📃はじまり" type="Node" parent="👤ScenarioWriter/📗会話部門_🍉Battle"]
 script = ExtResource("49_yek8s")
 
-[node name="📗会話システムメニュー部門_🍉Battle" type="Node" parent="🌏ScenarioWriter"]
+[node name="📗会話システムメニュー部門_🍉Battle" type="Node" parent="👤ScenarioWriter"]
 
-[node name="📃選択肢と飛び先" type="Node" parent="🌏ScenarioWriter/📗会話システムメニュー部門_🍉Battle"]
+[node name="📃選択肢と飛び先" type="Node" parent="👤ScenarioWriter/📗会話システムメニュー部門_🍉Battle"]
 script = ExtResource("50_qpkfo")
 
-[node name="📃はじまり" type="Node" parent="🌏ScenarioWriter/📗会話システムメニュー部門_🍉Battle"]
+[node name="📃はじまり" type="Node" parent="👤ScenarioWriter/📗会話システムメニュー部門_🍉Battle"]
 script = ExtResource("51_intjl")
 
 [node name="👤TelopCoordinator" type="CanvasLayer" parent="."]

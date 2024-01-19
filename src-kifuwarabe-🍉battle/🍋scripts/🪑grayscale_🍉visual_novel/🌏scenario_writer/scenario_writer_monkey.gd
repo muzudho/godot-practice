@@ -37,7 +37,7 @@ func of_staff():
 
 # シナリオライター取得
 func owner_node():
-	return self.get_node("../../🌏ScenarioWriter")
+	return self.get_node("../../👤ScenarioWriter")
 
 
 # 部門切替取得

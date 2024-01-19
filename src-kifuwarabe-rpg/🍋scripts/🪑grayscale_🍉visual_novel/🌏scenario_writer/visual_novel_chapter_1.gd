@@ -19,7 +19,7 @@ var ancestor_children_dictionary = {}
 func monkey():
 	return MonkeyHelper.find_ancestor_child(
 			self,
-			"🌏ScenarioWriter/🐵Monkey_🍉VisualNovel",
+			"👤ScenarioWriter/🐵Monkey_🍉VisualNovel",
 			self.ancestor_children_dictionary)
 
 

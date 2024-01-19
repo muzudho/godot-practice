@@ -29,7 +29,7 @@ func key_config_island():
 
 # メッセージ・ウィンドウズ取得
 func gui_programmer_message_windows():
-	return self.owner_node().get_node("🌏Programmer_MessageWindow")
+	return self.owner_node().get_node("👤Programmer_MessageWindow")
 
 
 # モンスターの全身像
@@ -59,7 +59,7 @@ func programmer():
 
 # シナリオライター・ハブ取得
 func scenario_writer():
-	return self.owner_node().get_node("🌏ScenarioWriter/🐵Monkey_🍉VisualNovel")
+	return self.owner_node().get_node("👤ScenarioWriter/🐵Monkey_🍉VisualNovel")
 
 
 # テロップ・コーディネーター取得
