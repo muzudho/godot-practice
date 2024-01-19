@@ -17,13 +17,7 @@ func monkey():
 # キー・コンフィグ
 # ーーーーーーーー
 
-
-# キーコンフィグ開始時
-func on_key_config_entered():
-	# 背景
-	self.monkey().illustrator_node().visible = true
-	self.monkey().programmer().owner_node().images.find_node("🗻崎川駅前").visible = true
-
+var key_config_background_image_name = &"🗻崎川駅前"
 
 # キーコンフィグ完了時
 func on_key_config_exited():
