@@ -264,7 +264,7 @@ script = ExtResource("34_0dcbg")
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("39_83reh")
 
-[node name="📂KayConfig_🍉KeyConfig" parent="👤Programmer" instance=ExtResource("62_isghc")]
+[node name="📂KeyConfig_🍉KeyConfig" parent="👤Programmer" instance=ExtResource("62_isghc")]
 
 [node name="📂ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("41_kb3a0")]
 
