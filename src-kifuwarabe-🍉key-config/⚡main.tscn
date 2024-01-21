@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=14 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/staff.gd" id="1_dum2v"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_f72qc"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉KeyConfig/👤Programmer.tscn" id="9_calvn"]
 [ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉KeyConfig/👤Musician_🌏BgMusics.tscn" id="9_uae6e"]
 [ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉KeyConfig/👤Musician_🌏SoundFX.tscn" id="10_b6gok"]
+[ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉Bench/👤programmer_bench.tscn" id="10_p52k3"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🎄addon_🍉KeyConfig/👤TelopCoordinator.tscn" id="12_8rfor"]
 
 [node name="👥Staff" type="Node2D"]
@@ -39,6 +40,8 @@ script = ExtResource("6_h3blb")
 script = ExtResource("5_2fo8k")
 
 [node name="📂🍉KeyConfig" parent="👤Programmer" instance=ExtResource("9_calvn")]
+
+[node name="👤Programmer_Bench" parent="." instance=ExtResource("10_p52k3")]
 
 [node name="👤Musician" type="Node" parent="."]
 
