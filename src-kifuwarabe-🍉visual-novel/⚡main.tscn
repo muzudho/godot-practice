@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=25 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/staff.gd" id="1_36c3q"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/👤Illustrator.tscn" id="5_ocgan"]
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/programmer.gd" id="10_0qoqs"]
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/programmer_monkey.gd" id="11_nqlsq"]
+[ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉Bench/👤programmer_bench.tscn" id="15_oflrk"]
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/scenario_writer.gd" id="17_1jsmo"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_monkey.gd" id="21_kjvby"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/👤Illustrator.tscn" id="21_wljdh"]
@@ -76,6 +77,8 @@ script = ExtResource("11_nqlsq")
 [node name="📂🍉KeyConfig" parent="👤Programmer" instance=ExtResource("43_1kc47")]
 
 [node name="📂ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("81_aev68")]
+
+[node name="👤Programmer_Bench" parent="." instance=ExtResource("15_oflrk")]
 
 [node name="👤Programmer_MessageWindow" type="Node" parent="."]
 
