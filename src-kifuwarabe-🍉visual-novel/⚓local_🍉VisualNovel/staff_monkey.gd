@@ -1,4 +1,4 @@
-# ディレクター・ハブ（Staff Hub）
+# 猿（Staff Hub）
 extends Node
 
 

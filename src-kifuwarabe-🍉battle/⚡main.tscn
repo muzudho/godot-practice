@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=68 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://⚓local_🍉Battle/staff.gd" id="1_2gst5"]
 [ext_resource type="Script" path="res://⚓local_🍉Battle/staff_monkey.gd" id="2_glcnh"]
@@ -31,6 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_neorock14.ogg" id="43_k3tfj"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_orchestra12.ogg" id="44_beusv"]
+[ext_resource type="Script" path="res://⚓local_🍉Battle/scenario_writer.gd" id="45_bpqpi"]
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_event17.ogg" id="45_dlghs"]
 [ext_resource type="PackedScene" uid="uid://blh00f8ui284" path="res://🎄addon_🍉Battle/👤ScenarioWriter.tscn" id="45_j8tqe"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_magic_fire11.ogg" id="48_nxrfb"]
@@ -321,6 +322,7 @@ texture = ExtResource("63_a2lr3")
 script = ExtResource("61_tvkup")
 
 [node name="👤ScenarioWriter" type="Node" parent="."]
+script = ExtResource("45_bpqpi")
 
 [node name="🐵Monkey_🍉VisualNovel" parent="👤ScenarioWriter" instance=ExtResource("42_lg1ip")]
 
