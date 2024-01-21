@@ -1,4 +1,4 @@
-# キー・コンフィグ・ハブ（Key Config Hub；鍵構成の中心地）
+# キー・コンフィグ（Key Config；鍵構成）
 #
 #	細かな設定は何もできないので、ソースを直接カスタマイズしてください
 extends Node2D
@@ -28,13 +28,8 @@ var key_config = {
 # ーーーーーーーー
 
 
-# 自身取得
-func monkey():
-	return self
-
-
 # 監督ハブ取得
-func of_staff():
+func monkey_of_staff():
 	return MonkeyHelper.find_ancestor_child(
 			self,
 			&"👥Staff/🐵Monkey",
@@ -43,7 +38,7 @@ func of_staff():
 
 # （外ノード）テロップ取得
 func get_my_telop_canvas_layer():
-	return self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ")
+	return self.monkey_of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ")
 
 
 # （外ノード）テロップ取得
@@ -56,6 +51,11 @@ func get_moderator():
 	return $"Moderator"
 
 
+# 時計取得
+func clock():
+	return $"Clock"
+
+
 # ーーーーーーーー
 # 起動前設定
 # ーーーーーーーー
@@ -66,12 +66,17 @@ func ready_in_staff():
 
 
 # ーーーーーーーー
-# 起動
+# 時計
 # ーーーーーーーー
 
 
 func on_process(delta):
-	self.get_moderator().on_process(delta)
+	self.clock().on_process(delta)
+
+
+# ーーーーーーーー
+# 開始
+# ーーーーーーーー
 
 
 # キー・コンフィグ画面を始めるタイミングで以下を呼出す
@@ -80,17 +85,17 @@ func entry():
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
-	self.monkey().of_staff().telop_coordinator().show()
-	self.monkey().of_staff().illustrator_node().show()
-	self.monkey().of_staff().programmer().owner_node().images.find_node("■下").show()
-	self.monkey().of_staff().programmer().owner_node().images.find_node("■上_大").show()
-	self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
+	self.monkey_of_staff().telop_coordinator().show()
+	self.monkey_of_staff().illustrator_node().show()
+	self.monkey_of_staff().programmer().owner_node().images.find_node("■下").show()
+	self.monkey_of_staff().programmer().owner_node().images.find_node("■上_大").show()
+	self.monkey_of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
 
 	# ーーーーーーーー
 	# イベント
 	# ーーーーーーーー
 	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey().of_staff().programmer().owner_node().on_key_config_entered()
+	self.monkey_of_staff().programmer().owner_node().on_key_config_entered()
 	
 	# ーーーーーーーー
 	# 状態遷移開始
@@ -105,7 +110,7 @@ func entry():
 
 func on_exit():
 	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey().of_staff().programmer().owner_node().on_key_config_exited()
+	self.monkey_of_staff().programmer().owner_node().on_key_config_exited()
 
 
 func on_unhandled_input(event):

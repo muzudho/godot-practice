@@ -67,9 +67,13 @@ func ready_in_staff():
 	self.monkey().of_staff().telop_coordinator().show()
 
 	# ーーーーーーーー
-	# 初期化
+	# 起動前設定
 	# ーーーーーーーー
 	self.monkey().key_config_node().ready_in_staff()
+
+	# ーーーーーーーー
+	# 開始
+	# ーーーーーーーー
 	self.monkey().key_config_node().entry()
 
 
