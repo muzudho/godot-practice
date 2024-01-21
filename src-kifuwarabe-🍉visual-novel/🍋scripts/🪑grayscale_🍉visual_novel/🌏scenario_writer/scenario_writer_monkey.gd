@@ -47,18 +47,6 @@ func department_control():
 # ーーーーーーーー
 
 
-# セクション配列取得
-func get_section_array(
-		department_name,		# StringName
-		section_name):
-	var merged_scenario_document = self.get_merged_scenario_document(department_name)
-	
-	if not(section_name in merged_scenario_document):
-		print("［台本］　▲エラー　”" + section_name + "”セクションが無い")
-		
-	return merged_scenario_document[section_name]
-
-
 # 指定の部門下の scenario_document 辞書を全てマージして返します。
 # この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
 func get_merged_scenario_document(department_name):

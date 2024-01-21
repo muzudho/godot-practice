@@ -102,7 +102,7 @@ func get_current_section_size_of_scenario():
 	var scenario_node_name = department_value.name		# StringName
 	var section_name =  department_value.section_name
 	
-	var section_array = self.monkey().of_staff().scenario_writer().get_section_array(scenario_node_name, section_name)
+	var section_array = self.monkey().of_staff().scenario_writer().owner_node().get_section_array(scenario_node_name, section_name)
 	return section_array.size()
 
 

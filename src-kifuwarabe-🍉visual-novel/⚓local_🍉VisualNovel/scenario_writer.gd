@@ -15,3 +15,15 @@ func monkey():
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
+
+
+# セクション配列取得
+func get_section_array(
+		department_name,		# StringName
+		section_name):
+	var merged_scenario_document = self.monkey().get_merged_scenario_document(department_name)
+	
+	if not(section_name in merged_scenario_document):
+		print("［台本］　▲エラー　”" + section_name + "”セクションが無い")
+		
+	return merged_scenario_document[section_name]
