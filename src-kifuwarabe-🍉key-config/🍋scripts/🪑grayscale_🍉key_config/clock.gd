@@ -17,6 +17,11 @@ func moderator():
 	return $"../Moderator"
 
 
+# 状態遷移機械取得
+func statemachine():
+	return $"../🍇Statemachine"
+
+
 # ーーーーーーーー
 # 時計
 # ーーーーーーーー
@@ -27,7 +32,7 @@ func on_process(delta):
 	if not self.moderator().is_enabled:
 		return
 	
-	if not (self.moderator().turn_state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
+	if not (self.statemachine().state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
 		return
 	
 	# 初回

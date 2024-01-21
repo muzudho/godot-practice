@@ -1,15 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://kqejd4uyxvtm"]
+[gd_scene load_steps=6 format=3 uid="uid://kqejd4uyxvtm"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/programmer_key_config.gd" id="1_031ms"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/clock.gd" id="2_bk854"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/moderator.gd" id="2_j1eyt"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/display.gd" id="3_e0fkj"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/statemachine.gd" id="3_enr71"]
 
 [node name="📂🍉KeyConfig" type="Node2D"]
 script = ExtResource("1_031ms")
 
 [node name="⌚Clock" type="Node" parent="."]
 script = ExtResource("2_bk854")
+
+[node name="🍇Statemachine" type="Node" parent="."]
+script = ExtResource("3_enr71")
 
 [node name="🖥️Display" type="Node" parent="."]
 script = ExtResource("3_e0fkj")

@@ -17,8 +17,6 @@ var button_presentation_name = &""
 # 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
 var counter_of_wait = 0.0
 var current_step = 0
-# WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
-var turn_state = &"WaitForPrompt"
 
 # `.entry()` を呼び出すと真にする。キー・コンフィグが完了するとまた偽にセットする
 var is_enabled = false
@@ -32,6 +30,11 @@ var is_enabled = false
 # 親ノード取得
 func owner_key_config_node():
 	return $"../../📂🍉KeyConfig"
+
+
+# 状態遷移機械取得
+func statemachine():
+	return $"../🍇Statemachine"
 
 
 # プログラマー・ノード取得
@@ -267,20 +270,20 @@ func on_step_regular(
 		virtual_key_name):
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
-	if self.turn_state == &"WaitForPrompt":
+	if self.statemachine().state == &"WaitForPrompt":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
 			return
 			
-		self.turn_state = &"Prompt"
+		self.statemachine().state = &"Prompt"
 		return
 
-	elif self.turn_state == &"Prompt":
+	elif self.statemachine().state == &"Prompt":
 		self.set_press_message_to_button(self.current_step)
-		self.turn_state = &"WaitForInput"
+		self.statemachine().state = &"WaitForInput"
 		return
 		
-	elif self.turn_state == &"WaitForInput":
+	elif self.statemachine().state == &"WaitForInput":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
 			return
@@ -292,21 +295,21 @@ func on_step_regular(
 				self.counter_of_wait += delta
 				return
 			
-			self.turn_state = &"Input"
+			self.statemachine().state = &"Input"
 			self.clear_count()
 			self.on_exit()
 			return
 
-		self.turn_state = &"Input"
+		self.statemachine().state = &"Input"
 		self.clear_count()
 		return
 
-	elif self.turn_state == &"InputOk":
+	elif self.statemachine().state == &"InputOk":
 		# キャンセルボタン押下時は、１つか、２つ戻す
 		if self.is_cancel_button_pressed(self.button_number):
 			self.set_key_canceled()
 			
-			self.turn_state = &"WaitForInput"
+			self.statemachine().state = &"WaitForInput"
 			self.set_empty_the_button_message(self.current_step)
 			
 			self.current_step -= 1
@@ -333,7 +336,7 @@ func on_step_regular(
 		# 既存のキーと被る場合、やり直しさせる
 		if self.is_key_duplicated(self.button_number):
 			self.set_key_denied(1)
-			self.turn_state = &"WaitForInput"
+			self.statemachine().state = &"WaitForInput"
 			self.clear_count()
 			return
 			
@@ -364,7 +367,7 @@ func on_step_regular(
 			self.current_step += 1
 		
 		
-		self.turn_state = &"WaitForPrompt"
+		self.statemachine().state = &"WaitForPrompt"
 
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
@@ -420,7 +423,7 @@ func on_unhandled_input(event):
 	var event_as_text = event.as_text()
 	print("入力：　" + event_as_text)
 	
-	if self.turn_state != &"Input":
+	if self.statemachine().state != &"Input":
 		return
 
 
@@ -435,7 +438,7 @@ func on_unhandled_input(event):
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.set_key_denied(2)
-			self.turn_state = &"WaitForInput"
+			self.statemachine().state = &"WaitForInput"
 			return
 
 	# ーーーーーーーー
@@ -445,7 +448,7 @@ func on_unhandled_input(event):
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.set_key_denied(3)
-			self.turn_state = &"WaitForInput"
+			self.statemachine().state = &"WaitForInput"
 			return
 
 
@@ -455,4 +458,4 @@ func on_unhandled_input(event):
 		self.button_presentation_name = self.get_button_name_by_number(self.button_number)
 		
 		print("受付：　" + self.button_presentation_name)
-		self.turn_state = &"InputOk"
+		self.statemachine().state = &"InputOk"
