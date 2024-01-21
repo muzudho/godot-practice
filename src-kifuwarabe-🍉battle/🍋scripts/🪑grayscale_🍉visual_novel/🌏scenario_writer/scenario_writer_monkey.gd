@@ -6,13 +6,10 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
-
 # 先祖の辞書キャッシュ
 var ancestors = {}
-
 # シナリオ・ドキュメント
 var cached_scenario_document = {}
-
 # 選択肢と移動先
 var cached_choices_mappings = {}
 

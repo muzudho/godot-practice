@@ -6,10 +6,10 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
-
+# 先祖の辞書キャッシュ
+var ancestors = {}
 # シナリオ・ドキュメント
 var cached_scenario_document = {}
-
 # 選択肢と移動先
 var cached_choices_mappings = {}
 
@@ -40,14 +40,6 @@ func owner_node():
 # 部門切替取得
 func department_control():
 	return self.monkey().of_staff().scenario_writer().owner_node().get_node("📘DepartmentControl")
-
-
-# ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-# 先祖の辞書キャッシュ
-var ancestors = {}
 
 
 # ーーーーーーーー
