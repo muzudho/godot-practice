@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://wf0gqrxtu1o4"]
+
+[ext_resource type="Script" path="res://⚓local_🍉Bench/staff.gd" id="1_88fd2"]
+[ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉Bench/👤programmer_bench.tscn" id="2_p3crw"]
+
+[node name="👥Staff" type="Node2D"]
+script = ExtResource("1_88fd2")
+
+[node name="👤Programmer_Bench" parent="." instance=ExtResource("2_p3crw")]
