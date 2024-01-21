@@ -58,19 +58,6 @@ func _ready():
 	re_lever.compile("Joypad Motion on Axis (\\d+) \\(.*\\) with Value (-?\\d+(?:\\.\\d+)?)")
 
 
-func ready_in_staff():
-
-	# ーーーーーーーー
-	# 非表示
-	# ーーーーーーーー
-	
-	# イラストレーター非表示
-	the_illustrator_node().hide()
-		
-	# テロップ非表示
-	self.owner_key_config_node().get_my_telop("TextBlock").visible = false
-
-
 # キーコンフィグ画面に入る
 func entry():
 	
