@@ -36,21 +36,8 @@ func monkey():
 
 
 # ーーーーーーーー
-# その他
+# 起動前設定
 # ーーーーーーーー
-
-
-# ボタンが重複するか？
-func is_key_duplicated(button_number_1):
-	return button_number_1 in self.monkey().key_config.values()
-
-
-# キャンセルボタン押下か？
-func is_cancel_button_pressed(button_number_1):
-	if not (&"VK_Cancel" in self.monkey().key_config):
-		return false
-	
-	return button_number_1 == self.monkey().key_config[&"VK_Cancel"]
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -79,7 +66,99 @@ func ready_in_staff():
 		
 	# テロップ非表示
 	self.monkey().get_my_telop("TextBlock").visible = false
+
+
+# ーーーーーーーー
+# 起動
+# ーーーーーーーー
+
+
+func on_process(delta):
+
+	if not self.is_enabled:
+		return
 	
+	if not (self.turn_state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
+		return
+	
+	# 初回
+	if self.current_step == 0:
+		self.monkey().of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
+		self.current_step += 1
+		self.clear_count()
+	
+	# ーーーーーーーー
+	# （１）キャンセルボタン、メニューボタン
+	# ーーーーーーーー
+	elif self.current_step == 1:
+		self.on_step_regular(
+				delta,
+				null,
+				&"VK_Cancel")
+	
+	# ーーーーーーーー
+	# （２）決定ボタン、メッセージ送りボタン
+	# ーーーーーーーー
+	elif self.current_step == 2:
+		self.on_step_regular(
+				delta,
+				&"VK_Cancel",
+				&"VK_Ok")
+		
+	# ーーーーーーーー
+	# （３）メッセージ早送りボタン
+	# ーーーーーーーー
+	elif self.current_step == 3:
+		self.on_step_regular(
+				delta,
+				&"VK_Ok",
+				&"VK_FastForward")
+		
+	# ーーーーーーーー
+	# （４）レバーの下
+	# ーーーーーーーー
+	elif self.current_step == 4:
+		self.on_step_regular(
+				delta,
+				&"VK_FastForward",
+				&"VK_Down")
+		
+	# ーーーーーーーー
+	# （５）レバーの上
+	# ーーーーーーーー
+	elif self.current_step == 5:
+		self.on_step_regular(
+				delta,
+				&"VK_Down",
+				&"VK_Up")
+		
+	# ーーーーーーーー
+	# （６）レバーの右
+	# ーーーーーーーー
+	elif self.current_step == 6:
+		self.on_step_regular(
+				delta,
+				&"VK_Up",
+				&"VK_Right")
+		
+	# ーーーーーーーー
+	# （７）レバーの左
+	# ーーーーーーーー
+	elif self.current_step == 7:
+		self.on_step_regular(
+				delta,
+				&"VK_Right",
+				&"VK_Left")
+	
+	# ーーーーーーーー
+	# 完了
+	# ーーーーーーーー
+	elif self.current_step == 8:
+		self.on_step_regular(
+				delta,
+				&"VK_Left",
+				null)
+
 
 # キーコンフィグ画面に入る
 func entry():
@@ -112,6 +191,24 @@ func entry():
 	"""
 	
 	self.is_enabled = true
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
+
+
+# ボタンが重複するか？
+func is_key_duplicated(button_number_1):
+	return button_number_1 in self.monkey().key_config.values()
+
+
+# キャンセルボタン押下か？
+func is_cancel_button_pressed(button_number_1):
+	if not (&"VK_Cancel" in self.monkey().key_config):
+		return false
+	
+	return button_number_1 == self.monkey().key_config[&"VK_Cancel"]
 
 
 # キーコンフィグ終了時
@@ -370,93 +467,6 @@ func on_step_regular(
 		
 		
 		self.turn_state = &"WaitForPrompt"
-
-
-func on_process(delta):
-
-	if not self.is_enabled:
-		return
-	
-	if not (self.turn_state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
-		return
-	
-	# 初回
-	if self.current_step == 0:
-		self.monkey().of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
-		self.current_step += 1
-		self.clear_count()
-	
-	# ーーーーーーーー
-	# （１）キャンセルボタン、メニューボタン
-	# ーーーーーーーー
-	elif self.current_step == 1:
-		self.on_step_regular(
-				delta,
-				null,
-				&"VK_Cancel")
-	
-	# ーーーーーーーー
-	# （２）決定ボタン、メッセージ送りボタン
-	# ーーーーーーーー
-	elif self.current_step == 2:
-		self.on_step_regular(
-				delta,
-				&"VK_Cancel",
-				&"VK_Ok")
-		
-	# ーーーーーーーー
-	# （３）メッセージ早送りボタン
-	# ーーーーーーーー
-	elif self.current_step == 3:
-		self.on_step_regular(
-				delta,
-				&"VK_Ok",
-				&"VK_FastForward")
-		
-	# ーーーーーーーー
-	# （４）レバーの下
-	# ーーーーーーーー
-	elif self.current_step == 4:
-		self.on_step_regular(
-				delta,
-				&"VK_FastForward",
-				&"VK_Down")
-		
-	# ーーーーーーーー
-	# （５）レバーの上
-	# ーーーーーーーー
-	elif self.current_step == 5:
-		self.on_step_regular(
-				delta,
-				&"VK_Down",
-				&"VK_Up")
-		
-	# ーーーーーーーー
-	# （６）レバーの右
-	# ーーーーーーーー
-	elif self.current_step == 6:
-		self.on_step_regular(
-				delta,
-				&"VK_Up",
-				&"VK_Right")
-		
-	# ーーーーーーーー
-	# （７）レバーの左
-	# ーーーーーーーー
-	elif self.current_step == 7:
-		self.on_step_regular(
-				delta,
-				&"VK_Right",
-				&"VK_Left")
-	
-	# ーーーーーーーー
-	# 完了
-	# ーーーーーーーー
-	elif self.current_step == 8:
-		self.on_step_regular(
-				delta,
-				&"VK_Left",
-				null)
 
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す

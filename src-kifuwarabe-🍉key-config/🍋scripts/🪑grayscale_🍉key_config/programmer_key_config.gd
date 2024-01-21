@@ -57,12 +57,21 @@ func get_moderator():
 
 
 # ーーーーーーーー
-# その他
+# 起動前設定
 # ーーーーーーーー
 
 
 func ready_in_staff():
 	self.get_moderator().ready_in_staff()
+
+
+# ーーーーーーーー
+# 起動
+# ーーーーーーーー
+
+
+func on_process(delta):
+	self.get_moderator().on_process(delta)
 
 
 # キー・コンフィグ画面を始めるタイミングで以下を呼出す
@@ -89,13 +98,14 @@ func entry():
 	self.get_moderator().entry()
 
 
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
+
+
 func on_exit():
 	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
 	self.monkey().of_staff().programmer().owner_node().on_key_config_exited()
-
-
-func on_process(delta):
-	self.get_moderator().on_process(delta)
 
 
 func on_unhandled_input(event):

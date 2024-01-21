@@ -31,7 +31,7 @@ func monkey():
 
 
 # ーーーーーーーー
-# 起動時設定
+# 起動前設定
 # ーーーーーーーー
 
 
@@ -74,6 +74,17 @@ func ready_in_staff():
 
 
 # ーーーーーーーー
+# 起動
+# ーーーーーーーー
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	# キーコンフィグで必要です
+	self.monkey().key_config_node().on_process(delta)
+
+
+# ーーーーーーーー
 # 入力
 # ーーーーーーーー
 
@@ -100,14 +111,3 @@ func on_key_config_exited():
 	self.monkey().of_staff().programmer().owner_node().images.find_node(
 		str(self.monkey().of_staff().config_node().key_config_background_image_name)
 	).visible = false
-
-
-# ーーーーーーーー
-# その他
-# ーーーーーーーー
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	# キーコンフィグで必要です
-	self.monkey().key_config_node().on_process(delta)
