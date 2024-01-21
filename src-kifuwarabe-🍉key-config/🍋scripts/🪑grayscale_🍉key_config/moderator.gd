@@ -16,7 +16,9 @@ var button_presentation_name = &""
 
 # 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
 var counter_of_wait = 0.0
-var current_step = 0
+
+# キーコンフィグのキーの数に対応
+var key_config_item_number = 0
 
 # `.entry()` を呼び出すと真にする。キー・コンフィグが完了するとまた偽にセットする
 var is_enabled = false
@@ -279,7 +281,7 @@ func on_step_regular(
 		return
 
 	elif self.statemachine().state == &"Prompt":
-		self.set_press_message_to_button(self.current_step)
+		self.set_press_message_to_button(self.key_config_item_number)
 		self.statemachine().state = &"WaitForInput"
 		return
 		
@@ -289,7 +291,7 @@ func on_step_regular(
 			return
 
 		# 最終ステップ＋１の時、完了
-		if self.current_step == 8:
+		if self.key_config_item_number == 8:
 			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
 			if self.counter_of_wait < 1.5:
 				self.counter_of_wait += delta
@@ -310,22 +312,22 @@ func on_step_regular(
 			self.set_key_canceled()
 			
 			self.statemachine().state = &"WaitForInput"
-			self.set_empty_the_button_message(self.current_step)
+			self.set_empty_the_button_message(self.key_config_item_number)
 			
-			self.current_step -= 1
+			self.key_config_item_number -= 1
 			# さらに連続して戻したいケースもある
 			# レバーの上
-			if self.current_step == 5 and self.owner_key_config_node().key_config[&"VK_Down"] == self.owner_key_config_node().key_config[&"VK_Up"]:
-				self.set_empty_the_button_message(self.current_step)
-				self.current_step -= 1
+			if self.key_config_item_number == 5 and self.owner_key_config_node().key_config[&"VK_Down"] == self.owner_key_config_node().key_config[&"VK_Up"]:
+				self.set_empty_the_button_message(self.key_config_item_number)
+				self.key_config_item_number -= 1
 				self.owner_key_config_node().key_config.erase(&"VK_Down")
 			# レバーの左
-			elif self.current_step == 7 and self.owner_key_config_node().key_config[&"VK_Right"] == self.owner_key_config_node().key_config[&"VK_Left"]:
-				self.set_empty_the_button_message(self.current_step)
-				self.current_step -= 1
+			elif self.key_config_item_number == 7 and self.owner_key_config_node().key_config[&"VK_Right"] == self.owner_key_config_node().key_config[&"VK_Left"]:
+				self.set_empty_the_button_message(self.key_config_item_number)
+				self.key_config_item_number -= 1
 				self.owner_key_config_node().key_config.erase(&"VK_Right")
 			
-			self.set_press_message_to_button(self.current_step)
+			self.set_press_message_to_button(self.key_config_item_number)
 			
 			if previous_virtual_key_name != null:
 				self.owner_key_config_node().key_config.erase(previous_virtual_key_name)
@@ -342,29 +344,29 @@ func on_step_regular(
 			
 		# 決定
 		self.set_key_accepted()
-		self.set_done_message_the_button(self.current_step)
+		self.set_done_message_the_button(self.key_config_item_number)
 		self.owner_key_config_node().key_config[virtual_key_name] = self.button_number
 
 		# レバーの下
-		if self.current_step == 4:
+		if self.key_config_item_number == 4:
 			if 1000 <= self.owner_key_config_node().key_config[&"VK_Down"]:
 				# 軸を選択したなら、レバーの上の選択はスキップ
 				self.owner_key_config_node().key_config[&"VK_Up"] = self.button_number
-				self.set_done_message_the_button(self.current_step + 1)
-				self.current_step += 2
+				self.set_done_message_the_button(self.key_config_item_number + 1)
+				self.key_config_item_number += 2
 			else:
-				self.current_step += 1
+				self.key_config_item_number += 1
 		# レバーの右
-		elif self.current_step == 6:
+		elif self.key_config_item_number == 6:
 			if 1000 <= self.owner_key_config_node().key_config[&"VK_Right"]:
 				# 軸を選択したなら、レバーの左の選択はスキップ
 				self.owner_key_config_node().key_config[&"VK_Left"] = self.button_number
-				self.set_done_message_the_button(self.current_step + 1)
-				self.current_step += 2
+				self.set_done_message_the_button(self.key_config_item_number + 1)
+				self.key_config_item_number += 2
 			else:
-				self.current_step += 1
+				self.key_config_item_number += 1
 		else:
-			self.current_step += 1
+			self.key_config_item_number += 1
 		
 		
 		self.statemachine().state = &"WaitForPrompt"
@@ -434,7 +436,7 @@ func on_unhandled_input(event):
 	# ーーーーーーーー
 	# （５）上キー
 	# ーーーーーーーー
-	if self.current_step == 5:
+	if self.key_config_item_number == 5:
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.set_key_denied(2)
@@ -444,7 +446,7 @@ func on_unhandled_input(event):
 	# ーーーーーーーー
 	# （７）左キー
 	# ーーーーーーーー
-	elif self.current_step == 7:
+	elif self.key_config_item_number == 7:
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.set_key_denied(3)

@@ -36,7 +36,7 @@ var re_lever = RegEx.new()
 var counter_of_wait = 0.0
 # WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
 var turn_state = &"WaitForPrompt"
-var current_step = 1
+var key_config_item_number = 1
 # 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
 var button_number = -1
 var button_presentation_name = &""
@@ -64,7 +64,7 @@ func _process(delta):
 	
 	var is_ok = false
 	
-	if self.current_step == 1:
+	if self.key_config_item_number == 1:
 		if turn_state == &"WaitForPrompt":
 			if self.counter_of_wait < 1.0:
 				self.counter_of_wait += delta
@@ -82,7 +82,7 @@ func _process(delta):
 			turn_state = &"Input"
 			is_ok = true
 		
-	elif self.current_step == 2:
+	elif self.key_config_item_number == 2:
 		if turn_state == &"InputOk":
 			$"GuiArtist/KeyConfig_CanvasLayer/決定ボタン".text = "（１）決定ボタン、メッセージ送りボタン：　" + self.button_presentation_name
 			turn_state = &"WaitForPrompt"
@@ -104,7 +104,7 @@ func _process(delta):
 			turn_state = &"Input"
 			is_ok = true
 		
-	elif self.current_step == 3:
+	elif self.key_config_item_number == 3:
 		if turn_state == &"InputOk":
 			$"GuiArtist/KeyConfig_CanvasLayer/キャンセルボタン".text = "（２）キャンセルボタン、メニューボタン：　" + self.button_presentation_name
 			turn_state = &"WaitForPrompt"
@@ -126,7 +126,7 @@ func _process(delta):
 			turn_state = &"Input"
 			is_ok = true
 
-	elif self.current_step == 4:
+	elif self.key_config_item_number == 4:
 		if turn_state == &"InputOk":
 			$"GuiArtist/KeyConfig_CanvasLayer/メッセージ早送りボタン".text = "（３）メッセージ早送りボタン：　" + self.button_presentation_name
 			turn_state = &"WaitForPrompt"
@@ -188,7 +188,7 @@ func _unhandled_input(event):
 
 	if is_ok:
 		print(acception)
-		self.current_step += 1
+		self.key_config_item_number += 1
 		turn_state = &"InputOk"
 		print("入力完了")
 ```

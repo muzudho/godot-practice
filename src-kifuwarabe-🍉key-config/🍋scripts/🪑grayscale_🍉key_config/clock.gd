@@ -36,15 +36,15 @@ func on_process(delta):
 		return
 	
 	# 初回
-	if self.moderator().current_step == 0:
+	if self.moderator().key_config_item_number == 0:
 		self.owner_key_config_node().monkey_of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
-		self.moderator().current_step += 1
+		self.moderator().key_config_item_number += 1
 		self.moderator().clear_count()
 	
 	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
-	elif self.moderator().current_step == 1:
+	elif self.moderator().key_config_item_number == 1:
 		self.moderator().on_step_regular(
 				delta,
 				null,
@@ -53,7 +53,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
-	elif self.moderator().current_step == 2:
+	elif self.moderator().key_config_item_number == 2:
 		self.moderator().on_step_regular(
 				delta,
 				&"VK_Cancel",
@@ -62,7 +62,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
-	elif self.moderator().current_step == 3:
+	elif self.moderator().key_config_item_number == 3:
 		self.moderator().on_step_regular(
 				delta,
 				&"VK_Ok",
@@ -71,7 +71,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （４）レバーの下
 	# ーーーーーーーー
-	elif self.moderator().current_step == 4:
+	elif self.moderator().key_config_item_number == 4:
 		self.moderator().on_step_regular(
 				delta,
 				&"VK_FastForward",
@@ -80,7 +80,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （５）レバーの上
 	# ーーーーーーーー
-	elif self.moderator().current_step == 5:
+	elif self.moderator().key_config_item_number == 5:
 		self.moderator().on_step_regular(
 				delta,
 				&"VK_Down",
@@ -89,7 +89,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （６）レバーの右
 	# ーーーーーーーー
-	elif self.moderator().current_step == 6:
+	elif self.moderator().key_config_item_number == 6:
 		self.moderator().on_step_regular(
 				delta,
 				&"VK_Up",
@@ -98,7 +98,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （７）レバーの左
 	# ーーーーーーーー
-	elif self.moderator().current_step == 7:
+	elif self.moderator().key_config_item_number == 7:
 		self.moderator().on_step_regular(
 				delta,
 				&"VK_Right",
@@ -107,7 +107,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# 完了
 	# ーーーーーーーー
-	elif self.moderator().current_step == 8:
+	elif self.moderator().key_config_item_number == 8:
 		self.moderator().on_step_regular(
 				delta,
 				&"VK_Left",

@@ -17,7 +17,7 @@ var button_presentation_name = &""
 
 # 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
 var counter_of_wait = 0.0
-var current_step = 0
+var key_config_item_number = 0
 # WaitForPrompt, Prompt, WaitForInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
 var turn_state = &"WaitForPrompt"
 
@@ -280,7 +280,7 @@ func on_step_regular(
 		return
 
 	elif self.turn_state == &"Prompt":
-		self.set_press_message_to_button(self.current_step)
+		self.set_press_message_to_button(self.key_config_item_number)
 		self.turn_state = &"WaitForInput"
 		return
 		
@@ -290,7 +290,7 @@ func on_step_regular(
 			return
 
 		# 最終ステップ＋１の時、完了
-		if self.current_step == 8:
+		if self.key_config_item_number == 8:
 			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
 			if self.counter_of_wait < 1.5:
 				self.counter_of_wait += delta
@@ -311,22 +311,22 @@ func on_step_regular(
 			self.set_key_canceled()
 			
 			self.turn_state = &"WaitForInput"
-			self.set_empty_the_button_message(self.current_step)
+			self.set_empty_the_button_message(self.key_config_item_number)
 			
-			self.current_step -= 1
+			self.key_config_item_number -= 1
 			# さらに連続して戻したいケースもある
 			# レバーの上
-			if self.current_step == 5 and self.monkey().key_config[&"VK_Down"] == self.monkey().key_config[&"VK_Up"]:
-				self.set_empty_the_button_message(self.current_step)
-				self.current_step -= 1
+			if self.key_config_item_number == 5 and self.monkey().key_config[&"VK_Down"] == self.monkey().key_config[&"VK_Up"]:
+				self.set_empty_the_button_message(self.key_config_item_number)
+				self.key_config_item_number -= 1
 				self.monkey().key_config.erase(&"VK_Down")
 			# レバーの左
-			elif self.current_step == 7 and self.monkey().key_config[&"VK_Right"] == self.monkey().key_config[&"VK_Left"]:
-				self.set_empty_the_button_message(self.current_step)
-				self.current_step -= 1
+			elif self.key_config_item_number == 7 and self.monkey().key_config[&"VK_Right"] == self.monkey().key_config[&"VK_Left"]:
+				self.set_empty_the_button_message(self.key_config_item_number)
+				self.key_config_item_number -= 1
 				self.monkey().key_config.erase(&"VK_Right")
 			
-			self.set_press_message_to_button(self.current_step)
+			self.set_press_message_to_button(self.key_config_item_number)
 			
 			if previous_virtual_key_name != null:
 				self.monkey().key_config.erase(previous_virtual_key_name)
@@ -343,29 +343,29 @@ func on_step_regular(
 			
 		# 決定
 		self.set_key_accepted()
-		self.set_done_message_the_button(self.current_step)
+		self.set_done_message_the_button(self.key_config_item_number)
 		self.monkey().key_config[virtual_key_name] = self.button_number
 
 		# レバーの下
-		if self.current_step == 4:
+		if self.key_config_item_number == 4:
 			if 1000 <= self.monkey().key_config[&"VK_Down"]:
 				# 軸を選択したなら、レバーの上の選択はスキップ
 				self.monkey().key_config[&"VK_Up"] = self.button_number
-				self.set_done_message_the_button(self.current_step + 1)
-				self.current_step += 2
+				self.set_done_message_the_button(self.key_config_item_number + 1)
+				self.key_config_item_number += 2
 			else:
-				self.current_step += 1
+				self.key_config_item_number += 1
 		# レバーの右
-		elif self.current_step == 6:
+		elif self.key_config_item_number == 6:
 			if 1000 <= self.monkey().key_config[&"VK_Right"]:
 				# 軸を選択したなら、レバーの左の選択はスキップ
 				self.monkey().key_config[&"VK_Left"] = self.button_number
-				self.set_done_message_the_button(self.current_step + 1)
-				self.current_step += 2
+				self.set_done_message_the_button(self.key_config_item_number + 1)
+				self.key_config_item_number += 2
 			else:
-				self.current_step += 1
+				self.key_config_item_number += 1
 		else:
-			self.current_step += 1
+			self.key_config_item_number += 1
 		
 		
 		self.turn_state = &"WaitForPrompt"
@@ -380,15 +380,15 @@ func on_process(delta):
 		return
 	
 	# 初回
-	if self.current_step == 0:
+	if self.key_config_item_number == 0:
 		self.monkey().of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
-		self.current_step += 1
+		self.key_config_item_number += 1
 		self.clear_count()
 	
 	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
-	elif self.current_step == 1:
+	elif self.key_config_item_number == 1:
 		self.on_step_regular(
 				delta,
 				null,
@@ -397,7 +397,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
-	elif self.current_step == 2:
+	elif self.key_config_item_number == 2:
 		self.on_step_regular(
 				delta,
 				&"VK_Cancel",
@@ -406,7 +406,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
-	elif self.current_step == 3:
+	elif self.key_config_item_number == 3:
 		self.on_step_regular(
 				delta,
 				&"VK_Ok",
@@ -415,7 +415,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （４）レバーの下
 	# ーーーーーーーー
-	elif self.current_step == 4:
+	elif self.key_config_item_number == 4:
 		self.on_step_regular(
 				delta,
 				&"VK_FastForward",
@@ -424,7 +424,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （５）レバーの上
 	# ーーーーーーーー
-	elif self.current_step == 5:
+	elif self.key_config_item_number == 5:
 		self.on_step_regular(
 				delta,
 				&"VK_Down",
@@ -433,7 +433,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （６）レバーの右
 	# ーーーーーーーー
-	elif self.current_step == 6:
+	elif self.key_config_item_number == 6:
 		self.on_step_regular(
 				delta,
 				&"VK_Up",
@@ -442,7 +442,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （７）レバーの左
 	# ーーーーーーーー
-	elif self.current_step == 7:
+	elif self.key_config_item_number == 7:
 		self.on_step_regular(
 				delta,
 				&"VK_Right",
@@ -451,7 +451,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# 完了
 	# ーーーーーーーー
-	elif self.current_step == 8:
+	elif self.key_config_item_number == 8:
 		self.on_step_regular(
 				delta,
 				&"VK_Left",
@@ -522,7 +522,7 @@ func on_unhandled_input(event):
 	# ーーーーーーーー
 	# （５）上キー
 	# ーーーーーーーー
-	if self.current_step == 5:
+	if self.key_config_item_number == 5:
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.set_key_denied(2)
@@ -532,7 +532,7 @@ func on_unhandled_input(event):
 	# ーーーーーーーー
 	# （７）左キー
 	# ーーーーーーーー
-	elif self.current_step == 7:
+	elif self.key_config_item_number == 7:
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.set_key_denied(3)
