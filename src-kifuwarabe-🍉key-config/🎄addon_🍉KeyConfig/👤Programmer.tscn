@@ -7,7 +7,7 @@
 [node name="📂🍉KeyConfig" type="Node2D"]
 script = ExtResource("1_031ms")
 
-[node name="Clock" type="Node" parent="."]
+[node name="⌚Clock" type="Node" parent="."]
 script = ExtResource("2_bk854")
 
 [node name="Moderator" type="Node" parent="."]

@@ -29,24 +29,28 @@ var is_enabled = false
 # ーーーーーーーー
 
 
-# ハブ取得
+# 親ノード取得
 func owner_key_config_node():
 	return $"../../📂🍉KeyConfig"
+
+
+# プログラマー・ノード取得
+func the_programmer_node():
+	return self.owner_key_config_node().monkey_of_staff().programmer().owner_node()
+
+
+# イラストレーター・ノード取得
+func the_illustrator_node():
+	return self.owner_key_config_node().monkey_of_staff().illustrator_node()
 
 
 # ーーーーーーーー
 # 起動前設定
 # ーーーーーーーー
-	
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-
-
-	# ーーーーーーーー
-	# 準備
-	# ーーーーーーーー
-
 	# 入力イベントが返す文字列。仕様さっぱり分からん
 	# 最後に半角スペースを入れること。 `Button 1` と `Button 10` を区別するために
 	re_button.compile("Joypad Button (\\d+) ")
@@ -61,7 +65,7 @@ func ready_in_staff():
 	# ーーーーーーーー
 	
 	# イラストレーター非表示
-	self.owner_key_config_node().monkey_of_staff().illustrator_node().hide()
+	the_illustrator_node().hide()
 		
 	# テロップ非表示
 	self.owner_key_config_node().get_my_telop("TextBlock").visible = false
@@ -75,7 +79,7 @@ func entry():
 	# ーーーーーーーー
 	
 	# イラストレーター表示
-	self.owner_key_config_node().monkey_of_staff().illustrator_node().show()
+	the_illustrator_node().show()
 	
 	# テロップ表示
 	self.owner_key_config_node().get_my_telop("TextBlock").visible = true
@@ -86,8 +90,8 @@ func entry():
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.owner_key_config_node().monkey_of_staff().programmer().owner_node().images.find_node("■上_大").show()
-	self.owner_key_config_node().monkey_of_staff().programmer().owner_node().images.find_node("■下").show()
+	self.the_programmer_node().images.find_node("■上_大").show()
+	self.the_programmer_node().images.find_node("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
@@ -122,14 +126,14 @@ func is_cancel_button_pressed(button_number_1):
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.owner_key_config_node().monkey_of_staff().programmer().owner_node().images.find_node("■上_大").hide()
-	self.owner_key_config_node().monkey_of_staff().programmer().owner_node().images.find_node("■下").hide()
+	self.the_programmer_node().images.find_node("■上_大").hide()
+	self.the_programmer_node().images.find_node("■下").hide()
 	# テロップ非表示
 	self.owner_key_config_node().get_my_telop("TextBlock").text = ""
 	self.owner_key_config_node().get_my_telop_canvas_layer().hide()
 
 	# BGM 停止	
-	self.owner_key_config_node().monkey_of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").stop()
+	self.the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
 	self.owner_key_config_node().on_exit()
@@ -141,12 +145,12 @@ func set_key_ok():
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.owner_key_config_node().monkey_of_staff().programmer().owner_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
+	self.the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied(reason):
-	self.owner_key_config_node().monkey_of_staff().programmer().owner_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
+	self.the_programmer_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
 		self.owner_key_config_node().get_my_telop("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
@@ -160,7 +164,7 @@ func set_key_denied(reason):
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
-	self.owner_key_config_node().monkey_of_staff().programmer().owner_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
+	self.the_programmer_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
 	self.owner_key_config_node().get_my_telop("TextBlock").text = ""
 
 
@@ -230,7 +234,7 @@ func set_press_message_to_button(step):
 	elif step == 8:
 		#											"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.owner_key_config_node().get_my_telop("TextBlock").text = "完了"
-		self.owner_key_config_node().monkey_of_staff().programmer().owner_node().sound_fx.find_node("🔔キーコンフィグ完了音").play()
+		self.the_programmer_node().sound_fx.find_node("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):

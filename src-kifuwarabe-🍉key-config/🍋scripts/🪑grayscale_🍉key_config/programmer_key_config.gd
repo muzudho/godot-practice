@@ -53,7 +53,7 @@ func get_moderator():
 
 # 時計取得
 func clock():
-	return $"Clock"
+	return $"⌚Clock"
 
 
 # ーーーーーーーー
