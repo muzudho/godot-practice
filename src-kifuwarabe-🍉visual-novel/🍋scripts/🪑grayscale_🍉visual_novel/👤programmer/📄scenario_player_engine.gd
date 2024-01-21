@@ -111,7 +111,7 @@ func get_current_paragraph_of_scenario():
 	var department_value = self.get_current_department_value()
 	var message_window_gui = self.get_current_message_window_gui()
 
-	var merged_scenario_document = self.monkey().of_staff().scenario_writer().get_merged_scenario_document(department_value.name)
+	var merged_scenario_document = self.monkey().of_staff().scenario_writer().owner_node().get_merged_scenario_document(department_value.name)
 	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
 
 
@@ -175,7 +175,7 @@ func on_choice_selected(row_number):
 	print("［助監］　選んだ選択肢行番号：" + str(row_number))
 
 	# 辞書
-	var choices_mappings_a = self.monkey().of_staff().scenario_writer().get_merged_choices_mappings(department_name)
+	var choices_mappings_a = self.monkey().of_staff().scenario_writer().owner_node().get_merged_choices_mappings(department_name)
 
 	# 区画名。実質的には選択肢の配列
 	var section_obj = choices_mappings_a[section_name]

@@ -107,7 +107,7 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = self.monkey().of_staff().scenario_writer().get_merged_scenario_document(department_name).keys()[0]
+		department_value.section_name = self.monkey().of_staff().scenario_writer().owner_node().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
 
@@ -289,7 +289,7 @@ func _unhandled_input(event):
 #	_unhandled_input()
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if self.monkey().of_staff().scenario_writer().on_virtual_key_input(
+	if self.monkey().of_staff().scenario_writer().owner_node().on_virtual_key_input(
 			virtual_key,
 			lever_value,
 			vk_operation):
