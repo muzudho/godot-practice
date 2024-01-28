@@ -44,7 +44,7 @@ func entry():
 	self.monkey().the_illustrator_node().show()
 	
 	# テロップ表示
-	self.monkey().owner_key_config_node().get_my_telop("TextBlock").visible = true
+	self.monkey().get_my_telop("TextBlock").visible = true
 
 
 	# ーーーーーーーー
@@ -90,7 +90,7 @@ func on_exit():
 	self.monkey().the_programmer_node().images.find_node("■下").hide()
 	# テロップ非表示
 	self.monkey().display().clear_message()
-	self.monkey().owner_key_config_node().get_my_telop_canvas_layer().hide()
+	self.monkey().the_telop_canvas_layer().hide()
 
 	# BGM 停止	
 	self.monkey().the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").stop()
