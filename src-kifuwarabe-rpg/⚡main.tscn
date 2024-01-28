@@ -271,7 +271,7 @@ script = ExtResource("39_w7ugv")
 
 [node name="📂ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("41_kb3a0")]
 
-[node name="👤Programmer_Bench" parent="." instance=ExtResource("39_5lrt2")]
+[node name="👤Programmer_ForBench" parent="." instance=ExtResource("39_5lrt2")]
 
 [node name="👤Programmer_MessageWindow" type="Node" parent="."]
 
