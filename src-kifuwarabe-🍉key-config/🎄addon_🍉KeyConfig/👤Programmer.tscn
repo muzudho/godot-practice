@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://kqejd4uyxvtm"]
+[gd_scene load_steps=11 format=3 uid="uid://kqejd4uyxvtm"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/programmer_key_config.gd" id="1_031ms"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/clock.gd" id="2_bk854"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/input.gd" id="3_ti620"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/statemachine_handler.gd" id="6_7xiab"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/parser.gd" id="6_i74c1"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/statemachine_behaviour.gd" id="7_iph6o"]
 
 [node name="📂🍉KeyConfig" type="Node2D"]
 script = ExtResource("1_031ms")
@@ -27,6 +28,9 @@ script = ExtResource("3_enr71")
 
 [node name="Handler" type="Node" parent="🍇Statemachine"]
 script = ExtResource("6_7xiab")
+
+[node name="🍇StatemachineBehaviour" type="Node" parent="."]
+script = ExtResource("7_iph6o")
 
 [node name="Moderator" type="Node" parent="."]
 script = ExtResource("2_j1eyt")

@@ -14,11 +14,6 @@ func monkey():
 # その他
 # ーーーーーーーー
 
-func on_entry():
-	# ローカルのプログラマー・ノードへアクセス
-	self.monkey().the_programmer_node().on_key_config_entered()
-
-
 func on_exit():
 	self.monkey().moderator().clear_count_by_step()
 	

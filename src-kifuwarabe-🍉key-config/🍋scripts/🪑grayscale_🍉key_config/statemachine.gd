@@ -17,6 +17,8 @@ func handler():
 # Terminated, IntervalUntilPrompt, Prompt, IntervalUntilInput, WaitingForInput, InputOk の６つ。 Wait を入れないと反応過敏になってしまう
 var state = &"Terminated"
 
+var behaviour_of_entry = null
+
 
 # ーーーーーーーー
 # 状態確認
@@ -35,7 +37,7 @@ func is_terminated():
 func entry():
 	# これで、入力受付と時計が働きだす
 	self.state = &"IntervalUntilPrompt"
-	self.handler().on_entry()
+	self.behaviour_of_entry.call()
 
 
 # 入力を受け付けた
