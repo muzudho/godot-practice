@@ -1,4 +1,6 @@
 # ディスプレイ（Display；画面）
+#
+#	画面の表示。演奏も含む
 extends Node
 
 
@@ -168,3 +170,41 @@ func get_button_name_by_number(button_number_1):
 		return "ボタン" + str(button_number_1)
 
 	return "レバー" + str(button_number_1 - 1000)
+
+
+# キーコンフィグ画面に入る時の演出
+func perform_first():
+	# 音楽
+	self.monkey().of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
+	
+	# イラストレーター表示
+	self.monkey().the_illustrator_node().show()
+	
+	# テロップ表示
+	self.monkey().get_my_telop("TextBlock").visible = true
+
+	# GUI - メッセージ・ウィンドウ
+	self.monkey().the_programmer_node().images.find_node("■上_大").show()
+	self.monkey().the_programmer_node().images.find_node("■下").show()
+
+	# テロップ
+	self.monkey().display().set_empty_the_button_message(1)
+	self.monkey().display().set_empty_the_button_message(2)
+	self.monkey().display().set_empty_the_button_message(3)
+	self.monkey().display().set_ok_message()
+
+
+# キーコンフィグ終了時
+func on_exit():
+	# GUI - メッセージ・ウィンドウ
+	self.monkey().the_programmer_node().images.find_node("■上_大").hide()
+	self.monkey().the_programmer_node().images.find_node("■下").hide()
+	# テロップ非表示
+	self.monkey().display().clear_message()
+	self.monkey().the_telop_canvas_layer().hide()
+
+	# BGM 停止	
+	self.monkey().the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").stop()
+
+	# ディレクターのイベントハンドラ呼出し
+	self.monkey().owner_key_config_node().on_exit()

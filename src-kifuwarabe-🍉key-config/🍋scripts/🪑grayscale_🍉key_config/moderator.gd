@@ -6,6 +6,9 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
+# `.entry()` を呼び出すと真にする。キー・コンフィグが完了するとまた偽にセットする
+var is_enabled = false
+
 # 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
 var button_number = -1
 var button_presentation_name = &""
@@ -15,9 +18,6 @@ var counter_of_wait = 0.0
 
 # キーコンフィグのキーの数に対応
 var key_config_item_number = 0
-
-# `.entry()` を呼び出すと真にする。キー・コンフィグが完了するとまた偽にセットする
-var is_enabled = false
 
 
 # ーーーーーーーー
@@ -35,39 +35,13 @@ func monkey():
 
 # キーコンフィグ画面に入る
 func entry():
-	
-	# ーーーーーーーー
-	# 表示
-	# ーーーーーーーー
-	
-	# イラストレーター表示
-	self.monkey().the_illustrator_node().show()
-	
-	# テロップ表示
-	self.monkey().get_my_telop("TextBlock").visible = true
-
-
-	# ーーーーーーーー
-	# 設定
-	# ーーーーーーーー
-	#
-	# GUI - メッセージ・ウィンドウ
-	self.monkey().the_programmer_node().images.find_node("■上_大").show()
-	self.monkey().the_programmer_node().images.find_node("■下").show()
-	#
-	# テロップ
-	self.monkey().display().set_empty_the_button_message(1)
-	self.monkey().display().set_empty_the_button_message(2)
-	self.monkey().display().set_empty_the_button_message(3)
-	self.monkey().display().set_ok_message()
-	
+	# これで時計が働きだす
 	self.is_enabled = true
 
 
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
-
 
 # ボタンが重複するか？
 func is_key_duplicated(button_number_1):
@@ -80,23 +54,6 @@ func is_cancel_button_pressed(button_number_1):
 		return false
 	
 	return button_number_1 == self.monkey().owner_key_config_node().key_config[&"VK_Cancel"]
-
-
-# キーコンフィグ終了時
-func on_exit():
-	self.is_enabled = false
-	# GUI - メッセージ・ウィンドウ
-	self.monkey().the_programmer_node().images.find_node("■上_大").hide()
-	self.monkey().the_programmer_node().images.find_node("■下").hide()
-	# テロップ非表示
-	self.monkey().display().clear_message()
-	self.monkey().the_telop_canvas_layer().hide()
-
-	# BGM 停止	
-	self.monkey().the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").stop()
-
-	# ディレクターのイベントハンドラ呼出し
-	self.monkey().owner_key_config_node().on_exit()
 
 
 # キーコンフィグ　ボタン設定を受入
@@ -155,7 +112,9 @@ func on_step_regular(
 			
 			self.monkey().statemachine().state = &"Input"
 			self.clear_count()
-			self.on_exit()
+			
+			self.is_enabled = false
+			self.monkey().display().on_exit()
 			return
 
 		self.monkey().statemachine().state = &"Input"
@@ -228,13 +187,14 @@ func on_step_regular(
 		self.monkey().statemachine().state = &"WaitForPrompt"
 
 
-# ボタン番号を、仮想キー名に変換。該当がなければ空文字列
-func get_virtual_key_name_by_button_number(button_number_1):
-	for key in self.monkey().owner_key_config_node().key_config.keys():
-		var value = self.monkey().owner_key_config_node().key_config[key]
-		if button_number_1 == value:
-			return key
-	return &""
+# 使ってない？
+## ボタン番号を、仮想キー名に変換。該当がなければ空文字列
+#func get_virtual_key_name_by_button_number(button_number_1):
+#	for key in self.monkey().owner_key_config_node().key_config.keys():
+#		var value = self.monkey().owner_key_config_node().key_config[key]
+#		if button_number_1 == value:
+#			return key
+#	return &""
 
 
 func on_unhandled_input(event):

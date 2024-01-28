@@ -27,7 +27,8 @@ func on_process(delta):
 	
 	# 初回
 	if self.monkey().moderator().key_config_item_number == 0:
-		self.monkey().of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
+		# 画面の表示、演奏
+		self.monkey().display().perform_first()
 		self.monkey().moderator().key_config_item_number += 1
 		self.monkey().moderator().clear_count()
 	
