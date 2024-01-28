@@ -114,7 +114,7 @@ func _ready():
 
 func ready_in_staff():
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.monkey().scenario_player_node().get_all_instruction_codes()
+	var _all_instruction_code = self.monkey().scenario_player_node().sub_monkey().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示

@@ -28,28 +28,9 @@ func sub_monkey():
 	return $"🐵Monkey"
 
 
-# 全ての命令コード一覧
-func get_all_instruction_codes():
-	if self.directory_for_instruction_code_and_node_name == null:
-		self.directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
-
-		MonkeyHelper.search_node_name_begins_with(
-				# 命令のノード名は `📗` で始まるものとする
-				&"📗",
-				# 探す場所
-				# 本当は `👤Programmer` ノードの下のどこかにある `📂ScenarioPlayer_🍉VisualNovel` ノードのさらに下の `📂Instructions` ノードの下を探して欲しいが。
-				self.sub_monkey().of_staff().programmer().owner_node(),
-				func(child_node):
-					# コードにノード名を紐づける
-					self.directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
-
-	return self.directory_for_instruction_code_and_node_name
-
-
 # ーーーーーーーー
 # プロパティーズ
 # ーーーーーーーー
-
 
 # 現在の部門変数
 func get_current_department_value():
