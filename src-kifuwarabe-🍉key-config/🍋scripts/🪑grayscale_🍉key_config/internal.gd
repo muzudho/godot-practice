@@ -22,3 +22,12 @@ var previous_virtual_key_name = &""
 
 # 仮想キー名
 var virtual_key_name = &""
+
+
+# ーーーーーーーー
+# アクセッサ―
+# ーーーーーーーー
+
+func clear_count_by_step():
+	self.button_number = -1
+	self.counter_of_wait = 0.0

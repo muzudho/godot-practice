@@ -49,11 +49,6 @@ func internal():
 	return $"../🚪Internal"
 
 
-# モデレーター取得
-func moderator():
-	return $"../Moderator"
-
-
 # 入力のためのパーサー
 func parser_for_input():
 	return $"../🅿ParserForInput"

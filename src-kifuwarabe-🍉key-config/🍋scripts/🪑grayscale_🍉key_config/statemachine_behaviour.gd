@@ -35,7 +35,7 @@ func behaviour_of_entry():
 
 # 終了時の振る舞い
 func behaviour_of_exit():
-	self.monkey().moderator().clear_count_by_step()
+	self.monkey().internal().clear_count_by_step()
 	
 	# 画面表示、演奏
 	self.monkey().display().on_exit()
@@ -46,7 +46,7 @@ func behaviour_of_exit():
 
 # 入力しろ
 func behaviour_of_go_input():
-	self.monkey().moderator().clear_count_by_step()
+	self.monkey().internal().clear_count_by_step()
 
 
 # 入力に再挑戦
@@ -75,12 +75,12 @@ func behaviour_of_try_inputting_again(reason):
 		if self.monkey().internal().previous_virtual_key_name != null:
 			self.monkey().owner_key_config_node().key_config.erase(self.monkey().internal().previous_virtual_key_name)
 		
-		self.monkey().moderator().clear_count_by_step()
+		self.monkey().internal().clear_count_by_step()
 
 	# 既存のキーと被って、再入力
 	elif reason == &"KeyDuplicated":
 		self.monkey().display().on_pushed_button_denied(1)
-		self.monkey().moderator().clear_count_by_step()
+		self.monkey().internal().clear_count_by_step()
 	
 	# インターバル後
 	elif reason == &"AfterInterval":

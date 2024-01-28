@@ -229,11 +229,11 @@ func on_cancel_button_pushed():
 	self.monkey().display().clear_message()
 
 
-# 使ってない？
-## ボタン番号を、仮想キー名に変換。該当がなければ空文字列
-#func get_virtual_key_name_by_button_number(button_number_1):
-#	for key in self.monkey().owner_key_config_node().key_config.keys():
-#		var value = self.monkey().owner_key_config_node().key_config[key]
-#		if button_number_1 == value:
-#			return key
-#	return &""
+# 内部では使ってない。外部向け。
+# ボタン番号を、仮想キー名に変換。該当がなければ空文字列
+func get_virtual_key_name_by_button_number(button_number_1):
+	for key in self.monkey().owner_key_config_node().key_config.keys():
+		var value = self.monkey().owner_key_config_node().key_config[key]
+		if button_number_1 == value:
+			return key
+	return &""

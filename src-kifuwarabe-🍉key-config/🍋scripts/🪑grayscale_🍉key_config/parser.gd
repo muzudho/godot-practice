@@ -44,11 +44,11 @@ func get_button_number_by_text(event_as_text):
 	return -1
 
 
-## 使ってない？
-## レバーのイベント文字列から、-1.0 ～ 1.0 の値を取得
-#func get_lever_value_by_text(event_as_text):
-#	var matched = self.re_lever.search(event_as_text)
-#	if matched:
-#		return float(matched.get_string(2))
-#
-#	return 0.0
+# 内部では使ってない。外部向け。
+# レバーのイベント文字列から、-1.0 ～ 1.0 の値を取得
+func get_lever_value_by_text(event_as_text):
+	var matched = self.re_lever.search(event_as_text)
+	if matched:
+		return float(matched.get_string(2))
+
+	return 0.0
