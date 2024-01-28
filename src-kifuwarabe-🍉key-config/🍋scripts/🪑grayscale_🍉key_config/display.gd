@@ -7,14 +7,9 @@ extends Node
 # ーーーーーーーー
 
 
-# 親ノード取得
-func owner_key_config_node():
-	return $"../../📂🍉KeyConfig"
-
-
-# イラストレーター・ノード取得
-func the_illustrator_node():
-	return self.owner_key_config_node().monkey_of_staff().illustrator_node()
+# 猿取得
+func monkey():
+	return $"../🐵Monkey"
 
 
 # ーーーーーーーー
@@ -29,7 +24,7 @@ func ready_in_staff():
 	# ーーーーーーーー
 	
 	# イラストレーター非表示
-	the_illustrator_node().hide()
+	self.monkey().the_illustrator_node().hide()
 		
 	# テロップ非表示
-	self.owner_key_config_node().get_my_telop("TextBlock").visible = false
+	self.monkey().owner_key_config_node().get_my_telop("TextBlock").visible = false

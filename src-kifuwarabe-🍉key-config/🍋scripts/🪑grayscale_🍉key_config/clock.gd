@@ -7,19 +7,9 @@ extends Node
 # ーーーーーーーー
 
 
-# ハブ取得
-func owner_key_config_node():
-	return $"../../📂🍉KeyConfig"
-
-
-# ハブ取得
-func moderator():
-	return $"../Moderator"
-
-
-# 状態遷移機械取得
-func statemachine():
-	return $"../🍇Statemachine"
+# 猿取得
+func monkey():
+	return $"../🐵Monkey"
 
 
 # ーーーーーーーー
@@ -29,23 +19,23 @@ func statemachine():
 
 func on_process(delta):
 
-	if not self.moderator().is_enabled:
+	if not self.monkey().moderator().is_enabled:
 		return
 	
-	if not (self.statemachine().state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
+	if not (self.monkey().statemachine().state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
 		return
 	
 	# 初回
-	if self.moderator().key_config_item_number == 0:
-		self.owner_key_config_node().monkey_of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
-		self.moderator().key_config_item_number += 1
-		self.moderator().clear_count()
+	if self.monkey().moderator().key_config_item_number == 0:
+		self.monkey().owner_key_config_node().monkey_of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
+		self.monkey().moderator().key_config_item_number += 1
+		self.monkey().moderator().clear_count()
 	
 	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
-	elif self.moderator().key_config_item_number == 1:
-		self.moderator().on_step_regular(
+	elif self.monkey().moderator().key_config_item_number == 1:
+		self.monkey().moderator().on_step_regular(
 				delta,
 				null,
 				&"VK_Cancel")
@@ -53,8 +43,8 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
-	elif self.moderator().key_config_item_number == 2:
-		self.moderator().on_step_regular(
+	elif self.monkey().moderator().key_config_item_number == 2:
+		self.monkey().moderator().on_step_regular(
 				delta,
 				&"VK_Cancel",
 				&"VK_Ok")
@@ -62,8 +52,8 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
-	elif self.moderator().key_config_item_number == 3:
-		self.moderator().on_step_regular(
+	elif self.monkey().moderator().key_config_item_number == 3:
+		self.monkey().moderator().on_step_regular(
 				delta,
 				&"VK_Ok",
 				&"VK_FastForward")
@@ -71,8 +61,8 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （４）レバーの下
 	# ーーーーーーーー
-	elif self.moderator().key_config_item_number == 4:
-		self.moderator().on_step_regular(
+	elif self.monkey().moderator().key_config_item_number == 4:
+		self.monkey().moderator().on_step_regular(
 				delta,
 				&"VK_FastForward",
 				&"VK_Down")
@@ -80,8 +70,8 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （５）レバーの上
 	# ーーーーーーーー
-	elif self.moderator().key_config_item_number == 5:
-		self.moderator().on_step_regular(
+	elif self.monkey().moderator().key_config_item_number == 5:
+		self.monkey().moderator().on_step_regular(
 				delta,
 				&"VK_Down",
 				&"VK_Up")
@@ -89,8 +79,8 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （６）レバーの右
 	# ーーーーーーーー
-	elif self.moderator().key_config_item_number == 6:
-		self.moderator().on_step_regular(
+	elif self.monkey().moderator().key_config_item_number == 6:
+		self.monkey().moderator().on_step_regular(
 				delta,
 				&"VK_Up",
 				&"VK_Right")
@@ -98,8 +88,8 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （７）レバーの左
 	# ーーーーーーーー
-	elif self.moderator().key_config_item_number == 7:
-		self.moderator().on_step_regular(
+	elif self.monkey().moderator().key_config_item_number == 7:
+		self.monkey().moderator().on_step_regular(
 				delta,
 				&"VK_Right",
 				&"VK_Left")
@@ -107,8 +97,8 @@ func on_process(delta):
 	# ーーーーーーーー
 	# 完了
 	# ーーーーーーーー
-	elif self.moderator().key_config_item_number == 8:
-		self.moderator().on_step_regular(
+	elif self.monkey().moderator().key_config_item_number == 8:
+		self.monkey().moderator().on_step_regular(
 				delta,
 				&"VK_Left",
 				null)

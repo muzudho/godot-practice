@@ -29,24 +29,9 @@ var is_enabled = false
 # ーーーーーーーー
 
 
-# 親ノード取得
-func owner_key_config_node():
-	return $"../../📂🍉KeyConfig"
-
-
-# 状態遷移機械取得
-func statemachine():
-	return $"../🍇Statemachine"
-
-
-# プログラマー・ノード取得
-func the_programmer_node():
-	return self.owner_key_config_node().monkey_of_staff().programmer().owner_node()
-
-
-# イラストレーター・ノード取得
-func the_illustrator_node():
-	return self.owner_key_config_node().monkey_of_staff().illustrator_node()
+# 猿取得
+func monkey():
+	return $"../🐵Monkey"
 
 
 # ーーーーーーーー
@@ -71,10 +56,10 @@ func entry():
 	# ーーーーーーーー
 	
 	# イラストレーター表示
-	the_illustrator_node().show()
+	self.monkey().the_illustrator_node().show()
 	
 	# テロップ表示
-	self.owner_key_config_node().get_my_telop("TextBlock").visible = true
+	self.monkey().owner_key_config_node().get_my_telop("TextBlock").visible = true
 
 
 	# ーーーーーーーー
@@ -82,14 +67,14 @@ func entry():
 	# ーーーーーーーー
 	#
 	# GUI - メッセージ・ウィンドウ
-	self.the_programmer_node().images.find_node("■上_大").show()
-	self.the_programmer_node().images.find_node("■下").show()
+	self.monkey().the_programmer_node().images.find_node("■上_大").show()
+	self.monkey().the_programmer_node().images.find_node("■下").show()
 	#
 	# テロップ
 	self.set_empty_the_button_message(1)
 	self.set_empty_the_button_message(2)
 	self.set_empty_the_button_message(3)
-	self.owner_key_config_node().get_my_telop("TextBlock").text = """\
+	self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = """\
 	＊　＊　＊
 	"""
 	
@@ -103,161 +88,161 @@ func entry():
 
 # ボタンが重複するか？
 func is_key_duplicated(button_number_1):
-	return button_number_1 in self.owner_key_config_node().key_config.values()
+	return button_number_1 in self.monkey().owner_key_config_node().key_config.values()
 
 
 # キャンセルボタン押下か？
 func is_cancel_button_pressed(button_number_1):
-	if not (&"VK_Cancel" in self.owner_key_config_node().key_config):
+	if not (&"VK_Cancel" in self.monkey().owner_key_config_node().key_config):
 		return false
 	
-	return button_number_1 == self.owner_key_config_node().key_config[&"VK_Cancel"]
+	return button_number_1 == self.monkey().owner_key_config_node().key_config[&"VK_Cancel"]
 
 
 # キーコンフィグ終了時
 func on_exit():
 	self.is_enabled = false
 	# GUI - メッセージ・ウィンドウ
-	self.the_programmer_node().images.find_node("■上_大").hide()
-	self.the_programmer_node().images.find_node("■下").hide()
+	self.monkey().the_programmer_node().images.find_node("■上_大").hide()
+	self.monkey().the_programmer_node().images.find_node("■下").hide()
 	# テロップ非表示
-	self.owner_key_config_node().get_my_telop("TextBlock").text = ""
-	self.owner_key_config_node().get_my_telop_canvas_layer().hide()
+	self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = ""
+	self.monkey().owner_key_config_node().get_my_telop_canvas_layer().hide()
 
 	# BGM 停止	
-	self.the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").stop()
+	self.monkey().the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").stop()
 
 	# ディレクターのイベントハンドラ呼出し
-	self.owner_key_config_node().on_exit()
+	self.monkey().owner_key_config_node().on_exit()
 
 
 func set_key_ok():
-	self.owner_key_config_node().get_my_telop("TextBlock").text = "＊　＊　＊"
+	self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = "＊　＊　＊"
 
 
 # キーコンフィグ　ボタン設定を受入
 func set_key_accepted():
-	self.the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
+	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_denied(reason):
-	self.the_programmer_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
+	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
 
 	if reason == 1:
-		self.owner_key_config_node().get_my_telop("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
+		self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = "他の操作と被ってはいけません。\n他のキーを選んでください"
 
 	if reason == 2:
-		self.owner_key_config_node().get_my_telop("TextBlock").text = "下キーがボタンのときは、\n上キーもボタンを選んでください"
+		self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = "下キーがボタンのときは、\n上キーもボタンを選んでください"
 
 	if reason == 3:
-		self.owner_key_config_node().get_my_telop("TextBlock").text = "右キーがボタンのときは、\n左キーもボタンを選んでください"
+		self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = "右キーがボタンのときは、\n左キーもボタンを選んでください"
 
 
 # キーコンフィグ　ボタン設定が拒否
 func set_key_canceled():
-	self.the_programmer_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
-	self.owner_key_config_node().get_my_telop("TextBlock").text = ""
+	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
+	self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = ""
 
 
 func set_empty_the_button_message(step):
 	if step == 1:
 		#						"１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（１）ボタン").text = "（１）"
+		self.monkey().owner_key_config_node().get_my_telop("（１）ボタン").text = "（１）"
 
 	elif step == 2:
 		#						"１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（２）ボタン").text = "（２）"
+		self.monkey().owner_key_config_node().get_my_telop("（２）ボタン").text = "（２）"
 
 	elif step == 3:
 		#						"１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（３）ボタン").text = "（３）"
+		self.monkey().owner_key_config_node().get_my_telop("（３）ボタン").text = "（３）"
 
 	elif step == 4:
 		#						"１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（４）ボタン").text = "（４）"
+		self.monkey().owner_key_config_node().get_my_telop("（４）ボタン").text = "（４）"
 
 	elif step == 5:
 		#						"１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（５）ボタン").text = "（５）"
+		self.monkey().owner_key_config_node().get_my_telop("（５）ボタン").text = "（５）"
 
 	elif step == 6:
 		#						"１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（６）ボタン").text = "（６）"
+		self.monkey().owner_key_config_node().get_my_telop("（６）ボタン").text = "（６）"
 
 	elif step == 7:
 		#						"１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（７）ボタン").text = "（７）"
+		self.monkey().owner_key_config_node().get_my_telop("（７）ボタン").text = "（７）"
 
 
 func set_press_message_to_button(step):
 	if step == 1:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
+		self.monkey().owner_key_config_node().get_my_telop("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
 
 	elif step == 2:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
+		self.monkey().owner_key_config_node().get_my_telop("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
 
 	elif step == 3:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
+		self.monkey().owner_key_config_node().get_my_telop("（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（４）ボタン").text = "（４）下キー　を入れてください"
+		self.monkey().owner_key_config_node().get_my_telop("（４）ボタン").text = "（４）下キー　を入れてください"
 
 	elif step == 5:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（５）ボタン").text = "（５）上キー　を入れてください"
-		self.owner_key_config_node().get_my_telop("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
+		self.monkey().owner_key_config_node().get_my_telop("（５）ボタン").text = "（５）上キー　を入れてください"
+		self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
 
 	elif step == 6:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（６）ボタン").text = "（６）右キー　を入れてください"
+		self.monkey().owner_key_config_node().get_my_telop("（６）ボタン").text = "（６）右キー　を入れてください"
 
 	elif step == 7:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（７）ボタン").text = "（７）左キー　を入れてください"
-		self.owner_key_config_node().get_my_telop("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
+		self.monkey().owner_key_config_node().get_my_telop("（７）ボタン").text = "（７）左キー　を入れてください"
+		self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
 
 	# 完了時
 	elif step == 8:
 		#											"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("TextBlock").text = "完了"
-		self.the_programmer_node().sound_fx.find_node("🔔キーコンフィグ完了音").play()
+		self.monkey().owner_key_config_node().get_my_telop("TextBlock").text = "完了"
+		self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ完了音").play()
 
 
 func set_done_message_the_button(step):
 	if step == 1:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
-		self.owner_key_config_node().get_my_telop("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + self.button_presentation_name
+		self.monkey().owner_key_config_node().get_my_telop("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + self.button_presentation_name
 
 	elif step == 2:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.owner_key_config_node().get_my_telop("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + self.button_presentation_name
+		self.monkey().owner_key_config_node().get_my_telop("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + self.button_presentation_name
 
 	elif step == 3:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.owner_key_config_node().get_my_telop("（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
+		self.monkey().owner_key_config_node().get_my_telop("（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.owner_key_config_node().get_my_telop("（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.monkey().owner_key_config_node().get_my_telop("（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 5:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.owner_key_config_node().get_my_telop("（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.monkey().owner_key_config_node().get_my_telop("（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 6:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.owner_key_config_node().get_my_telop("（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.monkey().owner_key_config_node().get_my_telop("（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 	elif step == 7:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
-		self.owner_key_config_node().get_my_telop("（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
+		self.monkey().owner_key_config_node().get_my_telop("（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + self.button_presentation_name
 
 
 func clear_count():
@@ -272,20 +257,20 @@ func on_step_regular(
 		virtual_key_name):
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
-	if self.statemachine().state == &"WaitForPrompt":
+	if self.monkey().statemachine().state == &"WaitForPrompt":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
 			return
 			
-		self.statemachine().state = &"Prompt"
+		self.monkey().statemachine().state = &"Prompt"
 		return
 
-	elif self.statemachine().state == &"Prompt":
+	elif self.monkey().statemachine().state == &"Prompt":
 		self.set_press_message_to_button(self.key_config_item_number)
-		self.statemachine().state = &"WaitForInput"
+		self.monkey().statemachine().state = &"WaitForInput"
 		return
 		
-	elif self.statemachine().state == &"WaitForInput":
+	elif self.monkey().statemachine().state == &"WaitForInput":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
 			return
@@ -297,40 +282,40 @@ func on_step_regular(
 				self.counter_of_wait += delta
 				return
 			
-			self.statemachine().state = &"Input"
+			self.monkey().statemachine().state = &"Input"
 			self.clear_count()
 			self.on_exit()
 			return
 
-		self.statemachine().state = &"Input"
+		self.monkey().statemachine().state = &"Input"
 		self.clear_count()
 		return
 
-	elif self.statemachine().state == &"InputOk":
+	elif self.monkey().statemachine().state == &"InputOk":
 		# キャンセルボタン押下時は、１つか、２つ戻す
 		if self.is_cancel_button_pressed(self.button_number):
 			self.set_key_canceled()
 			
-			self.statemachine().state = &"WaitForInput"
+			self.monkey().statemachine().state = &"WaitForInput"
 			self.set_empty_the_button_message(self.key_config_item_number)
 			
 			self.key_config_item_number -= 1
 			# さらに連続して戻したいケースもある
 			# レバーの上
-			if self.key_config_item_number == 5 and self.owner_key_config_node().key_config[&"VK_Down"] == self.owner_key_config_node().key_config[&"VK_Up"]:
+			if self.key_config_item_number == 5 and self.monkey().owner_key_config_node().key_config[&"VK_Down"] == self.monkey().owner_key_config_node().key_config[&"VK_Up"]:
 				self.set_empty_the_button_message(self.key_config_item_number)
 				self.key_config_item_number -= 1
-				self.owner_key_config_node().key_config.erase(&"VK_Down")
+				self.monkey().owner_key_config_node().key_config.erase(&"VK_Down")
 			# レバーの左
-			elif self.key_config_item_number == 7 and self.owner_key_config_node().key_config[&"VK_Right"] == self.owner_key_config_node().key_config[&"VK_Left"]:
+			elif self.key_config_item_number == 7 and self.monkey().owner_key_config_node().key_config[&"VK_Right"] == self.monkey().owner_key_config_node().key_config[&"VK_Left"]:
 				self.set_empty_the_button_message(self.key_config_item_number)
 				self.key_config_item_number -= 1
-				self.owner_key_config_node().key_config.erase(&"VK_Right")
+				self.monkey().owner_key_config_node().key_config.erase(&"VK_Right")
 			
 			self.set_press_message_to_button(self.key_config_item_number)
 			
 			if previous_virtual_key_name != null:
-				self.owner_key_config_node().key_config.erase(previous_virtual_key_name)
+				self.monkey().owner_key_config_node().key_config.erase(previous_virtual_key_name)
 			
 			self.clear_count()
 			return
@@ -338,29 +323,29 @@ func on_step_regular(
 		# 既存のキーと被る場合、やり直しさせる
 		if self.is_key_duplicated(self.button_number):
 			self.set_key_denied(1)
-			self.statemachine().state = &"WaitForInput"
+			self.monkey().statemachine().state = &"WaitForInput"
 			self.clear_count()
 			return
 			
 		# 決定
 		self.set_key_accepted()
 		self.set_done_message_the_button(self.key_config_item_number)
-		self.owner_key_config_node().key_config[virtual_key_name] = self.button_number
+		self.monkey().owner_key_config_node().key_config[virtual_key_name] = self.button_number
 
 		# レバーの下
 		if self.key_config_item_number == 4:
-			if 1000 <= self.owner_key_config_node().key_config[&"VK_Down"]:
+			if 1000 <= self.monkey().owner_key_config_node().key_config[&"VK_Down"]:
 				# 軸を選択したなら、レバーの上の選択はスキップ
-				self.owner_key_config_node().key_config[&"VK_Up"] = self.button_number
+				self.monkey().owner_key_config_node().key_config[&"VK_Up"] = self.button_number
 				self.set_done_message_the_button(self.key_config_item_number + 1)
 				self.key_config_item_number += 2
 			else:
 				self.key_config_item_number += 1
 		# レバーの右
 		elif self.key_config_item_number == 6:
-			if 1000 <= self.owner_key_config_node().key_config[&"VK_Right"]:
+			if 1000 <= self.monkey().owner_key_config_node().key_config[&"VK_Right"]:
 				# 軸を選択したなら、レバーの左の選択はスキップ
-				self.owner_key_config_node().key_config[&"VK_Left"] = self.button_number
+				self.monkey().owner_key_config_node().key_config[&"VK_Left"] = self.button_number
 				self.set_done_message_the_button(self.key_config_item_number + 1)
 				self.key_config_item_number += 2
 			else:
@@ -369,7 +354,7 @@ func on_step_regular(
 			self.key_config_item_number += 1
 		
 		
-		self.statemachine().state = &"WaitForPrompt"
+		self.monkey().statemachine().state = &"WaitForPrompt"
 
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
@@ -409,8 +394,8 @@ func get_button_name_by_number(button_number_1):
 
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
 func get_virtual_key_name_by_button_number(button_number_1):
-	for key in self.owner_key_config_node().key_config.keys():
-		var value = self.owner_key_config_node().key_config[key]
+	for key in self.monkey().owner_key_config_node().key_config.keys():
+		var value = self.monkey().owner_key_config_node().key_config[key]
 		if button_number_1 == value:
 			return key
 	return &""
@@ -425,7 +410,7 @@ func on_unhandled_input(event):
 	var event_as_text = event.as_text()
 	print("入力：　" + event_as_text)
 	
-	if self.statemachine().state != &"Input":
+	if self.monkey().statemachine().state != &"Input":
 		return
 
 
@@ -440,7 +425,7 @@ func on_unhandled_input(event):
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.set_key_denied(2)
-			self.statemachine().state = &"WaitForInput"
+			self.monkey().statemachine().state = &"WaitForInput"
 			return
 
 	# ーーーーーーーー
@@ -450,7 +435,7 @@ func on_unhandled_input(event):
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.set_key_denied(3)
-			self.statemachine().state = &"WaitForInput"
+			self.monkey().statemachine().state = &"WaitForInput"
 			return
 
 
@@ -460,4 +445,4 @@ func on_unhandled_input(event):
 		self.button_presentation_name = self.get_button_name_by_number(self.button_number)
 		
 		print("受付：　" + self.button_presentation_name)
-		self.statemachine().state = &"InputOk"
+		self.monkey().statemachine().state = &"InputOk"
