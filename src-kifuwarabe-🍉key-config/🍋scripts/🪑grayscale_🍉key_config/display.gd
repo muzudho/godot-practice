@@ -177,17 +177,19 @@ func get_button_name_by_number(button_number_1):
 # キーコンフィグ画面に入る時の演出
 func perform_first():
 	# 音楽
-	self.monkey().of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
-	
+	self.monkey().the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").play()
+
 	# イラストレーター表示
 	self.monkey().the_illustrator_node().show()
 	
 	# テロップ表示
+	self.monkey().of_staff().telop_coordinator().show()
 	self.monkey().get_my_telop("TextBlock").visible = true
 
 	# GUI - メッセージ・ウィンドウ
 	self.monkey().the_programmer_node().images.find_node("■上_大").show()
 	self.monkey().the_programmer_node().images.find_node("■下").show()
+	self.monkey().the_programmer_node().telops.find_node("Ｔキーコンフィグ").show()
 
 	# テロップ
 	self.monkey().display().set_empty_the_button_message(1)
@@ -207,9 +209,6 @@ func on_exit():
 
 	# BGM 停止	
 	self.monkey().the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").stop()
-
-	# ディレクターのイベントハンドラ呼出し
-	self.monkey().owner_key_config_node().on_exit()
 
 
 # 押下ボタンを受入

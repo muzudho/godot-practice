@@ -1,4 +1,6 @@
 # プログラマー（Programmer）
+#
+#	⚓キーコンフィグ用
 extends Node
 
 

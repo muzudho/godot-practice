@@ -15,25 +15,18 @@ func monkey():
 # ーーーーーーーー
 
 func on_entry():
-	# ーーーーーーーー
-	# 表示
-	# ーーーーーーーー
-	self.monkey().of_staff().telop_coordinator().show()
-	self.monkey().of_staff().illustrator_node().show()
-	self.monkey().of_staff().programmer().owner_node().images.find_node("■下").show()
-	self.monkey().of_staff().programmer().owner_node().images.find_node("■上_大").show()
-	self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
-
-	# ーーーーーーーー
-	# イベント
-	# ーーーーーーーー
-	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey().of_staff().programmer().owner_node().on_key_config_entered()
+	# ローカルのプログラマー・ノードへアクセス
+	self.monkey().the_programmer_node().on_key_config_entered()
 
 
 func on_exit():
 	self.monkey().moderator().clear_count_by_step()
+	
+	# 画面表示、演奏
 	self.monkey().display().on_exit()
+
+	# キーコンフィグ呼出し元
+	self.monkey().owner_key_config_node().on_exit()
 
 
 # 入力の前に待て
