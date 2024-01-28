@@ -130,7 +130,9 @@ func set_press_message_to_button(step):
 
 
 # 入力確定メッセージ
-func set_done_message_the_button(step, button_presentation_name):
+func set_done_message_the_button(step, button_number):
+	var button_presentation_name = self.monkey().display().get_button_name_by_number(button_number)
+	
 	if step == 1:
 		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + button_presentation_name

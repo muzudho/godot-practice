@@ -11,7 +11,6 @@ var is_enabled = false
 
 # 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
 var button_number = -1
-var button_presentation_name = &""
 
 # 起動直後に　レバーが入った状態で始まることがあるから、１秒ぐらい無視するためのカウンター
 var counter_of_wait = 0.0
@@ -59,7 +58,6 @@ func is_cancel_button_pressed(button_number_1):
 func clear_count():
 	self.counter_of_wait = 0.0
 	self.button_number = -1
-	self.button_presentation_name = &""
 	
 
 func on_step_regular(
@@ -142,7 +140,7 @@ func on_step_regular(
 			
 		# 決定
 		self.monkey().display().set_key_accepted()
-		self.monkey().display().set_done_message_the_button(self.key_config_item_number, self.button_presentation_name)
+		self.monkey().display().set_done_message_the_button(self.key_config_item_number, self.button_number)
 		self.monkey().owner_key_config_node().key_config[virtual_key_name] = self.button_number
 
 		# レバーの下
@@ -150,7 +148,7 @@ func on_step_regular(
 			if 1000 <= self.monkey().owner_key_config_node().key_config[&"VK_Down"]:
 				# 軸を選択したなら、レバーの上の選択はスキップ
 				self.monkey().owner_key_config_node().key_config[&"VK_Up"] = self.button_number
-				self.monkey().display().set_done_message_the_button(self.key_config_item_number + 1, self.button_presentation_name)
+				self.monkey().display().set_done_message_the_button(self.key_config_item_number + 1, self.button_number)
 				self.key_config_item_number += 2
 			else:
 				self.key_config_item_number += 1
@@ -159,7 +157,7 @@ func on_step_regular(
 			if 1000 <= self.monkey().owner_key_config_node().key_config[&"VK_Right"]:
 				# 軸を選択したなら、レバーの左の選択はスキップ
 				self.monkey().owner_key_config_node().key_config[&"VK_Left"] = self.button_number
-				self.monkey().display().set_done_message_the_button(self.key_config_item_number + 1, self.button_presentation_name)
+				self.monkey().display().set_done_message_the_button(self.key_config_item_number + 1, self.button_number)
 				self.key_config_item_number += 2
 			else:
 				self.key_config_item_number += 1
