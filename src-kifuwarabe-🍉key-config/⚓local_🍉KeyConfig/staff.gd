@@ -6,7 +6,6 @@ extends Node2D
 # ノード・パス関連
 # ーーーーーーーー
 
-
 # 猿取得
 func monkey():
 	return $"🐵Monkey"
@@ -15,7 +14,6 @@ func monkey():
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
