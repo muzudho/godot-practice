@@ -8,10 +8,6 @@ extends Node2D
 # メモリ関連
 # ーーーーーーーー
 
-# 先祖の辞書キャッシュ
-var ancestors = {}
-
-
 # 値はボタン番号。レバーは +1000
 var key_config = {
 	# 仮想キー（１）決定ボタン、メッセージ送りボタン
@@ -27,15 +23,6 @@ var key_config = {
 # ノード・パス関連
 # ーーーーーーーー
 
-
-# 監督ハブ取得
-func monkey_of_staff():
-	return MonkeyHelper.find_ancestor_child(
-			self,
-			&"👥Staff/🐵Monkey",
-			self.ancestors)
-
-
 # 下に居る猿
 func sub_monkey():
 	return $"🐵Monkey"
@@ -45,7 +32,6 @@ func sub_monkey():
 # 起動前設定
 # ーーーーーーーー
 
-
 func ready_in_staff():
 	self.sub_monkey().display().ready_in_staff()
 
@@ -53,7 +39,6 @@ func ready_in_staff():
 # ーーーーーーーー
 # 時計
 # ーーーーーーーー
-
 
 func on_process(delta):
 	self.sub_monkey().clock().on_process(delta)
@@ -63,24 +48,23 @@ func on_process(delta):
 # 開始
 # ーーーーーーーー
 
-
 # キー・コンフィグ画面を始める
 func entry():
 
 	# ーーーーーーーー
 	# 表示
 	# ーーーーーーーー
-	self.monkey_of_staff().telop_coordinator().show()
-	self.monkey_of_staff().illustrator_node().show()
-	self.monkey_of_staff().programmer().owner_node().images.find_node("■下").show()
-	self.monkey_of_staff().programmer().owner_node().images.find_node("■上_大").show()
-	self.monkey_of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
+	self.sub_monkey().of_staff().telop_coordinator().show()
+	self.sub_monkey().of_staff().illustrator_node().show()
+	self.sub_monkey().of_staff().programmer().owner_node().images.find_node("■下").show()
+	self.sub_monkey().of_staff().programmer().owner_node().images.find_node("■上_大").show()
+	self.sub_monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
 
 	# ーーーーーーーー
 	# イベント
 	# ーーーーーーーー
 	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey_of_staff().programmer().owner_node().on_key_config_entered()
+	self.sub_monkey().of_staff().programmer().owner_node().on_key_config_entered()
 	
 	# ーーーーーーーー
 	# 状態遷移開始
@@ -95,7 +79,7 @@ func entry():
 
 func on_exit():
 	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey_of_staff().programmer().owner_node().on_key_config_exited()
+	self.sub_monkey().of_staff().programmer().owner_node().on_key_config_exited()
 
 
 func on_unhandled_input(event):

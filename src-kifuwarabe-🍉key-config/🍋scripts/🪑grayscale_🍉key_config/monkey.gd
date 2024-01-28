@@ -5,8 +5,23 @@ extends Node
 
 
 # ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# 先祖の辞書キャッシュ
+var ancestors = {}
+
+
+# ーーーーーーーー
 # ノード・パス関連
 # ーーーーーーーー
+
+# スタッフの猿取得
+func of_staff():
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			&"👥Staff/🐵Monkey",
+			self.ancestors)
 
 
 # キー・コンフィグ取得
@@ -41,12 +56,12 @@ func statemachine():
 
 # プログラマー・ノード取得
 func the_programmer_node():
-	return self.owner_key_config_node().monkey_of_staff().programmer().owner_node()
+	return self.of_staff().programmer().owner_node()
 
 
 # イラストレーター・ノード取得
 func the_illustrator_node():
-	return self.owner_key_config_node().monkey_of_staff().illustrator_node()
+	return self.of_staff().illustrator_node()
 
 
 # （外ノード）テロップ取得

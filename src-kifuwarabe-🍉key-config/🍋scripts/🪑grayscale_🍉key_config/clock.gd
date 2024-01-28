@@ -27,7 +27,7 @@ func on_process(delta):
 	
 	# 初回
 	if self.monkey().moderator().key_config_item_number == 0:
-		self.monkey().owner_key_config_node().monkey_of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
+		self.monkey().of_staff().programmer().owner_node().bg_musics.find_node("🎵キーコンフィグ").play()
 		self.monkey().moderator().key_config_item_number += 1
 		self.monkey().moderator().clear_count()
 	
