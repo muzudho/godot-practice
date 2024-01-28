@@ -6,10 +6,6 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
-# 文字列解析用
-var re_button = RegEx.new()
-var re_lever = RegEx.new()
-
 # 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
 var button_number = -1
 var button_presentation_name = &""
@@ -28,7 +24,6 @@ var is_enabled = false
 # ノード・パス関連
 # ーーーーーーーー
 
-
 # 猿取得
 func monkey():
 	return $"../🐵Monkey"
@@ -37,16 +32,6 @@ func monkey():
 # ーーーーーーーー
 # 起動前設定
 # ーーーーーーーー
-
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	# 入力イベントが返す文字列。仕様さっぱり分からん
-	# 最後に半角スペースを入れること。 `Button 1` と `Button 10` を区別するために
-	re_button.compile("Joypad Button (\\d+) ")
-	# 例： Joypad Motion on Axis 4 (Joystick 2 X-Axis, Left Trigger, Sony L2, Xbox LT) with Value 0.00
-	re_lever.compile("Joypad Motion on Axis (\\d+) \\(.*\\) with Value (-?\\d+(?:\\.\\d+)?)")
-
 
 # キーコンフィグ画面に入る
 func entry():
@@ -357,30 +342,6 @@ func on_step_regular(
 		self.monkey().statemachine().state = &"WaitForPrompt"
 
 
-# ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
-func get_button_number_by_text(event_as_text):
-	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
-	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
-	var matched = self.re_button.search(event_as_text)
-	if matched:
-		return int(matched.get_string(1))
-
-	matched = self.re_lever.search(event_as_text)
-	if matched:
-		return int(matched.get_string(1)) + 1000
-	
-	return -1
-
-
-# レバーのイベント文字列から、-1.0 ～ 1.0 の値を取得
-func get_lever_value_by_text(event_as_text):
-	var matched = self.re_lever.search(event_as_text)
-	if matched:
-		return float(matched.get_string(2))
-
-	return 0.0
-
-
 # ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
 func get_button_name_by_number(button_number_1):
 	if button_number_1 < 0:
@@ -416,7 +377,7 @@ func on_unhandled_input(event):
 
 	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
 	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
-	var temp_button_number = self.get_button_number_by_text(event_as_text)
+	var temp_button_number = self.monkey().parser_for_input().get_button_number_by_text(event_as_text)
 
 	# ーーーーーーーー
 	# （５）上キー

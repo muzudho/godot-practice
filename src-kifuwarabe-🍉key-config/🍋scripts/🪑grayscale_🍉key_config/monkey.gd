@@ -19,6 +19,11 @@ func moderator():
 	return $"../Moderator"
 
 
+# 入力のためのパーサー
+func parser_for_input():
+	return $"../🅿ParserForInput"
+
+
 # 状態遷移機械取得
 func statemachine():
 	return $"../🍇Statemachine"
