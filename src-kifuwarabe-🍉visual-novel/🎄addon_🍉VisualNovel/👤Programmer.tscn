@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://daqtppg5rtuat"]
+[gd_scene load_steps=20 format=3 uid="uid://daqtppg5rtuat"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/main.gd" id="1_v7bfh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/monkey.gd" id="2_duxol"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/choice.gd" id="3_04b3g"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/internal.gd" id="3_nvy2a"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/department.gd" id="4_6lqmd"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/clock.gd" id="4_dyybf"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/goto.gd" id="5_5xr3r"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/img.gd" id="6_iaao0"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/label.gd" id="7_rheb7"]
@@ -27,6 +28,9 @@ script = ExtResource("2_duxol")
 
 [node name="🚪Internal" type="Node" parent="."]
 script = ExtResource("3_nvy2a")
+
+[node name="⌚Clock" type="Node" parent="."]
+script = ExtResource("4_dyybf")
 
 [node name="📂Instructions" type="Node" parent="."]
 

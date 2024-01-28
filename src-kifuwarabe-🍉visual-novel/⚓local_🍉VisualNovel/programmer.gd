@@ -341,7 +341,7 @@ func _process(delta):
 
 	# 主な状態に制御を譲る
 	elif self.current_state == &"Main":
-		self.monkey().scenario_player_node().on_process(delta)
+		self.monkey().scenario_player_node().sub_monkey().clock().on_process(delta)
 
 
 # 変数展開する

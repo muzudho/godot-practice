@@ -6,21 +6,14 @@ extends Node
 # ノード・パス関連
 # ーーーーーーーー
 
-
 # 猿取得
 func monkey():
 	return $"../🐵Monkey"
 
 
 # ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-
-# ーーーーーーーー
 # 時計
 # ーーーーーーーー
-
 
 func on_process(delta):
 

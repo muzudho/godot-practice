@@ -37,6 +37,11 @@ func owner_node():
 	return $"../../📂ScenarioPlayer_🍉VisualNovel"
 
 
+# 時計取得
+func clock():
+	return $"../⌚Clock"
+
+
 # 内部取得
 func internal():
 	return $"../🚪Internal"
