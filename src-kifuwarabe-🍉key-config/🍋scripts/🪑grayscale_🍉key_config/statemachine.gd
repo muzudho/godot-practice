@@ -9,8 +9,8 @@ extends Node
 # `.entry()` を呼び出すと真にする。キー・コンフィグが完了するとまた偽にセットする
 var is_enabled = false
 
-# IntervalUntilPrompt, Prompt, IntervalUntilInput, Input, InputOk の５つ。 Wait を入れないと反応過敏になってしまう
-var state = &"IntervalUntilPrompt"
+# Terminated, IntervalUntilPrompt, Prompt, IntervalUntilInput, WaitingForInput, InputOk の６つ。 Wait を入れないと反応過敏になってしまう
+var state = &"Terminated"
 
 
 # ーーーーーーーー
@@ -20,10 +20,11 @@ var state = &"IntervalUntilPrompt"
 # キー・コンフィグ画面に入る
 func entry():
 	# これで、入力受付と時計が働きだす
+	self.state = &"IntervalUntilPrompt"
 	self.is_enabled = true
 
 
 # キー・コンフィグ画面を終了
 func exit():
-	self.state = &"Input"
+	self.state = &"Terminated"
 	self.is_enabled = false

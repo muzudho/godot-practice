@@ -27,7 +27,7 @@ func on_unhandled_input(event):
 	var event_as_text = event.as_text()
 	print("入力：　" + event_as_text)
 	
-	if self.monkey().statemachine().state != &"Input":
+	if self.monkey().statemachine().state != &"WaitingForInput":
 		return
 
 
