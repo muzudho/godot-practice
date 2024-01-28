@@ -16,6 +16,7 @@ var counter_of_wait = 0.0
 var key_config_item_number = 0
 
 var previous_virtual_key_name = &""
+var virtual_key_name = &""
 
 
 # ーーーーーーーー
@@ -54,6 +55,7 @@ func on_step_regular(
 		previous_virtual_key_name,
 		virtual_key_name):
 	self.previous_virtual_key_name = previous_virtual_key_name
+	self.virtual_key_name = virtual_key_name
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 	if self.monkey().statemachine().state == &"IntervalUntilPrompt":
@@ -86,7 +88,6 @@ func on_step_regular(
 			return
 
 		self.monkey().statemachine().go_input()
-		self.clear_count_by_step()
 		return
 
 	elif self.monkey().statemachine().state == &"InputOk":
@@ -99,31 +100,6 @@ func on_step_regular(
 		if self.is_key_duplicated(self.button_number):
 			self.monkey().statemachine().wait_before_input(&"KeyDuplicated")
 			return
-			
-		# 決定
-		self.monkey().display().on_pushed_button_accepted()
-		self.monkey().owner_key_config_node().key_config[virtual_key_name] = self.button_number
-
-		# レバーの下
-		if self.key_config_item_number == 4:
-			if 1000 <= self.monkey().owner_key_config_node().key_config[&"VK_Down"]:
-				# 軸を選択したなら、レバーの上の選択はスキップ
-				self.monkey().owner_key_config_node().key_config[&"VK_Up"] = self.button_number
-				self.monkey().display().set_done_message_the_button(self.key_config_item_number + 1, self.button_number)
-				self.key_config_item_number += 2
-			else:
-				self.key_config_item_number += 1
-		# レバーの右
-		elif self.key_config_item_number == 6:
-			if 1000 <= self.monkey().owner_key_config_node().key_config[&"VK_Right"]:
-				# 軸を選択したなら、レバーの左の選択はスキップ
-				self.monkey().owner_key_config_node().key_config[&"VK_Left"] = self.button_number
-				self.monkey().display().set_done_message_the_button(self.key_config_item_number + 1, self.button_number)
-				self.key_config_item_number += 2
-			else:
-				self.key_config_item_number += 1
-		else:
-			self.key_config_item_number += 1
 		
-		# プロンプトを表示する前に待て
-		self.monkey().statemachine().wait_before_prompt()
+		# 入力を受け付けた
+		self.monkey().statemachine().input_accepted()

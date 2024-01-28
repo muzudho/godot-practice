@@ -38,9 +38,10 @@ func entry():
 	self.handler().on_entry()
 
 
-# プロンプトを表示する前に待て
-func wait_before_prompt():
+# 入力を受け付けた
+func input_accepted():
 	self.state = &"IntervalUntilPrompt"
+	self.handler().on_input_accepted()
 
 
 # プロンプトを表示しろ
@@ -57,6 +58,7 @@ func wait_before_input(reason):
 # 入力しろ
 func go_input():
 	self.state = &"WaitingForInput"
+	self.handler().on_go_input()
 
 
 # キー・コンフィグ画面を終了
