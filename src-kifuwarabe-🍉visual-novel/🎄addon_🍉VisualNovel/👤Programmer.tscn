@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://daqtppg5rtuat"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📄scenario_player_engine.gd" id="1_nrq3o"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/scenario_player_engine.gd" id="1_xk7ay"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/bgm.gd" id="2_t5aeh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/choice.gd" id="3_04b3g"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/department.gd" id="4_6lqmd"]
@@ -20,7 +20,7 @@
 [node name="📂ScenarioPlayer_🍉VisualNovel" type="Node"]
 
 [node name="📄Engine_🍉VisualNovel" type="Node" parent="."]
-script = ExtResource("1_nrq3o")
+script = ExtResource("1_xk7ay")
 
 [node name="📂Instructions" type="Node" parent="."]
 

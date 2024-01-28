@@ -39,6 +39,11 @@ func owner_node():
 	return self.get_node("../../👤Programmer")
 
 
+# 部門制御取得
+func department_controller_node():
+	return self.owner_node().get_node("📂DepartmentController_🍉VisualNovel")
+
+
 # キー・コンフィグ取得
 func key_config_node():
 	return self.owner_node().get_node("📂🍉KeyConfig")
