@@ -1,4 +1,4 @@
-# キー・コンフィグ・ハブ（Key Config Hub；鍵構成の中心地）
+# キー・コンフィグ（Key Config；鍵構成）
 #
 #	細かな設定は何もできないので、ソースを直接カスタマイズしてください
 extends Node2D
@@ -7,10 +7,6 @@ extends Node2D
 # ーーーーーーーー
 # メモリ関連
 # ーーーーーーーー
-
-# 先祖の辞書キャッシュ
-var ancestors = {}
-
 
 # 値はボタン番号。レバーは +1000
 var key_config = {
@@ -27,104 +23,94 @@ var key_config = {
 # ノード・パス関連
 # ーーーーーーーー
 
-
-# 自身取得
-func monkey():
-	return self
-
-
-# 監督ハブ取得
-func of_staff():
-	return MonkeyHelper.find_ancestor_child(
-			self,
-			&"👥Staff/🐵Monkey",
-			self.ancestors)
+# 下に居る猿
+func sub_monkey():
+	return $"🐵Monkey"
 
 
-# （外ノード）テロップ取得
-func get_my_telop_canvas_layer():
-	return self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ")
+# ーーーーーーーー
+# 起動時設定
+# ーーーーーーーー
+
+func ready_in_staff():
+	self.sub_monkey().display().ready_in_staff()
 
 
-# （外ノード）テロップ取得
-func get_my_telop(node_name_str):
-	return self.get_my_telop_canvas_layer().get_node(node_name_str)
+# ーーーーーーーー
+# 時計
+# ーーーーーーーー
+
+func on_process(delta):
+	self.sub_monkey().clock().on_process(delta)
 
 
-# 司会進行取得
-func get_moderator():
-	return $"Moderator"
+# ーーーーーーーー
+# 開始
+# ーーーーーーーー
+
+# キー・コンフィグ画面を始める
+func entry():
+	# 状態遷移開始
+	self.sub_monkey().statemachine().entry()
 
 
 # ーーーーーーーー
 # その他
 # ーーーーーーーー
 
-
-func ready_in_staff():
-	self.get_moderator().ready_in_staff()
-
-
-# キー・コンフィグ画面を始めるタイミングで以下を呼出す
-func entry():
-
-	# ーーーーーーーー
-	# 表示
-	# ーーーーーーーー
-	self.monkey().of_staff().telop_coordinator().show()
-	self.monkey().of_staff().illustrator_node().show()
-	self.monkey().of_staff().programmer().owner_node().images.find_node("■下").show()
-	self.monkey().of_staff().programmer().owner_node().images.find_node("■上_大").show()
-	self.monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
-
-	# ーーーーーーーー
-	# イベント
-	# ーーーーーーーー
-	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey().of_staff().programmer().owner_node().on_key_config_entered()
-	
-	# ーーーーーーーー
-	# 状態遷移開始
-	# ーーーーーーーー
-	self.get_moderator().entry()
-
-
 func on_exit():
 	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.monkey().of_staff().programmer().owner_node().on_key_config_exited()
-
-
-func on_process(delta):
-	self.get_moderator().on_process(delta)
+	self.sub_monkey().of_staff().programmer().owner_node().on_key_config_exited()
 
 
 func on_unhandled_input(event):
-	self.get_moderator().on_unhandled_input(event)
+	self.sub_monkey().input().on_unhandled_input(event)
+
+
+# ーーーーーーーー
+# アクセッサ―
+# ーーーーーーーー
+
+# 仮想キーの追加
+func push_virtual_key(virtual_key_name, button_number):
+	self.key_config[virtual_key_name] = button_number
+
+
+# ボタンが重複するか？
+func is_key_duplicated(button_number_1):
+	return button_number_1 in self.key_config.values()
+
+
+# キャンセルボタン押下か？
+func is_cancel_button_pressed(button_number_1):
+	if not (&"VK_Cancel" in self.key_config):
+		return false
+	
+	return button_number_1 == self.key_config[&"VK_Cancel"]
 
 
 # ーーーーーーーー
 # 以下、有ったら便利な関数
 # ーーーーーーーー
 
-
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
 func get_button_number_by_text(event_as_text):
-	return self.get_moderator().get_button_number_by_text(event_as_text)
+	return self.sub_monkey().parser_for_input().get_button_number_by_text(event_as_text)
 
 
 # レバーのイベント文字列から、-1.0 ～ 1.0 の値を取得
 func get_lever_value_by_text(event_as_text):
-	return self.get_moderator().get_lever_value_by_text(event_as_text)
+	return self.sub_monkey().parser_for_input().get_lever_value_by_text(event_as_text)
 
 
 # ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
 func get_button_name_by_number(button_number):
-	return self.get_moderator().get_button_name_by_number(button_number)
+	return self.sub_monkey().display().get_button_name_by_number(button_number)
 
 
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
 func get_virtual_key_name_by_button_number(button_number):
-	return self.get_moderator().get_virtual_key_name_by_button_number(button_number)
+	return self.sub_monkey().display().get_virtual_key_name_by_button_number(button_number)
 
 
 # 上キーが入力されたか？
