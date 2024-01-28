@@ -34,6 +34,11 @@ func go_prompt():
 	self.state = &"Prompt"
 
 
+# 入力の前に待て
+func wait_before_input():
+	self.state = &"IntervalUntilInput"
+
+
 # キー・コンフィグ画面を終了
 func exit():
 	self.state = &"Terminated"
