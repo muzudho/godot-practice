@@ -37,7 +37,8 @@ func clear_count_by_step():
 	self.button_number = -1
 	
 
-func on_step_regular(
+# 時計の動き
+func on_tick(
 		delta,
 		previous_virtual_key_name,
 		virtual_key_name):

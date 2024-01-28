@@ -213,11 +213,9 @@ func on_exit():
 
 
 # 押下ボタンを受入
-func on_pushed_button_accepted():
+func on_pushed_button_accepted(key_config_item_number, button_number):
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
-	self.monkey().display().set_done_message_the_button(
-			self.monkey().moderator().key_config_item_number,
-			self.monkey().moderator().button_number)
+	self.monkey().display().set_done_message_the_button(key_config_item_number, button_number)
 
 
 # 押下ボタンを拒否

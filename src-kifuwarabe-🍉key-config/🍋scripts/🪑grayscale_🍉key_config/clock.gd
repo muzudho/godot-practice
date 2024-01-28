@@ -37,7 +37,7 @@ func on_process(delta):
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
 	elif self.monkey().moderator().key_config_item_number == 1:
-		self.monkey().moderator().on_step_regular(
+		self.monkey().moderator().on_tick(
 				delta,
 				null,
 				&"VK_Cancel")
@@ -46,7 +46,7 @@ func on_process(delta):
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
 	elif self.monkey().moderator().key_config_item_number == 2:
-		self.monkey().moderator().on_step_regular(
+		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Cancel",
 				&"VK_Ok")
@@ -55,7 +55,7 @@ func on_process(delta):
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
 	elif self.monkey().moderator().key_config_item_number == 3:
-		self.monkey().moderator().on_step_regular(
+		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Ok",
 				&"VK_FastForward")
@@ -64,7 +64,7 @@ func on_process(delta):
 	# （４）レバーの下
 	# ーーーーーーーー
 	elif self.monkey().moderator().key_config_item_number == 4:
-		self.monkey().moderator().on_step_regular(
+		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_FastForward",
 				&"VK_Down")
@@ -73,7 +73,7 @@ func on_process(delta):
 	# （５）レバーの上
 	# ーーーーーーーー
 	elif self.monkey().moderator().key_config_item_number == 5:
-		self.monkey().moderator().on_step_regular(
+		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Down",
 				&"VK_Up")
@@ -82,7 +82,7 @@ func on_process(delta):
 	# （６）レバーの右
 	# ーーーーーーーー
 	elif self.monkey().moderator().key_config_item_number == 6:
-		self.monkey().moderator().on_step_regular(
+		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Up",
 				&"VK_Right")
@@ -91,7 +91,7 @@ func on_process(delta):
 	# （７）レバーの左
 	# ーーーーーーーー
 	elif self.monkey().moderator().key_config_item_number == 7:
-		self.monkey().moderator().on_step_regular(
+		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Right",
 				&"VK_Left")
@@ -100,7 +100,7 @@ func on_process(delta):
 	# 完了
 	# ーーーーーーーー
 	elif self.monkey().moderator().key_config_item_number == 8:
-		self.monkey().moderator().on_step_regular(
+		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Left",
 				null)

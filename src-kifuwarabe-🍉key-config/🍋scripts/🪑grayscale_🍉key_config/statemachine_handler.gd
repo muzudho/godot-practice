@@ -93,7 +93,9 @@ func on_go_input():
 # 入力を受け付けた
 func on_input_accepted():
 	# 決定
-	self.monkey().display().on_pushed_button_accepted()
+	self.monkey().display().on_pushed_button_accepted(
+			self.monkey().moderator().key_config_item_number,
+			self.monkey().moderator().button_number)
 	self.monkey().owner_key_config_node().key_config[self.monkey().moderator().virtual_key_name] = self.monkey().moderator().button_number
 
 	# レバーの下
