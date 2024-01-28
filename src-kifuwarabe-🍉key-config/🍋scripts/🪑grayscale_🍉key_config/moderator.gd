@@ -152,5 +152,5 @@ func on_step_regular(
 		else:
 			self.key_config_item_number += 1
 		
-		
-		self.monkey().statemachine().state = &"IntervalUntilPrompt"
+		# プロンプトを表示する前に待て
+		self.monkey().statemachine().wait_before_prompt()

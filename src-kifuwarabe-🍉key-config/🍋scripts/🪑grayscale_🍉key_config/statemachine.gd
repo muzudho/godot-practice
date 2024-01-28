@@ -29,6 +29,11 @@ func entry():
 	self.state = &"IntervalUntilPrompt"
 
 
+# プロンプトを表示する前に待て
+func wait_before_prompt():
+	self.state = &"IntervalUntilPrompt"
+
+
 # プロンプトを表示しろ
 func go_prompt():
 	self.state = &"Prompt"
