@@ -114,7 +114,7 @@ func _ready():
 
 func ready_in_staff():
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.monkey().scenario_player_node().sub_monkey().get_all_instruction_codes()
+	var _all_instruction_code = self.monkey().scenario_player().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示
@@ -301,7 +301,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.monkey().scenario_player_node().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
 
 
 # ーーーーーーーー
@@ -337,7 +337,7 @@ func _process(delta):
 		self.monkey().scenario_player_node().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.monkey().scenario_player_node().get_current_message_window_gui().set_appear_subtree(true)
+		self.monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
 	# 主な状態に制御を譲る
 	elif self.current_state == &"Main":

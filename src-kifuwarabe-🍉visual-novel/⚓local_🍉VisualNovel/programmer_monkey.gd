@@ -54,6 +54,11 @@ func scenario_player_node():
 	return self.owner_node().get_node("📂ScenarioPlayer_🍉VisualNovel")
 
 
+# シナリオ再生機の猿取得
+func scenario_player():
+	return self.scenario_player_node().get_node("🐵Monkey")
+
+
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName

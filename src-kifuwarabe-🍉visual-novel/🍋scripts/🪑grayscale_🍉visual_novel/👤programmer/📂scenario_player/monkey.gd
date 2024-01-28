@@ -58,3 +58,14 @@ func get_all_instruction_codes():
 					self.owner_node().directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
 
 	return self.owner_node().directory_for_instruction_code_and_node_name
+
+
+# 伝言窓（現在、出力の対象になっているもの）
+func get_current_message_window_gui():
+	var department_value = self.owner_node().get_current_department_value()
+	if department_value.stack_of_last_displayed_message_window.size() < 1:
+		print("［プログラマーズ・ハブ］　▲！　最後に表示したメッセージウィンドウが無い")
+
+	var node_name = department_value.stack_of_last_displayed_message_window[-1]
+	#print("［監督］　伝言窓名：［" + node_name + "］")
+	return self.of_programmer().owner_node().message_window_programs.find_node(str(node_name))

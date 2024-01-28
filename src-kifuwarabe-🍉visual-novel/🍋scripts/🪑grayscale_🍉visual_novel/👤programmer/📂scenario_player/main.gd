@@ -8,9 +8,6 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
-# 先祖の辞書キャッシュ
-var ancestors = {}
-
 # 全命令（キー："命令名:"　値：ノード名）
 var directory_for_instruction_code_and_node_name = null
 
@@ -41,21 +38,10 @@ func get_current_department_value():
 # 現在の「§」セクション設定
 func set_current_section(section_name):
 	var department_value = self.get_current_department_value()
-	var message_window_gui = self.get_current_message_window_gui()
+	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
 
 	department_value.section_name = section_name
 	message_window_gui.section_item_index = 0
-
-
-# 伝言窓（現在、出力の対象になっているもの）
-func get_current_message_window_gui():
-	var department_value = self.get_current_department_value()
-	if department_value.stack_of_last_displayed_message_window.size() < 1:
-		print("［プログラマーズ・ハブ］　▲！　最後に表示したメッセージウィンドウが無い")
-
-	var node_name = department_value.stack_of_last_displayed_message_window[-1]
-	#print("［監督］　伝言窓名：［" + node_name + "］")
-	return self.sub_monkey().of_programmer().owner_node().message_window_programs.find_node(str(node_name))
 
 
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
@@ -87,7 +73,7 @@ func get_current_section_size_of_scenario():
 # シナリオの現在パラグラフ（セクションのアイテム）を返す
 func get_current_paragraph_of_scenario():
 	var department_value = self.get_current_department_value()
-	var message_window_gui = self.get_current_message_window_gui()
+	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
 
 	var merged_scenario_document = self.sub_monkey().of_staff().scenario_writer().owner_node().get_merged_scenario_document(department_value.name)
 	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
@@ -111,7 +97,7 @@ func _process(delta):
 # 「§」セクションの再生
 func play_section():
 	var department_value = self.get_current_department_value()
-	var message_window_gui = self.get_current_message_window_gui()
+	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
 
 	# 全部消化済みの場合
 	if self.get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
@@ -141,7 +127,7 @@ func on_choice_selected(row_number):
 	# 伝言窓の状態遷移
 	#	ずっと Completed だと、困るから
 	print("［助監］　伝言窓を　オール・ページズ・フラッシュド　する")
-	self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+	self.sub_monkey().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
 	var department_value = self.get_current_department_value()
@@ -176,7 +162,7 @@ func on_process(delta):
 		return
 
 	var department_value = self.get_current_department_value()
-	var message_window_gui = self.get_current_message_window_gui()
+	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
 
 	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not department_value.is_parse_lock():
@@ -204,9 +190,9 @@ func on_process(delta):
 
 		# もう無いよ
 		else:
-			if not self.get_current_message_window_gui().statemachine_of_message_window.is_none():
+			if not self.sub_monkey().get_current_message_window_gui().statemachine_of_message_window.is_none():
 				# 伝言窓を閉じる
-				self.get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+				self.sub_monkey().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 
 # パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
@@ -235,7 +221,7 @@ func print_normal_text(paragraph_text):
 # 選択肢なら表示
 func print_choices(paragraph_text):
 	#print("［シナリオエンジン］　準備中　選択肢なら表示")
-	var message_window_gui = self.get_current_message_window_gui()
+	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
 
 	# 選択肢だ
 	if message_window_gui.choices_row_numbers != null:
