@@ -14,6 +14,11 @@ func owner_key_config_node():
 	return $"../../📂🍉KeyConfig"
 
 
+# ディスプレイ取得
+func display():
+	return $"../🖥️Display"
+
+
 # モデレーター取得
 func moderator():
 	return $"../Moderator"
