@@ -28,11 +28,6 @@ func of_staff():
 			self.ancestors)
 
 
-# シナリオライター取得
-func owner_node():
-	return self.get_node("../../👤ScenarioWriter")
-
-
 # 部門切替取得
 func department_control():
 	return self.monkey().of_staff().scenario_writer().owner_node().get_node("📘DepartmentControl")
