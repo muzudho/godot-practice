@@ -328,7 +328,7 @@ func _process(delta):
 		# ーーーーーーーー
 
 		# 最初に実行する部門名
-		self.current_department_name = self.monkey().of_staff().scenario_writer().department_control().start_department_name
+		self.current_department_name = self.monkey().of_staff().config_node().start_department_name
 
 		# パースするな
 		self.monkey().scenario_player().get_current_department_value().set_parse_lock(true)
