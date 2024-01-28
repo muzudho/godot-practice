@@ -15,11 +15,6 @@ var ancestors = {}
 # ーーーーーーーー
 
 
-# 自身取得
-func monkey():
-	return self
-
-
 # 監督ハブ取得
 func of_staff():
 	return MonkeyHelper.find_ancestor_child(
@@ -28,6 +23,11 @@ func of_staff():
 			self.ancestors)
 
 
+# シナリオライター取得
+func owner_node():
+	return $"../../👤ScenarioWriter"
+
+
 # 部門切替取得
 func department_control():
-	return self.monkey().of_staff().scenario_writer().owner_node().get_node("📘DepartmentControl")
+	return self.owner_node().get_node("📘DepartmentControl")
