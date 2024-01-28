@@ -6,4 +6,4 @@
 [node name="👥Staff" type="Node2D"]
 script = ExtResource("1_88fd2")
 
-[node name="👤Programmer_Bench" parent="." instance=ExtResource("2_p3crw")]
+[node name="👤Programmer_ForBench" parent="." instance=ExtResource("2_p3crw")]
