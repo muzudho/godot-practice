@@ -14,6 +14,17 @@ func sub_monkey():
 
 
 # ーーーーーーーー
+# メモリ関連
+# ーーーーーーーー
+
+# シナリオ・ドキュメント
+var cached_scenario_document = {}
+
+# 選択肢と移動先
+var cached_choices_mappings = {}
+
+
+# ーーーーーーーー
 # 時計
 # ーーーーーーーー
 
@@ -71,8 +82,54 @@ func get_current_paragraph_of_scenario():
 	var department_value = self.get_current_department_value()
 	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
 
-	var merged_scenario_document = self.sub_monkey().of_staff().scenario_writer().owner_node().get_merged_scenario_document(department_value.name)
+	var merged_scenario_document = self.get_merged_scenario_document(department_value.name)
 	return merged_scenario_document[department_value.section_name][message_window_gui.section_item_index]
+
+
+# ーーーーーーーー
+# アクセッサ―
+# ーーーーーーーー
+
+# 指定の部門下の scenario_document 辞書を全てマージして返します。
+# この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
+func get_merged_scenario_document(department_name):
+	# キャッシュになければ探索
+	if not (department_name in self.cached_scenario_document):
+
+		# ［📗～］ノードの位置が変わっていることがあるので探索する
+		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
+				self.sub_monkey().of_staff().scenario_writer().owner_node(),
+				str(department_name))
+		self.cached_scenario_document[department_name] = {}
+
+		MonkeyHelper.search_descendant_within_member(
+				"scenario_document",
+				book_node,
+				func(child_node):
+					self.cached_scenario_document[department_name].merge(child_node.scenario_document))
+
+	return self.cached_scenario_document[department_name]
+
+
+# 指定の部門下の choices_mappings 辞書を全てマージして返します。
+# この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
+func get_merged_choices_mappings(department_name):
+	# キャッシュになければ探索
+	if not (department_name in self.cached_choices_mappings):
+
+		# ［📗～］ノードの位置が変わっていることがあるので探索する
+		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
+				self.sub_monkey().of_staff().scenario_writer().owner_node(),
+				str(department_name))
+		self.cached_choices_mappings[department_name] = {}
+
+		MonkeyHelper.search_descendant_within_member(
+				"choices_mappings",
+				book_node,
+				func(child_node):
+					self.cached_choices_mappings[department_name].merge(child_node.choices_mappings))
+
+	return self.cached_choices_mappings[department_name]
 
 
 # ーーーーーーーー
@@ -124,7 +181,7 @@ func on_choice_selected(row_number):
 	print("［助監］　選んだ選択肢行番号：" + str(row_number))
 
 	# 辞書
-	var choices_mappings_a = self.sub_monkey().of_staff().scenario_writer().owner_node().get_merged_choices_mappings(department_name)
+	var choices_mappings_a = self.get_merged_choices_mappings(department_name)
 
 	# 区画名。実質的には選択肢の配列
 	var section_obj = choices_mappings_a[section_name]

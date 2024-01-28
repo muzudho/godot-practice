@@ -44,6 +44,11 @@ func department_controller_node():
 	return self.owner_node().get_node("📂DepartmentController_🍉VisualNovel")
 
 
+# 部門制御の猿取得
+func department_controller():
+	return self.department_controller_node().get_node("🐵Monkey")
+
+
 # キー・コンフィグ取得
 func key_config_node():
 	return self.owner_node().get_node("📂🍉KeyConfig")

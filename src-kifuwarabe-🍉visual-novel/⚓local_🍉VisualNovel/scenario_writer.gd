@@ -3,19 +3,8 @@ extends Node
 
 
 # ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-# シナリオ・ドキュメント
-var cached_scenario_document = {}
-# 選択肢と移動先
-var cached_choices_mappings = {}
-
-
-# ーーーーーーーー
 # ノード・パス関連
 # ーーーーーーーー
-
 
 # 猿取得
 func monkey():
@@ -26,59 +15,16 @@ func monkey():
 # その他
 # ーーーーーーーー
 
-
 # セクション配列取得
 func get_section_array(
 		department_name,		# StringName
 		section_name):
-	var merged_scenario_document = self.get_merged_scenario_document(department_name)
+	var merged_scenario_document = self.monkey().of_staff().programmer().scenario_player_node().get_merged_scenario_document(department_name)
 	
 	if not(section_name in merged_scenario_document):
 		print("［台本］　▲エラー　”" + section_name + "”セクションが無い")
 		
 	return merged_scenario_document[section_name]
-
-
-# 指定の部門下の scenario_document 辞書を全てマージして返します。
-# この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
-func get_merged_scenario_document(department_name):
-	# キャッシュになければ探索
-	if not (department_name in self.cached_scenario_document):
-
-		# ［📗～］ノードの位置が変わっていることがあるので探索する
-		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.monkey().of_staff().scenario_writer().owner_node(),
-				str(department_name))
-		self.cached_scenario_document[department_name] = {}
-
-		MonkeyHelper.search_descendant_within_member(
-				"scenario_document",
-				book_node,
-				func(child_node):
-					self.cached_scenario_document[department_name].merge(child_node.scenario_document))
-
-	return self.cached_scenario_document[department_name]
-
-
-# 指定の部門下の choices_mappings 辞書を全てマージして返します。
-# この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
-func get_merged_choices_mappings(department_name):
-	# キャッシュになければ探索
-	if not (department_name in self.cached_choices_mappings):
-
-		# ［📗～］ノードの位置が変わっていることがあるので探索する
-		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.monkey().of_staff().scenario_writer().owner_node(),
-				str(department_name))
-		self.cached_choices_mappings[department_name] = {}
-
-		MonkeyHelper.search_descendant_within_member(
-				"choices_mappings",
-				book_node,
-				func(child_node):
-					self.cached_choices_mappings[department_name].merge(child_node.choices_mappings))
-
-	return self.cached_choices_mappings[department_name]
 
 
 # 仮想キーを押下したという建付け
