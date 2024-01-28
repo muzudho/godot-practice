@@ -44,6 +44,11 @@ func wait_before_input():
 	self.state = &"IntervalUntilInput"
 
 
+# 入力しろ
+func go_input():
+	self.state = &"WaitingForInput"
+
+
 # キー・コンフィグ画面を終了
 func exit():
 	self.state = &"Terminated"

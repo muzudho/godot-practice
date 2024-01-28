@@ -86,7 +86,7 @@ func on_step_regular(
 			self.monkey().display().on_exit()
 			return
 
-		self.monkey().statemachine().state = &"WaitingForInput"
+		self.monkey().statemachine().go_input()
 		self.clear_count_by_step()
 		return
 
