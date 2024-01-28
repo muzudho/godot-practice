@@ -18,6 +18,7 @@ func handler():
 var state = &"Terminated"
 
 var behaviour_of_entry = null
+var behaviour_of_exit = null
 
 
 # ーーーーーーーー
@@ -38,6 +39,12 @@ func entry():
 	# これで、入力受付と時計が働きだす
 	self.state = &"IntervalUntilPrompt"
 	self.behaviour_of_entry.call()
+
+
+# キー・コンフィグ画面を終了
+func exit():
+	self.state = &"Terminated"
+	self.behaviour_of_exit.call()
 
 
 # 入力を受け付けた
@@ -61,9 +68,3 @@ func wait_before_input(reason):
 func go_input():
 	self.state = &"WaitingForInput"
 	self.handler().on_go_input()
-
-
-# キー・コンフィグ画面を終了
-func exit():
-	self.state = &"Terminated"
-	self.handler().on_exit()

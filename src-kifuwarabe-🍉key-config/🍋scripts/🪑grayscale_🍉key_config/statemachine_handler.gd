@@ -14,16 +14,6 @@ func monkey():
 # その他
 # ーーーーーーーー
 
-func on_exit():
-	self.monkey().moderator().clear_count_by_step()
-	
-	# 画面表示、演奏
-	self.monkey().display().on_exit()
-
-	# キーコンフィグ呼出し元
-	self.monkey().owner_key_config_node().on_exit()
-
-
 # 入力の前に待て
 func on_wait_before_input(reason):
 	# キャンセル・ボタン押下後、再入力

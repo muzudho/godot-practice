@@ -19,6 +19,7 @@ func monkey():
 
 func _ready():
 	self.monkey().statemachine().behaviour_of_entry = behaviour_of_entry
+	self.monkey().statemachine().behaviour_of_exit = behaviour_of_exit
 
 
 # ーーーーーーーー
@@ -29,3 +30,13 @@ func _ready():
 func behaviour_of_entry():
 	# ローカルのプログラマー・ノードへアクセス
 	self.monkey().the_programmer_node().on_key_config_entered()
+
+# 終了時の振る舞い
+func behaviour_of_exit():
+	self.monkey().moderator().clear_count_by_step()
+	
+	# 画面表示、演奏
+	self.monkey().display().on_exit()
+
+	# キーコンフィグ呼出し元
+	self.monkey().owner_key_config_node().on_exit()
