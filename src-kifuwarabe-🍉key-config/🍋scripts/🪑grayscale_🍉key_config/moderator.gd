@@ -81,9 +81,6 @@ func on_step_regular(
 			
 			# キー・コンフィグ画面を終了
 			self.monkey().statemachine().exit()
-
-			self.clear_count_by_step()			
-			self.monkey().display().on_exit()
 			return
 
 		self.monkey().statemachine().go_input()

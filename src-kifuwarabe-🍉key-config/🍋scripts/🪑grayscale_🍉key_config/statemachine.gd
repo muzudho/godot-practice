@@ -3,6 +3,14 @@ extends Node
 
 
 # ーーーーーーーー
+# ノード・パス関連
+# ーーーーーーーー
+
+func handler():
+	return $"Handler"
+
+
+# ーーーーーーーー
 # メモリ関連
 # ーーーーーーーー
 
@@ -27,6 +35,7 @@ func is_terminated():
 func entry():
 	# これで、入力受付と時計が働きだす
 	self.state = &"IntervalUntilPrompt"
+	self.handler().on_entry()
 
 
 # プロンプトを表示する前に待て
@@ -52,3 +61,4 @@ func go_input():
 # キー・コンフィグ画面を終了
 func exit():
 	self.state = &"Terminated"
+	self.handler().on_exit()

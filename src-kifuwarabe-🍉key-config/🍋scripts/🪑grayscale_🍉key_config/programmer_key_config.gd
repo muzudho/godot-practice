@@ -50,25 +50,7 @@ func on_process(delta):
 
 # キー・コンフィグ画面を始める
 func entry():
-
-	# ーーーーーーーー
-	# 表示
-	# ーーーーーーーー
-	self.sub_monkey().of_staff().telop_coordinator().show()
-	self.sub_monkey().of_staff().illustrator_node().show()
-	self.sub_monkey().of_staff().programmer().owner_node().images.find_node("■下").show()
-	self.sub_monkey().of_staff().programmer().owner_node().images.find_node("■上_大").show()
-	self.sub_monkey().of_staff().programmer().owner_node().telops.find_node("Ｔキーコンフィグ").show()
-
-	# ーーーーーーーー
-	# イベント
-	# ーーーーーーーー
-	# シーンの外側の１階層上の `👥Staff` ノードへアクセス
-	self.sub_monkey().of_staff().programmer().owner_node().on_key_config_entered()
-	
-	# ーーーーーーーー
 	# 状態遷移開始
-	# ーーーーーーーー
 	self.sub_monkey().statemachine().entry()
 
 
