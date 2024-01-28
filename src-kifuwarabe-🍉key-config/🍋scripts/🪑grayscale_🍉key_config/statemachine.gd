@@ -21,6 +21,7 @@ var behaviour_of_entry = null
 var behaviour_of_exit = null
 var behaviour_of_go_input = null
 var behaviour_of_try_inputting_again = null
+var behaviour_of_input_accepted = null
 
 
 # ーーーーーーーー
@@ -49,12 +50,6 @@ func exit():
 	self.behaviour_of_exit.call()
 
 
-# 入力を受け付けた
-func input_accepted():
-	self.state = &"IntervalUntilPrompt"
-	self.handler().on_input_accepted()
-
-
 # プロンプトを表示しろ
 func go_prompt():
 	self.state = &"Prompt"
@@ -70,3 +65,9 @@ func go_input():
 func try_inputting_again(reason):
 	self.state = &"IntervalUntilInput"
 	self.behaviour_of_try_inputting_again.call(reason)
+
+
+# 入力を受け付けた
+func input_accepted():
+	self.state = &"IntervalUntilPrompt"
+	self.behaviour_of_input_accepted.call()
