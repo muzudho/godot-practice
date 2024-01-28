@@ -93,7 +93,7 @@ func _ready():
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 				child_node.on_message_window_page_forward = func():
-					self.monkey().scenario_player().get_current_department_value().set_parse_lock(false))
+					self.monkey().scenario_player_node().get_current_department_value().set_parse_lock(false))
 
 	# デパートメント変数辞書作成
 	for department_name in self.monkey().get_all_department_names():
@@ -114,7 +114,7 @@ func _ready():
 
 func ready_in_staff():
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.monkey().scenario_player().get_all_instruction_codes()
+	var _all_instruction_code = self.monkey().scenario_player_node().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示
@@ -300,7 +300,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.monkey().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().scenario_player_node().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
 
 
 # ーーーーーーーー
@@ -330,17 +330,17 @@ func _process(delta):
 		self.current_department_name = self.monkey().of_staff().config_node().start_department_name
 
 		# パースするな
-		self.monkey().scenario_player().get_current_department_value().set_parse_lock(true)
+		self.monkey().scenario_player_node().get_current_department_value().set_parse_lock(true)
 
 		# 台本の「§」セクションの再生
-		self.monkey().scenario_player().play_section()
+		self.monkey().scenario_player_node().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
+		self.monkey().scenario_player_node().get_current_message_window_gui().set_appear_subtree(true)
 
 	# 主な状態に制御を譲る
 	elif self.current_state == &"Main":
-		self.monkey().scenario_player().on_process(delta)
+		self.monkey().scenario_player_node().on_process(delta)
 
 
 # 変数展開する

@@ -1,4 +1,4 @@
-# シナリオ再生エンジン
+# シナリオ・プレイヤー（Scenario Player；台本再生機）
 #
 # TODO ここにシナリオを読取る処理を移動したい
 extends Node
@@ -185,8 +185,8 @@ func on_choice_selected(row_number):
 	var next_section_name = section_obj[row_number]
 	print("［助監］　次の区画名　　　　：" + next_section_name)
 	
-	self.monkey().scenario_player().set_current_section(next_section_name)
-	self.monkey().scenario_player().play_section()
+	self.monkey().scenario_player_node().set_current_section(next_section_name)
+	self.monkey().scenario_player_node().play_section()
 
 
 # ディレクターの `_process(delta)` が呼出す
@@ -218,7 +218,7 @@ func on_process(delta):
 				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
 
 				# ここで、命令と、台詞は区別する
-				self.monkey().scenario_player().parse_paragraph(latest_message)
+				self.monkey().scenario_player_node().parse_paragraph(latest_message)
 			
 			else:
 				# TODO 文字列以外のパラグラフに対応したい

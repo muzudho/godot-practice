@@ -52,13 +52,13 @@ func put_textblock(
 	temp_text = self.monkey().owner_node().expand_variables(temp_text.strip_edges())
 
 	# メッセージの追加
-	var department_value = self.monkey().scenario_player().get_current_department_value()
-	var message_window_gui = self.monkey().scenario_player().get_current_message_window_gui()
+	var department_value = self.monkey().scenario_player_node().get_current_department_value()
+	var message_window_gui = self.monkey().scenario_player_node().get_current_message_window_gui()
 
 	message_window_gui.remember(temp_text)
 
 	# 会話の開始
-	self.monkey().scenario_player().get_current_message_window_gui().statemachine_of_message_window.talk()
+	self.monkey().scenario_player_node().get_current_message_window_gui().statemachine_of_message_window.talk()
 
 	# パースをするな
 	department_value.set_parse_lock(true)

@@ -50,7 +50,7 @@ func key_config_node():
 
 
 # シナリオ再生機取得
-func scenario_player():
+func scenario_player_node():
 	return self.get_instruction("📄Engine_🍉VisualNovel")
 
 

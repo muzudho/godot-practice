@@ -61,20 +61,20 @@ func do_it(
 # 同じ部門内の、指定のセクションに飛ぶ
 func goto(section_name, tail_csv):
 	
-	if self.monkey().scenario_player().is_department_not_found:
-		self.monkey().scenario_player().is_department_not_found = false
+	if self.monkey().scenario_player_node().is_department_not_found:
+		self.monkey().scenario_player_node().is_department_not_found = false
 		return
 	
 	# 伝言窓の状態が Completed で止まってるとフリーズするから、強制解除
 	print("［命令　ゴートゥー］　伝言窓の状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
-	self.monkey().scenario_player().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+	self.monkey().scenario_player_node().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
 
 	var merged_scenario_document = self.monkey().of_staff().scenario_writer().owner_node().get_merged_scenario_document(
 		self.monkey().owner_node().current_department_name)
 	
 	if section_name in merged_scenario_document:
-		self.monkey().scenario_player().set_current_section(section_name)
-		self.monkey().scenario_player().play_section()
+		self.monkey().scenario_player_node().set_current_section(section_name)
+		self.monkey().scenario_player_node().play_section()
 		return
 	
 	# 該当なければ、とりあえず２番目のセクションまで見る
@@ -84,5 +84,5 @@ func goto(section_name, tail_csv):
 
 	var section_name2 = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
 
-	self.monkey().scenario_player().set_current_section(section_name2)
-	self.monkey().scenario_player().play_section()
+	self.monkey().scenario_player_node().set_current_section(section_name2)
+	self.monkey().scenario_player_node().play_section()

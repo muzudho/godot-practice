@@ -70,7 +70,7 @@ func change_department(next_department_name, tail_csv):
 	if next_department_name in self.monkey().get_all_department_names():
 
 		# フラグを下ろす
-		self.monkey().scenario_player().is_department_not_found = false
+		self.monkey().scenario_player_node().is_department_not_found = false
 
 		# 前部門
 		var prev_department_name = self.monkey().owner_node().current_department_name
@@ -93,12 +93,12 @@ func change_department(next_department_name, tail_csv):
 			self.get_m_wnd().show_message_window(next_window_name, true)
 
 		# 台本の「§」セクションの再生
-		self.monkey().scenario_player().play_section()
+		self.monkey().scenario_player_node().play_section()
 
 		return
 
 	# 指定の部門が無かった
-	self.monkey().scenario_player().is_department_not_found = true
+	self.monkey().scenario_player_node().is_department_not_found = true
 
 	# 文字列の配列に分割
 	var string_packed_array = tail_csv.split(",", true, 0)

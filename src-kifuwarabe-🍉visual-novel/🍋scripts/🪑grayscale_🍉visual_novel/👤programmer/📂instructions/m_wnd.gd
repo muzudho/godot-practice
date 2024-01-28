@@ -69,7 +69,7 @@ func do_it(line):
 func show_message_window(
 		node_name,						# StringName
 		is_department_entered = false):	# bool
-	var department_value = self.monkey().scenario_player().get_current_department_value()
+	var department_value = self.monkey().scenario_player_node().get_current_department_value()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
@@ -86,14 +86,14 @@ func show_message_window(
 		department_value.stack_of_last_displayed_message_window.push_back(node_name)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-	self.monkey().scenario_player().dump_last_displayed_message_window()
+	self.monkey().scenario_player_node().dump_last_displayed_message_window()
 
 
 # 伝言窓を隠す
 func hide_message_window(
 		node_name,						# StringName
 		is_department_leaved = false):	# bool
-	var department_value = self.monkey().scenario_player().get_current_department_value()
+	var department_value = self.monkey().scenario_player_node().get_current_department_value()
 	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
@@ -109,4 +109,4 @@ func hide_message_window(
 			department_value.stack_of_last_displayed_message_window.remove_at(index)
 
 	# DEBUG 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
-	self.monkey().scenario_player().dump_last_displayed_message_window()
+	self.monkey().scenario_player_node().dump_last_displayed_message_window()
