@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/staff.gd" id="1_dum2v"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_f72qc"]
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/staff_monkey.gd" id="2_qa5np"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/grid.gd" id="3_c737f"]
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/config.gd" id="3_y3tm7"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/👤Illustrator.tscn" id="4_u7crs"]
 [ext_resource type="Script" path="res://⚓local_🍉KeyConfig/programmer_monkey.gd" id="5_2fo8k"]
@@ -13,6 +12,20 @@
 [ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉KeyConfig/👤Musician_🌏SoundFX.tscn" id="10_b6gok"]
 [ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉Bench/👤programmer_bench.tscn" id="10_p52k3"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🎄addon_🍉KeyConfig/👤TelopCoordinator.tscn" id="12_8rfor"]
+
+[sub_resource type="GDScript" id="GDScript_htdqn"]
+script/source = "# グリッド（Grid；格子）
+extends Sprite2D
+
+
+func _ready():
+	
+	# ーーーーーーーー
+	# 非表示
+	# ーーーーーーーー
+	
+	self.hide()
+"
 
 [node name="👥Staff" type="Node2D"]
 script = ExtResource("1_dum2v")
@@ -27,7 +40,7 @@ script = ExtResource("2_qa5np")
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("2_f72qc")
-script = ExtResource("3_c737f")
+script = SubResource("GDScript_htdqn")
 
 [node name="👤Illustrator" type="Node2D" parent="."]
 
