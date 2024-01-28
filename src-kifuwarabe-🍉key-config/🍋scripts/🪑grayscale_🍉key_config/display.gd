@@ -8,7 +8,6 @@ extends Node
 # ノード・パス関連
 # ーーーーーーーー
 
-
 # 猿取得
 func monkey():
 	return $"../🐵Monkey"
@@ -18,13 +17,8 @@ func monkey():
 # 起動時設定
 # ーーーーーーーー
 
-
+# 画面上のオブジェクトの非表示
 func ready_in_staff():
-
-	# ーーーーーーーー
-	# 非表示
-	# ーーーーーーーー
-	
 	# イラストレーター非表示
 	self.monkey().the_illustrator_node().hide()
 		
@@ -61,70 +55,70 @@ func set_key_denied_message(reason):
 # 各項目が空の状態のメッセージ
 func set_empty_the_button_message(step):
 	if step == 1:
-		#						"１２３４５６７８９０１２３４５６７８９："
+		#						   "１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（１）ボタン").text = "（１）"
 
 	elif step == 2:
-		#						"１２３４５６７８９０１２３４５６７８９："
+		#						   "１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（２）ボタン").text = "（２）"
 
 	elif step == 3:
-		#						"１２３４５６７８９０１２３４５６７８９："
+		#						   "１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（３）ボタン").text = "（３）"
 
 	elif step == 4:
-		#						"１２３４５６７８９０１２３４５６７８９："
+		#						   "１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（４）ボタン").text = "（４）"
 
 	elif step == 5:
-		#						"１２３４５６７８９０１２３４５６７８９："
+		#						   "１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（５）ボタン").text = "（５）"
 
 	elif step == 6:
-		#						"１２３４５６７８９０１２３４５６７８９："
+		#						   "１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（６）ボタン").text = "（６）"
 
 	elif step == 7:
-		#						"１２３４５６７８９０１２３４５６７８９："
+		#						   "１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（７）ボタン").text = "（７）"
 
 
 # ボタンの押下を促すメッセージ
 func set_press_message_to_button(step):
 	if step == 1:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　を押してください"
 
 	elif step == 2:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　を押してください"
 
 	elif step == 3:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（３）ボタン").text = "（３）メッセージ早送りボタン　を押してください"
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（４）ボタン").text = "（４）下キー　を入れてください"
 
 	elif step == 5:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（５）ボタン").text = "（５）上キー　を入れてください"
 		self.monkey().get_my_telop("TextBlock").text = "下キーと組み合わせられないボタンは\n使えません"
 
 	elif step == 6:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（６）ボタン").text = "（６）右キー　を入れてください"
 
 	elif step == 7:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（７）ボタン").text = "（７）左キー　を入れてください"
 		self.monkey().get_my_telop("TextBlock").text = "右キーと組み合わせられないボタンは\n使えません"
 
 	# 完了時
 	elif step == 8:
-		#											"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#											   "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("TextBlock").text = "完了"
 		self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ完了音").play()
 
@@ -134,32 +128,32 @@ func set_done_message_the_button(step, button_number):
 	var button_presentation_name = self.monkey().display().get_button_name_by_number(button_number)
 	
 	if step == 1:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
 		self.monkey().get_my_telop("（１）ボタン").text = "（１）キャンセルボタン、メニューボタン　　　：　" + button_presentation_name
 
 	elif step == 2:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 		self.monkey().get_my_telop("（２）ボタン").text = "（２）決定ボタン、メッセージ送りボタン　　　：　" + button_presentation_name
 
 	elif step == 3:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 		self.monkey().get_my_telop("（３）ボタン").text = "（３）メッセージ早送りボタン　　　　　　　　：　" + button_presentation_name
 
 	elif step == 4:
 		# ボタンと、レバーでは、対応が異なる
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 		self.monkey().get_my_telop("（４）ボタン").text = "（４）下キー　　　　　　　　　　　　　　　　：　" + button_presentation_name
 
 	elif step == 5:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 		self.monkey().get_my_telop("（５）ボタン").text = "（５）上キー　　　　　　　　　　　　　　　　：　" + button_presentation_name
 
 	elif step == 6:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 		self.monkey().get_my_telop("（６）ボタン").text = "（６）右キー　　　　　　　　　　　　　　　　：　" + button_presentation_name
 
 	elif step == 7:
-		#											 "１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
+		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０："
 		self.monkey().get_my_telop("（７）ボタン").text = "（７）左キー　　　　　　　　　　　　　　　　：　" + button_presentation_name
 
 
@@ -175,7 +169,7 @@ func get_button_name_by_number(button_number_1):
 
 
 # キーコンフィグ画面に入る時の演出
-func perform_first():
+func perform_at_open_scene():
 	# 音楽
 	self.monkey().the_programmer_node().bg_musics.find_node("🎵キーコンフィグ").play()
 
@@ -199,7 +193,7 @@ func perform_first():
 
 
 # キーコンフィグ終了時
-func on_exit():
+func perform_at_close_scene():
 	# GUI - メッセージ・ウィンドウ
 	self.monkey().the_programmer_node().images.find_node("■上_大").hide()
 	self.monkey().the_programmer_node().images.find_node("■下").hide()
@@ -212,19 +206,19 @@ func on_exit():
 
 
 # 押下ボタンを受入
-func on_pushed_button_accepted(key_config_item_number, button_number):
+func show_pushed_button_accepted(key_config_item_number, button_number):
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
 	self.monkey().display().set_done_message_the_button(key_config_item_number, button_number)
 
 
 # 押下ボタンを拒否
-func on_pushed_button_denied(reason):
+func show_pushed_button_denied(reason):
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
 	self.monkey().display().set_key_denied_message(reason)
 
 
 # キャンセル・ボタンを押した時
-func on_cancel_button_pushed():
+func show_cancel():
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
 	self.monkey().display().clear_message()
 

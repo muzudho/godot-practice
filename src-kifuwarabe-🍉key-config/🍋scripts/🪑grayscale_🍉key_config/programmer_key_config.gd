@@ -68,8 +68,13 @@ func on_unhandled_input(event):
 
 
 # ーーーーーーーー
-# キーコンフィグ関連
+# アクセッサ―
 # ーーーーーーーー
+
+# 仮想キーの追加
+func push_virtual_key(virtual_key_name, button_number):
+	self.key_config[virtual_key_name] = button_number
+
 
 # ボタンが重複するか？
 func is_key_duplicated(button_number_1):
