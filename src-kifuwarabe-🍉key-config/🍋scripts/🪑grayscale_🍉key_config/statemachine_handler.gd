@@ -38,7 +38,7 @@ func on_exit():
 
 # 入力の前に待て
 func on_wait_before_input(reason):
-	# キャンセル・ボタン押下時
+	# キャンセル・ボタン押下後、再入力
 	if reason == &"CancelButtonPushed":
 		# キー・コンフィグ項目を、１つか、２つ（レバー時）戻す
 		self.monkey().display().on_cancel_button_pushed()
@@ -64,6 +64,22 @@ func on_wait_before_input(reason):
 		
 		self.monkey().moderator().clear_count_by_step()
 
+	# 既存のキーと被って、再入力
+	elif reason == &"KeyDuplicated":
+		self.monkey().display().on_pushed_button_denied(1)
+		self.monkey().moderator().clear_count_by_step()
+	
+	# インターバル後
+	elif reason == &"AfterInterval":
+		self.monkey().display().set_press_message_to_button(self.monkey().moderator().key_config_item_number)
+
+	# 下キーがボタンなら、上ボタンも再入力
+	elif reason == &"SelectUpButton":
+		self.monkey().display().on_pushed_button_denied(2)
+
+	# 右キーがボタンなら、左ボタンも再入力
+	elif reason == &"SelectLeftButton":
+		self.monkey().display().on_pushed_button_denied(3)
 
 	else:
-		pass
+		print("［キーコンフィグ］　▲！　エラー　reason:" + reason)
