@@ -27,16 +27,16 @@ func on_process(delta):
 		return
 	
 	# 初回
-	if self.monkey().moderator().key_config_item_number == 0:
+	if self.monkey().internal().key_config_item_number == 0:
 		# 画面の表示、演奏
 		self.monkey().display().perform_first()
-		self.monkey().moderator().key_config_item_number += 1
+		self.monkey().internal().key_config_item_number += 1
 		self.monkey().moderator().clear_count_by_step()
 	
 	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
-	elif self.monkey().moderator().key_config_item_number == 1:
+	elif self.monkey().internal().key_config_item_number == 1:
 		self.monkey().moderator().on_tick(
 				delta,
 				null,
@@ -45,7 +45,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
-	elif self.monkey().moderator().key_config_item_number == 2:
+	elif self.monkey().internal().key_config_item_number == 2:
 		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Cancel",
@@ -54,7 +54,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
-	elif self.monkey().moderator().key_config_item_number == 3:
+	elif self.monkey().internal().key_config_item_number == 3:
 		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Ok",
@@ -63,7 +63,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （４）レバーの下
 	# ーーーーーーーー
-	elif self.monkey().moderator().key_config_item_number == 4:
+	elif self.monkey().internal().key_config_item_number == 4:
 		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_FastForward",
@@ -72,7 +72,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （５）レバーの上
 	# ーーーーーーーー
-	elif self.monkey().moderator().key_config_item_number == 5:
+	elif self.monkey().internal().key_config_item_number == 5:
 		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Down",
@@ -81,7 +81,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （６）レバーの右
 	# ーーーーーーーー
-	elif self.monkey().moderator().key_config_item_number == 6:
+	elif self.monkey().internal().key_config_item_number == 6:
 		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Up",
@@ -90,7 +90,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （７）レバーの左
 	# ーーーーーーーー
-	elif self.monkey().moderator().key_config_item_number == 7:
+	elif self.monkey().internal().key_config_item_number == 7:
 		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Right",
@@ -99,7 +99,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# 完了
 	# ーーーーーーーー
-	elif self.monkey().moderator().key_config_item_number == 8:
+	elif self.monkey().internal().key_config_item_number == 8:
 		self.monkey().moderator().on_tick(
 				delta,
 				&"VK_Left",

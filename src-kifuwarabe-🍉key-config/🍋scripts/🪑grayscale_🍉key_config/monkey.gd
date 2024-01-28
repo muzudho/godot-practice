@@ -44,6 +44,11 @@ func input():
 	return $"../🕹️Input"
 
 
+# 内部取得
+func internal():
+	return $"../🚪Internal"
+
+
 # モデレーター取得
 func moderator():
 	return $"../Moderator"

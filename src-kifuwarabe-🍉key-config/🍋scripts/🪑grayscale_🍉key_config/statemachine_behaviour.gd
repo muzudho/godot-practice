@@ -55,25 +55,25 @@ func behaviour_of_try_inputting_again(reason):
 	if reason == &"CancelButtonPushed":
 		# キー・コンフィグ項目を、１つか、２つ（レバー時）戻す
 		self.monkey().display().on_cancel_button_pushed()
-		self.monkey().display().set_empty_the_button_message(self.monkey().moderator().key_config_item_number)
+		self.monkey().display().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
 
-		self.monkey().moderator().key_config_item_number -= 1
+		self.monkey().internal().key_config_item_number -= 1
 		# さらに連続して戻したいケースもある
 		# レバーの上
-		if self.monkey().moderator().key_config_item_number == 5 and self.monkey().owner_key_config_node().key_config[&"VK_Down"] == self.monkey().owner_key_config_node().key_config[&"VK_Up"]:
-			self.monkey().display().set_empty_the_button_message(self.monkey().moderator().key_config_item_number)
-			self.monkey().moderator().key_config_item_number -= 1
+		if self.monkey().internal().key_config_item_number == 5 and self.monkey().owner_key_config_node().key_config[&"VK_Down"] == self.monkey().owner_key_config_node().key_config[&"VK_Up"]:
+			self.monkey().display().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
+			self.monkey().internal().key_config_item_number -= 1
 			self.monkey().owner_key_config_node().key_config.erase(&"VK_Down")
 		# レバーの左
-		elif self.monkey().moderator().key_config_item_number == 7 and self.monkey().owner_key_config_node().key_config[&"VK_Right"] == self.monkey().owner_key_config_node().key_config[&"VK_Left"]:
-			self.monkey().display().set_empty_the_button_message(self.monkey().moderator().key_config_item_number)
-			self.monkey().moderator().key_config_item_number -= 1
+		elif self.monkey().internal().key_config_item_number == 7 and self.monkey().owner_key_config_node().key_config[&"VK_Right"] == self.monkey().owner_key_config_node().key_config[&"VK_Left"]:
+			self.monkey().display().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
+			self.monkey().internal().key_config_item_number -= 1
 			self.monkey().owner_key_config_node().key_config.erase(&"VK_Right")
 		
-		self.monkey().display().set_press_message_to_button(self.monkey().moderator().key_config_item_number)
+		self.monkey().display().set_press_message_to_button(self.monkey().internal().key_config_item_number)
 		
-		if self.monkey().moderator().previous_virtual_key_name != null:
-			self.monkey().owner_key_config_node().key_config.erase(self.monkey().moderator().previous_virtual_key_name)
+		if self.monkey().internal().previous_virtual_key_name != null:
+			self.monkey().owner_key_config_node().key_config.erase(self.monkey().internal().previous_virtual_key_name)
 		
 		self.monkey().moderator().clear_count_by_step()
 
@@ -84,7 +84,7 @@ func behaviour_of_try_inputting_again(reason):
 	
 	# インターバル後
 	elif reason == &"AfterInterval":
-		self.monkey().display().set_press_message_to_button(self.monkey().moderator().key_config_item_number)
+		self.monkey().display().set_press_message_to_button(self.monkey().internal().key_config_item_number)
 
 	# 下キーがボタンなら、上ボタンも再入力
 	elif reason == &"SelectUpButton":
@@ -102,32 +102,32 @@ func behaviour_of_try_inputting_again(reason):
 func behaviour_of_input_accepted():
 	# 決定
 	self.monkey().display().on_pushed_button_accepted(
-			self.monkey().moderator().key_config_item_number,
-			self.monkey().moderator().button_number)
-	self.monkey().owner_key_config_node().key_config[self.monkey().moderator().virtual_key_name] = self.monkey().moderator().button_number
+			self.monkey().internal().key_config_item_number,
+			self.monkey().internal().button_number)
+	self.monkey().owner_key_config_node().key_config[self.monkey().internal().virtual_key_name] = self.monkey().internal().button_number
 
 	# レバーの下
-	if self.monkey().moderator().key_config_item_number == 4:
+	if self.monkey().internal().key_config_item_number == 4:
 		if 1000 <= self.monkey().owner_key_config_node().key_config[&"VK_Down"]:
 			# 軸を選択したなら、レバーの上の選択はスキップ
-			self.monkey().owner_key_config_node().key_config[&"VK_Up"] = self.monkey().moderator().button_number
+			self.monkey().owner_key_config_node().key_config[&"VK_Up"] = self.monkey().internal().button_number
 			self.monkey().display().set_done_message_the_button(
-					self.monkey().moderator().key_config_item_number + 1,
-					self.monkey().moderator().button_number)
-			self.monkey().moderator().key_config_item_number += 2
+					self.monkey().internal().key_config_item_number + 1,
+					self.monkey().internal().button_number)
+			self.monkey().internal().key_config_item_number += 2
 		else:
-			self.monkey().moderator().key_config_item_number += 1
+			self.monkey().internal().key_config_item_number += 1
 	# レバーの右
-	elif self.monkey().moderator().key_config_item_number == 6:
+	elif self.monkey().internal().key_config_item_number == 6:
 		if 1000 <= self.monkey().owner_key_config_node().key_config[&"VK_Right"]:
 			# 軸を選択したなら、レバーの左の選択はスキップ
-			self.monkey().owner_key_config_node().key_config[&"VK_Left"] = self.monkey().moderator().button_number
+			self.monkey().owner_key_config_node().key_config[&"VK_Left"] = self.monkey().internal().button_number
 			self.monkey().display().set_done_message_the_button(
-					self.monkey().moderator().key_config_item_number + 1,
-					self.monkey().moderator().button_number)
-			self.monkey().moderator().key_config_item_number += 2
+					self.monkey().internal().key_config_item_number + 1,
+					self.monkey().internal().button_number)
+			self.monkey().internal().key_config_item_number += 2
 		else:
-			self.monkey().moderator().key_config_item_number += 1
+			self.monkey().internal().key_config_item_number += 1
 	else:
-		self.monkey().moderator().key_config_item_number += 1
+		self.monkey().internal().key_config_item_number += 1
 	
