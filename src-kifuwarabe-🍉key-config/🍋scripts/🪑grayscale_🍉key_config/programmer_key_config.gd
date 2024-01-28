@@ -83,7 +83,7 @@ func on_exit():
 
 
 func on_unhandled_input(event):
-	self.sub_monkey().moderator().on_unhandled_input(event)
+	self.sub_monkey().input().on_unhandled_input(event)
 
 
 # ーーーーーーーー

@@ -39,6 +39,11 @@ func display():
 	return $"../🖥️Display"
 
 
+# 入力取得
+func input():
+	return $"../🕹️Input"
+
+
 # モデレーター取得
 func moderator():
 	return $"../Moderator"

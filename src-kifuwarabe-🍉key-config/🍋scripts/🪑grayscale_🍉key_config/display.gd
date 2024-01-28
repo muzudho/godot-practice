@@ -208,3 +208,30 @@ func on_exit():
 
 	# ディレクターのイベントハンドラ呼出し
 	self.monkey().owner_key_config_node().on_exit()
+
+
+# キーコンフィグ　ボタン設定を受入
+func set_key_accepted():
+	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
+
+
+# キーコンフィグ　ボタン設定が拒否
+func set_key_denied(reason):
+	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
+	self.monkey().display().set_key_denied_message(reason)
+
+
+# キーコンフィグ　ボタン設定が拒否
+func set_key_canceled():
+	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
+	self.monkey().display().clear_message()
+
+
+# 使ってない？
+## ボタン番号を、仮想キー名に変換。該当がなければ空文字列
+#func get_virtual_key_name_by_button_number(button_number_1):
+#	for key in self.monkey().owner_key_config_node().key_config.keys():
+#		var value = self.monkey().owner_key_config_node().key_config[key]
+#		if button_number_1 == value:
+#			return key
+#	return &""

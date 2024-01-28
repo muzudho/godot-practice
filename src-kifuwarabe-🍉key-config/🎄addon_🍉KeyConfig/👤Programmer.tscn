@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://kqejd4uyxvtm"]
+[gd_scene load_steps=9 format=3 uid="uid://kqejd4uyxvtm"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/programmer_key_config.gd" id="1_031ms"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/clock.gd" id="2_bk854"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/monkey.gd" id="2_jup75"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/display.gd" id="3_e0fkj"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/statemachine.gd" id="3_enr71"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/input.gd" id="3_ti620"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/parser.gd" id="6_i74c1"]
 
 [node name="📂🍉KeyConfig" type="Node2D"]
@@ -13,6 +14,9 @@ script = ExtResource("1_031ms")
 
 [node name="🐵Monkey" type="Node" parent="."]
 script = ExtResource("2_jup75")
+
+[node name="🕹️Input" type="Node" parent="."]
+script = ExtResource("3_ti620")
 
 [node name="⌚Clock" type="Node" parent="."]
 script = ExtResource("2_bk854")

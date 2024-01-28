@@ -56,23 +56,6 @@ func is_cancel_button_pressed(button_number_1):
 	return button_number_1 == self.monkey().owner_key_config_node().key_config[&"VK_Cancel"]
 
 
-# キーコンフィグ　ボタン設定を受入
-func set_key_accepted():
-	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
-
-
-# キーコンフィグ　ボタン設定が拒否
-func set_key_denied(reason):
-	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
-	self.monkey().display().set_key_denied_message(reason)
-
-
-# キーコンフィグ　ボタン設定が拒否
-func set_key_canceled():
-	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
-	self.monkey().display().clear_message()
-
-
 func clear_count():
 	self.counter_of_wait = 0.0
 	self.button_number = -1
@@ -124,7 +107,7 @@ func on_step_regular(
 	elif self.monkey().statemachine().state == &"InputOk":
 		# キャンセルボタン押下時は、１つか、２つ戻す
 		if self.is_cancel_button_pressed(self.button_number):
-			self.set_key_canceled()
+			self.monkey().display().set_key_canceled()
 			
 			self.monkey().statemachine().state = &"WaitForInput"
 			self.monkey().display().set_empty_the_button_message(self.key_config_item_number)
@@ -152,13 +135,13 @@ func on_step_regular(
 
 		# 既存のキーと被る場合、やり直しさせる
 		if self.is_key_duplicated(self.button_number):
-			self.set_key_denied(1)
+			self.monkey().display().set_key_denied(1)
 			self.monkey().statemachine().state = &"WaitForInput"
 			self.clear_count()
 			return
 			
 		# 決定
-		self.set_key_accepted()
+		self.monkey().display().set_key_accepted()
 		self.monkey().display().set_done_message_the_button(self.key_config_item_number, self.button_presentation_name)
 		self.monkey().owner_key_config_node().key_config[virtual_key_name] = self.button_number
 
@@ -185,60 +168,3 @@ func on_step_regular(
 		
 		
 		self.monkey().statemachine().state = &"WaitForPrompt"
-
-
-# 使ってない？
-## ボタン番号を、仮想キー名に変換。該当がなければ空文字列
-#func get_virtual_key_name_by_button_number(button_number_1):
-#	for key in self.monkey().owner_key_config_node().key_config.keys():
-#		var value = self.monkey().owner_key_config_node().key_config[key]
-#		if button_number_1 == value:
-#			return key
-#	return &""
-
-
-func on_unhandled_input(event):
-
-	if not self.is_enabled:
-		return
-
-	# 起動直後に、押してもないレバーが　押したことになっていることがある
-	var event_as_text = event.as_text()
-	print("入力：　" + event_as_text)
-	
-	if self.monkey().statemachine().state != &"Input":
-		return
-
-
-	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
-	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
-	var temp_button_number = self.monkey().parser_for_input().get_button_number_by_text(event_as_text)
-
-	# ーーーーーーーー
-	# （５）上キー
-	# ーーーーーーーー
-	if self.key_config_item_number == 5:
-		# 下キーがボタンのときは、上キーはレバーであってはいけません
-		if 1000 < temp_button_number:
-			self.set_key_denied(2)
-			self.monkey().statemachine().state = &"WaitForInput"
-			return
-
-	# ーーーーーーーー
-	# （７）左キー
-	# ーーーーーーーー
-	elif self.key_config_item_number == 7:
-		# 右キーがボタンのときは、左キーはレバーであってはいけません
-		if 1000 < temp_button_number:
-			self.set_key_denied(3)
-			self.monkey().statemachine().state = &"WaitForInput"
-			return
-
-
-	# 有効なキーなら
-	if 0 <= temp_button_number:
-		self.button_number = temp_button_number
-		self.button_presentation_name = self.monkey().display().get_button_name_by_number(self.button_number)
-		
-		print("受付：　" + self.button_presentation_name)
-		self.monkey().statemachine().state = &"InputOk"
