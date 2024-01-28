@@ -212,19 +212,22 @@ func on_exit():
 	self.monkey().owner_key_config_node().on_exit()
 
 
-# キーコンフィグ　ボタン設定を受入
-func set_key_accepted():
+# 押下ボタンを受入
+func on_pushed_button_accepted():
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
+	self.monkey().display().set_done_message_the_button(
+			self.monkey().moderator().key_config_item_number,
+			self.monkey().moderator().button_number)
 
 
-# キーコンフィグ　ボタン設定が拒否
-func set_key_denied(reason):
+# 押下ボタンを拒否
+func on_pushed_button_denied(reason):
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
 	self.monkey().display().set_key_denied_message(reason)
 
 
-# キーコンフィグ　ボタン設定が拒否
-func set_key_canceled():
+# キャンセル・ボタンを押した時
+func on_cancel_button_pushed():
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
 	self.monkey().display().clear_message()
 

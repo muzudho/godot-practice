@@ -29,7 +29,7 @@ func sub_monkey():
 
 
 # ーーーーーーーー
-# 起動前設定
+# 起動時設定
 # ーーーーーーーー
 
 func ready_in_staff():

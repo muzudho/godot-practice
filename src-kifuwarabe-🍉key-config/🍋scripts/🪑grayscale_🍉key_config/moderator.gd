@@ -90,9 +90,10 @@ func on_step_regular(
 	elif self.monkey().statemachine().state == &"InputOk":
 		# キャンセルボタン押下時は、１つか、２つ戻す
 		if self.is_cancel_button_pressed(self.button_number):
-			self.monkey().display().set_key_canceled()
-			
+
+			self.monkey().display().on_cancel_button_pushed()
 			self.monkey().statemachine().wait_before_input()
+			
 			self.monkey().display().set_empty_the_button_message(self.key_config_item_number)
 			
 			self.key_config_item_number -= 1
@@ -118,14 +119,13 @@ func on_step_regular(
 
 		# 既存のキーと被る場合、やり直しさせる
 		if self.is_key_duplicated(self.button_number):
-			self.monkey().display().set_key_denied(1)
+			self.monkey().display().on_pushed_button_denied(1)
 			self.monkey().statemachine().wait_before_input()
 			self.clear_count_by_step()
 			return
 			
 		# 決定
-		self.monkey().display().set_key_accepted()
-		self.monkey().display().set_done_message_the_button(self.key_config_item_number, self.button_number)
+		self.monkey().display().on_pushed_button_accepted()
 		self.monkey().owner_key_config_node().key_config[virtual_key_name] = self.button_number
 
 		# レバーの下
