@@ -54,7 +54,7 @@ script = ExtResource("5_2fo8k")
 
 [node name="📂🍉KeyConfig" parent="👤Programmer" instance=ExtResource("9_calvn")]
 
-[node name="👤Programmer_Bench" parent="." instance=ExtResource("10_p52k3")]
+[node name="👤Programmer_ForBench" parent="." instance=ExtResource("10_p52k3")]
 
 [node name="👤Musician" type="Node" parent="."]
 
