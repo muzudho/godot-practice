@@ -73,7 +73,7 @@ func get_current_section_size_of_scenario():
 	var scenario_node_name = department_value.name		# StringName
 	var section_name =  department_value.section_name
 	
-	var section_array = self.sub_monkey().of_staff().scenario_writer().owner_node().get_section_array(scenario_node_name, section_name)
+	var section_array = self.get_section_array(scenario_node_name, section_name)
 	return section_array.size()
 
 
@@ -130,6 +130,18 @@ func get_merged_choices_mappings(department_name):
 					self.cached_choices_mappings[department_name].merge(child_node.choices_mappings))
 
 	return self.cached_choices_mappings[department_name]
+
+
+# セクション配列取得
+func get_section_array(
+		department_name,		# StringName
+		section_name):
+	var merged_scenario_document = self.get_merged_scenario_document(department_name)
+	
+	if not(section_name in merged_scenario_document):
+		print("［台本］　▲エラー　”" + section_name + "”セクションが無い")
+		
+	return merged_scenario_document[section_name]
 
 
 # ーーーーーーーー

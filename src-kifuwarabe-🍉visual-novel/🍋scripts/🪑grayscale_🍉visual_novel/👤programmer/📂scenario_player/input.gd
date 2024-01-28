@@ -135,7 +135,7 @@ func _unhandled_input(event):
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if self.monkey().of_staff().scenario_writer().owner_node().on_virtual_key_input(
+	if self.monkey().of_staff().programmer().department_controller_node().sub_monkey().input().on_virtual_key_input(
 			virtual_key,
 			lever_value,
 			vk_operation):

@@ -24,6 +24,11 @@ func of_staff():
 			self.ancestors)
 
 
+# 入力取得
+func input():
+	return $"../🕹️Input"
+
+
 # 内部取得
 func internal():
 	return $"../🚪Internal"
