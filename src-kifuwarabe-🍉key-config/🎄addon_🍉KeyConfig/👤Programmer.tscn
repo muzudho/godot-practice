@@ -24,11 +24,11 @@ script = ExtResource("2_bk854")
 [node name="🍇Statemachine" type="Node" parent="."]
 script = ExtResource("3_enr71")
 
-[node name="🖥️Display" type="Node" parent="."]
-script = ExtResource("3_e0fkj")
-
 [node name="Moderator" type="Node" parent="."]
 script = ExtResource("2_j1eyt")
 
 [node name="🅿ParserForInput" type="Node" parent="."]
 script = ExtResource("6_i74c1")
+
+[node name="🖥️Display" type="Node" parent="."]
+script = ExtResource("3_e0fkj")

@@ -58,7 +58,7 @@ func on_step_regular(
 			self.counter_of_wait += delta
 			return
 			
-		self.monkey().statemachine().state = &"Prompt"
+		self.monkey().statemachine().go_prompt()
 		return
 
 	elif self.monkey().statemachine().state == &"Prompt":

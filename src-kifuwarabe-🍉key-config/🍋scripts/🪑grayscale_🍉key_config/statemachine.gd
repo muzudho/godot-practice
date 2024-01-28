@@ -29,6 +29,11 @@ func entry():
 	self.state = &"IntervalUntilPrompt"
 
 
+# プロンプトを表示しろ
+func go_prompt():
+	self.state = &"Prompt"
+
+
 # キー・コンフィグ画面を終了
 func exit():
 	self.state = &"Terminated"
