@@ -8,9 +8,6 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
-# 全命令（キー："命令名:"　値：ノード名）
-var directory_for_instruction_code_and_node_name = null
-
 # `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
 # 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
 var is_department_not_found = false
@@ -209,8 +206,8 @@ func execute_stage_directions(paragraph_text):
 
 			else:
 				# 例えば `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
-				if instruction_code in self.directory_for_instruction_code_and_node_name:
-					var instruction_node_name = self.directory_for_instruction_code_and_node_name[instruction_code]
+				if instruction_code in self.sub_monkey().internal().directory_for_instruction_code_and_node_name:
+					var instruction_node_name = self.sub_monkey().internal().directory_for_instruction_code_and_node_name[instruction_code]
 					var instruction = self.sub_monkey().of_programmer().get_instruction(instruction_node_name)
 					instruction.do_it(second_head)
 				
