@@ -14,11 +14,6 @@ func monkey():
 # その他
 # ーーーーーーーー
 
-# 入力しろ
-func on_go_input():
-	self.monkey().moderator().clear_count_by_step()
-
-
 # 入力を受け付けた
 func on_input_accepted():
 	# 決定

@@ -6,7 +6,6 @@ extends Node
 # ノード・パス関連
 # ーーーーーーーー
 
-
 # 猿取得
 func monkey():
 	return $"../🐵Monkey"
@@ -16,11 +15,11 @@ func monkey():
 # 起動時設定
 # ーーーーーーーー
 
-
 func _ready():
 	self.monkey().statemachine().behaviour_of_entry = behaviour_of_entry
 	self.monkey().statemachine().behaviour_of_exit = behaviour_of_exit
 	self.monkey().statemachine().behaviour_of_try_inputting_again = behaviour_of_try_inputting_again
+	self.monkey().statemachine().behaviour_of_go_input = behaviour_of_go_input
 
 
 # ーーーーーーーー
@@ -42,6 +41,11 @@ func behaviour_of_exit():
 
 	# キーコンフィグ呼出し元
 	self.monkey().owner_key_config_node().on_exit()
+
+
+# 入力しろ
+func behaviour_of_go_input():
+	self.monkey().moderator().clear_count_by_step()
 
 
 # 入力に再挑戦

@@ -19,6 +19,7 @@ var state = &"Terminated"
 
 var behaviour_of_entry = null
 var behaviour_of_exit = null
+var behaviour_of_go_input = null
 var behaviour_of_try_inputting_again = null
 
 
@@ -59,13 +60,13 @@ func go_prompt():
 	self.state = &"Prompt"
 
 
+# 入力しろ
+func go_input():
+	self.state = &"WaitingForInput"
+	self.behaviour_of_go_input.call()
+
+
 # 入力に再挑戦
 func try_inputting_again(reason):
 	self.state = &"IntervalUntilInput"
 	self.behaviour_of_try_inputting_again.call(reason)
-
-
-# 入力しろ
-func go_input():
-	self.state = &"WaitingForInput"
-	self.handler().on_go_input()
