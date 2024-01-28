@@ -32,19 +32,6 @@ func monkey():
 # その他
 # ーーーーーーーー
 
-# ボタンが重複するか？
-func is_key_duplicated(button_number_1):
-	return button_number_1 in self.monkey().owner_key_config_node().key_config.values()
-
-
-# キャンセルボタン押下か？
-func is_cancel_button_pressed(button_number_1):
-	if not (&"VK_Cancel" in self.monkey().owner_key_config_node().key_config):
-		return false
-	
-	return button_number_1 == self.monkey().owner_key_config_node().key_config[&"VK_Cancel"]
-
-
 func clear_count_by_step():
 	self.counter_of_wait = 0.0
 	self.button_number = -1
@@ -66,8 +53,8 @@ func on_step_regular(
 		self.monkey().statemachine().go_prompt()
 		return
 
+	# プロンプト表示
 	elif self.monkey().statemachine().state == &"Prompt":
-		# プロンプト表示
 		self.monkey().statemachine().wait_before_input(&"AfterInterval")
 		return
 		
@@ -92,12 +79,12 @@ func on_step_regular(
 
 	elif self.monkey().statemachine().state == &"InputOk":
 		# キャンセルボタン押下時
-		if self.is_cancel_button_pressed(self.button_number):
+		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.button_number):
 			self.monkey().statemachine().wait_before_input(&"CancelButtonPushed")
 			return
 
 		# 既存のキーと被る場合、やり直しさせる
-		if self.is_key_duplicated(self.button_number):
+		if self.monkey().owner_key_config_node().is_key_duplicated(self.button_number):
 			self.monkey().statemachine().wait_before_input(&"KeyDuplicated")
 			return
 		

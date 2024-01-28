@@ -68,6 +68,23 @@ func on_unhandled_input(event):
 
 
 # ーーーーーーーー
+# キーコンフィグ関連
+# ーーーーーーーー
+
+# ボタンが重複するか？
+func is_key_duplicated(button_number_1):
+	return button_number_1 in self.key_config.values()
+
+
+# キャンセルボタン押下か？
+func is_cancel_button_pressed(button_number_1):
+	if not (&"VK_Cancel" in self.key_config):
+		return false
+	
+	return button_number_1 == self.key_config[&"VK_Cancel"]
+
+
+# ーーーーーーーー
 # 以下、有ったら便利な関数
 # ーーーーーーーー
 
