@@ -42,7 +42,7 @@ func on_unhandled_input(event):
 	if self.monkey().moderator().key_config_item_number == 5:
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
-			self.monkey().statemachine().wait_before_input(&"SelectUpButton")
+			self.monkey().statemachine().try_inputting_again(&"SelectUpButton")
 			return
 
 	# ーーーーーーーー
@@ -51,7 +51,7 @@ func on_unhandled_input(event):
 	elif self.monkey().moderator().key_config_item_number == 7:
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
-			self.monkey().statemachine().wait_before_input(&"SelectLeftButton")
+			self.monkey().statemachine().try_inputting_again(&"SelectLeftButton")
 			return
 
 

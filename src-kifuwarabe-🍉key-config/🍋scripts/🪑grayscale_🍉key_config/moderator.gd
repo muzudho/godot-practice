@@ -56,7 +56,7 @@ func on_tick(
 
 	# プロンプト表示
 	elif self.monkey().statemachine().state == &"Prompt":
-		self.monkey().statemachine().wait_before_input(&"AfterInterval")
+		self.monkey().statemachine().try_inputting_again(&"AfterInterval")
 		return
 		
 	elif self.monkey().statemachine().state == &"IntervalUntilInput":
@@ -81,12 +81,12 @@ func on_tick(
 	elif self.monkey().statemachine().state == &"InputOk":
 		# キャンセルボタン押下時
 		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.button_number):
-			self.monkey().statemachine().wait_before_input(&"CancelButtonPushed")
+			self.monkey().statemachine().try_inputting_again(&"CancelButtonPushed")
 			return
 
 		# 既存のキーと被る場合、やり直しさせる
 		if self.monkey().owner_key_config_node().is_key_duplicated(self.button_number):
-			self.monkey().statemachine().wait_before_input(&"KeyDuplicated")
+			self.monkey().statemachine().try_inputting_again(&"KeyDuplicated")
 			return
 		
 		# 入力を受け付けた
