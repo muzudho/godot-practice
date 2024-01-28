@@ -42,7 +42,7 @@ func is_cancel_button_pressed(button_number_1):
 	return button_number_1 == self.monkey().owner_key_config_node().key_config[&"VK_Cancel"]
 
 
-func clear_count():
+func clear_count_by_step():
 	self.counter_of_wait = 0.0
 	self.button_number = -1
 	
@@ -53,7 +53,7 @@ func on_step_regular(
 		virtual_key_name):
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
-	if self.monkey().statemachine().state == &"WaitForPrompt":
+	if self.monkey().statemachine().state == &"IntervalUntilPrompt":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
 			return
@@ -62,11 +62,12 @@ func on_step_regular(
 		return
 
 	elif self.monkey().statemachine().state == &"Prompt":
+		# プロンプト表示
 		self.monkey().display().set_press_message_to_button(self.key_config_item_number)
-		self.monkey().statemachine().state = &"WaitForInput"
+		self.monkey().statemachine().state = &"IntervalUntilInput"
 		return
 		
-	elif self.monkey().statemachine().state == &"WaitForInput":
+	elif self.monkey().statemachine().state == &"IntervalUntilInput":
 		if self.counter_of_wait < 0.5:
 			self.counter_of_wait += delta
 			return
@@ -78,15 +79,15 @@ func on_step_regular(
 				self.counter_of_wait += delta
 				return
 			
-			self.monkey().statemachine().state = &"Input"
-			self.clear_count()
-			
-			self.monkey().statemachine().is_enabled = false
+			# キー・コンフィグ画面を終了
+			self.monkey().statemachine().exit()
+
+			self.clear_count_by_step()			
 			self.monkey().display().on_exit()
 			return
 
 		self.monkey().statemachine().state = &"Input"
-		self.clear_count()
+		self.clear_count_by_step()
 		return
 
 	elif self.monkey().statemachine().state == &"InputOk":
@@ -94,7 +95,7 @@ func on_step_regular(
 		if self.is_cancel_button_pressed(self.button_number):
 			self.monkey().display().set_key_canceled()
 			
-			self.monkey().statemachine().state = &"WaitForInput"
+			self.monkey().statemachine().state = &"IntervalUntilInput"
 			self.monkey().display().set_empty_the_button_message(self.key_config_item_number)
 			
 			self.key_config_item_number -= 1
@@ -115,14 +116,14 @@ func on_step_regular(
 			if previous_virtual_key_name != null:
 				self.monkey().owner_key_config_node().key_config.erase(previous_virtual_key_name)
 			
-			self.clear_count()
+			self.clear_count_by_step()
 			return
 
 		# 既存のキーと被る場合、やり直しさせる
 		if self.is_key_duplicated(self.button_number):
 			self.monkey().display().set_key_denied(1)
-			self.monkey().statemachine().state = &"WaitForInput"
-			self.clear_count()
+			self.monkey().statemachine().state = &"IntervalUntilInput"
+			self.clear_count_by_step()
 			return
 			
 		# 決定
@@ -152,4 +153,4 @@ func on_step_regular(
 			self.key_config_item_number += 1
 		
 		
-		self.monkey().statemachine().state = &"WaitForPrompt"
+		self.monkey().statemachine().state = &"IntervalUntilPrompt"

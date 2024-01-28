@@ -22,7 +22,7 @@ func on_process(delta):
 	if not self.monkey().statemachine().is_enabled:
 		return
 	
-	if not (self.monkey().statemachine().state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):
+	if not (self.monkey().statemachine().state in [&"IntervalUntilPrompt", &"Prompt", &"IntervalUntilInput", &"InputOk"]):
 		return
 	
 	# 初回
@@ -30,7 +30,7 @@ func on_process(delta):
 		# 画面の表示、演奏
 		self.monkey().display().perform_first()
 		self.monkey().moderator().key_config_item_number += 1
-		self.monkey().moderator().clear_count()
+		self.monkey().moderator().clear_count_by_step()
 	
 	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン

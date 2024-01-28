@@ -42,7 +42,7 @@ func on_unhandled_input(event):
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.monkey().moderator().set_key_denied(2)
-			self.monkey().statemachine().state = &"WaitForInput"
+			self.monkey().statemachine().state = &"IntervalUntilInput"
 			return
 
 	# ーーーーーーーー
@@ -52,7 +52,7 @@ func on_unhandled_input(event):
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.monkey().moderator().set_key_denied(3)
-			self.monkey().statemachine().state = &"WaitForInput"
+			self.monkey().statemachine().state = &"IntervalUntilInput"
 			return
 
 
