@@ -20,6 +20,7 @@ var cache_dictionary_for_instruction = {}
 # ノード・パス関連
 # ーーーーーーーー
 
+
 # 自身取得
 func monkey():
 	return self
@@ -35,7 +36,7 @@ func of_staff():
 
 # プログラマー取得
 func owner_node():
-	return self.get_node("../../👤Programmer")
+	return $"../../👤Programmer"
 
 
 # 部門制御取得

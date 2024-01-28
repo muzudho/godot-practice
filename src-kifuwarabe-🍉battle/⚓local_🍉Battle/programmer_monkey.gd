@@ -6,7 +6,6 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
-
 # 先祖の辞書キャッシュ
 var ancestors = {}
 
@@ -71,7 +70,7 @@ func get_instruction(
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
 			func():
-				return self.monkey().of_staff().programmer().owner_node(),	# 探す場所
+				return self.owner_node(),	# 探す場所
 			func():
 				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
 
