@@ -14,6 +14,14 @@ func sub_monkey():
 
 
 # ーーーーーーーー
+# 時計
+# ーーーーーーーー
+
+func on_process(delta):
+	self.sub_monkey().clock().on_process(delta)
+
+
+# ーーーーーーーー
 # プロパティーズ
 # ーーーーーーーー
 

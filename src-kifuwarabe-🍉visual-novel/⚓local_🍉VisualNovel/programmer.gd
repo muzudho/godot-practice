@@ -9,7 +9,6 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 # メモリ関連
 # ーーーーーーーー
 
-
 # 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
 var current_state = &"WaitForKeyConfig"
 # 現在の部門（StringName型）
@@ -53,7 +52,6 @@ var telops = null
 # ノード・パス関連
 # ーーーーーーーー
 
-
 # 猿取得
 func monkey():
 	return $"🐵Monkey"
@@ -63,10 +61,7 @@ func monkey():
 # 起動時設定
 # ーーーーーーーー
 
-
 func _ready():
-
-
 	self.bg_musics = MonkeyHand.create(
 			self.monkey().of_staff().musician_bg_musics())		# 探す場所
 
@@ -341,7 +336,7 @@ func _process(delta):
 
 	# 主な状態に制御を譲る
 	elif self.current_state == &"Main":
-		self.monkey().scenario_player_node().sub_monkey().clock().on_process(delta)
+		self.monkey().scenario_player_node().on_process(delta)
 
 
 # 変数展開する
