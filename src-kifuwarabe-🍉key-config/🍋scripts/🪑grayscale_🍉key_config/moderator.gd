@@ -6,9 +6,6 @@ extends Node
 # メモリ関連
 # ーーーーーーーー
 
-# `.entry()` を呼び出すと真にする。キー・コンフィグが完了するとまた偽にセットする
-var is_enabled = false
-
 # 操作したボタン　（変数を増やしたくないのでレバーは＋１０００して入れる）
 var button_number = -1
 
@@ -26,16 +23,6 @@ var key_config_item_number = 0
 # 猿取得
 func monkey():
 	return $"../🐵Monkey"
-
-
-# ーーーーーーーー
-# 起動前設定
-# ーーーーーーーー
-
-# キーコンフィグ画面に入る
-func entry():
-	# これで時計が働きだす
-	self.is_enabled = true
 
 
 # ーーーーーーーー
@@ -94,7 +81,7 @@ func on_step_regular(
 			self.monkey().statemachine().state = &"Input"
 			self.clear_count()
 			
-			self.is_enabled = false
+			self.monkey().statemachine().is_enabled = false
 			self.monkey().display().on_exit()
 			return
 

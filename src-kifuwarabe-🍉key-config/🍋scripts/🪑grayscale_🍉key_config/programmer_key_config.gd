@@ -69,7 +69,7 @@ func entry():
 	# ーーーーーーーー
 	# 状態遷移開始
 	# ーーーーーーーー
-	self.sub_monkey().moderator().entry()
+	self.sub_monkey().statemachine().entry()
 
 
 # ーーーーーーーー

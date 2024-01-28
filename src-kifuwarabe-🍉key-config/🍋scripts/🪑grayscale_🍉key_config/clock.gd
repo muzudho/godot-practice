@@ -19,7 +19,7 @@ func monkey():
 
 func on_process(delta):
 
-	if not self.monkey().moderator().is_enabled:
+	if not self.monkey().statemachine().is_enabled:
 		return
 	
 	if not (self.monkey().statemachine().state in [&"WaitForPrompt", &"Prompt", &"WaitForInput", &"InputOk"]):

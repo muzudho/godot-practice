@@ -20,7 +20,7 @@ func monkey():
 # 入力時
 func on_unhandled_input(event):
 
-	if not self.monkey().moderator().is_enabled:
+	if not self.monkey().statemachine().is_enabled:
 		return
 
 	# 起動直後に、押してもないレバーが　押したことになっていることがある
