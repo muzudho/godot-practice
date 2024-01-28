@@ -2,23 +2,23 @@
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/main.gd" id="1_v7bfh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/monkey.gd" id="2_duxol"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/bgm.gd" id="2_t5aeh"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/choice.gd" id="3_04b3g"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/internal.gd" id="3_nvy2a"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/department.gd" id="4_6lqmd"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/clock.gd" id="4_dyybf"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/goto.gd" id="5_5xr3r"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/img.gd" id="6_iaao0"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/label.gd" id="7_rheb7"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/msg_speed.gd" id="8_b6pww"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/m_wnd.gd" id="9_k8kkn"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/normal_text.gd" id="10_sqsnl"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/normal_text_choice.gd" id="11_5jh1t"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/quit.gd" id="12_lqd63"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/se.gd" id="13_844xe"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/sleep.gd" id="14_rpb64"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/telop.gd" id="15_vnub4"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂instructions/var.gd" id="16_0m320"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/bgm.gd" id="5_ecq3c"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/choice.gd" id="6_mi08m"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/department.gd" id="7_k8gwc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/goto.gd" id="8_sbyb3"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/img.gd" id="9_x0bdc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/label.gd" id="10_w23qh"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/msg_speed.gd" id="11_87xhq"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/m_wnd.gd" id="12_cmwbc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/normal_text.gd" id="13_pqkv6"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/normal_text_choice.gd" id="14_oywfu"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/quit.gd" id="15_k0rgg"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/se.gd" id="16_bh2ne"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/sleep.gd" id="17_rtnq6"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/telop.gd" id="18_8yid3"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/var.gd" id="19_e1qci"]
 
 [node name="📂ScenarioPlayer_🍉VisualNovel" type="Node"]
 script = ExtResource("1_v7bfh")
@@ -35,46 +35,46 @@ script = ExtResource("4_dyybf")
 [node name="📂Instructions" type="Node" parent="."]
 
 [node name="📗BgMusic" type="Node" parent="📂Instructions"]
-script = ExtResource("2_t5aeh")
+script = ExtResource("5_ecq3c")
 
 [node name="📗Choice" type="Node" parent="📂Instructions"]
-script = ExtResource("3_04b3g")
+script = ExtResource("6_mi08m")
 
 [node name="📗Department" type="Node" parent="📂Instructions"]
-script = ExtResource("4_6lqmd")
+script = ExtResource("7_k8gwc")
 
 [node name="📗Goto" type="Node" parent="📂Instructions"]
-script = ExtResource("5_5xr3r")
+script = ExtResource("8_sbyb3")
 
 [node name="📗Img" type="Node" parent="📂Instructions"]
-script = ExtResource("6_iaao0")
+script = ExtResource("9_x0bdc")
 
 [node name="📗Label" type="Node" parent="📂Instructions"]
-script = ExtResource("7_rheb7")
+script = ExtResource("10_w23qh")
 
 [node name="📗MsgSpeed" type="Node" parent="📂Instructions"]
-script = ExtResource("8_b6pww")
+script = ExtResource("11_87xhq")
 
 [node name="📗MsgWnd" type="Node" parent="📂Instructions"]
-script = ExtResource("9_k8kkn")
+script = ExtResource("12_cmwbc")
 
 [node name="📘NormalText" type="Node" parent="📂Instructions"]
-script = ExtResource("10_sqsnl")
+script = ExtResource("13_pqkv6")
 
 [node name="📘NormalTextChoice" type="Node" parent="📂Instructions"]
-script = ExtResource("11_5jh1t")
+script = ExtResource("14_oywfu")
 
 [node name="📗Quit" type="Node" parent="📂Instructions"]
-script = ExtResource("12_lqd63")
+script = ExtResource("15_k0rgg")
 
 [node name="📗SoundFx" type="Node" parent="📂Instructions"]
-script = ExtResource("13_844xe")
+script = ExtResource("16_bh2ne")
 
 [node name="📗Sleep" type="Node" parent="📂Instructions"]
-script = ExtResource("14_rpb64")
+script = ExtResource("17_rtnq6")
 
 [node name="📗Telop" type="Node" parent="📂Instructions"]
-script = ExtResource("15_vnub4")
+script = ExtResource("18_8yid3")
 
 [node name="📗Var" type="Node" parent="📂Instructions"]
-script = ExtResource("16_0m320")
+script = ExtResource("19_e1qci")

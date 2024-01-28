@@ -5,15 +5,6 @@ extends Node
 
 
 # ーーーーーーーー
-# メモリ関連
-# ーーーーーーーー
-
-# `department:` 命令に失敗すると、次の `goto:` 命令は１回無視されるというルール。
-# 次の `goto:` 命令に到達するか、次の `department:` 命令に成功するか、 ト書きが終わると解除
-var is_department_not_found = false
-
-
-# ーーーーーーーー
 # ノード・パス関連
 # ーーーーーーーー
 
@@ -217,7 +208,7 @@ func execute_stage_directions(paragraph_text):
 		# ーーーーーーーー
 		# ［ト書き］終わり
 		# ーーーーーーーー
-		self.is_department_not_found = false
+		self.sub_monkey().internal().is_department_not_found = false
 		return true
 
 	return false
