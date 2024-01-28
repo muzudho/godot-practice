@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c0trqytdpqte8"]
+
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂department_controller/main.gd" id="1_0hmad"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂department_controller/monkey.gd" id="2_bkbw2"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂department_controller/internal.gd" id="3_xpgq0"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂department_controller/input.gd" id="4_x2iib"]
+
+[node name="📂DepartmentController_🍉VisualNovel" type="Node"]
+script = ExtResource("1_0hmad")
+
+[node name="🐵Monkey" type="Node" parent="."]
+script = ExtResource("2_bkbw2")
+
+[node name="🚪Internal" type="Node" parent="."]
+script = ExtResource("3_xpgq0")
+
+[node name="🕹️Input" type="Node" parent="."]
+script = ExtResource("4_x2iib")

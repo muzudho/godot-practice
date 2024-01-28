@@ -105,14 +105,14 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = self.monkey().of_staff().scenario_writer().owner_node().get_merged_scenario_document(department_name).keys()[0]
+		department_value.section_name = self.monkey().of_staff().programmer().scenario_player_node().get_merged_scenario_document(department_name).keys()[0]
 
 		self.departments[department_name] = department_value
 
 
 func ready_in_staff():
 	# キャッシュを作成するだけ
-	var _all_instruction_code = self.monkey().scenario_player_node().get_all_instruction_codes()
+	var _all_instruction_code = self.monkey().scenario_player().get_all_instruction_codes()
 
 	# ーーーーーーーー
 	# 非表示
@@ -287,7 +287,7 @@ func _unhandled_input(event):
 #	_unhandled_input()
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-	if self.monkey().of_staff().scenario_writer().owner_node().on_virtual_key_input(
+	if self.monkey().of_staff().programmer().department_controller().input().on_virtual_key_input(
 			virtual_key,
 			lever_value,
 			vk_operation):
@@ -298,7 +298,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.monkey().scenario_player_node().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
 
 
 # ーーーーーーーー
@@ -334,7 +334,7 @@ func _process(delta):
 		self.monkey().scenario_player_node().play_section()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.monkey().scenario_player_node().get_current_message_window_gui().set_appear_subtree(true)
+		self.monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
 	# 主な状態に制御を譲る
 	elif self.current_state == &"Main":

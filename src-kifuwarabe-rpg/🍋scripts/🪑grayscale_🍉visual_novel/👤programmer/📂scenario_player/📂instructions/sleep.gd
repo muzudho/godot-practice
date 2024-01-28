@@ -24,7 +24,7 @@ var ancestor_children_dictionary = {}
 
 
 # ーーーーーーーー
-# ノード・パス関連
+# 親パス関連
 # ーーーーーーーー
 
 
@@ -60,4 +60,3 @@ func do_it(line):
 func sleep(seconds):
 	print("［命令　スリープ］　秒：[" + str(seconds) + "]")
 	self.monkey().of_staff().programmer().owner_node().sleep_seconds = seconds
-	

@@ -22,7 +22,7 @@ var ancestor_children_dictionary = {}
 
 
 # ーーーーーーーー
-# ノード・パス関連
+# 親パス関連
 # ーーーーーーーー
 
 
