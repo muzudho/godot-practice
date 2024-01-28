@@ -24,6 +24,14 @@ func of_staff():
 			self.ancestors)
 
 
+# プログラマーの猿取得
+func of_programmer():
+	return MonkeyHelper.find_ancestor_child(
+			self,
+			"👤Programmer/🐵Monkey",
+			self.ancestors)
+
+
 # 内部取得
 func internal():
 	return $"../🚪Internal"
