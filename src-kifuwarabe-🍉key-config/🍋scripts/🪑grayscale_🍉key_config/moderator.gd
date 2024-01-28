@@ -15,6 +15,8 @@ var counter_of_wait = 0.0
 # キーコンフィグのキーの数に対応
 var key_config_item_number = 0
 
+var previous_virtual_key_name = &""
+
 
 # ーーーーーーーー
 # ノード・パス関連
@@ -51,6 +53,7 @@ func on_step_regular(
 		delta,
 		previous_virtual_key_name,
 		virtual_key_name):
+	self.previous_virtual_key_name = previous_virtual_key_name
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 	if self.monkey().statemachine().state == &"IntervalUntilPrompt":
@@ -88,30 +91,9 @@ func on_step_regular(
 		return
 
 	elif self.monkey().statemachine().state == &"InputOk":
-		# キャンセルボタン押下時は、１つか、２つ戻す
+		# キャンセルボタン押下時
 		if self.is_cancel_button_pressed(self.button_number):
-
 			self.monkey().statemachine().wait_before_input(&"CancelButtonPushed")
-			
-			self.key_config_item_number -= 1
-			# さらに連続して戻したいケースもある
-			# レバーの上
-			if self.key_config_item_number == 5 and self.monkey().owner_key_config_node().key_config[&"VK_Down"] == self.monkey().owner_key_config_node().key_config[&"VK_Up"]:
-				self.monkey().display().set_empty_the_button_message(self.key_config_item_number)
-				self.key_config_item_number -= 1
-				self.monkey().owner_key_config_node().key_config.erase(&"VK_Down")
-			# レバーの左
-			elif self.key_config_item_number == 7 and self.monkey().owner_key_config_node().key_config[&"VK_Right"] == self.monkey().owner_key_config_node().key_config[&"VK_Left"]:
-				self.monkey().display().set_empty_the_button_message(self.key_config_item_number)
-				self.key_config_item_number -= 1
-				self.monkey().owner_key_config_node().key_config.erase(&"VK_Right")
-			
-			self.monkey().display().set_press_message_to_button(self.key_config_item_number)
-			
-			if previous_virtual_key_name != null:
-				self.monkey().owner_key_config_node().key_config.erase(previous_virtual_key_name)
-			
-			self.clear_count_by_step()
 			return
 
 		# 既存のキーと被る場合、やり直しさせる

@@ -38,9 +38,32 @@ func on_exit():
 
 # 入力の前に待て
 func on_wait_before_input(reason):
+	# キャンセル・ボタン押下時
 	if reason == &"CancelButtonPushed":
+		# キー・コンフィグ項目を、１つか、２つ（レバー時）戻す
 		self.monkey().display().on_cancel_button_pushed()
 		self.monkey().display().set_empty_the_button_message(self.monkey().moderator().key_config_item_number)
+
+		self.monkey().moderator().key_config_item_number -= 1
+		# さらに連続して戻したいケースもある
+		# レバーの上
+		if self.monkey().moderator().key_config_item_number == 5 and self.monkey().owner_key_config_node().key_config[&"VK_Down"] == self.monkey().owner_key_config_node().key_config[&"VK_Up"]:
+			self.monkey().display().set_empty_the_button_message(self.monkey().moderator().key_config_item_number)
+			self.monkey().moderator().key_config_item_number -= 1
+			self.monkey().owner_key_config_node().key_config.erase(&"VK_Down")
+		# レバーの左
+		elif self.monkey().moderator().key_config_item_number == 7 and self.monkey().owner_key_config_node().key_config[&"VK_Right"] == self.monkey().owner_key_config_node().key_config[&"VK_Left"]:
+			self.monkey().display().set_empty_the_button_message(self.monkey().moderator().key_config_item_number)
+			self.monkey().moderator().key_config_item_number -= 1
+			self.monkey().owner_key_config_node().key_config.erase(&"VK_Right")
+		
+		self.monkey().display().set_press_message_to_button(self.monkey().moderator().key_config_item_number)
+		
+		if self.monkey().moderator().previous_virtual_key_name != null:
+			self.monkey().owner_key_config_node().key_config.erase(self.monkey().moderator().previous_virtual_key_name)
+		
+		self.monkey().moderator().clear_count_by_step()
+
 
 	else:
 		pass
