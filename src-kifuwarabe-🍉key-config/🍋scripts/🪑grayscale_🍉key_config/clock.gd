@@ -19,7 +19,8 @@ func monkey():
 
 func on_process(delta):
 
-	if not self.monkey().statemachine().is_enabled:
+	# 状態遷移機械が止まっていれば、入力も無視します
+	if self.monkey().statemachine().is_terminated():
 		return
 	
 	if not (self.monkey().statemachine().state in [&"IntervalUntilPrompt", &"Prompt", &"IntervalUntilInput", &"InputOk"]):

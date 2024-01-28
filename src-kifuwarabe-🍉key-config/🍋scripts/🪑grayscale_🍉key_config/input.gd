@@ -20,7 +20,8 @@ func monkey():
 # 入力時
 func on_unhandled_input(event):
 
-	if not self.monkey().statemachine().is_enabled:
+	# 状態遷移機械が止まっていれば、入力も無視します
+	if self.monkey().statemachine().is_terminated():
 		return
 
 	# 起動直後に、押してもないレバーが　押したことになっていることがある
