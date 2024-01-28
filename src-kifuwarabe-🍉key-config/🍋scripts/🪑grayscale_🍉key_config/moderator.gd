@@ -64,7 +64,7 @@ func on_step_regular(
 	elif self.monkey().statemachine().state == &"Prompt":
 		# プロンプト表示
 		self.monkey().display().set_press_message_to_button(self.key_config_item_number)
-		self.monkey().statemachine().wait_before_input()
+		self.monkey().statemachine().wait_before_input(&"")
 		return
 		
 	elif self.monkey().statemachine().state == &"IntervalUntilInput":
@@ -91,10 +91,7 @@ func on_step_regular(
 		# キャンセルボタン押下時は、１つか、２つ戻す
 		if self.is_cancel_button_pressed(self.button_number):
 
-			self.monkey().display().on_cancel_button_pushed()
-			self.monkey().statemachine().wait_before_input()
-			
-			self.monkey().display().set_empty_the_button_message(self.key_config_item_number)
+			self.monkey().statemachine().wait_before_input(&"CancelButtonPushed")
 			
 			self.key_config_item_number -= 1
 			# さらに連続して戻したいケースもある
@@ -120,7 +117,7 @@ func on_step_regular(
 		# 既存のキーと被る場合、やり直しさせる
 		if self.is_key_duplicated(self.button_number):
 			self.monkey().display().on_pushed_button_denied(1)
-			self.monkey().statemachine().wait_before_input()
+			self.monkey().statemachine().wait_before_input(&"")
 			self.clear_count_by_step()
 			return
 			

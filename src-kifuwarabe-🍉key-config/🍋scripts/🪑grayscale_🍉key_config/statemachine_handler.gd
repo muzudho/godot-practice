@@ -34,3 +34,13 @@ func on_entry():
 func on_exit():
 	self.monkey().moderator().clear_count_by_step()
 	self.monkey().display().on_exit()
+
+
+# 入力の前に待て
+func on_wait_before_input(reason):
+	if reason == &"CancelButtonPushed":
+		self.monkey().display().on_cancel_button_pushed()
+		self.monkey().display().set_empty_the_button_message(self.monkey().moderator().key_config_item_number)
+
+	else:
+		pass

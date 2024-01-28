@@ -43,7 +43,7 @@ func on_unhandled_input(event):
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.monkey().display().on_pushed_button_denied(2)
-			self.monkey().statemachine().wait_before_input()
+			self.monkey().statemachine().wait_before_input(&"")
 			return
 
 	# ーーーーーーーー
@@ -53,7 +53,7 @@ func on_unhandled_input(event):
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.monkey().display().on_pushed_button_denied(3)
-			self.monkey().statemachine().wait_before_input()
+			self.monkey().statemachine().wait_before_input(&"")
 			return
 
 

@@ -49,8 +49,9 @@ func go_prompt():
 
 
 # 入力の前に待て
-func wait_before_input():
+func wait_before_input(reason):
 	self.state = &"IntervalUntilInput"
+	self.handler().on_wait_before_input(reason)
 
 
 # 入力しろ
