@@ -1,20 +1,12 @@
 # ユーザー・デファインド・ファイル（User defined file；利用者定義書類）
-# Note: 戦闘テスト用に改造している
+#
+#	Note: 戦闘テスト用に改造している
 extends Node
 
 
 # ーーーーーーーー
-# メモリ関連
+# ノード・パス関連
 # ーーーーーーーー
-
-
-var ancestor_children_dictionary = {}
-
-
-# ーーーーーーーー
-# 親パス関連
-# ーーーーーーーー
-
 
 # シナリオライターズ・ハブ取得
 func monkey():
@@ -25,9 +17,15 @@ func monkey():
 
 
 # ーーーーーーーー
-# その他
+# メモリ関連
 # ーーーーーーーー
 
+var ancestor_children_dictionary = {}
+
+
+# ーーーーーーーー
+# その他
+# ーーーーーーーー
 
 # 台本
 #

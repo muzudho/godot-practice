@@ -37,7 +37,17 @@ func of_staff():
 
 # プログラマー取得
 func owner_node():
-	return self.get_node("../../👤Programmer")
+	return $"../../👤Programmer"
+
+
+# 部門制御取得
+func department_controller_node():
+	return self.owner_node().get_node("📂DepartmentController_🍉VisualNovel")
+
+
+# 部門制御の猿取得
+func department_controller():
+	return self.department_controller_node().get_node("🐵Monkey")
 
 
 # キー・コンフィグ取得
@@ -48,6 +58,11 @@ func key_config_node():
 # シナリオ再生機取得
 func scenario_player_node():
 	return self.owner_node().get_node("📂ScenarioPlayer_🍉VisualNovel")
+
+
+# シナリオ再生機の猿取得
+func scenario_player():
+	return self.scenario_player_node().get_node("🐵Monkey")
 
 
 # 命令ノード取得

@@ -53,18 +53,19 @@ func set_current_section(section_name):
 
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示
 func dump_last_displayed_message_window():
-	print("［プログラマーズ・ハブ］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
-	
-	# 部門名一覧
-	var department_names = self.sub_monkey().of_programmer().get_all_department_names()
-	for department_name in 	department_names:
-		print("　　部門：　" + department_name)
-
-		# 部門変数
-		var department = self.sub_monkey().of_programmer().owner_node().get_department_value(department_name)
-		
-		for window_name in department.node_names_of_currently_displayed_message_window:
-			print("　　　　👁 " + window_name)
+	pass
+	#print("［台本再生機］　各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示")
+	#
+	## 部門名一覧
+	#var department_names = self.sub_monkey().of_programmer().get_all_department_names()
+	#for department_name in 	department_names:
+	#	print("　　部門：　" + department_name)
+	#
+	#	# 部門変数
+	#	var department = self.sub_monkey().of_programmer().owner_node().get_department_value(department_name)
+	#
+	#	for window_name in department.node_names_of_currently_displayed_message_window:
+	#		print("　　　　👁 " + window_name)
 
 
 # シナリオの現在セクション配列のサイズを返す

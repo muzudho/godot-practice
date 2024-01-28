@@ -1,4 +1,6 @@
-# シナリオ・ライター・ハブ（Scenario Writer Hub；台本書きの中心地）
+# モンキー（Monkey；猿）
+#
+#	木登りが得意
 extends Node
 
 
@@ -14,8 +16,7 @@ var ancestors = {}
 # ノード・パス関連
 # ーーーーーーーー
 
-
-# 監督ハブ取得
+# スタッフの猿取得
 func of_staff():
 	return MonkeyHelper.find_ancestor_child(
 			self,
@@ -23,11 +24,11 @@ func of_staff():
 			self.ancestors)
 
 
-# シナリオライター取得
-func owner_node():
-	return $"../../👤ScenarioWriter"
+# 入力取得
+func input():
+	return $"../🕹️Input"
 
 
-# 部門切替取得
-func department_control():
-	return self.owner_node().get_node("📘DepartmentControl")
+# 内部取得
+func internal():
+	return $"../🚪Internal"

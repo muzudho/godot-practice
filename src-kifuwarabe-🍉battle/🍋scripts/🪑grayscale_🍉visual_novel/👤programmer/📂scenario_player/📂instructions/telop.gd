@@ -24,7 +24,7 @@ var ancestor_children_dictionary = {}
 
 
 # ーーーーーーーー
-# 親パス関連
+# ノード・パス関連
 # ーーーーーーーー
 
 
@@ -36,7 +36,7 @@ func monkey():
 			self.ancestor_children_dictionary)
 
 
-## 部門変数取得
+# 部門変数取得
 #func get_department_value(department_node_name):
 #	return self.monkey().of_staff().owner_node().get_department_value(department_node_name)
 

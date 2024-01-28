@@ -1,0 +1,84 @@
+[gd_scene load_steps=21 format=3 uid="uid://cietj7ilsy15g"]
+
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/main.gd" id="1_v7bfh"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/monkey.gd" id="2_duxol"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/internal.gd" id="3_nvy2a"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/clock.gd" id="4_dyybf"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/input.gd" id="5_agb2t"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/bgm.gd" id="5_ecq3c"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/choice.gd" id="6_mi08m"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/department.gd" id="7_k8gwc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/goto.gd" id="8_sbyb3"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/img.gd" id="9_x0bdc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/label.gd" id="10_w23qh"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/msg_speed.gd" id="11_87xhq"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/m_wnd.gd" id="12_cmwbc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/normal_text.gd" id="13_pqkv6"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/normal_text_choice.gd" id="14_oywfu"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/quit.gd" id="15_k0rgg"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/se.gd" id="16_bh2ne"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/sleep.gd" id="17_rtnq6"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/telop.gd" id="18_8yid3"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/var.gd" id="19_e1qci"]
+
+[node name="📂ScenarioPlayer_🍉VisualNovel" type="Node"]
+script = ExtResource("1_v7bfh")
+
+[node name="🐵Monkey" type="Node" parent="."]
+script = ExtResource("2_duxol")
+
+[node name="🚪Internal" type="Node" parent="."]
+script = ExtResource("3_nvy2a")
+
+[node name="⌚Clock" type="Node" parent="."]
+script = ExtResource("4_dyybf")
+
+[node name="🕹️Input" type="Node" parent="."]
+script = ExtResource("5_agb2t")
+
+[node name="📂Instructions" type="Node" parent="."]
+
+[node name="📗BgMusic" type="Node" parent="📂Instructions"]
+script = ExtResource("5_ecq3c")
+
+[node name="📗Choice" type="Node" parent="📂Instructions"]
+script = ExtResource("6_mi08m")
+
+[node name="📗Department" type="Node" parent="📂Instructions"]
+script = ExtResource("7_k8gwc")
+
+[node name="📗Goto" type="Node" parent="📂Instructions"]
+script = ExtResource("8_sbyb3")
+
+[node name="📗Img" type="Node" parent="📂Instructions"]
+script = ExtResource("9_x0bdc")
+
+[node name="📗Label" type="Node" parent="📂Instructions"]
+script = ExtResource("10_w23qh")
+
+[node name="📗MsgSpeed" type="Node" parent="📂Instructions"]
+script = ExtResource("11_87xhq")
+
+[node name="📗MsgWnd" type="Node" parent="📂Instructions"]
+script = ExtResource("12_cmwbc")
+
+[node name="📘NormalText" type="Node" parent="📂Instructions"]
+script = ExtResource("13_pqkv6")
+
+[node name="📘NormalTextChoice" type="Node" parent="📂Instructions"]
+script = ExtResource("14_oywfu")
+
+[node name="📗Quit" type="Node" parent="📂Instructions"]
+script = ExtResource("15_k0rgg")
+
+[node name="📗SoundFx" type="Node" parent="📂Instructions"]
+script = ExtResource("16_bh2ne")
+
+[node name="📗Sleep" type="Node" parent="📂Instructions"]
+script = ExtResource("17_rtnq6")
+
+[node name="📗Telop" type="Node" parent="📂Instructions"]
+script = ExtResource("18_8yid3")
+
+[node name="📗Var" type="Node" parent="📂Instructions"]
+script = ExtResource("19_e1qci")

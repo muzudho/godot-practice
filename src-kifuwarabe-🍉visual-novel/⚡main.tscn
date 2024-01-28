@@ -22,7 +22,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/switch_department.gd" id="44_c0141"]
 [ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉VisualNovel/👤ScenarioWriter_＋🐵scenario_writer_monkey.tscn" id="55_dfxei"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🎄addon_🍉KeyConfig/👤TelopCoordinator.tscn" id="68_rpnem"]
-[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉VisualNovel/👤Programmer.tscn" id="81_aev68"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉VisualNovel/👤Programmer_📂ScenarioPlayer.tscn" id="81_aev68"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
 
