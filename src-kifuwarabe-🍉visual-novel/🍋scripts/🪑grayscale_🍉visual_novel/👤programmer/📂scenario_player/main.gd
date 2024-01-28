@@ -178,7 +178,7 @@ func execute_stage_directions(paragraph_text):
 	print("［シナリオエンジン］　準備中　ト書きなら実行")
 	
 	# ［ト書き］かどうか判定
-	var first_head_tail = self.sub_monkey().of_programmer().owner_node().split_head_line_or_tail(paragraph_text)
+	var first_head_tail = StringHelper.split_head_line_or_tail(paragraph_text)
 	var first_head = first_head_tail[0].strip_edges()
 	var first_tail = first_head_tail[1] 
 		
@@ -188,7 +188,7 @@ func execute_stage_directions(paragraph_text):
 		print("［助監］　命令テキストだ：[" + first_tail + "]")
 
 		# さらに先頭行を取得
-		var second_head_tail = self.sub_monkey().of_programmer().owner_node().split_head_line_or_tail(first_tail)
+		var second_head_tail = StringHelper.split_head_line_or_tail(first_tail)
 		
 		while second_head_tail != null:
 			var second_head = second_head_tail[0].strip_edges()
@@ -211,7 +211,7 @@ func execute_stage_directions(paragraph_text):
 					instruction.do_it(second_head)
 				
 			# さらに先頭行を取得
-			second_head_tail = self.sub_monkey().of_programmer().owner_node().split_head_line_or_tail(second_tail)
+			second_head_tail = StringHelper.split_head_line_or_tail(second_tail)
 
 		# ーーーーーーーー
 		# ［ト書き］終わり

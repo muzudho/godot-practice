@@ -53,7 +53,7 @@ func do_it(line):
 	
 	if 2 <= string_packed_array.size():
 		its_text = self.monkey().owner_node().expand_variables(string_packed_array[1].strip_edges())
-		its_text = self.monkey().trim_double_quotation(its_text)
+		its_text = StringHelper.trim_double_quotation(its_text)
 
 	self.set_label(node_path_str, its_text)
 
