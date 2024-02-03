@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfsc4f3bfgmlo"]
+
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_globe.gd" id="1_jwykg"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/message_windows_monkey.gd" id="2_6btb4"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_concrete.gd" id="3_xa2tx"]
+
+[node name="🌏MessageWindows" type="Node"]
+script = ExtResource("1_jwykg")
+
+[node name="🐵Monkey_🍉VisualNovel" type="Node" parent="."]
+script = ExtResource("2_6btb4")
+
+[node name="📂🍉VisualNovel" type="Node" parent="."]
+
+[node name="■FullScreen" type="Node" parent="📂🍉VisualNovel"]
+script = ExtResource("3_xa2tx")
+
+[node name="■上_大" type="Node" parent="📂🍉VisualNovel"]
+script = ExtResource("3_xa2tx")
+
+[node name="■下" type="Node" parent="📂🍉VisualNovel"]
+script = ExtResource("3_xa2tx")
+
+[node name="■中央" type="Node" parent="📂🍉VisualNovel"]
+script = ExtResource("3_xa2tx")
+
+[node name="■左下" type="Node" parent="📂🍉VisualNovel"]
+script = ExtResource("3_xa2tx")
