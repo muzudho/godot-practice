@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=26 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/staff.gd" id="1_36c3q"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://⚓local_🍉VisualNovel/programmer_monkey.gd" id="11_nqlsq"]
 [ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉Bench/👤programmer_bench.tscn" id="15_oflrk"]
 [ext_resource type="PackedScene" uid="uid://c0trqytdpqte8" path="res://🎄addon_🍉VisualNovel/👤Programmer_📂DepartmentController.tscn" id="15_uxeth"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its.gd" id="16_rdabx"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/message_windows_monkey.gd" id="21_kjvby"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/👤Illustrator.tscn" id="21_wljdh"]
 [ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉KeyConfig/👤Musician_🌏BgMusics.tscn" id="23_5bwgy"]
@@ -79,6 +80,9 @@ script = ExtResource("11_nqlsq")
 [node name="📂DepartmentController_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("15_uxeth")]
 
 [node name="🎬🍉KeyConfig" parent="👤Programmer" instance=ExtResource("43_1kc47")]
+
+[node name="📂MessageWindows" type="Node" parent="👤Programmer"]
+script = ExtResource("16_rdabx")
 
 [node name="👤Programmer_ForBench" parent="." instance=ExtResource("15_oflrk")]
 

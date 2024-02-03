@@ -196,7 +196,7 @@ func _process(delta):
 		var wait_time = 1 / self.msg_speed	# 旧 0.05
 	
 		# メッセージの早送り
-		if self.monkey().is_fast_forward:
+		if self.monkey().of_staff().programmer().message_windows_node().is_fast_forward:
 			# print("［テキストブロック］　メッセージの早送り")
 			wait_time = 1 / (self.msg_speed * self.msg_speed) # 旧 0.01
 	
@@ -226,10 +226,10 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	if virtual_key == &"VK_FastForward":
 		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
 		if vk_operation == &"VKO_Pressed":
-			self.monkey().is_fast_forward = true
+			self.monkey().of_staff().programmer().message_windows_node().is_fast_forward = true
 
 		elif vk_operation == &"VKO_Released":
-			self.monkey().is_fast_forward = false
+			self.monkey().of_staff().programmer().message_windows_node().is_fast_forward = false
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():

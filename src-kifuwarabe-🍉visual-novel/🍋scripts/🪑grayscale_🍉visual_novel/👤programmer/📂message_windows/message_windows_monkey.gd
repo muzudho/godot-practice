@@ -9,9 +9,6 @@ extends Node
 # 先祖の辞書キャッシュ
 var ancestors = {}
 
-# メッセージの早送り
-var is_fast_forward = false
-
 
 # ーーーーーーーー
 # ノード・パス関連
