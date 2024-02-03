@@ -27,11 +27,6 @@ func illustrator_node():
 	return self.owner_node().get_node("👤Illustrator")
 
 
-# メッセージ・ウィンドウズ取得
-func gui_programmer_message_windows():
-	return self.owner_node().get_node("👤Programmer_MessageWindow")
-
-
 # モンスターの全身像
 func monster_whole_body():
 	return self.owner_node().get_node("MonsterTrainer/WholeBody")

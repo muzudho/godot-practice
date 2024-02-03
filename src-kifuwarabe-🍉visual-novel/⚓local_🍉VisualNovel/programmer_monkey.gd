@@ -53,7 +53,7 @@ func key_config_node():
 
 # 伝言窓たちフォルダ―取得
 func message_windows_node():
-	return self.owner_node().get_node("📂MessageWindows")
+	return self.owner_node().get_node("📂MessageWindows_🍉VisualNovel")
 
 
 # シナリオ再生機取得
