@@ -74,7 +74,7 @@ func _ready():
 
 
 	self.message_window_programs = MonkeyHand.create(
-			self.monkey().of_staff().gui_programmer_message_windows())			# 探す場所
+			self.monkey().of_staff().programmer().message_windows_globe_node())			# 探す場所
 
 	
 	# メッセージ・ウィンドウに対応関数紐づけ
@@ -82,7 +82,7 @@ func _ready():
 			# メッセージ・ウィンドウの名前は `■` で始まるものとする
 			&"■",
 			# 探す場所
-			self.monkey().of_staff().gui_programmer_message_windows(),
+			self.monkey().of_staff().programmer().message_windows_globe_node(),
 			func(child_node):
 				# メッセージ・ウィンドウのページ送り時、パーサーのロックを解除
 				child_node.on_message_window_page_forward = func():

@@ -19,7 +19,7 @@ func monkey():
 # 仮想キーを押下したという建付け
 func on_virtual_key_input(
 		virtual_key,
-		lever_value,
+		_lever_value,
 		vk_operation):
 
 	var cur_department_name = self.monkey().of_staff().programmer().owner_node().current_department_name

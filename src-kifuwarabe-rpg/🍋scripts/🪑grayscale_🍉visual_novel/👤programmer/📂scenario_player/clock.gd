@@ -18,27 +18,30 @@ func monkey():
 # ディレクターの `_process(delta)` が呼出す
 func on_process(delta):
 
+	# ト書きで指定したスリープ値が残っている間は、シナリオを進めません
 	if 0.0 < self.monkey().of_staff().programmer().owner_node().sleep_seconds:
 		self.monkey().of_staff().programmer().owner_node().sleep_seconds -= delta
-
-		# 疑似スリープ値が残っている間は、シナリオを進めません
 		return
 
+	# デパートメント・オブジェクト
 	var department_value = self.monkey().owner_node().get_current_department_value()
+	
+	# メッセージ・ウィンドウ・オブジェクト
 	var message_window_gui = self.monkey().get_current_message_window_gui()
 
-	# パースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
+	# シナリオのパースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not department_value.is_parse_lock():
 		
-		# まだあるよ
+		# セクションがまだ残っているなら
 		if message_window_gui.section_item_index < self.monkey().owner_node().get_current_section_size_of_scenario():
 		
-			# 現在のシナリオの次のパラグラフを取得
+			# そのセクションの次のパラグラフを取得
 			var paragraph = self.monkey().owner_node().get_current_paragraph_of_scenario()
 
 			# カウントアップ
 			message_window_gui.section_item_index += 1
 			
+			# 段落が文字列
 			if paragraph is String:
 				
 				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
@@ -46,12 +49,12 @@ func on_process(delta):
 				# ここで、命令と、台詞は区別する
 				self.monkey().owner_node().parse_paragraph(latest_message)
 			
+			# 段落が匿名関数かもしれない
 			else:
-				# TODO 文字列以外のパラグラフに対応したい
 				print("［助監］　TODO 匿名関数かもしれない呼出してみよ")
 				paragraph.call()
 
-		# もう無いよ
+		# セクションは、もう無いよ
 		else:
 			if not self.monkey().get_current_message_window_gui().statemachine_of_message_window.is_none():
 				# 伝言窓を閉じる

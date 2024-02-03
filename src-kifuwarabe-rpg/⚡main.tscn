@@ -1,55 +1,57 @@
-[gd_scene load_steps=66 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=68 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/staff.gd" id="1_rk62n"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/staff_monkey.gd" id="2_mr32a"]
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/config.gd" id="2_s7egh"]
 [ext_resource type="Texture2D" uid="uid://bfjtuxbo3tuqn" path="res://🍋images/🪑grayscale/1280x720/full_screen.png" id="22_rrmg8"]
-[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉KeyConfig/👤Illustrator.tscn" id="27_dp8m2"]
-[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉VisualNovel/👤Illustrator.tscn" id="28_iuuq5"]
+[ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉key_config/👤illustrator.tscn" id="27_dp8m2"]
+[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉visual_novel/👤illustrator.tscn" id="28_iuuq5"]
 [ext_resource type="Texture2D" uid="uid://dgxwlwrrmu7cs" path="res://🍋images/🪑grayscale/1280x720/battle_scene_3.png" id="31_3w7mi"]
 [ext_resource type="Texture2D" uid="uid://brryggn3ofxsy" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_1.png" id="32_l43dy"]
 [ext_resource type="Texture2D" uid="uid://c42aedfyn3ie3" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_2.png" id="33_63jpw"]
-[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉KeyConfig/👤Musician_🌏BgMusics.tscn" id="34_3hqwd"]
+[ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉key_config/👤musician_🌏bg_musics.tscn" id="34_3hqwd"]
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/programmer.gd" id="34_aknye"]
 [ext_resource type="Texture2D" uid="uid://b70fphsmj0bku" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_3.png" id="34_x34j5"]
-[ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://🎄addon_🍉VisualNovel/👤Musician_🌏BgMusics.tscn" id="35_65fhg"]
+[ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://🎄addon_🍉visual_novel/👤musician_🌏bg_musics.tscn" id="35_65fhg"]
 [ext_resource type="Texture2D" uid="uid://bw6jruqwbenlc" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_4.png" id="35_jcaiw"]
 [ext_resource type="Texture2D" uid="uid://cot0sqrmfbptg" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_5.png" id="36_1keft"]
-[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉KeyConfig/👤Musician_🌏SoundFX.tscn" id="37_nknd3"]
+[ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉key_config/👤musician_🌏sound_fx.tscn" id="37_nknd3"]
 [ext_resource type="Texture2D" uid="uid://by1nkn5qeooys" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_6.png" id="37_tdxrv"]
-[ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://🎄addon_🍉VisualNovel/👤Musician_🌏SoundFX.tscn" id="38_kb7xl"]
-[ext_resource type="PackedScene" uid="uid://c0trqytdpqte8" path="res://🎄addon_🍉VisualNovel/👤Programmer_📂DepartmentController.tscn" id="38_mxo87"]
+[ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://🎄addon_🍉visual_novel/👤musician_🌏sound_fx.tscn" id="38_kb7xl"]
+[ext_resource type="PackedScene" uid="uid://c0trqytdpqte8" path="res://🎄addon_🍉visual_novel/👤programmer_📂department_controller.tscn" id="38_mxo87"]
 [ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_7.png" id="38_vlm38"]
-[ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉Bench/👤programmer_bench.tscn" id="39_5lrt2"]
+[ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉bench/👤programmer.tscn" id="39_5lrt2"]
 [ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_8.png" id="39_nr2kt"]
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/programmer_monkey.gd" id="39_w7ugv"]
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="40_25lxp"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_globe.gd" id="40_70vr6"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_rock28.ogg" id="41_2y5jy"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
-[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉VisualNovel/👤Programmer_🎬ScenarioPlayer.tscn" id="41_kb3a0"]
+[ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉visual_novel/👤programmer_🎬scenario_player.tscn" id="41_kb3a0"]
 [ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_cyber06.ogg" id="42_j4tsf"]
-[ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉VisualNovel/👤ScenarioWriter_＋🐵scenario_writer_monkey.tscn" id="42_lg1ip"]
+[ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉visual_novel/👤scenario_writer_🐵monkey.tscn" id="42_lg1ip"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
+[ext_resource type="PackedScene" uid="uid://kwp2d5vfbko3" path="res://🎄addon_🍉battle/👤programmer_🌏message_windows.tscn" id="43_3yfvg"]
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_neorock14.ogg" id="43_k3tfj"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_orchestra12.ogg" id="44_beusv"]
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_event17.ogg" id="45_dlghs"]
-[ext_resource type="PackedScene" uid="uid://blh00f8ui284" path="res://🎄addon_🍉Battle/👤ScenarioWriter.tscn" id="45_xowih"]
-[ext_resource type="PackedScene" uid="uid://7owsgytxxeua" path="res://🎄addon_🍉VisualNovel/👤ScenarioWriter_📂VisualNovel.tscn" id="47_8cd71"]
+[ext_resource type="PackedScene" uid="uid://blh00f8ui284" path="res://🎄addon_🍉battle/👤scenario_writer.tscn" id="45_xowih"]
+[ext_resource type="PackedScene" uid="uid://7owsgytxxeua" path="res://🎄addon_🍉visual_novel/👤scenario_writer_📂visual_novel.tscn" id="47_8cd71"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_magic_fire11.ogg" id="48_nxrfb"]
-[ext_resource type="PackedScene" uid="uid://7d1c4sgwele3" path="res://🎄addon_🍉VisualNovel/👤TelopCoordinator.tscn" id="58_gje64"]
+[ext_resource type="PackedScene" uid="uid://7d1c4sgwele3" path="res://🎄addon_🍉visual_novel/👤telop_coordinator.tscn" id="58_gje64"]
 [ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="59_4vstx"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="60_f7oqn"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/message_windows_monkey.gd" id="61_cfuy1"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="61_tvkup"]
-[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉KeyConfig/👤Programmer.tscn" id="62_isghc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/message_windows_monkey.gd" id="61_cfuy1"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_concrete.gd" id="61_tvkup"]
+[ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉key_config/👤programmer.tscn" id="62_isghc"]
 [ext_resource type="Texture2D" uid="uid://d1dltajd4gtjj" path="res://🍋images/🪑grayscale/1280x720/window_small_at_center.png" id="62_q6u17"]
 [ext_resource type="Texture2D" uid="uid://6eodi1kuyeqn" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png" id="63_a2lr3"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/text_block.gd" id="69_g27j5"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/text_block.gd" id="69_g27j5"]
 [ext_resource type="Texture2D" uid="uid://cw21en50qu3xv" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2217--resapyonKaiFace.png" id="69_u1h4l"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/end_of_message_blinker.gd" id="70_epi57"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/end_of_message_blinker.gd" id="70_epi57"]
 [ext_resource type="Texture2D" uid="uid://b5qm4euoaij5s" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__19-2218--KodackFace.png" id="70_kltin"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scorer/battle_sheet.gd" id="70_mcty4"]
 [ext_resource type="Texture2D" uid="uid://cowfeoii1wxo1" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2214-Kifuwarabe.png" id="71_cminn"]
@@ -62,7 +64,7 @@
 [ext_resource type="LabelSettings" uid="uid://dfrtn231ftwee" path="res://🍋label_settings/🪑grayscale/medium_light_red_on_battle.tres" id="78_5timb"]
 [ext_resource type="LabelSettings" uid="uid://kfn8wqyqjk4q" path="res://🍋label_settings/🪑grayscale/medium_light_yellow_on_battle.tres" id="79_4bf73"]
 [ext_resource type="LabelSettings" uid="uid://b4h0mq5qymie" path="res://🍋label_settings/🪑grayscale/medium_light_green_on_battle.tres" id="80_b48gy"]
-[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🎄addon_🍉KeyConfig/👤TelopCoordinator.tscn" id="81_acbnt"]
+[ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🎄addon_🍉key_config/👤telop_coordinator.tscn" id="81_acbnt"]
 [ext_resource type="LabelSettings" uid="uid://oqwf4pqavaql" path="res://🍋label_settings/🪑grayscale/medium_light_blue_on_battle.tres" id="81_no8ah"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_glhd8"]
@@ -272,6 +274,31 @@ script = ExtResource("39_w7ugv")
 [node name="🎬🍉KeyConfig" parent="👤Programmer" instance=ExtResource("62_isghc")]
 
 [node name="🎬ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("41_kb3a0")]
+
+[node name="🌏MessageWindows" type="Node" parent="👤Programmer"]
+script = ExtResource("40_70vr6")
+
+[node name="🐵Monkey_🍉VisualNovel" type="Node" parent="👤Programmer/🌏MessageWindows"]
+script = ExtResource("61_cfuy1")
+
+[node name="📂🍉VisualNovel" type="Node" parent="👤Programmer/🌏MessageWindows"]
+
+[node name="■FullScreen" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="■上_大" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="■下" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="■中央" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="■左下" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="📂🍉Battle" parent="👤Programmer/🌏MessageWindows" instance=ExtResource("43_3yfvg")]
 
 [node name="👤Programmer_ForBench" parent="." instance=ExtResource("39_5lrt2")]
 

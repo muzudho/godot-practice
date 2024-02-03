@@ -54,6 +54,16 @@ func key_config_node():
 	return self.owner_node().get_node("🎬🍉KeyConfig")
 
 
+# 伝言窓たち取得
+func message_windows_globe_node():
+	return self.owner_node().get_node("🌏MessageWindows")
+
+
+# 伝言窓たちの猿取得
+func message_windows_globe():
+	return self.message_windows_globe_node().get_node("🐵Monkey_🍉VisualNovel")
+
+
 # シナリオ再生機取得
 func scenario_player_node():
 	return self.owner_node().get_node("🎬ScenarioPlayer_🍉VisualNovel")

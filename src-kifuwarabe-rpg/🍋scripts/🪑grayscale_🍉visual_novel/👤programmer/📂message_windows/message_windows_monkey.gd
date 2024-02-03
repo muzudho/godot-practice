@@ -1,4 +1,4 @@
-# メッセージ・ウィンドウズ・ハブ（Message Windows Hub；メッセージ・ウィンドウの中心地）
+# メッセージ・ウィンドウズ・モンキー（Message Windows Monkey；伝言窓たちの猿）
 extends Node
 
 
@@ -8,9 +8,6 @@ extends Node
 
 # 先祖の辞書キャッシュ
 var ancestors = {}
-
-# メッセージの早送り
-var is_fast_forward = false
 
 
 # ーーーーーーーー
