@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=66 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://⚓local_🍉Battle/staff.gd" id="1_2gst5"]
 [ext_resource type="Script" path="res://⚓local_🍉Battle/staff_monkey.gd" id="2_glcnh"]
@@ -24,9 +24,9 @@
 [ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉bench/👤programmer.tscn" id="39_mw0pj"]
 [ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_8.png" id="39_nr2kt"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉visual_novel/👤programmer_🎬scenario_player.tscn" id="39_q6jti"]
-[ext_resource type="PackedScene" uid="uid://bru7a2wmr7m8y" path="res://🎄addon_🍉visual_novel/👤programmer_📂message_windows.tscn" id="39_qw8t6"]
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="40_25lxp"]
 [ext_resource type="AudioStream" uid="uid://efn4gabjs803" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_rock28.ogg" id="41_2y5jy"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_globe.gd" id="41_fdu37"]
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
 [ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_cyber06.ogg" id="42_j4tsf"]
 [ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉visual_novel/👤scenario_writer_🐵monkey.tscn" id="42_lg1ip"]
@@ -43,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://7d1c4sgwele3" path="res://🎄addon_🍉visual_novel/👤telop_coordinator.tscn" id="58_gje64"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉kifuwarabe_rpg/scenario_writer/switch_department.gd" id="60_f7oqn"]
 [ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="60_ked68"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/message_windows_monkey.gd" id="61_cfuy1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_concrete.gd" id="61_tvkup"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉key_config/👤programmer.tscn" id="62_isghc"]
 [ext_resource type="Texture2D" uid="uid://cw3tbgchm8gja" path="res://🍋images/🪑grayscale/monster_faces/202310__godot__17-2213-hamu.png" id="68_8k378"]
@@ -272,16 +273,37 @@ script = ExtResource("39_83reh")
 
 [node name="🎬ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("39_q6jti")]
 
-[node name="📂MessageWindows_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("39_qw8t6")]
+[node name="🌏MessageWindows" type="Node" parent="👤Programmer"]
+script = ExtResource("41_fdu37")
 
-[node name="📂MessageWindows_🍉Battle" type="Node" parent="👤Programmer/📂MessageWindows_🍉VisualNovel"]
+[node name="🐵Monkey_🍉VisualNovel" type="Node" parent="👤Programmer/🌏MessageWindows"]
+script = ExtResource("61_cfuy1")
 
-[node name="■下on戦" type="Sprite2D" parent="👤Programmer/📂MessageWindows_🍉VisualNovel/📂MessageWindows_🍉Battle"]
+[node name="📂🍉Battle" type="Node" parent="👤Programmer/🌏MessageWindows"]
+
+[node name="■下on戦" type="Sprite2D" parent="👤Programmer/🌏MessageWindows/📂🍉Battle"]
 visible = false
 modulate = Color(1, 1, 1, 0.996078)
 z_index = 1000
 position = Vector2(640, 360)
 texture = ExtResource("60_ked68")
+script = ExtResource("61_tvkup")
+
+[node name="📂🍉VisualNovel" type="Node" parent="👤Programmer/🌏MessageWindows"]
+
+[node name="■FullScreen" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="■上_大" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="■下" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="■中央" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
+script = ExtResource("61_tvkup")
+
+[node name="■左下" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
 script = ExtResource("61_tvkup")
 
 [node name="👤Programmer_ForBench" parent="." instance=ExtResource("39_mw0pj")]

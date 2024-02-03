@@ -1,4 +1,4 @@
-# メッセージ・ウィンドウズ（Message Windows；伝言窓たち）
+# 🌏メッセージ・ウィンドウズ（Message Windows；伝言窓たち）
 extends Node
 
 
