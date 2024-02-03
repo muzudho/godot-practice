@@ -31,4 +31,4 @@ func owner_node():
 
 # キー・コンフィグ取得
 func key_config_node():
-	return self.owner_node().get_node("📂🍉KeyConfig")
+	return self.owner_node().get_node("🎬🍉KeyConfig")
