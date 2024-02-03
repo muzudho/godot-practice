@@ -21,7 +21,6 @@
 [ext_resource type="Texture2D" uid="uid://d2twxf0e8dkj0" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_7.png" id="38_vlm38"]
 [ext_resource type="Script" path="res://⚓local_🍉Battle/programmer_monkey.gd" id="39_83reh"]
 [ext_resource type="PackedScene" uid="uid://c0trqytdpqte8" path="res://🎄addon_🍉visual_novel/👤programmer_📂department_controller.tscn" id="39_lvvbh"]
-[ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉bench/👤programmer.tscn" id="39_mw0pj"]
 [ext_resource type="Texture2D" uid="uid://df3qef2yydgfn" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_8.png" id="39_nr2kt"]
 [ext_resource type="PackedScene" uid="uid://daqtppg5rtuat" path="res://🎄addon_🍉visual_novel/👤programmer_🎬scenario_player.tscn" id="39_q6jti"]
 [ext_resource type="Texture2D" uid="uid://c5fbng1pd6rqf" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_9.png" id="40_25lxp"]
@@ -30,11 +29,12 @@
 [ext_resource type="Texture2D" uid="uid://bhaal2avn26fq" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png" id="41_j4orm"]
 [ext_resource type="AudioStream" uid="uid://bgqqv0r1evda1" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_cyber06.ogg" id="42_j4tsf"]
 [ext_resource type="PackedScene" uid="uid://bpcq5iy2or1wx" path="res://🎄addon_🍉visual_novel/👤scenario_writer_🐵monkey.tscn" id="42_lg1ip"]
+[ext_resource type="PackedScene" uid="uid://kwp2d5vfbko3" path="res://🎄addon_🍉battle/👤programmer_🌏message_windows.tscn" id="42_mou27"]
 [ext_resource type="Texture2D" uid="uid://6xge0otbrnct" path="res://🍋images/🪑grayscale/1280x720/transition_1_frame_11.png" id="42_qrihd"]
 [ext_resource type="AudioStream" uid="uid://cil7820mlikbo" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_neorock14.ogg" id="43_k3tfj"]
 [ext_resource type="AudioStream" uid="uid://cgfwug3u405gx" path="res://🍋audio_bg_musics/🪑maou_audio/maou_bgm_orchestra12.ogg" id="44_beusv"]
 [ext_resource type="AudioStream" uid="uid://c78m16nbbb3c" path="res://🍋audio_bg_musics/🪑maou_audio/maou_game_event17.ogg" id="45_dlghs"]
-[ext_resource type="PackedScene" uid="uid://blh00f8ui284" path="res://🎄addon_🍉Battle/👤ScenarioWriter.tscn" id="45_j8tqe"]
+[ext_resource type="PackedScene" uid="uid://blh00f8ui284" path="res://🎄addon_🍉battle/👤scenario_writer.tscn" id="45_j8tqe"]
 [ext_resource type="AudioStream" uid="uid://rqttefw8debu" path="res://🍋audio_sound_fx/🪑maou_audio/maou_se_magic_fire11.ogg" id="48_nxrfb"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤scenario_writer/visual_novel_choices_mappings.gd" id="48_v4a4k"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤scenario_writer/visual_novel_chapter_1.gd" id="49_yek8s"]
@@ -279,15 +279,7 @@ script = ExtResource("41_fdu37")
 [node name="🐵Monkey_🍉VisualNovel" type="Node" parent="👤Programmer/🌏MessageWindows"]
 script = ExtResource("61_cfuy1")
 
-[node name="📂🍉Battle" type="Node" parent="👤Programmer/🌏MessageWindows"]
-
-[node name="■下on戦" type="Sprite2D" parent="👤Programmer/🌏MessageWindows/📂🍉Battle"]
-visible = false
-modulate = Color(1, 1, 1, 0.996078)
-z_index = 1000
-position = Vector2(640, 360)
-texture = ExtResource("60_ked68")
-script = ExtResource("61_tvkup")
+[node name="📂🍉Battle" parent="👤Programmer/🌏MessageWindows" instance=ExtResource("42_mou27")]
 
 [node name="📂🍉VisualNovel" type="Node" parent="👤Programmer/🌏MessageWindows"]
 
@@ -305,8 +297,6 @@ script = ExtResource("61_tvkup")
 
 [node name="■左下" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
 script = ExtResource("61_tvkup")
-
-[node name="👤Programmer_ForBench" parent="." instance=ExtResource("39_mw0pj")]
 
 [node name="👤ScenarioWriter" type="Node" parent="."]
 

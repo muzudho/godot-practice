@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://kwp2d5vfbko3"]
+
+[ext_resource type="Texture2D" uid="uid://h40kir6k3rxw" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="1_82swk"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_concrete.gd" id="2_4wjlq"]
+
+[node name="📂🍉Battle" type="Node"]
+
+[node name="■下on戦" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.996078)
+z_index = 1000
+position = Vector2(640, 360)
+texture = ExtResource("1_82swk")
+script = ExtResource("2_4wjlq")
