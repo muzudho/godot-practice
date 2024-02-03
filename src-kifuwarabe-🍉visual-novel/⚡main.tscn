@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=25 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/staff.gd" id="1_kwatq"]
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/config.gd" id="2_2aexf"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/programmer.gd" id="11_5v2oj"]
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/programmer_monkey.gd" id="12_r86cw"]
 [ext_resource type="PackedScene" uid="uid://bru7a2wmr7m8y" path="res://🎄addon_🍉visual_novel/👤programmer_📂message_windows.tscn" id="15_1smlc"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_globe.gd" id="15_kurfy"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/message_windows_monkey.gd" id="15_u4scu"]
 [ext_resource type="PackedScene" uid="uid://c0trqytdpqte8" path="res://🎄addon_🍉visual_novel/👤programmer_📂department_controller.tscn" id="15_uxeth"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤scenario_writer/switch_department.gd" id="20_7qn2o"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉key_config/👤illustrator.tscn" id="21_wljdh"]
@@ -76,7 +78,14 @@ script = ExtResource("12_r86cw")
 
 [node name="📂DepartmentController_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("15_uxeth")]
 
-[node name="📂MessageWindows_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("15_1smlc")]
+[node name="🌏MessageWindows" type="Node" parent="👤Programmer"]
+script = ExtResource("15_kurfy")
+
+[node name="🐵Monkey_🍉VisualNovel" type="Node" parent="👤Programmer/🌏MessageWindows"]
+script = ExtResource("15_u4scu")
+
+[node name="📂🍉VisualNovel" parent="👤Programmer/🌏MessageWindows" instance=ExtResource("15_1smlc")]
+script = null
 
 [node name="ーーーーアドオンーーーー" type="Node" parent="👤Programmer"]
 
