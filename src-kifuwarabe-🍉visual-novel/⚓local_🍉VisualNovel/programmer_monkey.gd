@@ -1,4 +1,4 @@
-# プログラム・ハブ（Program Hub；プログラムの中心地）
+# プログラマー・モンキー（Programmer Monkey；プログラマーの猿）
 extends Node
 
 
@@ -11,9 +11,6 @@ var ancestors = {}
 
 # 全部門名
 var all_department_names = null
-
-# 全命令（キー：ノード名　値：ノード）
-var cache_dictionary_for_instruction = {}
 
 
 # ーーーーーーーー
@@ -56,7 +53,7 @@ func key_config_node():
 
 # シナリオ再生機取得
 func scenario_player_node():
-	return self.owner_node().get_node("📂ScenarioPlayer_🍉VisualNovel")
+	return self.owner_node().get_node("🎬ScenarioPlayer_🍉VisualNovel")
 
 
 # シナリオ再生機の猿取得
@@ -67,12 +64,7 @@ func scenario_player():
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName
-	return MonkeyHelper.find_node_in_folder(
-			target_name,
-			func():
-				return self.owner_node(),	# 探す場所
-			func():
-				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
+	return self.scenario_player().get_instruction(target_name)
 
 
 # 全ての部門名一覧

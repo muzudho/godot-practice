@@ -21,7 +21,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/telop.gd" id="18_8yid3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/var.gd" id="19_e1qci"]
 
-[node name="📂ScenarioPlayer_🍉VisualNovel" type="Node"]
+[node name="🎬ScenarioPlayer_🍉VisualNovel" type="Node"]
 script = ExtResource("1_v7bfh")
 
 [node name="🐵Monkey" type="Node" parent="."]
