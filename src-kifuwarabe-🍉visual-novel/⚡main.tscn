@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://🎄addon_🍉VisualNovel/👤Musician_🌏BgMusics.tscn" id="24_8oncv"]
 [ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉KeyConfig/👤Musician_🌏SoundFX.tscn" id="25_4re2d"]
 [ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://🎄addon_🍉VisualNovel/👤Musician_🌏SoundFX.tscn" id="26_hgiuu"]
-[ext_resource type="PackedScene" uid="uid://7owsgytxxeua" path="res://🎄addon_🍉VisualNovel/👤ScenarioWriter.tscn" id="31_ywbpe"]
+[ext_resource type="PackedScene" uid="uid://7owsgytxxeua" path="res://🎄addon_🍉VisualNovel/👤ScenarioWriter_📂VisualNovel.tscn" id="31_ywbpe"]
 [ext_resource type="PackedScene" uid="uid://7d1c4sgwele3" path="res://🎄addon_🍉VisualNovel/👤TelopCoordinator.tscn" id="32_12dmy"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉KeyConfig/👤Programmer.tscn" id="43_1kc47"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/switch_department.gd" id="44_c0141"]
@@ -74,11 +74,11 @@ script = ExtResource("10_0qoqs")
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("11_nqlsq")
 
-[node name="📂🍉KeyConfig" parent="👤Programmer" instance=ExtResource("43_1kc47")]
-
 [node name="📂ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("81_aev68")]
 
 [node name="📂DepartmentController_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("15_uxeth")]
+
+[node name="🎬🍉KeyConfig" parent="👤Programmer" instance=ExtResource("43_1kc47")]
 
 [node name="👤Programmer_ForBench" parent="." instance=ExtResource("15_oflrk")]
 

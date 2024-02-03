@@ -26,7 +26,7 @@ func of_staff():
 
 # キー・コンフィグ取得
 func owner_key_config_node():
-	return $"../../📂🍉KeyConfig"
+	return $"../../🎬🍉KeyConfig"
 
 
 # 時計取得

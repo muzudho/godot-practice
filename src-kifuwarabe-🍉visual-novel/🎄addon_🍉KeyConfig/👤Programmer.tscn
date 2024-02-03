@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/parser_for_input.gd" id="6_i74c1"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/statemachine_behaviour.gd" id="7_iph6o"]
 
-[node name="📂🍉KeyConfig" type="Node2D"]
+[node name="🎬🍉KeyConfig" type="Node2D"]
 script = ExtResource("1_031ms")
 
 [node name="🐵Monkey" type="Node" parent="."]
