@@ -11,6 +11,9 @@ extends Node
 # 先祖の辞書キャッシュ
 var ancestors = {}
 
+# 全命令（キー：ノード名　値：ノード）
+var cache_dictionary_for_instruction = {}
+
 
 # ーーーーーーーー
 # ノード・パス関連
@@ -34,7 +37,7 @@ func of_programmer():
 
 # 所有者ノード取得
 func owner_node():
-	return $"../../📂ScenarioPlayer_🍉VisualNovel"
+	return $"../../🎬ScenarioPlayer_🍉VisualNovel"
 
 
 # 時計取得
@@ -47,6 +50,22 @@ func internal():
 	return $"../🚪Internal"
 
 
+# 命令フォルダ―取得
+func instructions_node():
+	return $"../📂Instructions"
+
+
+# 命令ノード取得
+func get_instruction(
+		target_name):	# StringName
+	return MonkeyHelper.find_node_in_folder(
+			target_name,
+			func():
+				return self.instructions_node(),	# 探す場所
+			func():
+				return self.cache_dictionary_for_instruction)	# 結果を格納する変数
+
+
 # 全ての命令コード一覧
 func get_all_instruction_codes():
 	if self.internal().directory_for_instruction_code_and_node_name == null:
@@ -56,8 +75,8 @@ func get_all_instruction_codes():
 				# 命令のノード名は `📗` で始まるものとする
 				&"📗",
 				# 探す場所
-				# 本当は `👤Programmer` ノードの下のどこかにある `📂ScenarioPlayer_🍉VisualNovel` ノードのさらに下の `📂Instructions` ノードの下を探して欲しいが。
-				self.of_staff().programmer().owner_node(),
+				# 本当は `👤Programmer` ノードの下にある `🎬ScenarioPlayer_🍉VisualNovel` ノードのさらに下の `📂Instructions` ノードの下を探して欲しいが。
+				self.of_staff().programmer().scenario_player().instructions_node(),
 				func(child_node):
 					# コードにノード名を紐づける
 					self.internal().directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
