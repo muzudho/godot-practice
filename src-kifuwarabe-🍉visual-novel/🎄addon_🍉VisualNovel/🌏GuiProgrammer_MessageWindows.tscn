@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bru7a2wmr7m8y"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🍱message_windows/its_concrete.gd" id="1_oqxf8"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_concrete.gd" id="1_oqxf8"]
 
 [node name="📂🍉VisualNovel" type="Node"]
 
