@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://7owsgytxxeua"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/visual_novel_choices_mappings.gd" id="1_8isg6"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/visual_novel_chapter_1.gd" id="2_7j335"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/system_menu_choices_mappings.gd" id="3_vetjh"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/🌏scenario_writer/system_menu_chapter_1.gd" id="4_tbd5m"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤scenario_writer/visual_novel_choices_mappings.gd" id="1_8isg6"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤scenario_writer/visual_novel_chapter_1.gd" id="2_7j335"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤scenario_writer/system_menu_choices_mappings.gd" id="3_vetjh"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤scenario_writer/system_menu_chapter_1.gd" id="4_tbd5m"]
 
 [node name="📂🍉VisualNovel" type="Node"]
 
