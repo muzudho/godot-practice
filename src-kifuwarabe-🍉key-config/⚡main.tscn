@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://b1bsn7qc47x4d"]
 
-[ext_resource type="Script" path="res://⚓local_🍉KeyConfig/staff.gd" id="1_dum2v"]
+[ext_resource type="Script" path="res://⚓local_🍉key_config/staff.gd" id="1_du4p2"]
+[ext_resource type="Script" path="res://⚓local_🍉key_config/config.gd" id="2_3616i"]
 [ext_resource type="Texture2D" uid="uid://d3vhtxmj2cyey" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_f72qc"]
-[ext_resource type="Script" path="res://⚓local_🍉KeyConfig/staff_monkey.gd" id="2_qa5np"]
-[ext_resource type="Script" path="res://⚓local_🍉KeyConfig/config.gd" id="3_y3tm7"]
+[ext_resource type="Script" path="res://⚓local_🍉key_config/staff_monkey.gd" id="3_jrdg4"]
 [ext_resource type="PackedScene" uid="uid://d245mt0k8bh53" path="res://🎄addon_🍉key_config/👤illustrator.tscn" id="4_u7crs"]
-[ext_resource type="Script" path="res://⚓local_🍉KeyConfig/programmer_monkey.gd" id="5_2fo8k"]
-[ext_resource type="Script" path="res://⚓local_🍉KeyConfig/programmer.gd" id="6_h3blb"]
+[ext_resource type="Script" path="res://⚓local_🍉key_config/programmer.gd" id="8_vck7g"]
 [ext_resource type="PackedScene" uid="uid://kqejd4uyxvtm" path="res://🎄addon_🍉key_config/👤programmer.tscn" id="9_calvn"]
+[ext_resource type="Script" path="res://⚓local_🍉key_config/programmer_monkey.gd" id="9_hlvl8"]
 [ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉key_config/👤musician_🌏bg_musics.tscn" id="9_uae6e"]
 [ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉key_config/👤musician_🌏sound_fx.tscn" id="10_b6gok"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🎄addon_🍉key_config/👤telop_coordinator.tscn" id="12_8rfor"]
@@ -27,13 +27,13 @@ func _ready():
 "
 
 [node name="👥Staff" type="Node2D"]
-script = ExtResource("1_dum2v")
+script = ExtResource("1_du4p2")
 
 [node name="⚙Config" type="Node" parent="."]
-script = ExtResource("3_y3tm7")
+script = ExtResource("2_3616i")
 
 [node name="🐵Monkey" type="Node" parent="."]
-script = ExtResource("2_qa5np")
+script = ExtResource("3_jrdg4")
 
 [node name="Grid" type="Sprite2D" parent="."]
 z_index = 1000
@@ -56,10 +56,10 @@ script = SubResource("GDScript_htdqn")
 [node name="📂🍉KeyConfig" parent="👤Musician/🌏SoundFX" instance=ExtResource("10_b6gok")]
 
 [node name="👤Programmer" type="Node" parent="."]
-script = ExtResource("6_h3blb")
+script = ExtResource("8_vck7g")
 
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
-script = ExtResource("5_2fo8k")
+script = ExtResource("9_hlvl8")
 
 [node name="🎬🍉KeyConfig" parent="👤Programmer" instance=ExtResource("9_calvn")]
 
