@@ -215,9 +215,9 @@ func parse_paragraph(paragraph_text):
 		self.execute_stage_directions(paragraph_text)
 		return
 
-	# 選択肢なら表示
-	if self.print_choices(paragraph_text):
-		# すれば抜ける
+	# 選択肢なら、選択肢を表示して選ばせる
+	if self.is_choices():
+		self.execute_choices(paragraph_text)
 		return
 
 	# 通常文書の表示
@@ -230,17 +230,16 @@ func print_normal_text(paragraph_text):
 	self.sub_monkey().of_programmer().get_instruction(&"📘NormalText").do_it(paragraph_text)
 
 
+# メッセージ・ウィンドウは選択肢か？
+func is_choices():
+	# 選択肢かどうかは、メッセージ・ウィンドウに設定されている。
+	return self.sub_monkey().get_current_message_window_gui().choices_row_numbers != null
+
+
 # 選択肢なら表示
-func print_choices(paragraph_text):
+func execute_choices(paragraph_text):
 	#print("［シナリオエンジン］　準備中　選択肢なら表示")
-	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
-
-	# 選択肢だ
-	if message_window_gui.choices_row_numbers != null:
-		self.sub_monkey().of_programmer().get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
-		return true
-
-	return false
+	self.sub_monkey().of_programmer().get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
 
 
 # ト書きか？
