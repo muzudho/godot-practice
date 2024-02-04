@@ -12,7 +12,7 @@ func monkey():
 
 
 # ーーーーーーーー
-# 以下、主要プログラム
+# 主要プログラム
 # ーーーーーーーー
 
 # パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
@@ -63,12 +63,13 @@ func execute_stage_directions(paragraph_text):
 		var string_packed_array = second_head.split(":", true, 1)
 		var instruction_code = string_packed_array[0] + ":"
 
-		# コメント
+		# コメント行
 		if second_head.begins_with("#"):
 			pass
 
+		# コマンド行。例えば `img:` で始まる行
 		else:
-			# 例えば `img:` といったコードから、 `📗Img` といった命令ノードを検索し、それを実行します
+			# コマンド名から、 `📗Img` といった命令ノードを検索し、それを実行します
 			if instruction_code in self.monkey().internal().directory_for_instruction_code_and_node_name:
 				var instruction_node_name = self.monkey().internal().directory_for_instruction_code_and_node_name[instruction_code]
 				var instruction = self.monkey().of_programmer().get_instruction(instruction_node_name)

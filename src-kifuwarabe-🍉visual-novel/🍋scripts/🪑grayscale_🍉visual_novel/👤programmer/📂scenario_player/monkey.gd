@@ -60,6 +60,11 @@ func parser_for_paragraph_node():
 	return $"../🅿Parser_ForParagraph"
 
 
+# セクション配列の助け取得
+func section_array_helper_node():
+	return $"../SectionArrayHelper"
+
+
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName
