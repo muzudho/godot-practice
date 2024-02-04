@@ -65,12 +65,6 @@ func dump_last_displayed_message_window():
 # アクセッサ―
 # ーーーーーーーー
 
-# 指定の部門下の scenario_document 辞書を全てマージして返します。
-# この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
-func get_merged_scenario_document(department_name):
-	return self.sub_monkey().scenario_book_helper_node().get_merged_scenario_document(department_name)
-
-
 # 指定の部門下の choices_mappings 辞書を全てマージして返します。
 # この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
 func get_merged_choices_mappings(department_name):

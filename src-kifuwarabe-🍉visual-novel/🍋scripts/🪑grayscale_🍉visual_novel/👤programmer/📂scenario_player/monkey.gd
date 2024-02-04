@@ -75,11 +75,6 @@ func scenario_helper_node():
 	return $"../🍒ScenarioHelper"
 
 
-# 台本の助け取得
-func scenario_book_helper_node():
-	return $"../🍒ScenarioBookHelper"
-
-
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName

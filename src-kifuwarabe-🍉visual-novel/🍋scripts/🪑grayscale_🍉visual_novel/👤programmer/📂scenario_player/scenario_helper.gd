@@ -34,5 +34,8 @@ func get_current_paragraph_of_scenario():
 	var department_obj = self.monkey().owner_node().get_current_department_value()
 	var message_window_gui = self.monkey().get_current_message_window_gui()
 
-	var merged_scenario_document = self.monkey().owner_node().get_merged_scenario_document(department_obj.name)
+	var merged_scenario_document = ScenarioBookshelf.get_merged_scenario_document(
+			department_obj.name,
+			self.monkey().of_staff().scenario_writer().owner_node())
+	
 	return merged_scenario_document[department_obj.section_name][message_window_gui.section_item_index]

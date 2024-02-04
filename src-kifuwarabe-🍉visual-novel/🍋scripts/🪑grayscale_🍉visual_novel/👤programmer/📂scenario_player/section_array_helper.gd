@@ -21,7 +21,9 @@ func get_it(
 		section_name):			# セクション名。例えば `§タイトル画面`
 	
 	# パーシャルなシナリオ・ドキュメントを１つにマージしたもの
-	var merged_scenario_document = self.monkey().owner_node().get_merged_scenario_document(department_name)
+	var merged_scenario_document = ScenarioBookshelf.get_merged_scenario_document(
+			department_name,
+			self.monkey().of_staff().scenario_writer().owner_node())
 	
 	if not(section_name in merged_scenario_document):
 		print("［台本］　▲エラー　”" + section_name + "”セクションが無い")
