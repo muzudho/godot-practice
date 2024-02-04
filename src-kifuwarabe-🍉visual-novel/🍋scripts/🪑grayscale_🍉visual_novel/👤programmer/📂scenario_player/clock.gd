@@ -24,19 +24,23 @@ func on_process(delta):
 		return
 
 	# デパートメント・オブジェクト
-	var department_value = self.monkey().owner_node().get_current_department_value()
+	var department_obj = self.monkey().owner_node().get_current_department_value()
 	
 	# メッセージ・ウィンドウ・オブジェクト
 	var message_window_gui = self.monkey().get_current_message_window_gui()
 
 	# シナリオのパースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
-	if not department_value.is_parse_lock():
+	if not department_obj.is_parse_lock():
 		
 		# 段落がまだ残っているなら
-		if message_window_gui.paragraph_item_index < self.monkey().scenario_helper_node().get_current_paragraph_size_of_scenario():
+		if message_window_gui.paragraph_item_index < self.monkey().scenario_helper_node().get_current_paragraph_array_size():
 		
+			var scenario_book = ScenarioBookshelf.get_scenario_book_that_document_merged(
+					department_obj.name,
+					self.monkey().of_staff().scenario_writer().owner_node())
+
 			# その段落配列の次のテキストブロックを取得
-			var text_block = self.monkey().scenario_helper_node().get_current_text_block_of_scenario()
+			var text_block = self.monkey().scenario_helper_node().get_current_text_block(scenario_book)
 
 			# カウントアップ
 			message_window_gui.paragraph_item_index += 1

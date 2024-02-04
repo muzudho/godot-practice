@@ -96,7 +96,7 @@ func play_paragraph():
 	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
 
 	# 全部消化済みの場合
-	if self.sub_monkey().scenario_helper_node().get_current_paragraph_size_of_scenario() <= message_window_gui.paragraph_item_index:
+	if self.sub_monkey().scenario_helper_node().get_current_paragraph_array_size() <= message_window_gui.paragraph_item_index:
 		print("［シナリオ再生エンジン］（" + department_value.name + "　" + department_value.paragraph_name + "）　段落を読み終わっている")
 
 		# かつ、コンプリート中の場合、ユーザー入力を待つ
