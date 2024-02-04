@@ -17,8 +17,10 @@ func monkey():
 
 # セクション配列取得
 func get_it(
-		department_name,		# StringName
-		section_name):
+		department_name,		# StringName型。シナリオ・ノード名。例えば `📗会話部門_🍉VisualNovel`
+		section_name):			# セクション名。例えば `§タイトル画面`
+	
+	# パーシャルなシナリオ・ドキュメントを１つにマージしたもの
 	var merged_scenario_document = self.monkey().owner_node().get_merged_scenario_document(department_name)
 	
 	if not(section_name in merged_scenario_document):
