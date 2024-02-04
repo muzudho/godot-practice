@@ -99,8 +99,10 @@ func _ready():
 		# メッセージを出力する対象となるウィンドウの名前。ヌルにせず、必ず何か入れておいた方がデバッグしやすい
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
-		# 先頭セクションの名前
-		department_value.section_name = self.monkey().of_staff().programmer().scenario_player_node().get_merged_scenario_document(department_name).keys()[0]
+		# 先頭段落の名前
+		department_value.paragraph_name = ScenarioBookshelf.get_scenario_book_that_document_merged(
+				department_name,
+				self.monkey().of_staff().scenario_writer().owner_node()).get_first_paragraph_name()
 
 		self.departments[department_name] = department_value
 
@@ -196,8 +198,8 @@ func _process(delta):
 		# パースするな
 		self.monkey().scenario_player_node().get_current_department_value().set_parse_lock(true)
 
-		# 台本の「§」セクションの再生
-		self.monkey().scenario_player_node().play_section()
+		# 台本の「§」段落の再生
+		self.monkey().scenario_player_node().play_paragraph()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
 		self.monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)

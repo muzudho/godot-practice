@@ -24,35 +24,39 @@ func on_process(delta):
 		return
 
 	# デパートメント・オブジェクト
-	var department_value = self.monkey().owner_node().get_current_department_value()
+	var department_obj = self.monkey().owner_node().get_current_department_value()
 	
 	# メッセージ・ウィンドウ・オブジェクト
 	var message_window_gui = self.monkey().get_current_message_window_gui()
 
 	# シナリオのパースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
-	if not department_value.is_parse_lock():
+	if not department_obj.is_parse_lock():
 		
-		# セクションがまだ残っているなら
-		if message_window_gui.section_item_index < self.monkey().owner_node().get_current_section_size_of_scenario():
+		# 段落がまだ残っているなら
+		if message_window_gui.paragraph_item_index < self.monkey().scenario_helper_node().get_current_paragraph_array_size():
 		
-			# そのセクションの次のパラグラフを取得
-			var paragraph = self.monkey().owner_node().get_current_paragraph_of_scenario()
+			var scenario_book = ScenarioBookshelf.get_scenario_book_that_document_merged(
+					department_obj.name,
+					self.monkey().of_staff().scenario_writer().owner_node())
+
+			# その段落配列の次のテキストブロックを取得
+			var text_block = self.monkey().scenario_helper_node().get_current_text_block(scenario_book)
 
 			# カウントアップ
-			message_window_gui.section_item_index += 1
+			message_window_gui.paragraph_item_index += 1
 			
 			# 段落が文字列
-			if paragraph is String:
+			if text_block is String:
 				
-				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
+				var latest_message = text_block + ""	# 文字列を参照ではなく、コピーしたい
 
 				# ここで、命令と、台詞は区別する
-				self.monkey().owner_node().parse_paragraph(latest_message)
+				self.monkey().parser_for_text_block_node().parse_text_block(latest_message)
 			
 			# 段落が匿名関数かもしれない
 			else:
 				print("［助監］　TODO 匿名関数かもしれない呼出してみよ")
-				paragraph.call()
+				text_block.call()	# このテキストブロックは、文字列ではなく、匿名関数のはず
 
 		# セクションは、もう無いよ
 		else:

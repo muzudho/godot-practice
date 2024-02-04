@@ -70,7 +70,7 @@ func show_message_window(
 		node_name,						# StringName
 		is_department_entered = false):	# bool
 	var department_value = self.monkey().scenario_player_node().get_current_department_value()
-	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　見せる")
+	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.paragraph_name + "）　見せる")
 
 	# 伝言窓を、一時的に居なくなっていたのを解除する
 	self.monkey().owner_node().message_window_programs.find_node(node_name).set_appear_subtree(true)
@@ -94,7 +94,7 @@ func hide_message_window(
 		node_name,						# StringName
 		is_department_leaved = false):	# bool
 	var department_value = self.monkey().scenario_player_node().get_current_department_value()
-	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.section_name + "）　隠す")
+	print("［命令　伝言窓　”" + node_name + "”］（" + str(department_value.name) + "　" + department_value.paragraph_name + "）　隠す")
 
 	# 伝言窓を、一時的に居なくする
 	self.monkey().owner_node().message_window_programs.find_node(node_name).set_appear_subtree(false)

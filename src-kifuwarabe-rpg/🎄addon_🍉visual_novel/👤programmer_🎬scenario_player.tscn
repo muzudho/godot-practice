@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://daqtppg5rtuat"]
+[gd_scene load_steps=24 format=3 uid="uid://daqtppg5rtuat"]
 
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/main.gd" id="1_v7bfh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/monkey.gd" id="2_duxol"]
@@ -6,9 +6,12 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/clock.gd" id="4_dyybf"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/input.gd" id="5_agb2t"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/bgm.gd" id="5_ecq3c"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/parser_for_text_block.gd" id="6_11olj"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/choice.gd" id="6_mi08m"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/department.gd" id="7_k8gwc"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/goto.gd" id="8_sbyb3"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/scenario_helper.gd" id="9_gdiyy"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/paragraph_helper.gd" id="9_i37fa"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/img.gd" id="9_x0bdc"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/label.gd" id="10_w23qh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/msg_speed.gd" id="11_87xhq"]
@@ -35,6 +38,15 @@ script = ExtResource("4_dyybf")
 
 [node name="🕹️Input" type="Node" parent="."]
 script = ExtResource("5_agb2t")
+
+[node name="🅿Parser_ForTextBlock" type="Node" parent="."]
+script = ExtResource("6_11olj")
+
+[node name="🍒ParagraphHelper" type="Node" parent="."]
+script = ExtResource("9_i37fa")
+
+[node name="🍒ScenarioHelper" type="Node" parent="."]
+script = ExtResource("9_gdiyy")
 
 [node name="📂Instructions" type="Node" parent="."]
 
