@@ -157,7 +157,7 @@ var scenario_document = {
 		"""\
 		!
 		var:			battle_exit_department		,📗会話部門_🍉VisualNovel
-		var:			battle_exit_section		,§崎川市最強振興会館
+		var:			battle_exit_paragraph		,§崎川市最強振興会館
 		department:		📗バトル部門_🍉Battle		,%ignorable%
 		goto:			§１回目戦闘シーン
 		""",

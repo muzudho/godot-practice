@@ -10,8 +10,8 @@ extends Object
 #class_name DepartmentSnapshot
 
 
-# 「§」セクション名
-var section_name = null
+# 「§」段落の名前
+var paragraph_name = null
 
 # 部門名。StringName 型
 var name = null

@@ -60,14 +60,14 @@ func parser_for_text_block_node():
 	return $"../🅿Parser_ForTextBlock"
 
 
-# セクション配列の助け取得
-func section_array_helper_node():
-	return $"../🍒SectionArrayHelper"
+# 段落配列の助け取得
+func paragraph_array_helper_node():
+	return $"../🍒ParagraphArrayHelper"
 
 
-# セクションの助け取得
-func section_helper_node():
-	return $"../🍒SectionHelper"
+# 段落の助け取得
+func paragraph_helper_node():
+	return $"../🍒ParagraphHelper"
 
 
 # シナリオの助け取得

@@ -32,14 +32,14 @@ func on_process(delta):
 	# シナリオのパースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not department_value.is_parse_lock():
 		
-		# セクションがまだ残っているなら
-		if message_window_gui.section_item_index < self.monkey().scenario_helper_node().get_current_section_size_of_scenario():
+		# 段落がまだ残っているなら
+		if message_window_gui.paragraph_item_index < self.monkey().scenario_helper_node().get_current_paragraph_size_of_scenario():
 		
-			# そのパラグラフ配列の次のテキストブロックを取得
+			# その段落配列の次のテキストブロックを取得
 			var text_block = self.monkey().scenario_helper_node().get_current_text_block_of_scenario()
 
 			# カウントアップ
-			message_window_gui.section_item_index += 1
+			message_window_gui.paragraph_item_index += 1
 			
 			# 段落が文字列
 			if text_block is String:

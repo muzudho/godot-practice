@@ -27,8 +27,8 @@ func merge_document(target_document):
 	self.document.merge(target_document)
 
 
-# 先頭のセクションのキー名取得
-func get_first_section_name():
+# 先頭の段落のキー名取得
+func get_first_paragraph_name():
 	return self.document.keys()[0]
 
 # テキストブロック取得

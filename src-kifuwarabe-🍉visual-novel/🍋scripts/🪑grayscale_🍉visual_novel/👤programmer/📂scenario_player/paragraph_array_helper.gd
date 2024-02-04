@@ -1,4 +1,4 @@
-# セクション・アレイ・ヘルパー（Section Array Helper；セクション配列の助け）
+# パラグラフ・アレイ・ヘルパー（Paragraph Array Helper；段落配列の助け）
 extends Node
 
 
@@ -15,17 +15,17 @@ func monkey():
 # 主要プログラム
 # ーーーーーーーー
 
-# セクション配列取得
+# 段落配列取得
 func get_it(
 		department_name,		# StringName型。シナリオ・ノード名。例えば `📗会話部門_🍉VisualNovel`
-		section_name):			# セクション名。例えば `§タイトル画面`
+		paragraph_name):		# 段落名。例えば `§タイトル画面`
 	
 	# パーシャルなシナリオ・ドキュメントを１つにマージしたもの
 	var merged_scenario_document = ScenarioBookshelf.get_scenario_book_that_document_merged(
 			department_name,
 			self.monkey().of_staff().scenario_writer().owner_node()).document
 	
-	if not(section_name in merged_scenario_document):
-		print("［台本］　▲エラー　”" + section_name + "”セクションが無い")
+	if not(paragraph_name in merged_scenario_document):
+		print("［台本］　▲エラー　”" + paragraph_name + "”段落が無い")
 		
-	return merged_scenario_document[section_name]
+	return merged_scenario_document[paragraph_name]

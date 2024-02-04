@@ -1,4 +1,4 @@
-# セクション・ヘルパー（Section Helper；セクションの助け）
+# パラグラフ・ヘルパー（Paragraph Helper；段落の助け）
 extends Node
 
 
@@ -15,10 +15,10 @@ func monkey():
 # 主要プログラム
 # ーーーーーーーー
 
-# 現在の「§」セクション設定
-func set_current_section(section_name):
+# 現在の「§」段落設定
+func set_current_paragraph(paragraph_name):
 	var department_value = self.monkey().owner_node().get_current_department_value()
 	var message_window_gui = self.monkey().get_current_message_window_gui()
 
-	department_value.section_name = section_name
-	message_window_gui.section_item_index = 0
+	department_value.paragraph_name = paragraph_name
+	message_window_gui.paragraph_item_index = 0
