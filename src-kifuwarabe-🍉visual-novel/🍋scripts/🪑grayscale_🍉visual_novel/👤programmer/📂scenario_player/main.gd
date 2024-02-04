@@ -44,11 +44,7 @@ func get_current_department_value():
 
 # 現在の「§」セクション設定
 func set_current_section(section_name):
-	var department_value = self.get_current_department_value()
-	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
-
-	department_value.section_name = section_name
-	message_window_gui.section_item_index = 0
+	self.sub_monkey().section_helper_node().set_current_section(section_name)
 
 
 # 各部門が最後に開いていたメッセージ・ウィンドウ名の一覧を表示

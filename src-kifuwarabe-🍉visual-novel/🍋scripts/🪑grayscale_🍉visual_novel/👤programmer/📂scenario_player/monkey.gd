@@ -62,7 +62,12 @@ func parser_for_paragraph_node():
 
 # セクション配列の助け取得
 func section_array_helper_node():
-	return $"../SectionArrayHelper"
+	return $"../🍒SectionArrayHelper"
+
+
+# セクションの助け取得
+func section_helper_node():
+	return $"../🍒SectionHelper"
 
 
 # 命令ノード取得
