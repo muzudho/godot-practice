@@ -102,7 +102,7 @@ func _ready():
 		# 先頭セクションの名前
 		department_value.section_name = ScenarioBookshelf.get_scenario_book_that_document_merged(
 				department_name,
-				self.monkey().of_staff().scenario_writer().owner_node()).document.keys()[0]
+				self.monkey().of_staff().scenario_writer().owner_node()).get_first_section_name()
 
 		self.departments[department_name] = department_value
 

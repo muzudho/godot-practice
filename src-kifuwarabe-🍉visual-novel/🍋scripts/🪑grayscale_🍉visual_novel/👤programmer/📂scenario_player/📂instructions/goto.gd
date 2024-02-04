@@ -73,6 +73,7 @@ func goto(section_name, tail_csv):
 			self.monkey().owner_node().current_department_name,
 			self.monkey().of_staff().scenario_writer().owner_node()).document
 	
+	# 該当があれば、そのセクションをカレント・セクションにし、そのセクションを実行して、この関数を抜ける
 	if section_name in merged_scenario_document:
 		self.monkey().scenario_player_node().set_current_section(section_name)
 		self.monkey().scenario_player_node().play_section()

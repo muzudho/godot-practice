@@ -25,3 +25,14 @@ static func create():
 # 内容をマージ
 func merge_document(target_document):
 	self.document.merge(target_document)
+
+
+# 先頭のセクションのキー名取得
+func get_first_section_name():
+	return self.document.keys()[0]
+
+# 段落取得
+func get_paragraph(
+		section_name,
+		section_item_index):
+	return self.document[section_name][section_item_index]
