@@ -25,8 +25,8 @@ var is_appear = true
 var msg_speed = 20.0
 
 # テキストブロック汎用
-#	セクションの何番目（０開始）を次に読込むか
-var section_item_index = 0
+#	段落の何番目（０開始）を次に読込むか
+var paragraph_item_index = 0
 #	表示したい文章
 var text_block_buffer = ""
 #	タイプライターのカウント

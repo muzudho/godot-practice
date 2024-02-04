@@ -3,17 +3,15 @@
 # 👥Staff._ready() で初期化される
 #
 # シナリオの読取状態を管理する
-# メッセージ・ウィンドウの状態を管理する
-#
-# TODO メッセージ・ウィンドウの状態は、分けた方がいいのでは？
+# 複数のメッセージ・ウィンドウを紐づけるリストを持つ
 #
 extends Object
 
 #class_name DepartmentSnapshot
 
 
-# 「§」セクション名
-var section_name = null
+# 「§」段落の名前
+var paragraph_name = null
 
 # 部門名。StringName 型
 var name = null

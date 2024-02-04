@@ -55,6 +55,21 @@ func instructions_node():
 	return $"../📂Instructions"
 
 
+# テキストブロックのための解析機ノード取得
+func parser_for_text_block_node():
+	return $"../🅿Parser_ForTextBlock"
+
+
+# 段落の助け取得
+func paragraph_helper_node():
+	return $"../🍒ParagraphHelper"
+
+
+# シナリオの助け取得
+func scenario_helper_node():
+	return $"../🍒ScenarioHelper"
+
+
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName

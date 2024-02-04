@@ -271,8 +271,6 @@ script = ExtResource("39_83reh")
 
 [node name="🎬🍉KeyConfig" parent="👤Programmer" instance=ExtResource("62_isghc")]
 
-[node name="🎬ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("39_q6jti")]
-
 [node name="🌏MessageWindows" type="Node" parent="👤Programmer"]
 script = ExtResource("41_fdu37")
 
@@ -297,6 +295,8 @@ script = ExtResource("61_tvkup")
 
 [node name="■左下" type="Node" parent="👤Programmer/🌏MessageWindows/📂🍉VisualNovel"]
 script = ExtResource("61_tvkup")
+
+[node name="🎬ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("39_q6jti")]
 
 [node name="👤ScenarioWriter" type="Node" parent="."]
 
