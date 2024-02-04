@@ -64,16 +64,6 @@ func dump_last_displayed_message_window():
 	#		print("　　　　👁 " + window_name)
 
 
-# シナリオの現在セクション配列のサイズを返す
-func get_current_section_size_of_scenario():
-	var department_value = self.get_current_department_value()
-	var scenario_node_name = department_value.name		# StringName
-	var section_name =  department_value.section_name
-	
-	var section_array = self.sub_monkey().section_array_helper_node().get_it(scenario_node_name, section_name)
-	return section_array.size()
-
-
 # シナリオの現在パラグラフ（セクションのアイテム）を返す
 func get_current_paragraph_of_scenario():
 	var department_value = self.get_current_department_value()
@@ -139,7 +129,7 @@ func play_section():
 	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
 
 	# 全部消化済みの場合
-	if self.get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
+	if self.sub_monkey().scenario_helper_node().get_current_section_size_of_scenario() <= message_window_gui.section_item_index:
 		print("［シナリオ再生エンジン］（" + department_value.name + "　" + department_value.section_name + "）　セクションを読み終わっている")
 
 		# かつ、コンプリート中の場合、ユーザー入力を待つ

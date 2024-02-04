@@ -33,7 +33,7 @@ func on_process(delta):
 	if not department_value.is_parse_lock():
 		
 		# セクションがまだ残っているなら
-		if message_window_gui.section_item_index < self.monkey().owner_node().get_current_section_size_of_scenario():
+		if message_window_gui.section_item_index < self.monkey().scenario_helper_node().get_current_section_size_of_scenario():
 		
 			# そのセクションの次のパラグラフを取得
 			var paragraph = self.monkey().owner_node().get_current_paragraph_of_scenario()

@@ -70,6 +70,11 @@ func section_helper_node():
 	return $"../🍒SectionHelper"
 
 
+# シナリオの助け取得
+func scenario_helper_node():
+	return $"../🍒ScenarioHelper"
+
+
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName
