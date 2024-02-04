@@ -47,7 +47,7 @@ func on_process(delta):
 				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
 
 				# ここで、命令と、台詞は区別する
-				self.monkey().owner_node().parse_paragraph(latest_message)
+				self.monkey().parser_for_paragraph_node().parse_paragraph(latest_message)
 			
 			# 段落が匿名関数かもしれない
 			else:

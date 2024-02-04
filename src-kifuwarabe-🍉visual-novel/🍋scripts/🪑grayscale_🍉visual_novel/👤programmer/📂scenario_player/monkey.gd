@@ -55,6 +55,11 @@ func instructions_node():
 	return $"../📂Instructions"
 
 
+# 段落のための解析機ノード取得
+func parser_for_paragraph_node():
+	return $"../🅿Parser_ForParagraph"
+
+
 # 命令ノード取得
 func get_instruction(
 		target_name):	# StringName
