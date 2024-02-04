@@ -35,24 +35,24 @@ func on_process(delta):
 		# セクションがまだ残っているなら
 		if message_window_gui.section_item_index < self.monkey().scenario_helper_node().get_current_section_size_of_scenario():
 		
-			# そのセクションの次のパラグラフを取得
-			var paragraph = self.monkey().scenario_helper_node().get_current_paragraph_of_scenario()
+			# そのパラグラフ配列の次のテキストブロックを取得
+			var text_block = self.monkey().scenario_helper_node().get_current_text_block_of_scenario()
 
 			# カウントアップ
 			message_window_gui.section_item_index += 1
 			
 			# 段落が文字列
-			if paragraph is String:
+			if text_block is String:
 				
-				var latest_message = paragraph + ""	# 文字列を参照ではなく、コピーしたい
+				var latest_message = text_block + ""	# 文字列を参照ではなく、コピーしたい
 
 				# ここで、命令と、台詞は区別する
-				self.monkey().parser_for_paragraph_node().parse_paragraph(latest_message)
+				self.monkey().parser_for_text_block_node().parse_text_block(latest_message)
 			
 			# 段落が匿名関数かもしれない
 			else:
 				print("［助監］　TODO 匿名関数かもしれない呼出してみよ")
-				paragraph.call()
+				text_block.call()	# このテキストブロックは、文字列ではなく、匿名関数のはず
 
 		# セクションは、もう無いよ
 		else:

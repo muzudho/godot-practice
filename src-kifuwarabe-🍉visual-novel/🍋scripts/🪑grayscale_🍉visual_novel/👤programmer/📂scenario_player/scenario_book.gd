@@ -31,8 +31,8 @@ func merge_document(target_document):
 func get_first_section_name():
 	return self.document.keys()[0]
 
-# 段落取得
-func get_paragraph(
-		section_name,
-		section_item_index):
-	return self.document[section_name][section_item_index]
+# テキストブロック取得
+func get_text_block(
+		paragraph_name,
+		paragraph_array_index):
+	return self.document[paragraph_name][paragraph_array_index]

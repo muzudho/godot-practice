@@ -29,13 +29,15 @@ func get_current_section_size_of_scenario():
 	return section_array.size()
 
 
-# シナリオの現在パラグラフ（セクションのアイテム）を返す
-func get_current_paragraph_of_scenario():
+# シナリオの現在テキストブロック（パラグラフ配列の要素）を返す
+func get_current_text_block_of_scenario():
 	var department_obj = self.monkey().owner_node().get_current_department_value()
 	var message_window_gui = self.monkey().get_current_message_window_gui()
 
 	return ScenarioBookshelf.get_scenario_book_that_document_merged(
 			department_obj.name,
-			self.monkey().of_staff().scenario_writer().owner_node()).get_paragraph(
-					department_obj.section_name,
-					message_window_gui.section_item_index)
+
+			# テキストブロック
+			self.monkey().of_staff().scenario_writer().owner_node()).get_text_block(
+					department_obj.section_name,			# 段落名
+					message_window_gui.section_item_index)	# 段落配列のインデックス

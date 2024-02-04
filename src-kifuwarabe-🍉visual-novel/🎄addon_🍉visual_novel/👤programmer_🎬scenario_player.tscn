@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/clock.gd" id="4_dyybf"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/input.gd" id="5_agb2t"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/bgm.gd" id="5_ecq3c"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/parser_for_text_block.gd" id="6_11olj"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/choice.gd" id="6_mi08m"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/parser_for_paragraph.gd" id="6_rexeg"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/📂instructions/department.gd" id="7_k8gwc"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/section_array_helper.gd" id="7_ss0t3"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/section_helper.gd" id="8_jn4fu"]
@@ -40,8 +40,8 @@ script = ExtResource("4_dyybf")
 [node name="🕹️Input" type="Node" parent="."]
 script = ExtResource("5_agb2t")
 
-[node name="🅿Parser_ForParagraph" type="Node" parent="."]
-script = ExtResource("6_rexeg")
+[node name="🅿Parser_ForTextBlock" type="Node" parent="."]
+script = ExtResource("6_11olj")
 
 [node name="🍒SectionArrayHelper" type="Node" parent="."]
 script = ExtResource("7_ss0t3")

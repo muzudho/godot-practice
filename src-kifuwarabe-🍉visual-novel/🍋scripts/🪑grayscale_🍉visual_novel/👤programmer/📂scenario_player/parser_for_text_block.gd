@@ -1,4 +1,4 @@
-# パーサー・フォー・パラグラフ（Parser For Paragraph；段落のための解析機）
+# パーサー・フォー・テキスト・ブロック（Parser For Text Block；テキストブロックのための解析機）
 extends Node
 
 
@@ -15,39 +15,39 @@ func monkey():
 # 主要プログラム
 # ーーーーーーーー
 
-# パラグラフ（セクションのアイテム）が［ト書き］か、［台詞］か、によって処理を分けます
-func parse_paragraph(paragraph_text):
+# テキストブロック（パラグラフ配列の要素）が［ト書き］か、［台詞］か、によって処理を分けます
+func parse_text_block(text):
 	
 	# ト書きなら実行して抜ける
-	if self.is_state_directions(paragraph_text):
-		self.execute_stage_directions(paragraph_text)
+	if self.is_state_directions(text):
+		self.execute_stage_directions(text)
 		return
 
 	# 選択肢なら、選択肢を表示して選ばせる
 	if self.is_choices():
-		self.execute_choices(paragraph_text)
+		self.execute_choices(text)
 		return
 
 	# 通常文書の表示
-	self.print_normal_text(paragraph_text)
+	self.print_normal_text(text)
 
 
 # ト書きか？
 #
 #	先頭行が "!" １文字ならト書き
-func is_state_directions(paragraph_text):
-	var first_head_tail = StringHelper.split_head_line_or_tail(paragraph_text)
+func is_state_directions(text):
+	var first_head_tail = StringHelper.split_head_line_or_tail(text)
 	# `.strip_edges()` - 先頭行の最初と、最終行の最後の表示されない文字を消去
 	var first_head = first_head_tail[0].strip_edges()
 	return first_head.strip_edges() == "!"
 
 
 # ト書きを実行
-func execute_stage_directions(paragraph_text):
-	# 先頭行（"!" １文字）を捨てる	
-	var first_head_tail = StringHelper.split_head_line_or_tail(paragraph_text)
-	var first_tail = first_head_tail[1] 
-		
+func execute_stage_directions(text):
+	# 先頭行（"!" １文字）を捨てる
+	var first_head_tail = StringHelper.split_head_line_or_tail(text)
+	var first_tail = first_head_tail[1]
+	
 	# 以降、本文
 	print("［シナリオエンジン］　ト書き本文：[" + first_tail + "]")
 
@@ -74,7 +74,7 @@ func execute_stage_directions(paragraph_text):
 				var instruction_node_name = self.monkey().internal().directory_for_instruction_code_and_node_name[instruction_code]
 				var instruction = self.monkey().of_programmer().get_instruction(instruction_node_name)
 				instruction.do_it(second_head)
-			
+		
 		# さらに先頭行を取得
 		second_head_tail = StringHelper.split_head_line_or_tail(second_tail)
 
@@ -91,12 +91,12 @@ func is_choices():
 
 
 # 選択肢なら表示
-func execute_choices(paragraph_text):
+func execute_choices(text):
 	#print("［シナリオエンジン］　準備中　選択肢なら表示")
-	self.monkey().of_programmer().get_instruction(&"📘NormalTextChoice").do_it(paragraph_text)
+	self.monkey().of_programmer().get_instruction(&"📘NormalTextChoice").do_it(text)
 
 
-# 通常文書の表示	
-func print_normal_text(paragraph_text):
+# 通常文書の表示
+func print_normal_text(text):
 	#print("［シナリオエンジン］　準備中　通常文書の表示")
-	self.monkey().of_programmer().get_instruction(&"📘NormalText").do_it(paragraph_text)
+	self.monkey().of_programmer().get_instruction(&"📘NormalText").do_it(text)

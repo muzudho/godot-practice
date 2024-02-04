@@ -55,9 +55,9 @@ func instructions_node():
 	return $"../📂Instructions"
 
 
-# 段落のための解析機ノード取得
-func parser_for_paragraph_node():
-	return $"../🅿Parser_ForParagraph"
+# テキストブロックのための解析機ノード取得
+func parser_for_text_block_node():
+	return $"../🅿Parser_ForTextBlock"
 
 
 # セクション配列の助け取得
