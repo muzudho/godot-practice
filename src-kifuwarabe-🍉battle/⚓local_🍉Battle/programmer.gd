@@ -198,7 +198,7 @@ func _process(delta):
 		# パースするな
 		self.monkey().scenario_player_node().get_current_department_value().set_parse_lock(true)
 
-		# 台本の「§」段落の再生
+		# 台本の「¶」段落の再生
 		self.monkey().scenario_player_node().play_paragraph()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する

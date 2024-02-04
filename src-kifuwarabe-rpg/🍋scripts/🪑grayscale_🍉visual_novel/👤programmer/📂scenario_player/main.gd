@@ -39,7 +39,7 @@ func get_current_department_value():
 			self.sub_monkey().of_programmer().owner_node().current_department_name)
 
 
-# 現在の「§」段落設定
+# 現在の「¶」段落設定
 func set_current_paragraph(paragraph_name):
 	self.sub_monkey().paragraph_helper_node().set_current_paragraph(paragraph_name)
 
@@ -90,7 +90,7 @@ func get_merged_choices_mappings(department_name):
 # 以下、主要プログラム
 # ーーーーーーーー
 
-# 「§」段落の再生
+# 「¶」段落の再生
 func play_paragraph():
 	var department_value = self.get_current_department_value()
 	var message_window_gui = self.sub_monkey().get_current_message_window_gui()

@@ -15,7 +15,7 @@ func monkey():
 # 主要プログラム
 # ーーーーーーーー
 
-# 現在の「§」段落設定
+# 現在の「¶」段落設定
 func set_current_paragraph(paragraph_name):
 	var department_value = self.monkey().owner_node().get_current_department_value()
 	var message_window_gui = self.monkey().get_current_message_window_gui()

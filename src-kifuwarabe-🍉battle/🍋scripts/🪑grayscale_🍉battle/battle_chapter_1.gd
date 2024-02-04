@@ -49,7 +49,7 @@ var scenario_document = {
 	# データ部
 	# ーーーーーーーーーー
 
-	"§１回目戦闘シーン":[
+	"¶１回目戦闘シーン":[
 		# 戦闘突入準備
 		"""\
 		!
@@ -63,13 +63,13 @@ var scenario_document = {
 		var:		battle_gote_monster_name	,ヘム将棋
 		var:		battle_monster_body		,🐕ヘム将棋
 		var:		battle_monster_face		,😁ヘム将棋
-		var:		battle_section		,§ＶＳヘム将棋
+		var:		battle_paragraph		,¶ＶＳヘム将棋
 		var:		battle_exit_department_local		,📗バトル部門_🍉Battle
-		var:		battle_exit_section_local		,§２回目戦闘シーン
-		goto:		§戦闘の始めに
+		var:		battle_exit_section_local		,¶２回目戦闘シーン
+		goto:		¶戦闘の始めに
 		""",
 	],
-	"§２回目戦闘シーン":[
+	"¶２回目戦闘シーン":[
 		# 戦闘突入準備
 		"""\
 		!
@@ -83,13 +83,13 @@ var scenario_document = {
 		var:		battle_gote_monster_name	,ケダック
 		var:		battle_monster_body		,🐕ケダック
 		var:		battle_monster_face		,😁ケダック
-		var:		battle_section		,§ＶＳケダック
+		var:		battle_paragraph		,¶ＶＳケダック
 		var:		battle_exit_department_local		,📗バトル部門_🍉Battle
-		var:		battle_exit_section_local		,§３回目戦闘シーン
-		goto:		§戦闘の始めに
+		var:		battle_exit_section_local		,¶３回目戦闘シーン
+		goto:		¶戦闘の始めに
 		""",
 	],
-	"§３回目戦闘シーン":[
+	"¶３回目戦闘シーン":[
 		# 戦闘突入準備
 		"""\
 		!
@@ -103,14 +103,14 @@ var scenario_document = {
 		var:		battle_gote_monster_name	,レサぽん改
 		var:		battle_monster_body		,🐕レサぽん改
 		var:		battle_monster_face		,😁レサぽん改
-		var:		battle_section		,§ＶＳレサぽん改
+		var:		battle_paragraph		,¶ＶＳレサぽん改
 		var:		battle_exit_department_local		,📗バトル部門_🍉Battle
-		var:		battle_exit_section_local		,§４回目戦闘シーン
+		var:		battle_exit_section_local		,¶４回目戦闘シーン
 		department:	📗バトル部門_🍉Battle
-		goto:		§戦闘の始めに
+		goto:		¶戦闘の始めに
 		""",
 	],
-	"§４回目戦闘シーン":[
+	"¶４回目戦闘シーン":[
 		# 戦闘突入準備
 		"""\
 		!
@@ -124,11 +124,11 @@ var scenario_document = {
 		var:		battle_gote_monster_name	,昼ビール
 		var:		battle_monster_body		,🐕昼ビール
 		var:		battle_monster_face		,😁昼ビール
-		var:		battle_section		,§ＶＳ昼ビール
+		var:		battle_paragraph		,¶ＶＳ昼ビール
 		var:		battle_exit_department_local		,{{battle_exit_department}}
 		var:		battle_exit_section_local		,{{battle_exit_section}}
 		department:	📗バトル部門_🍉Battle
-		goto:		§戦闘の始めに
+		goto:		¶戦闘の始めに
 		""",
 	],
 
@@ -136,15 +136,15 @@ var scenario_document = {
 	# 共通処理
 	# ーーーーーーーーーー
 
-	# とりあえず、他の画面からこのセクションへ飛んでくる
-	"§戦闘の始めに":[
+	# とりあえず、他の画面からこの段落へ飛んでくる
+	"¶戦闘の始めに":[
 		"""\
 		!
-		goto:		§ロード・データ
+		goto:		¶ロード・データ
 		""",
 	],
 	# トランジションとデータのロードは並行処理できたらよさそうだが、できてない
-	"§ロード・データ":[
+	"¶ロード・データ":[
 		#
 		# Arguments
 		# =========
@@ -169,10 +169,10 @@ var scenario_document = {
 			,
 		"""\
 		!
-		goto:		§エンカウント・トランジション
+		goto:		¶エンカウント・トランジション
 		""",
 	],
-	"§エンカウント・トランジション":[
+	"¶エンカウント・トランジション":[
 		#
 		# Arguments
 		# =========
@@ -182,8 +182,8 @@ var scenario_document = {
 		#	先背景
 		# {{battle_monster_body}}
 		#	怪物の体
-		# {{battle_section}}
-		#	次のセクション
+		# {{battle_paragraph}}
+		#	次の段落
 		#
 		"""\
 		!
@@ -252,10 +252,10 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			§データの最新表示
+		goto:			¶データの最新表示
 		""",
 	],
-	"§データの最新表示":[
+	"¶データの最新表示":[
 		func():
 			# 先手
 			# 先手の［城の堅さ］表示更新
@@ -290,10 +290,10 @@ var scenario_document = {
 		telop:			Ｔ戦闘シーン
 		img:			😁きふわらべ
 		img:			{{battle_monster_face}}
-		goto:			§定刻
+		goto:			¶定刻
 		""",
 	],
-	"§定刻": [
+	"¶定刻": [
 		"""\
 		!
 		bg_music:			{{battle_battle_bg_music}}	,{{battle_battle_bg_music_from}}
@@ -311,10 +311,10 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			§バトルメニュー
+		goto:			¶バトルメニュー
 		""",
 	],
-	"§バトルメニュー":[
+	"¶バトルメニュー":[
 		"""\
 		!
 		# 最後に表示したウィンドウが、メッセージ出力対象になるので並べる順に注意
@@ -329,7 +329,7 @@ var scenario_document = {
 		　勝ち宣言
 		""",
 	],
-	"§先手の攻め":[
+	"¶先手の攻め":[
 		"""\
 		!
 		msg_wnd:		■下on戦
@@ -337,11 +337,11 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{battle_section}}
+		goto:			{{battle_paragraph}}
 		""",
 	],
 	# (2023-11-07 tue) 今のところ、常にきふわらべが先手
-	"§先手の守り":[
+	"¶先手の守り":[
 		"""\
 		!
 		msg_wnd:		■下on戦
@@ -355,7 +355,7 @@ var scenario_document = {
 		""",
 		# エモル囲い
 	],
-	"§先手の新無敵囲い":[
+	"¶先手の新無敵囲い":[
 		"""\
 		!
 		msg_wnd:		■下on戦
@@ -372,10 +372,10 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{battle_section}}
+		goto:			{{battle_paragraph}}
 		""",
 	],
-	"§先手の奇跡の角生還":[
+	"¶先手の奇跡の角生還":[
 		"""\
 		!
 		msg_wnd:		■下on戦
@@ -392,10 +392,10 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{battle_section}}
+		goto:			{{battle_paragraph}}
 		""",
 	],
-	"§先手のボンザナ囲い":[
+	"¶先手のボンザナ囲い":[
 		"""\
 		!
 		msg_wnd:		■下on戦
@@ -412,10 +412,10 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:			{{battle_section}}
+		goto:			{{battle_paragraph}}
 		""",
 	],
-	#"§先手のエモル囲い":[
+	#"¶先手のエモル囲い":[
 	#	"""\
 	#	!
 	#	msg_wnd:		■下on戦
@@ -432,11 +432,11 @@ var scenario_document = {
 	#	""",
 	#	"""\
 	#	!
-	#	goto:			{{battle_section}}
+	#	goto:			{{battle_paragraph}}
 	#	""",
 	#],
 	# (2023-10-16 thu) 今のところ、常にきふわらべが先手
-	"§先手の投了":[
+	"¶先手の投了":[
 		"""\
 		!
 		bg_music:			🎵負け
@@ -453,11 +453,11 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:		§撤収
+		goto:		¶撤収
 		""",
 	],
 	# (2023-11-07 tue) 今のところ、常にきふわらべが先手
-	"§先手の勝ち宣言":[
+	"¶先手の勝ち宣言":[
 		"""\
 		!
 		msg_wnd:		■下on戦
@@ -486,10 +486,10 @@ var scenario_document = {
 		""",
 		"""\
 		!
-		goto:		§撤収
+		goto:		¶撤収
 		""",
 	],
-	"§撤収":[
+	"¶撤収":[
 		"""\
 		!
 		img:			{{battle_bg_in}}			,hide
@@ -507,7 +507,7 @@ var scenario_document = {
 	# ーーーーーーーーーー
 	# 以下、固有処理
 	# ーーーーーーーーーー
-	"§ＶＳヘム将棋":[
+	"¶ＶＳヘム将棋":[
 		"""\
 		{{battle_sente_monster_name}}の先手だ！
 		""",
@@ -548,10 +548,10 @@ var scenario_document = {
 			,
 		"""\
 		!
-		goto:	§先手番１
+		goto:	¶先手番１
 		""",
 	],
-	"§先手番１": [
+	"¶先手番１": [
 		func():
 			# ダメージ計算
 			var damage = 5
@@ -572,12 +572,12 @@ var scenario_document = {
 			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[1] < 5:
-				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("§後手番投了", "")
+				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("¶後手番投了", "")
 			else:
-				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("§後手番１", "")
+				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("¶後手番１", "")
 			,
 	],
-	"§後手番１": [
+	"¶後手番１": [
 		func():
 			# ダメージ計算
 			var damage = 5
@@ -597,12 +597,12 @@ var scenario_document = {
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[0] < 5:
-				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("§先手番投了", "")
+				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("¶先手番投了", "")
 			else:
-				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("§先手番１", "")
+				self.monkey().of_staff().programmer().get_instruction(&"📗Goto").goto("¶先手番１", "")
 			,
 	],
-	"§先手番投了": [
+	"¶先手番投了": [
 		"""\
 		{{battle_gote_monster_name}}
 		「参りました
@@ -610,10 +610,10 @@ var scenario_document = {
 		# 戦闘終了
 		"""\
 		!
-		goto:	§撤収
+		goto:	¶撤収
 		""",
 	],
-	"§後手番投了": [
+	"¶後手番投了": [
 		"""\
 		{{battle_gote_monster_name}}
 		「参りました
@@ -621,13 +621,13 @@ var scenario_document = {
 		# 戦闘終了
 		"""\
 		!
-		goto:	§撤収
+		goto:	¶撤収
 		""",
 	],
 	#
 	#
 	#
-	"§ＶＳケダック":[
+	"¶ＶＳケダック":[
 		# 画面設定
 		"""\
 		!
@@ -643,13 +643,13 @@ var scenario_document = {
 		# 戦闘終了
 		"""\
 		!
-		goto:			§撤収
+		goto:			¶撤収
 		""",
 	],
 	#
 	#
 	#
-	"§ＶＳレサぽん改":[
+	"¶ＶＳレサぽん改":[
 		# 画面設定
 		"""\
 		!
@@ -665,13 +665,13 @@ var scenario_document = {
 		# 戦闘終了
 		"""\
 		!
-		goto:			§撤収
+		goto:			¶撤収
 		""",
 	],
 	#
 	# 昼ビール
 	#
-	"§ＶＳ昼ビール":[
+	"¶ＶＳ昼ビール":[
 		# 画面設定
 		"""\
 		!
@@ -774,7 +774,7 @@ var scenario_document = {
 		# 戦闘終了
 		"""\
 		!
-		goto:			§撤収
+		goto:			¶撤収
 		""",
 	],
 }

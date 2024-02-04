@@ -58,7 +58,7 @@ func on_process(delta):
 				print("［助監］　TODO 匿名関数かもしれない呼出してみよ")
 				text_block.call()	# このテキストブロックは、文字列ではなく、匿名関数のはず
 
-		# セクションは、もう無いよ
+		# 段落は、もう無いよ
 		else:
 			if not self.monkey().get_current_message_window_gui().statemachine_of_message_window.is_none():
 				# 伝言窓を閉じる

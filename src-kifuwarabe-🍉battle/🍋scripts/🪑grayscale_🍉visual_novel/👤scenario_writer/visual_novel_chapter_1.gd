@@ -36,12 +36,12 @@ var ancestor_children_dictionary = {}
 #
 var scenario_document = {
 
-	# このキーは［セクション名］と呼ぶことにします
+	# このキーは［段落名］と呼ぶことにします
 	#
-	#	- 頭に「§」を付けているのは見やすさのためで、付けなくても構いません
-	#	- `📗～部門` ノードにぶら下がっている他のファイルの scenario_document` のセクション名と被らないように運用してください
+	#	- 頭に「¶」を付けているのは見やすさのためで、付けなくても構いません
+	#	- `📗～部門` ノードにぶら下がっている他のファイルの scenario_document` の段落名と被らないように運用してください
 	#
-	"§タイトル画面":[
+	"¶タイトル画面":[
 		"""\
 		!
 		bg_music:	🎵タイトル
@@ -57,14 +57,14 @@ var scenario_document = {
 		""",
 	],
 	# 終わるなら
-	"§終了" : [
+	"¶終了" : [
 		"""\
 		!
 		quit:
 		"""
 	],
 	# ゲーム開始
-	"§はじまり":[
+	"¶はじまり":[
 		"""\
 		!
 		telop:	Ｔタイトル, hide
@@ -90,9 +90,9 @@ var scenario_document = {
 		"""\
 		!
 		var:			battle_exit_department		,📗会話部門_🍉Battle
-		var:			battle_exit_section			,§崎川市最強振興会館
+		var:			battle_exit_section			,¶崎川市最強振興会館
 		department:		📗バトル部門_🍉Battle			,%ignorable%
-		goto:			§１回目戦闘シーン
+		goto:			¶１回目戦闘シーン
 		""",
 		# バトル部門がなければ、直後の goto 文は１回無視され、以下へフォールスルー
 		"""\
@@ -103,10 +103,10 @@ var scenario_document = {
 		!
 		img:		🐕ヘム将棋, hide
 		img:		🗻ツツジロード, hide
-		goto:		§崎川市最強振興会館
+		goto:		¶崎川市最強振興会館
 		"""
 	],
-	"§崎川市最強振興会館":[
+	"¶崎川市最強振興会館":[
 		"""\
 		!
 		bg_music:

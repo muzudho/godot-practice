@@ -3,7 +3,7 @@
 # `📗` （緑の本）で始まる名前の命令は、アドオンです
 #
 # 部門を切り替えるときに使う。
-# 備考：　`goto` 命令がセクションの移動なのに対し、`department` はそれより大きなかたまりの移動
+# 備考：　`goto` 命令が段落の移動なのに対し、`department` はそれより大きなかたまりの移動
 extends Node
 
 
@@ -92,7 +92,7 @@ func change_department(next_department_name, tail_csv):
 		for next_window_name in next_department_snapshot.node_names_of_currently_displayed_message_window:
 			self.get_m_wnd().show_message_window(next_window_name, true)
 
-		# 台本の「§」段落の再生
+		# 台本の「¶」段落の再生
 		self.monkey().scenario_player_node().play_paragraph()
 
 		return

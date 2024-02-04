@@ -23,7 +23,7 @@ func get_current_paragraph_array_size():
 			# シナリオ・ノード名。例えば `📗会話部門_🍉VisualNovel`。StringName型
 			department_obj.name,
 			self.monkey().of_staff().scenario_writer().owner_node()).get_paragraph(
-				# 段落名。例えば `§タイトル画面`
+				# 段落名。例えば `¶タイトル画面`
 				department_obj.paragraph_name).size()
 
 

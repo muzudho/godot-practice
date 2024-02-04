@@ -29,7 +29,7 @@ func merge_document(target_document):
 
 # 段落配列取得
 func get_paragraph(
-		paragraph_name):		# 段落名。例えば `§タイトル画面`
+		paragraph_name):		# 段落名。例えば `¶タイトル画面`
 	
 	if not(paragraph_name in self.document):
 		print("［台本］　▲エラー　”" + paragraph_name + "”段落が無い")

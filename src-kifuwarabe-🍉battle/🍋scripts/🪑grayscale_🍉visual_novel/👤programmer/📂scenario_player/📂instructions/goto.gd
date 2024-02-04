@@ -43,7 +43,7 @@ func monkey():
 func do_it(
 	line):				# str
 
-	# 次の「§」段落名
+	# 次の「¶」段落名
 	var csv = line.substr(self.code.length()).strip_edges()
 	print("［命令　ゴートゥー］　CSV：[" + csv + "]")
 	# 文字列を最初のカンマで分割して配列に入れる
@@ -80,7 +80,7 @@ func goto(paragraph_name, tail_csv):
 		self.monkey().scenario_player_node().play_paragraph()
 		return
 	
-	# 該当なければ、とりあえず２番目のセクションまで見る
+	# 該当なければ、とりあえず２番目の段落まで見る
 	
 	# 文字列を最初のカンマで分割して配列に入れる
 	var string_packed_array = tail_csv.split(",", true, 1)
