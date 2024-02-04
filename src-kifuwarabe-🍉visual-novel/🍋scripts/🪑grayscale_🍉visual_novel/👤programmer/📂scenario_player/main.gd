@@ -17,9 +17,6 @@ func sub_monkey():
 # メモリ関連
 # ーーーーーーーー
 
-# シナリオ・ドキュメント
-var cached_scenario_document = {}
-
 # 選択肢と移動先
 var cached_choices_mappings = {}
 
@@ -71,22 +68,7 @@ func dump_last_displayed_message_window():
 # 指定の部門下の scenario_document 辞書を全てマージして返します。
 # この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
 func get_merged_scenario_document(department_name):
-	# キャッシュになければ探索
-	if not (department_name in self.cached_scenario_document):
-
-		# ［📗～］ノードの位置が変わっていることがあるので探索する
-		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
-				self.sub_monkey().of_staff().scenario_writer().owner_node(),
-				str(department_name))
-		self.cached_scenario_document[department_name] = {}
-
-		MonkeyHelper.search_descendant_within_member(
-				"scenario_document",
-				book_node,
-				func(child_node):
-					self.cached_scenario_document[department_name].merge(child_node.scenario_document))
-
-	return self.cached_scenario_document[department_name]
+	return self.sub_monkey().scenario_book_helper_node().get_merged_scenario_document(department_name)
 
 
 # 指定の部門下の choices_mappings 辞書を全てマージして返します。
