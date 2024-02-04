@@ -100,9 +100,9 @@ func _ready():
 		department_value.stack_of_last_displayed_message_window.push_back(&"■FullScreen")	# StringName 型 シンタックス・シュガー
 
 		# 先頭セクションの名前
-		department_value.section_name = ScenarioBookshelf.get_merged_scenario_document(
+		department_value.section_name = ScenarioBookshelf.get_scenario_book_that_document_merged(
 				department_name,
-				self.monkey().of_staff().scenario_writer().owner_node()).keys()[0]
+				self.monkey().of_staff().scenario_writer().owner_node()).document.keys()[0]
 
 		self.departments[department_name] = department_value
 

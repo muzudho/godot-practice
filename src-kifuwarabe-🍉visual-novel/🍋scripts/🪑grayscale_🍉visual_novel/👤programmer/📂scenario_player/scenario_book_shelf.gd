@@ -18,7 +18,7 @@ static var book_dictionary = {}
 
 # 指定の部門下の scenario_document 辞書を全てマージして返します。
 # この処理は、最初の１回は動作が遅く、その１回目でメモリを多く使います
-static func get_merged_scenario_document(
+static func get_scenario_book_that_document_merged(
 		department_name,
 		scenario_writer_node):	# self.monkey().of_staff().scenario_writer().owner_node()
 	
@@ -29,14 +29,14 @@ static func get_merged_scenario_document(
 		var book_node = MonkeyHelper.search_descendant_node_by_name_str(
 				scenario_writer_node,
 				str(department_name))
-		ScenarioBookshelf.book_dictionary[department_name] = {}
+		ScenarioBookshelf.book_dictionary[department_name] = ScenarioBook.create()
 
 		MonkeyHelper.search_descendant_within_member(
 				"scenario_document",
 				book_node,
 				func(child_node):
 					# 辞書をマージ
-					ScenarioBookshelf.book_dictionary[department_name].merge(child_node.scenario_document))
+					ScenarioBookshelf.book_dictionary[department_name].merge_document(child_node.scenario_document))
 
 	return ScenarioBookshelf.book_dictionary[department_name]
 
