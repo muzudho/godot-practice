@@ -25,7 +25,12 @@ func get_current_paragraph_size_of_scenario():
 	# 段落名。例えば `§タイトル画面`
 	var paragraph_name =  department_obj.paragraph_name
 	
-	var paragraph_array = self.monkey().paragraph_array_helper_node().get_it(scenario_node_name, paragraph_name)
+	# パーシャルなシナリオ・ドキュメントを１つにマージしたもの
+	var scenario_book = ScenarioBookshelf.get_scenario_book_that_document_merged(
+			scenario_node_name,
+			self.monkey().of_staff().scenario_writer().owner_node())
+
+	var paragraph_array = scenario_book.get_paragraph(paragraph_name)
 	return paragraph_array.size()
 
 

@@ -60,11 +60,6 @@ func parser_for_text_block_node():
 	return $"../🅿Parser_ForTextBlock"
 
 
-# 段落配列の助け取得
-func paragraph_array_helper_node():
-	return $"../🍒ParagraphArrayHelper"
-
-
 # 段落の助け取得
 func paragraph_helper_node():
 	return $"../🍒ParagraphHelper"
