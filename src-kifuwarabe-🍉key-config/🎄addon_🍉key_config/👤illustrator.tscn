@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://d245mt0k8bh53"]
 
-[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://🍋images/🪑grayscale/1280x720/in_front_of_sakiwaka_station.png" id="1_xwysv"]
-[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="2_4771a"]
-[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="3_08ghv"]
+[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://🍋images/🪑grayscale/1280x720/background/in_front_of_sakiwaka_station.png" id="1_xwysv"]
+[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://🍋images/🪑grayscale/1280x720/windows/window_at_bottom.png" id="2_4771a"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/windows/window_at_top_lerge.png" id="3_08ghv"]
 
 [node name="📂🍉KeyConfig" type="Node"]
 
