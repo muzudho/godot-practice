@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6eodi1kuyeqn"
-path="res://.godot/imported/window_at_bottom_left.png-ddded9da6c632e5ce9be524715e347f2.ctex"
+uid="uid://cot0sqrmfbptg"
+path="res://.godot/imported/transition_1_frame_5.png-03f455a8c78ceccd70ea2192a57e311d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://🍋images/🪑grayscale/1280x720/window_at_bottom_left.png"
-dest_files=["res://.godot/imported/window_at_bottom_left.png-ddded9da6c632e5ce9be524715e347f2.ctex"]
+source_file="res://🍋images/🪑grayscale/1280x720/transition_1/transition_1_frame_5.png"
+dest_files=["res://.godot/imported/transition_1_frame_5.png-03f455a8c78ceccd70ea2192a57e311d.ctex"]
 
 [params]
 

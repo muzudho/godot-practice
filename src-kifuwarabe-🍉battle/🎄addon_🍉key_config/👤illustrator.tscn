@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://d245mt0k8bh53"]
+[gd_scene load_steps=3 format=3 uid="uid://d245mt0k8bh53"]
 
-[ext_resource type="Texture2D" uid="uid://chcqqnqsda1rd" path="res://🍋images/🪑grayscale/1280x720/in_front_of_sakiwaka_station.png" id="1_xwysv"]
-[ext_resource type="Texture2D" uid="uid://dnlsfgfgahnvu" path="res://🍋images/🪑grayscale/1280x720/window_at_bottom.png" id="2_4771a"]
-[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/window_at_top_lerge.png" id="3_08ghv"]
+[ext_resource type="Texture2D" uid="uid://rrmsl7vcm4c" path="res://🍋images/🪑grayscale/1280x720/background/in_front_of_sakiwaka_station.png" id="1_riqgr"]
+[ext_resource type="Texture2D" uid="uid://cku4ftrtyhnat" path="res://🍋images/🪑grayscale/1280x720/windows/window_at_top_lerge.png" id="3_08ghv"]
 
 [node name="📂🍉KeyConfig" type="Node"]
 
@@ -11,7 +10,7 @@
 [node name="🗻崎川駅前" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(640, 360)
-texture = ExtResource("1_xwysv")
+texture = ExtResource("1_riqgr")
 
 [node name="ーーーーメッセージ・ウィンドウ（Ｚ＝１０００）ーーーー" type="Node" parent="."]
 
@@ -19,7 +18,6 @@ texture = ExtResource("1_xwysv")
 visible = false
 z_index = 1000
 position = Vector2(640, 360)
-texture = ExtResource("2_4771a")
 
 [node name="■上_大" type="Sprite2D" parent="."]
 visible = false

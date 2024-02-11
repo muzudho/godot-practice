@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw6jruqwbenlc"
-path="res://.godot/imported/transition_1_frame_4.png-de382a819564b43168549fb1ea21bb33.ctex"
+uid="uid://dcao5gmtt113o"
+path="res://.godot/imported/event_room.png-646e566165a8f3a59826d793672f5de6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://🍋images/🪑grayscale/1280x720/transition_1_frame_4.png"
-dest_files=["res://.godot/imported/transition_1_frame_4.png-de382a819564b43168549fb1ea21bb33.ctex"]
+source_file="res://🍋images/🪑grayscale/1280x720/background/event_room.png"
+dest_files=["res://.godot/imported/event_room.png-646e566165a8f3a59826d793672f5de6.ctex"]
 
 [params]
 
