@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buel4wxead3rt"
-path="res://.godot/imported/battle_scene_2.png-2cf98f21058e4c748c23b85a949122f5.ctex"
+uid="uid://dii7tlfnq4rhb"
+path="res://.godot/imported/tsutsuji_road.png-a896b37c861c0839533476f8d5986b44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://🍋images/🪑grayscale/1280x720/battle_scene_2.png"
-dest_files=["res://.godot/imported/battle_scene_2.png-2cf98f21058e4c748c23b85a949122f5.ctex"]
+source_file="res://🍋images/🪑grayscale/1280x720/background/tsutsuji_road.png"
+dest_files=["res://.godot/imported/tsutsuji_road.png-a896b37c861c0839533476f8d5986b44.ctex"]
 
 [params]
 

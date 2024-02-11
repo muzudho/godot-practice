@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhaal2avn26fq"
-path="res://.godot/imported/transition_1_frame_10.png-068d8980ba23ee68542a804636ee5b1f.ctex"
+uid="uid://dgxwlwrrmu7cs"
+path="res://.godot/imported/battle_scene_3.png-b8704e64d0553698667684d2fae45ec0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://🍋images/🪑grayscale/1280x720/transition_1_frame_10.png"
-dest_files=["res://.godot/imported/transition_1_frame_10.png-068d8980ba23ee68542a804636ee5b1f.ctex"]
+source_file="res://🍋images/🪑grayscale/1280x720/battle_scene/battle_scene_3.png"
+dest_files=["res://.godot/imported/battle_scene_3.png-b8704e64d0553698667684d2fae45ec0.ctex"]
 
 [params]
 

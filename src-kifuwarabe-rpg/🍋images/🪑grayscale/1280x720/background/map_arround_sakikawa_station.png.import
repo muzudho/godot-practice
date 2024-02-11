@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpc35dvufjgp4"
-path="res://.godot/imported/kawahori_road.png-6e0854101c002b22fa7d1b1cc4cc518d.ctex"
+uid="uid://b81tmjslp5ae6"
+path="res://.godot/imported/map_arround_sakikawa_station.png-2f5715a49f3b1e60e33b06d171fb380b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://🍋images/🪑grayscale/1280x720/kawahori_road.png"
-dest_files=["res://.godot/imported/kawahori_road.png-6e0854101c002b22fa7d1b1cc4cc518d.ctex"]
+source_file="res://🍋images/🪑grayscale/1280x720/background/map_arround_sakikawa_station.png"
+dest_files=["res://.godot/imported/map_arround_sakikawa_station.png-2f5715a49f3b1e60e33b06d171fb380b.ctex"]
 
 [params]
 
