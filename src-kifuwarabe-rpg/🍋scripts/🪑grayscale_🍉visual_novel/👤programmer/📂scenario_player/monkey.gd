@@ -45,6 +45,11 @@ func clock():
 	return $"../⌚Clock"
 
 
+# 入力取得
+func input_node():
+	return $"../🕹️Input"
+
+
 # 内部取得
 func internal():
 	return $"../🚪Internal"
