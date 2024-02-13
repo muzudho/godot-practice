@@ -9,8 +9,8 @@ var Department = load("res://🍋scripts/🪑grayscale_🍉visual_novel/departme
 # メモリ関連
 # ーーーーーーーー
 
-# 状態。 WaitForKeyConfig, KeyConfig, Ready, Main の４つ
-var current_state = &"WaitForKeyConfig"
+# 状態。 NotReadyYet, InKeyConfig, FirstTimeInScenario, InScenario の４つ
+var current_state = &"NotReadyYet"
 # 現在の部門（StringName型）
 var current_department_name = null
 # 現在鳴っている背景音楽のノード名
@@ -162,7 +162,8 @@ func on_key_config_entered():
 
 
 func on_key_config_exited():
-	self.current_state = &"Ready"
+	# ［シナリオで］状態の最初の１回
+	self.current_state = &"FirstTimeInScenario"
 
 
 # ーーーーーーーー
@@ -177,7 +178,7 @@ func _process(delta):
 	# キー・コンフィグは　フレームワークに収まらないので、ハードコーディングします
 	#
 	# キー・コンフィグが始まる
-	if self.current_state == &"WaitForKeyConfig":
+	if self.current_state == &"NotReadyYet":
 		self.monkey().key_config_node().entry()
 		self.current_state = &"InKeyConfig"
 
@@ -185,8 +186,8 @@ func _process(delta):
 	elif self.current_state == &"InKeyConfig":
 		self.monkey().key_config_node().on_process(delta)
 
-	# 以降の状態の前に
-	elif self.current_state == &"Ready":
+	# ［シナリオで］状態の最初の１回
+	elif self.current_state == &"FirstTimeInScenario":
 
 		# ［シナリオで］状態
 		self.current_state = &"InScenario"

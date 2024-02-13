@@ -106,8 +106,8 @@ func on_unhandled_input(event):
 # 仮想キーを押下したという建付け
 #
 # 呼出し元:
-# 	_unhandled_key_input()
-#	_unhandled_input()
+# 	on_unhandled_key_input()
+#	on_unhandled_input()
 func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
