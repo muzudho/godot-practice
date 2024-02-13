@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b1bsn7qc47x4d"]
+[gd_scene load_steps=14 format=3 uid="uid://b1bsn7qc47x4d"]
 
 [ext_resource type="Script" path="res://⚓local_🍉key_config/staff.gd" id="1_du4p2"]
 [ext_resource type="Script" path="res://⚓local_🍉key_config/config.gd" id="2_3616i"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://⚓local_🍉key_config/programmer_monkey.gd" id="9_hlvl8"]
 [ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉key_config/👤musician_🌏bg_musics.tscn" id="9_uae6e"]
 [ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉key_config/👤musician_🌏sound_fx.tscn" id="10_b6gok"]
+[ext_resource type="Script" path="res://⚓local_🍉key_config/programmer_input.gd" id="10_rgvij"]
 [ext_resource type="PackedScene" uid="uid://dvlp1tdgeisf5" path="res://🎄addon_🍉key_config/👤telop_coordinator.tscn" id="12_8rfor"]
 
 [sub_resource type="GDScript" id="GDScript_htdqn"]
@@ -60,6 +61,9 @@ script = ExtResource("8_vck7g")
 
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("9_hlvl8")
+
+[node name="🕹️Input" type="Node" parent="👤Programmer"]
+script = ExtResource("10_rgvij")
 
 [node name="🎬🍉KeyConfig" parent="👤Programmer" instance=ExtResource("9_calvn")]
 
