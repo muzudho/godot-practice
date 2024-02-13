@@ -32,6 +32,7 @@ func _unhandled_key_input(event):
 	elif self.monkey().owner_node().current_state == &"Main":
 		self.monkey().scenario_player().input_node().on_unhandled_key_input(event)
 
+
 # テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 func _unhandled_input(event):
 	# キー・コンフィグのために何もするな、という状態
