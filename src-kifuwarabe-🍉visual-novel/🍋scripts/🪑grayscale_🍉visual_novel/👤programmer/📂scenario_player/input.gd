@@ -20,7 +20,7 @@ func monkey():
 #
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
-func _unhandled_key_input(event):
+func on_unhandled_key_input(event):
 
 	# キー・コンフィグのために、何もするな
 	if self.monkey().of_programmer().owner_node().current_state == &"WaitForKeyConfig":
@@ -78,7 +78,7 @@ func _unhandled_key_input(event):
 
 
 # テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
-func _unhandled_input(event):
+func on_unhandled_input(event):
 
 	# キー・コンフィグのために何もするな、という状態
 	if self.monkey().of_programmer().owner_node().current_state == &"WaitForKeyConfig":

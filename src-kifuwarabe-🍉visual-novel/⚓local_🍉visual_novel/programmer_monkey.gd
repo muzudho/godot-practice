@@ -46,6 +46,11 @@ func department_controller():
 	return self.department_controller_node().get_node("🐵Monkey")
 
 
+# 入力取得
+func input_node():
+	return self.owner_node().get_node("🕹️Input")
+
+
 # キー・コンフィグ取得
 func key_config_node():
 	return self.owner_node().get_node("🎬🍉KeyConfig")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://df3w8nurqp4dl"]
+[gd_scene load_steps=24 format=3 uid="uid://df3w8nurqp4dl"]
 
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/staff.gd" id="1_kwatq"]
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/config.gd" id="2_2aexf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉visual_novel/👤illustrator.tscn" id="5_ocgan"]
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/programmer.gd" id="11_5v2oj"]
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/programmer_monkey.gd" id="12_r86cw"]
+[ext_resource type="Script" path="res://⚓local_🍉visual_novel/programmer_input.gd" id="13_at4ui"]
 [ext_resource type="PackedScene" uid="uid://cfsc4f3bfgmlo" path="res://🎄addon_🍉visual_novel/👤programmer_🌏message_windows.tscn" id="15_peupk"]
 [ext_resource type="PackedScene" uid="uid://c0trqytdpqte8" path="res://🎄addon_🍉visual_novel/👤programmer_📂department_controller.tscn" id="15_uxeth"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤scenario_writer/switch_department.gd" id="20_7qn2o"]
@@ -71,6 +72,9 @@ script = ExtResource("11_5v2oj")
 
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("12_r86cw")
+
+[node name="🕹️Input" type="Node" parent="👤Programmer"]
+script = ExtResource("13_at4ui")
 
 [node name="🎬ScenarioPlayer_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("81_aev68")]
 
