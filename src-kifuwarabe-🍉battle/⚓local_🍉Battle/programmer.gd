@@ -179,15 +179,18 @@ func _process(delta):
 	# キー・コンフィグが始まる
 	if self.current_state == &"WaitForKeyConfig":
 		self.monkey().key_config_node().entry()
-		self.current_state = &"KeyConfig"
+		self.current_state = &"InKeyConfig"
 
 	# キー・コンフィグに制御を譲る
-	elif self.current_state == &"KeyConfig":
+	elif self.current_state == &"InKeyConfig":
 		self.monkey().key_config_node().on_process(delta)
 
 	# 以降の状態の前に
 	elif self.current_state == &"Ready":
-		self.current_state = &"Main"
+
+		# ［シナリオで］状態
+		self.current_state = &"InScenario"
+
 		# ーーーーーーーー
 		# 準備
 		# ーーーーーーーー
@@ -204,8 +207,8 @@ func _process(delta):
 		# 伝言窓を、一時的に居なくなっていたのを解除する
 		self.monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
 
-	# 以降の状態。フレームワーク
-	elif self.current_state == &"Main":
+	# ［シナリオで］状態
+	elif self.current_state == &"InScenario":
 		
 		# TODO 現在の部門が　シナリオ・プレイヤーに時計を渡したいか、そうではないか判別したい
 		

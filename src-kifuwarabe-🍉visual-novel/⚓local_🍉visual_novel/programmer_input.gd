@@ -24,12 +24,12 @@ func _unhandled_key_input(event):
 	if self.monkey().owner_node().current_state == &"WaitForKeyConfig":
 		pass
 
-	# キー・コンフィグ中なので、何もするな
-	elif self.monkey().owner_node().current_state == &"KeyConfig":
+	# ［キー・コンフィグで］は、何もするな
+	elif self.monkey().owner_node().current_state == &"InKeyConfig":
 		pass
 
-	# 主要な状態
-	elif self.monkey().owner_node().current_state == &"Main":
+	# ［シナリオで］状態
+	elif self.monkey().owner_node().current_state == &"InScenario":
 		self.monkey().scenario_player().input_node().on_unhandled_key_input(event)
 
 
@@ -39,10 +39,10 @@ func _unhandled_input(event):
 	if self.monkey().owner_node().current_state == &"WaitForKeyConfig":
 		pass
 
-	# キー・コンフィグに入力の制御を譲れ、という状態
-	elif self.monkey().owner_node().current_state == &"KeyConfig":
+	# ［キー・コンフィグで］状態
+	elif self.monkey().owner_node().current_state == &"InKeyConfig":
 		self.monkey().key_config_node().on_unhandled_input(event)
 
-	# 主な状態
-	elif self.monkey().owner_node().current_state == &"Main":
+	# ［シナリオで］状態
+	elif self.monkey().owner_node().current_state == &"InScenario":
 		self.monkey().scenario_player().input_node().on_unhandled_input(event)
