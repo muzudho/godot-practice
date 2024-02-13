@@ -15,12 +15,17 @@ func monkey():
 # 入力
 # ーーーーーーーー
 
-
+# テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 func _unhandled_input(event):
 	# キーコンフィグで必要です
 	self.monkey().key_config_node().on_unhandled_input(event)
 
 
+# ーーーーーーーー
+# イベント・ハンドラー
+# ーーーーーーーー
+
+# キー・コンフィグ開始時
 func on_key_config_entered():
 	print("［キーコンフィグ］　開始")
 	
@@ -31,6 +36,7 @@ func on_key_config_entered():
 	).visible = true
 
 
+# キー・コンフィグ終了時
 func on_key_config_exited():
 	print("［キーコンフィグ］　完了")
 

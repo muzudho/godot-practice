@@ -15,25 +15,51 @@ func monkey():
 # 入力
 # ーーーーーーーー
 
-func on_key_config_entered():
-	# 背景
-	self.monkey().owner_node().images.find_node(
-		str(self.monkey().of_staff().config_node().key_config_background_image_name)
-	).visible = true
-
-
-func on_key_config_exited():
-	self.monkey().owner_node().current_state = &"Ready"
-
-
 # テキストボックスなどにフォーカスが無いときのキー入力を拾う
 #
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
-	self.monkey().scenario_player().input_node().on_unhandled_key_input(event)
+	# キー・コンフィグのために、何もするな
+	if self.monkey().owner_node().current_state == &"WaitForKeyConfig":
+		pass
+
+	# キー・コンフィグ中なので、何もするな
+	elif self.monkey().owner_node().current_state == &"KeyConfig":
+		pass
+
+	# 主要な状態
+	elif self.monkey().owner_node().current_state == &"Main":
+		self.monkey().scenario_player().input_node().on_unhandled_key_input(event)
 
 
 # テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 func _unhandled_input(event):
-	self.monkey().scenario_player().input_node().on_unhandled_input(event)
+	# キー・コンフィグのために何もするな、という状態
+	if self.monkey().owner_node().current_state == &"WaitForKeyConfig":
+		pass
+
+	# キー・コンフィグに入力の制御を譲れ、という状態
+	elif self.monkey().owner_node().current_state == &"KeyConfig":
+		self.monkey().key_config_node().on_unhandled_input(event)
+
+	# 主な状態
+	elif self.monkey().owner_node().current_state == &"Main":
+		self.monkey().scenario_player().input_node().on_unhandled_input(event)
+
+
+# ーーーーーーーー
+# イベント・ハンドラー
+# ーーーーーーーー
+
+# キー・コンフィグ開始時
+func on_key_config_entered():
+	# 背景表示
+	self.monkey().owner_node().images.find_node(
+		str(self.monkey().of_staff().config_node().key_config_background_image_name)
+	).visible = true
+
+
+# キー・コンフィグ終了時
+func on_key_config_exited():
+	self.monkey().owner_node().current_state = &"Ready"

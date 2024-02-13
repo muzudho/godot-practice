@@ -21,110 +21,86 @@ func monkey():
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func on_unhandled_key_input(event):
+	var vk_operation = null
 
-	# キー・コンフィグのために、何もするな
-	if self.monkey().of_programmer().owner_node().current_state == &"WaitForKeyConfig":
-		pass
+	# 何かキーを押したとき
+	if event.is_pressed():
+		print("［監督］　キー入力　押下")
+		vk_operation = &"VKO_Pressed"
+	
+	# 何かキーを離したとき
+	elif event.is_released():
+		print("［監督］　キー入力　リリース")
+		vk_operation = &"VKO_Released"
+	
+	# それ以外には対応してない
+	else:
+		print("［監督］　キー入力　▲！想定外")
+		return
 
-	# キー・コンフィグ中なので、何もするな
-	elif self.monkey().of_programmer().owner_node().current_state == &"KeyConfig":
-		pass
+	# 以下、仮想キー
 
-	# 主要な状態
-	elif self.monkey().of_programmer().owner_node().current_state == &"Main":
+	# このゲーム独自の仮想キーに変換
+	var virtual_key_name = null
+	
+	# エンターキー押下
+	if event.keycode == KEY_ENTER:
+		virtual_key_name = &"VK_Ok"
 
-		var vk_operation = null
+	# エスケープキー押下
+	elif event.keycode == KEY_ESCAPE:
+		virtual_key_name = &"VK_Cancel"
 
-		# 何かキーを押したとき
-		if event.is_pressed():
-			print("［監督］　キー入力　押下")
-			vk_operation = &"VKO_Pressed"
-		
-		# 何かキーを離したとき
-		elif event.is_released():
-			print("［監督］　キー入力　リリース")
-			vk_operation = &"VKO_Released"
-		
-		# それ以外には対応してない
-		else:
-			print("［監督］　キー入力　▲！想定外")
-			return
+	# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
+	elif event.keycode == KEY_R:
+		virtual_key_name = &"VK_FastForward"
+	
+	# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
+	else:
+		return
 
-		# 以下、仮想キー
+	var lever_value = 0.0
 
-		# このゲーム独自の仮想キーに変換
-		var virtual_key_name = null
-		
-		# エンターキー押下
-		if event.keycode == KEY_ENTER:
-			virtual_key_name = &"VK_Ok"
-
-		# エスケープキー押下
-		elif event.keycode == KEY_ESCAPE:
-			virtual_key_name = &"VK_Cancel"
-
-		# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
-		elif event.keycode == KEY_R:
-			virtual_key_name = &"VK_FastForward"
-		
-		# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
-		else:
-			return
-
-		var lever_value = 0.0
-
-		# 仮想キーを押下したという建付け
-		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
+	# 仮想キーを押下したという建付け
+	self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
 
 
 # テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 func on_unhandled_input(event):
+	var vk_operation = null
 
-	# キー・コンフィグのために何もするな、という状態
-	if self.monkey().of_programmer().owner_node().current_state == &"WaitForKeyConfig":
-		pass
+	# 何かキーを押したとき
+	if event.is_pressed():
+		#print("［監督］　入力　押下")
+		vk_operation = &"VKO_Pressed"
+	
+	# 何かキーを離したとき
+	elif event.is_released():
+		#print("［監督］　入力　リリース")
+		vk_operation = &"VKO_Released"
+	
+	# それ以外には対応してない
+	else:
+		print("［監督］　入力　▲！想定外")
+		return
 
-	# キー・コンフィグに入力の制御を譲れ、という状態
-	elif self.monkey().of_programmer().owner_node().current_state == &"KeyConfig":
-		self.monkey().of_programmer().key_config_node().on_unhandled_input(event)
+	# ーーーーーーーー
+	# 以下、仮想キー
+	# ーーーーーーーー
+	# 文字列だけだと、押したのか放したのか分からない
+	var event_as_text = event.as_text()
+	
+	# 文字列をボタン番号に変換
+	var button_number = self.monkey().of_programmer().key_config_node().get_button_number_by_text(event_as_text)
+	
+	# ボタン番号を、仮想キー名に変換
+	var virtual_key_name = self.monkey().of_programmer().key_config_node().get_virtual_key_name_by_button_number(button_number)
 
-	# 主な状態
-	elif self.monkey().of_programmer().owner_node().current_state == &"Main":
+	# レバー値
+	var lever_value = self.monkey().of_programmer().key_config_node().get_lever_value_by_text(event_as_text)
 
-		var vk_operation = null
-
-		# 何かキーを押したとき
-		if event.is_pressed():
-			#print("［監督］　入力　押下")
-			vk_operation = &"VKO_Pressed"
-		
-		# 何かキーを離したとき
-		elif event.is_released():
-			#print("［監督］　入力　リリース")
-			vk_operation = &"VKO_Released"
-		
-		# それ以外には対応してない
-		else:
-			print("［監督］　入力　▲！想定外")
-			return
-
-		# ーーーーーーーー
-		# 以下、仮想キー
-		# ーーーーーーーー
-		# 文字列だけだと、押したのか放したのか分からない
-		var event_as_text = event.as_text()
-		
-		# 文字列をボタン番号に変換
-		var button_number = self.monkey().of_programmer().key_config_node().get_button_number_by_text(event_as_text)
-		
-		# ボタン番号を、仮想キー名に変換
-		var virtual_key_name = self.monkey().of_programmer().key_config_node().get_virtual_key_name_by_button_number(button_number)
-
-		# レバー値
-		var lever_value = self.monkey().of_programmer().key_config_node().get_lever_value_by_text(event_as_text)
-
-		# 仮想キーを押下したという建付け
-		self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
+	# 仮想キーを押下したという建付け
+	self.on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
 
 
 # 仮想キーを押下したという建付け
