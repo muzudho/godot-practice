@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=67 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://⚓local_🍉Battle/staff.gd" id="1_2gst5"]
 [ext_resource type="Script" path="res://⚓local_🍉Battle/staff_monkey.gd" id="2_glcnh"]
@@ -22,6 +22,7 @@
 [ext_resource type="Script" path="res://⚓local_🍉Battle/programmer.gd" id="34_0dcbg"]
 [ext_resource type="PackedScene" uid="uid://c5rj8mk8bwirj" path="res://🎄addon_🍉key_config/👤musician_🌏bg_musics.tscn" id="34_3hqwd"]
 [ext_resource type="PackedScene" uid="uid://tpups3rpk2j8" path="res://🎄addon_🍉visual_novel/👤musician_🌏bg_musics.tscn" id="35_65fhg"]
+[ext_resource type="Script" path="res://⚓local_🍉Battle/programmer_input.gd" id="37_0lom1"]
 [ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉key_config/👤musician_🌏sound_fx.tscn" id="37_nknd3"]
 [ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://🎄addon_🍉visual_novel/👤musician_🌏sound_fx.tscn" id="38_kb7xl"]
 [ext_resource type="Script" path="res://⚓local_🍉Battle/programmer_monkey.gd" id="39_83reh"]
@@ -266,6 +267,9 @@ script = ExtResource("34_0dcbg")
 
 [node name="🐵Monkey" type="Node" parent="👤Programmer"]
 script = ExtResource("39_83reh")
+
+[node name="🕹️Input" type="Node" parent="👤Programmer"]
+script = ExtResource("37_0lom1")
 
 [node name="📂DepartmentController_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("39_lvvbh")]
 
