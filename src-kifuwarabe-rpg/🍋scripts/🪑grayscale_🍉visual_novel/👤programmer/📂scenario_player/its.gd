@@ -1,4 +1,4 @@
-# シナリオ・プレイヤー（Scenario Player；台本再生機）
+# シナリオ・プレイヤー　＞　イッツ　（Scenario Player；台本再生機）（Its；それ）
 #
 # TODO ここにシナリオを読取る処理を移動したい
 extends Node

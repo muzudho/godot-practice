@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://daqtppg5rtuat"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/main.gd" id="1_v7bfh"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/its.gd" id="1_v7bfh"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/monkey.gd" id="2_duxol"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/internal.gd" id="3_nvy2a"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂scenario_player/clock.gd" id="4_dyybf"]
