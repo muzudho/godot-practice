@@ -70,10 +70,10 @@ func the_illustrator_node():
 
 
 # （外ノード）テロップ取得
-func the_telop_canvas_layer():
+func the_telop_canvas_layer_node():
 	return self.the_programmer_node().telops.find_node("Ｔキーコンフィグ")
 
 
 # （外ノード）テロップ取得
-func get_my_telop(node_name_str):
-	return self.the_telop_canvas_layer().get_node(node_name_str)
+func get_my_telop_node(node_name_str):
+	return self.the_telop_canvas_layer_node().get_node(node_name_str)
