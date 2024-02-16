@@ -51,7 +51,7 @@ func internal():
 
 # 入力のためのパーサー
 func parser_for_input():
-	return $"../🅿ParserForInput"
+	return $"../🕹️Input/🅿Parser"
 
 
 # 状態遷移機械取得
