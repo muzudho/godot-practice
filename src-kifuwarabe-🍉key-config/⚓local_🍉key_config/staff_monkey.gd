@@ -28,12 +28,12 @@ func illustrator_node():
 
 
 # BGM取得
-func musician_bg_musics():
+func musician_bg_musics_node():
 	return self.owner_node().get_node("👤Musician/🌏BgMusics")
 
 
 # SE取得
-func musician_sound_fx():
+func musician_sound_fx_node():
 	return self.owner_node().get_node("👤Musician/🌏SoundFX")
 
 
