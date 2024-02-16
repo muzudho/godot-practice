@@ -29,5 +29,5 @@ func owner_node():
 
 
 # 部門切替取得
-func department_control():
+func department_control_node():
 	return self.owner_node().get_node("📘DepartmentControl")
