@@ -25,7 +25,7 @@ func of_staff():
 
 
 # 入力取得
-func input():
+func input_node():
 	return $"../🕹️Input"
 
 

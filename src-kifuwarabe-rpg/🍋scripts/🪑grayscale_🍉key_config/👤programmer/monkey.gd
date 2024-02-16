@@ -40,7 +40,7 @@ func display_node():
 
 
 # 入力取得
-func input():
+func input_node():
 	return $"../🕹️Input"
 
 

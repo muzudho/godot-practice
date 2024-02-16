@@ -64,7 +64,7 @@ func on_exit():
 
 
 func on_unhandled_input(event):
-	self.sub_monkey().input().on_unhandled_input(event)
+	self.sub_monkey().input_node().on_unhandled_input(event)
 
 
 # ーーーーーーーー
