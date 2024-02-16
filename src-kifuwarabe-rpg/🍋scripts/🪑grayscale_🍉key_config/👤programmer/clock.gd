@@ -25,16 +25,16 @@ func on_process(delta):
 		return
 	
 	# 初回
-	if self.monkey().internal().key_config_item_number == 0:
+	if self.monkey().internal_node().key_config_item_number == 0:
 		# 画面の表示、演奏
 		self.monkey().display_node().perform_at_open_scene()
-		self.monkey().internal().key_config_item_number += 1
-		self.monkey().internal().clear_count_by_step()
+		self.monkey().internal_node().key_config_item_number += 1
+		self.monkey().internal_node().clear_count_by_step()
 	
 	# ーーーーーーーー
 	# （１）キャンセルボタン、メニューボタン
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 1:
+	elif self.monkey().internal_node().key_config_item_number == 1:
 		self.on_tick(
 				delta,
 				null,
@@ -43,7 +43,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （２）決定ボタン、メッセージ送りボタン
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 2:
+	elif self.monkey().internal_node().key_config_item_number == 2:
 		self.on_tick(
 				delta,
 				&"VK_Cancel",
@@ -52,7 +52,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （３）メッセージ早送りボタン
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 3:
+	elif self.monkey().internal_node().key_config_item_number == 3:
 		self.on_tick(
 				delta,
 				&"VK_Ok",
@@ -61,7 +61,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （４）レバーの下
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 4:
+	elif self.monkey().internal_node().key_config_item_number == 4:
 		self.on_tick(
 				delta,
 				&"VK_FastForward",
@@ -70,7 +70,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （５）レバーの上
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 5:
+	elif self.monkey().internal_node().key_config_item_number == 5:
 		self.on_tick(
 				delta,
 				&"VK_Down",
@@ -79,7 +79,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （６）レバーの右
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 6:
+	elif self.monkey().internal_node().key_config_item_number == 6:
 		self.on_tick(
 				delta,
 				&"VK_Up",
@@ -88,7 +88,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# （７）レバーの左
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 7:
+	elif self.monkey().internal_node().key_config_item_number == 7:
 		self.on_tick(
 				delta,
 				&"VK_Right",
@@ -97,7 +97,7 @@ func on_process(delta):
 	# ーーーーーーーー
 	# 完了
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 8:
+	elif self.monkey().internal_node().key_config_item_number == 8:
 		self.on_tick(
 				delta,
 				&"VK_Left",
@@ -109,13 +109,13 @@ func on_tick(
 		delta,
 		previous_virtual_key_name,
 		virtual_key_name):
-	self.monkey().internal().previous_virtual_key_name = previous_virtual_key_name
-	self.monkey().internal().virtual_key_name = virtual_key_name
+	self.monkey().internal_node().previous_virtual_key_name = previous_virtual_key_name
+	self.monkey().internal_node().virtual_key_name = virtual_key_name
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 	if self.monkey().statemachine().state == &"IntervalUntilPrompt":
-		if self.monkey().internal().counter_of_wait < 0.5:
-			self.monkey().internal().counter_of_wait += delta
+		if self.monkey().internal_node().counter_of_wait < 0.5:
+			self.monkey().internal_node().counter_of_wait += delta
 			return
 			
 		self.monkey().statemachine().go_prompt()
@@ -127,15 +127,15 @@ func on_tick(
 		return
 		
 	elif self.monkey().statemachine().state == &"IntervalUntilInput":
-		if self.monkey().internal().counter_of_wait < 0.5:
-			self.monkey().internal().counter_of_wait += delta
+		if self.monkey().internal_node().counter_of_wait < 0.5:
+			self.monkey().internal_node().counter_of_wait += delta
 			return
 
 		# 最終ステップ＋１の時、完了
-		if self.monkey().internal().key_config_item_number == 8:
+		if self.monkey().internal_node().key_config_item_number == 8:
 			# 完了メッセージを見せるために、効果音とも併せて、少し長めに
-			if self.monkey().internal().counter_of_wait < 1.5:
-				self.monkey().internal().counter_of_wait += delta
+			if self.monkey().internal_node().counter_of_wait < 1.5:
+				self.monkey().internal_node().counter_of_wait += delta
 				return
 			
 			# キー・コンフィグ画面を終了
@@ -147,12 +147,12 @@ func on_tick(
 
 	elif self.monkey().statemachine().state == &"InputOk":
 		# キャンセルボタン押下時
-		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.monkey().internal().button_number):
+		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.monkey().internal_node().button_number):
 			self.monkey().statemachine().try_inputting_again(&"CancelButtonPushed")
 			return
 
 		# 既存のキーと被る場合、やり直しさせる
-		if self.monkey().owner_key_config_node().is_key_duplicated(self.monkey().internal().button_number):
+		if self.monkey().owner_key_config_node().is_key_duplicated(self.monkey().internal_node().button_number):
 			self.monkey().statemachine().try_inputting_again(&"KeyDuplicated")
 			return
 		

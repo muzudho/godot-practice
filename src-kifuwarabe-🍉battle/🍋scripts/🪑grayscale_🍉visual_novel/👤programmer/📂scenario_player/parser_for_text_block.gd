@@ -70,8 +70,8 @@ func execute_stage_directions(text):
 		# コマンド行。例えば `img:` で始まる行
 		else:
 			# コマンド名から、 `📗Img` といった命令ノードを検索し、それを実行します
-			if instruction_code in self.monkey().internal().directory_for_instruction_code_and_node_name:
-				var instruction_node_name = self.monkey().internal().directory_for_instruction_code_and_node_name[instruction_code]
+			if instruction_code in self.monkey().internal_node().directory_for_instruction_code_and_node_name:
+				var instruction_node_name = self.monkey().internal_node().directory_for_instruction_code_and_node_name[instruction_code]
 				var instruction = self.monkey().of_programmer().get_instruction(instruction_node_name)
 				instruction.do_it(second_head)
 		
@@ -81,7 +81,7 @@ func execute_stage_directions(text):
 	# ーーーーーーーー
 	# ［ト書き］終わり
 	# ーーーーーーーー
-	self.monkey().internal().is_department_not_found = false
+	self.monkey().internal_node().is_department_not_found = false
 
 
 # メッセージ・ウィンドウは選択肢か？

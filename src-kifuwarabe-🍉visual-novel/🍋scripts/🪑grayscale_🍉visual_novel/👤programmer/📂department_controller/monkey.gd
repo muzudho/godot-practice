@@ -30,5 +30,5 @@ func input_node():
 
 
 # 内部取得
-func internal():
+func internal_node():
 	return $"../🚪Internal"

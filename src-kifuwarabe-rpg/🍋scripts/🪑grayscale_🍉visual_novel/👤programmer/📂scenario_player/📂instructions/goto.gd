@@ -62,8 +62,8 @@ func do_it(
 # 同じ部門内の、指定の段落に飛ぶ
 func goto(paragraph_name, tail_csv):
 	
-	if self.monkey().scenario_player_node().sub_monkey().internal().is_department_not_found:
-		self.monkey().scenario_player_node().sub_monkey().internal().is_department_not_found = false
+	if self.monkey().scenario_player_node().sub_monkey().internal_node().is_department_not_found:
+		self.monkey().scenario_player_node().sub_monkey().internal_node().is_department_not_found = false
 		return
 	
 	# 伝言窓の状態が Completed で止まってるとフリーズするから、強制解除

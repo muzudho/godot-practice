@@ -37,7 +37,7 @@ func on_unhandled_input(event):
 	# ーーーーーーーー
 	# （５）上キー
 	# ーーーーーーーー
-	if self.monkey().internal().key_config_item_number == 5:
+	if self.monkey().internal_node().key_config_item_number == 5:
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.monkey().statemachine().try_inputting_again(&"SelectUpButton")
@@ -46,7 +46,7 @@ func on_unhandled_input(event):
 	# ーーーーーーーー
 	# （７）左キー
 	# ーーーーーーーー
-	elif self.monkey().internal().key_config_item_number == 7:
+	elif self.monkey().internal_node().key_config_item_number == 7:
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
 			self.monkey().statemachine().try_inputting_again(&"SelectLeftButton")
@@ -55,7 +55,7 @@ func on_unhandled_input(event):
 
 	# 有効なキーなら
 	if 0 <= temp_button_number:
-		self.monkey().internal().button_number = temp_button_number		
-		print("受付：　" + self.monkey().display_node().get_button_name_by_number(self.monkey().internal().button_number))
+		self.monkey().internal_node().button_number = temp_button_number		
+		print("受付：　" + self.monkey().display_node().get_button_name_by_number(self.monkey().internal_node().button_number))
 		
 		self.monkey().statemachine().state = &"InputOk"

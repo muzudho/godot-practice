@@ -51,7 +51,7 @@ func input_node():
 
 
 # 内部取得
-func internal():
+func internal_node():
 	return $"../🚪Internal"
 
 
@@ -88,8 +88,8 @@ func get_instruction(
 
 # 全ての命令コード一覧
 func get_all_instruction_codes():
-	if self.internal().directory_for_instruction_code_and_node_name == null:
-		self.internal().directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
+	if self.internal_node().directory_for_instruction_code_and_node_name == null:
+		self.internal_node().directory_for_instruction_code_and_node_name = {}	# キー：StringName, 値：None
 
 		MonkeyHelper.search_node_name_begins_with(
 				# 命令のノード名は `📗` で始まるものとする
@@ -99,9 +99,9 @@ func get_all_instruction_codes():
 				self.of_staff().programmer().scenario_player().instructions_node(),
 				func(child_node):
 					# コードにノード名を紐づける
-					self.internal().directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
+					self.internal_node().directory_for_instruction_code_and_node_name[child_node.code] = child_node.name)
 
-	return self.internal().directory_for_instruction_code_and_node_name
+	return self.internal_node().directory_for_instruction_code_and_node_name
 
 
 # 伝言窓（現在、出力の対象になっているもの）
