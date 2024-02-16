@@ -72,7 +72,7 @@ func execute_stage_directions(text):
 			# コマンド名から、 `📗Img` といった命令ノードを検索し、それを実行します
 			if instruction_code in self.monkey().internal_node().directory_for_instruction_code_and_node_name:
 				var instruction_node_name = self.monkey().internal_node().directory_for_instruction_code_and_node_name[instruction_code]
-				var instruction = self.monkey().of_programmer().get_instruction(instruction_node_name)
+				var instruction = self.monkey().of_programmer().get_instruction_node(instruction_node_name)
 				instruction.do_it(second_head)
 		
 		# さらに先頭行を取得
@@ -87,16 +87,16 @@ func execute_stage_directions(text):
 # メッセージ・ウィンドウは選択肢か？
 func is_choices():
 	# 選択肢かどうかは、メッセージ・ウィンドウに設定されている。
-	return self.monkey().get_current_message_window_gui().choices_row_numbers != null
+	return self.monkey().get_current_message_window_gui_node().choices_row_numbers != null
 
 
 # 選択肢なら表示
 func execute_choices(text):
 	#print("［シナリオエンジン］　準備中　選択肢なら表示")
-	self.monkey().of_programmer().get_instruction(&"📘NormalTextChoice").do_it(text)
+	self.monkey().of_programmer().get_instruction_node(&"📘NormalTextChoice").do_it(text)
 
 
 # 通常文書の表示
 func print_normal_text(text):
 	#print("［シナリオエンジン］　準備中　通常文書の表示")
-	self.monkey().of_programmer().get_instruction(&"📘NormalText").do_it(text)
+	self.monkey().of_programmer().get_instruction_node(&"📘NormalText").do_it(text)

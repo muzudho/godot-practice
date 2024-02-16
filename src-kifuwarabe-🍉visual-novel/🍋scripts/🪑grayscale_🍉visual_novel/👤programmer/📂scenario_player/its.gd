@@ -93,7 +93,7 @@ func get_merged_choices_mappings(department_name):
 # 「¶」段落の再生
 func play_paragraph():
 	var department_value = self.get_current_department_value()
-	var message_window_gui = self.sub_monkey().get_current_message_window_gui()
+	var message_window_gui = self.sub_monkey().get_current_message_window_gui_node()
 
 	# 全部消化済みの場合
 	if self.sub_monkey().scenario_helper_node().get_current_paragraph_array_size() <= message_window_gui.paragraph_item_index:
@@ -123,7 +123,7 @@ func on_choice_selected(row_number):
 	# 伝言窓の状態遷移
 	#	ずっと Completed だと、困るから
 	print("［助監］　伝言窓を　オール・ページズ・フラッシュド　する")
-	self.sub_monkey().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+	self.sub_monkey().get_current_message_window_gui_node().statemachine_of_message_window.all_pages_flushed()
 
 
 	var department_value = self.get_current_department_value()

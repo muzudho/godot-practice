@@ -68,7 +68,7 @@ func goto(paragraph_name, tail_csv):
 	
 	# 伝言窓の状態が Completed で止まってるとフリーズするから、強制解除
 	print("［命令　ゴートゥー］　伝言窓の状態が Completed で止まってるとフリーズするから、強制的にオール・ページズ・フラッシュド")
-	self.monkey().scenario_player().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+	self.monkey().scenario_player().get_current_message_window_gui_node().statemachine_of_message_window.all_pages_flushed()
 
 	var merged_scenario_document = ScenarioBookshelf.get_scenario_book_that_document_merged(
 			self.monkey().owner_node().current_department_name,

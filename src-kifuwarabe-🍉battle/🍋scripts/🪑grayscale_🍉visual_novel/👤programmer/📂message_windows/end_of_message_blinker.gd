@@ -206,7 +206,7 @@ func on_turned_off():
 
 # カーソル位置を算出
 func calc_cursor_vector():
-	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui()
+	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
 	var selected_row_number = message_window_gui.get_row_number_of_choices()
 
@@ -223,7 +223,7 @@ func calc_cursor_vector():
 # 選択肢カーソルを先頭へセットします
 func reset_cursor_position():
 	print("［選択肢カーソル］　先頭へリセット")
-	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui()
+	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
 	message_window_gui.choices_index = 0
 	var vec = self.calc_cursor_vector()
@@ -237,9 +237,9 @@ func reset_cursor_position():
 # カーソルが上に移動します
 func on_cursor_up(_target_index):
 	# 効果音鳴らす
-	self.monkey().of_staff().programmer().get_instruction(&"📗SoundFx").play_se("🔔選択肢カーソル移動音")
+	self.monkey().of_staff().programmer().get_instruction_node(&"📗SoundFx").play_se("🔔選択肢カーソル移動音")
 
-	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui()
+	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
 	var old_vec = self.calc_cursor_vector()
 	message_window_gui.choices_index -= 1
@@ -254,9 +254,9 @@ func on_cursor_up(_target_index):
 # カーソルが下に移動します
 func on_cursor_down(_target_index):
 	# 効果音鳴らす
-	self.monkey().of_staff().programmer().get_instruction(&"📗SoundFx").play_se("🔔選択肢カーソル移動音")
+	self.monkey().of_staff().programmer().get_instruction_node(&"📗SoundFx").play_se("🔔選択肢カーソル移動音")
 
-	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui()
+	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
 	var old_vec = self.calc_cursor_vector()
 	message_window_gui.choices_index += 1
@@ -291,7 +291,7 @@ func _process(delta):
 				
 			self.blinker_seconds -= self.blinker_interval
 
-		var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui()
+		var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
 		# 動くカーソル用
 		if message_window_gui.is_choices():
@@ -316,7 +316,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	# 押下時
 	if vk_operation == &"VKO_Pressed":
 
-		var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui()
+		var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
 		# 動くカーソル用
 		if message_window_gui.is_choices():
@@ -360,7 +360,7 @@ func on_cursor_moving_automatically(delta):
 # カーソルは上へ移動できるか？
 func can_cursor_up():
 
-	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui()
+	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 	var index = message_window_gui.choices_index
 
 	if 0 < index:
@@ -375,7 +375,7 @@ func can_cursor_up():
 # カーソルは下へ移動できるか？
 func can_cursor_down():
 
-	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui()
+	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 	var index = message_window_gui.choices_index
 
 	# 配列

@@ -121,4 +121,4 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
 
 	# メッセージ・ウィンドウへ渡す
-	self.monkey().of_programmer().scenario_player().get_current_message_window_gui().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().of_programmer().scenario_player().get_current_message_window_gui_node().on_virtual_key_input(virtual_key, lever_value, vk_operation)

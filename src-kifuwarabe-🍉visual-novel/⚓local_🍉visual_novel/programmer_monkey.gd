@@ -77,9 +77,9 @@ func scenario_player():
 
 
 # 命令ノード取得
-func get_instruction(
+func get_instruction_node(
 		target_name):	# StringName
-	return self.scenario_player().get_instruction(target_name)
+	return self.scenario_player().get_instruction_node(target_name)
 
 
 # 全ての部門名一覧

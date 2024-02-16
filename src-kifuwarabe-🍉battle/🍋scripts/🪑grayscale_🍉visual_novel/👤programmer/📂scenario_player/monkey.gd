@@ -76,7 +76,7 @@ func scenario_helper_node():
 
 
 # 命令ノード取得
-func get_instruction(
+func get_instruction_node(
 		target_name):	# StringName
 	return MonkeyHelper.find_node_in_folder(
 			target_name,
@@ -105,7 +105,7 @@ func get_all_instruction_codes():
 
 
 # 伝言窓（現在、出力の対象になっているもの）
-func get_current_message_window_gui():
+func get_current_message_window_gui_node():
 	var department_value = self.owner_node().get_current_department_value()
 	if department_value.stack_of_last_displayed_message_window.size() < 1:
 		print("［台本再生機］　▲！　最後に表示したメッセージウィンドウが無い")

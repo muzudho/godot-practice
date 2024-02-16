@@ -35,4 +35,4 @@ func get_current_text_block(scenario_book):
 			department_obj.paragraph_name,			# 段落名
 
 			# 段落配列のインデックス（メッセージ・ウィンドウが持っている）
-			self.monkey().get_current_message_window_gui().paragraph_item_index)	
+			self.monkey().get_current_message_window_gui_node().paragraph_item_index)	

@@ -38,7 +38,7 @@ func monkey():
 
 
 func get_m_wnd():
-	return self.monkey().get_instruction(&"📗MsgWnd")
+	return self.monkey().get_instruction_node(&"📗MsgWnd")
 
 
 # ーーーーーーーー

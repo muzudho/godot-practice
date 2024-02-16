@@ -206,7 +206,7 @@ func _process(delta):
 		self.monkey().scenario_player_node().play_paragraph()
 
 		# 伝言窓を、一時的に居なくなっていたのを解除する
-		self.monkey().scenario_player().get_current_message_window_gui().set_appear_subtree(true)
+		self.monkey().scenario_player().get_current_message_window_gui_node().set_appear_subtree(true)
 
 	# ［シナリオで］状態
 	elif self.current_state == &"InScenario":

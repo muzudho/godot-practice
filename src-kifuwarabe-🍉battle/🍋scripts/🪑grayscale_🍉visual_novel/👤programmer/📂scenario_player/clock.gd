@@ -27,7 +27,7 @@ func on_process(delta):
 	var department_obj = self.monkey().owner_node().get_current_department_value()
 	
 	# メッセージ・ウィンドウ・オブジェクト
-	var message_window_gui = self.monkey().get_current_message_window_gui()
+	var message_window_gui = self.monkey().get_current_message_window_gui_node()
 
 	# シナリオのパースを開始してよいか？（ここで待機しないと、一瞬で全部消化してしまう）
 	if not department_obj.is_parse_lock():
@@ -60,6 +60,6 @@ func on_process(delta):
 
 		# 段落は、もう無いよ
 		else:
-			if not self.monkey().get_current_message_window_gui().statemachine_of_message_window.is_none():
+			if not self.monkey().get_current_message_window_gui_node().statemachine_of_message_window.is_none():
 				# 伝言窓を閉じる
-				self.monkey().get_current_message_window_gui().statemachine_of_message_window.all_pages_flushed()
+				self.monkey().get_current_message_window_gui_node().statemachine_of_message_window.all_pages_flushed()
