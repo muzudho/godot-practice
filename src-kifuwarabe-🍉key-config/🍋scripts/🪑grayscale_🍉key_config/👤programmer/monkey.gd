@@ -30,7 +30,7 @@ func owner_key_config_node():
 
 
 # 時計取得
-func clock():
+func clock_node():
 	return $"../⌚Clock"
 
 

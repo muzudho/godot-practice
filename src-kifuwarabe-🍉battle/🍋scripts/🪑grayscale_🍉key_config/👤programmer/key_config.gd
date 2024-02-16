@@ -41,7 +41,7 @@ func ready_in_staff():
 # ーーーーーーーー
 
 func on_process(delta):
-	self.sub_monkey().clock().on_process(delta)
+	self.sub_monkey().clock_node().on_process(delta)
 
 
 # ーーーーーーーー
