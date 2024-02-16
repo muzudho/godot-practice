@@ -35,7 +35,7 @@ func clock_node():
 
 
 # ディスプレイ取得
-func display():
+func display_node():
 	return $"../🖥️Display"
 
 

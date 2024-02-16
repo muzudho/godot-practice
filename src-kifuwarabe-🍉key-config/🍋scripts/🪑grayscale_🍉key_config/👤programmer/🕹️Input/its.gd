@@ -56,6 +56,6 @@ func on_unhandled_input(event):
 	# 有効なキーなら
 	if 0 <= temp_button_number:
 		self.monkey().internal().button_number = temp_button_number		
-		print("受付：　" + self.monkey().display().get_button_name_by_number(self.monkey().internal().button_number))
+		print("受付：　" + self.monkey().display_node().get_button_name_by_number(self.monkey().internal().button_number))
 		
 		self.monkey().statemachine().state = &"InputOk"

@@ -33,7 +33,7 @@ func sub_monkey():
 # ーーーーーーーー
 
 func ready_in_staff():
-	self.sub_monkey().display().ready_in_staff()
+	self.sub_monkey().display_node().ready_in_staff()
 
 
 # ーーーーーーーー
@@ -105,12 +105,12 @@ func get_lever_value_by_text(event_as_text):
 
 # ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
 func get_button_name_by_number(button_number):
-	return self.sub_monkey().display().get_button_name_by_number(button_number)
+	return self.sub_monkey().display_node().get_button_name_by_number(button_number)
 
 
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
 func get_virtual_key_name_by_button_number(button_number):
-	return self.sub_monkey().display().get_virtual_key_name_by_button_number(button_number)
+	return self.sub_monkey().display_node().get_virtual_key_name_by_button_number(button_number)
 
 
 # 上キーが入力されたか？

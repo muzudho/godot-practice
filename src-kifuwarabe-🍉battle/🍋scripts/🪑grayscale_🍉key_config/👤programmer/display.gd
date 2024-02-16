@@ -125,7 +125,7 @@ func set_press_message_to_button(step):
 
 # 入力確定メッセージ
 func set_done_message_the_button(step, button_number):
-	var button_presentation_name = self.monkey().display().get_button_name_by_number(button_number)
+	var button_presentation_name = self.monkey().display_node().get_button_name_by_number(button_number)
 	
 	if step == 1:
 		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
@@ -186,10 +186,10 @@ func perform_at_open_scene():
 	self.monkey().the_programmer_node().telops.find_node("Ｔキーコンフィグ").show()
 
 	# テロップ
-	self.monkey().display().set_empty_the_button_message(1)
-	self.monkey().display().set_empty_the_button_message(2)
-	self.monkey().display().set_empty_the_button_message(3)
-	self.monkey().display().set_ok_message()
+	self.monkey().display_node().set_empty_the_button_message(1)
+	self.monkey().display_node().set_empty_the_button_message(2)
+	self.monkey().display_node().set_empty_the_button_message(3)
+	self.monkey().display_node().set_ok_message()
 
 
 # キーコンフィグ終了時
@@ -198,7 +198,7 @@ func perform_at_close_scene():
 	self.monkey().the_programmer_node().images.find_node("■上_大").hide()
 	self.monkey().the_programmer_node().images.find_node("■下").hide()
 	# テロップ非表示
-	self.monkey().display().clear_message()
+	self.monkey().display_node().clear_message()
 	self.monkey().the_telop_canvas_layer().hide()
 
 	# BGM 停止	
@@ -208,19 +208,19 @@ func perform_at_close_scene():
 # 押下ボタンを受入
 func show_pushed_button_accepted(key_config_item_number, button_number):
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
-	self.monkey().display().set_done_message_the_button(key_config_item_number, button_number)
+	self.monkey().display_node().set_done_message_the_button(key_config_item_number, button_number)
 
 
 # 押下ボタンを拒否
 func show_pushed_button_denied(reason):
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ不可音").play()
-	self.monkey().display().set_key_denied_message(reason)
+	self.monkey().display_node().set_key_denied_message(reason)
 
 
 # キャンセル・ボタンを押した時
 func show_cancel():
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ取消音").play()
-	self.monkey().display().clear_message()
+	self.monkey().display_node().clear_message()
 
 
 # 内部では使ってない。外部向け。

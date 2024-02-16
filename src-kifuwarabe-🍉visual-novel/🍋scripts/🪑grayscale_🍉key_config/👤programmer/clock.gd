@@ -27,7 +27,7 @@ func on_process(delta):
 	# 初回
 	if self.monkey().internal().key_config_item_number == 0:
 		# 画面の表示、演奏
-		self.monkey().display().perform_at_open_scene()
+		self.monkey().display_node().perform_at_open_scene()
 		self.monkey().internal().key_config_item_number += 1
 		self.monkey().internal().clear_count_by_step()
 	

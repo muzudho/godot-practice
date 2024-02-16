@@ -38,7 +38,7 @@ func behaviour_of_exit():
 	self.monkey().internal().clear_count_by_step()
 	
 	# 画面表示、演奏
-	self.monkey().display().perform_at_close_scene()
+	self.monkey().display_node().perform_at_close_scene()
 
 	# キーコンフィグ呼出し元
 	self.monkey().owner_key_config_node().on_exit()
@@ -54,23 +54,23 @@ func behaviour_of_try_inputting_again(reason):
 	# キャンセル・ボタン押下後、再入力
 	if reason == &"CancelButtonPushed":
 		# キー・コンフィグ項目を、１つか、２つ（レバー時）戻す
-		self.monkey().display().show_cancel()
-		self.monkey().display().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
+		self.monkey().display_node().show_cancel()
+		self.monkey().display_node().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
 
 		self.monkey().internal().key_config_item_number -= 1
 		# さらに連続して戻したいケースもある
 		# レバーの上
 		if self.monkey().internal().key_config_item_number == 5 and self.monkey().owner_key_config_node().key_config[&"VK_Down"] == self.monkey().owner_key_config_node().key_config[&"VK_Up"]:
-			self.monkey().display().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
+			self.monkey().display_node().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
 			self.monkey().internal().key_config_item_number -= 1
 			self.monkey().owner_key_config_node().key_config.erase(&"VK_Down")
 		# レバーの左
 		elif self.monkey().internal().key_config_item_number == 7 and self.monkey().owner_key_config_node().key_config[&"VK_Right"] == self.monkey().owner_key_config_node().key_config[&"VK_Left"]:
-			self.monkey().display().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
+			self.monkey().display_node().set_empty_the_button_message(self.monkey().internal().key_config_item_number)
 			self.monkey().internal().key_config_item_number -= 1
 			self.monkey().owner_key_config_node().key_config.erase(&"VK_Right")
 		
-		self.monkey().display().set_press_message_to_button(self.monkey().internal().key_config_item_number)
+		self.monkey().display_node().set_press_message_to_button(self.monkey().internal().key_config_item_number)
 		
 		if self.monkey().internal().previous_virtual_key_name != null:
 			self.monkey().owner_key_config_node().key_config.erase(self.monkey().internal().previous_virtual_key_name)
@@ -79,20 +79,20 @@ func behaviour_of_try_inputting_again(reason):
 
 	# 既存のキーと被って、再入力
 	elif reason == &"KeyDuplicated":
-		self.monkey().display().show_pushed_button_denied(1)
+		self.monkey().display_node().show_pushed_button_denied(1)
 		self.monkey().internal().clear_count_by_step()
 	
 	# インターバル後
 	elif reason == &"AfterInterval":
-		self.monkey().display().set_press_message_to_button(self.monkey().internal().key_config_item_number)
+		self.monkey().display_node().set_press_message_to_button(self.monkey().internal().key_config_item_number)
 
 	# 下キーがボタンなら、上ボタンも再入力
 	elif reason == &"SelectUpButton":
-		self.monkey().display().show_pushed_button_denied(2)
+		self.monkey().display_node().show_pushed_button_denied(2)
 
 	# 右キーがボタンなら、左ボタンも再入力
 	elif reason == &"SelectLeftButton":
-		self.monkey().display().show_pushed_button_denied(3)
+		self.monkey().display_node().show_pushed_button_denied(3)
 
 	else:
 		print("［キーコンフィグ］　▲！　エラー　reason:" + reason)
@@ -103,7 +103,7 @@ func behaviour_of_input_accepted():
 	# 登録
 	self.monkey().owner_key_config_node().push_virtual_key(self.monkey().internal().virtual_key_name, self.monkey().internal().button_number)
 	# 決定演出
-	self.monkey().display().show_pushed_button_accepted(
+	self.monkey().display_node().show_pushed_button_accepted(
 			self.monkey().internal().key_config_item_number,
 			self.monkey().internal().button_number)
 
@@ -114,7 +114,7 @@ func behaviour_of_input_accepted():
 			# 上キーにも同様に登録
 			self.monkey().owner_key_config_node().push_virtual_key(&"VK_Up", self.monkey().internal().button_number)
 			# メッセージ表示
-			self.monkey().display().set_done_message_the_button(
+			self.monkey().display_node().set_done_message_the_button(
 					self.monkey().internal().key_config_item_number + 1,
 					self.monkey().internal().button_number)
 			self.monkey().internal().key_config_item_number += 2
@@ -128,7 +128,7 @@ func behaviour_of_input_accepted():
 			# 左キーにも同様に登録
 			self.monkey().owner_key_config_node().push_virtual_key(&"VK_Left", self.monkey().internal().button_number)
 			# メッセージ表示
-			self.monkey().display().set_done_message_the_button(
+			self.monkey().display_node().set_done_message_the_button(
 					self.monkey().internal().key_config_item_number + 1,
 					self.monkey().internal().button_number)
 			self.monkey().internal().key_config_item_number += 2
