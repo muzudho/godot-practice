@@ -37,11 +37,11 @@ func musician_sound_fx_node():
 	return self.owner_node().get_node("👤Musician/🌏SoundFX")
 
 
-# プログラマー・ハブ取得
+# プログラマーの猿取得
 func programmer():
 	return self.owner_node().get_node("👤Programmer/🐵Monkey")
 
 
 # テロップ・コーディネーター取得
-func telop_coordinator():
+func telop_coordinator_node():
 	return self.owner_node().get_node("👤TelopCoordinator")

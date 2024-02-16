@@ -58,5 +58,5 @@ func scenario_writer():
 
 
 # テロップ・コーディネーター取得
-func telop_coordinator():
+func telop_coordinator_node():
 	return self.owner_node().get_node("👤TelopCoordinator")

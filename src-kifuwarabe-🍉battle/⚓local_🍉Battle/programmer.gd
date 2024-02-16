@@ -70,7 +70,7 @@ func _ready():
 			self.monkey().of_staff().musician_sound_fx_node())			# 探す場所
 
 	self.telops = MonkeyHand.create(
-			self.monkey().of_staff().telop_coordinator())	# 探す場所
+			self.monkey().of_staff().telop_coordinator_node())	# 探す場所
 
 
 	self.message_window_programs = MonkeyHand.create(
@@ -130,7 +130,7 @@ func ready_in_staff():
 	
 	# テロップはとにかく非表示にする
 	MonkeyHelper.search_in_folder(
-			self.monkey().of_staff().telop_coordinator(),		# 探す場所
+			self.monkey().of_staff().telop_coordinator_node(),		# 探す場所
 			func(child_node):
 				return child_node is CanvasLayer,
 			func(child_node):
@@ -147,7 +147,7 @@ func ready_in_staff():
 	# イラストレーター
 	self.monkey().of_staff().illustrator_node().show()
 	# テロップ
-	self.monkey().of_staff().telop_coordinator().show()
+	self.monkey().of_staff().telop_coordinator_node().show()
 
 
 # ーーーーーーーー

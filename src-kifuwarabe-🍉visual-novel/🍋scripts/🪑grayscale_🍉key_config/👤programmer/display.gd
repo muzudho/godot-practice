@@ -177,7 +177,7 @@ func perform_at_open_scene():
 	self.monkey().the_illustrator_node().show()
 	
 	# テロップ表示
-	self.monkey().of_staff().telop_coordinator().show()
+	self.monkey().of_staff().telop_coordinator_node().show()
 	self.monkey().get_my_telop("TextBlock").visible = true
 
 	# GUI - メッセージ・ウィンドウ

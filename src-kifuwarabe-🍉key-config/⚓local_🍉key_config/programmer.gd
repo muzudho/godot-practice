@@ -48,7 +48,7 @@ func _ready():
 			self.monkey().of_staff().musician_sound_fx_node())			# 探す場所
 
 	self.telops = MonkeyHand.create(
-			self.monkey().of_staff().telop_coordinator())	# 探す場所
+			self.monkey().of_staff().telop_coordinator_node())	# 探す場所
 
 
 func ready_in_staff():
@@ -66,7 +66,7 @@ func ready_in_staff():
 	# ーーーーーーーー
 
 	# テロップ・コーディネーター表示
-	self.monkey().of_staff().telop_coordinator().show()
+	self.monkey().of_staff().telop_coordinator_node().show()
 
 	# ーーーーーーーー
 	# 起動前設定
