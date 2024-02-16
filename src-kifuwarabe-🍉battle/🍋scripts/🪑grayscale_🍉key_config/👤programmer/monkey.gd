@@ -55,7 +55,7 @@ func input_parser_node():
 
 
 # 状態遷移機械取得
-func statemachine():
+func statemachine_node():
 	return $"../🍇Statemachine"
 
 

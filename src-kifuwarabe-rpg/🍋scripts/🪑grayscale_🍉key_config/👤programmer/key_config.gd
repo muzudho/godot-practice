@@ -51,7 +51,7 @@ func on_process(delta):
 # キー・コンフィグ画面を始める
 func entry():
 	# 状態遷移開始
-	self.sub_monkey().statemachine().entry()
+	self.sub_monkey().statemachine_node().entry()
 
 
 # ーーーーーーーー

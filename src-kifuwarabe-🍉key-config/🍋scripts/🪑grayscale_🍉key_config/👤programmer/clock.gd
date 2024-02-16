@@ -18,10 +18,10 @@ func monkey():
 func on_process(delta):
 
 	# 状態遷移機械が止まっていれば、入力も無視します
-	if self.monkey().statemachine().is_terminated():
+	if self.monkey().statemachine_node().is_terminated():
 		return
 	
-	if not (self.monkey().statemachine().state in [&"IntervalUntilPrompt", &"Prompt", &"IntervalUntilInput", &"InputOk"]):
+	if not (self.monkey().statemachine_node().state in [&"IntervalUntilPrompt", &"Prompt", &"IntervalUntilInput", &"InputOk"]):
 		return
 	
 	# 初回
@@ -113,20 +113,20 @@ func on_tick(
 	self.monkey().internal_node().virtual_key_name = virtual_key_name
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
-	if self.monkey().statemachine().state == &"IntervalUntilPrompt":
+	if self.monkey().statemachine_node().state == &"IntervalUntilPrompt":
 		if self.monkey().internal_node().counter_of_wait < 0.5:
 			self.monkey().internal_node().counter_of_wait += delta
 			return
 			
-		self.monkey().statemachine().go_prompt()
+		self.monkey().statemachine_node().go_prompt()
 		return
 
 	# プロンプト表示
-	elif self.monkey().statemachine().state == &"Prompt":
-		self.monkey().statemachine().try_inputting_again(&"AfterInterval")
+	elif self.monkey().statemachine_node().state == &"Prompt":
+		self.monkey().statemachine_node().try_inputting_again(&"AfterInterval")
 		return
 		
-	elif self.monkey().statemachine().state == &"IntervalUntilInput":
+	elif self.monkey().statemachine_node().state == &"IntervalUntilInput":
 		if self.monkey().internal_node().counter_of_wait < 0.5:
 			self.monkey().internal_node().counter_of_wait += delta
 			return
@@ -139,22 +139,22 @@ func on_tick(
 				return
 			
 			# キー・コンフィグ画面を終了
-			self.monkey().statemachine().exit()
+			self.monkey().statemachine_node().exit()
 			return
 
-		self.monkey().statemachine().go_input()
+		self.monkey().statemachine_node().go_input()
 		return
 
-	elif self.monkey().statemachine().state == &"InputOk":
+	elif self.monkey().statemachine_node().state == &"InputOk":
 		# キャンセルボタン押下時
 		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.monkey().internal_node().button_number):
-			self.monkey().statemachine().try_inputting_again(&"CancelButtonPushed")
+			self.monkey().statemachine_node().try_inputting_again(&"CancelButtonPushed")
 			return
 
 		# 既存のキーと被る場合、やり直しさせる
 		if self.monkey().owner_key_config_node().is_key_duplicated(self.monkey().internal_node().button_number):
-			self.monkey().statemachine().try_inputting_again(&"KeyDuplicated")
+			self.monkey().statemachine_node().try_inputting_again(&"KeyDuplicated")
 			return
 		
 		# 入力を受け付けた
-		self.monkey().statemachine().input_accepted()
+		self.monkey().statemachine_node().input_accepted()

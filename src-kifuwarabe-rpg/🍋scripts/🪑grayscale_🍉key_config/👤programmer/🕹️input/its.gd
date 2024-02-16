@@ -19,14 +19,14 @@ func monkey():
 func on_unhandled_input(event):
 
 	# 状態遷移機械が止まっていれば、入力も無視します
-	if self.monkey().statemachine().is_terminated():
+	if self.monkey().statemachine_node().is_terminated():
 		return
 
 	# 起動直後に、押してもないレバーが　押したことになっていることがある
 	var event_as_text = event.as_text()
 	print("入力：　" + event_as_text)
 	
-	if self.monkey().statemachine().state != &"WaitingForInput":
+	if self.monkey().statemachine_node().state != &"WaitingForInput":
 		return
 
 
@@ -40,7 +40,7 @@ func on_unhandled_input(event):
 	if self.monkey().internal_node().key_config_item_number == 5:
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
 		if 1000 < temp_button_number:
-			self.monkey().statemachine().try_inputting_again(&"SelectUpButton")
+			self.monkey().statemachine_node().try_inputting_again(&"SelectUpButton")
 			return
 
 	# ーーーーーーーー
@@ -49,7 +49,7 @@ func on_unhandled_input(event):
 	elif self.monkey().internal_node().key_config_item_number == 7:
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
 		if 1000 < temp_button_number:
-			self.monkey().statemachine().try_inputting_again(&"SelectLeftButton")
+			self.monkey().statemachine_node().try_inputting_again(&"SelectLeftButton")
 			return
 
 
@@ -58,4 +58,4 @@ func on_unhandled_input(event):
 		self.monkey().internal_node().button_number = temp_button_number		
 		print("受付：　" + self.monkey().display_node().get_button_name_by_number(self.monkey().internal_node().button_number))
 		
-		self.monkey().statemachine().state = &"InputOk"
+		self.monkey().statemachine_node().state = &"InputOk"

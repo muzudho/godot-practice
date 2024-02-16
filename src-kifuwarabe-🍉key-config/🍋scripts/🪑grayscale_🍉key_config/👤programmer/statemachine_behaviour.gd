@@ -16,11 +16,11 @@ func monkey():
 # ーーーーーーーー
 
 func _ready():
-	self.monkey().statemachine().behaviour_of_entry = behaviour_of_entry
-	self.monkey().statemachine().behaviour_of_exit = behaviour_of_exit
-	self.monkey().statemachine().behaviour_of_try_inputting_again = behaviour_of_try_inputting_again
-	self.monkey().statemachine().behaviour_of_go_input = behaviour_of_go_input
-	self.monkey().statemachine().behaviour_of_input_accepted = behaviour_of_input_accepted
+	self.monkey().statemachine_node().behaviour_of_entry = behaviour_of_entry
+	self.monkey().statemachine_node().behaviour_of_exit = behaviour_of_exit
+	self.monkey().statemachine_node().behaviour_of_try_inputting_again = behaviour_of_try_inputting_again
+	self.monkey().statemachine_node().behaviour_of_go_input = behaviour_of_go_input
+	self.monkey().statemachine_node().behaviour_of_input_accepted = behaviour_of_input_accepted
 
 
 # ーーーーーーーー
