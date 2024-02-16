@@ -95,12 +95,12 @@ func is_cancel_button_pressed(button_number_1):
 
 # ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
 func get_button_number_by_text(event_as_text):
-	return self.sub_monkey().parser_for_input().get_button_number_by_text(event_as_text)
+	return self.sub_monkey().input_parser_node().get_button_number_by_text(event_as_text)
 
 
 # レバーのイベント文字列から、-1.0 ～ 1.0 の値を取得
 func get_lever_value_by_text(event_as_text):
-	return self.sub_monkey().parser_for_input().get_lever_value_by_text(event_as_text)
+	return self.sub_monkey().input_parser_node().get_lever_value_by_text(event_as_text)
 
 
 # ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す

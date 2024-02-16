@@ -50,7 +50,7 @@ func internal_node():
 
 
 # 入力のためのパーサー
-func parser_for_input():
+func input_parser_node():
 	return $"../🕹️Input/🅿Parser"
 
 
