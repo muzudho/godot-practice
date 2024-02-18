@@ -572,9 +572,9 @@ var scenario_document = {
 			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[1] < 5:
-				self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto("¶後手番投了", "")
+				self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto("¶後手番投了")
 			else:
-				self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto("¶後手番１", "")
+				self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto("¶後手番１")
 			,
 	],
 	"¶後手番１": [
@@ -597,9 +597,9 @@ var scenario_document = {
 		func():			
 			# 玉の遠さは、 0 になる前に投了することがある
 			if self.monkey_of_battle().get_game_sheet_for_battle().distance_of_king[0] < 5:
-				self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto("¶先手番投了", "")
+				self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto("¶先手番投了")
 			else:
-				self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto("¶先手番１", "")
+				self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto("¶先手番１")
 			,
 	],
 	"¶先手番投了": [
