@@ -48,10 +48,13 @@ func monkey():
 func do_it(
 		line):			# str
 
+	# 次の「¶」段落名
+	var argument = line.substr(self.code.length()).strip_edges()
+	print("［命令　ゴートゥー］　argument：[" + argument + "]")
+
 	# 段落名
-	var paragraph_name = line.substr(self.code.length()).strip_edges()
-	print("［命令　ゴートゥー］　段落名：[" + paragraph_name + "]")
-	
+	var paragraph_name = self.monkey().owner_node().expand_variables(argument.strip_edges())
+
 	self.goto(paragraph_name)
 
 
