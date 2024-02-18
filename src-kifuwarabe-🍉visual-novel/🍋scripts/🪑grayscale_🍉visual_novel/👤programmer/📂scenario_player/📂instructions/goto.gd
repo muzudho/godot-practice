@@ -8,7 +8,6 @@ extends Node
 # ピックアップ
 # ーーーーーーーー
 
-
 # 命令名
 var code = "goto:"
 
@@ -17,14 +16,12 @@ var code = "goto:"
 # メモリ関連
 # ーーーーーーーー
 
-
 var ancestor_children_dictionary = {}
 
 
 # ーーーーーーーー
 # 親パス関連
 # ーーーーーーーー
-
 
 # プログラマーズ・ハブ取得
 func monkey():
@@ -38,29 +35,28 @@ func monkey():
 # その他
 # ーーーーーーーー
 
-
 # それをする
+#
+# Arguments
+# =========
+# line : str	
+#
+# Comment
+# =======
+# `goto:	¶戦闘の始めに`
+# `goto:	{{battle_paragraph}}`
 func do_it(
-	line):				# str
-
-	# 次の「¶」段落名
-	var csv = line.substr(self.code.length()).strip_edges()
-	print("［命令　ゴートゥー］　CSV：[" + csv + "]")
-	# 文字列を最初のカンマで分割して配列に入れる
-	var string_packed_array = csv.split(",", true, 1)
+		line):			# str
 
 	# 段落名
-	var paragraph_name = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
+	var paragraph_name = line.substr(self.code.length()).strip_edges()
+	print("［命令　ゴートゥー］　段落名：[" + paragraph_name + "]")
 	
-	var tail_csv = ""
-	if 1 < string_packed_array.size():
-		tail_csv = string_packed_array[1]
-
-	self.goto(paragraph_name, tail_csv)
+	self.goto(paragraph_name)
 
 
 # 同じ部門内の、指定の段落に飛ぶ
-func goto(paragraph_name, tail_csv):
+func goto(paragraph_name):
 	
 	if self.monkey().scenario_player_node().sub_monkey().internal_node().is_department_not_found:
 		self.monkey().scenario_player_node().sub_monkey().internal_node().is_department_not_found = false
@@ -80,12 +76,4 @@ func goto(paragraph_name, tail_csv):
 		self.monkey().scenario_player_node().play_paragraph()
 		return
 	
-	# 該当なければ、とりあえず２番目の段落まで見る
-	
-	# 文字列を最初のカンマで分割して配列に入れる
-	var string_packed_array = tail_csv.split(",", true, 1)
-
-	var paragraph_name2 = self.monkey().owner_node().expand_variables(string_packed_array[0].strip_edges())
-
-	self.monkey().scenario_player_node().set_current_paragraph(paragraph_name2)
-	self.monkey().scenario_player_node().play_paragraph()
+	# 該当なければ、何もせず、この関数を抜ける
