@@ -41,21 +41,30 @@ func extension_node():
 #			&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
 #			&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
 #
-#		［３］　 プレビアス・プロセス（Previous process；１つ前のプロセス）
+#		［３］　プレビアス・プロセス（Previous process；１つ前のプロセス）
 #
+#		［４］　入力の有無
 #
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral", false],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral", false],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral", false],
 	# レバーの左右
-	&"VK_Right" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Right" : [0, 0, &"Neutral", &"Neutral", false],
 	# レバーの上下
-	&"VK_Down" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Down" : [0, 0, &"Neutral", &"Neutral", false],
 }
+
+
+func is_receipt(vk_name):
+	return self.key_record[vk_name][4]
+
+
+func set_receipt(vk_name, is_receipt):
+	self.key_record[vk_name][4] = is_receipt
 
 
 func get_plan_key_state(vk_name):
@@ -140,27 +149,32 @@ func process_virtual_key(vk_name):
 		if 1 <= abs_plan_state:
 			print("［入力解析］　［" + vk_name +"］キーについて、浮遊状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
+			self.set_receipt(vk_name, false)
 			return
 		
 		if 0 == abs_plan_state:
 			print("［入力解析］　［" + vk_name +"］キーについて、浮遊状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
+			self.set_receipt(vk_name, false)
 			return
 
 	elif vk_process == &"Released" || vk_process == &"Neutral":
 		if 1 <= abs_plan_state:
 			print("［入力解析］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
+			self.set_receipt(vk_name, false)
 			return
 		
 		if 0 < abs_plan_state && abs_plan_state < 1:
 			print("［入力解析］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Press?")
+			self.set_receipt(vk_name, false)
 			return
 		
 		if vk_process == &"Released":
 			print("［入力解析］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Neutral")
+			self.set_receipt(vk_name, false)
 			return
 
 	elif vk_process == &"Pressed" || vk_process == &"Pressing":
@@ -168,20 +182,24 @@ func process_virtual_key(vk_name):
 		if 0 == abs_plan_state:
 			print("［入力解析］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
+			self.set_receipt(vk_name, false)
 			return
 			
 		if 0 < abs_plan_state && abs_plan_state < 1:
 			print("［入力解析］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Release?")
+			self.set_receipt(vk_name, false)
 			return
 			
 		if vk_process == &"Pressed":
 			print("［入力解析］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressing")
+			self.set_receipt(vk_name, false)
 			return
 
 	# 継続
 	self.update_key_process(vk_name, plan_state, vk_process)
+	self.set_receipt(vk_name, false)
 
 
 # ーーーーーーーー
@@ -224,16 +242,21 @@ func on_key_changed(event):
 	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 
 	if vk_name == &"VK_Ok":
+		self.set_receipt(vk_name, true)
 		self.set_plan_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_Cancel":
+		self.set_receipt(vk_name, true)
 		self.set_plan_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_FastForward":
+		self.set_receipt(vk_name, true)
 		self.set_plan_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_Right":
+		self.set_receipt(vk_name, true)
 		self.set_plan_key_state(vk_name, lever_value)
 
 	elif vk_name == &"VK_Down":
+		self.set_receipt(vk_name, true)
 		self.set_plan_key_state(vk_name, lever_value)
