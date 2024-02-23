@@ -111,10 +111,12 @@ func set_accepted_key_state(vk_name, vk_state):
 	self.key_record[vk_name][1] = vk_state
 
 
+# TODO 廃止方針
 func get_key_process(vk_name):
 	return self.key_record[vk_name][2]
 
 
+# TODO 廃止方針
 func set_key_process(vk_name, vk_process):
 	self.key_record[vk_name][2] = vk_process
 

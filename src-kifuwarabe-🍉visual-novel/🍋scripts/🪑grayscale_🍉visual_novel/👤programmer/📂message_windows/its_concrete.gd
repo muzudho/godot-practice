@@ -225,10 +225,17 @@ func _process(delta):
 func on_virtual_key_input(
 		vk_name,
 		vk_state,
-		vk_process):
+		vk_process,
+		vk_occurence,
+		vk_during):
 
 	# 選択肢カーソル
-	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(vk_name, vk_state, vk_process)
+	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(
+			vk_name,
+			vk_state,
+			vk_process,
+			vk_occurence,
+			vk_during)
 
 	if vk_name == &"VK_FastForward":
 		# 押下中のみ、メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）

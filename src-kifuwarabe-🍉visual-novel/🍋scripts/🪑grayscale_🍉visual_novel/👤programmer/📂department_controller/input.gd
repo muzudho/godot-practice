@@ -23,7 +23,9 @@ func monkey():
 func on_virtual_key_input(
 		vk_name,
 		vk_state,
-		vk_process):
+		vk_process,
+		vk_occurence,
+		vk_during):
 
 	if vk_name == &"VK_Ok" || vk_name == &"VK_Cancel" || vk_name == &"VK_FastForward" || vk_name == &"VK_Right" || vk_name == &"VK_Down":
 

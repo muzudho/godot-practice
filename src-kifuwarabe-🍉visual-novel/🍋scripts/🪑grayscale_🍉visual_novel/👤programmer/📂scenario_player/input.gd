@@ -26,13 +26,17 @@ func monkey():
 func on_virtual_key_input(
 		vk_name,
 		vk_state,
-		vk_process):
+		vk_process,
+		vk_occurence,
+		vk_during):
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
 	if self.monkey().of_staff().programmer().department_controller_node().sub_monkey().input_node().on_virtual_key_input(
 			vk_name,
 			vk_state,
-			vk_process):
+			vk_process,
+			vk_occurence,
+			vk_during):
 		# 入力されたキーへの対処が完了したなら、処理を抜ける
 		return
 
@@ -40,4 +44,9 @@ func on_virtual_key_input(
 	print("［台本再生機］　仮想キー（" + vk_name + "）　レバー値：" + str(vk_state) + "　操作：" + vk_process)
 
 	# メッセージ・ウィンドウへ渡す
-	self.monkey().of_programmer().scenario_player().get_current_message_window_gui_node().on_virtual_key_input(vk_name, vk_state, vk_process)
+	self.monkey().of_programmer().scenario_player().get_current_message_window_gui_node().on_virtual_key_input(
+			vk_name,
+			vk_state,
+			vk_process,
+			vk_occurence,
+			vk_during)
