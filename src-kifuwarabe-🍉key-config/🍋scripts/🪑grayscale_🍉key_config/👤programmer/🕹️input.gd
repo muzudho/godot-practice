@@ -25,11 +25,15 @@ func extension_node():
 # 	キー：　プログラム内で決まりを作っておいてください。
 # 	値：　以下、それぞれ説明
 #
-#		［０］　ステート（State；状態）。　仮想キーのこの瞬間の入力状態
+#		［０］　プラン・ステート（Plane State；計画状態）。　ハードウェアから入力があったが、まだ処理していない状態
 #			ボタン：　押していないとき 0、押しているとき 1
 #			レバー：　実数
 #
-#		［１］　プロセス（Process；状態変化）。　値は以下の通り。初期値は &"Neutral" とする
+#		［１］　アクセプテッド・ステート（Accepted State；計画状態）。　受け付けた、入力状態
+#			ボタン：　押していないとき 0、押しているとき 1
+#			レバー：　実数
+#
+#		［２］　プロセス（Process；状態変化）。　値は以下の通り。初期値は &"Neutral" とする
 #			&"Release?"：　ボタン、レバー等から指を離して、押されている状態から、ホーム位置にある状態へ遷移している途中（省略されることがあります）
 #			&"Released"：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態に到達した最初のフレーム
 #			&"Neutral" ：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態で、その状態の２フレーム目以降
@@ -37,46 +41,67 @@ func extension_node():
 #			&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
 #			&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
 #
-#		［２］　 プレビアス・プロセス（Previous process；１つ前のプロセス）
+#		［３］　 プレビアス・プロセス（Previous process；１つ前のプロセス）
 #
 #
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, &"Neutral", &"Neutral"],
+	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, &"Neutral", &"Neutral"],
+	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, &"Neutral", &"Neutral"],
+	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral"],
 	# レバーの左右
-	&"VK_Right" : [0, &"Neutral", &"Neutral"],
+	&"VK_Right" : [0, 0, &"Neutral", &"Neutral"],
 	# レバーの上下
-	&"VK_Down" : [0, &"Neutral", &"Neutral"],
+	&"VK_Down" : [0, 0, &"Neutral", &"Neutral"],
 }
 
 
-func get_key_state(vk_name):
+func get_plan_key_state(vk_name):
 	return self.key_record[vk_name][0]
 
 
-func set_key_state(vk_name, vk_state):
+func set_plan_key_state(vk_name, vk_state):
 	self.key_record[vk_name][0] = vk_state
 
 
-func get_key_process(vk_name):
+func get_accepted_key_state(vk_name):
 	return self.key_record[vk_name][1]
 
 
-func get_previous_key_process(vk_name):
-	return self.key_record[vk_name][2]
-
-
-func update_key_process(vk_name, vk_state):
-	self.key_record[vk_name][2] = self.key_record[vk_name][1]
+func set_accepted_key_state(vk_name, vk_state):
 	self.key_record[vk_name][1] = vk_state
 
 
+func get_key_process(vk_name):
+	return self.key_record[vk_name][2]
+
+
+func set_key_process(vk_name, vk_process):
+	self.key_record[vk_name][2] = vk_process
+
+
+func get_previous_key_process(vk_name):
+	return self.key_record[vk_name][3]
+
+
+func set_previous_key_process(vk_name, vk_process):
+	self.key_record[vk_name][3] = vk_process
+
+
 func is_process_changed(vk_name):
-	return self.key_record[vk_name][1] != self.key_record[vk_name][2]
+	return self.get_key_process(vk_name) != self.get_previous_key_process(vk_name)
+
+
+func update_key_process(vk_name, accepted_state, key_process):
+	self.set_accepted_key_state(vk_name, accepted_state)
+
+	# 未設定にする
+	self.set_plan_key_state(vk_name, 0)
+
+	self.set_previous_key_process(vk_name, self.get_key_process(vk_name))
+	self.set_key_process(vk_name, key_process)
 
 
 # ーーーーーーーー
@@ -100,66 +125,60 @@ func _process(delta):
 	# 拡張
 	self.extension_node().on_process(delta)
 
-	# 仮想キーの入力状態のクリアー
-	self.set_key_state(&"VK_Ok", 0)
-	self.set_key_state(&"VK_Cancel", 0)
-	self.set_key_state(&"VK_FastForward", 0)
-	self.set_key_state(&"VK_Right", 0)
-	self.set_key_state(&"VK_Down", 0)
-
 
 # Parameters
 # ==========
 # * `vk_name` - Virtual key name
 func process_virtual_key(vk_name):
 	# 状態変化はどうなったか？
+	var plan_state = self.get_plan_key_state(vk_name)
+	var abs_plan_state = abs(plan_state)
 	var vk_process = self.get_key_process(vk_name)
-	var abs_old_state = abs(self.get_key_state(vk_name))
 
 	# 押すか、放すか、どちらかに達するまで維持します
 	if vk_process == &"Release?" || vk_process == &"Press?":
-		if 1 <= abs_old_state:
+		if 1 <= abs_plan_state:
 			print("［入力解析］　浮遊状態から押下確定")
-			self.update_key_process(vk_name, &"Pressed")
+			self.update_key_process(vk_name, plan_state, &"Pressed")
 			return
 		
-		if 0 == abs_old_state:
+		if 0 == abs_plan_state:
 			print("［入力解析］　浮遊状態から解放確定")
-			self.update_key_process(vk_name, &"Released")
+			self.update_key_process(vk_name, plan_state, &"Released")
 			return
 
 	elif vk_process == &"Released" || vk_process == &"Neutral":
-		if 1 <= abs_old_state:
+		if 1 <= abs_plan_state:
 			print("［入力解析］　解放状態から押下確定")
-			self.update_key_process(vk_name, &"Pressed")
+			self.update_key_process(vk_name, plan_state, &"Pressed")
 			return
 		
-		if 0 < abs_old_state && abs_old_state < 1:
+		if 0 < abs_plan_state && abs_plan_state < 1:
 			print("［入力解析］　解放状態から押下浮遊")
-			self.update_key_process(vk_name, &"Press?")
+			self.update_key_process(vk_name, plan_state, &"Press?")
 			return
 		
 		if vk_process == &"Released":
-			self.update_key_process(vk_name, &"Neutral")
+			self.update_key_process(vk_name, plan_state, &"Neutral")
 			return
 
 	elif vk_process == &"Pressed" || vk_process == &"Pressing":
-		if 0 == abs_old_state:
+		if 0 == abs_plan_state:
 			print("［入力解析］　押下状態から解放確定")
-			self.update_key_process(vk_name, &"Released")
+			self.update_key_process(vk_name, plan_state, &"Released")
 			return
 			
-		if 0 < abs_old_state && abs_old_state < 1:
+		if 0 < abs_plan_state && abs_plan_state < 1:
 			print("［入力解析］　押下状態から解放浮遊")
-			self.update_key_process(vk_name, &"Release?")
+			self.update_key_process(vk_name, plan_state, &"Release?")
 			return
 			
 		if vk_process == &"Pressed":
-			self.update_key_process(vk_name, &"Pressing")
+			self.update_key_process(vk_name, plan_state, &"Pressing")
 			return
 
 	# 継続
-	self.update_key_process(vk_name, vk_process)
+	self.update_key_process(vk_name, plan_state, vk_process)
 
 
 # ーーーーーーーー
@@ -202,16 +221,16 @@ func on_key_changed(event):
 	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 
 	if vk_name == &"VK_Ok":
-		self.set_key_state(vk_name, 1)
+		self.set_plan_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_Cancel":
-		self.set_key_state(vk_name, 1)
+		self.set_plan_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_FastForward":
-		self.set_key_state(vk_name, 1)
+		self.set_plan_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_Right":
-		self.set_key_state(vk_name, lever_value)
+		self.set_plan_key_state(vk_name, lever_value)
 
 	elif vk_name == &"VK_Down":
-		self.set_key_state(vk_name, lever_value)
+		self.set_plan_key_state(vk_name, lever_value)
