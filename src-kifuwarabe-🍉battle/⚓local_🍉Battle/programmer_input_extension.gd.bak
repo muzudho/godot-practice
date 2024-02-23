@@ -78,7 +78,6 @@ func on_unhandled_input(event):
 
 	# ［キー・コンフィグで］状態
 	if self.monkey().owner_node().current_state == &"InKeyConfig":
-		# キーコンフィグ用
 		self.monkey().key_config_node().on_unhandled_input(event)
 
 	# ［シナリオで］状態

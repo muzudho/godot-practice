@@ -124,8 +124,8 @@ func set_press_message_to_button(step):
 
 
 # 入力確定メッセージ
-func set_done_message_the_button(step, button_number):
-	var button_presentation_name = self.monkey().display_node().get_button_name_by_number(button_number)
+func set_done_message_the_button(step, button_symbol):
+	var button_presentation_name = self.monkey().display_node().get_button_name_by_symbol(button_symbol)
 	
 	if step == 1:
 		#												"１２３４５６７８９０１２３４５６７８９０１２３４５６７８９０１２３４５６７８９："
@@ -158,14 +158,19 @@ func set_done_message_the_button(step, button_number):
 
 
 # ❝ボタン１❞ や、 ❝レバー２❞ といった文字列を返す。該当がなければ空文字列を返す
-func get_button_name_by_number(button_number_1):
-	if button_number_1 < 0:
-		return &""
-		
-	if button_number_1 < 1000:
-		return "ボタン" + str(button_number_1)
+func get_button_name_by_symbol(hardware_symbol_1):
+	# キーボードのキー名
+	if typeof(hardware_symbol_1) == TYPE_STRING:
+		return hardware_symbol_1
 
-	return "レバー" + str(button_number_1 - 1000)
+	# ボタンやレバーの番号
+	if hardware_symbol_1 < 0:
+		return &""
+	
+	if hardware_symbol_1 < 1000:
+		return "ボタン" + str(hardware_symbol_1)
+
+	return "レバー" + str(hardware_symbol_1 - 1000)
 
 
 # キーコンフィグ画面に入る時の演出
@@ -206,9 +211,9 @@ func perform_at_close_scene():
 
 
 # 押下ボタンを受入
-func show_pushed_button_accepted(key_config_item_number, button_number):
+func show_pushed_button_accepted(key_config_item_number, button_symbol):
 	self.monkey().the_programmer_node().sound_fx.find_node("🔔キーコンフィグ受入音").play()
-	self.monkey().display_node().set_done_message_the_button(key_config_item_number, button_number)
+	self.monkey().display_node().set_done_message_the_button(key_config_item_number, button_symbol)
 
 
 # 押下ボタンを拒否
@@ -225,9 +230,11 @@ func show_cancel():
 
 # 内部では使ってない。外部向け。
 # ボタン番号を、仮想キー名に変換。該当がなければ空文字列
-func get_virtual_key_name_by_button_number(button_number_1):
-	for key in self.monkey().owner_key_config_node().key_config.keys():
-		var value = self.monkey().owner_key_config_node().key_config[key]
-		if button_number_1 == value:
-			return key
+func get_virtual_key_name_by_hardware_symbol(expected_hardware_symbol):
+	# Virtual key name
+	for vk_name in self.monkey().owner_key_config_node().key_config.keys():
+		var actual_key_symbol = self.monkey().owner_key_config_node().key_config[vk_name]
+		# 整数型と、文字列が混ざっているので型も比較する
+		if  typeof(expected_hardware_symbol) == typeof(actual_key_symbol) && expected_hardware_symbol == actual_key_symbol:
+			return vk_name
 	return &""
