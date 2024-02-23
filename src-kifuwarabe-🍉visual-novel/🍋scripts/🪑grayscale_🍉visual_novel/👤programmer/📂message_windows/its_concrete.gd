@@ -233,10 +233,16 @@ func on_virtual_key_input(
 	if vk_name == &"VK_FastForward":
 		# 押下中のみ、メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
 		if vk_process == &"Pressed" || vk_process == &"Pressing":
+			print("［伝言窓］　早送りボタン押下　vk_process:" + vk_process)
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = true
 
 		elif vk_process == &"Released":
+			print("［伝言窓］　早送りボタン解放　vk_process:" + vk_process)
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = false
+
+		else:
+			print("［伝言窓］　早送りボタン無視　vk_process:" + vk_process)
+			pass
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():

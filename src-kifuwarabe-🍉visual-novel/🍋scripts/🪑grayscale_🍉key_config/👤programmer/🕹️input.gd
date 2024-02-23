@@ -114,15 +114,16 @@ func update_key_process(vk_name, accepted_state, key_process):
 func _process(delta):
 	#print("［★プロセス］　delta:" + str(delta))
 
+	# 拡張
+	self.extension_node().on_process(delta)
+
+	# 拡張処理のあとに
 	# 仮想キーの状態変化の解析
 	self.process_virtual_key(&"VK_Ok")
 	self.process_virtual_key(&"VK_Cancel")
 	self.process_virtual_key(&"VK_FastForward")
 	self.process_virtual_key(&"VK_Right")
 	self.process_virtual_key(&"VK_Down")
-
-	# 拡張
-	self.extension_node().on_process(delta)
 
 
 # Parameters
@@ -137,45 +138,45 @@ func process_virtual_key(vk_name):
 	# 押すか、放すか、どちらかに達するまで維持します
 	if vk_process == &"Release?" || vk_process == &"Press?":
 		if 1 <= abs_plan_state:
-			print("［入力解析］　［" + vk_name +"］キーについて、浮遊状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、浮遊状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
 			return
 		
 		if 0 == abs_plan_state:
-			print("［入力解析］　［" + vk_name +"］キーについて、浮遊状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、浮遊状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
 			return
 
 	elif vk_process == &"Released" || vk_process == &"Neutral":
 		if 1 <= abs_plan_state:
-			print("［入力解析］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
 			return
 		
 		if 0 < abs_plan_state && abs_plan_state < 1:
-			print("［入力解析］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Press?")
 			return
 		
 		if vk_process == &"Released":
-			print("［入力解析］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Neutral")
 			return
 
 	elif vk_process == &"Pressed" || vk_process == &"Pressing":
 		# TODO 押しっぱなしなのに 0 になることがある？
 		if 0 == abs_plan_state:
-			print("［入力解析］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
 			return
 			
 		if 0 < abs_plan_state && abs_plan_state < 1:
-			print("［入力解析］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Release?")
 			return
 			
 		if vk_process == &"Pressed":
-			print("［入力解析］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressing")
 			return
 
@@ -192,6 +193,8 @@ func process_virtual_key(vk_name):
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
+	print("［入力　アンハンドルド・キー・インプット］　開始　event_as_text:" + event.as_text())
+	
 	self.on_key_changed(event)
 
 	# 拡張
@@ -204,6 +207,8 @@ func _unhandled_key_input(event):
 #	- ボタンの押下と解放を区別できるか？
 #
 func _unhandled_input(event):
+	print("［入力　アンハンドルド・インプット］　開始　event_as_text:" + event.as_text())
+	
 	self.on_key_changed(event)
 	# 拡張
 	self.extension_node().on_unhandled_input(event)
@@ -234,22 +239,22 @@ func on_key_changed(event):
 		# ボタンか？
 		if button_symbol < 1000:
 			if event.is_pressed():
-				print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］ ボタンを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+				print("［入力解析　on_key_changed］ ボタンを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, 1)
 			elif event.is_released():
-				print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　ボタンを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+				print("［入力解析　on_key_changed］　ボタンを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, 0)
 		# レバーかも
 		else:
-			print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　レバーを倒したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+			print("［入力解析　on_key_changed］　レバーを倒したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, lever_value)
 	# キーボードのキーか？
 	else:
 		if event.is_pressed():
-			print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　キーボードのキーを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+			print("［入力解析　on_key_changed］　キーボードのキーを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, 1)
 		elif event.is_released():
-			print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　キーボードのキーを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+			print("［入力解析　on_key_changed］　キーボードのキーを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, 0)
 			
 				
