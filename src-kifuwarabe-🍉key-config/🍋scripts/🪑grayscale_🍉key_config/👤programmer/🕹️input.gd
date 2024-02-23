@@ -129,6 +129,15 @@ func parse_key_process(virtual_key_name):
 # 入力
 # ーーーーーーーー
 
+# テキストボックスなどにフォーカスが無いときのキー入力を拾う
+#
+# 子要素から親要素の順で呼び出されるようだ。
+# このプログラムでは　ルート　だけで　キー入力を拾うことにする
+func _unhandled_key_input(event):
+	# 拡張
+	self.extension_node().on_unhandled_key_input(event)
+
+
 # テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 #
 #	X軸と Y軸は別々に飛んでくるので　使いにくい。斜め入力を判定するには `_process` の方を使う
@@ -138,7 +147,7 @@ func _unhandled_input(event):
 	self.memory_key_state(event)
 
 	# 拡張
-	self.extension_node().on_handled_input(event)
+	self.extension_node().on_unhandled_input(event)
 
 
 # キー入力を受け取り、その状態を記憶します

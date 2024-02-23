@@ -44,19 +44,11 @@ func parse_virtual_key_on_process(vk_name):
 			vk_process)
 
 
-# ハンドルド・インプットは、キー・コンフィグ用
-func on_handled_input(event):
-	# ［キー・コンフィグで］状態
-	if self.monkey().owner_node().current_state == &"InKeyConfig":
-		# キーコンフィグ用
-		self.monkey().key_config_node().on_unhandled_input(event)
-
-
 # テキストボックスなどにフォーカスが無いときのキー入力を拾う
 #
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
-func _unhandled_key_input(event):
+func on_unhandled_key_input(event):
 	# ［まだ準備ができていません］
 	if self.monkey().owner_node().current_state == &"NotReadyYet":
 		pass
@@ -109,3 +101,11 @@ func _unhandled_key_input(event):
 				vk_name,
 				vk_state,
 				vk_process)
+
+
+# テキストボックスなどにフォーカスが無いときのキー入力をとにかく拾う
+func on_unhandled_input(event):
+	# ［キー・コンフィグで］状態
+	if self.monkey().owner_node().current_state == &"InKeyConfig":
+		# キーコンフィグ用
+		self.monkey().key_config_node().on_unhandled_input(event)
