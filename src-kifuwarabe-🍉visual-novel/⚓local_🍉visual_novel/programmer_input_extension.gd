@@ -37,7 +37,7 @@ func parse_virtual_key_on_process_if_it_change(vk_name):
 	if self.owner_node().is_process_changed(vk_name):
 		var vk_process = self.owner_node().get_key_process(vk_name)
 		var vk_previous_process = self.owner_node().get_previous_key_process(vk_name)
-		var vk_state = self.owner_node().get_key_state(vk_name)
+		var vk_accepted_state = self.owner_node().get_accepted_key_state(vk_name)
 
 		# シナリオライター・ハブで　この入力をスルーしたなら、以降の処理を続ける
 		print("［入力拡張］　［" + vk_name + "］キーは状態変化した。　前：" + str(vk_previous_process) + "　現：" + vk_process)
@@ -45,7 +45,7 @@ func parse_virtual_key_on_process_if_it_change(vk_name):
 		# 仮想キーを押下したという建付け
 		self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(
 				vk_name,
-				vk_state,
+				vk_accepted_state,
 				vk_process)
 
 
