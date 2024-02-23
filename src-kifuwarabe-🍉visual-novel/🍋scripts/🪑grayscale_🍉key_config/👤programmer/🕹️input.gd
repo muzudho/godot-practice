@@ -134,6 +134,9 @@ func parse_key_process(virtual_key_name):
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
+	# 入力状態の更新
+	self.set_non_zero_key_state(event)
+	
 	# 拡張
 	self.extension_node().on_unhandled_key_input(event)
 
@@ -143,6 +146,15 @@ func _unhandled_key_input(event):
 #	X軸と Y軸は別々に飛んでくるので　使いにくい。斜め入力を判定するには `_process` の方を使う
 #
 func _unhandled_input(event):
+	# 入力状態の更新
+	self.set_non_zero_key_state(event)
+
+	# 拡張
+	self.extension_node().on_unhandled_input(event)
+
+
+# キー入力を受け取り、その状態を記憶します
+func set_non_zero_key_state(event):
 	# キー入力を受け取り、その状態を記憶します
 	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text())
 	var button_symbol = self.monkey().key_config().input_parser_node().get_button_symbol_by_text(event.as_text())
@@ -155,15 +167,6 @@ func _unhandled_input(event):
 	# レバーでなければ 0.0 を返す
 	var lever_value = self.monkey().key_config().input_parser_node().get_lever_value_by_text(event.as_text())
 	#print("［入力　シナリオ再生中の入力で］　lever_value:" + str(lever_value))
-
-	self.set_non_zero_key_state(vk_name, lever_value)
-
-	# 拡張
-	self.extension_node().on_unhandled_input(event)
-
-
-# キー入力を受け取り、その状態を記憶します
-func set_non_zero_key_state(vk_name, lever_value):
 
 	if vk_name == &"VK_Ok":
 		self.key_state[vk_name] = 1
