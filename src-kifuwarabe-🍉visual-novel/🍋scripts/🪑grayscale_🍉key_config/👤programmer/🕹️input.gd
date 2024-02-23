@@ -22,6 +22,17 @@ func extension_node():
 
 # 仮想キー辞書
 #
+#	オカレンス（Occurence；起こった）について
+#		- ［押下］（Pressed）と［解放］（Released）は検知できる
+#		- アナログの場合、完全な押下を［押下］、完全な解放を［解放］と呼ぶことにする
+#		- 何も検知していないとき［ナン］（None；無し）とする
+#
+#	ドゥ―リング（During；その間）について
+#		- ［押しっぱなし］（Pressing）は検知できない
+#		- ［押下］後、次の［解放］までの期間を［押しっぱなし］と考える必要がある
+#		- ［放しっぱなし］も同様
+#	
+#
 # 	キー：　プログラム内で決まりを作っておいてください。
 # 	値：　以下、それぞれ説明
 #
@@ -33,6 +44,7 @@ func extension_node():
 #			ボタン：　押していないとき 0、押しているとき 1
 #			レバー：　実数
 #
+#		TODO プロセスを廃止して、オカレンスとドゥ―リングを使いたい
 #		［２］　プロセス（Process；状態変化）。　値は以下の通り。初期値は &"Neutral" とする
 #			&"Release?"：　ボタン、レバー等から指を離して、押されている状態から、ホーム位置にある状態へ遷移している途中（省略されることがあります）
 #			&"Released"：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態に到達した最初のフレーム
@@ -43,18 +55,44 @@ func extension_node():
 #
 #		［３］　プレビアス・プロセス（Previous process；１つ前のプロセス）
 #
+#		［４］　オカレンス。初期値は &"None" とする
+#			&"None"：	何も検知していない
+#			&"Pressed"：	［押下］を検知
+#			&"Release"：［解放］を検知
+#
+#		［５］　ドゥ―リング。初期値は &"Neutral" とする
+#			&"Neutral"：		［解放］を検知したあと、まだ［押下］を検知していない間
+#			&"Pressing"：	［押下］を検知したあと、まだ［解放］を検知していない間
+#
+#
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
 	# レバーの左右
-	&"VK_Right" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Right" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
 	# レバーの上下
-	&"VK_Down" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Down" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
 }
+
+
+func get_occurence(vk_name):
+	return self.key_record[vk_name][4]
+
+
+func set_occurence(vk_name, value):
+	self.key_record[vk_name][4] = value
+
+
+func get_during(vk_name):
+	return self.key_record[vk_name][5]
+
+
+func set_during(vk_name, value):
+	self.key_record[vk_name][5] = value
 
 
 func get_plan_key_state(vk_name):
