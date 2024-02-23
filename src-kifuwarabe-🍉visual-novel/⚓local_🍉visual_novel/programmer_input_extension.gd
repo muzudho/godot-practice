@@ -29,30 +29,19 @@ func on_process(_delta):
 		self.parse_virtual_key_on_process(&"VK_Down")
 
 
-func parse_virtual_key_on_process(virtual_key_name):
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func parse_virtual_key_on_process(vk_name):
 	# まず、ボタンの押下状態を確認
-	var button_state = self.owner_node().key_state[virtual_key_name]
-	var button_process = self.owner_node().key_process[virtual_key_name]
-
-	var vk_operation = null
-
-	# 何かキーを押したとき
-	if button_process == &"Pressed":
-		#print("［監督］　入力　押下")
-		vk_operation = &"VKO_Pressed"
-	
-	# 何かキーを離したとき
-	elif button_process == &"Released":
-		#print("［監督］　入力　リリース")
-		vk_operation = &"VKO_Released"
-	
-	# それ以外には対応してない
-	else:
-		print("［監督］　入力　▲！想定外")
-		return
+	var vk_state = self.owner_node().key_state[vk_name]
+	var vk_process = self.owner_node().key_process[vk_name]
 
 	# 仮想キーを押下したという建付け
-	self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(virtual_key_name, button_state, vk_operation)
+	self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(
+			vk_name,
+			vk_state,
+			vk_process)
 
 
 func on_handled_input(event):
@@ -81,45 +70,45 @@ func _unhandled_key_input(event):
 
 	# ［シナリオで］状態
 	elif self.monkey().owner_node().current_state == &"InScenario":
-		var vk_operation = null
 
-		# 何かキーを押したとき
-		if event.is_pressed():
-			print("［監督］　キー入力　押下")
-			vk_operation = &"VKO_Pressed"
-		
-		# 何かキーを離したとき
-		elif event.is_released():
-			print("［監督］　キー入力　リリース")
-			vk_operation = &"VKO_Released"
-		
-		# それ以外には対応してない
-		else:
-			print("［監督］　キー入力　▲！想定外")
-			return
-
-		# 以下、仮想キー
-
-		# このゲーム独自の仮想キーに変換
-		var virtual_key_name = null
+		# このゲーム独自の仮想キー（virtual key name）に変換
+		var vk_name = null
 		
 		# エンターキー押下
 		if event.keycode == KEY_ENTER:
-			virtual_key_name = &"VK_Ok"
+			vk_name = &"VK_Ok"
 
 		# エスケープキー押下
 		elif event.keycode == KEY_ESCAPE:
-			virtual_key_name = &"VK_Cancel"
+			vk_name = &"VK_Cancel"
 
 		# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
 		elif event.keycode == KEY_R:
-			virtual_key_name = &"VK_FastForward"
+			vk_name = &"VK_FastForward"
 		
 		# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
 		else:
 			return
 
-		var lever_value = 0.0
+		var vk_state = 0.0
+		var vk_process = &"Neutral"
+
+		# 何かキーを押したとき
+		if event.is_pressed():
+			print("［監督］　キー入力　押下")
+			vk_process = &"Pressed"
+		
+		# 何かキーを離したとき
+		elif event.is_released():
+			print("［監督］　キー入力　リリース")
+			vk_process = &"Released"
+		
+		# それ以外には対応してない
+		else:
+			print("［監督］　キー入力　▲！想定外")
 
 		# 仮想キーを押下したという建付け
-		self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(virtual_key_name, lever_value, vk_operation)
+		self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(
+				vk_name,
+				vk_state,
+				vk_state)

@@ -218,17 +218,24 @@ func _process(delta):
 
 
 # 仮想キー入力時
-func on_virtual_key_input(virtual_key, lever_value, vk_operation):
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func on_virtual_key_input(
+		vk_name,
+		vk_state,
+		vk_process):
 
 	# 選択肢カーソル
-	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(vk_name, vk_state, vk_process)
 
-	if virtual_key == &"VK_FastForward":
+	if vk_name == &"VK_FastForward":
 		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
-		if vk_operation == &"VKO_Pressed":
+		if vk_process == &"Pressed":
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = true
 
-		elif vk_operation == &"VKO_Released":
+		elif vk_process == &"Released":
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = false
 
 	# 完全表示中
@@ -238,12 +245,12 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		if self.is_choices():
 			
 			# 押下時
-			if vk_operation == &"VKO_Pressed":
+			if vk_process == &"Pressed":
 				
 				# TODO カーソルの上下もここにくる？
 
 				# 確定ボタン以外は無効
-				if virtual_key != &"VK_Ok":
+				if vk_name != &"VK_Ok":
 					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキーではないのでメッセージ送りしません")
 					return
 					
@@ -260,14 +267,14 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		# 通常テキストモードなら
 		else:
 			# 何かキーを押したとき
-			if vk_operation == &"VKO_Pressed":
+			if vk_process == &"Pressed":
 				
 				# ページ早送りボタンは無効
-				if virtual_key == &"VK_FastForward":
+				if vk_name == &"VK_FastForward":
 					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキーでは、メッセージ送りしません")
 					return
 
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキー以外だ（" + virtual_key + "）　ページ送りする")
+				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキー以外だ（" + vk_name + "）　ページ送りする")
 				# ページ送り
 				self.statemachine_of_message_window.page_forward()
 

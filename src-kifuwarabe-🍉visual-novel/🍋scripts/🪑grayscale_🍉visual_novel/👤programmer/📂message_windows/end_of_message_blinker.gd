@@ -303,7 +303,14 @@ func _process(delta):
 
 
 # 仮想キー入力時
-func on_virtual_key_input(virtual_key, lever_value, vk_operation):
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func on_virtual_key_input(
+		vk_name,
+		vk_state,
+		vk_process):
 
 	# 一時的にどこかに消えているのなら処理しない
 	if not self.is_appear:
@@ -314,7 +321,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		return
 
 	# 押下時
-	if vk_operation == &"VKO_Pressed":
+	if vk_process == &"Pressed":
 
 		var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
@@ -330,7 +337,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 				
 				# 手動でカーソルは移動開始
 				# 上へ移動する分
-				if self.monkey().of_staff().programmer().key_config_node().is_key_up(virtual_key, lever_value):
+				if self.monkey().of_staff().programmer().key_config_node().is_key_up(vk_name, vk_state):
 					#print("［選択肢カーソル］　上へ")
 
 					# カーソルは上へ移動できるか？
@@ -339,7 +346,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 						self.on_cursor_up(message_window_gui.choices_index)
 					
 				# 下へ移動する分
-				elif self.monkey().of_staff().programmer().key_config_node().is_key_down(virtual_key, lever_value):
+				elif self.monkey().of_staff().programmer().key_config_node().is_key_down(vk_name, vk_state):
 					#print("［選択肢カーソル］　下へ")
 
 					if self.can_cursor_down():

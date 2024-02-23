@@ -20,18 +20,25 @@ func monkey():
 # 呼出し元:
 # 	on_unhandled_key_input()
 #	on_unhandled_input()
-func on_virtual_key_input(virtual_key, lever_value, vk_operation):
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func on_virtual_key_input(
+		vk_name,
+		vk_state,
+		vk_process):
 
 	# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
 	if self.monkey().of_staff().programmer().department_controller_node().sub_monkey().input_node().on_virtual_key_input(
-			virtual_key,
-			lever_value,
-			vk_operation):
+			vk_name,
+			vk_state,
+			vk_process):
 		# 入力されたキーへの対処が完了したなら、処理を抜ける
 		return
 
 	# シナリオライター・ハブで　この入力をスルーしたなら、以降の処理を続ける
-	print("［監督］　仮想キー（" + virtual_key + "）　レバー値：" + str(lever_value) + "　操作：" + vk_operation)
+	print("［監督］　仮想キー（" + vk_name + "）　レバー値：" + str(vk_state) + "　操作：" + vk_process)
 
 	# メッセージ・ウィンドウへ渡す
-	self.monkey().of_programmer().scenario_player().get_current_message_window_gui_node().on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().of_programmer().scenario_player().get_current_message_window_gui_node().on_virtual_key_input(vk_name, vk_state, vk_process)
