@@ -53,7 +53,7 @@ func extension_node():
 #			&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
 #			&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
 #
-#		［３］　プレビアス・プロセス（Previous process；１つ前のプロセス）
+#		［３］　廃止
 #
 #		［４］　オカレンス。初期値は &"None" とする
 #			&"None"：	何も検知していない
@@ -67,15 +67,15 @@ func extension_node():
 #
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
+	&"VK_Ok" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
+	&"VK_Cancel" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
+	&"VK_FastForward" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
 	# レバーの左右
-	&"VK_Right" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
+	&"VK_Right" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
 	# レバーの上下
-	&"VK_Down" : [0, 0, &"Neutral", &"Neutral", &"None", &"Neutral"],
+	&"VK_Down" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
 }
 
 
@@ -121,21 +121,12 @@ func set_key_process(vk_name, vk_process):
 	self.key_record[vk_name][2] = vk_process
 
 
-func get_previous_key_process(vk_name):
-	return self.key_record[vk_name][3]
-
-
-func set_previous_key_process(vk_name, vk_process):
-	self.key_record[vk_name][3] = vk_process
-
-
 func update_key_process(vk_name, accepted_state, key_process):
 	self.set_accepted_key_state(vk_name, accepted_state)
 
 	# 未設定にする
 	self.set_plan_key_state(vk_name, 0)
 
-	self.set_previous_key_process(vk_name, self.get_key_process(vk_name))
 	self.set_key_process(vk_name, key_process)
 
 
