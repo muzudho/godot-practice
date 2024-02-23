@@ -20,7 +20,39 @@ func owner_node():
 # ーーーーーーーー
 
 func on_process(_delta):
-	pass
+	# ［シナリオで］状態
+	if self.monkey().owner_node().current_state == &"InScenario":
+		self.parse_virtual_key_on_process(&"VK_Ok")
+		self.parse_virtual_key_on_process(&"VK_Cancel")
+		self.parse_virtual_key_on_process(&"VK_FastForward")
+		self.parse_virtual_key_on_process(&"VK_Right")
+		self.parse_virtual_key_on_process(&"VK_Down")
+
+
+func parse_virtual_key_on_process(virtual_key_name):
+	# まず、ボタンの押下状態を確認
+	var button_state = self.owner_node().key_state[virtual_key_name]
+	var button_process = self.owner_node().key_process[virtual_key_name]
+
+	var vk_operation = null
+
+	# 何かキーを押したとき
+	if button_process == &"Pressed":
+		#print("［監督］　入力　押下")
+		vk_operation = &"VKO_Pressed"
+	
+	# 何かキーを離したとき
+	elif button_process == &"Released":
+		#print("［監督］　入力　リリース")
+		vk_operation = &"VKO_Released"
+	
+	# それ以外には対応してない
+	else:
+		print("［監督］　入力　▲！想定外")
+		return
+
+	# 仮想キーを押下したという建付け
+	self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(virtual_key_name, button_state, vk_operation)
 
 
 func on_handled_input(event):
