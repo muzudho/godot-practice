@@ -43,28 +43,18 @@ func extension_node():
 #
 #		［３］　プレビアス・プロセス（Previous process；１つ前のプロセス）
 #
-#		［４］　入力の有無
-#
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral", false],
+	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral", false],
+	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral", false],
+	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral"],
 	# レバーの左右
-	&"VK_Right" : [0, 0, &"Neutral", &"Neutral", false],
+	&"VK_Right" : [0, 0, &"Neutral", &"Neutral"],
 	# レバーの上下
-	&"VK_Down" : [0, 0, &"Neutral", &"Neutral", false],
+	&"VK_Down" : [0, 0, &"Neutral", &"Neutral"],
 }
-
-
-func is_receipt(vk_name):
-	return self.key_record[vk_name][4]
-
-
-func set_receipt(vk_name, is_receipt):
-	self.key_record[vk_name][4] = is_receipt
 
 
 func get_plan_key_state(vk_name):
@@ -149,32 +139,27 @@ func process_virtual_key(vk_name):
 		if 1 <= abs_plan_state:
 			print("［入力解析］　［" + vk_name +"］キーについて、浮遊状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
-			self.set_receipt(vk_name, false)
 			return
 		
 		if 0 == abs_plan_state:
 			print("［入力解析］　［" + vk_name +"］キーについて、浮遊状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
-			self.set_receipt(vk_name, false)
 			return
 
 	elif vk_process == &"Released" || vk_process == &"Neutral":
 		if 1 <= abs_plan_state:
 			print("［入力解析］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
-			self.set_receipt(vk_name, false)
 			return
 		
 		if 0 < abs_plan_state && abs_plan_state < 1:
 			print("［入力解析］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Press?")
-			self.set_receipt(vk_name, false)
 			return
 		
 		if vk_process == &"Released":
 			print("［入力解析］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Neutral")
-			self.set_receipt(vk_name, false)
 			return
 
 	elif vk_process == &"Pressed" || vk_process == &"Pressing":
@@ -182,24 +167,20 @@ func process_virtual_key(vk_name):
 		if 0 == abs_plan_state:
 			print("［入力解析］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
-			self.set_receipt(vk_name, false)
 			return
 			
 		if 0 < abs_plan_state && abs_plan_state < 1:
 			print("［入力解析］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Release?")
-			self.set_receipt(vk_name, false)
 			return
 			
 		if vk_process == &"Pressed":
 			print("［入力解析］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressing")
-			self.set_receipt(vk_name, false)
 			return
 
 	# 継続
 	self.update_key_process(vk_name, plan_state, vk_process)
-	self.set_receipt(vk_name, false)
 
 
 # ーーーーーーーー
@@ -247,8 +228,6 @@ func on_key_changed(event):
 
 	# レバーでなければ 0.0 を返す
 	var lever_value = self.monkey().key_config().input_parser_node().get_lever_value_by_text(event.as_text())
-
-	self.set_receipt(vk_name, true)
 
 	# ボタンか？
 	if typeof(button_symbol) != TYPE_STRING:
