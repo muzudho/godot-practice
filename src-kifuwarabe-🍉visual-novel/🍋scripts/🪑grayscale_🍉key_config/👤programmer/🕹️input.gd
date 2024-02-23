@@ -116,18 +116,11 @@ func get_key_process(vk_name):
 	return self.key_record[vk_name][2]
 
 
-# TODO 廃止方針
-func set_key_process(vk_name, vk_process):
-	self.key_record[vk_name][2] = vk_process
-
-
-func update_key_process(vk_name, accepted_state, key_process):
+func update_key_process(vk_name, accepted_state):
 	self.set_accepted_key_state(vk_name, accepted_state)
 
 	# 未設定にする
 	self.set_plan_key_state(vk_name, 0)
-
-	self.set_key_process(vk_name, key_process)
 
 
 # ーーーーーーーー
@@ -162,65 +155,46 @@ func process_by_virtual_key(vk_name):
 	# 状態変化はどうなったか？
 	var plan_state = self.get_plan_key_state(vk_name)
 	var abs_plan_state = abs(plan_state)
-	var vk_process = self.get_key_process(vk_name)
+	var vk_occurence = self.get_occurence(vk_name)
+	var vk_during = self.get_during(vk_name)
 
-	# 押すか、放すか、どちらかに達するまで維持します
-	if vk_process == &"Release?" || vk_process == &"Press?":
-		if 1 <= abs_plan_state:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、浮遊状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Pressed")
-			return
-		
-		if 0 == abs_plan_state:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、浮遊状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Released")
-			return
-
-	elif vk_process == &"Released" || vk_process == &"Neutral":
+	if vk_occurence == &"Released" || vk_during == &"Neutral":
 		# 放しているのにボタン値が 1 というのは矛盾してる
 		if 1 <= abs_plan_state:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Pressed")
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + " vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 		
 		if 0 < abs_plan_state && abs_plan_state < 1:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Press?")
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 		
-		if vk_process == &"Released":
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Neutral")
+		if vk_occurence == &"Released":
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
-	
-	#elif vk_process == &"Neutral":
-	#	# 放しっぱなしなら、継続する
-	#	pass
 
-	elif vk_process == &"Pressed" || vk_process == &"Pressing":
+	elif vk_occurence == &"Pressed" || vk_during == &"Pressing":
 		# TODO 押しっぱなしにすると、最初の１回（Pressed）しかイベントが発生しない。２フレーム後には ボタン値は 0 にクリアーされてしまう
 		# 押しているときに ボタン値が 0 というのは矛盾してる
 		if 0 == abs_plan_state:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Released")
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 			
 		if 0 < abs_plan_state && abs_plan_state < 1:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Release?")
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 			
-		if vk_process == &"Pressed":
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Pressing")
+		if vk_occurence == &"Pressed":
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 	
-	#elif vk_process == &"Pressing":
-	#	# 押しっぱなしなら、継続する
-	#	pass
-
 	# 継続
-	self.update_key_process(vk_name, plan_state, vk_process)
+	self.update_key_process(vk_name, plan_state)
 
 
 # ーーーーーーーー
