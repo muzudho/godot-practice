@@ -280,7 +280,7 @@ func on_virtual_key_input(
 				self.statemachine_of_message_window.page_forward()
 
 			else:
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
+				#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
 				pass
 
 	else:
