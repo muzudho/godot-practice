@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://c7druiymjvw6i"]
+[gd_scene load_steps=70 format=3 uid="uid://c7druiymjvw6i"]
 
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/staff.gd" id="1_rk62n"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_ivwoj"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://ddu67m5n2ad5u" path="res://🎄addon_🍉key_config/👤musician_🌏sound_fx.tscn" id="37_nknd3"]
 [ext_resource type="PackedScene" uid="uid://bkfvsu8du416f" path="res://🎄addon_🍉visual_novel/👤musician_🌏sound_fx.tscn" id="38_kb7xl"]
 [ext_resource type="PackedScene" uid="uid://c0trqytdpqte8" path="res://🎄addon_🍉visual_novel/👤programmer_📂department_controller.tscn" id="38_mxo87"]
+[ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/programmer_input_extension.gd" id="38_rsswg"]
 [ext_resource type="PackedScene" uid="uid://dx06o5koxxmmv" path="res://🎄addon_🍉bench/👤programmer.tscn" id="39_5lrt2"]
 [ext_resource type="Script" path="res://⚓local_🍉KifuwarabeRpg/programmer_monkey.gd" id="39_w7ugv"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉visual_novel/👤programmer/📂message_windows/its_globe.gd" id="40_70vr6"]
@@ -272,6 +273,9 @@ script = ExtResource("39_w7ugv")
 
 [node name="🕹️Input" type="Node" parent="👤Programmer"]
 script = ExtResource("37_2smul")
+
+[node name="Extension" type="Node" parent="👤Programmer/🕹️Input"]
+script = ExtResource("38_rsswg")
 
 [node name="📂DepartmentController_🍉VisualNovel" parent="👤Programmer" instance=ExtResource("38_mxo87")]
 
