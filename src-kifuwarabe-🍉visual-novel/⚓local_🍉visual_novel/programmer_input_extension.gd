@@ -44,14 +44,11 @@ func parse_virtual_key_on_process(vk_name):
 			vk_process)
 
 
+# ハンドルド・インプットは、キー・コンフィグ用
 func on_handled_input(event):
-	# ［まだ準備ができていません］
-	if self.monkey().owner_node().current_state == &"NotReadyYet":
-		pass
-
 	# ［キー・コンフィグで］状態
-	elif self.monkey().owner_node().current_state == &"InKeyConfig":
-		# キーコンフィグで必要です
+	if self.monkey().owner_node().current_state == &"InKeyConfig":
+		# キーコンフィグ用
 		self.monkey().key_config_node().on_unhandled_input(event)
 
 

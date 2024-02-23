@@ -18,8 +18,7 @@ func monkey():
 # 仮想キーを押下したという建付け
 #
 # 呼出し元:
-# 	on_unhandled_key_input()
-#	on_unhandled_input()
+# 	programmer/input/_unhandled_key_input()
 #
 # Parameters
 # ==========
