@@ -22,6 +22,21 @@ func extension_node():
 
 # 仮想キー辞書
 #
+#	オカレンス（Occurence；起こった）について
+#		- ［押下］（Pressed）と［解放］（Released）は検知できる
+#		- アナログの場合、完全な押下を［押下］、完全な解放を［解放］と呼ぶことにする
+#		- 何も検知していないとき［ナン］（None；無し）とする
+#
+#	ドゥ―リング（During；その間）について
+#		- ［押しっぱなし］（Pressing）は検知できない
+#		- ［押下］後、次の［解放］までの期間を［押しっぱなし］と考える必要がある
+#		- ［放しっぱなし］も同様
+#
+#	レバー・ディレクション（Lever Direction；レバーの向き）について
+#		- [-1.0 ～ 1.0] の範囲があるが、ぴったり 0 になることは稀
+#		- 例えば (-0.2 ～ 0.2) を［解放］とするようなレンジが要る
+#
+#
 # 	キー：　プログラム内で決まりを作っておいてください。
 # 	値：　以下、それぞれ説明
 #
@@ -33,28 +48,52 @@ func extension_node():
 #			ボタン：　押していないとき 0、押しているとき 1
 #			レバー：　実数
 #
-#		［２］　プロセス（Process；状態変化）。　値は以下の通り。初期値は &"Neutral" とする
-#			&"Release?"：　ボタン、レバー等から指を離して、押されている状態から、ホーム位置にある状態へ遷移している途中（省略されることがあります）
-#			&"Released"：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態に到達した最初のフレーム
-#			&"Neutral" ：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態で、その状態の２フレーム目以降
-#			&"Press?"  ：　ボタン、レバー等が、ホーム位置にあった状態から、押されている状態へ遷移している途中（省略されることがあります）
-#			&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
-#			&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
+#		［２］　廃止
 #
-#		［３］　プレビアス・プロセス（Previous process；１つ前のプロセス）
+#		［３］　廃止
+#
+#		［４］　オカレンス。初期値は &"None" とする
+#			&"None"：	何も検知していない
+#			&"Pressed"：	［押下］を検知
+#			&"Release"：［解放］を検知
+#
+#		［５］　ドゥ―リング。初期値は &"Neutral" とする
+#			&"Neutral"：		［解放］を検知したあと、まだ［押下］を検知していない間
+#			&"Pressing"：	［押下］を検知したあと、まだ［解放］を検知していない間
+#
 #
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Ok" : [0, 0, null, null, &"None", &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_Cancel" : [0, 0, null, null, &"None", &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, 0, &"Neutral", &"Neutral"],
-	# レバーの左右
-	&"VK_Right" : [0, 0, &"Neutral", &"Neutral"],
-	# レバーの上下
-	&"VK_Down" : [0, 0, &"Neutral", &"Neutral"],
+	&"VK_FastForward" : [0, 0, null, null, &"None", &"Neutral"],
+	# ボタンの右、または、レバーの左右
+	&"VK_Right" : [0, 0, null, null, &"None", &"Neutral"],
+	# ボタンの左
+	#&"VK_Left"	
+	# ボタンの下、または、レバーの上下
+	&"VK_Down" : [0, 0, null, null, &"None", &"Neutral"],
+	# ボタンの上
+	#&"VK_Up"
 }
+
+
+func get_occurence(vk_name):
+	return self.key_record[vk_name][4]
+
+
+func set_occurence(vk_name, value):
+	self.key_record[vk_name][4] = value
+
+
+func get_during(vk_name):
+	return self.key_record[vk_name][5]
+
+
+func set_during(vk_name, value):
+	self.key_record[vk_name][5] = value
 
 
 func get_plan_key_state(vk_name):
@@ -73,34 +112,12 @@ func set_accepted_key_state(vk_name, vk_state):
 	self.key_record[vk_name][1] = vk_state
 
 
-func get_key_process(vk_name):
-	return self.key_record[vk_name][2]
-
-
-func set_key_process(vk_name, vk_process):
-	self.key_record[vk_name][2] = vk_process
-
-
-func get_previous_key_process(vk_name):
-	return self.key_record[vk_name][3]
-
-
-func set_previous_key_process(vk_name, vk_process):
-	self.key_record[vk_name][3] = vk_process
-
-
-func is_process_changed(vk_name):
-	return self.get_key_process(vk_name) != self.get_previous_key_process(vk_name)
-
-
-func update_key_process(vk_name, accepted_state, key_process):
+func update_key_process(vk_name, accepted_state):
 	self.set_accepted_key_state(vk_name, accepted_state)
 
 	# 未設定にする
 	self.set_plan_key_state(vk_name, 0)
-
-	self.set_previous_key_process(vk_name, self.get_key_process(vk_name))
-	self.set_key_process(vk_name, key_process)
+	self.set_occurence(vk_name, &"None")
 
 
 # ーーーーーーーー
@@ -119,11 +136,11 @@ func _process(delta):
 
 	# 拡張処理のあとに
 	# 仮想キーの状態変化の解析
-	self.process_by_virtual_key(&"VK_Ok")
-	self.process_by_virtual_key(&"VK_Cancel")
-	self.process_by_virtual_key(&"VK_FastForward")
-	self.process_by_virtual_key(&"VK_Right")
-	self.process_by_virtual_key(&"VK_Down")
+	self.end_of_process_by_virtual_key(&"VK_Ok")
+	self.end_of_process_by_virtual_key(&"VK_Cancel")
+	self.end_of_process_by_virtual_key(&"VK_FastForward")
+	self.end_of_process_by_virtual_key(&"VK_Right")
+	self.end_of_process_by_virtual_key(&"VK_Down")
 
 
 # 毎フレーム実行されます
@@ -131,69 +148,50 @@ func _process(delta):
 # Parameters
 # ==========
 # * `vk_name` - Virtual key name
-func process_by_virtual_key(vk_name):
+func end_of_process_by_virtual_key(vk_name):
 	# 状態変化はどうなったか？
 	var plan_state = self.get_plan_key_state(vk_name)
 	var abs_plan_state = abs(plan_state)
-	var vk_process = self.get_key_process(vk_name)
+	var vk_occurence = self.get_occurence(vk_name)
+	var vk_during = self.get_during(vk_name)
 
-	# 押すか、放すか、どちらかに達するまで維持します
-	if vk_process == &"Release?" || vk_process == &"Press?":
-		if 1 <= abs_plan_state:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、浮遊状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Pressed")
-			return
-		
-		if 0 == abs_plan_state:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、浮遊状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Released")
-			return
-
-	elif vk_process == &"Released" || vk_process == &"Neutral":
+	if vk_occurence == &"Released" || vk_during == &"Neutral":
 		# 放しているのにボタン値が 1 というのは矛盾してる
 		if 1 <= abs_plan_state:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Pressed")
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + " vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 		
 		if 0 < abs_plan_state && abs_plan_state < 1:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Press?")
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 		
-		if vk_process == &"Released":
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Neutral")
+		if vk_occurence == &"Released":
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
-	
-	#elif vk_process == &"Neutral":
-	#	# 放しっぱなしなら、継続する
-	#	pass
 
-	elif vk_process == &"Pressed" || vk_process == &"Pressing":
+	elif vk_occurence == &"Pressed" || vk_during == &"Pressing":
 		# TODO 押しっぱなしにすると、最初の１回（Pressed）しかイベントが発生しない。２フレーム後には ボタン値は 0 にクリアーされてしまう
 		# 押しているときに ボタン値が 0 というのは矛盾してる
 		if 0 == abs_plan_state:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Released")
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 			
 		if 0 < abs_plan_state && abs_plan_state < 1:
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Release?")
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 			
-		if vk_process == &"Pressed":
-			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
-			self.update_key_process(vk_name, plan_state, &"Pressing")
+		if vk_occurence == &"Pressed":
+			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
+			self.update_key_process(vk_name, plan_state)
 			return
 	
-	#elif vk_process == &"Pressing":
-	#	# 押しっぱなしなら、継続する
-	#	pass
-
 	# 継続
-	self.update_key_process(vk_name, plan_state, vk_process)
+	self.update_key_process(vk_name, plan_state)
 
 
 # ーーーーーーーー
@@ -239,7 +237,7 @@ func on_key_changed(event):
 	
 	# 仮想キー名が取れなかったら無視します
 	if vk_name == &"":
-		print("［入力解析　on_key_changed］　vk_name:" + str(vk_name) + "　event_as_text:" + event.as_text())
+		print("［入力解析　on_key_changed］　仮想キー名が無いイベントは、無視します　vk_name:" + str(vk_name) + "　event_as_text:" + event.as_text())
 		return
 	
 
@@ -253,27 +251,100 @@ func on_key_changed(event):
 			if event.is_pressed():
 				print("［入力解析　on_key_changed］ ボタンを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, 1)
+				self.set_occurence(vk_name, &"Pressed")
+				self.set_during(vk_name, &"Pressing")
+				return
+				
 			elif event.is_released():
 				print("［入力解析　on_key_changed］　ボタンを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, 0)
+				self.set_occurence(vk_name, &"Released")
+				self.set_during(vk_name, &"Neutral")
+				return
+				
 		# レバーかも
 		else:
 			if 1 <= abs(lever_value):
 				print("［入力解析　on_key_changed］　レバーを倒したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
-			elif abs(lever_value) == 0:
+				self.set_occurence(vk_name, &"Pressed")
+				self.set_during(vk_name, &"Pressing")
+				return
+			
+			# ぴったり 0 になることは難しいのでレンジで指定する
+			elif abs(lever_value) < 2:
 				print("［入力解析　on_key_changed］　レバーを元に戻したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
+				self.set_occurence(vk_name, &"Released")
+				self.set_during(vk_name, &"Neutral")
+				return
+				
 			else:
 				print("［入力解析　on_key_changed］　レバーをアナログ操作中か？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
+				# 状態はキープ
+				return
+				
 	# キーボードのキーか？
 	else:
 		if event.is_pressed():
 			print("［入力解析　on_key_changed］　キーボードのキーを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, 1)
+			self.set_occurence(vk_name, &"Pressed")
+			self.set_during(vk_name, &"Pressing")
+			return
+			
 		elif event.is_released():
 			print("［入力解析　on_key_changed］　キーボードのキーを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, 0)
-			
-				
+			self.set_occurence(vk_name, &"Released")
+			self.set_during(vk_name, &"Neutral")
+			return
+
+	# 入力を検知できなかったなら
+	self.set_occurence(vk_name, &"None")
+
+
+# 上キーが入力されたか？
+#
+#	（レバーではなく）上キーと下キーに別々にボタンを設定しているケースがある
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+# * `vk_state` - Lever value
+func is_key_up(
+		vk_name,
+		vk_state):
+
+	if vk_name == &"VK_Up":
+		print("［キー入力］　上キー押下")
+		return true
+
+	if vk_name == &"VK_Down" and vk_state < 0:
+		print("［キー入力］　下キー押下、かつ　Ｙ軸レバーをマイナス方向に倒した")
+		return true
+
+	print("［キー入力］　上キー押下ではない。 vk_name:" + vk_name + " vk_state:" + str(vk_state))
+	return false
+
+
+# 下キーが入力されたか？
+#
+#	（レバーではなく）上キーと下キーに別々にボタンを設定しているケースがある
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+# * `vk_state` - Lever value
+func is_key_down(
+		vk_name,
+		vk_state):
+	
+	if vk_name == &"VK_Down" and 0 < vk_state:
+		print("［キー入力］　下キー押下、かつ　Ｙ軸レバーをプラス方向に倒した")
+		return true
+
+	print("［キー入力］　下キー押下ではない。 vk_name:" + vk_name + " vk_state:" + str(vk_state))
+	return false
+
