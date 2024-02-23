@@ -37,7 +37,7 @@ func on_virtual_key_input(
 		return
 
 	# シナリオライター・ハブで　この入力をスルーしたなら、以降の処理を続ける
-	print("［監督］　仮想キー（" + vk_name + "）　レバー値：" + str(vk_state) + "　操作：" + vk_process)
+	print("［台本再生機］　仮想キー（" + vk_name + "）　レバー値：" + str(vk_state) + "　操作：" + vk_process)
 
 	# メッセージ・ウィンドウへ渡す
 	self.monkey().of_programmer().scenario_player().get_current_message_window_gui_node().on_virtual_key_input(vk_name, vk_state, vk_process)

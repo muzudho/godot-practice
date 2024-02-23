@@ -66,6 +66,22 @@ var key_process = {
 }
 
 
+func get_key_state(vk_name):
+	return self.key_state[vk_name]
+
+
+func set_key_state(vk_name, vk_state):
+	self.key_state[vk_name] = vk_state
+
+
+func get_key_process(vk_name):
+	return self.key_process[vk_name]
+
+
+func set_key_process(vk_name, vk_state):
+	self.key_process[vk_name] = vk_state
+
+
 # ーーーーーーーー
 # 毎フレーム処理
 # ーーーーーーーー
@@ -86,43 +102,43 @@ func _process(delta):
 
 	# 拡張
 	self.extension_node().on_process(delta)
-	
+
 	# 仮想キーの入力状態のクリアー
-	self.key_state[&"VK_Ok"] = 0
-	self.key_state[&"VK_Cancel"] = 0
-	self.key_state[&"VK_FastForward"] = 0
-	self.key_state[&"VK_Right"] = 0
-	self.key_state[&"VK_Down"] = 0
+	self.set_key_state(&"VK_Ok", 0)
+	self.set_key_state(&"VK_Cancel", 0)
+	self.set_key_state(&"VK_FastForward", 0)
+	self.set_key_state(&"VK_Right", 0)
+	self.set_key_state(&"VK_Down", 0)
 
 
 func parse_key_process(virtual_key_name):
-	var old_process = self.key_process[virtual_key_name]
-	var abs_old_state = abs(self.key_state[virtual_key_name])
+	var old_process = self.get_key_process(virtual_key_name)
+	var abs_old_state = abs(self.get_key_state(virtual_key_name))
 
 	# 押すか、放すか、どちらかに達するまで維持します
 	if old_process == &"Release?" || old_process == &"Press?":
 		if 1 <= abs_old_state:
 			print("［入力解析］　浮遊状態から押下確定")
-			self.key_process[virtual_key_name] = &"Pressed"
+			self.set_key_process(virtual_key_name, &"Pressed")
 		elif 0 == abs_old_state:
 			print("［入力解析］　浮遊状態から解放確定")
-			self.key_process[virtual_key_name] = &"Released"
-	
+			self.set_key_process(virtual_key_name, &"Released")
+
 	elif old_process == &"Released" || old_process == &"Neutral":
 		if 1 <= abs_old_state:
 			print("［入力解析］　解放状態から押下確定")
-			self.key_process[virtual_key_name] = &"Pressed"
+			self.set_key_process(virtual_key_name, &"Pressed")
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　解放状態から押下浮遊")
-			self.key_process[virtual_key_name] = &"Press?"
-	
+			self.set_key_process(virtual_key_name, &"Press?")
+
 	elif old_process == &"Pressed" || old_process == &"Pressing":
 		if 0 == abs_old_state:
 			print("［入力解析］　押下状態から解放確定")
-			self.key_process[virtual_key_name] = &"Released"
+			self.set_key_process(virtual_key_name, &"Released")
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　押下状態から解放浮遊")
-			self.key_process[virtual_key_name] = &"Release?"
+			self.set_key_process(virtual_key_name, &"Release?")
 
 
 # ーーーーーーーー
@@ -166,16 +182,16 @@ func _unhandled_input(event):
 func set_non_zero_key_state(vk_name, lever_value):
 
 	if vk_name == &"VK_Ok":
-		self.key_state[vk_name] = 1
+		self.set_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_Cancel":
-		self.key_state[vk_name] = 1
+		self.set_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_FastForward":
-		self.key_state[vk_name] = 1
+		self.set_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_Right":
-		self.key_state[vk_name] = lever_value
+		self.set_key_state(vk_name, lever_value)
 
 	elif vk_name == &"VK_Down":
-		self.key_state[vk_name] = lever_value
+		self.set_key_state(vk_name, lever_value)

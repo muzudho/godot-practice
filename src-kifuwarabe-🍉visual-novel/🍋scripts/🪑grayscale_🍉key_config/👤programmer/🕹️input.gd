@@ -66,6 +66,22 @@ var key_process = {
 }
 
 
+func get_key_state(vk_name):
+	return self.key_state[vk_name]
+
+
+func set_key_state(vk_name, vk_state):
+	self.key_state[vk_name] = vk_state
+
+
+func get_key_process(vk_name):
+	return self.key_process[vk_name]
+
+
+func set_key_process(vk_name, vk_state):
+	self.key_process[vk_name] = vk_state
+
+
 # ーーーーーーーー
 # 毎フレーム処理
 # ーーーーーーーー
