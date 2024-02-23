@@ -52,7 +52,7 @@ static func search_node_in_folder(
 		set_found_node):
 	
 	if current_node.has_node(str(target_name)):
-		print("［検索］　現ノード名：❝" + current_node.name + "❞　ヒット：❝" + target_name + "❞")
+		#print("［検索］　現ノード名：❝" + current_node.name + "❞　ヒット：❝" + target_name + "❞")
 		# キャッシュに追加
 		set_found_node.call(
 				current_node.get_node(str(target_name)))
@@ -61,7 +61,7 @@ static func search_node_in_folder(
 	# `📂` で始まる子ノード名は、さらにその中も再帰的に探索されるものとする
 	for child_node in current_node.get_children():
 		if child_node.name.begins_with("📂"):
-			print("［検索］　子ノード名：❝" + child_node.name + "❞")
+			#print("［検索］　子ノード名：❝" + child_node.name + "❞")
 			MonkeyHelper.search_node_in_folder(
 					target_name,
 					child_node,
