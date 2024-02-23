@@ -77,7 +77,7 @@ func on_talked_2():
 
 	# 選択肢なら
 	if self.is_choices():
-		print("［伝言窓　”" + self.name + "”］　選択肢開始")
+		#print("［伝言窓　”" + self.name + "”］　選択肢開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		self.monkey().get_blinker_triangle(self.name).statemachine_of_end_of_message_blinker.decide()
 		self.monkey().get_blinker_underscore(self.name).statemachine_of_end_of_message_blinker.decide()
@@ -86,7 +86,7 @@ func on_talked_2():
 		self.monkey().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.think()
 	
 	else:
-		print("［伝言窓　”" + self.name + "”］　台詞開始")
+		#print("［伝言窓　”" + self.name + "”］　台詞開始")
 		# メッセージエンド・ブリンカー　状態機械［決めた］
 		self.monkey().get_choices_cursor(self.name).statemachine_of_end_of_message_blinker.decide()
 		
@@ -105,7 +105,7 @@ func on_page_forward():
 		self.monkey().of_staff().programmer().get_instruction_node(&"📗SoundFx").play_se("🔔選択肢確定音")
 
 		var row_number = self.get_row_number_of_choices()
-		print("［伝言窓　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
+		#print("［伝言窓　”" + self.name + "”］　選んだ選択肢行番号：［" + str(row_number) + "］")
 
 		# 選択肢の行番号を、上位ノードへエスカレーションします
 		self.monkey().of_staff().programmer().scenario_player_node().on_choice_selected(row_number)
@@ -114,7 +114,7 @@ func on_page_forward():
 		self.choices_row_numbers = null
 		
 	else:
-		print("［伝言窓　”" + self.name + "”］　ページ送り")
+		#print("［伝言窓　”" + self.name + "”］　ページ送り")
 
 		# 効果音
 		self.monkey().of_staff().programmer().get_instruction_node(&"📗SoundFx").play_se("🔔ページめくり音")
@@ -150,7 +150,7 @@ func on_all_characters_pushed():
 # 初期化
 #	ウィンドウが存在しない状態に戻します
 func on_all_pages_flushed():
-	print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
+	#print("［伝言窓　”" + self.name + "”］　オン・オール・ページズ・フィニッシュド］（非表示）")
 	var illust_a = self.monkey().of_staff().programmer().owner_node().images.find_node(self.name)
 
 	# テキストブロック
@@ -211,25 +211,43 @@ func _process(delta):
 				text_block_node.text += self.pop_head_of_text_block()
 			else:
 				# 完全表示中
-				print("［伝言窓　”" + self.name + "”］　プロセス　完全表示中だ")
+				#print("［伝言窓　”" + self.name + "”］　プロセス　完全表示中だ")
 				self.statemachine_of_message_window.all_characters_pushed()
 			
 			self.count_of_typewriter -= wait_time
 
 
 # 仮想キー入力時
-func on_virtual_key_input(virtual_key, lever_value, vk_operation):
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func on_virtual_key_input(
+		vk_name,
+		vk_state,
+		vk_occurence,
+		vk_during):
 
 	# 選択肢カーソル
-	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(virtual_key, lever_value, vk_operation)
+	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(
+			vk_name,
+			vk_state,
+			vk_occurence,
+			vk_during)
 
-	if virtual_key == &"VK_FastForward":
-		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
-		if vk_operation == &"VKO_Pressed":
+	if vk_name == &"VK_FastForward":
+		# 押下中のみ、メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
+		if vk_during == &"Pressing":
+			print("［伝言窓］　早送りボタン押下 vk_during:" + vk_during)
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = true
 
-		elif vk_operation == &"VKO_Released":
+		elif vk_during == &"Neutral":
+			print("［伝言窓］　早送りボタン解放 vk_during:" + vk_during)
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = false
+
+		else:
+			print("［伝言窓］　早送りボタン無視 vk_during:" + vk_during)
+			pass
 
 	# 完全表示中
 	if self.statemachine_of_message_window.is_completed():
@@ -238,45 +256,47 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		if self.is_choices():
 			
 			# 押下時
-			if vk_operation == &"VKO_Pressed":
+			if vk_occurence == &"Pressed":
 				
 				# TODO カーソルの上下もここにくる？
 
 				# 確定ボタン以外は無効
-				if virtual_key != &"VK_Ok":
-					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキーではないのでメッセージ送りしません")
+				if vk_name != &"VK_Ok":
+					#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキーではないのでメッセージ送りしません")
 					return
 					
 				else:
-					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキー　ページ送りする")
+					#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時　エンターキー　ページ送りする")
 					# 選択肢を確定した
 					# ページ送り
 					self.statemachine_of_message_window.page_forward()
 					return
 
 			else:
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時ではない")
+				#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時ではない")
+				pass
 		
 		# 通常テキストモードなら
 		else:
 			# 何かキーを押したとき
-			if vk_operation == &"VKO_Pressed":
+			if vk_occurence == &"Pressed":
 				
 				# ページ早送りボタンは無効
-				if virtual_key == &"VK_FastForward":
-					print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキーでは、メッセージ送りしません")
+				if vk_name == &"VK_FastForward":
+					#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキーでは、メッセージ送りしません")
 					return
 
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキー以外だ（" + virtual_key + "）　ページ送りする")
+				#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時　メッセージ早送りキー以外だ（" + vk_name + "）　ページ送りする")
 				# ページ送り
 				self.statemachine_of_message_window.page_forward()
 
 			else:
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
+				#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　選択肢ではない　押下時ではないから何もしない")
 				pass
 
 	else:
-		print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　完全表示中ではないから何もしない")
+		#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力　完全表示中ではないから何もしない")
+		pass
 
 
 # ーーーーーーーー
@@ -294,7 +314,7 @@ func set_visible_subtree(
 		visible_flag):			# bool
 
 	var illust_a = self.monkey().of_staff().programmer().owner_node().images.find_node(self.name)
-	print("［伝言窓　”" + self.name + "”］　現可視性：" + str(illust_a.visible) + "　次可視性：" + str(visible_flag))
+	#print("［伝言窓　”" + self.name + "”］　現可視性：" + str(illust_a.visible) + "　次可視性：" + str(visible_flag))
 
 	# 見せろ（true） という指示のとき、見えてれば（true） 、何もしない（pass）。
 	# 隠せ　（false）という指示のとき、見えてれば（true） 、隠す　　　（false）。
@@ -302,7 +322,7 @@ func set_visible_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if visible_flag != illust_a.visible:
 
-		print("［伝言窓　”" + self.name + "”］　可視性：" + str(visible_flag))
+		#print("［伝言窓　”" + self.name + "”］　可視性：" + str(visible_flag))
 
 		illust_a.visible = visible_flag
 		self.monkey().get_canvas_layer(self.name).visible = visible_flag
@@ -328,7 +348,7 @@ func set_process_subtree(
 	# 処理するな（false）という指示のとき、処理していなければ（false）、何もしない（pass）
 	if is_process != self.is_processing():
 
-		print("［伝言窓　”" + self.name + "”］　プロセッシング：" + str(is_process))
+		#print("［伝言窓　”" + self.name + "”］　プロセッシング：" + str(is_process))
 
 		self.set_process(is_process)
 
@@ -348,7 +368,7 @@ func set_appear_subtree(
 	# 隠せ　（false）という指示のとき、隠れてれば（false）、何もしない（pass）
 	if appear_flag != self.is_appear:
 
-		print("［伝言窓　”" + self.name + "”］　appear：" + str(appear_flag))
+		#print("［伝言窓　”" + self.name + "”］　appear：" + str(appear_flag))
 
 		var illust_a = self.monkey().of_staff().programmer().owner_node().images.find_node(self.name)
 		self.is_appear = appear_flag

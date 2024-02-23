@@ -84,4 +84,3 @@ func on_unhandled_input(event):
 	# ［シナリオで］状態
 	#elif self.monkey().owner_node().current_state == &"InScenario":
 	#	self.monkey().scenario_player().input_node().on_unhandled_input(event)
-

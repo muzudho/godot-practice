@@ -67,7 +67,7 @@ func of_staff():
 func get_message_window_name():
 	var temp = $"../..".name
 	temp = temp.substr("MessageWindow_".length())
-	print("［文末ブリンカー］　伝言窓名：［" + temp + "］")
+	#print("［文末ブリンカー］　伝言窓名：［" + temp + "］")
 	return StringName(temp)
 
 
@@ -157,7 +157,7 @@ func set_appear_subtree(appear_flag):
 # 初期化
 #	ウィンドウが消えている状態を想定しています。
 func on_none_the_end_of_message_blinker():
-	print("［文末ブリンカー　”MessageWindow_" + str(self.get_message_window_name()) + "/*/" + self.name + "］　オン・デサイデッド")
+	#print("［文末ブリンカー　”MessageWindow_" + str(self.get_message_window_name()) + "/*/" + self.name + "］　オン・デサイデッド")
 
 	# ブリンカーのスイッチ・オフ
 	self.statemachine_of_blinker.switch_off()
@@ -222,7 +222,7 @@ func calc_cursor_vector():
 
 # 選択肢カーソルを先頭へセットします
 func reset_cursor_position():
-	print("［選択肢カーソル］　先頭へリセット")
+	#print("［選択肢カーソル］　先頭へリセット")
 	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
 	message_window_gui.choices_index = 0
@@ -303,7 +303,15 @@ func _process(delta):
 
 
 # 仮想キー入力時
-func on_virtual_key_input(virtual_key, lever_value, vk_operation):
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func on_virtual_key_input(
+		vk_name,
+		vk_state,
+		vk_occurence,
+		vk_during):
 
 	# 一時的にどこかに消えているのなら処理しない
 	if not self.is_appear:
@@ -314,7 +322,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 		return
 
 	# 押下時
-	if vk_operation == &"VKO_Pressed":
+	if vk_occurence == &"Pressed":
 
 		var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
@@ -324,13 +332,13 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 			if 0.0 < self.total_seconds:
 				# 自動的にカーソルは移動中
 				pass
-				
+			
 			# 移動量が残ってないなら
 			else:
 				
 				# 手動でカーソルは移動開始
 				# 上へ移動する分
-				if self.monkey().of_staff().programmer().key_config_node().is_key_up(virtual_key, lever_value):
+				if self.monkey().of_staff().programmer().input_node().is_key_up(vk_name, vk_state):
 					#print("［選択肢カーソル］　上へ")
 
 					# カーソルは上へ移動できるか？
@@ -339,7 +347,7 @@ func on_virtual_key_input(virtual_key, lever_value, vk_operation):
 						self.on_cursor_up(message_window_gui.choices_index)
 					
 				# 下へ移動する分
-				elif self.monkey().of_staff().programmer().key_config_node().is_key_down(virtual_key, lever_value):
+				elif self.monkey().of_staff().programmer().input_node().is_key_down(vk_name, vk_state):
 					#print("［選択肢カーソル］　下へ")
 
 					if self.can_cursor_down():
@@ -364,11 +372,11 @@ func can_cursor_up():
 	var index = message_window_gui.choices_index
 
 	if 0 < index:
-		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できる")
+		#print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できる")
 		return true
 	
 	else:
-		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できない")
+		#print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できない")
 		return false
 
 
@@ -387,9 +395,12 @@ func can_cursor_down():
 		var can_down = 0 <= index and index + 1 < choice_size
 
 		if can_down:
-			print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できる")
+			#print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できる")
+			pass
+
 		else:
-			print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できない")
+			#print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できない")
+			pass
 
 		return can_down
 

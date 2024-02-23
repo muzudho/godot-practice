@@ -105,12 +105,16 @@ func on_process(delta):
 
 
 # 時計の動き
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
 func on_tick(
 		delta,
 		previous_virtual_key_name,
-		virtual_key_name):
+		vk_name):
 	self.monkey().internal_node().previous_virtual_key_name = previous_virtual_key_name
-	self.monkey().internal_node().virtual_key_name = virtual_key_name
+	self.monkey().internal_node().virtual_key_name = vk_name
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 	if self.monkey().statemachine_node().state == &"IntervalUntilPrompt":
@@ -147,12 +151,12 @@ func on_tick(
 
 	elif self.monkey().statemachine_node().state == &"InputOk":
 		# キャンセルボタン押下時
-		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.monkey().internal_node().button_number):
+		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.monkey().internal_node().button_symbol):
 			self.monkey().statemachine_node().try_inputting_again(&"CancelButtonPushed")
 			return
 
 		# 既存のキーと被る場合、やり直しさせる
-		if self.monkey().owner_key_config_node().is_key_duplicated(self.monkey().internal_node().button_number):
+		if self.monkey().owner_key_config_node().is_key_duplicated(self.monkey().internal_node().button_symbol):
 			self.monkey().statemachine_node().try_inputting_again(&"KeyDuplicated")
 			return
 		
