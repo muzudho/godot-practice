@@ -1,14 +1,14 @@
 [gd_scene load_steps=10 format=3 uid="uid://kqejd4uyxvtm"]
 
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/key_config.gd" id="1_031ms"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/internal.gd" id="2_0f1bx"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/clock.gd" id="2_bk854"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/monkey.gd" id="2_jup75"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/display.gd" id="3_e0fkj"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/statemachine.gd" id="3_enr71"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🕹️input/its.gd" id="4_16vn5"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🕹️input/parser.gd" id="5_74o1f"]
-[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/statemachine_behaviour.gd" id="7_iph6o"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/key_config.gd" id="1_031ms"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/internal.gd" id="2_0f1bx"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/clock.gd" id="2_bk854"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/monkey.gd" id="2_jup75"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/display.gd" id="3_e0fkj"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/statemachine.gd" id="3_enr71"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/🕹️input/its.gd" id="4_16vn5"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/🕹️input/parser.gd" id="5_74o1f"]
+[ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🎬🍉key_config/statemachine_behaviour.gd" id="7_iph6o"]
 
 [node name="🎬🍉KeyConfig" type="Node2D"]
 script = ExtResource("1_031ms")
