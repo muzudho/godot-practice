@@ -87,11 +87,11 @@ func _process(delta):
 	#print("［★プロセス］　delta:" + str(delta))
 
 	# 仮想キーの状態変化の解析
-	self.parse_key_process(&"VK_Ok")
-	self.parse_key_process(&"VK_Cancel")
-	self.parse_key_process(&"VK_FastForward")
-	self.parse_key_process(&"VK_Right")
-	self.parse_key_process(&"VK_Down")
+	self.process_virtual_key(&"VK_Ok")
+	self.process_virtual_key(&"VK_Cancel")
+	self.process_virtual_key(&"VK_FastForward")
+	self.process_virtual_key(&"VK_Right")
+	self.process_virtual_key(&"VK_Down")
 
 	# 拡張
 	self.extension_node().on_process(delta)
@@ -107,7 +107,8 @@ func _process(delta):
 # Parameters
 # ==========
 # * `vk_name` - Virtual key name
-func parse_key_process(vk_name):
+func process_virtual_key(vk_name):
+	# 状態変化はどうなったか？
 	var old_process = self.get_key_process(vk_name)
 	var abs_old_state = abs(self.get_key_state(vk_name))
 
@@ -151,6 +152,8 @@ func parse_key_process(vk_name):
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
+	self.on_key_changed(event)
+
 	# 拡張
 	self.extension_node().on_unhandled_key_input(event)
 
@@ -160,27 +163,24 @@ func _unhandled_key_input(event):
 #	X軸と Y軸は別々に飛んでくるので　使いにくい。斜め入力を判定するには `_process` の方を使う
 #
 func _unhandled_input(event):
-	# キー入力を受け取り、その状態を記憶します
-	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text())
-	var button_symbol = self.monkey().key_config().input_parser_node().get_button_symbol_by_text(event.as_text())
-	#print("［入力　シナリオ再生中の入力で］　button_symbol:" + str(button_symbol))
-
-	# Virtual key name
-	var vk_name = self.monkey().key_config_node().get_virtual_key_name_by_hardware_symbol(button_symbol)
-	#print("［入力　シナリオ再生中の入力で］　virtual_key_name:" + str(vk_name))
-
-	# レバーでなければ 0.0 を返す
-	var lever_value = self.monkey().key_config().input_parser_node().get_lever_value_by_text(event.as_text())
-	#print("［入力　シナリオ再生中の入力で］　lever_value:" + str(lever_value))
-
-	self.set_non_zero_key_state(vk_name, lever_value)
-
+	self.on_key_changed(event)
+	
 	# 拡張
 	self.extension_node().on_unhandled_input(event)
 
 
 # キー入力を受け取り、その状態を記憶します
-func set_non_zero_key_state(vk_name, lever_value):
+func on_key_changed(event):
+	# キー入力を受け取り、その状態を記憶します
+	var button_symbol = self.monkey().key_config().input_parser_node().get_button_symbol_by_text(event.as_text())
+
+	# Virtual key name
+	var vk_name = self.monkey().key_config_node().get_virtual_key_name_by_hardware_symbol(button_symbol)
+
+	# レバーでなければ 0.0 を返す
+	var lever_value = self.monkey().key_config().input_parser_node().get_lever_value_by_text(event.as_text())
+
+	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 
 	if vk_name == &"VK_Ok":
 		self.set_key_state(vk_name, 1)

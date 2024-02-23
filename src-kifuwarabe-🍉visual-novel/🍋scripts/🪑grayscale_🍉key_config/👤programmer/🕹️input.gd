@@ -72,7 +72,10 @@ func set_key_process(vk_name, vk_state):
 
 
 func is_process_changed(vk_name):
-	return self.key_record[vk_name][1] != self.key_record[vk_name][2]
+	var is_changed = self.key_record[vk_name][1] != self.key_record[vk_name][2]
+	if is_changed:
+		print("［状態変化］　previous:" + self.key_record[vk_name][2] + " current:" + self.key_record[vk_name][1])
+	return is_changed
 
 
 # ーーーーーーーー
@@ -86,12 +89,12 @@ func is_process_changed(vk_name):
 func _process(delta):
 	#print("［★プロセス］　delta:" + str(delta))
 
-	# 仮想キーの状態変化の解析
-	self.parse_key_process(&"VK_Ok")
-	self.parse_key_process(&"VK_Cancel")
-	self.parse_key_process(&"VK_FastForward")
-	self.parse_key_process(&"VK_Right")
-	self.parse_key_process(&"VK_Down")
+	# 仮想キーの［状態変化］の解析
+	self.process_virtual_key(&"VK_Ok")
+	self.process_virtual_key(&"VK_Cancel")
+	self.process_virtual_key(&"VK_FastForward")
+	self.process_virtual_key(&"VK_Right")
+	self.process_virtual_key(&"VK_Down")
 
 	# 拡張
 	self.extension_node().on_process(delta)
@@ -107,7 +110,7 @@ func _process(delta):
 # Parameters
 # ==========
 # * `vk_name` - Virtual key name
-func parse_key_process(vk_name):
+func process_virtual_key(vk_name):
 	var old_process = self.get_key_process(vk_name)
 	var abs_old_state = abs(self.get_key_state(vk_name))
 
@@ -127,6 +130,10 @@ func parse_key_process(vk_name):
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　解放状態から押下浮遊")
 			self.set_key_process(vk_name, &"Press?")
+		elif old_process == &"Released":
+			print("［入力解析］　解放確定からニュートラルへ")
+			self.set_key_process(vk_name, &"Neutral")
+
 
 	elif old_process == &"Pressed" || old_process == &"Pressing":
 		if 0 == abs_old_state:
@@ -135,6 +142,9 @@ func parse_key_process(vk_name):
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　押下状態から解放浮遊")
 			self.set_key_process(vk_name, &"Release?")
+		elif old_process == &"Pressed":
+			print("［入力解析］　押下確定から押しっぱなしへ")
+			self.set_key_process(vk_name, &"Pressing")
 
 
 # ーーーーーーーー
