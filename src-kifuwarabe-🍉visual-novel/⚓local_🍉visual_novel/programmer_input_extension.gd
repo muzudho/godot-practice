@@ -34,7 +34,8 @@ func on_process(_delta):
 # * `vk_name` - Virtual key name
 func parse_virtual_key_on_process_if_it_change(vk_name):
 	# 状態変化したか？
-	if self.owner_node().is_process_changed(vk_name):
+	var is_changed = self.owner_node().get_occurence(vk_name) != &"None"
+	if is_changed:
 		var vk_accepted_state = self.owner_node().get_accepted_key_state(vk_name)
 		var vk_previous_process = self.owner_node().get_previous_key_process(vk_name)
 		var vk_occurence = self.owner_node().get_occurence(vk_name)

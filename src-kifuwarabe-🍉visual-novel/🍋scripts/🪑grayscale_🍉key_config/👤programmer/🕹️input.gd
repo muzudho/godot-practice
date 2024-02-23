@@ -129,10 +129,6 @@ func set_previous_key_process(vk_name, vk_process):
 	self.key_record[vk_name][3] = vk_process
 
 
-func is_process_changed(vk_name):
-	return self.get_key_process(vk_name) != self.get_previous_key_process(vk_name)
-
-
 func update_key_process(vk_name, accepted_state, key_process):
 	self.set_accepted_key_state(vk_name, accepted_state)
 
