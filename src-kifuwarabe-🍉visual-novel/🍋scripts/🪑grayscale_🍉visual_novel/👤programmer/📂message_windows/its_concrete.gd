@@ -262,7 +262,8 @@ func on_virtual_key_input(
 					return
 
 			else:
-				print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時ではない")
+				#print("［伝言窓　”" + self.name + "”］　アンハンドルド・キー入力＞完全表示中＞選択肢＞押下時ではない")
+				pass
 		
 		# 通常テキストモードなら
 		else:
