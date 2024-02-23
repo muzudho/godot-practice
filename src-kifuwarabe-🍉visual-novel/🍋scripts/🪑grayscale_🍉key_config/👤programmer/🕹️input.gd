@@ -44,14 +44,7 @@ func extension_node():
 #			ボタン：　押していないとき 0、押しているとき 1
 #			レバー：　実数
 #
-#		TODO プロセスを廃止して、オカレンスとドゥ―リングを使いたい
-#		［２］　プロセス（Process；状態変化）。　値は以下の通り。初期値は &"Neutral" とする
-#			&"Release?"：　ボタン、レバー等から指を離して、押されている状態から、ホーム位置にある状態へ遷移している途中（省略されることがあります）
-#			&"Released"：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態に到達した最初のフレーム
-#			&"Neutral" ：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態で、その状態の２フレーム目以降
-#			&"Press?"  ：　ボタン、レバー等が、ホーム位置にあった状態から、押されている状態へ遷移している途中（省略されることがあります）
-#			&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
-#			&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
+#		［２］　廃止
 #
 #		［３］　廃止
 #
@@ -67,15 +60,15 @@ func extension_node():
 #
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
+	&"VK_Ok" : [0, 0, null, null, &"None", &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
+	&"VK_Cancel" : [0, 0, null, null, &"None", &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
+	&"VK_FastForward" : [0, 0, null, null, &"None", &"Neutral"],
 	# レバーの左右
-	&"VK_Right" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
+	&"VK_Right" : [0, 0, null, null, &"None", &"Neutral"],
 	# レバーの上下
-	&"VK_Down" : [0, 0, &"Neutral", null, &"None", &"Neutral"],
+	&"VK_Down" : [0, 0, null, null, &"None", &"Neutral"],
 }
 
 
@@ -109,11 +102,6 @@ func get_accepted_key_state(vk_name):
 
 func set_accepted_key_state(vk_name, vk_state):
 	self.key_record[vk_name][1] = vk_state
-
-
-# TODO 廃止方針
-func get_key_process(vk_name):
-	return self.key_record[vk_name][2]
 
 
 func update_key_process(vk_name, accepted_state):
