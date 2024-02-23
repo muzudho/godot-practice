@@ -119,17 +119,19 @@ func _process(delta):
 
 	# 拡張処理のあとに
 	# 仮想キーの状態変化の解析
-	self.process_virtual_key(&"VK_Ok")
-	self.process_virtual_key(&"VK_Cancel")
-	self.process_virtual_key(&"VK_FastForward")
-	self.process_virtual_key(&"VK_Right")
-	self.process_virtual_key(&"VK_Down")
+	self.process_by_virtual_key(&"VK_Ok")
+	self.process_by_virtual_key(&"VK_Cancel")
+	self.process_by_virtual_key(&"VK_FastForward")
+	self.process_by_virtual_key(&"VK_Right")
+	self.process_by_virtual_key(&"VK_Down")
 
 
+# 毎フレーム実行されます
+#
 # Parameters
 # ==========
 # * `vk_name` - Virtual key name
-func process_virtual_key(vk_name):
+func process_by_virtual_key(vk_name):
 	# 状態変化はどうなったか？
 	var plan_state = self.get_plan_key_state(vk_name)
 	var abs_plan_state = abs(plan_state)
@@ -162,9 +164,13 @@ func process_virtual_key(vk_name):
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Neutral")
 			return
+	
+	#elif vk_process == &"Neutral":
+	#	# 放しっぱなしなら、継続する
+	#	pass
 
 	elif vk_process == &"Pressed" || vk_process == &"Pressing":
-		# TODO 押しっぱなしなのに 0 になることがある？
+		# TODO 押しっぱなしにすると、最初の１回（Pressed）しかイベントが発生しない。２フレーム後には ボタン値は 0 にクリアーされてしまう
 		if 0 == abs_plan_state:
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
@@ -179,6 +185,10 @@ func process_virtual_key(vk_name):
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressing")
 			return
+	
+	#elif vk_process == &"Pressing":
+	#	# 押しっぱなしなら、継続する
+	#	pass
 
 	# 継続
 	self.update_key_process(vk_name, plan_state, vk_process)
@@ -246,8 +256,15 @@ func on_key_changed(event):
 				self.set_plan_key_state(vk_name, 0)
 		# レバーかも
 		else:
-			print("［入力解析　on_key_changed］　レバーを倒したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
-			self.set_plan_key_state(vk_name, lever_value)
+			if 1 <= abs(lever_value):
+				print("［入力解析　on_key_changed］　レバーを倒したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+				self.set_plan_key_state(vk_name, lever_value)
+			elif abs(lever_value) == 0:
+				print("［入力解析　on_key_changed］　レバーを元に戻したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+				self.set_plan_key_state(vk_name, lever_value)
+			else:
+				print("［入力解析　on_key_changed］　レバーをアナログ操作中か？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+				self.set_plan_key_state(vk_name, lever_value)
 	# キーボードのキーか？
 	else:
 		if event.is_pressed():
