@@ -332,13 +332,13 @@ func on_virtual_key_input(
 			if 0.0 < self.total_seconds:
 				# 自動的にカーソルは移動中
 				pass
-				
+			
 			# 移動量が残ってないなら
 			else:
 				
 				# 手動でカーソルは移動開始
 				# 上へ移動する分
-				if self.monkey().of_staff().programmer().key_config_node().is_key_up(vk_name, vk_state):
+				if self.monkey().of_staff().programmer().input_node().is_key_up(vk_name, vk_state):
 					#print("［選択肢カーソル］　上へ")
 
 					# カーソルは上へ移動できるか？
@@ -347,7 +347,7 @@ func on_virtual_key_input(
 						self.on_cursor_up(message_window_gui.choices_index)
 					
 				# 下へ移動する分
-				elif self.monkey().of_staff().programmer().key_config_node().is_key_down(vk_name, vk_state):
+				elif self.monkey().of_staff().programmer().input_node().is_key_down(vk_name, vk_state):
 					#print("［選択肢カーソル］　下へ")
 
 					if self.can_cursor_down():

@@ -31,7 +31,11 @@ func extension_node():
 #		- ［押しっぱなし］（Pressing）は検知できない
 #		- ［押下］後、次の［解放］までの期間を［押しっぱなし］と考える必要がある
 #		- ［放しっぱなし］も同様
-#	
+#
+#	レバー・ディレクション（Lever Direction；レバーの向き）について
+#		- [-1.0 ～ 1.0] の範囲があるが、ぴったり 0 になることは稀
+#		- 例えば (-0.2 ～ 0.2) を［解放］とするようなレンジが要る
+#
 #
 # 	キー：　プログラム内で決まりを作っておいてください。
 # 	値：　以下、それぞれ説明
@@ -65,10 +69,14 @@ var key_record = {
 	&"VK_Cancel" : [0, 0, null, null, &"None", &"Neutral"],
 	# メッセージ早送りボタン
 	&"VK_FastForward" : [0, 0, null, null, &"None", &"Neutral"],
-	# レバーの左右
+	# ボタンの右、または、レバーの左右
 	&"VK_Right" : [0, 0, null, null, &"None", &"Neutral"],
-	# レバーの上下
+	# ボタンの左
+	#&"VK_Left"	
+	# ボタンの下、または、レバーの上下
 	&"VK_Down" : [0, 0, null, null, &"None", &"Neutral"],
+	# ボタンの上
+	#&"VK_Up"
 }
 
 
@@ -109,6 +117,7 @@ func update_key_process(vk_name, accepted_state):
 
 	# 未設定にする
 	self.set_plan_key_state(vk_name, 0)
+	self.set_occurence(vk_name, &"None")
 
 
 # ーーーーーーーー
@@ -127,11 +136,11 @@ func _process(delta):
 
 	# 拡張処理のあとに
 	# 仮想キーの状態変化の解析
-	self.process_by_virtual_key(&"VK_Ok")
-	self.process_by_virtual_key(&"VK_Cancel")
-	self.process_by_virtual_key(&"VK_FastForward")
-	self.process_by_virtual_key(&"VK_Right")
-	self.process_by_virtual_key(&"VK_Down")
+	self.end_of_process_by_virtual_key(&"VK_Ok")
+	self.end_of_process_by_virtual_key(&"VK_Cancel")
+	self.end_of_process_by_virtual_key(&"VK_FastForward")
+	self.end_of_process_by_virtual_key(&"VK_Right")
+	self.end_of_process_by_virtual_key(&"VK_Down")
 
 
 # 毎フレーム実行されます
@@ -139,7 +148,7 @@ func _process(delta):
 # Parameters
 # ==========
 # * `vk_name` - Virtual key name
-func process_by_virtual_key(vk_name):
+func end_of_process_by_virtual_key(vk_name):
 	# 状態変化はどうなったか？
 	var plan_state = self.get_plan_key_state(vk_name)
 	var abs_plan_state = abs(plan_state)
@@ -261,8 +270,9 @@ func on_key_changed(event):
 				self.set_occurence(vk_name, &"Pressed")
 				self.set_during(vk_name, &"Pressing")
 				return
-				
-			elif abs(lever_value) == 0:
+			
+			# ぴったり 0 になることは難しいのでレンジで指定する
+			elif abs(lever_value) < 2:
 				print("［入力解析　on_key_changed］　レバーを元に戻したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
 				self.set_occurence(vk_name, &"Released")
@@ -293,4 +303,48 @@ func on_key_changed(event):
 
 	# 入力を検知できなかったなら
 	self.set_occurence(vk_name, &"None")
+
+
+# 上キーが入力されたか？
+#
+#	（レバーではなく）上キーと下キーに別々にボタンを設定しているケースがある
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+# * `vk_state` - Lever value
+func is_key_up(
+		vk_name,
+		vk_state):
+
+	if vk_name == &"VK_Up":
+		print("［キー入力］　上キー押下")
+		return true
+
+	if vk_name == &"VK_Down" and vk_state < 0:
+		print("［キー入力］　下キー押下、かつ　Ｙ軸レバーをマイナス方向に倒した")
+		return true
+
+	print("［キー入力］　上キー押下ではない。 vk_name:" + vk_name + " vk_state:" + str(vk_state))
+	return false
+
+
+# 下キーが入力されたか？
+#
+#	（レバーではなく）上キーと下キーに別々にボタンを設定しているケースがある
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+# * `vk_state` - Lever value
+func is_key_down(
+		vk_name,
+		vk_state):
+	
+	if vk_name == &"VK_Down" and 0 < vk_state:
+		print("［キー入力］　下キー押下、かつ　Ｙ軸レバーをプラス方向に倒した")
+		return true
+
+	print("［キー入力］　下キー押下ではない。 vk_name:" + vk_name + " vk_state:" + str(vk_state))
+	return false
 
