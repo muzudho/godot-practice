@@ -26,7 +26,6 @@ func monkey():
 func on_virtual_key_input(
 		vk_name,
 		vk_state,
-		vk_process,
 		vk_occurence,
 		vk_during):
 
@@ -34,19 +33,17 @@ func on_virtual_key_input(
 	if self.monkey().of_staff().programmer().department_controller_node().sub_monkey().input_node().on_virtual_key_input(
 			vk_name,
 			vk_state,
-			vk_process,
 			vk_occurence,
 			vk_during):
 		# 入力されたキーへの対処が完了したなら、処理を抜ける
 		return
 
 	# シナリオライター・ハブで　この入力をスルーしたなら、以降の処理を続ける
-	print("［台本再生機］　仮想キー（" + vk_name + "）　レバー値：" + str(vk_state) + "　操作：" + vk_process)
+	print("［台本再生機］　仮想キー（" + vk_name + "）　レバー値：" + str(vk_state) + "　vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
 
 	# メッセージ・ウィンドウへ渡す
 	self.monkey().of_programmer().scenario_player().get_current_message_window_gui_node().on_virtual_key_input(
 			vk_name,
 			vk_state,
-			vk_process,
 			vk_occurence,
 			vk_during)

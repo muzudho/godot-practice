@@ -225,7 +225,6 @@ func _process(delta):
 func on_virtual_key_input(
 		vk_name,
 		vk_state,
-		vk_process,
 		vk_occurence,
 		vk_during):
 
@@ -233,22 +232,21 @@ func on_virtual_key_input(
 	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(
 			vk_name,
 			vk_state,
-			vk_process,
 			vk_occurence,
 			vk_during)
 
 	if vk_name == &"VK_FastForward":
 		# 押下中のみ、メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
-		if vk_process == &"Pressed" || vk_process == &"Pressing":
-			print("［伝言窓］　早送りボタン押下　vk_process:" + vk_process)
+		if vk_during == &"Pressing":
+			print("［伝言窓］　早送りボタン押下 vk_during:" + vk_during)
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = true
 
-		elif vk_process == &"Released":
-			print("［伝言窓］　早送りボタン解放　vk_process:" + vk_process)
+		elif vk_during == &"Neutral":
+			print("［伝言窓］　早送りボタン解放 vk_during:" + vk_during)
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = false
 
 		else:
-			print("［伝言窓］　早送りボタン無視　vk_process:" + vk_process)
+			print("［伝言窓］　早送りボタン無視 vk_during:" + vk_during)
 			pass
 
 	# 完全表示中
@@ -258,7 +256,7 @@ func on_virtual_key_input(
 		if self.is_choices():
 			
 			# 押下時
-			if vk_process == &"Pressed":
+			if vk_occurence == &"Pressed":
 				
 				# TODO カーソルの上下もここにくる？
 
@@ -281,7 +279,7 @@ func on_virtual_key_input(
 		# 通常テキストモードなら
 		else:
 			# 何かキーを押したとき
-			if vk_process == &"Pressed":
+			if vk_occurence == &"Pressed":
 				
 				# ページ早送りボタンは無効
 				if vk_name == &"VK_FastForward":

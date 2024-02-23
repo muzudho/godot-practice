@@ -23,7 +23,6 @@ func monkey():
 func on_virtual_key_input(
 		vk_name,
 		vk_state,
-		vk_process,
 		vk_occurence,
 		vk_during):
 
@@ -32,7 +31,7 @@ func on_virtual_key_input(
 		var cur_department_name = self.monkey().of_staff().programmer().owner_node().current_department_name
 
 		# 現在のデパートメントに紐づく、項目は辞書に記載されているか？
-		if vk_process == &"Pressed" and cur_department_name in self.monkey().of_staff().scenario_writer().department_control_node().key_pressed_stage_directions:
+		if vk_occurence == &"Pressed" and cur_department_name in self.monkey().of_staff().scenario_writer().department_control_node().key_pressed_stage_directions:
 			
 			# その要素を取得
 			var key_pressed_stage_directions_1 = self.monkey().of_staff().scenario_writer().department_control_node().key_pressed_stage_directions[cur_department_name]

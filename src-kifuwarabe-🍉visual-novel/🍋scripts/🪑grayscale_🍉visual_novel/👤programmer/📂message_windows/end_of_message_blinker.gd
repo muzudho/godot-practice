@@ -310,7 +310,6 @@ func _process(delta):
 func on_virtual_key_input(
 		vk_name,
 		vk_state,
-		vk_process,
 		vk_occurence,
 		vk_during):
 
@@ -323,7 +322,7 @@ func on_virtual_key_input(
 		return
 
 	# 押下時
-	if vk_process == &"Pressed":
+	if vk_occurence == &"Pressed":
 
 		var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
