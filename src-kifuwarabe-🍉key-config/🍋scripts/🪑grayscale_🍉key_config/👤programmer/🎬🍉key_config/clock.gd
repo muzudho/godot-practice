@@ -105,12 +105,16 @@ func on_process(delta):
 
 
 # 時計の動き
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
 func on_tick(
 		delta,
 		previous_virtual_key_name,
-		virtual_key_name):
+		vk_name):
 	self.monkey().internal_node().previous_virtual_key_name = previous_virtual_key_name
-	self.monkey().internal_node().virtual_key_name = virtual_key_name
+	self.monkey().internal_node().virtual_key_name = vk_name
 	
 	# 起動直後に　レバーが入った状態で始まることがあるから、最初は、入力を数フレーム無視するウェイトから始めること
 	if self.monkey().statemachine_node().state == &"IntervalUntilPrompt":

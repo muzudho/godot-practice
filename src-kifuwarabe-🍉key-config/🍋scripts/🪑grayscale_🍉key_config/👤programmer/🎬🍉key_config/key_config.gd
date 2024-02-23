@@ -125,19 +125,23 @@ func get_virtual_key_name_by_hardware_symbol(button_symbol):
 # 上キーが入力されたか？
 func is_key_up_by_text(event_as_text):
 	var button_symbol = self.get_button_symbol_by_text(event_as_text)
-	var virtual_key_name = self.get_virtual_key_name_by_hardware_symbol(button_symbol)
+	var vk_name = self.get_virtual_key_name_by_hardware_symbol(button_symbol)
 	var lever_value = self.get_lever_value_by_text(event_as_text)
 	
-	return self.is_key_up(virtual_key_name, lever_value)
+	return self.is_key_up(vk_name, lever_value)
 
 
 # 上キーが入力されたか？
-func is_key_up(virtual_key_name, lever_value):
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func is_key_up(vk_name, lever_value):
 
-	if virtual_key_name == &"VK_Up":
+	if vk_name == &"VK_Up":
 		return true
 
-	if virtual_key_name == &"VK_Down" and lever_value < 0:
+	if vk_name == &"VK_Down" and lever_value < 0:
 		return true
 
 	return false
@@ -146,12 +150,12 @@ func is_key_up(virtual_key_name, lever_value):
 # 下キーが入力されたか？
 func is_key_down_by_text(event_as_text):
 	var button_symbol = self.get_button_symbol_by_text(event_as_text)
-	var virtual_key_name = self.get_virtual_key_name_by_hardware_symbol(button_symbol)
+	var vk_name = self.get_virtual_key_name_by_hardware_symbol(button_symbol)
 	var lever_value = self.get_lever_value_by_text(event_as_text)
 	
-	return self.is_key_down(virtual_key_name, lever_value)
+	return self.is_key_down(vk_name, lever_value)
 
 
 # 下キーが入力されたか？
-func is_key_down(virtual_key_name, lever_value):
-	return virtual_key_name == &"VK_Down" and 0 <= lever_value
+func is_key_down(vk_name, lever_value):
+	return vk_name == &"VK_Down" and 0 <= lever_value

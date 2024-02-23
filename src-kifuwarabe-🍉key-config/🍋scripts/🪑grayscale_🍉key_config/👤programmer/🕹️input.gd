@@ -36,19 +36,21 @@ func extension_node():
 #			&"Press?"  ：　ボタン、レバー等が、ホーム位置にあった状態から、押されている状態へ遷移している途中（省略されることがあります）
 #			&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
 #			&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
-#			
+#
+#		［２］　 プレビアス・プロセス（Previous process；１つ前のプロセス）
+#
 #
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, &"Neutral"],
+	&"VK_Ok" : [0, &"Neutral", &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, &"Neutral"],
+	&"VK_Cancel" : [0, &"Neutral", &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, &"Neutral"],
+	&"VK_FastForward" : [0, &"Neutral", &"Neutral"],
 	# レバーの左右
-	&"VK_Right" : [0, &"Neutral"],
+	&"VK_Right" : [0, &"Neutral", &"Neutral"],
 	# レバーの上下
-	&"VK_Down" : [0, &"Neutral"],
+	&"VK_Down" : [0, &"Neutral", &"Neutral"],
 }
 
 
@@ -65,7 +67,12 @@ func get_key_process(vk_name):
 
 
 func set_key_process(vk_name, vk_state):
+	self.key_record[vk_name][2] = self.key_record[vk_name][1]
 	self.key_record[vk_name][1] = vk_state
+
+
+func is_process_changed(vk_name):
+	return self.key_record[vk_name][1] != self.key_record[vk_name][2]
 
 
 # ーーーーーーーー
@@ -97,34 +104,37 @@ func _process(delta):
 	self.set_key_state(&"VK_Down", 0)
 
 
-func parse_key_process(virtual_key_name):
-	var old_process = self.get_key_process(virtual_key_name)
-	var abs_old_state = abs(self.get_key_state(virtual_key_name))
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func parse_key_process(vk_name):
+	var old_process = self.get_key_process(vk_name)
+	var abs_old_state = abs(self.get_key_state(vk_name))
 
 	# 押すか、放すか、どちらかに達するまで維持します
 	if old_process == &"Release?" || old_process == &"Press?":
 		if 1 <= abs_old_state:
 			print("［入力解析］　浮遊状態から押下確定")
-			self.set_key_process(virtual_key_name, &"Pressed")
+			self.set_key_process(vk_name, &"Pressed")
 		elif 0 == abs_old_state:
 			print("［入力解析］　浮遊状態から解放確定")
-			self.set_key_process(virtual_key_name, &"Released")
+			self.set_key_process(vk_name, &"Released")
 
 	elif old_process == &"Released" || old_process == &"Neutral":
 		if 1 <= abs_old_state:
 			print("［入力解析］　解放状態から押下確定")
-			self.set_key_process(virtual_key_name, &"Pressed")
+			self.set_key_process(vk_name, &"Pressed")
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　解放状態から押下浮遊")
-			self.set_key_process(virtual_key_name, &"Press?")
+			self.set_key_process(vk_name, &"Press?")
 
 	elif old_process == &"Pressed" || old_process == &"Pressing":
 		if 0 == abs_old_state:
 			print("［入力解析］　押下状態から解放確定")
-			self.set_key_process(virtual_key_name, &"Released")
+			self.set_key_process(vk_name, &"Released")
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　押下状態から解放浮遊")
-			self.set_key_process(virtual_key_name, &"Release?")
+			self.set_key_process(vk_name, &"Release?")
 
 
 # ーーーーーーーー
