@@ -37,3 +37,8 @@ func input_node():
 # キー・コンフィグ取得
 func key_config_node():
 	return self.owner_node().get_node("🎬🍉KeyConfig")
+
+
+# キー・コンフィグの猿取得
+func key_config():
+	return self.owner_node().get_node("🎬🍉KeyConfig/🐵Monkey")
