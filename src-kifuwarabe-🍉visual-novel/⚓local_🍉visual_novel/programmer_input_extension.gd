@@ -34,8 +34,8 @@ func on_process(_delta):
 # * `vk_name` - Virtual key name
 func parse_virtual_key_on_process(vk_name):
 	# まず、ボタンの押下状態を確認
-	var vk_state = self.owner_node().key_state[vk_name]
-	var vk_process = self.owner_node().key_process[vk_name]
+	var vk_state = self.owner_node().get_key_state(vk_name)
+	var vk_process = self.owner_node().get_key_process(vk_name)
 
 	# 仮想キーを押下したという建付け
 	self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(

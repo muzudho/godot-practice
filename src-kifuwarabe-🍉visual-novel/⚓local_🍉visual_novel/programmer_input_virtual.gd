@@ -44,25 +44,29 @@ func owner_node():
 #},
 
 # 仮想キー（ボタン）の入力をさばく
-func parse_virtual_button_input(virtual_key_name, paragraph_obj):
+#
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func parse_virtual_button_input(vk_name, paragraph_obj):
 	
 	# まず、ボタンの押下状態を確認
-	var button_process = self.key_process[virtual_key_name]
+	var button_process = self.owner_node().get_key_process(vk_name)
 
 	# 押下されており、段落にも記述があるなら	
-	if button_process == &"Pressed" && virtual_key_name in paragraph_obj:
-		#print("［入力　シナリオ再生中の入力で］　［" + str(virtual_key_name) + "］ボタン押下。段落：" + str(paragraph_obj) + "の中に見つかりました")
+	if button_process == &"Pressed" && vk_name in paragraph_obj:
+		#print("［入力　シナリオ再生中の入力で］　［" + str(vk_name) + "］ボタン押下。段落：" + str(paragraph_obj) + "の中に見つかりました")
 		
-		var target = paragraph_obj[virtual_key_name]
+		var target = paragraph_obj[vk_name]
 		
 		if target != &"":
-			print("［入力　シナリオ再生中の入力で］　［" + str(virtual_key_name) + "］ボタン押下。［" + str(target) + "］へ飛ぶ")
+			print("［入力　シナリオ再生中の入力で］　［" + str(vk_name) + "］ボタン押下。［" + str(target) + "］へ飛ぶ")
 			self.monkey().of_staff().programmer().get_instruction_node(&"📗Goto").goto(target)
 			# ［シナリオで］状態に戻す
 			self.monkey().owner_node().current_state = &"InScenario"
 		
 	#else:
-	#	print("［入力　シナリオ再生中の入力で］　入力：" + str(virtual_key_name) + " は、選択肢：" + str(paragraph_obj) + "の中に見つかりませんでした")
+	#	print("［入力　シナリオ再生中の入力で］　入力：" + str(vk_name) + " は、選択肢：" + str(paragraph_obj) + "の中に見つかりませんでした")
 
 
 # 仮想キー（レバー）の入力をさばく
@@ -70,7 +74,7 @@ func parse_virtual_lever_input(paragraph_obj):
 	var target = paragraph_obj
 	
 	# まず、上下を確認
-	var down_lever_value = self.key_state[&"VK_Down"]
+	var down_lever_value = self.owner_node().get_key_state(&"VK_Down")
 	
 	# 上下方向に入力があり、段落にも上下方向の記述があるか？
 	if 0 != down_lever_value && &"VK_Down" in target:
@@ -108,7 +112,7 @@ func parse_virtual_lever_input(paragraph_obj):
 	if typeof(target) == TYPE_DICTIONARY:
 
 		# 次に、左右を確認
-		var right_lever_value = self.key_state[&"VK_Right"]
+		var right_lever_value = self.owner_node().get_key_state(&"VK_Right")
 
 		# 左右方向には入力が無いか？
 		if 0 == right_lever_value:

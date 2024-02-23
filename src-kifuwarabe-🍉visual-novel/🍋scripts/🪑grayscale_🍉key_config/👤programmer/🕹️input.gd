@@ -20,66 +20,59 @@ func extension_node():
 # メモリ関連
 # ーーーーーーーー
 
-# 仮想キーのこの瞬間の入力状態
+# 仮想キー辞書
 #
 # 	キー：　プログラム内で決まりを作っておいてください。
-# 	値：
-#		ボタン：　押していないとき 0、押しているとき 1
-#		レバー：　実数
+# 	値：　以下、それぞれ説明
 #
-var key_state = {
+#		［０］　ステート（State；状態）。　仮想キーのこの瞬間の入力状態
+#			ボタン：　押していないとき 0、押しているとき 1
+#			レバー：　実数
+#
+#		［１］　プロセス（Process；状態変化）。　値は以下の通り。初期値は &"Neutral" とする
+#			&"Release?"：　ボタン、レバー等から指を離して、押されている状態から、ホーム位置にある状態へ遷移している途中（省略されることがあります）
+#			&"Released"：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態に到達した最初のフレーム
+#			&"Neutral" ：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態で、その状態の２フレーム目以降
+#			&"Press?"  ：　ボタン、レバー等が、ホーム位置にあった状態から、押されている状態へ遷移している途中（省略されることがあります）
+#			&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
+#			&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
+#
+#		［２］　 プレビアス・プロセス（Previous process；１つ前のプロセス）
+#
+#
+var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : 0,
+	&"VK_Ok" : [0, &"Neutral", &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : 0,
+	&"VK_Cancel" : [0, &"Neutral", &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : 0,
+	&"VK_FastForward" : [0, &"Neutral", &"Neutral"],
 	# レバーの左右
-	&"VK_Right" : 0,
+	&"VK_Right" : [0, &"Neutral", &"Neutral"],
 	# レバーの上下
-	&"VK_Down" : 0,
-}
-
-# 仮想キーの入力状態の変化の種類
-#
-# 	キー：　プログラム内で決まりを作っておいてください。
-#	値：
-#		&"Release?"：　ボタン、レバー等から指を離して、押されている状態から、ホーム位置にある状態へ遷移している途中（省略されることがあります）
-#		&"Released"：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態に到達した最初のフレーム
-#		&"Neutral" ：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態で、その状態の２フレーム目以降
-#		&"Press?"  ：　ボタン、レバー等が、ホーム位置にあった状態から、押されている状態へ遷移している途中（省略されることがあります）
-#		&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
-#		&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
-#		初期値は &"Neutral" とする
-#
-var key_process = {
-	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : &"Neutral",
-	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : &"Neutral",
-	# メッセージ早送りボタン
-	&"VK_FastForward" : &"Neutral",
-	# レバーの左右
-	&"VK_Right" : &"Neutral",
-	# レバーの上下
-	&"VK_Down" : &"Neutral",
+	&"VK_Down" : [0, &"Neutral", &"Neutral"],
 }
 
 
 func get_key_state(vk_name):
-	return self.key_state[vk_name]
+	return self.key_record[vk_name][0]
 
 
 func set_key_state(vk_name, vk_state):
-	self.key_state[vk_name] = vk_state
+	self.key_record[vk_name][0] = vk_state
 
 
 func get_key_process(vk_name):
-	return self.key_process[vk_name]
+	return self.key_record[vk_name][1]
 
 
 func set_key_process(vk_name, vk_state):
-	self.key_process[vk_name] = vk_state
+	self.key_record[vk_name][2] = self.key_record[vk_name][1]
+	self.key_record[vk_name][1] = vk_state
+
+
+func is_process_changed(vk_name):
+	return self.key_record[vk_name][1] != self.key_record[vk_name][2]
 
 
 # ーーーーーーーー
@@ -102,43 +95,46 @@ func _process(delta):
 
 	# 拡張
 	self.extension_node().on_process(delta)
-	
+
 	# 仮想キーの入力状態のクリアー
-	self.key_state[&"VK_Ok"] = 0
-	self.key_state[&"VK_Cancel"] = 0
-	self.key_state[&"VK_FastForward"] = 0
-	self.key_state[&"VK_Right"] = 0
-	self.key_state[&"VK_Down"] = 0
+	self.set_key_state(&"VK_Ok", 0)
+	self.set_key_state(&"VK_Cancel", 0)
+	self.set_key_state(&"VK_FastForward", 0)
+	self.set_key_state(&"VK_Right", 0)
+	self.set_key_state(&"VK_Down", 0)
 
 
-func parse_key_process(virtual_key_name):
-	var old_process = self.key_process[virtual_key_name]
-	var abs_old_state = abs(self.key_state[virtual_key_name])
+# Parameters
+# ==========
+# * `vk_name` - Virtual key name
+func parse_key_process(vk_name):
+	var old_process = self.get_key_process(vk_name)
+	var abs_old_state = abs(self.get_key_state(vk_name))
 
 	# 押すか、放すか、どちらかに達するまで維持します
 	if old_process == &"Release?" || old_process == &"Press?":
 		if 1 <= abs_old_state:
 			print("［入力解析］　浮遊状態から押下確定")
-			self.key_process[virtual_key_name] = &"Pressed"
+			self.set_key_process(vk_name, &"Pressed")
 		elif 0 == abs_old_state:
 			print("［入力解析］　浮遊状態から解放確定")
-			self.key_process[virtual_key_name] = &"Released"
-	
+			self.set_key_process(vk_name, &"Released")
+
 	elif old_process == &"Released" || old_process == &"Neutral":
 		if 1 <= abs_old_state:
 			print("［入力解析］　解放状態から押下確定")
-			self.key_process[virtual_key_name] = &"Pressed"
+			self.set_key_process(vk_name, &"Pressed")
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　解放状態から押下浮遊")
-			self.key_process[virtual_key_name] = &"Press?"
-	
+			self.set_key_process(vk_name, &"Press?")
+
 	elif old_process == &"Pressed" || old_process == &"Pressing":
 		if 0 == abs_old_state:
 			print("［入力解析］　押下状態から解放確定")
-			self.key_process[virtual_key_name] = &"Released"
+			self.set_key_process(vk_name, &"Released")
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　押下状態から解放浮遊")
-			self.key_process[virtual_key_name] = &"Release?"
+			self.set_key_process(vk_name, &"Release?")
 
 
 # ーーーーーーーー
@@ -150,9 +146,6 @@ func parse_key_process(virtual_key_name):
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
-	# 入力状態の更新
-	self.set_non_zero_key_state(event)
-	
 	# 拡張
 	self.extension_node().on_unhandled_key_input(event)
 
@@ -162,15 +155,6 @@ func _unhandled_key_input(event):
 #	X軸と Y軸は別々に飛んでくるので　使いにくい。斜め入力を判定するには `_process` の方を使う
 #
 func _unhandled_input(event):
-	# 入力状態の更新
-	self.set_non_zero_key_state(event)
-
-	# 拡張
-	self.extension_node().on_unhandled_input(event)
-
-
-# キー入力を受け取り、その状態を記憶します
-func set_non_zero_key_state(event):
 	# キー入力を受け取り、その状態を記憶します
 	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text())
 	var button_symbol = self.monkey().key_config().input_parser_node().get_button_symbol_by_text(event.as_text())
@@ -184,17 +168,26 @@ func set_non_zero_key_state(event):
 	var lever_value = self.monkey().key_config().input_parser_node().get_lever_value_by_text(event.as_text())
 	#print("［入力　シナリオ再生中の入力で］　lever_value:" + str(lever_value))
 
+	self.set_non_zero_key_state(vk_name, lever_value)
+
+	# 拡張
+	self.extension_node().on_unhandled_input(event)
+
+
+# キー入力を受け取り、その状態を記憶します
+func set_non_zero_key_state(vk_name, lever_value):
+
 	if vk_name == &"VK_Ok":
-		self.key_state[vk_name] = 1
+		self.set_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_Cancel":
-		self.key_state[vk_name] = 1
+		self.set_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_FastForward":
-		self.key_state[vk_name] = 1
+		self.set_key_state(vk_name, 1)
 
 	elif vk_name == &"VK_Right":
-		self.key_state[vk_name] = lever_value
+		self.set_key_state(vk_name, lever_value)
 
 	elif vk_name == &"VK_Down":
-		self.key_state[vk_name] = lever_value
+		self.set_key_state(vk_name, lever_value)
