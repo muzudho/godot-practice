@@ -61,20 +61,23 @@ func extension_node():
 #			&"Neutral"：		［解放］を検知したあと、まだ［押下］を検知していない間
 #			&"Pressing"：	［押下］を検知したあと、まだ［解放］を検知していない間
 #
+#		［６］　ステート
+#			ボタン：　整数。［解放］のとき 0、 ［押下］のとき 1、 何もしていないとき、前の値を維持
+#			レバー：　実数。-1.0 ～ 1.0。 何もしていないとき、前の値を維持
 #
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, 0, null, null, &"None", &"Neutral"],
+	&"VK_Ok" : [0, 0, null, null, &"None", &"Neutral", 0.0],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, 0, null, null, &"None", &"Neutral"],
+	&"VK_Cancel" : [0, 0, null, null, &"None", &"Neutral", 0.0],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, 0, null, null, &"None", &"Neutral"],
+	&"VK_FastForward" : [0, 0, null, null, &"None", &"Neutral", 0.0],
 	# ボタンの右、または、レバーの左右
-	&"VK_Right" : [0, 0, null, null, &"None", &"Neutral"],
+	&"VK_Right" : [0, 0, null, null, &"None", &"Neutral", 0.0],
 	# ボタンの左
 	#&"VK_Left"	
 	# ボタンの下、または、レバーの上下
-	&"VK_Down" : [0, 0, null, null, &"None", &"Neutral"],
+	&"VK_Down" : [0, 0, null, null, &"None", &"Neutral", 0.0],
 	# ボタンの上
 	#&"VK_Up"
 }
@@ -94,6 +97,14 @@ func get_during(vk_name):
 
 func set_during(vk_name, value):
 	self.key_record[vk_name][5] = value
+
+
+func get_state(vk_name):
+	return self.key_record[vk_name][6]
+
+
+func set_state(vk_name, value):
+	self.key_record[vk_name][6] = value
 
 
 func get_plan_key_state(vk_name):
@@ -251,6 +262,7 @@ func on_key_changed(event):
 			if event.is_pressed():
 				print("［入力解析　on_key_changed］ ボタンを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, 1)
+				self.set_state(vk_name, 1)
 				self.set_occurence(vk_name, &"Pressed")
 				self.set_during(vk_name, &"Pressing")
 				return
@@ -258,6 +270,7 @@ func on_key_changed(event):
 			elif event.is_released():
 				print("［入力解析　on_key_changed］　ボタンを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, 0)
+				self.set_state(vk_name, 0)
 				self.set_occurence(vk_name, &"Released")
 				self.set_during(vk_name, &"Neutral")
 				return
@@ -267,14 +280,16 @@ func on_key_changed(event):
 			if 1 <= abs(lever_value):
 				print("［入力解析　on_key_changed］　レバーを倒したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
+				self.set_state(vk_name, lever_value)
 				self.set_occurence(vk_name, &"Pressed")
 				self.set_during(vk_name, &"Pressing")
 				return
 			
 			# ぴったり 0 になることは難しいのでレンジで指定する
-			elif abs(lever_value) < 2:
+			elif abs(lever_value) < 0.2:
 				print("［入力解析　on_key_changed］　レバーを元に戻したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
+				self.set_state(vk_name, lever_value)
 				self.set_occurence(vk_name, &"Released")
 				self.set_during(vk_name, &"Neutral")
 				return
@@ -282,6 +297,7 @@ func on_key_changed(event):
 			else:
 				print("［入力解析　on_key_changed］　レバーをアナログ操作中か？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
+				self.set_state(vk_name, lever_value)
 				# 状態はキープ
 				return
 				
@@ -290,6 +306,7 @@ func on_key_changed(event):
 		if event.is_pressed():
 			print("［入力解析　on_key_changed］　キーボードのキーを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, 1)
+			self.set_state(vk_name, 1)
 			self.set_occurence(vk_name, &"Pressed")
 			self.set_during(vk_name, &"Pressing")
 			return
@@ -297,12 +314,14 @@ func on_key_changed(event):
 		elif event.is_released():
 			print("［入力解析　on_key_changed］　キーボードのキーを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, 0)
+			self.set_state(vk_name, 0)
 			self.set_occurence(vk_name, &"Released")
 			self.set_during(vk_name, &"Neutral")
 			return
 
 	# 入力を検知できなかったなら
 	self.set_occurence(vk_name, &"None")
+	# その他は維持
 
 
 # 上キーが入力されたか？
