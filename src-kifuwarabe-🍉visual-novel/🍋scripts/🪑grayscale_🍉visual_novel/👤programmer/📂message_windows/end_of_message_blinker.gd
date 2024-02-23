@@ -222,7 +222,7 @@ func calc_cursor_vector():
 
 # 選択肢カーソルを先頭へセットします
 func reset_cursor_position():
-	print("［選択肢カーソル］　先頭へリセット")
+	#print("［選択肢カーソル］　先頭へリセット")
 	var message_window_gui = self.monkey().of_staff().programmer().scenario_player().get_current_message_window_gui_node()
 
 	message_window_gui.choices_index = 0
@@ -371,11 +371,11 @@ func can_cursor_up():
 	var index = message_window_gui.choices_index
 
 	if 0 < index:
-		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できる")
+		#print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できる")
 		return true
 	
 	else:
-		print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できない")
+		#print("［選択肢カーソル］　現在インデックス：" + str(index) + "　上へ移動できない")
 		return false
 
 
@@ -394,9 +394,12 @@ func can_cursor_down():
 		var can_down = 0 <= index and index + 1 < choice_size
 
 		if can_down:
-			print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できる")
+			#print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できる")
+			pass
+
 		else:
-			print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できない")
+			#print("［選択肢カーソル］　選択肢数：" + str(choice_size) + "　現在インデックス：" + str(index) + "　下へ移動できない")
+			pass
 
 		return can_down
 

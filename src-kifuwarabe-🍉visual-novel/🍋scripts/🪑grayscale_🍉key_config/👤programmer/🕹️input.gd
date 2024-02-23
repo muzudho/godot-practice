@@ -138,42 +138,45 @@ func process_virtual_key(vk_name):
 	# 押すか、放すか、どちらかに達するまで維持します
 	if vk_process == &"Release?" || vk_process == &"Press?":
 		if 1 <= abs_plan_state:
-			print("［入力解析］　浮遊状態から押下確定")
+			print("［入力解析］　［" + vk_name +"］キーについて、浮遊状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
 			return
 		
 		if 0 == abs_plan_state:
-			print("［入力解析］　浮遊状態から解放確定")
+			print("［入力解析］　［" + vk_name +"］キーについて、浮遊状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
 			return
 
 	elif vk_process == &"Released" || vk_process == &"Neutral":
 		if 1 <= abs_plan_state:
-			print("［入力解析］　解放状態から押下確定")
+			print("［入力解析］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
 			return
 		
 		if 0 < abs_plan_state && abs_plan_state < 1:
-			print("［入力解析］　解放状態から押下浮遊")
+			print("［入力解析］　［" + vk_name +"］キーについて、解放状態から押下浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Press?")
 			return
 		
 		if vk_process == &"Released":
+			print("［入力解析］　［" + vk_name +"］キーについて、解放からニュートラルへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Neutral")
 			return
 
 	elif vk_process == &"Pressed" || vk_process == &"Pressing":
+		# TODO 押しっぱなしなのに 0 になることがある？
 		if 0 == abs_plan_state:
-			print("［入力解析］　押下状態から解放確定")
+			print("［入力解析］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
 			return
 			
 		if 0 < abs_plan_state && abs_plan_state < 1:
-			print("［入力解析］　押下状態から解放浮遊")
+			print("［入力解析］　［" + vk_name +"］キーについて、押下状態から解放浮遊　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Release?")
 			return
 			
 		if vk_process == &"Pressed":
+			print("［入力解析］　［" + vk_name +"］キーについて、押下から押しっぱなしへ　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressing")
 			return
 
