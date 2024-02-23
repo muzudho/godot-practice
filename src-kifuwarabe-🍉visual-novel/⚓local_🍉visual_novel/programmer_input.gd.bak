@@ -220,61 +220,6 @@ func parse_virtual_lever_input(paragraph_obj):
 # 毎フレーム処理
 # ーーーーーーーー
 
-# 毎フレーム実行されるので、処理は軽くしたい
-#
-# 	入力されたキーが複数ある場合、 `_unhandled_input` が全部終わってから `_process` が呼出されることを期待する
-#
-func _process(delta):
-	#print("［★プロセス］　delta:" + str(delta))
-
-	# 仮想キーの状態変化の解析
-	self.parse_key_process(&"VK_Ok")
-	self.parse_key_process(&"VK_Cancel")
-	self.parse_key_process(&"VK_FastForward")
-	self.parse_key_process(&"VK_Right")
-	self.parse_key_process(&"VK_Down")
-
-	# 拡張
-	self.extension_node().on_process(delta)
-	
-	# 仮想キーの入力状態のクリアー
-	self.key_state[&"VK_Ok"] = 0
-	self.key_state[&"VK_Cancel"] = 0
-	self.key_state[&"VK_FastForward"] = 0
-	self.key_state[&"VK_Right"] = 0
-	self.key_state[&"VK_Down"] = 0
-
-
-func parse_key_process(virtual_key_name):
-	var old_process = self.key_process[virtual_key_name]
-	var abs_old_state = abs(self.key_state[virtual_key_name])
-
-	# 押すか、放すか、どちらかに達するまで維持します
-	if old_process == &"Release?" || old_process == &"Press?":
-		if 1 <= abs_old_state:
-			print("［入力解析］　浮遊状態から押下確定")
-			self.key_process[virtual_key_name] = &"Pressed"
-		elif 0 == abs_old_state:
-			print("［入力解析］　浮遊状態から解放確定")
-			self.key_process[virtual_key_name] = &"Released"
-	
-	elif old_process == &"Released" || old_process == &"Neutral":
-		if 1 <= abs_old_state:
-			print("［入力解析］　解放状態から押下確定")
-			self.key_process[virtual_key_name] = &"Pressed"
-		elif 0 < abs_old_state && abs_old_state < 1:
-			print("［入力解析］　解放状態から押下浮遊")
-			self.key_process[virtual_key_name] = &"Press?"
-	
-	elif old_process == &"Pressed" || old_process == &"Pressing":
-		if 0 == abs_old_state:
-			print("［入力解析］　押下状態から解放確定")
-			self.key_process[virtual_key_name] = &"Released"
-		elif 0 < abs_old_state && abs_old_state < 1:
-			print("［入力解析］　押下状態から解放浮遊")
-			self.key_process[virtual_key_name] = &"Release?"
-
-
 # ーーーーーーーー
 # 入力
 # ーーーーーーーー

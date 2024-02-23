@@ -1,3 +1,4 @@
+# from 🍉KeyConfig
 # インプット（Input；入力）
 extends Node
 
