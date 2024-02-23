@@ -51,10 +51,10 @@ func owner_node():
 func parse_virtual_button_input(vk_name, paragraph_obj):
 	
 	# まず、ボタンの押下状態を確認
-	var button_process = self.owner_node().get_key_process(vk_name)
+	var is_occurence = self.owner_node().get_occurence(vk_name)
 
-	# 押下されており、段落にも記述があるなら	
-	if button_process == &"Pressed" && vk_name in paragraph_obj:
+	# 押下されており、段落にも記述があるなら
+	if is_occurence == &"Pressed" && vk_name in paragraph_obj:
 		#print("［入力　シナリオ再生中の入力で］　［" + str(vk_name) + "］ボタン押下。段落：" + str(paragraph_obj) + "の中に見つかりました")
 		
 		var target = paragraph_obj[vk_name]
