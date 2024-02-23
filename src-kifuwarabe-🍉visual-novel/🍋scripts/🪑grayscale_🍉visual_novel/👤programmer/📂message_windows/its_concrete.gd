@@ -231,8 +231,8 @@ func on_virtual_key_input(
 	self.monkey().get_choices_cursor(self.name).on_virtual_key_input(vk_name, vk_state, vk_process)
 
 	if vk_name == &"VK_FastForward":
-		# メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
-		if vk_process == &"Pressed":
+		# 押下中のみ、メッセージの早送りを有効にする（トグル式にすると、戻し方が分からんとかになる）
+		if vk_process == &"Pressed" || vk_process == &"Pressing":
 			self.monkey().of_staff().programmer().message_windows_globe_node().is_fast_forward = true
 
 		elif vk_process == &"Released":
