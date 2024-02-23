@@ -127,6 +127,9 @@ func parse_key_process(vk_name):
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　解放状態から押下浮遊")
 			self.set_key_process(vk_name, &"Press?")
+		elif old_process == &"Released":
+			self.set_key_process(vk_name, &"Neutral")
+
 
 	elif old_process == &"Pressed" || old_process == &"Pressing":
 		if 0 == abs_old_state:
@@ -135,6 +138,8 @@ func parse_key_process(vk_name):
 		elif 0 < abs_old_state && abs_old_state < 1:
 			print("［入力解析］　押下状態から解放浮遊")
 			self.set_key_process(vk_name, &"Release?")
+		elif old_process == &"Pressed":
+			self.set_key_process(vk_name, &"Pressing")
 
 
 # ーーーーーーーー
