@@ -31,15 +31,16 @@ func on_unhandled_input(event):
 
 
 	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
-	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
-	var temp_button_number = self.monkey().input_parser_node().get_button_symbol_by_text(event_as_text)
+	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ。
+	# キーボードのキーなら、その名前とする
+	var temp_button_symbol = self.monkey().input_parser_node().get_button_symbol_by_text(event_as_text)
 
 	# ーーーーーーーー
 	# （５）上キー
 	# ーーーーーーーー
 	if self.monkey().internal_node().key_config_item_number == 5:
 		# 下キーがボタンのときは、上キーはレバーであってはいけません
-		if 1000 < temp_button_number:
+		if typeof(temp_button_symbol) != TYPE_STRING && 1000 < temp_button_symbol:
 			self.monkey().statemachine_node().try_inputting_again(&"SelectUpButton")
 			return
 
@@ -48,14 +49,14 @@ func on_unhandled_input(event):
 	# ーーーーーーーー
 	elif self.monkey().internal_node().key_config_item_number == 7:
 		# 右キーがボタンのときは、左キーはレバーであってはいけません
-		if 1000 < temp_button_number:
+		if typeof(temp_button_symbol) != TYPE_STRING && 1000 < temp_button_symbol:
 			self.monkey().statemachine_node().try_inputting_again(&"SelectLeftButton")
 			return
 
 
 	# 有効なキーなら
-	if 0 <= temp_button_number:
-		self.monkey().internal_node().button_number = temp_button_number		
-		print("受付：　" + self.monkey().display_node().get_button_name_by_number(self.monkey().internal_node().button_number))
+	if typeof(temp_button_symbol) == TYPE_STRING || 0 <= temp_button_symbol:
+		self.monkey().internal_node().button_symbol = temp_button_symbol		
+		print("受付：　" + self.monkey().display_node().get_button_name_by_symbol(self.monkey().internal_node().button_symbol))
 		
 		self.monkey().statemachine_node().state = &"InputOk"
