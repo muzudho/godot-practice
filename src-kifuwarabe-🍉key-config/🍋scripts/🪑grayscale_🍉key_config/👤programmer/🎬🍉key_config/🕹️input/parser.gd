@@ -46,6 +46,7 @@ func get_button_number_by_text(event_as_text):
 
 # 内部では使ってない。外部向け。
 # レバーのイベント文字列から、-1.0 ～ 1.0 の値を取得
+# レバーでなければ 0.0 を返す
 func get_lever_value_by_text(event_as_text):
 	var matched = self.re_lever.search(event_as_text)
 	if matched:

@@ -149,34 +149,39 @@ func _unhandled_key_input(event):
 #
 func _unhandled_input(event):
 	# キー入力を受け取り、その状態を記憶します
-	self.memory_key_state(event)
+	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text())
+	var button_number = self.monkey().key_config().input_parser_node().get_button_number_by_text(event.as_text())
+	#print("［入力　シナリオ再生中の入力で］　button_number:" + str(button_number))
+
+	# Virtual key name
+	var vk_name = self.monkey().key_config_node().get_virtual_key_name_by_button_number(button_number)
+	#print("［入力　シナリオ再生中の入力で］　virtual_key_name:" + str(vk_name))
+	
+	# レバーの値
+	# レバーでなければ 0.0 を返す
+	var lever_value = self.monkey().key_config().input_parser_node().get_lever_value_by_text(event.as_text())
+	#print("［入力　シナリオ再生中の入力で］　lever_value:" + str(lever_value))
+
+	self.set_non_zero_key_state(vk_name, lever_value)
 
 	# 拡張
 	self.extension_node().on_unhandled_input(event)
 
 
 # キー入力を受け取り、その状態を記憶します
-func memory_key_state(event):
-	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text())
-	var button_number = self.monkey().key_config().input_parser_node().get_button_number_by_text(event.as_text())
-	#print("［入力　シナリオ再生中の入力で］　button_number:" + str(button_number))
-	var lever_value = self.monkey().key_config().input_parser_node().get_lever_value_by_text(event.as_text())
-	#print("［入力　シナリオ再生中の入力で］　lever_value:" + str(lever_value))
+func set_non_zero_key_state(vk_name, lever_value):
 
-	var virtual_key_name = self.monkey().key_config_node().get_virtual_key_name_by_button_number(button_number)
-	#print("［入力　シナリオ再生中の入力で］　virtual_key_name:" + str(virtual_key_name))
+	if vk_name == &"VK_Ok":
+		self.key_state[vk_name] = 1
 
-	if virtual_key_name == &"VK_Ok":
-		self.key_state[&"VK_Ok"] = 1
+	elif vk_name == &"VK_Cancel":
+		self.key_state[vk_name] = 1
 
-	elif virtual_key_name == &"VK_Cancel":
-		self.key_state[&"VK_Cancel"] = 1
+	elif vk_name == &"VK_FastForward":
+		self.key_state[vk_name] = 1
 
-	elif virtual_key_name == &"VK_FastForward":
-		self.key_state[&"VK_FastForward"] = 1
+	elif vk_name == &"VK_Right":
+		self.key_state[vk_name] = lever_value
 
-	elif virtual_key_name == &"VK_Right":
-		self.key_state[&"VK_Right"] = lever_value
-
-	elif virtual_key_name == &"VK_Down":
-		self.key_state[&"VK_Down"] = lever_value
+	elif vk_name == &"VK_Down":
+		self.key_state[vk_name] = lever_value

@@ -79,28 +79,10 @@ func on_unhandled_key_input(event):
 		else:
 			return
 
-		var vk_state = 0.0
-		var vk_process = &"Neutral"
+		# レバーではないのでゼロ
+		var lever_value = 0.0
 
-		# 何かキーを押したとき
-		if event.is_pressed():
-			print("［監督］　キー入力　押下")
-			vk_process = &"Pressed"
-		
-		# 何かキーを離したとき
-		elif event.is_released():
-			print("［監督］　キー入力　リリース")
-			vk_process = &"Released"
-		
-		# それ以外には対応してない
-		else:
-			print("［監督］　キー入力　▲！想定外")
-
-		# 仮想キーを押下したという建付け
-		self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(
-				vk_name,
-				vk_state,
-				vk_process)
+		self.owner_node().set_non_zero_key_state(vk_name, lever_value)
 
 
 # テキストボックスなどにフォーカスが無いときのキー入力をとにかく拾う
