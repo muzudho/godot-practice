@@ -20,66 +20,52 @@ func extension_node():
 # メモリ関連
 # ーーーーーーーー
 
-# 仮想キーのこの瞬間の入力状態
+# 仮想キー辞書
 #
 # 	キー：　プログラム内で決まりを作っておいてください。
-# 	値：
-#		ボタン：　押していないとき 0、押しているとき 1
-#		レバー：　実数
+# 	値：　以下、それぞれ説明
 #
-var key_state = {
+#		［０］　ステート（State；状態）。　仮想キーのこの瞬間の入力状態
+#			ボタン：　押していないとき 0、押しているとき 1
+#			レバー：　実数
+#
+#		［１］　プロセス（Process；状態変化）。　値は以下の通り。初期値は &"Neutral" とする
+#			&"Release?"：　ボタン、レバー等から指を離して、押されている状態から、ホーム位置にある状態へ遷移している途中（省略されることがあります）
+#			&"Released"：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態に到達した最初のフレーム
+#			&"Neutral" ：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態で、その状態の２フレーム目以降
+#			&"Press?"  ：　ボタン、レバー等が、ホーム位置にあった状態から、押されている状態へ遷移している途中（省略されることがあります）
+#			&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
+#			&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
+#			
+#
+var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : 0,
+	&"VK_Ok" : [0, &"Neutral"],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : 0,
+	&"VK_Cancel" : [0, &"Neutral"],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : 0,
+	&"VK_FastForward" : [0, &"Neutral"],
 	# レバーの左右
-	&"VK_Right" : 0,
+	&"VK_Right" : [0, &"Neutral"],
 	# レバーの上下
-	&"VK_Down" : 0,
-}
-
-# 仮想キーの入力状態の変化の種類
-#
-# 	キー：　プログラム内で決まりを作っておいてください。
-#	値：
-#		&"Release?"：　ボタン、レバー等から指を離して、押されている状態から、ホーム位置にある状態へ遷移している途中（省略されることがあります）
-#		&"Released"：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態に到達した最初のフレーム
-#		&"Neutral" ：　ボタン、レバー等から指を離して、ボタンやレバーがホーム位置にある状態で、その状態の２フレーム目以降
-#		&"Press?"  ：　ボタン、レバー等が、ホーム位置にあった状態から、押されている状態へ遷移している途中（省略されることがあります）
-#		&"Pressed" ：　ボタン、レバー等が、押されている状態に到達した最初のフレーム
-#		&"Pressing"：　ボタン、レバー等が、押されている状態で、その状態の２フレーム目以降
-#		初期値は &"Neutral" とする
-#
-var key_process = {
-	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : &"Neutral",
-	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : &"Neutral",
-	# メッセージ早送りボタン
-	&"VK_FastForward" : &"Neutral",
-	# レバーの左右
-	&"VK_Right" : &"Neutral",
-	# レバーの上下
-	&"VK_Down" : &"Neutral",
+	&"VK_Down" : [0, &"Neutral"],
 }
 
 
 func get_key_state(vk_name):
-	return self.key_state[vk_name]
+	return self.key_record[vk_name][0]
 
 
 func set_key_state(vk_name, vk_state):
-	self.key_state[vk_name] = vk_state
+	self.key_record[vk_name][0] = vk_state
 
 
 func get_key_process(vk_name):
-	return self.key_process[vk_name]
+	return self.key_record[vk_name][1]
 
 
 func set_key_process(vk_name, vk_state):
-	self.key_process[vk_name] = vk_state
+	self.key_record[vk_name][1] = vk_state
 
 
 # ーーーーーーーー
