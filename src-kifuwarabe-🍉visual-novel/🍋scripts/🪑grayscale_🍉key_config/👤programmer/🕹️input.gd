@@ -277,7 +277,7 @@ func on_key_changed(event):
 	
 	# 仮想キー名が取れなかったら無視します
 	if vk_name == &"":
-		print("［入力解析　on_key_changed］　vk_name:" + str(vk_name) + "　event_as_text:" + event.as_text())
+		print("［入力解析　on_key_changed］　仮想キー名が無いイベントは、無視します　vk_name:" + str(vk_name) + "　event_as_text:" + event.as_text())
 		return
 	
 
@@ -291,27 +291,55 @@ func on_key_changed(event):
 			if event.is_pressed():
 				print("［入力解析　on_key_changed］ ボタンを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, 1)
+				self.set_occurence(vk_name, &"Pressed")
+				self.set_during(vk_name, &"Pressing")
+				return
+				
 			elif event.is_released():
 				print("［入力解析　on_key_changed］　ボタンを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, 0)
+				self.set_occurence(vk_name, &"Released")
+				self.set_during(vk_name, &"Neutral")
+				return
+				
 		# レバーかも
 		else:
 			if 1 <= abs(lever_value):
 				print("［入力解析　on_key_changed］　レバーを倒したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
+				self.set_occurence(vk_name, &"Pressed")
+				self.set_during(vk_name, &"Pressing")
+				return
+				
 			elif abs(lever_value) == 0:
 				print("［入力解析　on_key_changed］　レバーを元に戻したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
+				self.set_occurence(vk_name, &"Released")
+				self.set_during(vk_name, &"Neutral")
+				return
+				
 			else:
 				print("［入力解析　on_key_changed］　レバーをアナログ操作中か？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 				self.set_plan_key_state(vk_name, lever_value)
+				# 状態はキープ
+				return
+				
 	# キーボードのキーか？
 	else:
 		if event.is_pressed():
 			print("［入力解析　on_key_changed］　キーボードのキーを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, 1)
+			self.set_occurence(vk_name, &"Pressed")
+			self.set_during(vk_name, &"Pressing")
+			return
+			
 		elif event.is_released():
 			print("［入力解析　on_key_changed］　キーボードのキーを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
 			self.set_plan_key_state(vk_name, 0)
-			
-				
+			self.set_occurence(vk_name, &"Released")
+			self.set_during(vk_name, &"Neutral")
+			return
+
+	# 入力を検知できなかったなら
+	self.set_occurence(vk_name, &"None")
+
