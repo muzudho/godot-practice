@@ -150,6 +150,7 @@ func process_by_virtual_key(vk_name):
 			return
 
 	elif vk_process == &"Released" || vk_process == &"Neutral":
+		# 放しているのにボタン値が 1 というのは矛盾してる
 		if 1 <= abs_plan_state:
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Pressed")
@@ -171,6 +172,7 @@ func process_by_virtual_key(vk_name):
 
 	elif vk_process == &"Pressed" || vk_process == &"Pressing":
 		# TODO 押しっぱなしにすると、最初の１回（Pressed）しかイベントが発生しない。２フレーム後には ボタン値は 0 にクリアーされてしまう
+		# 押しているときに ボタン値が 0 というのは矛盾してる
 		if 0 == abs_plan_state:
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放確定　plan_state:" + str(plan_state) + "　vk_process:" + vk_process)
 			self.update_key_process(vk_name, plan_state, &"Released")
