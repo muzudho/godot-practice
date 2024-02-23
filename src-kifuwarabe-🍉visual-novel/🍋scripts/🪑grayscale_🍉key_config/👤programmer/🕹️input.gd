@@ -36,80 +36,68 @@ func extension_node():
 #		- [-1.0 ～ 1.0] の範囲があるが、ぴったり 0 になることは稀
 #		- 例えば (-0.2 ～ 0.2) を［解放］とするようなレンジが要る
 #
+#	ステート
+#		- ボタンや、キーボードのキーなら、［解放］を 0 、［押下］を 1
+#		- Ｘ軸レバーなら、右方向を正として [-1.0 ～ 1.0]
+#		- Ｙ軸レバーなら、下方向を正として [-1.0 ～ 1.0]
 #
+# 辞書
 # 	キー：　プログラム内で決まりを作っておいてください。
 # 	値：　以下、それぞれ説明
 #
-#		［０］　プラン・ステート（Plane State；計画状態）。　ハードウェアから入力があったが、まだ処理していない状態
-#			ボタン：　押していないとき 0、押しているとき 1
-#			レバー：　実数
-#
-#		［１］　アクセプテッド・ステート（Accepted State；計画状態）。　受け付けた、入力状態
-#			ボタン：　押していないとき 0、押しているとき 1
-#			レバー：　実数
-#
-#		［２］　廃止
-#
-#		［３］　廃止
-#
-#		［４］　オカレンス。初期値は &"None" とする
+#		［０］　オカレンス。初期値は &"None" とする
 #			&"None"：	何も検知していない
 #			&"Pressed"：	［押下］を検知
 #			&"Release"：［解放］を検知
 #
-#		［５］　ドゥ―リング。初期値は &"Neutral" とする
+#		［１］　ドゥ―リング。初期値は &"Neutral" とする
 #			&"Neutral"：		［解放］を検知したあと、まだ［押下］を検知していない間
 #			&"Pressing"：	［押下］を検知したあと、まだ［解放］を検知していない間
 #
-#		［６］　ステート
+#		［２］　ステート
 #			ボタン：　整数。［解放］のとき 0、 ［押下］のとき 1、 何もしていないとき、前の値を維持
 #			レバー：　実数。-1.0 ～ 1.0。 何もしていないとき、前の値を維持
 #
 var key_record = {
 	# 決定ボタン、メッセージ送りボタン
-	&"VK_Ok" : [0, 0, null, null, &"None", &"Neutral", 0.0],
+	&"VK_Ok" : [&"None", &"Neutral", 0.0],
 	# キャンセルボタン、メニューボタン
-	&"VK_Cancel" : [0, 0, null, null, &"None", &"Neutral", 0.0],
+	&"VK_Cancel" : [&"None", &"Neutral", 0.0],
 	# メッセージ早送りボタン
-	&"VK_FastForward" : [0, 0, null, null, &"None", &"Neutral", 0.0],
+	&"VK_FastForward" : [&"None", &"Neutral", 0.0],
 	# ボタンの右、または、レバーの左右
-	&"VK_Right" : [0, 0, null, null, &"None", &"Neutral", 0.0],
+	&"VK_Right" : [&"None", &"Neutral", 0.0],
 	# ボタンの左
 	#&"VK_Left"	
 	# ボタンの下、または、レバーの上下
-	&"VK_Down" : [0, 0, null, null, &"None", &"Neutral", 0.0],
+	&"VK_Down" : [&"None", &"Neutral", 0.0],
 	# ボタンの上
 	#&"VK_Up"
 }
 
 
 func get_occurence(vk_name):
-	return self.key_record[vk_name][4]
+	return self.key_record[vk_name][0]
 
 
 func set_occurence(vk_name, value):
-	self.key_record[vk_name][4] = value
+	self.key_record[vk_name][0] = value
 
 
 func get_during(vk_name):
-	return self.key_record[vk_name][5]
+	return self.key_record[vk_name][1]
 
 
 func set_during(vk_name, value):
-	self.key_record[vk_name][5] = value
+	self.key_record[vk_name][1] = value
 
 
 func get_state(vk_name):
-	return self.key_record[vk_name][6]
+	return self.key_record[vk_name][2]
 
 
 func set_state(vk_name, value):
-	self.key_record[vk_name][6] = value
-
-
-func update_key_process(vk_name):
-	# 未設定にする
-	self.set_occurence(vk_name, &"None")
+	self.key_record[vk_name][2] = value
 
 
 # ーーーーーーーー
@@ -147,21 +135,22 @@ func end_of_process_by_virtual_key(vk_name):
 	var vk_occurence = self.get_occurence(vk_name)
 	var vk_during = self.get_during(vk_name)
 
+	# オカレンスは毎フレーム、クリアーします
+	self.set_occurence(vk_name, &"None")
+
+	# 以下、デバッグ出力
 	if vk_occurence == &"Released" || vk_during == &"Neutral":
 		# 放しているのにボタン値が 1 というのは矛盾してる
 		if 1 <= abs_vk_state:
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下確定 vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
-			self.update_key_process(vk_name)
 			return
 		
 		if 0 < abs_vk_state && abs_vk_state < 1:
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放状態から押下浮遊 vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
-			self.update_key_process(vk_name)
 			return
 		
 		if vk_occurence == &"Released":
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、解放からニュートラルへ vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
-			self.update_key_process(vk_name)
 			return
 
 	elif vk_occurence == &"Pressed" || vk_during == &"Pressing":
@@ -169,21 +158,18 @@ func end_of_process_by_virtual_key(vk_name):
 		# 押しているときに ボタン値が 0 というのは矛盾してる
 		if 0 == abs_vk_state:
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放確定 vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
-			self.update_key_process(vk_name)
 			return
 			
 		if 0 < abs_vk_state && abs_vk_state < 1:
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下状態から解放浮遊 vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
-			self.update_key_process(vk_name)
 			return
 			
 		if vk_occurence == &"Pressed":
 			print("［入力　process_virtual_key］　［" + vk_name +"］キーについて、押下から押しっぱなしへ vk_occurence:" + vk_occurence + " vk_during:" + vk_during)
-			self.update_key_process(vk_name)
 			return
 	
 	# 継続
-	self.update_key_process(vk_name)
+	pass
 
 
 # ーーーーーーーー
