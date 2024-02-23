@@ -29,8 +29,13 @@ func _ready():
 # その他
 # ーーーーーーーー
 
-# ボタン番号、またはレバー番号を返す。レバー番号は +1000 して返す。該当がなければ -1 を返す
-func get_button_number_by_text(event_as_text):
+# 以下のシンボルを返す
+#
+# -1：　該当無し
+# 1000 未満の整数：　ボタン番号
+# 1000 以上の整数：　レバー番号に1000を足したもの
+# 文字列：　キーボードのキー名
+func get_button_symbol_by_text(event_as_text):
 	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
 	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
 	var matched = self.re_button.search(event_as_text)
@@ -40,6 +45,12 @@ func get_button_number_by_text(event_as_text):
 	matched = self.re_lever.search(event_as_text)
 	if matched:
 		return int(matched.get_string(1)) + 1000
+	
+	print("［入力変換］　event_as_text：" + event_as_text + " type:" + str(typeof(event_as_text)))
+	
+	if typeof(event_as_text) == TYPE_STRING:
+		# キーボードのキーの名前
+		return event_as_text
 	
 	return -1
 

@@ -145,11 +145,11 @@ func _unhandled_key_input(event):
 func _unhandled_input(event):
 	# キー入力を受け取り、その状態を記憶します
 	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text())
-	var button_number = self.monkey().key_config().input_parser_node().get_button_number_by_text(event.as_text())
-	#print("［入力　シナリオ再生中の入力で］　button_number:" + str(button_number))
+	var button_symbol = self.monkey().key_config().input_parser_node().get_button_symbol_by_text(event.as_text())
+	#print("［入力　シナリオ再生中の入力で］　button_symbol:" + str(button_symbol))
 
 	# Virtual key name
-	var vk_name = self.monkey().key_config_node().get_virtual_key_name_by_button_number(button_number)
+	var vk_name = self.monkey().key_config_node().get_virtual_key_name_by_hardware_symbol(button_symbol)
 	#print("［入力　シナリオ再生中の入力で］　virtual_key_name:" + str(vk_name))
 
 	# レバーでなければ 0.0 を返す

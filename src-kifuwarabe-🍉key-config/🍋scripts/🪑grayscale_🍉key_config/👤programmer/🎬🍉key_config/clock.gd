@@ -147,12 +147,12 @@ func on_tick(
 
 	elif self.monkey().statemachine_node().state == &"InputOk":
 		# キャンセルボタン押下時
-		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.monkey().internal_node().button_number):
+		if self.monkey().owner_key_config_node().is_cancel_button_pressed(self.monkey().internal_node().button_symbol):
 			self.monkey().statemachine_node().try_inputting_again(&"CancelButtonPushed")
 			return
 
 		# 既存のキーと被る場合、やり直しさせる
-		if self.monkey().owner_key_config_node().is_key_duplicated(self.monkey().internal_node().button_number):
+		if self.monkey().owner_key_config_node().is_key_duplicated(self.monkey().internal_node().button_symbol):
 			self.monkey().statemachine_node().try_inputting_again(&"KeyDuplicated")
 			return
 		

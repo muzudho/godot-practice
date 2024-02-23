@@ -139,6 +139,30 @@ func parse_key_process(virtual_key_name):
 # 子要素から親要素の順で呼び出されるようだ。
 # このプログラムでは　ルート　だけで　キー入力を拾うことにする
 func _unhandled_key_input(event):
+	# このゲーム独自の仮想キー（virtual key name）に変換
+	var vk_name = null
+	
+	# エンターキー押下
+	if event.keycode == KEY_ENTER:
+		vk_name = &"VK_Ok"
+
+	# エスケープキー押下
+	elif event.keycode == KEY_ESCAPE:
+		vk_name = &"VK_Cancel"
+
+	# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
+	elif event.keycode == KEY_R:
+		vk_name = &"VK_FastForward"
+	
+	# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
+	else:
+		return
+
+	# レバーではないのでゼロ
+	var lever_value = 0.0
+
+	self.set_non_zero_key_state(vk_name, lever_value)
+
 	# 拡張
 	self.extension_node().on_unhandled_key_input(event)
 
@@ -150,7 +174,7 @@ func _unhandled_key_input(event):
 func _unhandled_input(event):
 	# キー入力を受け取り、その状態を記憶します
 	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text())
-	var button_number = self.monkey().key_config().input_parser_node().get_button_number_by_text(event.as_text())
+	var button_number = self.monkey().key_config().input_parser_node().get_button_symbol_by_text(event.as_text())
 	#print("［入力　シナリオ再生中の入力で］　button_number:" + str(button_number))
 
 	# Virtual key name

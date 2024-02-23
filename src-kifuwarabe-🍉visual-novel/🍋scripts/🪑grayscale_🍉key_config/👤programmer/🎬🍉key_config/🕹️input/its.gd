@@ -32,7 +32,7 @@ func on_unhandled_input(event):
 
 	# 📖　[enum JoyButton:](https://docs.godotengine.org/en/stable/classes/class_%40globalscope.html#enum-globalscope-joybutton)
 	# レバーは -1 ～ 10、 ボタンは -1 ～ 128 まであるそうだ
-	var temp_button_number = self.monkey().input_parser_node().get_button_number_by_text(event_as_text)
+	var temp_button_number = self.monkey().input_parser_node().get_button_symbol_by_text(event_as_text)
 
 	# ーーーーーーーー
 	# （５）上キー

@@ -59,30 +59,7 @@ func on_unhandled_key_input(event):
 
 	# ［シナリオで］状態
 	elif self.monkey().owner_node().current_state == &"InScenario":
-
-		# このゲーム独自の仮想キー（virtual key name）に変換
-		var vk_name = null
-		
-		# エンターキー押下
-		if event.keycode == KEY_ENTER:
-			vk_name = &"VK_Ok"
-
-		# エスケープキー押下
-		elif event.keycode == KEY_ESCAPE:
-			vk_name = &"VK_Cancel"
-
-		# ［Ｒ］キー押下（後でスーパーファミコンの R キーにしようと思っていたアルファベット）
-		elif event.keycode == KEY_R:
-			vk_name = &"VK_FastForward"
-		
-		# それ以外のキーは無視する（十字キーや Ctrl キーの判定を取り除くのが難しい）
-		else:
-			return
-
-		# レバーではないのでゼロ
-		var lever_value = 0.0
-
-		self.owner_node().set_non_zero_key_state(vk_name, lever_value)
+		pass
 
 
 # テキストボックスなどにフォーカスが無いときのキー入力をとにかく拾う
