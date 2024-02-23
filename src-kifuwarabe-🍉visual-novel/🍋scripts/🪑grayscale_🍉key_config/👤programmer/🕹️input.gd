@@ -219,44 +219,58 @@ func _unhandled_key_input(event):
 
 # テキストボックスなどにフォーカスが無いときの入力をとにかく拾う
 #
-#	X軸と Y軸は別々に飛んでくるので　使いにくい。斜め入力を判定するには `_process` の方を使う
+#	- X軸と Y軸は別々に飛んでくるので　使いにくい。斜め入力を判定するには `_process` の方を使う
+#	- ボタンの押下と解放を区別できるか？
 #
 func _unhandled_input(event):
 	self.on_key_changed(event)
-	
 	# 拡張
 	self.extension_node().on_unhandled_input(event)
 
 
 # キー入力を受け取り、その状態を記憶します
+#
+#	FIXME キー入力ではないのに呼出されているケースがある？
+#
 func on_key_changed(event):
 	# キー入力を受け取り、その状態を記憶します
 	var button_symbol = self.monkey().key_config().input_parser_node().get_button_symbol_by_text(event.as_text())
 
 	# Virtual key name
 	var vk_name = self.monkey().key_config_node().get_virtual_key_name_by_hardware_symbol(button_symbol)
+	
+	# 仮想キー名が取れなかったら無視します
+	if vk_name == &"":
+		print("［入力解析　on_key_changed］　vk_name:" + str(vk_name) + "　event_as_text:" + event.as_text())
+		return
+	
 
 	# レバーでなければ 0.0 を返す
 	var lever_value = self.monkey().key_config().input_parser_node().get_lever_value_by_text(event.as_text())
 
-	print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+	self.set_receipt(vk_name, true)
 
-	if vk_name == &"VK_Ok":
-		self.set_receipt(vk_name, true)
-		self.set_plan_key_state(vk_name, 1)
-
-	elif vk_name == &"VK_Cancel":
-		self.set_receipt(vk_name, true)
-		self.set_plan_key_state(vk_name, 1)
-
-	elif vk_name == &"VK_FastForward":
-		self.set_receipt(vk_name, true)
-		self.set_plan_key_state(vk_name, 1)
-
-	elif vk_name == &"VK_Right":
-		self.set_receipt(vk_name, true)
-		self.set_plan_key_state(vk_name, lever_value)
-
-	elif vk_name == &"VK_Down":
-		self.set_receipt(vk_name, true)
-		self.set_plan_key_state(vk_name, lever_value)
+	# ボタンか？
+	if typeof(button_symbol) != TYPE_STRING:
+		# ボタンか？
+		if button_symbol < 1000:
+			if event.is_pressed():
+				print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］ ボタンを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+				self.set_plan_key_state(vk_name, 1)
+			elif event.is_released():
+				print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　ボタンを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+				self.set_plan_key_state(vk_name, 0)
+		# レバーかも
+		else:
+			print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　レバーを倒したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+			self.set_plan_key_state(vk_name, lever_value)
+	# キーボードのキーか？
+	else:
+		if event.is_pressed():
+			print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　キーボードのキーを押したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+			self.set_plan_key_state(vk_name, 1)
+		elif event.is_released():
+			print("［入力　シナリオ再生中の入力で　アンハンドルド・インプット］　キーボードのキーを放したか？　event:" + event.as_text() + " button_symbol:" + str(button_symbol) + " vk_name:" + str(vk_name) + " lever_value:" + str(lever_value))
+			self.set_plan_key_state(vk_name, 0)
+			
+				
