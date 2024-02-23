@@ -111,4 +111,4 @@ func _unhandled_key_input(event):
 		self.monkey().of_staff().programmer().scenario_player().input_node().on_virtual_key_input(
 				vk_name,
 				vk_state,
-				vk_state)
+				vk_process)
