@@ -96,8 +96,19 @@ func _process(delta):
 
 
 func on_key_config_entered():
-	self.monkey().input_node().on_key_config_entered()
+	print("［キーコンフィグ］　開始")
+	
+	# 背景表示
+	self.monkey().of_staff().illustrator_node().visible = true
+	self.monkey().of_staff().programmer().owner_node().images.find_node(
+		str(self.monkey().of_staff().config_node().key_config_background_image_name)
+	).visible = true
 
 
 func on_key_config_exited():
-	self.monkey().input_node().on_key_config_exited()
+	print("［キーコンフィグ］　完了")
+
+	# 背景消去
+	self.monkey().of_staff().programmer().owner_node().images.find_node(
+		str(self.monkey().of_staff().config_node().key_config_background_image_name)
+	).visible = false
