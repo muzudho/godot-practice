@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Kifuwarabe-RPG"
 run/main_scene="res://⚡main.tscn"
-config/features=PackedStringArray("4.1", "Forward Plus")
+config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 config/main_scene="res://kifuwarabe_sprite_2d.tscn"
 

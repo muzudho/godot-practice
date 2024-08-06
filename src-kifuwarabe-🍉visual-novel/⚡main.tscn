@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/config.gd" id="2_2aexf"]
 [ext_resource type="Texture2D" uid="uid://bkfsr571tdwqf" path="res://🍋images/🪑grayscale/1280x720/grid.png" id="2_6by5p"]
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/staff_monkey.gd" id="3_y10ul"]
-[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉visual_novel/👤illustrator.tscn" id="5_ocgan"]
+[ext_resource type="PackedScene" uid="uid://b2ubr7dn0hb1m" path="res://🎄addon_🍉visual_novel/👤Illustrator.tscn" id="5_ocgan"]
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/programmer.gd" id="11_5v2oj"]
 [ext_resource type="Script" path="res://⚓local_🍉visual_novel/programmer_monkey.gd" id="12_r86cw"]
 [ext_resource type="Script" path="res://🍋scripts/🪑grayscale_🍉key_config/👤programmer/🕹️input.gd" id="13_ixt3q"]
